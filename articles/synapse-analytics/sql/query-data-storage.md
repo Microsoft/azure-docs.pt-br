@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735373"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675045"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar os arquivos de armazenamento com o pool de SQL sem servidor no Azure Synapse Analytics
 
 O pool de SQL sem servidor permite que você consulte dados no data lake. Ele oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semiestruturados e não estruturados. Para consulta, os seguintes aspectos do T-SQL são compatíveis:
 
-- Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
+- Área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa, incluindo a maioria das [funções e operadores SQL](overview-features.md).
 - [CETAS](develop-tables-cetas.md) (CREATE EXTERNAL TABLE AS SELECT) cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta em paralelo os resultados de uma instrução SELECT de Transact-SQL para o Armazenamento do Azure.
 
 Para obter mais informações sobre o que é e o que não é compatível atualmente, leia o artigo [Visão geral do pool de SQL sem servidor](on-demand-workspace-overview.md) ou os seguintes artigos:
@@ -184,21 +184,21 @@ Por padrão, a função `OPENROWSET` corresponde ao nome e ao caminho do campo d
 - A função retorna um valor escalar como int, decimal e varchar, do elemento especificado e no caminho especificado, para todos os tipos de Parquet que não estão no grupo Tipo Aninhado.
 - Se o caminho aponta para um elemento que é de um Tipo Aninhado, a função retorna um fragmento JSON começando do elemento superior no caminho especificado. O fragmento JSON é do tipo varchar (8000).
 - Se a propriedade não puder ser encontrada na column_name especificada, a função retornará um erro.
-- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
+- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
 
 Para obter exemplos de consulta, examine a seção Elementos de acesso de colunas aninhadas no artigo [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Acessar elementos de colunas repetidas
 
-Para acessar elementos de uma coluna repetida, como um elemento de uma Matriz ou um Mapa, use a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento escalar que você precisa projetar e fornecer:
+Para acessar elementos de uma coluna repetida, como um elemento de uma Matriz ou um Mapa, use a função [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cada elemento escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
 
-Para acessar elementos não escalares de uma coluna repetida, use a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para cada elemento não escalar que você precisa projetar e fornecer:
+Para acessar elementos não escalares de uma coluna repetida, use a função [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cada elemento não escalar que você precisa projetar e fornecer:
 
 - Coluna aninhada ou repetida, como o primeiro parâmetro
-- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
+- Um [caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica o elemento ou a propriedade a ser acessada, como um segundo parâmetro
 
 Veja o fragmento de sintaxe abaixo:
 

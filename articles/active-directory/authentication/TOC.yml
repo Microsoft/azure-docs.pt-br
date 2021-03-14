@@ -55,7 +55,7 @@
         - name: Licenças
           href: concept-mfa-licensing.md
         - name: MFA para Office 365
-          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
+          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: Perguntas frequentes
           href: multi-factor-authentication-faq.md
     - name: Proteção por senha
@@ -154,8 +154,12 @@
           href: howto-password-ban-bad-on-premises-faq.md
         - name: Histórico de versão do agente
           href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Usar uma Senha de Acesso Temporária (versão prévia)
+      href: howto-authentication-temporary-access-pass.md
     - name: Usar a autenticação baseada em SMS
       href: howto-authentication-sms-signin.md
+    - name: SMS bidirecional sem suporte
+      href: how-to-authentication-two-way-sms-unsupported.md
     - name: Usar a conexão com endereço de email
       href: howto-authentication-use-email-signin.md
     - name: Bloqueio inteligente do Azure AD
@@ -171,8 +175,8 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Relatório
       items:
-        - name: Uso e insights
-          href: howto-authentication-methods-usage-insights.md
+        - name: Atividade de métodos de autenticação
+          href: howto-authentication-methods-activity.md
         - name: Relatórios de SSPR
           href: howto-sspr-reporting.md
         - name: Relatórios de MFA
@@ -245,6 +249,8 @@
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restrições e limites de serviço
       href: ../enterprise-users/directory-service-limits-restrictions.md
+    - name: Compatibilidade com FIDO2
+      href: fido2-compatibility.md
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

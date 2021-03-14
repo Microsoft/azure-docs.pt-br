@@ -1,36 +1,45 @@
 ---
 title: Armazenamento de imagens de contêiner
-description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no Registro de Contêiner do Azure, incluindo segurança, redundância e capacidade.
+description: Detalhes sobre como as imagens de contêiner e outros artefatos são armazenados no registro de contêiner do Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
-ms.date: 06/18/2020
-ms.openlocfilehash: d51014e9e0769091aba42682cce3a6a01cfa19de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/03/2021
+ms.custom: references_regions
+ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214053"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183260"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
-Cada registro de contêiner do Azure [Básico, Standard e Premium](container-registry-skus.md) beneficia-se de recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagens no ACR (Registro de Contêiner do Azure).
+Cada registro de contêiner do Azure [básico, Standard e Premium](container-registry-skus.md) se beneficia dos recursos avançados de armazenamento do Azure, incluindo criptografia em repouso. As seções a seguir descrevem os recursos e limites do armazenamento de imagem no ACR (registro de contêiner do Azure).
 
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Todas as imagens de contêiner no registro são criptografadas em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e descriptografa-a dinamicamente quando você ou seus aplicativos e serviços obtêm a imagem. Opcionalmente, aplique uma camada de criptografia adicional com uma [chave gerenciada pelo cliente](container-registry-customer-managed-keys.md).
+Todas as imagens de contêiner e outros artefatos em seu registro são criptografados em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e descriptografa-a dinamicamente quando você ou seus aplicativos e serviços obtêm a imagem. Opcionalmente, aplique uma camada de criptografia extra a uma [chave gerenciada pelo cliente](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
+## <a name="regional-storage"></a>Armazenamento regional
 
-O Azure usa um esquema de armazenamento com redundância geográfica para proteger contra perda de imagens de contêiner. O Registro de Contêiner do Azure replica automaticamente as imagens de contêiner para vários datacenters geograficamente distantes, evitando a perda no caso de uma falha de armazenamento regional.
+O registro de contêiner do Azure armazena dados na região em que o registro é criado, para ajudar os clientes a atender aos requisitos de conformidade e residência de dados.
+
+Para ajudar a proteger contra interrupções do datacenter, algumas regiões oferecem [redundância de zona](zone-redundancy.md), em que os dados são replicados em vários datacenters em uma região específica.
+
+Os clientes que desejam ter seus dados armazenados em várias regiões para melhorar o desempenho em diferentes geografias ou que desejam ter resiliência no caso de uma interrupção regional devem habilitar [a replicação geográfica](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replicação geográfica
 
-Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o recurso de [replicação geográfica](container-registry-geo-replication.md) dos registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional *total* e não apenas uma falha de armazenamento. A replicação geográfica também oferece outros benefícios, como armazenamento de imagens de proximidade de rede para efetuar pushes e pulls mais rápido em cenários de implantação ou desenvolvimento distribuído.
+Para cenários que exigem garantia de alta disponibilidade, considere o uso do recurso de [replicação geográfica](container-registry-geo-replication.md) de registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional. A replicação geográfica também oferece outros benefícios, como armazenamento de imagens de proximidade de rede para efetuar pushes e pulls mais rápido em cenários de implantação ou desenvolvimento distribuído.
+
+## <a name="zone-redundancy"></a>Redundância de zona
+
+Para criar um registro de contêiner do Azure resiliente e de alta disponibilidade, opcionalmente, habilite a [redundância de zona](zone-redundancy.md) em selecionar regiões do Azure. Um recurso da camada de serviço Premium, a redundância de zona usa [zonas de disponibilidade](../availability-zones/az-overview.md) do Azure para replicar o registro para um mínimo de três zonas separadas em cada região habilitada. Combine a replicação geográfica e a redundância de zona para aprimorar a confiabilidade e o desempenho de um registro. 
 
 ## <a name="scalable-storage"></a>Armazenamento escalonável
 
 O registro de contêiner do Azure permite que você crie quantos repositórios, imagens, camadas ou marcas forem necessárias, até o limite de [armazenamento do registro](container-registry-skus.md#service-tier-features-and-limits). 
 
-Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção do registro e, opcionalmente, defina uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados. Os recursos de registro excluídos, como repositórios, imagens e marcas, *não podem* ser recuperados após a exclusão. Para obter mais informações sobre a exclusão de recursos de registro, consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
+Números altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção do registro e, opcionalmente, defina uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados. Os recursos de registro excluídos, como repositórios, imagens e marcas, *não podem* ser recuperados após a exclusão. Para obter mais informações sobre a exclusão de recursos de registro, consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 

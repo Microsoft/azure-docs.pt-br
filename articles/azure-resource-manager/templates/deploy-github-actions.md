@@ -4,12 +4,12 @@ description: Descreve como implantar modelos de Azure Resource Manager (modelos 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 243316b32d5b0cf62f03ae77d8a9fb919743ace1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762090"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172823"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implantar modelos de ARM usando ações do GitHub
 
@@ -38,7 +38,7 @@ O arquivo tem duas seções:
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
 
-Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
+Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 Crie um grupo de recursos se você ainda não tiver um.
 
@@ -151,7 +151,7 @@ Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de flu
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar o ARM implantar** no menu para verificar a implantação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando o grupo de recursos e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas

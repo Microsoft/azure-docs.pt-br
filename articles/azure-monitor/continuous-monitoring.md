@@ -1,17 +1,16 @@
 ---
 title: Monitoramento contínuo com o Azure Monitor | Microsoft Docs
 description: Descreve as etapas específicas de uso do Azure Monitor para ativar o monitoramento contínuo em todos os fluxos de trabalho.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 1892afde42ccbcf1c28b7d6a757875772ee3ac5d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2fe9d7e4da8950cee2dcb2fbcfb26355ace7285d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905597"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044010"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
@@ -28,22 +27,22 @@ Para ganhar capacidade de observação em todo o ambiente, você precisa ativar 
 - O [Azure DevOps Projects](../devops-project/overview.md) oferece uma experiência simplificada com seu código e repositório Git existentes ou escolhe um dos aplicativos de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
 - [O monitoramento contínuo do pipeline de lançamento do DevOps](./app/continuous-monitoring.md) permite que você bloqueie ou remova a implantação com base em dados de monitoramento.
 - O [Status Monitor](./app/monitor-performance-live-website-now.md) permite que você instrumentalize um aplicativo .NET ativo no Windows com o Azure Application Insights, sem precisar modificar ou reimplantar o código.
-- Se você tiver acesso ao código para seu aplicativo, habilite o monitoramento completo com [Application insights](./app/app-insights-overview.md) instalando o SDK do Application Insights do Azure monitor para [.net](./app/asp-net.md), [.net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)ou [qualquer outra linguagem de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
+- Se você tiver acesso ao código para seu aplicativo, habilite o monitoramento completo com [Application insights](./app/app-insights-overview.md) instalando o SDK do Application Insights do Azure monitor para [.net](./app/asp-net.md), [.net Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./app/nodejs-quick-start.md)ou [qualquer outra linguagem de programação](./app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página relevantes para o aplicativo e a empresa.
 
 
 
 ## <a name="enable-monitoring-for-your-entire-infrastructure"></a>Habilite o monitoramento de toda a infraestrutura
 Os aplicativos só são confiáveis se a infraestrutura subjacente é confiável. Habilitar o monitoramento em toda a infraestrutura ajudará você a obter capacidade de observação total, facilitando a descoberta de uma possível causa raiz em caso de falha. O Azure Monitor ajuda a monitorar a integridade e o desempenho de toda a infraestrutura híbrida, incluindo recursos como VMs, contêineres, armazenamento e rede.
 
-- Você recebe automaticamente [métricas da plataforma, logs de atividades e logs de diagnósticos](platform/data-sources.md) da maioria dos recursos do Azure sem configuração.
-- Habilite o monitoramento detalhado para as VMs com o [Azure Monitor para VMs](insights/vminsights-overview.md).
--  Habilite o monitoramento detalhado para clusters AKS com o [Azure Monitor para contêineres](insights/container-insights-overview.md).
+- Você recebe automaticamente [métricas da plataforma, logs de atividades e logs de diagnósticos](agents/data-sources.md) da maioria dos recursos do Azure sem configuração.
+- Habilite o monitoramento mais profundo para VMs com o [insights de VM](vm/vminsights-overview.md).
+-  Habilite o monitoramento detalhado para clusters AKS com o [Azure Monitor para contêineres](containers/container-insights-overview.md).
 - Adicione [soluções de monitoramento](./monitor-reference.md) a diferentes aplicativos e serviços em seu ambiente.
 
 
 A [infraestrutura como código ](/azure/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infraestrutura em um modelo descritivo com o mesmo controle de versão que as equipes do DevOps usam para o código-fonte. Ela assegura mais confiabilidade e escalabilidade ao ambiente e permite que você aproveite processos semelhantes usados para gerenciar os aplicativos.
 
--  Use os [modelos do Gerenciador de Recursos](./samples/resource-manager-workspace.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
+-  Use os [modelos do Gerenciador de Recursos](./logs/resource-manager-workspace.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
 - Use o [Azure Policy](../governance/policy/overview.md) para aplicar diferentes regras aos recursos. Isso garante que eles permaneçam compatíveis com seus padrões empresariais e contratos de nível de serviço. 
 
 
@@ -58,28 +57,28 @@ A Integração Contínua/Implantação Contínua permite integrar e implantar au
 
 - Use o [Azure Pipelines](/azure/devops/pipelines) para implementar a Implantação Contínua e automatizar todo o processo, desde a confirmação de código até a produção com base nos testes de CI/CD.
 - Use o [Quality Gates](/azure/devops/pipelines/release/approvals/gates) para integrar o monitoramento na pré-implantação ou pós-implantação. Isso garante que você esteja alcançando as principais métricas de integridade/desempenho (KPIs) à medida que os aplicativos passam do desenvolvimento à produção. E também assegura que as diferenças no ambiente de infraestrutura ou escala não estejam impactando negativamente os KPIs.
-- [Mantenha instâncias de monitoramento separadas](./app/separate-resources.md) entre seus diferentes ambientes de implantação como Dev, Test, Canary e Prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](./platform/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
+- [Mantenha instâncias de monitoramento separadas](./app/separate-resources.md) entre seus diferentes ambientes de implantação como Dev, Test, Canary e Prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](./essentials/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](logs/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Crie alertas acionáveis com ações
 Uma das principais vantagens do monitoramento é que os administradores podem ser notificados de maneira proativa quanto a problemas atuais ou previstos. 
 
-- Crie [alertas no Azure Monitor](./platform/alerts-overview.md) com base em logs e métricas para identificar os estados de falha previsíveis. Você deve ter uma meta de deixar todos os alertas acionáveis, o que significa que eles representam condições críticas reais e buscam reduzir os falsos positivos. Use os [Limites Dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métricas, em vez de definir os próprios limites estáticos. 
-- Defina ações para que os alertas usem os meios mais eficazes para notificar os administradores. [Ações disponíveis para notificação ](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, email, notificações por push ou chamadas de voz.
-- Use ações mais avançadas de [conexão à ferramenta ITSM](platform/itsmc-overview.md) ou a outros sistemas de gerenciamento de alertas por meio de [ webhooks ](platform/activity-log-alerts-webhook.md).
+- Crie [alertas no Azure Monitor](./alerts/alerts-overview.md) com base em logs e métricas para identificar os estados de falha previsíveis. Você deve ter uma meta de deixar todos os alertas acionáveis, o que significa que eles representam condições críticas reais e buscam reduzir os falsos positivos. Use os [Limites Dinâmicos](alerts/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métricas, em vez de definir os próprios limites estáticos. 
+- Defina ações para que os alertas usem os meios mais eficazes para notificar os administradores. [Ações disponíveis para notificação ](alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, email, notificações por push ou chamadas de voz.
+- Use ações mais avançadas de [conexão à ferramenta ITSM](alerts/itsmc-overview.md) ou a outros sistemas de gerenciamento de alertas por meio de [ webhooks ](alerts/activity-log-alerts-webhook.md).
 - Corrija também as situações identificadas nos alertas com os [runbooks de Automação do Azure](../automation/automation-webhooks.md) ou [Aplicativos Lógicos](/connectors/custom-connectors/create-webhook-trigger) que podem ser inicializados com alertas usando o webhooks. 
-- Use o [dimensionamento automático](./learn/tutorial-autoscale-performance-schedule.md) para aumentar e diminuir dinamicamente seus recursos de computação com base nas métricas coletadas.
+- Use o [dimensionamento automático](./autoscale/tutorial-autoscale-performance-schedule.md) para aumentar e diminuir dinamicamente seus recursos de computação com base nas métricas coletadas.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Prepare pastas de trabalho e painéis
 Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetria e ferramentas permite que eles visualizem padrões em todo o ambiente e minimizem o tempo médio de detecção (MTTD) e o tempo médio de restauração (MTTR).
 
-- Prepare [painéis personalizados](./learn/tutorial-app-dashboards.md) com base em métricas e logs comuns para diferentes funções na sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
-- Prepare [Pastas de trabalho ](./platform/workbooks-overview.md) para garantir o compartilhamento de conhecimento entre o desenvolvimento e as operações. Eles podem ser preparados como relatórios dinâmicos, com gráficos de métricas e consultas de log ou até mesmo como guias de solução de problemas preparados por desenvolvedores para oferecer suporte ao cliente ou às operações para lidar com problemas básicos.
+- Prepare [painéis personalizados](./app/tutorial-app-dashboards.md) com base em métricas e logs comuns para diferentes funções na sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
+- Prepare [Pastas de trabalho ](./visualize/workbooks-overview.md) para garantir o compartilhamento de conhecimento entre o desenvolvimento e as operações. Eles podem ser preparados como relatórios dinâmicos, com gráficos de métricas e consultas de log ou até mesmo como guias de solução de problemas preparados por desenvolvedores para oferecer suporte ao cliente ou às operações para lidar com problemas básicos.
 
 ## <a name="continuously-optimize"></a>Otimize de forma contínua
  O monitoramento é um dos principais aspectos da popular filosofia Build-Measure-Learn (Construir, Medir, Aprender), que recomenda acompanhar continuamente os KPIs e as métricas de comportamento do usuário e depois se esforçar para otimizá-los por meio de iterações de planejamento. O Azure Monitor ajuda a coletar métricas e logs relevantes para sua empresa e adicionar novos pontos de dados na próxima implantação, conforme necessário.
 
-- Use as ferramentas do Application Insights para [acompanhar o comportamento e o envolvimento do usuário final](./learn/tutorial-users.md).
+- Use as ferramentas do Application Insights para [acompanhar o comportamento e o envolvimento do usuário final](./app/tutorial-users.md).
 - Use a [Análise de impacto](./app/usage-impact.md) para ajudar você a priorizar em quais áreas se concentrar para gerar importantes KPIs.
 
 

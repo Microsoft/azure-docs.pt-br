@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb1935242790333a91b47ccecc19d934b8145085
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259399"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688324"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar links embutidos em código para aplicativos publicados com o Azure Proxy de Aplicativo do AD
 
@@ -63,6 +63,9 @@ Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Pr
 Para usar esse recurso, o usuário deve fazer o download da extensão e estar conectado. Não há nenhuma outra configuração necessária para os administradores ou usuários. 
 
 Para saber mais, incluindo como configurar essa opção, confira a documentação da [extensão do navegador myapps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
+
+> [!NOTE]
+> A extensão do navegador myapps não oferece suporte à conversão de link para URLs curinga.
 
 ### <a name="option-3-link-translation-setting"></a>Opção 3: configuração de conversão de link 
 

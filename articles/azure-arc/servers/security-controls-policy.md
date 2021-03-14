@@ -1,15 +1,15 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para servidores habilitados para Azure Arc (versão prévia)
 description: Lista controles de conformidade regulatória do Azure Policy disponíveis para servidores habilitados para Azure Arc (versão prévia). Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 01/29/2021
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 664c82bce815ce80d9ad72fc780154a55e8269a7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4a86cfd5f6776611680aca33f179fb356c2a57aa
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092878"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441747"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controles de Conformidade Regulatória do Azure Policy para servidores habilitados para Azure Arc
 

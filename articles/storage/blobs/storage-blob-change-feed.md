@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979208"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095569"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure
 
@@ -159,7 +159,7 @@ Consulte [processar logs do feed de alterações no armazenamento de BLOBs do Az
 
 O feed de alterações é um log de alterações que são organizadas em *segmentos* por **hora** , mas acrescentadas e atualizadas a cada poucos minutos. Esses segmentos são criados somente quando há eventos de alteração de BLOB que ocorrem nessa hora. Isso permite que seu aplicativo cliente consuma alterações que ocorrem dentro de intervalos de tempo específicos sem precisar pesquisar em todo o log. Para saber mais, consulte as [especificações](#specifications).
 
-Um segmento por hora disponível do feed de alterações é descrito em um arquivo de manifesto que especifica os caminhos para os arquivos do feed de alterações para esse segmento. A listagem do `$blobchangefeed/idx/segments/` diretório virtual mostra esses segmentos ordenados por tempo. O caminho do segmento descreve o início do intervalo de tempo por hora que o segmento representa. Você pode usar essa lista para filtrar os segmentos de logs que são interessantes para você.
+Um segmento por hora disponível do feed de alterações é descrito em um arquivo de manifesto que especifica os caminhos para os arquivos do feed de alterações para esse segmento. A listagem do `$blobchangefeed/idx/segments/` diretório virtual mostra esses segmentos ordenados por tempo. O caminho do segmento descreve o início do intervalo de tempo por hora que o segmento representa. Você pode usar essa lista para filtrar os segmentos de logs que são de seu interesse.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -268,7 +268,7 @@ Para obter uma descrição de cada propriedade, consulte [esquema de evento da g
 
 - Altere os registros de evento em que o `eventType` tem um valor de `Control` são registros internos do sistema e não reflita uma alteração nos objetos em sua conta. Você pode ignorar esses registros com segurança.
 
-- Os valores no `storageDiagnonstics` recipiente de propriedades são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados. Você pode ignorar essas propriedades com segurança.
+- Os valores no `storageDiagnostics` recipiente de propriedades são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados. Você pode ignorar essas propriedades com segurança.
 
 - A hora representada pelo segmento é **aproximada** com limites de 15 minutos. Portanto, para garantir o consumo de todos os registros dentro de um tempo especificado, consuma o segmento de hora anterior e próximo consecutivo.
 

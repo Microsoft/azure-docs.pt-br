@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3055c9dd1294af81c6c52603dd60bb5aa6075abd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777862"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390157"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário do Azure Active Directory para conexões de protocolo P2S OpenVPN
 
@@ -42,11 +42,11 @@ Use as etapas em [Adicionar ou excluir usuários-Azure Active Directory](../acti
 
 1. Localize a ID do diretório que você deseja usar para autenticação. Ele está listado na seção Propriedades da página Active Directory.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Novo locatário do Azure AD" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Captura de tela que mostra as propriedades do diretório" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Copie a ID do diretório.
 
-1. Entre no portal do Azure como usuário atribuído à função de **Administrador global** .
+1. Entre no portal do Azure como usuário atribuído à função de **Administrador global**.
 
 1. Em seguida, dê o consentimento do administrador. Copie e cole a URL pertencente ao local de implantação na barra de endereços do navegador:
 
@@ -78,30 +78,30 @@ Use as etapas em [Adicionar ou excluir usuários-Azure Active Directory](../acti
    > Se você usar uma conta de administrador global que não seja nativa ao locatário do Azure AD para fornecer consentimento, substitua "Common" pela ID de diretório do Azure AD na URL. Você também pode precisar substituir "Common" pela sua ID de diretório em alguns outros casos também.
    >
 
-1. Selecione a conta de **Administrador global** , se solicitado.
+1. Selecione a conta de **Administrador global**, se solicitado.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Novo locatário do Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Escolha uma conta" border="false":::
 1. Selecione **Aceitar** quando solicitado.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Novo locatário do Azure AD" border="false":::
-1. Em seu Azure AD, em **aplicativos empresariais** , você vê a **VPN do Azure** listada.
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Captura de tela mostra a mensagem permissões solicitadas de aceitação para sua organização com detalhes e a opção de aceitar." border="false":::
+1. Em seu Azure AD, em **aplicativos empresariais**, você vê a **VPN do Azure** listada.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Novo locatário do Azure AD" lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Captura de tela que mostra a página todos os aplicativos." lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Consulte [criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site.
 
     > [!IMPORTANT]
     > Não há suporte para o SKU Básico no OpenVPN.
 
-1. Habilite a autenticação do Azure AD no gateway de VPN navegando para **configuração de ponto a site** e selecionando **OpenVPN (SSL)** como o **tipo de túnel** . Selecione **Azure Active Directory** como o **tipo de autenticação** e preencha as informações na seção **Azure Active Directory** .
+1. Habilite a autenticação do Azure AD no gateway de VPN navegando para **configuração de ponto a site** e selecionando **OpenVPN (SSL)** como o **tipo de túnel**. Selecione **Azure Active Directory** como o **tipo de autenticação** e preencha as informações na seção **Azure Active Directory** .
 
    * **Locatário:** Tenantid para o locatário do Azure AD ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
    * **Público-alvo:** ApplicationID do aplicativo corporativo do Azure AD "VPN do Azure" ```{AppID of the "Azure VPN" AD Enterprise app}```
 
-   * **Emissor** : URL do serviço de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Emissor**: URL do serviço de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Novo locatário do Azure AD" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="VPN SAzure" border="false":::
 
    > [!NOTE]
    > Certifique-se de incluir uma barra à direita no final do `AadIssuerUri` valor. Caso contrário, a conexão poderá falhar.
@@ -117,4 +117,4 @@ Use as etapas em [Adicionar ou excluir usuários-Azure Active Directory](../acti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para a sua rede virtual, você deve criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para conexões VPN P2S](openvpn-azure-ad-client.md).
+Criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para conexões VPN P2S](openvpn-azure-ad-client.md).

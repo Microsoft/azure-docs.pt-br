@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257770"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487739"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -37,6 +37,21 @@ Se sua licença expirar, o proxy de aplicativo será desabilitado automaticament
 Verifique se você tem pelo menos uma licença Azure AD Premium P1 ou P2 e um conector de Proxy de Aplicativo do AD do Azure instalado. Depois de instalar com êxito seu primeiro conector, o serviço de Proxy de Aplicativo do AD do Azure será habilitado automaticamente.
 
 ## <a name="connector-configuration"></a>Configuração do conector
+
+### <a name="why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version"></a>Por que meu conector ainda está usando uma versão mais antiga e não é atualizado automaticamente para a versão mais recente?
+
+Isso pode ser devido ao serviço de atualizador não funcionar corretamente ou se não houver nenhuma nova atualização disponível que o serviço possa instalar.
+
+O serviço do atualizador será íntegro se estiver em execução e não houver erros registrados no log de eventos (logs de aplicativos e serviços-> Microsoft-> AadApplicationProxy-> Updater-> admin). 
+
+> [!IMPORTANT]
+> Somente as versões principais são lançadas para atualização automática. É recomendável atualizar seu conector manualmente em um agendamento regular. Para obter mais informações sobre novas versões, o tipo da versão (download, atualização automática), correções de bugs e novos recursos, consulte o [Azure proxy de aplicativo do AD: histórico de lançamento de versão](application-proxy-release-version-history.md).
+
+Para atualizar manualmente um conector:
+
+-  Baixe a versão mais recente do conector. (Você irá encontrá-lo em proxy de aplicativo no portal do Azure. Você também pode encontrar o link no [Azure proxy de aplicativo do AD: histórico de lançamento de versão](application-proxy-release-version-history.md).
+-   O instalador reinicia os serviços do conector de Proxy de Aplicativo do AD do Azure. Em alguns casos, uma reinicialização do servidor poderá ser necessária se o instalador não puder substituir todos os arquivos. Portanto, é recomendável fechar todos os aplicativos (ou seja, Visualizador de Eventos) antes de iniciar a atualização.
+-   Execute o instalador. O processo de atualização é rápido e não requer nenhuma credencial e o conector não será registrado novamente.
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>Os serviços do conector de proxy de aplicativo podem ser executados em um contexto de usuário diferente do padrão?
 
@@ -105,6 +120,15 @@ O comprimento padrão é de 85 segundos. A configuração "longa" é de 180 segu
 ### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>Uma entidade de serviço pode gerenciar o proxy de aplicativo usando o PowerShell ou Microsoft Graph APIs?
 
 Não, não há suporte para esse recurso no momento.
+
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>O que acontece se eu excluir CWAP_AuthSecret (o segredo do cliente) no registro do aplicativo?
+
+O segredo do cliente, também chamado de *CWAP_AuthSecret*, é automaticamente adicionado ao objeto de aplicativo (registro do aplicativo) quando o aplicativo de proxy de aplicativo do AD do Azure é criado.
+
+O segredo do cliente é válido por um ano. Um novo segredo do cliente de um ano é criado automaticamente antes que o segredo do cliente válido atual expire. Três CWAP_AuthSecret segredos do cliente são mantidos no objeto de aplicativo em todos os momentos. 
+
+> [!IMPORTANT]
+> A exclusão de CWAP_AuthSecret interrompe a pré-autenticação para o Proxy de Aplicativo do AD do Azure. Não exclua CWAP_AuthSecret.
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Como fazer alterar a página de aterrissagem que meu aplicativo carrega?
 
@@ -187,11 +211,11 @@ Não. O Proxy de Aplicativo do AD do Azure foi projetado para funcionar com o Az
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>O suporte ao WebSocket funciona para aplicativos diferentes do QlikSense?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>O suporte ao WebSocket funciona para aplicativos que não sejam o QlikSense e o Área de Trabalho Remota Web Client (HTML5)?
 
 Atualmente, o suporte ao protocolo WebSocket ainda está em visualização pública e pode não funcionar para outros aplicativos. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outros aplicativos. Se você testar esses cenários, adoraríamos ouvir seus resultados. Envie-nos seus comentários em aadapfeedback@microsoft.com .
 
-Os recursos (EventLogs, PowerShell e Serviços de Área de Trabalho Remota) no centro de administração do Windows (WAC) ou no cliente Web do Área de Trabalho Remota (HTML5) não funcionam com o Azure Proxy de Aplicativo do AD no momento.
+Os recursos (EventLogs, PowerShell e Serviços de Área de Trabalho Remota) no centro de administração do Windows (WAC) não funcionam com o Azure Proxy de Aplicativo do AD no momento.
 
 ## <a name="link-translation"></a>Conversão de link
 

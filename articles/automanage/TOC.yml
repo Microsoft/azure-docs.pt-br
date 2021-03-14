@@ -8,10 +8,13 @@
 - name: Conceitos
   expanded: true
   items:
-    - name: Máquinas virtuais
-      href: automanage-virtual-machines.md
-    - name: Melhores práticas para VMs
-      href: virtual-machines-best-practices.md
+    - name: Gerenciamento Automatizado para Linux
+      href: automanage-linux.md
+    - name: Gerenciamento Automatizado para Windows Server
+      href: automanage-windows-server.md
+      items:
+        - name: Patch dinâmico para novas máquinas virtuais
+          href: automanage-hotpatch.md
 - name: Como
   expanded: true
   items:

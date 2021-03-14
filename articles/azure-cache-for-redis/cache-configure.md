@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581073"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -74,7 +74,7 @@ Clique em **Log de auditoria** para exibir as ações executadas em seu cache. V
 
 A seção de **controle de acesso (iam)** fornece suporte para o controle de acesso baseado em função do Azure (RBAC do Azure) no portal do Azure. Essas configurações ajudam as organizações a atenderem seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para obter mais informações, consulte [controle de acesso baseado em função do Azure no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Marcações
+### <a name="tags"></a>Marcas
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
@@ -85,7 +85,7 @@ Clique em **Diagnosticar e solucionar problemas** para ver problemas comuns e es
 
 
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configurações
 A seção **Configurações** permite acessar e definir as seguintes configurações para seu cache.
 
 * [Chaves de acesso](#access-keys)
@@ -341,10 +341,10 @@ Clique em **Regras de alerta** para configurar alertas com base na métrica do C
 
 ### <a name="diagnostics"></a>Diagnósticos
 
-Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
+Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/essentials/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
 >[!NOTE]
->Além de arquivar suas métricas de cache no armazenamento, você também pode [transmiti-las para um hub de eventos ou enviá-las para Azure monitor logs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Além de arquivar suas métricas de cache no armazenamento, você também pode [transmiti-las para um hub de eventos ou enviá-las para Azure monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
 >
 

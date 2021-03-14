@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698834"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Etapa 1-entender os benefícios da migração para a API do Media Services V3
 
@@ -34,11 +34,11 @@ Houve melhorias significativas nos serviços de mídia com v3.
 
 | **Recurso v3** | **Benefício** |
 | --- | --- |
-| **Azure portal** | |
+| **Portal do Azure** | |
 | Atualizações de portal do Azure | O portal do Azure foi atualizado para incluir o gerenciamento de entidades da API v3. Ele permite que os clientes usem o portal para iniciar a transmissão ao vivo, enviar trabalhos de transformação v3, gerenciar políticas de proteção de conteúdo, pontos de extremidade de streaming, obter acesso à API, gerenciar contas de armazenamento vinculadas e executar tarefas de monitoramento. |
 | **Contas e armazenamento** | |
 | RBAC (controle de acesso baseado em função) do Azure | Agora, os clientes podem definir suas próprias funções e controlar o acesso a cada entidade na API ARM dos serviços de mídia. Isso ajuda a controlar o acesso a recursos por contas do AAD. |
-| Identidades gerenciadas | Identidades gerenciadas eliminam a necessidade de os desenvolvedores gerenciarem credenciais fornecendo uma identidade para o recurso do Azure no Azure AD. Veja detalhes sobre identidades gerenciadas [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Identidades gerenciadas | Identidades gerenciadas eliminam a necessidade de os desenvolvedores gerenciarem credenciais fornecendo uma identidade para o recurso do Azure no Azure AD. Veja detalhes sobre identidades gerenciadas [aqui](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Suporte a link privado | Os clientes acessarão pontos de extremidade dos serviços de mídia para distribuição de chave, LiveEvents e StreamingEndpoints por meio de um PrivateEndpoint em sua VNet. |
 | Suporte [a chaves gerenciadas pelo cliente](concept-use-customer-managed-keys-byok.md) ou BYOK (traga sua própria chave) | Os clientes podem criptografar os dados em sua conta de serviços de mídia usando uma chave em seus Azure Key Vault. |
 | **Ativos** | |

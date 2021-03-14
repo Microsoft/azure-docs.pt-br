@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050520"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575663"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Início Rápido – Explorar um cenário de exemplo dos Gêmeos Digitais do Azure usando o ADT Explorer
 
@@ -306,11 +306,15 @@ Neste início rápido, você fez a atualização da temperatura manualmente. É 
 
 Para concluir o trabalho deste guia de início rápido, primeiro finalize o aplicativo de console em execução. Essa ação desliga a conexão com o aplicativo ADT Explorer no navegador. Você não poderá mais exibir dados dinâmicos no navegador. Feche a guia do navegador.
 
-Se planejar continuar com os tutoriais dos Gêmeos Digitais do Azure, você poderá reutilizar a instância neste início rápido para esses artigos e não precisará removê-la.
+Em seguida, você poderá escolher quais recursos gostaria de remover, dependendo do que você gostaria de fazer em seguida.
+
+* **Se planejar continuar com os tutoriais dos Gêmeos Digitais do Azure**, você poderá reutilizar a instância neste guia de início rápido para estes artigos e não precisará removê-la.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, exclua a pasta de exemplo do projeto, **Azure_Digital_Twins__ADT__explorer**, que você baixou no computador local. Talvez seja necessário excluir as versões zipadas e descompactadas.
+Talvez seja interessante excluir a pasta do projeto do computador local.
 
 ## <a name="next-steps"></a>Próximas etapas
 

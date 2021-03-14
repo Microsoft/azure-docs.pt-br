@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356203"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103021227"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -56,21 +56,28 @@ ms.locfileid: "96356203"
 | Tempo máximo de execução da consulta | 10 minutos | Confira os [tempos limites](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obter detalhes.  |
 | Taxa máxima de solicitação | 200 solicitações por 30 segundos por usuário do Azure AD ou por endereço IP do cliente | Consulte os [Limites de taxa](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obter detalhes. |
 
+**Conector de logs do Azure Monitor**
+
+| Categoria | Limite | Comentários |
+|:---|:---|:---|
+| Número máximo de registros | 500.000 | |
+| Tempo limite máximo de consulta | 110 segundos | |
+| Gráficos | | A visualização em página de logs e o conector estão usando bibliotecas de gráficos diferentes, e algumas funcionalidades não estão disponíveis no conector atualmente. |
+
 **Limites gerais do workspace**
 
 | Categoria | Limite | Comentários |
 |:---|:---|:---|
 | Máximo de colunas em uma tabela         | 500 | |
 | Máximo de caracteres para o nome da coluna | 500 | |
-| Exportação de dados | Não disponível no momento | Use a Função do Azure ou o Aplicativo Lógico para agregar e exportar dados. | 
 
 **<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. O limite da taxa de volume se aplica aos dados ingeridos dos recursos do Azure por meio de [Configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md). Quando o limite da taxa de volume é atingido, um mecanismo de repetição tenta ingerir os dados quatro vezes em um período de 30 minutos e removê-los se a operação falhar. Ele não se aplica aos dados ingeridos de [agentes](../articles/azure-monitor/platform/agents-overview.md) ou da [API do Coletor de Dados](../articles/azure-monitor/platform/data-collector-api.md).
+O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. O limite da taxa de volume se aplica aos dados ingeridos dos recursos do Azure por meio de [Configurações de diagnóstico](../articles/azure-monitor/essentials/diagnostic-settings.md). Quando o limite da taxa de volume é atingido, um mecanismo de repetição tenta ingerir os dados quatro vezes em um período de 30 minutos e removê-los se a operação falhar. Ele não se aplica aos dados ingeridos de [agentes](../articles/azure-monitor/agents/agents-overview.md) ou da [API do Coletor de Dados](../articles/azure-monitor/logs/data-collector-api.md).
 
 Quando os dados enviados ao seu workspace estiverem a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela *Operações* no workspace a cada seis horas enquanto o limite continuar sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
 
-Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
+Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
 
 >[!NOTE]
->Dependendo de quanto tempo está usando o Log Analytics, você poderá ter acesso a tipos de preço herdados. Saiba mais sobre os [tipos de preço herdados do Log Analytics](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).
+>Dependendo de quanto tempo está usando o Log Analytics, você poderá ter acesso a tipos de preço herdados. Saiba mais sobre os [tipos de preço herdados do Log Analytics](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).

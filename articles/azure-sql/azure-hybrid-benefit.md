@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f1761851f91e6d0c0aadb3315dbb7980a00bba5b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633811"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Benefício Híbrido do Azure-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -85,12 +85,12 @@ O Benefício Híbrido do Azure para SQL Server difere da mobilidade de licenças
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quais são os direitos específicos do Benefício Híbrido do Azure para SQL Server?
 
-Os clientes do banco de dados SQL têm os seguintes direitos associados ao Benefício Híbrido do Azure para SQL Server:
+Os clientes do banco de dados SQL e do SQL Instância Gerenciada têm os seguintes direitos associados ao Benefício Híbrido do Azure para SQL Server:
 
 |Superfície da licença|O que Benefício Híbrido do Azure para SQL Server você consegue?|
 |---|---|
 |Clientes principais do SQL Server Enterprise Edition com SA|<li>Pode pagar a taxa base em um SKU de hiperescala, Uso Geral ou Comercialmente Crítico</li><br><li>1 núcleo local = 4 núcleos na SKU de hiperescala</li><br><li>1 núcleo local = 4 núcleos na SKU de Uso Geral</li><br><li>1 núcleo local = 1 núcleo em SKU para Comercialmente Crítico</li>|
-|Clientes principais do SQL Server Standard Edition com SA|<li>Pode pagar a taxa base somente em hiperescala e Uso Geral SKU apenas</li><br><li>1 núcleo local = 1 núcleo na SKU de hiperescala</li><br><li>1 núcleo local = 1 núcleo na SKU de Uso Geral</li>|
+|Clientes principais do SQL Server Standard Edition com SA|<li>Pode pagar a taxa base em um SKU de hiperescala, Uso Geral ou Comercialmente Crítico</li><br><li>1 núcleo local = 1 núcleo na SKU de hiperescala</li><br><li>1 núcleo local = 1 núcleo na SKU de Uso Geral</li><br><li>4 núcleos locais = 1 núcleo no SKU Comercialmente Crítico</li>|
 |||
 
 

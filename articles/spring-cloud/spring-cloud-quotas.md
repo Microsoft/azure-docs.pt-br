@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 496f2e812a102e85fea92a535552daaaadf5f31e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b02ccb3acb4546e08e7d58159ab9d85bca2d0eed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711868"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cotas e planos de serviço para o Azure Spring Cloud
 
@@ -22,13 +22,17 @@ Todos os serviços do Azure definem limites e cotas padrão para recursos e recu
 
 ## <a name="azure-spring-cloud-service-tiers-and-limits"></a>Limites e camadas de serviço do Azure Spring Cloud
 
-| Recurso | Basic | Standard
+| Recurso | Escopo | Basic | Standard
 ------- | ------- | -------
-vCPU | 1 por instância de serviço | 4 por instância de serviço
-Memória | 2 GB por instância de serviço | 8 GB por instância de serviço
-Instâncias de serviço do Azure Spring Cloud por região por assinatura | 10 | 10
-Instâncias totais de aplicativo por instância de serviço do Azure Spring Cloud | 25 | 500
-Volumes persistentes | aplicativos de 1 GB/aplicativo x 10 | 50 GB/aplicativo x 10 aplicativos
+vCPU | instância por aplicativo | 1 | 4
+Memória | instância por aplicativo | 2 GB | 8 GB
+Instâncias do serviço de nuvem do Azure Spring | por região por assinatura | 10 | 10
+Total de instâncias do aplicativo | por instância do serviço de nuvem do Azure Spring | 25 | 500
+Domínios personalizados | por instância do serviço de nuvem do Azure Spring | 0 | 25 
+Volumes persistentes | por instância do serviço de nuvem do Azure Spring | aplicativos de 1 GB/aplicativo x 10 | 50 GB/aplicativo x 10 aplicativos
+
+> [!TIP]
+> Os limites listados para total de instâncias de aplicativo por instância de serviço se aplicam a aplicativos e implantações em qualquer Estado, incluindo o estado parado. Exclua aplicativos ou implantações que não estão em uso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

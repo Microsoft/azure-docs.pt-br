@@ -8,22 +8,24 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888633"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656186"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência de dados
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Os Serviços de Comunicação do Azure estão comprometidos em ajudar nossos clientes a atender aos requisitos de privacidade e de dados pessoais deles. Como desenvolvedor usando os Serviços de Comunicação com uma relação direta com os seres humanos que usam o aplicativo, você é potencialmente um controlador dos dados deles. Como os Serviços de Comunicação do Azure estão armazenando esses dados em seu nome, somos provavelmente um processador desses dados. Esta página resume como o serviço retém os dados e como você pode identificar, exportar e excluir esses dados.
 
 ## <a name="data-residency"></a>Residência de dadosResidência de dados
 
-Ao criar um recurso dos Serviços de Comunicação, você especifica uma **geografia** (não um data center do Azure). Todos os dados armazenados pelos Serviços de Comunicação em repouso serão mantidos nessa geografia, em um data center selecionado internamente pelos Serviços de Comunicação. Embora os dados possam transitar ou ser processados em outras geografias, esses pontos de extremidade globais são necessários para oferecer uma experiência de alto desempenho e baixa latência para usuários finais, independentemente do local deles.
+Ao criar um recurso dos Serviços de Comunicação, você especifica uma **geografia** (não um data center do Azure). Todos os dados armazenados pelos Serviços de Comunicação em repouso serão mantidos nessa geografia, em um data center selecionado internamente pelos Serviços de Comunicação. Os dados podem transitar ou serem processados em outras regiões geográficas. Esses pontos de extremidade globais são necessários para fornecer uma experiência de alto desempenho e baixa latência aos usuários finais, independentemente da localização deles.
+
+## <a name="data-residency-and-events"></a>Eventos e residência de dados
+
+Qualquer tópico do sistema de Grade de Eventos configurado com os Serviços de Comunicação do Azure será criado em uma localização global. Para dar suporte à entrega confiável, um tópico global do sistema de Grade de Eventos pode armazenar os dados de evento em qualquer data center da Microsoft. Ao configurar a Grade de Eventos com os Serviços de Comunicação do Azure, você está fornecendo os seus dados de evento para a Grade de Eventos, que é um recurso do Azure sob o seu controle. Embora os Serviços de Comunicação do Azure possam ser configurados para utilizar a Grade de Eventos do Azure, você será responsável por gerenciar o seu recurso de Grade de Eventos e os dados armazenados nele.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Como relacionar pessoas às identidades dos Serviços de Comunicação do Azure
 
@@ -61,7 +63,7 @@ Os threads e as mensagens do chat são retidos até que sejam explicitamente exc
 
 ### <a name="sms"></a>sms
 
-Mensagens SMS enviadas e recebidas são processadas temporariamente pelo serviço e não são retidas. 
+Mensagens SMS enviadas e recebidas são processadas temporariamente pelo serviço e não são retidas.
 
 ### <a name="pstn-voice-calling"></a>Chamada de voz PSTN
 
@@ -73,7 +75,7 @@ A comunicação de áudio e vídeo é processada rapidamente pelo serviço e nen
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor e Log Analytics
 
-Os Serviços de Comunicação do Azure alimentarão o Azure Monitor dados de log para compreender a integridade operacional e a utilização do serviço. Alguns desses logs incluem identidades e números de telefone do Serviço de Comunicação como dados de campo. Para excluir dados potencialmente pessoais, [use estes procedimentos para o Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). Talvez seja interessante configurar [o período de retenção padrão para o Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Os Serviços de Comunicação do Azure alimentarão o Azure Monitor dados de log para compreender a integridade operacional e a utilização do serviço. Alguns desses logs incluem identidades e números de telefone do Serviço de Comunicação como dados de campo. Para excluir dados potencialmente pessoais, [use estes procedimentos para o Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). Talvez seja interessante configurar [o período de retenção padrão para o Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,35 +1,28 @@
 ---
-title: Consultar dados de Azure Cosmos DB usando um pool SQL sem servidor na visualização do link Synapse do Azure
-description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando um pool SQL sem servidor na visualização do link Synapse do Azure.
+title: Consultar dados de Azure Cosmos DB usando um pool SQL sem servidor no link Synapse do Azure
+description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando um pool SQL sem servidor no link Synapse do Azure.
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 12/04/2020
+ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a574cacbabf1c0d1730430153a3c0afcad6582c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694352"
 ---
-# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor na visualização do link Synapse do Azure
+# <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor no link Synapse do Azure
 
-> [!IMPORTANT]
-> O suporte do pool SQL sem servidor para o link Synapse do Azure para Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Um pool SQL sem servidor permite analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma grande variedade de ferramentas de consulta de Business Intelligence (BI) e ad hoc por meio da interface T-SQL.
+Um pool SQL sem servidor permite analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md) e conectividade integrada a uma grande variedade de ferramentas de consulta de Business Intelligence (BI) e ad hoc por meio da interface T-SQL.
 
 Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , que inclui a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando CETAS.
 
-Neste artigo, você aprenderá a escrever uma consulta com um pool SQL sem servidor que consultará dados de contêineres Azure Cosmos DB que são habilitados com o link Synapse do Azure. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI neste [tutorial](./tutorial-data-analyst.md).
-
-> [!IMPORTANT]
-> Este tutorial usa um contêiner com um [Azure Cosmos DB esquema bem definido](../../cosmos-db/analytical-store-introduction.md#schema-representation). A experiência de consulta que o pool SQL sem servidor fornece para um [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema do conjunto de resultados da `OPENROWSET` função sem a `WITH` cláusula que lê dados de um contêiner com um esquema de fidelidade total, pois a experiência de consulta pode ser alinhada e alterada com base no esquema bem definido. Você pode postar seus comentários no [Fórum de comentários do Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). Você também pode entrar em contato com a [equipe do produto Azure Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
+Neste artigo, você aprenderá a escrever uma consulta com um pool SQL sem servidor que consultará dados de contêineres Azure Cosmos DB que são habilitados com o link Synapse do Azure. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI neste [tutorial](./tutorial-data-analyst.md). Este tutorial usa um contêiner com um [Azure Cosmos DB esquema bem definido](../../cosmos-db/analytical-store-introduction.md#schema-representation).
 
 ## <a name="overview"></a>Visão geral
 
@@ -377,11 +370,11 @@ O número de casos são informações armazenadas como um `int32` valor, mas há
 > [!IMPORTANT]
 > A `OPENROWSET` função sem uma `WITH` cláusula expõe os valores com os tipos esperados e os valores com tipos inseridos incorretamente. Essa função foi projetada para exploração de dados e não para relatórios. Não analise valores JSON retornados dessa função para criar relatórios. Use uma [cláusula WITH](#query-items-with-full-fidelity-schema) explícita para criar seus relatórios. Você deve limpar os valores que têm tipos incorretos no contêiner de Azure Cosmos DB para aplicar correções no repositório analítico de fidelidade total.
 
-Se precisar consultar Azure Cosmos DB contas do tipo de API do Mongo DB, você pode saber mais sobre a representação de esquema de fidelidade total no repositório analítico e os nomes de propriedade estendida a serem usados no [que é Azure Cosmos DB armazenamento analítico (versão prévia)?](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+Se precisar consultar Azure Cosmos DB contas do tipo de API do Mongo DB, você pode saber mais sobre a representação de esquema de fidelidade total no repositório analítico e os nomes de propriedade estendida a serem usados no [que é Azure Cosmos DB armazenamento analítico?](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
 ### <a name="query-items-with-full-fidelity-schema"></a>Itens de consulta com esquema de fidelidade total
 
-Ao consultar o esquema de fidelidade completa, você precisa especificar explicitamente o tipo SQL e o tipo de propriedade de Azure Cosmos DB esperado na `WITH` cláusula. Não use `OPENROWSET` uma `WITH` cláusula nos relatórios porque o formato do conjunto de resultados pode ser alterado na visualização com base nos comentários.
+Ao consultar o esquema de fidelidade completa, você precisa especificar explicitamente o tipo SQL e o tipo de propriedade de Azure Cosmos DB esperado na `WITH` cláusula.
 
 No exemplo a seguir, vamos pressupor que `string` é o tipo correto para a `geo_id` propriedade e `int32` é o tipo correto para a `cases` Propriedade:
 
@@ -419,7 +412,6 @@ Neste exemplo, o número de casos é armazenado como `int32` `int64` valores, ou
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- A experiência de consulta que o pool SQL sem servidor fornece para [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema que a `OPENROWSET` função sem a `WITH` cláusula fornece durante a visualização pública, pois a experiência de consulta pode estar alinhada ao esquema bem definido com base nos comentários dos clientes. Para fornecer comentários, entre em contato com a [equipe de produto do Azure Synapse link](mailto:cosmosdbsynapselink@microsoft.com).
 - Um pool SQL sem servidor retornará um aviso de tempo de compilação se o `OPENROWSET` agrupamento de coluna não tiver codificação UTF-8. Você pode alterar facilmente o agrupamento padrão para todas as `OPENROWSET` funções em execução no banco de dados atual usando a instrução T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Possíveis erros e ações de solução de problemas estão listados na tabela a seguir.

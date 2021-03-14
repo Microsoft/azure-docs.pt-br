@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ec0bf6330b7b2268db84d86dc5a0d141fc24ce74
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040644"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
@@ -37,7 +37,7 @@ Todos padrões de gateway fornecem os seguintes benefícios:
 
 * **Análise na borda** – use os serviços de ia localmente para processar dados provenientes de dispositivos downstream sem enviar telemetria de fidelidade total à nuvem. Encontre e reaja a insights localmente e só envie um subconjunto de dados para o Hub IoT.
 * **Isolamento de dispositivo downstream** – o dispositivo de gateway pode proteger todos os dispositivos downstream da exposição à internet. Ele pode se sentar entre uma rede de tecnologia operacional (OT) que não tem conectividade e uma rede de tecnologia de informação (TI) que fornece acesso à Web. Da mesma forma, os dispositivos que não têm a capacidade de se conectar ao Hub IoT por conta própria podem se conectar a um dispositivo de gateway em vez disso.
-* **Multiplexação de Conexão** – todos os dispositivos conectados ao Hub IoT por meio de um uso de gateway do IoT Edge a mesma conexão subjacente.
+* **Multiplexação de conexão** -todos os dispositivos que se conectam ao Hub IOT por meio de um IOT Edge gateway podem usar a mesma conexão subjacente. Esse recurso de multiplexação requer que o gateway de IoT Edge use AMQP como seu protocolo de upstream.
 * **Suavização de tráfego** -dispositivo do IoT Edge implementará automaticamente a retirada exponencial se o IoT Hub limitar o tráfego, enquanto as mensagens persistem localmente. Esse benefício torna sua solução resiliente a picos no tráfego.
 * **Suporte offline** -o dispositivo de gateway armazena mensagens e atualizações de atualização de bits que não podem ser entregues ao Hub IOT.
 
@@ -45,7 +45,9 @@ Todos padrões de gateway fornecem os seguintes benefícios:
 
 No padrão de gateway transparente, os dispositivos que, teoricamente, poderiam se conectar ao Hub IoT podem se conectar a um dispositivo de gateway. Os dispositivos downstream têm suas próprias identidades do Hub IoT e se conectam usando os protocolos MQTT ou AMQP. O gateway simplesmente passa as comunicações entre os dispositivos e o Hub IoT. Os dispositivos e os usuários que interagem com eles por meio do Hub IoT não sabem que um gateway está mediando suas comunicações. Essa falta de conscientização significa que o gateway é considerado *transparente*.
 
-<!-- 1.0.10 -->
+Para obter mais informações sobre como o Hub de IoT Edge gerencia a comunicação entre dispositivos downstream e a nuvem, consulte [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge dispositivos não podem ser downstream de um gateway de IoT Edge.
@@ -73,6 +75,11 @@ A relação pai/filho é estabelecida em três pontos na configuração do gatew
 
 Todos os dispositivos em um cenário de gateway transparente precisam de identidades de nuvem para que possam se autenticar no Hub IoT. Ao criar ou atualizar uma identidade de dispositivo, você pode definir os dispositivos pai ou filho do dispositivo. Essa configuração autoriza o dispositivo de gateway pai a lidar com a autenticação para seus dispositivos filho.
 
+>[!NOTE]
+>Definir o dispositivo pai no Hub IoT costumava ser uma etapa opcional para dispositivos downstream que usam a autenticação de chave simétrica. No entanto, começando com a versão 1.1.0, cada dispositivo downstream deve ser atribuído a um dispositivo pai.
+>
+>Você pode configurar o Hub de IoT Edge para voltar ao comportamento anterior, definindo a variável de ambiente **AuthenticationMode** como o valor **CloudAndScope**.
+
 Os dispositivos filho só podem ter um pai. Cada pai pode ter até 100 filhos.
 
 <!-- 1.2.0 -->
@@ -82,13 +89,13 @@ IoT Edge dispositivos podem ser pais e filhos em relações de gateway transpare
 
 #### <a name="gateway-discovery"></a>Descoberta de gateway
 
-Um dispositivo filho precisa ser capaz de encontrar seu dispositivo pai na rede local. Configure dispositivos de gateway com um nome de **host** , um FQDN (nomes de domínio totalmente qualificado) ou um endereço IP, que seus dispositivos filho usarão para localizá-lo.
+Um dispositivo filho precisa ser capaz de encontrar seu dispositivo pai na rede local. Configure dispositivos de gateway com um nome de **host**, um FQDN (nomes de domínio totalmente qualificado) ou um endereço IP, que seus dispositivos filho usarão para localizá-lo.
 
 Em dispositivos IoT downstream, use o parâmetro **gatewayHostname** na cadeia de conexão para apontar para o dispositivo pai.
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-Em dispositivos IoT Edge downstream, use o parâmetro **parent_hostname** no arquivo config. YAML para apontar para o dispositivo pai.
+Em dispositivos IoT Edge downstream, use o parâmetro **parent_hostname** no arquivo de configuração para apontar para o dispositivo pai.
 ::: moniker-end
 
 #### <a name="secure-connection"></a>Conexão segura
@@ -106,7 +113,7 @@ Todos os primitivos do Hub IoT que funcionam com o pipeline de mensagens do IoT 
 
 Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte para dispositivos em comparação com dispositivos por trás de gateways.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Funcionalidade | Dispositivo IoT | IoT por trás de um gateway |
@@ -134,7 +141,7 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 
 As **imagens de contêiner** podem ser baixadas, armazenadas e entregues de dispositivos pai a dispositivos filho.
 
-Os **BLOBs** , incluindo pacotes de suporte e logs, podem ser carregados de dispositivos filho para dispositivos pai.
+Os **BLOBs**, incluindo pacotes de suporte e logs, podem ser carregados de dispositivos filho para dispositivos pai.
 
 ::: moniker-end
 

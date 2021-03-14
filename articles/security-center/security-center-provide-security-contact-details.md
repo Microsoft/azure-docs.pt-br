@@ -1,24 +1,18 @@
 ---
 title: Configurar notificações por email para alertas da Central de Segurança do Azure
 description: Saiba como ajustar os tipos de emails enviados pela Central de Segurança do Azure para alertas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920402"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439435"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -26,8 +20,8 @@ Os alertas de segurança precisam acessar as pessoas certas em sua organização
 
 Para definir suas preferências para emails de notificação, a página de configurações **Notificações por email** da Central de Segurança do Azure permite que você escolha:
 
-- **_quem_ deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
-- **_sobre o que_ eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
+- ***quem* deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
+- ***sobre o que* eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
 
 Para evitar o excesso de alertas, a Central de Segurança limita o volume de emails enviados. Para cada assinatura, a Central de Segurança envia:
 
@@ -48,8 +42,7 @@ Para evitar o excesso de alertas, a Central de Segurança limita o volume de ema
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>Personalizar as notificações por email de alertas de segurança<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>Personalizar as notificações por email de alertas de segurança usando o portal<a name="email"></a>
 Você pode enviar notificações por email a indivíduos ou a todos os usuários com funções específicas do Azure.
 
 1. Na área **Preços e configurações** da Central de Segurança, selecione a assinatura relevante e **Notificações por email**.
@@ -60,6 +53,28 @@ Você pode enviar notificações por email a indivíduos ou a todos os usuários
     - Insira endereços de email específicos separados por vírgulas. Não há um limite para o número de endereços de email que podem ser inseridos.
 
 1. Para aplicar as informações de contato de segurança à sua assinatura, selecione **Salvar**.
+
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personalizar as notificações por email de alertas usando a API
+Você também pode gerenciar suas notificações por email usando a API REST fornecida. Para obter detalhes completos, confira a [documentação da API SecurityContacts](/rest/api/securitycenter/securitycontacts).
+
+Este é um exemplo de corpo da solicitação para a solicitação PUT ao criar uma configuração de contato de segurança:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
 
 
 ## <a name="see-also"></a>Confira também

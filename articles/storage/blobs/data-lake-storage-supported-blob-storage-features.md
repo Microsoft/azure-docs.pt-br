@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 02/11/2021
 ms.author: normesta
-ms.reviewer: stewu
-ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879302"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516271"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -45,18 +44,19 @@ A tabela a seguir mostra como cada recurso de armazenamento de BLOBs tem suporte
 |Armazenamento imutável|Visualização<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Visualização<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Armazenar dados de blob comercialmente críticos com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Exclusão reversível do contêiner|Visualização|Visualização|[Exclusão reversível para contêineres (visualização)](soft-delete-container-overview.md)|
 |Inventário de armazenamento do Azure|Visualização|Visualização|[Usar o inventário de armazenamento do Azure para gerenciar dados de BLOB (versão prévia)](blob-inventory.md)|
+|Domínios personalizados|Visualizar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Visualizar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Mapear um domínio personalizado para um ponto de extremidade do armazenamento de blobs do Azure](storage-custom-domain-name.md)|
 |Exclusão reversível de BLOB|Ainda não compatível|Ainda não compatível|[Exclusão reversível para blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponível para o público geral|Disponível para o público geral|[Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse](storage-how-to-mount-container-linux.md)|
 |Acesso público anônimo |Disponível para o público geral|Disponível para o público geral| Consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).|
 |Failover de conta gerenciada pelo cliente|Ainda não compatível|Ainda não compatível|[Recuperação de desastre e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Chaves fornecidas pelo cliente|Ainda não compatível|Ainda não compatível|[Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs](encryption-customer-provided-keys.md)|
-|Domínios personalizados|Ainda não compatível|Ainda não compatível|[Mapear um domínio personalizado para um ponto de extremidade do armazenamento de blobs do Azure](storage-custom-domain-name.md)|
 |Escopos de criptografia|Ainda não compatível|Ainda não compatível|[Criar e gerenciar escopos de criptografia (visualização)](encryption-scope-manage.md)|
 |Feed de alteração|Ainda não compatível|Ainda não compatível|[Suporte ao feed de alterações no armazenamento de blobs do Azure](storage-blob-change-feed.md)|
 |Replicação de objeto|Ainda não compatível|Ainda não compatível|[Configurar a replicação de objeto para BLOBs de blocos](object-replication-configure.md)|
 |Controle de versão de BLOB|Ainda não compatível|Ainda não compatível|[Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup> Para usar instantâneos, armazenamento imutável ou sites estáticos com Data Lake Storage Gen2, você precisa inscrever-se na versão prévia ao concluir este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulário</a>.  </div>
+<div id="preview-form-2"><sup>2</sup> Um nome de domínio personalizado pode mapear somente para o serviço BLOB ou ponto de extremidade estático do site. Não há suporte para o ponto de extremidade de armazenamento Data Lake. </a> .  </div>
 
 ## <a name="see-also"></a>Confira também
 

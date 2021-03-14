@@ -1,22 +1,17 @@
 ---
 title: Migrar trabalhos do SSIS (SQL Server Integration Services local) para Azure Data Factory
 description: Este artigo descreve como migrar trabalhos do SQL Server Integration Services (SSIS) para Azure Data Factory pipelines/atividades/gatilhos usando SQL Server Management Studio.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 1072f915c5d8483676874422703820dc75719256
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555739"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379583"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos do SQL Server Agent para o ADF com o SSMS
 
@@ -31,7 +26,7 @@ Em geral, para trabalhos selecionados do SQL Agent com tipos de etapa de trabalh
     > Só há suporte para o local do pacote do sistema de arquivos.
 - Migre trabalhos aplicáveis com etapas de trabalho aplicáveis para os recursos do ADF correspondentes, como mostrado abaixo:
 
-|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Observações|
+|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Anotações|
 |---------|---------|---------|
 |Trabalho do SQL Agent|pipeline     |O nome do pipeline será *gerado para \<job name>*. <br> <br> Os trabalhos internos do agente não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |Etapa de trabalho do SSIS|Atividade executar pacote SSIS|<li> O nome da atividade será \<step name> . <li> A conta proxy usada na etapa de trabalho será migrada como autenticação do Windows desta atividade. <li> *As opções de execução* , exceto *usar tempo de execução de 32 bits* definidos na etapa de trabalho, serão ignoradas na migração. <li> A *verificação* definida na etapa de trabalho será ignorada na migração.|

@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Criar um grupo de gerenciamento com o JavaScript'
 description: Neste guia de início rápido, você usará o JavaScript para criar um grupo de gerenciamento para organizar seus recursos em uma hierarquia de recursos.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886576"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099142"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Início Rápido: Criar um grupo de gerenciamento com o JavaScript
 
@@ -21,7 +21,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 
 - Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Antes de começar, verifique se pelo menos a versão 12 do [Node.js](https://nodejs.org/) está instalada.
+- Antes de começar, verifique se, no mínimo, a versão 12 do [Node.js](https://nodejs.org/) está instalada.
 
 - Qualquer usuário do Azure AD no locatário poderá criar um grupo de gerenciamento sem ter recebido a permissão de gravação do grupo de gerenciamento se a [proteção de hierarquia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) não estiver habilitada. Esse novo grupo de gerenciamento passa a ser um filho do grupo de gerenciamento raiz ou o [grupo de gerenciamento padrão](./how-to/protect-resource-hierarchy.md#setting---default-management-group), e o criador recebe uma atribuição de função "Proprietário". O serviço de grupo de gerenciamento permite essa capacidade para que as atribuições de função não sejam necessárias no nível raiz. Nenhum usuário tem acesso ao grupo de gerenciamento raiz quando ele é criado. Para evitar problemas de localização dos administradores globais do Azure AD para começar a usar os grupos de gerenciamento, permitimos a criação dos grupos de gerenciamento iniciais no nível raiz.
 
@@ -29,7 +29,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 
 ## <a name="application-setup"></a>Instalação do aplicativo
 
-A fim de habilitar o JavaScript para consultar o Azure Resource Graph, o ambiente precisa ser configurado. Essa configuração funciona sempre que o JavaScript pode ser usado, incluindo o [Bash no Windows 10](/windows/wsl/install-win10).
+Para habilitar o JavaScript a fim de gerenciar grupos de gerenciamento, o ambiente precisa ser configurado. Essa configuração funciona sempre que o JavaScript pode ser usado, incluindo o [Bash no Windows 10](/windows/wsl/install-win10).
 
 1. Configure um novo projeto Node.js executando o comando a seguir.
 

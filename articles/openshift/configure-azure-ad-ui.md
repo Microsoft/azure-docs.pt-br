@@ -1,23 +1,23 @@
 ---
 title: Azure Red Hat OpenShift executando OpenShift 4-configurar a autenticação Azure Active Directory usando o portal do Azure e o console Web do OpenShift
 description: Saiba como configurar a autenticação Azure Active Directory para um cluster do Azure Red Hat OpenShift executando o OpenShift 4 usando o portal do Azure e o console Web do OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: eda45b1a1a011a646915cf45e45218ae168a2af6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748079"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213072"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (Portal)
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -44,7 +44,7 @@ Navegue até **certificados & segredos** e clique em **novo segredo do cliente**
 
 ![Criar um segredo](media/aro4-ad-clientsecret.png)
 
-Navegue até a **visão geral** e anote a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)** . Você precisará delas em um estágio posterior.
+Navegue até a **visão geral** e anote a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)**. Você precisará delas em um estágio posterior.
 
 ![Recuperar IDs de aplicativo (cliente) e diretório (locatário)](media/aro4-ad-ids.png)
 
@@ -60,7 +60,7 @@ Você pode usar declarações opcionais para:
 
 Vamos configurar OpenShift para usar a `email` declaração e voltar para `upn` para definir o nome de usuário preferencial adicionando o `upn` como parte do token de ID retornado por Azure Active Directory.
 
-Navegue até **configuração de token (versão prévia)** e clique em **Adicionar declaração opcional** . Selecione **ID** e, em seguida, verifique o **email** e as declarações de **UPN** .
+Navegue até **configuração de token (versão prévia)** e clique em **Adicionar declaração opcional**. Selecione **ID** e, em seguida, verifique o **email** e as declarações de **UPN** .
 
 ![Captura de tela que mostra as declarações de email e UPN que foram adicionadas.](media/aro4-ad-tokens.png)
 
@@ -100,12 +100,12 @@ Você pode encontrar a URL do console de cluster executando o comando a seguir, 
 
 Inicie a URL do console em um navegador e faça logon usando as credenciais `kubeadmin`.
 
-Navegue até **Administração** , clique em **configurações de cluster** e selecione a guia **configuração global** . Role para selecionar **OAuth** .
+Navegue até **Administração**, clique em **configurações de cluster** e selecione a guia **configuração global** . Role para selecionar **OAuth**.
 
-Role para baixo para selecionar **Adicionar** em **provedores de identidade** e selecione **OpenID Connect** .
+Role para baixo para selecionar **Adicionar** em **provedores de identidade** e selecione **OpenID Connect**.
 ![Selecione OpenID Connect na lista suspensa provedores de identidade](media/aro4-oauth-idpdrop.png)
 
-Preencha o nome como **AAD** , a **ID do cliente** como a **ID do aplicativo** e o segredo do **cliente** . A **URL do emissor** é formatada da seguinte forma: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Substitua o espaço reservado pela ID de locatário que você recuperou anteriormente.
+Preencha o nome como **AAD**, a **ID do cliente** como a **ID do aplicativo** e o segredo do **cliente**. A **URL do emissor** é formatada da seguinte forma: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Substitua o espaço reservado pela ID de locatário que você recuperou anteriormente.
 
 ![Preencher detalhes do OAuth](media/aro4-oauth-idp-1.png)
 
@@ -115,6 +115,6 @@ Role para baixo até a seção de **declarações** e atualize o **nome de usuá
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verificar o logon por meio de Azure Active Directory
 
-Se agora fizer logoff do console Web do OpenShift e tentar fazer logon novamente, você verá uma nova opção para fazer logon com o **AAD** . Talvez seja necessário aguardar alguns minutos.
+Se agora fizer logoff do console Web do OpenShift e tentar fazer logon novamente, você verá uma nova opção para fazer logon com o **AAD**. Talvez seja necessário aguardar alguns minutos.
 
 ![Tela de logon com a opção Azure Active Directory](media/aro4-login-2.png)

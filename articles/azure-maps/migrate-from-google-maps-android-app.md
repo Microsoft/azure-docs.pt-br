@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f4b0642ce54b862b4d4c7b9663cf10e74b206281
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7f3d32a782c653b3be8b3d6f6714bc9065a73518
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680478"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042888"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutorial: Migrar um aplicativo Android do Google Maps
 
@@ -187,7 +187,7 @@ Para exibir um mapa usando o SDK do Azure Mapas para Android, as etapas a seguir
     3. Atualize o bloco de dependências. Adicione uma nova linha de dependência de implementação ao SDK mais recente do Android dos Azure Mapas:
 
         ```Java
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
         ```
 
         > [!Note]

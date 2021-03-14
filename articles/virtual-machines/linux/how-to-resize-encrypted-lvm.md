@@ -2,17 +2,17 @@
 title: Como redimensionar discos criptografados usando o Azure Disk Encryption
 description: Este artigo fornece instruções para redimensionar discos do ADE criptografados usando o gerenciamento de volume lógico.
 author: jofrance
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 732a2ef3c6c33d0b17deaf3b9bdc5d1ac5e5934c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c3f1d08ac6375dcc854f2c16b6f66901295f88e3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498907"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564553"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Como redimensionar dispositivos de gerenciamento de volume lógico que usam Azure Disk Encryption
 

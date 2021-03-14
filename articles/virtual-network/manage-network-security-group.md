@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222931"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694250"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -93,7 +93,7 @@ Em **monitoramento**, você pode habilitar ou desabilitar **as configurações d
 
 Para saber mais sobre as configurações comuns do Azure listadas, veja as seguintes informações:
 
-- [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
+- [Log de atividades](../azure-monitor/essentials/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -361,6 +361,11 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 | Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar um Grupo de Segurança de Rede                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   Excluir Grupo de Segurança de Rede                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associar um grupo de segurança de rede a uma interface de sub-rede ou rede 
+
+
+>[!NOTE]
+> Para executar `write` operações em um grupo de segurança de rede, a conta de assinatura deve ter pelo menos `read` permissões para o grupo de recursos junto com a `Microsoft.Network/networkSecurityGroups/write` permissão.
+
 
 ### <a name="network-security-group-rule"></a>Regra do grupo de segurança de rede
 

@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no Azure Active Directory empresa a cliente (B2C)
 description: Documentação nova e atualizada para o Azure Active Directory B2C (Business-to-customer).
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,28 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: c4561780a20bb2dfdef39269a49ebf8cb2a29fff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593003"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454610"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: o que há de novo
 
 Bem-vindo ao que há de novo na documentação Azure Active Directory B2C. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço B2C, consulte [What ' s New in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Protegendo a MFA (autenticação multifator) baseada em telefone](phone-based-mfa.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Exemplos de código do Azure Active Directory B2C](code-samples.md)
+- [Acompanhe o comportamento do usuário em Azure AD B2C usando Application Insights](analytics-with-application-insights.md)
+- [Configurar o comportamento da sessão no Azure Active Directory B2C](session-behavior.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

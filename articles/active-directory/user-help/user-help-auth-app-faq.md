@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226515"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418072"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -94,6 +94,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 ### <a name="device-registration"></a>Registro de dispositivos
 
 **P**: o que é o registro de dispositivo?
+
 **R**: sua organização pode exigir que você registre o dispositivo para controlar o acesso a recursos protegidos, como arquivos e aplicativos. Ela também pode ativar o acesso condicional para reduzir o risco de acesso indesejado a esses recursos. Você pode cancelar o registro do seu dispositivo em **Configurações**, mas poderá perder o acesso a e-mails no Outlook, arquivos no OneDrive e perderá a capacidade de usar o login por telefone.
 
 ### <a name="verification-codes-when-connected"></a>Códigos de verificação quando conectados
@@ -259,7 +260,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **P**: meus funcionários ou alunos terão que usar o preenchimento automático de senha no aplicativo autenticador?
 
-**R**: Sim, agora o preenchimento automático funciona para a maioria dos usuários empresariais mesmo quando uma conta corporativa ou de estudante é adicionada ao aplicativo autenticador. Você pode preencher um formulário para configurar (permitir ou negar) o preenchimento automático da sua organização e [enviá-lo para a equipe do autenticador](https://aka.ms/ConfigureAutofillInAuthenticator).
+**R**: Sim, o preenchimento automático de suas [contas pessoais da Microsoft](https://go.microsoft.com/fwlink/?linkid=2144423) agora funciona para a maioria dos usuários empresariais, mesmo quando uma conta corporativa ou de estudante é adicionada ao aplicativo autenticador. Você pode preencher um formulário para permitir ou negar o preenchimento automático da sua organização e [enviá-lo à equipe do autenticador](https://aka.ms/ConfigureAutofillInAuthenticator). O preenchimento automático não está disponível atualmente para contas corporativas ou de estudante.
 
 **P**: a senha da conta corporativa ou de estudante do meu usuário será sincronizada automaticamente?
 

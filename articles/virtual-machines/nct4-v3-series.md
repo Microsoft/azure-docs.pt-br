@@ -1,19 +1,18 @@
 ---
 title: NCas T4 v3-Series
 description: Especificações para as VMs da série NCas T4 v3.
-services: virtual-machines
-ms.subservice: sizes
-author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091673"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417800"
 ---
 # <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
@@ -29,7 +28,7 @@ As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesl
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
-Interconexão NVIDIA NVLink: sem suporte<br>
+Interconexão NVIDIA NVLink: com suporte<br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
@@ -47,6 +46,8 @@ Interconexão NVIDIA NVLink: sem suporte<br>
 Para aproveitar os recursos de GPU das VMs da série NCasT4_v3 do Azure que executam Windows ou Linux, os drivers NVIDIA GPU devem ser instalados.
 
 Para instalar os drivers NVIDIA GPU manualmente, consulte [instalação do driver de GPU da série N para Windows](./windows/n-series-driver-setup.md) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
+
+A extensão de driver de GPU NVIDIA do Azure implantará drivers CUDA nas VMs da série NCasT4_v3. Para cargas de trabalho de visualização e elementos gráficos, instale manualmente os drivers de grade com suporte do Azure.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 

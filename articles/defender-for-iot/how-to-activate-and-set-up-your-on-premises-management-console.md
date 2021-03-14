@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623747"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522573"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar seu console de gerenciamento local 
 
@@ -155,7 +155,7 @@ Para dar suporte a esse ambiente, você precisa criar uma topologia de negócios
 
 Os grupos de acesso permitem um melhor controle sobre onde os usuários gerenciam e analisam dispositivos na plataforma defender para IoT.
 
-### <a name="how-it-works"></a>Como ele funciona
+### <a name="how-it-works"></a>Como isso funciona
 
 Para cada site, você pode definir uma unidade de negócios e uma região. Em seguida, você pode adicionar zonas, que são entidades lógicas em sua rede. 
 
@@ -316,6 +316,6 @@ Para cancelar a atribuição e excluir um sensor:
 
 3. Para excluir o sensor não atribuído do site, selecione o sensor na lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
 [Solucionar problemas do sensor e do console de gerenciamento local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

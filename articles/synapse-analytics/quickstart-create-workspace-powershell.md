@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43f07bc26e75b440cde6d26db8ac8fb80aa3e39c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a19d1f26616697e15ae4c39a63c44bdaf83f78f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796920"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675755"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Início Rápido: Criar um workspace do Azure Synapse com o Azure PowerShell
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conta de armazenamento do Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Conta de armazenamento do Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > O workspace do Azure Synapse precisa conseguir fazer leituras e gravações na conta do ADLS Gen2 selecionada. Para qualquer conta de armazenamento vinculada como a conta de armazenamento primária, você precisa habilitar o **namespace hierárquico** na criação da conta de armazenamento, conforme descrito em [Criar uma Conta de Armazenamento](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).

@@ -1,23 +1,18 @@
 ---
 title: Alta disponibilidade com o gateway de gerenciamento de dados no Azure Data Factory
 description: Este artigo explica como você pode escalar horizontalmente um Gateway de Gerenciamento de Dados adicionando mais nós e escalar verticalmente com o aumento do número de trabalhos simultâneos que podem ser executados em um nó.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003609"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391721"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
@@ -98,7 +93,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
         > Consulte a seção [Requisitos de certificado TLS/SSL](#tlsssl-certificate-requirements) para obter uma lista de requisitos para usar um certificado TLS/SSL. 
     5. Depois que o gateway for instalado com êxito, clique em Iniciar o Gerenciador de Configurações:
     
-        ![Instalação manual – iniciar gerenciador de configurações](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Instalação manual – iniciar gerenciador de configurações](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. Consulte o Gerenciador de Configurações do Gateway de Gerenciamento de Dados no nó (computador do Windows local), que mostra o status de conectividade, o **nome do gateway** e **o nome do nó**.  
 
         ![Gateway de Gerenciamento de Dados – instalação do gateway bem-sucedida](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -133,7 +128,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
 Você pode atualizar um gateway existente para usar o recurso de alta disponibilidade e escalabilidade. Esse recurso funciona somente com nós que têm o gateway de gerenciamento de dados da versão >= 2.12.xxxx. Você pode ver a versão do Gateway de Gerenciamento de Dados instalado no computador na guia **Ajuda** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados. 
 
 1. Atualize o gateway no computador local para a versão mais recente, baixando e executando um pacote de instalação MSI do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte a seção [Instalação](data-factory-data-management-gateway.md#installation) para obter detalhes.  
-2. Navegue até o Portal do Azure. Inicie a **página do Data Factory** o seu data factory. Clique no bloco Serviços vinculados para iniciar a **página Serviços vinculados**. Selecione o gateway para iniciar a **página do gateway**. Clique na **Versão Prévia do Recurso** e habilite-a, conforme mostrado na imagem a seguir: 
+2. Navegue até o portal do Azure. Inicie a **página do Data Factory** o seu data factory. Clique no bloco Serviços vinculados para iniciar a **página Serviços vinculados**. Selecione o gateway para iniciar a **página do gateway**. Clique na **Versão Prévia do Recurso** e habilite-a, conforme mostrado na imagem a seguir: 
 
     ![Gateway de Gerenciamento de Dados – habilitar versão prévia do recurso](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Quando a versão prévia do recurso estiver habilitada no portal, feche todas as páginas. Reabra a **página Gateway** para ver a nova IU (interface do usuário) da versão prévia.
@@ -185,7 +180,7 @@ Você pode habilitar as **Configurações Avançadas** na página **Gateway** pa
 
 Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
-Name | Nome do gateway lógico e nós associada ao gateway.  
+Nome | Nome do gateway lógico e nós associada ao gateway.  
 Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) . 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 
@@ -200,7 +195,7 @@ Função | Há dois tipos de funções – Dispatcher e de trabalho. Todos os n�
 
 A tabela a seguir fornece os possíveis status de um **nó de gateway**: 
 
-Status  | Comentários/Cenários
+Status    | Comentários/Cenários
 :------- | :------------------
 Online | Nó conectado ao serviço Data Factory.
 Offline | O nó está offline.
@@ -246,11 +241,11 @@ Quando a memória e a CPU disponíveis não são bem utilizadas mas a capacidade
 - Você não pode registrar um nó de gateway para um gateway lógico quando a versão do nó é inferior à versão do gateway lógico. Excluir todos os nós do gateway lógico do portal de forma que você possa registrar um nó de versão inferior (fazer downgrade dele). Se você excluir todos os nós de um gateway lógico, instale manualmente e registre novos nós nesse gateway lógico. Não há suporte para a instalação expressa nesse caso.
 - Você não pode usar a instalação expressa para instalar nós em um gateway lógico existente, que ainda está usando credenciais de nuvem. Você pode verificar onde as credenciais são armazenadas do Gerenciador de Configurações do Gateway na guia Configurações.
 - Você não pode usar a instalação expressa para instalar nós em um gateway lógico existente, que ainda tem criptografia de nó para nó habilitada. Já que a configuração do modo de criptografia consiste em adicionar manualmente os certificados, a instalação expressa não é mais uma opção. 
-- Para obter uma cópia do arquivo do ambiente local, você não deve mais usar \\localhost ou C:\files, já que o localhost ou a unidade local podem não estar acessíveis por meio de todos os nós. Em vez disso, use \\ServerName\files para especificar o local dos arquivos.
+- Para obter uma cópia do arquivo do ambiente local, você não deve mais usar \\localhost ou C:\files, já que o localhost ou a unidade local podem não estar acessíveis por meio de todos os nós. Em vez disso, use \\ ServerName\files para especificar o local dos arquivos.
 
 
 ## <a name="rolling-back-from-the-preview"></a>Revertendo da versão prévia 
-Para reverter da versão prévia, exclua todos os nós, com exceção de um. Não importa quais nós você excluir, mas verifique se você tem pelo menos um nó no gateway lógico. Você pode excluir um nó desinstalando o gateway no computador ou usando o Portal do Azure. No Portal do Azure, na página **Data Factory**, clique em Serviços vinculados para iniciar a página **Serviços vinculados**. Selecione o gateway para iniciar a página **Gateway**. Na página Gateway, você pode ver os nós associados ao gateway. A página permite excluir um nó do gateway.
+Para reverter da versão prévia, exclua todos os nós, com exceção de um. Não importa quais nós você exclui, mas certifique-se de ter pelo menos um nó no gateway lógico. Você pode excluir um nó desinstalando o gateway no computador ou usando o Portal do Azure. No Portal do Azure, na página **Data Factory**, clique em Serviços vinculados para iniciar a página **Serviços vinculados**. Selecione o gateway para iniciar a página **Gateway**. Na página Gateway, você pode ver os nós associados ao gateway. A página permite excluir um nó do gateway.
  
 Depois de excluí-lo, clique na **versão prévia dos recursos** na mesma página do Portal do Azure e desabilite a versão prévia do recurso. Você redefiniu o gateway para um gateway de um nó de DG (disponibilidade geral).
 

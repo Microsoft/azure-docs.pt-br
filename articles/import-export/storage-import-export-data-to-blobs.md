@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 77a1c02c1ec59778521104e57f3bf3de8e52fa44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706194"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177348"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -62,13 +62,13 @@ Execute as etapas a seguir para preparar as unidades.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Abra um PowerShell ou janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o comando a seguir:
+5. Abra um PowerShell ou uma janela de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o comando a seguir:
 
     `cd C:\WaImportExportV1`
 6. Para obter a chave do BitLocker da unidade, execute o comando a seguir:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho dos dados, isso pode levar de várias horas a dias.**
+7. Para preparar o disco, execute o comando a seguir. **Dependendo do tamanho dos dados, a preparação do disco pode levar várias horas para dias.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -86,13 +86,14 @@ Execute as etapas a seguir para preparar as unidades.
     |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure.         |
-    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso é `BlockBlob` e para BLOBs de páginas, é `PageBlob` .         |
-    |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e que os dados existentes no disco devem ser preparados.          |
+    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, o tipo de blob é `BlockBlob` e para BLOBs de páginas, é `PageBlob` .         |
+    |/skipwrite:     | Especifica que não há novos dados necessários para serem copiados e os dados existentes no disco devem ser preparados.          |
     |/enablecontentmd5:     |A opção quando habilitado, garante que o MD5 é computado e definido como `Content-md5` propriedade em cada blob. Use esta opção somente se desejar usar o `Content-md5` campo depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade de dados (que ocorre por padrão). A configuração aumenta o tempo necessário para carregar dados na nuvem.          |
 8. Repita a etapa anterior para cada disco que precisa ser enviado. Um arquivo de diário com o nome fornecido é criado para cada execução da linha de comando.
 
     > [!IMPORTANT]
-    > * Juntamente com o arquivo de diário, um arquivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também é criado na mesma pasta em que a ferramenta reside. O arquivo .xml é usado no lugar do arquivo de diário ao criar um trabalho, se o arquivo de diário for muito grande.
+    > * Juntamente com o arquivo de diário, um arquivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também é criado na mesma pasta em que a ferramenta reside. O arquivo. xml é usado no lugar do arquivo de diário ao criar um trabalho se o arquivo de diário for muito grande.
+   > * O tamanho máximo do arquivo de diário que o portal permite é de 2 MB. Se o arquivo de diário exceder esse limite, um erro será retornado.
 
 ## <a name="step-2-create-an-import-job"></a>Etapa 2: criar um trabalho de importação
 
@@ -101,50 +102,61 @@ Execute as etapas a seguir para preparar as unidades.
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 
 1. Faça logon em https://portal.azure.com/.
-2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
+2. Pesquise **trabalhos de importação/exportação**.
 
-    ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+   ![Pesquisar em trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Clique em **criar trabalho de importação/exportação**.
+3. Selecione **+ Novo**.
 
-    ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+   ![Selecione novo para criar um novo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Em **Noções básicas**:
 
-   * Selecione **Importar para o Azure**.
-   * Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
-       * O nome pode conter apenas letras minúsculas, números e hifens.
-       * O nome deve começar com uma letra e não pode conter espaços.
-   * Selecione uma assinatura.
-   * Insira ou selecione um grupo de recursos.
+   1. Selecione uma assinatura.
+   1. Selecione um grupo de recursos ou selecione **criar novo** e crie um novo.
+   1. Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
+      * O nome pode conter apenas letras minúsculas, números e hifens.
+      * O nome deve começar com uma letra e não pode conter espaços.
 
-     ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+   1. Selecione **Importar para o Azure**.
+
+    ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+
+    Selecione **Avançar: detalhes do trabalho >** para continuar.
 
 5. Em **Detalhes do trabalho**:
 
-   * Carregue os arquivos de diário da unidade que você obteve durante a etapa de preparação da unidade. Se utilizou `waimportexport.exe version1`, envie um arquivo para cada unidade que você preparou. Se o tamanho do arquivo de diário exceder 2 MB, você poderá usar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criado com o arquivo de diário.
-   * Selecione a conta de armazenamento de destino onde os dados residirão.
-   * O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
+   1. Carregue os arquivos de diário que você criou durante a [Etapa 1: preparar as unidades](#step-1-prepare-the-drives) anterior. Se utilizou `waimportexport.exe version1`, envie um arquivo para cada unidade que você preparou. Se o tamanho do arquivo de diário exceder 2 MB, você poderá usar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criado com o arquivo de diário.
+   1. Selecione a região do Azure de destino para o pedido.
+   1. Selecione a conta de armazenamento para a importação.
+      
+      O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
+   1. Se você não quiser salvar um log detalhado, limpe o **log detalhado salvar na opção de contêiner de BLOB ' waimportexport '** .
 
-   ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
 
-6. Em **Informações sobre a remessa de devolução**:
+   Selecione **Avançar: envio >** para continuar.
 
-   * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
-   * Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
-   * Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
+6. No **envio**:
+
+   1. Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
+   1. Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
+   1.  Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
        > [!TIP]
        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-     ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+   ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
-7. No **Resumo**:
+   Selecione **Examinar + criar** para prosseguir.
 
-   * Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
-   * Clique em **OK** para criar o trabalho de importação.
+7. No resumo do pedido:
 
-     ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+   1. Examine os **termos** e, em seguida, selecione "Eu reconheço que todas as informações fornecidas estão corretas e concorde com os termos e condições". Em seguida, a validação é executada.
+   1. Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
+   1. Selecione **Criar**.
+
+     ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -223,7 +235,7 @@ Use as etapas a seguir para criar um trabalho de importação no CLI do Azure.
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
 
 Use as etapas a seguir para criar um trabalho de importação no Azure PowerShell.
 
@@ -323,7 +335,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Etapa 3 (opcional): configurar a chave gerenciada pelo cliente
 
-Ignore esta etapa e vá para a próxima etapa se você quiser usar a chave gerenciada da Microsoft para proteger suas chaves do BitLocker para as unidades. Para configurar sua própria chave para proteger a chave do BitLocker, siga as instruções em [Configurar chaves gerenciadas pelo cliente com Azure Key Vault para importação/exportação do Azure no portal do Azure](storage-import-export-encryption-key-portal.md)
+Ignore esta etapa e vá para a próxima etapa se você quiser usar a chave gerenciada da Microsoft para proteger suas chaves do BitLocker para as unidades. Para configurar sua própria chave para proteger a chave do BitLocker, siga as instruções em [Configurar chaves gerenciadas pelo cliente com Azure Key Vault para importação/exportação do Azure no portal do Azure](storage-import-export-encryption-key-portal.md).
 
 ## <a name="step-4-ship-the-drives"></a>Etapa 4: enviar as unidades
 

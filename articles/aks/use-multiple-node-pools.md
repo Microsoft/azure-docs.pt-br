@@ -4,12 +4,12 @@ description: Saiba como criar e gerenciar vários pools de nós para um cluster 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694239"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218478"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no AKS (Serviço de Kubernetes do Azure)
 
@@ -130,9 +130,11 @@ Uma carga de trabalho pode exigir a divisão de nós de um cluster em pools sepa
 #### <a name="limitations"></a>Limitações
 
 * Todas as sub-redes atribuídas a nodepools devem pertencer à mesma rede virtual.
-* O pods do sistema deve ter acesso a todos os nós no cluster para fornecer funcionalidade crítica, como a resolução DNS por meio de coreDNS.
-* A atribuição de uma sub-rede exclusiva por pool de nós é limitada à CNI do Azure durante a visualização.
-* Não há suporte para o uso de políticas de rede com uma sub-rede exclusiva por pool de nós durante a versão prévia.
+* O pods do sistema deve ter acesso a todos os nós/pods no cluster para fornecer funcionalidade crítica, como resolução de DNS e encapsulamento de kubectl logs/proxy de envio de porta/exec.
+* Se você expandir sua VNET depois de criar o cluster, deverá atualizar o cluster (executar qualquer operação clster gerenciada, mas as operações do pool de nós não contam) antes de adicionar uma sub-rede fora do CIDR original. O AKS ocorrerá um erro no pool de agentes adicionar agora, embora o tenha permitido originalmente. Se você não souber como reconciliar o arquivo de cluster, um tíquete de suporte. 
+* Não há suporte para a política de rede Calico. 
+* Não há suporte para a política de rede do Azure.
+* Kube-o proxy espera um único CIDR contíguo e o usa para três optmizations. Consulte este [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) e--cluster-CIDR [aqui](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) para obter detalhes. No Azure CNI, a sub-rede do seu primeiro pool de nós será fornecida ao Kube-proxy. 
 
 Para criar um pool de nós com uma sub-rede dedicada, passe a ID de recurso de sub-rede como um parâmetro adicional ao criar um pool de nós.
 
@@ -818,13 +820,13 @@ Use [grupos de posicionamento de proximidade][reduce-latency-ppg] para reduzir a
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-delete
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
@@ -842,5 +844,5 @@ Use [grupos de posicionamento de proximidade][reduce-latency-ppg] para reduzir a
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
 [reduce-latency-ppg]: reduce-latency-ppg.md

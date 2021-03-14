@@ -4,15 +4,15 @@ description: A linha de base de segurança de bastiões do Azure fornece diretri
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b8f0cfdf3ca6e3b0bb0b455a5690d6a2727786ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586766"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Linha de base de segurança do Azure para bastiões do Azure
 
@@ -69,7 +69,11 @@ A conectividade com o Gerenciador de gateway e a marca de serviço do Azure é p
 
 **Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD), que é o serviço de gerenciamento de identidade e acesso padrão do Azure. Os usuários podem acessar o portal do Azure usando a autenticação do Azure AD para gerenciar o serviço de bastiões do Azure (criar, atualizar e excluir recursos de bastiões).
 
-Conectar-se a máquinas virtuais usando a bastiões do Azure depende de uma chave SSH ou nome de usuário/senha e atualmente não dá suporte ao uso de credenciais do Azure AD.
+Conectar-se a máquinas virtuais usando a bastiões do Azure depende de uma chave SSH ou nome de usuário/senha e atualmente não dá suporte ao uso de credenciais do Azure AD. 
+
+Você pode armazenar suas chaves SSH como Azure Key Vault segredos e usar esses segredos para se conectar às suas máquinas virtuais usando a bastiões do Azure. Você pode controlar o acesso do usuário a esses segredos atribuindo [políticas de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md) a usuários individuais ou a grupos do Azure AD. Os usuários precisarão das seguintes permissões para usar esse método para se conectar a uma máquina virtual:
+- **Obter** acesso aos segredos armazenados no Azure Key Vault escolhido
+- **Listar** o acesso aos segredos armazenados no Azure Key Vault escolhido
 
 Além de uma chave SSH ou nome de usuário/senha, ao se conectar a máquinas virtuais usando a bastiões do Azure, seu usuário precisará das seguintes atribuições de função:
 - Função de leitor na máquina virtual de destino
@@ -106,7 +110,8 @@ Para saber mais, consulte as referências a seguir:
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: usar controles de autenticação forte para todo o acesso baseado no Azure Active Directory
 
-**Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD) para acesso e gerenciamento do serviço. Configure a autenticação multifator do Azure para seu locatário do Azure AD. O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.  
+**Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD) para acesso e gerenciamento do serviço. Configure Azure Active Directory autenticação multifator para seu locatário do Azure AD. O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.
+  
 - Autenticação multifator: habilite o Azure AD MFA e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure para sua configuração de MFA. A MFA pode ser imposta em todos os usuários, Selecionar usuários ou no nível por usuário com base nas condições de entrada e nos fatores de risco. 
 
 - Autenticação com senha: três opções de autenticação com senha estão disponíveis: Windows Hello para empresas, Microsoft Authenticator app e métodos de autenticação locais, como cartões inteligentes. 
@@ -371,11 +376,11 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede) e logs d
 
 **Diretrizes**: logs de atividade, que estão disponíveis automaticamente, contêm todas as operações de gravação (put, post, Delete) para seus recursos de bastiões do Azure, exceto operações de leitura (Get). Os logs de atividades podem ser usados para encontrar um erro ao solucionar problemas ou para monitorar como um usuário em sua organização modificou um recurso.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Habilitar logs de recursos do Azure para bastiões do Azure ](diagnostic-logs.md)
+- [Habilitar logs de recursos do Azure para bastiões do Azure](diagnostic-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -391,7 +396,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiro
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -405,9 +410,9 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização.
 
-- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 - [Habilitar e trabalhar com os logs de bastiões do Azure](diagnostic-logs.md)
 

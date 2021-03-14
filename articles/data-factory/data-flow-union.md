@@ -3,17 +3,16 @@ title: Transformação Union no fluxo de dados de mapeamento
 description: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: e10418c18e6f8e0089a893e9d33ee1081f3131f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61c53cabc8f784ba9f0a3e78b5de01be134b0cd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823641"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367836"
 ---
 # <a name="union-transformation-in-mapping-data-flow"></a>Transformação Union no fluxo de dados de mapeamento
 

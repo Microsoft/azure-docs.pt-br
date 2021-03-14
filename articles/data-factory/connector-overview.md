@@ -1,20 +1,17 @@
 ---
 title: Visão geral do conector do Azure Data Factory
 description: Conheça os conectores com suporte no Data Factory.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/10/2021
 ms.author: jingwang
-ms.reviewer: craigg
-ms.openlocfilehash: 9b346c24b6a363e66e56f6c16b70058df3864c88
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: cfd3376174ec0f7789389988245f7377b9896a00
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945814"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015906"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector do Azure Data Factory
 
@@ -39,7 +36,7 @@ Azure Data Factory pode alcançar um conjunto mais amplo de armazenamentos de da
 
 ## <a name="supported-file-formats"></a>Formatos de arquivo com suporte
 
-O Azure Data Factory dá suporte aos seguintes formatos de arquivo. Consulte cada artigo para configurações baseadas em formato.
+O Azure Data Factory é compatível com os formatos de arquivo a seguir. Confira cada artigo para obter configurações baseadas em formato.
 
 - [Formato Avro](format-avro.md)
 - [Formato binário](format-binary.md)
@@ -57,5 +54,5 @@ O Azure Data Factory dá suporte aos seguintes formatos de arquivo. Consulte cad
 - [Atividade de cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
+- [Atividade obter metadados](control-flow-get-metadata-activity.md)
 - [Excluir atividade](delete-activity.md)

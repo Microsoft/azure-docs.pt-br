@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537299"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097629"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Visão geral de segurança para o Azure Pesquisa Cognitiva
 
@@ -114,12 +114,6 @@ No Azure Pesquisa Cognitiva, o Resource Manager é usado para criar ou excluir o
 > [!Note]
 > Usando mecanismos do Azure, você pode bloquear uma assinatura ou um recurso para impedir a exclusão acidental ou não autorizada de seu serviço de pesquisa por usuários com direitos de administrador. Para obter mais informações, consulte [Bloquear recursos para evitar a exclusão inesperada](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="threat-protection"></a>Proteção contra ameaças
-
-O acesso ao conteúdo em um serviço de pesquisa é exclusivamente por meio de consultas. Se o serviço de pesquisa for o destino de um ataque de consulta, o sistema descartará as consultas à medida que o sistema se aproximar da capacidade de pico. 
-
-A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice e a API de operações de serviço têm limites de taxa de solicitação estáticos. Você pode examinar os limites de solicitação de taxa estática em [limites de limitação](search-limits-quotas-capacity.md#throttling-limits). Para obter mais informações sobre o comportamento de limitação, consulte [Monitorando solicitações de consulta](search-monitor-queries.md).
-
 <a name="encryption"></a>
 
 ## <a name="data-protection"></a>Proteção de dados
@@ -184,7 +178,7 @@ Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 + [Conceitos básicos de segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança do Azure](https://azure.microsoft.com/overview/security)

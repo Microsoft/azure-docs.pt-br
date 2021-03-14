@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713364"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -79,7 +79,7 @@ Para soluções de backup de carga de trabalho do Azure, como SQL e SAP HANA, ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
 
-Há algumas exceções quando um alerta não é gerado em uma falha. Eles são:
+Há algumas exceções quando um alerta não é gerado em uma falha. Elas são:
 
 - O usuário cancelou explicitamente o trabalho em execução
 - O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
@@ -119,6 +119,18 @@ Se a frequência tiver sido definida como um resumo por hora e um alerta tiver s
 Para desativar/resolver um alerta ativo, você pode selecionar o item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão de **inativação** na parte superior. A seleção desse botão irá alterar o status do alerta para **inativo**. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando **inativo**.
 
 ![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Alertas de Azure Monitor para o backup do Azure (versão prévia)
+
+O backup do Azure também fornece alertas via Azure Monitor, para permitir que os usuários tenham uma experiência consistente para o gerenciamento de alertas em diferentes serviços do Azure, incluindo backup. Com Azure Monitor alertas, você pode rotear alertas para qualquer canal de notificação com suporte do backup do Azure, como email, ITSM, webhook, aplicativo lógico e assim por diante.
+
+Atualmente, esse recurso está disponível para bancos de dados do Azure para servidor PostgreSQL, BLOBs do Azure e Managed Disks do Azure. Os alertas são gerados para os cenários a seguir e podem ser acessados navegando até um cofre de backup e clicando no item de menu **alertas** :
+
+- Excluir dados de backup
+- Falha de backup (para obter alertas de falha de backup, você precisa registrar o sinalizador AFEC chamado **EnableAzureBackupJobFailureAlertsToAzureMonitor** por meio do portal de visualização)
+- Falha na restauração (para obter alertas de falha de restauração, você precisa registrar o sinalizador AFEC chamado **EnableAzureBackupJobFailureAlertsToAzureMonitor** por meio do portal de visualização)
+
+Para obter mais informações sobre alertas de Azure Monitor, consulte [visão geral de alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d14ae86d41caec3c1bd897c2c81bee748dcc312c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6ead00a0979d81ef11ac81fb13a1abe31317691d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050877"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571316"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan"></a>Azure Monitor insights para WAN virtual
 
@@ -87,5 +87,5 @@ Você pode selecionar **Exibir métricas detalhadas** para acessar a página de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais, confira [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+* Para saber mais, confira [métricas em Azure monitor](../azure-monitor/essentials/data-platform-metrics.md).
 * Para obter uma descrição completa de todas as métricas de WAN virtual, consulte [métricas e logs de WAN virtual](logs-metrics.md).

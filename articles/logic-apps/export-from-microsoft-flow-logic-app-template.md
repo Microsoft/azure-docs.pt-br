@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633240"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699089"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
 
-> Para os fluxos criados após outubro de 2020, você não pode mais exportar do Power Automate e implantar no aplicativo lógico do Azure.
-
 Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Power mate](https://flow.microsoft.com) para [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
 
-> [!NOTE]
-> Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode migrar somente fluxos de energia automatizada que têm conectores equivalentes em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia. Atualmente, não há suporte para fluxos baseados em OpenAPI na energia automatizada para exportação e implantação como modelos de aplicativos lógicos.
->
-> * Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [!IMPORTANT]
+> A exportação para aplicativos lógicos não está disponível para fluxos de automatização de energia criados após agosto de 2020. Em outubro de 2020, automatize a criação de novo fluxo padronizado no [protocolo OpenAPI 2,0](https://swagger.io/specification/v2/). Novos fluxos com base nesse protocolo são incompatíveis com fluxos de trabalho de aplicativos lógicos; portanto, exportar esses fluxos para aplicativos lógicos foi desabilitado. Em vez disso, você deve criar manualmente os [aplicativos lógicos](quickstart-create-first-logic-app-workflow.md) para esses fluxos.
+
+Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode migrar somente fluxos de energia automatizada que têm conectores equivalentes em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia. 
+
+* Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * O fluxo que você deseja exportar da energia automatizada
 
@@ -72,13 +72,13 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
       |----------|-------------|
       | **Assinatura** | A assinatura do Azure a ser usada para cobrança |
       | **Grupo de recursos** | O grupo de recursos do Azure a ser usado para seu aplicativo lógico. Você pode usar um grupo existente ou criar um novo grupo. |
-      | **Localização** | A região do Azure a ser usada se você criar um novo grupo de recursos |
+      | **Localidade** | A região do Azure a ser usada se você criar um novo grupo de recursos |
       | **Nome do Aplicativo Lógico** | O nome a ser usado para o recurso do aplicativo lógico |
       | **Local do aplicativo lógico** | A região do Azure em que você deseja criar o recurso de aplicativo lógico, se for diferente do grupo de recursos do Azure |
       | <*nome da conexão*> | Um ou vários nomes para todas as conexões criadas anteriormente que o aplicativo lógico pode reutilizar <p><p>**Observação**: se esse aplicativo lógico for o primeiro, todas as conexões serão criadas como novas, para que você possa aceitar os nomes padrão. Caso contrário, você pode especificar os nomes para as conexões criadas anteriormente, que podem ser usadas em vários aplicativos lógicos. |
       |||
 
-      Por exemplo:
+      Por exemplo: 
 
       ![Especificar parâmetros de entrada para o modelo](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ Se você configurou o Visual Studio com os [pré-requisitos](../logic-apps/quick
 
    ![Editar parâmetros de implantação](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Ao iniciar a implantação, o status da implantação do aplicativo é exibido na janela **Saída** do Visual Studio. Se o status não aparecer, abra a lista **Mostrar saída de** e selecione o grupo de recursos do Azure. Por exemplo:
+   Ao iniciar a implantação, o status da implantação do aplicativo é exibido na janela **Saída** do Visual Studio. Se o status não aparecer, abra a lista **Mostrar saída de** e selecione o grupo de recursos do Azure. Por exemplo: 
 
    ![janela Saída](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

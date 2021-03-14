@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996369"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032918"
 ---
 Consultas ao contêiner são cobradas pelo tipo de preço do recurso do Azure usado para `ApiKey`.
 
@@ -17,7 +17,7 @@ Os contêineres de serviços cognitivas do Azure não são licenciados para sere
 
 ### <a name="connect-to-azure"></a>Conectar-se ao Azure
 
-O contêiner precisa dos valores de argumento de cobrança para ser executado. Esses valores permitem que o contêiner se conecte ao ponto de extremidade de cobrança. O contêiner relata o uso a cada 10 a 15 minutos. Se o contêiner não se conectar ao Azure dentro da janela de tempo permitida, ele continuará sendo executado, mas não atenderá a consultas até que o ponto de extremidade de cobrança seja restaurado. Serão realizadas 10 tentativas de conexão no mesmo intervalo de tempo de 10 a 15 minutos. Se ele não puder se conectar ao ponto de extremidade de cobrança dentro de 10 tentativas, o contêiner parará de atender solicitações.
+O contêiner precisa dos valores de argumento de cobrança para ser executado. Esses valores permitem que o contêiner se conecte ao ponto de extremidade de cobrança. O contêiner relata o uso a cada 10 a 15 minutos. Se o contêiner não se conectar ao Azure dentro da janela de tempo permitida, ele continuará sendo executado, mas não atenderá a consultas até que o ponto de extremidade de cobrança seja restaurado. Serão realizadas 10 tentativas de conexão no mesmo intervalo de tempo de 10 a 15 minutos. Se ele não puder se conectar ao ponto de extremidade de cobrança dentro de 10 tentativas, o contêiner parará de atender solicitações. Consulte as [perguntas frequentes do contêiner de serviços cognitivas](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work) para obter um exemplo das informações enviadas à Microsoft para cobrança.
 
 ### <a name="billing-arguments"></a>Argumentos de cobrança
 

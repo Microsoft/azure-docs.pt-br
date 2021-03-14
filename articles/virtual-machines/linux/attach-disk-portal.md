@@ -2,17 +2,18 @@
 title: Anexação de um disco de dados a uma VM do Linux
 description: Utilize o portal para anexar disco de dados novo ou existente a uma VM Linux.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.collection: linux
+ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575967"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556818"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md). 

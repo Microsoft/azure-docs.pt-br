@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461307"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670677"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerenciada do workspace do Azure Synapse
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá sobre a identidade gerenciada no workspace do Azu
 
 Identidade gerenciada para recursos do Azure é um recurso do Azure Active Directory. O recurso oferece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Você pode usar a funcionalidade de identidade gerenciada para autenticar em qualquer serviço que dê suporte à autenticação do Azure AD.
 
-Identidades gerenciadas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como MSI (Identidade de Serviço Gerenciada). Confira [Identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para saber mais.
+Identidades gerenciadas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como MSI (Identidade de Serviço Gerenciada). Confira [Identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) para saber mais.
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Identidade gerenciada do workspace do Azure Synapse
 

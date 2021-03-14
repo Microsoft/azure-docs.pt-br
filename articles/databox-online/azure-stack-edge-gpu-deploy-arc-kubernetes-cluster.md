@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787444"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437597"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar o arco do Azure no cluster kubernetes no dispositivo de GPU pro do Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo mostra como habilitar o arco do Azure em um cluster kubernetes existente em seu dispositivo Azure Stack Edge pro. 
 
@@ -86,7 +88,7 @@ Você também pode registrar provedores de recursos por meio do `az cli` . Para 
 
 1. Para criar uma entidade de serviço, use o comando a seguir por meio do `az cli` .
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     Para obter informações sobre como fazer logon no `az cli` , [inicie o Cloud Shell no portal do Azure](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
@@ -228,4 +230,4 @@ Para remover o gerenciamento de arco do Azure, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para entender como executar uma implantação do Azure Arc, consulte [implantar um aplicativo de livro de visitas sem monitoração de estado do PHP com o Redis via GitOps em um dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+Para entender como executar uma implantação do Azure Arc, consulte [implantar um aplicativo PHP sem estado `Guestbook` com o Redis via GitOps em um dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

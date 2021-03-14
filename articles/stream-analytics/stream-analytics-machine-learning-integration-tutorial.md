@@ -1,18 +1,18 @@
 ---
 title: Integração do Azure Stream Analytics com o Azure Machine Learning Studio (clássico)
 description: Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio (clássico), usando uma função definida pelo usuário.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: sidramadoss
+ms.author: sidram
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1ebe62c1b90e09b36dd75b5bda4054cca08d5759
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015293"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441203"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Fazer análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
@@ -58,7 +58,7 @@ Nesta etapa, você carrega um arquivo CSV em seu contêiner de armazenamento.
 
 3. Selecione **Examinar + criar**. Em seguida, selecione **criar** para implantar sua conta de armazenamento.
 
-4. Quando a implantação for concluída, navegue até sua conta de armazenamento. Em **Serviço Blob**, selecione **Contêineres**. Em seguida, selecione **+ contêiner** para criar um novo contêiner.
+4. Quando a implantação for concluída, navegue até sua conta de armazenamento. No **Serviço Blob**, selecione **Contêineres**. Em seguida, selecione **+ contêiner** para criar um novo contêiner.
 
    ![Criar um contêiner de armazenamento de blob para entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -126,7 +126,7 @@ O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente pa
    |Contêiner|Selecione o contêiner que você criou na etapa anterior.|
    |Formato de serialização do evento|CSV|
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ### <a name="configure-the-job-output"></a>Configurar a saída do trabalho
 
@@ -144,7 +144,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
    |Contêiner|Selecione o contêiner que você criou na etapa anterior.|
    |Formato de serialização do evento|CSV|
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ### <a name="add-the-studio-classic-function"></a>Adicionar a função Studio (clássico)
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584503"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175100"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -71,9 +71,9 @@ A sessão de aplicativo pode ser uma sessão baseada em cookie armazenada sob o 
 
 Você pode configurar o comportamento da sessão de Azure AD B2C, incluindo:
 
-- Tempo de **vida da sessão do aplicativo Web (minutos)** – a quantidade de vezes que o cookie de sessão Azure ad B2C é armazenado no navegador do usuário após a autenticação bem-sucedida. Você pode definir o tempo de vida da sessão como um valor de 15 a 720 minutos.
+- Tempo de **vida da sessão do aplicativo Web (minutos)** – a quantidade de vezes que o cookie de sessão Azure ad B2C é armazenado no navegador do usuário após a autenticação bem-sucedida. Você pode definir o tempo de vida da sessão de até 24 horas.
 
-- **Tempo limite da sessão do aplicativo Web** -indica como uma sessão é estendida pela configuração do tempo de vida da sessão ou pela configuração de manter-se conectado.
+- **Tempo limite da sessão do aplicativo Web** -indica como uma sessão é estendida pela configuração de tempo de vida da sessão ou pela configuração manter-me conectado (KMSI).
   - **Sem interrupção** -indica que a sessão é estendida toda vez que o usuário executa uma autenticação baseada em cookie (padrão).
   - **Absoluta** – indica que o usuário é forçado a autenticar novamente após o período de tempo especificado.
 
@@ -82,9 +82,7 @@ Você pode configurar o comportamento da sessão de Azure AD B2C, incluindo:
   - **Aplicação** - Esta configuração permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, você pode usar essa configuração se quiser que o usuário entre no contoso farmácia, independentemente de o usuário já estar conectado aos mercados da contoso.
   - **Política** - Essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um fluxo de usuário, independentemente dos aplicativos que a usam. Por exemplo, se o usuário já tiver entrado e concluído uma etapa de autenticação multifator (MFA), o usuário poderá receber acesso a partes de segurança mais alta de vários aplicativos, desde que a sessão vinculada ao fluxo do usuário não expire.
   - **Desabilitado** – essa configuração força o usuário a executar todo o fluxo do usuário em cada execução da política.
-::: zone pivot="b2c-custom-policy"
-- **Mantenha-me conectado** -estende o tempo de vida da sessão por meio do uso de um cookie persistente. A sessão permanece ativa depois que o usuário fecha e reabre o navegador. A sessão é revogada somente quando um usuário se desconecta. O recurso conectado manter-me só se aplica à entrada com contas locais. O recurso conectado manter-me tem precedência sobre o tempo de vida da sessão. Se o recurso conectado manter-me estiver habilitado e o usuário o selecionar, esse recurso determinará quando a sessão irá expirar. 
-::: zone-end
+- **Mantenha-me conectado (KMSI)** – estende o tempo de vida da sessão por meio do uso de um cookie persistente. Se esse recurso estiver habilitado e o usuário o selecionar, a sessão permanecerá ativa mesmo depois que o usuário fechar e reabrir o navegador. A sessão será revogada somente quando o usuário sair. O recurso KMSI só se aplica à entrada com contas locais. O recurso KMSI tem precedência sobre o tempo de vida da sessão.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Para alterar o comportamento da sessão e as configurações de SSO, você adici
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Habilitar manter-me conectado (KMSI)
 
-Você pode habilitar a funcionalidade manter-me conectado para usuários de seus aplicativos Web e nativos que têm contas locais em seu diretório Azure Active Directory B2C (Azure AD B2C). Esse recurso concede acesso a usuários que retornam ao seu aplicativo sem solicitar que eles reinsiram seu nome de usuário e senha. Esse acesso é revogado quando o usuário sai do serviço.
+Você pode habilitar o recurso KMSI para os usuários de seus aplicativos Web e nativos que têm contas locais em seu diretório de Azure AD B2C. Quando você habilita o recurso, os usuários podem optar por permanecer conectado para que a sessão permaneça ativa depois de fechar o navegador. Em seguida, eles podem reabrir o navegador sem ser solicitado a inserir novamente seu nome de usuário e senha. Esse acesso é revogado quando o usuário sai do serviço.
 
 ![Exemplo de página de entrada de inscrição mostrando uma caixa de seleção Mantenha-me conectado](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI é configurável no nível de fluxo de usuário individual. Antes de habilitar o KMSI para seus fluxos de usuário, considere o seguinte:
+
+- O KMSI tem suporte apenas para as versões **recomendadas** de entrada e entrada (Susi), entrada e fluxos de usuário de edição de perfil. Se, no momento, você tiver versões **padrão** ou **herdadas de visualização v2** desses fluxos de usuário e quiser habilitar o KMSI, você precisará criar novas versões **recomendadas** desses fluxos de usuário.
+- Não há suporte para KMSI com fluxos de usuário de inscrição ou redefinição de senha.
+- Se você quiser habilitar o KMSI para todos os aplicativos em seu locatário, recomendamos que você habilite o KMSI para todos os fluxos de usuário em seu locatário. Como um usuário pode ser apresentado a várias políticas durante uma sessão, é possível que eles encontrem um que não tenha o KMSI habilitado, o que removeria o cookie KMSI da sessão.
+- KMSI não deve ser habilitado em computadores públicos.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Configurar o KMSI para um fluxo de usuário
+
+Para habilitar o KMSI para seu fluxo de usuário:
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C. Selecione o **diretório + filtro de assinatura**   no menu superior e escolha o diretório que contém seu locatário de Azure ad B2C.
+3. Escolha **todos os serviços**   no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **fluxos de usuário (políticas)**.
+5. Abra o fluxo de usuários criado anteriormente.
+6. Selecione **Propriedades**.
+
+7. Em  **comportamento da sessão**, selecione **habilitar manter-me conectado na sessão**. Ao lado de **manter-me conectado na sessão (dias)**, insira um valor de 1 a 90 para especificar o número de dias que uma sessão pode permanecer aberta.
+
+
+   ![Habilitar a sessão de manter-me conectado](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Os usuários não devem habilitar essa opção em computadores públicos.
 
@@ -165,7 +194,7 @@ Para adicionar a caixa de seleção KMSI à página de inscrição e entrada, de
 
 ### <a name="configure-a-relying-party-file"></a>Configurar um arquivo de terceira parte confiável
 
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
+Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou. O parâmetro keepAliveInDays permite que você configure o quanto o cookie de sessão do KMSI (Mantenha-me conectado) deve persistir. Por exemplo, se você definir o valor como 30, o cookie de sessão KMSI persistirá por 30 dias. O intervalo para o valor é de 1 a 90 dias.
 
 1. Abra o arquivo de política personalizada. Por exemplo, *SignUpOrSignin.xml*.
 1. Se ele ainda não existir, adicione um `<UserJourneyBehaviors>` nó filho ao `<RelyingParty>` nó. Ele deve estar localizado imediatamente após `<DefaultUserJourney ReferenceId="User journey Id" />` , por exemplo: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .
@@ -222,7 +251,7 @@ Após uma solicitação de saída, Azure AD B2C:
 3. Tentativas de sair de provedores de identidade federada:
    - OpenId Connect – se o ponto de extremidade de configuração bem conhecido do provedor de identidade especificar um `end_session_endpoint` local.
    - OAuth2 – se os [metadados do provedor de identidade](oauth2-technical-profile.md#metadata) contiverem o `end_session_endpoint` local.
-   - SAML-se os [metadados do provedor de identidade](saml-identity-provider-technical-profile.md#metadata) contiverem o `SingleLogoutService` local.
+   - SAML-se os [metadados do provedor de identidade](identity-provider-generic-saml.md) contiverem o `SingleLogoutService` local.
 4. Opcionalmente, desconecta-se de outros aplicativos. Para obter mais informações, consulte a seção de [saída única](#single-sign-out) .
 
 > [!NOTE]

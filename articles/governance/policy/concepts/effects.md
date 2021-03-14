@@ -1,14 +1,14 @@
 ---
 title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741813"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -266,8 +266,7 @@ Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists ex
 
 ### <a name="deployifnotexists-evaluation"></a>Avaliação de DeployIfNotExists
 
-DeployIfNotExists é executado cerca de 15 minutos depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de um recurso e ter retornado um código de status de êxito. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros.
-A duração da implantação depende da complexidade dos recursos incluídos no modelo.
+DeployIfNotExists é executado cerca de 15 minutos depois que um provedor de recursos tratou de uma solicitação criar ou atualizar assinatura ou recurso e retornou um código de status de êxito. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. A duração da implantação depende da complexidade dos recursos incluídos no modelo.
 
 Durante um ciclo de avaliação, as definições de política com um efeito DeployIfNotExists que correspondam a recursos são marcadas como não conformes, mas nenhuma ação é realizada no recurso. Os recursos fora de conformidade existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md).
 
@@ -482,8 +481,7 @@ Exemplo: a regra de controle de admissão do Gatekeeper v2 para permitir apenas 
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover propriedades ou marcas em um recurso durante a criação ou atualização.
-Um exemplo comum é a atualização de marcas em recursos como costCenter. Os recursos fora de conformidade existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra Modify pode ter qualquer quantidade de operações.
+Modify é usado para adicionar, atualizar ou remover propriedades ou marcas em uma assinatura ou recurso durante a criação ou atualização. Um exemplo comum é a atualização de marcas em recursos como costCenter. Os recursos fora de conformidade existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra Modify pode ter qualquer quantidade de operações.
 
 As seguintes operações são suportadas pela modificação:
 

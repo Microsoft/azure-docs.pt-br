@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093614"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572638"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerenciar Controle de Alterações e Inventário
 
@@ -161,13 +161,13 @@ Você pode fazer várias pesquisas por registros de alteração em relação aos
 
 |Consulta  |Descrição  |
 |---------|---------|
-|`ConfigurationData`<br> &#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br> &#124; `where SvcState == "Stopped"`<br> &#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registros de inventário mais recentes para os serviços da Microsoft que foram configurados para Automático, mas foram relatados como Parados. Os resultados são limitados ao registro mais recente do nome de software e do computador especificados.    |
-|`ConfigurationChange`<br> &#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br> &#124; `order by TimeGenerated desc`|Mostra registros de alterações do software removido.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registros de inventário mais recentes para os serviços da Microsoft que foram configurados para Automático, mas foram relatados como Parados. Os resultados são limitados ao registro mais recente do nome de software e do computador especificados.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra registros de alterações do software removido.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre configurações de escopo, consulte [limitar controle de alterações e escopo de implantação de estoque](manage-scope-configurations.md).
-* Se você precisar pesquisar logs armazenados em logs de Azure Monitor, consulte [pesquisas de log em logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+* Se você precisar pesquisar logs armazenados em logs de Azure Monitor, consulte [pesquisas de log em logs de Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 * Se terminar com implantações, consulte [remover controle de alterações e inventário](remove-feature.md).
 * Para excluir suas VMs de Controle de Alterações e inventário, consulte [remover VMs de controle de alterações e inventário](remove-vms-from-change-tracking.md).
 * Para solucionar problemas de erros de recurso, confira [Solucionar problemas do Controle de Alterações e Inventário](../troubleshoot/change-tracking.md).

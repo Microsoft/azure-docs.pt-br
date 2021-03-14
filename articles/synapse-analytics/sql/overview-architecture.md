@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679611"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441883"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura do SQL do Azure Synapse 
 
@@ -35,7 +35,7 @@ O SQL do Synapse usa uma arquitetura baseada em nó. Aplicativos conectam e emit
 
 O nó de controle do SQL Synapse do Azure utiliza um mecanismo de consulta distribuído para otimizar consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para fazer seu trabalho em paralelo. 
 
-O nó de controle do pool SQL sem servidor utiliza o mecanismo DQP (processamento de consultas distribuídas) para otimizar e orquestrar a execução distribuída da consulta do usuário dividindo-a em consultas menores que serão executadas em nós de computação. Cada consulta pequena é chamada de tarefa e representa a unidade de execução distribuída. Ela lê arquivo(s) do armazenamento, une resultados de outras tarefas, agrupa ou solicita os dados recuperados de outras tarefas. 
+O nó de controle do pool SQL sem servidor utiliza o mecanismo DQP (processamento de consultas distribuídas) para otimizar e orquestrar a execução distribuída da consulta do usuário dividindo-a em consultas menores que serão executadas em nós de computação. Cada consulta pequena é chamada de tarefa e representa a unidade de execução distribuída. Ele lê arquivo (s) do armazenamento, une resultados de outras tarefas, grupos ou dados de pedidos recuperados de outras tarefas. 
 
 Os nós de Computação armazenam todos os dados de usuário no Armazenamento do Azure e executam as consultas paralelas. O serviço de movimentação de dados (DMS) é um serviço de nível de sistema interno que move dados entre os nós, conforme necessário para executar consultas em paralelo e retornar resultados precisos. 
 
@@ -49,7 +49,7 @@ Com o armazenamento e a computação separados, ao usar o SQL do Synapse, é pos
 
 O SQL do Synapse aproveita o armazenamento do Azure para manter os dados do usuário protegidos. Como os dados são armazenados e gerenciados pelo armazenamento do Azure, é gerada uma cobrança separada para o consumo de armazenamento. 
 
-O pool SQL sem servidor permite consultar arquivos em seu data Lake em modo somente leitura, enquanto o pool do SQL permite que você ingerir dados também. Quando os dados são ingeridos no pool SQL dedicado, os dados são fragmentados em **distribuições** para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Esses padrões de fragmentação são compatíveis com:
+O pool SQL sem servidor permite consultar os arquivos do data Lake, enquanto o pool SQL dedicado permite consultar e ingerir dados de seus arquivos do data Lake. Quando os dados são ingeridos no pool SQL dedicado, os dados são fragmentados em **distribuições** para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Esses padrões de fragmentação são compatíveis com:
 
 * Hash
 * Round Robin
@@ -107,7 +107,7 @@ Uma tabela distribuída round-robin distribui dados uniformemente entre a tabela
 ## <a name="replicated-tables"></a>Tabelas replicadas
 Uma tabela replicada fornece o melhor desempenho de consulta para tabelas pequenas.
 
-Uma tabela replicada faz cache de uma cópia completa da tabela em cada nó de computação. Consequentemente, replicar uma tabela elimina a necessidade de transferir dados entre nós de Computação antes de uma junção ou agregação. Tabelas replicadas são melhor usadas com tabelas pequenas. Armazenamento adicional é necessário e há custos adicionais ao gravar dados que tornam grandes tabelas inexequíveis. 
+Uma tabela replicada faz cache de uma cópia completa da tabela em cada nó de computação. Portanto, replicar uma tabela elimina a necessidade de transferir dados entre nós de computação antes de uma junção ou agregação. Tabelas replicadas são melhor usadas com tabelas pequenas. Armazenamento adicional é necessário e há custos adicionais ao gravar dados que tornam grandes tabelas inexequíveis. 
 
 O diagrama a seguir mostra uma tabela replicada armazenada em cache na primeira distribuição em cada nó de computação. 
 
@@ -115,4 +115,4 @@ O diagrama a seguir mostra uma tabela replicada armazenada em cache na primeira 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você já sabe um pouco sobre Synapse SQL, saiba como [criar rapidamente um pool SQL dedicado](../quickstart-create-sql-pool-portal.md) e [carregar dados de exemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-data-warehouse-Load-Sample-Databases.MD). Ou você começa a [usar o pool SQL sem servidor](../quickstart-sql-on-demand.md). Se você for novo no Azure, você pode encontrar o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) úteis à medida que encontrar nova terminologia. 
+Agora que você já sabe um pouco sobre Synapse SQL, saiba como [criar rapidamente um pool SQL dedicado](../quickstart-create-sql-pool-portal.md) e [carregar dados de exemplo](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-data-warehouse-Load-Sample-Databases.MD). Ou comece a [usar o pool SQL sem servidor](../quickstart-sql-on-demand.md). Se você for novo no Azure, você pode encontrar o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) úteis à medida que encontrar nova terminologia. 

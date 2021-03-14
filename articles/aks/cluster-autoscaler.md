@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9caf56545efc6aefae525e28614d39705c00c21e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742561"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -274,6 +274,9 @@ az aks nodepool update \
 
 Se desejar reabilitar o dimensionador automática do cluster em um cluster existente, você poderá habilitá-lo novamente usando o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , especificando os `--enable-cluster-autoscaler` parâmetros, `--min-count` e `--max-count` .
 
+> [!NOTE]
+> Se você estiver planejando usar o dimensionamento de clusters com nodepools que abrangem várias zonas e aproveitar os recursos de agendamento relacionados a zonas como agendamento de topológica de volume, a recomendação é ter um nodepool por zona e habilitar o `--balance-similar-node-groups` por meio do perfil de dimensionamento de autoescala. Isso garantirá que o dimensionador automático será dimensionado com êxito e tente manter os tamanhos do nodepools equilibrado.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. Você também pode usar o dimensionador automático de pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas de como usar o dimensionador automático de pod horizontal, confira [Dimensionar aplicativos no AKS][aks-scale-apps].
@@ -285,7 +288,7 @@ Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. V
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
+[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show

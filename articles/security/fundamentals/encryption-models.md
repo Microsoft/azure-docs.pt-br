@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854607"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051371"
 ---
 # <a name="data-encryption-models"></a>Modelos de criptografia de dados
 
@@ -146,12 +146,12 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Produto, recurso ou serviço | Lado do servidor usando chave de serviço gerenciado   | Server-Side usando Customer-Managed chave | Client-Side usando Client-Managed chave  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **IA e Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search           | Sim                | Sim                | -                  |
+| Pesquisa Cognitiva do Azure           | Sim                | Sim                | -                  |
 | Serviços Cognitivos do Azure         | Sim                | Sim                | -                  |
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio (clássico) | Sim         | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Face                             | Sim                | Sim                | -                  |
+| Detecção Facial                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
@@ -164,7 +164,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Funções                        | Sim                | Sim                | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
-| Azure HDInsight                  | Sim                | Tudo                | -                  |
+| Azure HDInsight                  | Sim                | Todos                | -                  |
 | Azure Monitor Application Insights | Sim                | Sim                | -                  |
 | Azure Monitor Log Analytics      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
@@ -199,8 +199,8 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Databricks                 | Sim                | Sim                | -                  |
 | Serviço de Migração de Banco de Dados do Azure | Sim                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Sim                | -                  | Sim                |
-| Azure Repos                      | Sim                | -                  | Sim                |
+| Azure DevOps Services            | Sim                | -                  | -                  |
+| Azure Repos                      | Sim                | -                  | -                  |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
 | Azure Active Directory Domain Services | Sim          | Sim                | -                  |

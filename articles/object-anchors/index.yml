@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Documentação de Âncoras de Objeto do Azure
+summary: As Âncoras de Objeto podem ser usadas para detectar um objeto no mundo físico e estimar sua posição de Seis Graus de Liberdade considerando um modelo 3D de tal objeto.
+metadata:
+  title: Documentação de Âncoras de Objeto do Azure
+  description: Use Âncoras de Objeto do Azure para detectar um objeto no mundo físico e estimar sua posição de Seis Graus de Liberdade considerando um modelo 3D de tal objeto.
+  services: azure-object-anchors
+  ms.service: azure-object-anchors
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+  ms.openlocfilehash: 84ef8d771f4471c11dd77422444a5be98d5c8212
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101742675"
+landingContent:
+- title: Sobre as Âncoras de Objeto do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são as Âncoras de Objeto do Azure?
+      url: overview.md
+    - text: Exibir notas sobre a versão no GitHub
+      url: https://github.com/Azure/azure-object-anchors/releases
+- title: Aprenda os principais conceitos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Visão geral do SDK
+      url: ./concepts/sdk-overview.md
+- title: Inícios rápidos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Conversão de modelo
+      url: ./quickstarts/get-started-model-conversion.md
+    - text: Unity HoloLens
+      url: ./quickstarts/get-started-unity-hololens.md
+    - text: Unity HoloLens com MRTK
+      url: ./quickstarts/get-started-unity-hololens-mrtk.md
+    - text: HoloLens DirectX
+      url: ./quickstarts/get-started-hololens-directx.md

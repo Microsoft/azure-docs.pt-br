@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217559"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672901"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configurar a preferência de roteamento para um endereço IP público usando o portal do Azure
 
@@ -32,20 +32,26 @@ Este artigo mostra como configurar a [preferência de roteamento](./routing-pref
 
 Por padrão, a preferência de roteamento para o endereço IP público é definida para a rede global da Microsoft para todos os serviços do Azure e pode ser associada a qualquer serviço do Azure.
 
-> [!IMPORTANT]
-> A preferência de roteamento está atualmente em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Criar um endereço IP público com uma preferência de roteamento
-1. Entre no [portal do Azure](https://preview.portal.azure.com/).
-2. Selecione **Criar um recurso**. 
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Selecione **Criar um recurso**.
 3. Na caixa de pesquisa, digite *Endereço IP público*.
 3. Nos resultados da pesquisa, selecione **Endereço IP público**. Em seguida, na página **Endereço IP público**, selecione **Criar**.
-3. Nas opções **Preferência de roteamento**, selecione **Internet**.
+1. Para SKU, selecione **padrão**.
+1. Para **preferência de roteamento**, selecione **Internet**.
 
-      ![Criar um endereço IP público](./media/routing-preference-portal/pip-new.png)
+      ![Criar um endereço IP público](./media/routing-preference-portal/public-ip-new.png)
+1. Na seção **configuração de endereço IP IPv4** , insira ou selecione estas informações:
+
+    | Configuração | Valor |
+    | ------- | ----- |
+    | Subscription | Selecione sua assinatura.|
+    | Resource group | Selecione **criar novo**, insira *RoutingPreferenceResourceGroup* e, em seguida, selecione **OK**. |
+    | Location | Selecione **Leste dos EUA**.|
+    | Zona de disponibilidade | Mantenha o valor padrão com **redundância de zona**. |
+1. Selecione **Criar**.
 
     > [!NOTE]
     > Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. Contudo, a preferência de roteamento só dá suporte ao IPV4 no momento.

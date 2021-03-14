@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380790"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um notebook no Azure Cosmos DB para analisar e visualizar os dados
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Este artigo descreve como usar notebooks Jupyter internos para importar dados de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Habilitar suporte a notebooks ao criar a conta do Azure Cosmos](enable-notebooks.md)
+* [Habilitar notebooks em uma conta do Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Criar os recursos e importar dados
  
@@ -30,7 +30,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
 1. Navegue até a conta do Azure Cosmos e abra o **Data Explorer.**
 
-1. Acesse a guia **Notebooks** , selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
+1. Acesse a guia **Notebooks**, selecione `…` ao lado de **Meus Notebooks** e crie um **Notebook**. Selecione **Python 3** como o kernel padrão.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Crie um notebook":::
 

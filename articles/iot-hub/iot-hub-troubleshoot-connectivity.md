@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446415"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579262"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorar, diagnosticar e solucionar problemas de desconexões com o Hub IoT
 
@@ -82,7 +82,7 @@ A métrica [*dispositivos conectados (visualização)*](monitor-iot-hub-referenc
 
 Você pode usar as regras de alerta de métrica para monitorar anomalias de desconexão de dispositivo em escala. Ou seja, quando um número significativo de dispositivos é desconectado inesperadamente. Quando tal ocorrência é detectada, você pode examinar os logs para ajudar a solucionar o problema. Para monitorar desconexões por dispositivo e desconexões para dispositivos críticos; no entanto, você deve usar a grade de eventos. A grade de eventos também fornece uma experiência mais em tempo real do que as métricas do Azure.
 
-Para saber mais sobre alertas com o Hub IoT, confira [alertas em monitorar Hub IOT](monitor-iot-hub.md#alerts). Para obter um passo a passo de criação de alertas no Hub IoT, consulte o [tutorial usar métricas e logs](tutorial-use-metrics-and-diags.md). Para obter uma visão geral mais detalhada dos alertas, consulte [visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md) na documentação do Azure monitor.
+Para saber mais sobre alertas com o Hub IoT, confira [alertas em monitorar Hub IOT](monitor-iot-hub.md#alerts). Para obter um passo a passo de criação de alertas no Hub IoT, consulte o [tutorial usar métricas e logs](tutorial-use-metrics-and-diags.md). Para obter uma visão geral mais detalhada dos alertas, consulte [visão geral dos alertas no Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) na documentação do Azure monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: usar logs para resolver erros de conectividade
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857351"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634576"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e aprimorar a precisão da Fala Personalizada
 
@@ -109,16 +109,22 @@ O áudio com transcrições com rótulo humano oferecerá as maiores melhorias d
 
 Considere estes detalhes:
 
-* Fala Personalizada só pode capturar o contexto do Word para reduzir erros de substituição, não erros de inserção ou exclusão.
+* O treinamento com áudio levará mais benefícios se o áudio também for difícil de entender para os seres humanos. Na maioria dos casos, você deve iniciar o treinamento usando apenas o texto relacionado.
+* Se você usar uma das linguagens mais intensamente usadas como o inglês americano, há uma boa chance de que não haja necessidade de treinar com dados de áudio. Para esses idiomas, os modelos de base oferecem resultados de reconhecimento muito bons na maioria dos cenários; Provavelmente é suficiente treinar com texto relacionado.
+* Fala Personalizada só pode capturar o contexto do Word para reduzir erros de substituição, não inserção ou erros de exclusão.
 * Evite exemplos que incluam erros de transcrição, mas inclua uma diversidade de qualidade de áudio.
 * Evite frases que não estejam relacionadas ao seu domínio problemático. Frases não relacionadas podem danificar seu modelo.
 * Quando a qualidade das transcrições varia, você pode duplicar frases válidas com exceção (como as excelentes transcrições que incluem frases-chave) para aumentar seu peso.
 * O serviço de fala usará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas de domínio, como se elas fossem adicionadas como texto relacionado.
-* O treinamento com áudio levará mais benefícios se o áudio também for difícil de entender para os seres humanos. Na maioria dos casos, você deve iniciar o treinamento usando apenas o texto relacionado.
-* Pode levar vários dias para que uma operação de treinamento seja concluída. Para melhorar a velocidade de treinamento, certifique-se de criar sua assinatura de serviço de fala em uma [região com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+* Pode levar vários dias para que uma operação de treinamento seja concluída. Para melhorar a velocidade de treinamento, certifique-se de criar sua assinatura do serviço de fala em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 > [!NOTE]
-> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio.
+> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio. Mesmo que um modelo base dê suporte ao treinamento com dados de áudio, o serviço poderá usar apenas parte do áudio. Ainda assim, ele usará todas as transcrições.
+
+> [!NOTE]
+> Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adicionar novas palavras com pronúncia
 

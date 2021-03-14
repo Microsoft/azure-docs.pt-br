@@ -3,7 +3,7 @@ title: Usar a autenticação do Azure AD para acessar a API dos Serviços de Mí
 description: Saiba como acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure Active Directory usando REST.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a2b4e7bf03ebb1fbc197b78287cb50b3f421d713
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694723"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017300"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
@@ -38,7 +38,7 @@ Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você 
     > [!NOTE]
     > A **entidade de serviço** é a prática recomendada para a maioria dos aplicativos que se conectam aos Serviços de Mídia do Azure. 
 
-Neste tutorial, você aprende a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Obter informações de autenticação do portal do Azure

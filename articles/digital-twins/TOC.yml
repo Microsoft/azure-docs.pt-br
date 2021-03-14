@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Conceitos
   items:
-    - name: Modelos personalizados
+    - name: Modelos de DTDL
       href: concepts-models.md
+    - name: Ontologias
+      items:
+        - name: O que é uma ontologia?
+          href: concepts-ontologies.md
+        - name: Adoção de ontologias padrão do setor
+          href: concepts-ontologies-adopt.md
+        - name: Conversão de ontologias
+          href: concepts-ontologies-convert.md
+        - name: Extensão de ontologias
+          href: concepts-ontologies-extend.md
     - name: Gêmeos digitais e o grafo de gêmeos
       href: concepts-twins-graph.md
     - name: Idioma de consulta
@@ -52,7 +62,11 @@
             - name: Versão com script
               href: how-to-set-up-instance-scripted.md
         - name: Habilitar o acesso privado com o Link Privado
-          href: how-to-enable-private-link.md
+          items:
+            - name: Versão do portal
+              href: how-to-enable-private-link-portal.md
+            - name: Versão da CLI
+              href: how-to-enable-private-link-cli.md
         - name: Escrever código de autenticação do aplicativo
           href: how-to-authenticate-client.md
         - name: Criar o Registro do aplicativo
@@ -61,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Modelos de design
       items:
-        - name: Gerenciar modelos personalizados
+        - name: Gerenciar modelos de DTDL
           href: how-to-manage-model.md
-        - name: Integrar modelos padrão do setor
-          href: how-to-integrate-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar marcas
@@ -85,10 +97,10 @@
       items:
         - name: Usar as APIs e os SDKs
           href: how-to-use-apis-sdks.md
+        - name: Criar SDKs de linguagem personalizada com o AutoRest
+          href: how-to-create-custom-sdks.md
         - name: Fazer solicitações com o Postman
           href: how-to-use-postman.md
-        - name: Criar SDKs personalizados com o AutoRest
-          href: how-to-create-custom-sdks.md
         - name: Integração com o Serviço do Azure SignalR
           href: how-to-integrate-azure-signalr.md
     - name: Conectar entrada
@@ -103,12 +115,16 @@
       items:
         - name: Gerenciar pontos de extremidade e rotas
           items:
-            - name: Versão das APIs e da CLI
-              href: how-to-manage-routes-apis-cli.md
             - name: Versão do portal
               href: how-to-manage-routes-portal.md
+            - name: Versão das APIs e da CLI
+              href: how-to-manage-routes-apis-cli.md
         - name: Habilitar uma identidade gerenciada nos eventos de roteamento
-          href: how-to-enable-managed-identities.md
+          items:
+            - name: Versão do portal
+              href: how-to-enable-managed-identities-portal.md
+            - name: Versão da CLI
+              href: how-to-enable-managed-identities-cli.md
         - name: Integração com os Azure Mapas
           href: how-to-integrate-maps.md
         - name: Integrar com o Azure Time Series Insights
@@ -138,21 +154,21 @@
         - name: Painel de controle
           items:
             - name: SDK do .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/management
             - name: Java SDK
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement
         - name: Plano de dados
           items:
             - name: SDK do .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/client
             - name: Java SDK
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/client
             - name: SDK do JavaScript
-              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/
             - name: SDK do Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: CLI dos Gêmeos Digitais
-      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
+      href: /cli/azure/ext/azure-iot/dt
 - name: Recursos
   items:
     - name: Limites de serviço dos Gêmeos Digitais
@@ -241,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validador DTDL (exemplo)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Carregador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Visualizador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Conversor OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Exemplo de integração do SignalR
@@ -274,4 +296,6 @@
         - name: Portal do Azure
           href: 'https://portal.azure.com'
     - name: Opções de Ajuda e suporte
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    - name: Glossário de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: cef0630cfc7ec7d080073085e577153ae7a47ecf
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655978"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504449"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado do Azure
 
@@ -104,11 +103,11 @@ Instalaremos um novo **PR2** de SID do SAP, além da instância existente do SAP
 | --- | --- | --- |---| ---|
 | primeiro cluster do ASCS/SCS do nó do cluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | segundo cluster do nó do cluster ASCS/SCS |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | N/D | N/D |
-| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | N/D | N/D |
-| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | N/D | N/D |
-| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | N/D | N/D |
-| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | N/D | N/D |
+| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | n/a | n/a |
+| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | n/a | n/a |
+| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | n/a | n/a |
+| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | n/a | n/a |
+| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | n/a | n/a |
 
 ### <a name="create-azure-internal-load-balancer"></a>Criar um balanceador de carga interno do Azure
 
@@ -667,4 +666,4 @@ Para os testes de failover descritos, presumimos que o SAP ASCS está ativo no n
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../availability.md

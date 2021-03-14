@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beba8e1d8126818f142e4873d551ed077af869d2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584831"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035230"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Habilitar a recuperação de desastre de VM do Azure entre zonas de disponibilidade
 
@@ -20,7 +20,7 @@ Este artigo descreve como replicar, fazer failover e failback de máquinas virtu
 
 >[!NOTE]
 >
->- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a nove regiões: Sudeste Asiático, leste do Japão, leste da Austrália, Sul do Reino Unido, Europa Ocidental, Europa Setentrional, EUA Central, leste dos EUA e oeste dos EUA 2.  
+>- O suporte para a recuperação de desastre de zona para zona está limitado atualmente às seguintes regiões: Sudeste Asiático, leste do Japão, leste da Austrália, Sul do Reino Unido, Europa Ocidental, Europa Setentrional, EUA Central, leste dos EUA, leste dos EUA 2 e oeste dos EUA 2.  
 >- Site Recovery não move nem armazena os dados do cliente fora da região em que ele é implantado quando o cliente está usando a recuperação de desastre de zona para zona. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
 Site Recovery serviço contribui para sua estratégia de recuperação de desastre e continuidade de negócios mantendo seus aplicativos de negócios em funcionamento, durante interrupções planejadas e não planejadas. É a opção de recuperação de desastre recomendada para manter seus aplicativos em funcionamento, se houver interrupções regionais.

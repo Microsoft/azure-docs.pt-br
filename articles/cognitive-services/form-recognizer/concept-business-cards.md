@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585085"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546016"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-criados do reconhecedor de formulário 
 
@@ -31,10 +31,10 @@ A API de cartão de visita predefinida extrai campos de chave de cartões de vis
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-|Nome| Tipo | Descrição | Texto | 
+|Nome| Type | Descrição | Texto | 
 |:-----|:----|:----|:----|
 | ContactNames | matriz de objetos | Nome do contato extraído do cartão de visita | [{"FirstName": "John", "LastName": "Doe"}] |
-| FirstName | string | Primeiro (fornecido) nome do contato | "John" | 
+| Nome | string | Primeiro (fornecido) nome do contato | "John" | 
 | LastName | string | Último nome (família) do contato |     "Doe" | 
 | Empresasnames | Matriz de cadeias de caracteres | Nome da empresa extraído do cartão de visita | ["Contoso"] | 
 | Departments | Matriz de cadeias de caracteres | Departamento ou organização de contato | ["R&D"] | 
@@ -66,7 +66,7 @@ O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.
 
 A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -76,7 +76,11 @@ Quando o campo **status** tiver o valor com **êxito** , a resposta JSON incluir
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
-Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de negócios que o modelo descobriu. É aí que você encontrará informações úteis de contato como nome, sobrenome, nome da empresa e muito mais.
+A resposta à operação obter resultado do cartão de negócios obter será a representação estruturada do cartão de visita com todas as informações extraídas.  Consulte aqui para obter um [exemplo de arquivo de cartão de visita](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) e sua saída estruturada de amostra de exemplo de cartão de [visita](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
+Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
+* O nó `"readResults"` contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. 
+* O nó `"documentResults"` contém os valores específicos do cartão de visita descobertos pelo modelo. É aí que você encontrará informações úteis de contato como nome, sobrenome, nome da empresa e muito mais.
 
 ```json
 {

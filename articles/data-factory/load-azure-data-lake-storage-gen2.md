@@ -1,27 +1,22 @@
 ---
 title: Carregar dados no Azure Data Lake Store Gen2
 description: Usar o Azure Data Factory para copiar dados para o Azure Data Lake Storage Gen2
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ca9ca495f2b3449b5aeb933bbd8d312fc9341fd9
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 02/18/2021
+ms.openlocfilehash: 4e2bbe6f0c3b9ff1ffd913365ce21e534208123b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554110"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699718"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen2 com o Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 O Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de Big Data, criado no [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Ele permite que você faça interface com seus dados usando os paradigmas de sistema de arquivos e armazenamento de objetos.
 
@@ -42,17 +37,17 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **criar um recurso**  >  **integração**  >  **Data Factory** :
+1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. Na página **novo data Factory** , forneça valores para os seguintes campos:
  
-    * **Name** : Insira um nome globalmente exclusivo para o Azure Data Factory. Se você receber o erro "o nome do data Factory *nomedoseudatafactory* não está disponível", insira um nome diferente para o data Factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Assinatura** : Selecione a assinatura do Azure para criar o Data Factory. 
-    * **Grupo de Recursos** : Selecione um grupo de recursos existente na lista suspensa ou selecione a opção **Criar novo** e insira o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão** : Selecione **V2**.
-    * **Localização** : Selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. 
+    * **Name**: Insira um nome globalmente exclusivo para o Azure Data Factory. Se você receber o erro "o nome do data Factory *nomedoseudatafactory* não está disponível", insira um nome diferente para o data Factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Assinatura**: Selecione a assinatura do Azure para criar o Data Factory. 
+    * **Grupo de Recursos**: Selecione um grupo de recursos existente na lista suspensa ou selecione a opção **Criar novo** e insira o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
+    * **Versão**: Selecione **V2**.
+    * **Localização**: Selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. 
 
 3. Selecione **Criar**.
 
@@ -113,13 +108,13 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
     ![Página Resumo](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
 
-12. Na **página Implantação** , selecione **Monitorar** para monitorar o pipeline (tarefa). 
+12. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa). 
  
 13. Quando a execução do pipeline for concluída com êxito, você verá uma execução de pipeline disparada por um gatilho manual. Você pode usar os links na coluna **PIPELINE NAME** para ver detalhes da atividade e executar o pipeline novamente.
 
     ![Monitorar execuções de pipeline](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-14. Para ver as execuções de atividade associadas à execução do pipeline, selecione o link **CopyFromAmazonS3ToADLS** na coluna nome do pipeline. Para obter detalhes sobre a operação de cópia, selecione o link **detalhes** (ícone de óculos) na coluna nome da atividade. Você pode monitorar detalhes como o volume de dados copiados da origem para o coletor, a taxa de transferência de dados, as etapas de execução com a duração correspondente e a configuração usada.
+14. Para ver as execuções de atividade associadas à execução do pipeline, selecione o link **CopyFromAmazonS3ToADLS** na coluna nome do pipeline. Para obter detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna ACTIVITY NAME. Você pode monitorar detalhes como o volume de dados copiados da origem para o coletor, a taxa de transferência de dados, as etapas de execução com a duração correspondente e a configuração usada.
  
     ![Monitorar execuções de atividade](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
     

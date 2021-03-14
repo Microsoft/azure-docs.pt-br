@@ -2,19 +2,19 @@
 title: Como configurar o controle de acesso para seu espaço de trabalho Synapse
 description: Este artigo ensinará como controlar o acesso a um espaço de trabalho do Synapse usando funções do Azure, funções do Synapse, permissões do SQL e permissões de git.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218069"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368992"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controle de acesso para seu espaço de trabalho Synapse 
 
@@ -43,7 +43,7 @@ Para proteger um espaço de trabalho do Synapse, você seguirá um padrão de co
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os por nomes de sua escolha.
 
-|Configuração | Nome padrão | Descrição |
+|Setting | Nome padrão | Descrição |
 | :------ | :-------------- | :---------- |
 | **Workspace do Synapse** | `workspace1` |  O nome que o workspace do Synapse terá. |
 | **Conta do ADLSGEN2** | `storage1` | A conta do ADLS a ser usada com seu workspace. |
@@ -132,7 +132,7 @@ Para criar pools de SQL, pools de Apache Spark e tempos de execução de integra
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>ETAPA 6: atribuir função de administrador do SQL Active Directory
 
-O criador da estação de trabalho é configurado automaticamente como o administrador de Active Directory do SQL para o Workspace.  Apenas um único usuário ou grupo pode receber essa função. Nesta etapa, você atribui o administrador do SQL Active Directory no espaço de trabalho ao `workspace1_SQLAdmins` grupo de segurança.  Atribuir essa função dá a esse grupo acesso de administrador altamente privilegiado a todos os pools e bancos de dados do SQL no espaço de trabalho.   
+O criador do espaço de trabalho é configurado automaticamente como o administrador do SQL Active Directory para o espaço de trabalho.  Apenas um único usuário ou grupo pode receber essa função. Nesta etapa, você atribui o administrador do SQL Active Directory no espaço de trabalho ao `workspace1_SQLAdmins` grupo de segurança.  Atribuir essa função dá a esse grupo acesso de administrador altamente privilegiado a todos os pools e bancos de dados do SQL no espaço de trabalho.   
 
 - Abrir o portal do Azure
 - Navegue até `workspace1`

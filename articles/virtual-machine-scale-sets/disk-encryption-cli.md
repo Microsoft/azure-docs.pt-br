@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515737"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215945"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar os discos de sistema operacional e de dados anexados em um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -166,7 +166,7 @@ Quando instâncias de VM são criptografadas, o código relata *EncryptionState/
 
 ## <a name="disable-encryption"></a>Desabilitar criptografia
 
-Se você não quiser mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [az vmss encryption disable](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) da seguinte maneira:
+Se você não quiser mais usar discos de instâncias de VM criptografadas, você pode desabilitar a criptografia com [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable) da seguinte maneira:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

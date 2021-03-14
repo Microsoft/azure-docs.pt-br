@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346360"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831681"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -504,6 +504,4 @@ Você pode excluir seus conjuntos de dados e painel de Power BI excluindo o espa
 Esses três tutoriais mostraram uma solução de ponta a ponta que usa o modelo de aplicativo **Análise de repositório - Fazer check-out** do IoT Central. Você conectou dispositivos ao aplicativo, usou IoT Central para monitorar os dispositivos e usou Power BI para criar um painel para exibir informações da telemetria do dispositivo. Uma próxima etapa recomendada é explorar um dos outros modelos de aplicativo IoT Central:
 
 > [!div class="nextstepaction"]
-> * [Criar soluções de energia com o IoT Central](../energy/overview-iot-central-energy.md)
-> * [Criar soluções governamentais com o IoT Central](../government/overview-iot-central-government.md)
-> * [Criar soluções de serviços de saúde com o IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Criar soluções de energia com o IoT Central](../energy/overview-iot-central-energy.md)

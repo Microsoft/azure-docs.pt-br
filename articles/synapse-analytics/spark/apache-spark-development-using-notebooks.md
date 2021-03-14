@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898487"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671604"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio no Azure Synapse Analytics
 
@@ -298,7 +298,7 @@ Cancelar todas as células em execução ainda não está disponível para a exp
 
 # <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
 
-Não há suporte.
+Sem suporte.
 
 # <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
 
@@ -554,5 +554,5 @@ Usando os atalhos de tecla a seguir, você pode navegar e executar o código com
 - [Início Rápido: Criar um Pool do Apache Spark no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
-- [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentação do .NET para Apache Spark](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)

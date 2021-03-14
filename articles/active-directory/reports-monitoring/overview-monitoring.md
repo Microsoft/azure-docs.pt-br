@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778488"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577781"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é o monitoramento do Azure Active Directory?
 
@@ -79,7 +79,7 @@ O roteamento de logs para um hub de eventos do Azure permite que você faça a i
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Enviar logs para os logs do Azure Monitor
 
-Os [logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) são uma solução que consolida dados de monitoramento de diferentes fontes e fornece um mecanismo de análise e linguagem de consulta que fornece insights sobre a operação de seus aplicativos e seus recursos. Enviando os logs de atividades do Azure AD para os logs do Azure Monitor, você pode recuperar e monitorar os dados coletados rapidamente, além de fornecer alertas sobre eles. Saiba como [enviar dados para os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+Os [logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) são uma solução que consolida dados de monitoramento de diferentes fontes e fornece um mecanismo de análise e linguagem de consulta que fornece insights sobre a operação de seus aplicativos e seus recursos. Enviando os logs de atividades do Azure AD para os logs do Azure Monitor, você pode recuperar e monitorar os dados coletados rapidamente, além de fornecer alertas sobre eles. Saiba como [enviar dados para os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
 Você também pode instalar as exibições criadas previamente para logs de atividades do Azure AD para monitorar cenários comuns que envolvem entradas e eventos de auditoria. Saiba como [instalar e usar as exibições do Log Analytics para logs de atividades do Azure AD](howto-install-use-log-analytics-views.md).
 

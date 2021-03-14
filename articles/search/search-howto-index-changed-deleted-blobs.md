@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383527"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Como configurar a detecção de alteração e exclusão para BLOBs na indexação de Pesquisa Cognitiva do Azure
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Detecção de alteração e exclusão na indexação de BLOB (Azure Pesquisa Cognitiva)
 
 Depois que um índice de pesquisa inicial é criado, talvez você queira que os trabalhos subsequentes do indexador selecionem apenas os documentos novos e alterados. Para o conteúdo de pesquisa originado do armazenamento de BLOBs do Azure, a detecção de alteração ocorre automaticamente quando você usa uma agenda para disparar a indexação. Por padrão, o serviço reindexa apenas os BLOBs alterados, conforme determinado pelo `LastModified` carimbo de data/hora do blob. Em contraste com outras fontes de dados com suporte dos indexadores de pesquisa, os BLOBs sempre têm um carimbo de data/hora, o que elimina a necessidade de configurar manualmente uma política de detecção de alteração.
 

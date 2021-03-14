@@ -3,12 +3,12 @@ title: Configurar o Azure Active Directory para autenticação de cliente
 description: Saiba como configurar o Azure AD (Azure Active Directory) para autenticar clientes para clusters do Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258772"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215962"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -104,7 +104,7 @@ Ao tentar entrar no Azure AD no Service Fabric Explorer, a página retorna uma f
 O aplicativo do cluster (Web) que representa o Service Fabric Explorer tenta se autenticar no Azure AD como parte da solicitação que ele fornece à URL de retorno de redirecionamento. Mas a URL não está listada na lista **URL DE RESPOSTA** do aplicativo Azure AD.
 
 #### <a name="solution"></a>Solução
-Na página de registro do aplicativo do Azure AD para seu cluster, selecione **autenticação**e, na seção **URIs de redirecionamento** , adicione a URL de Service Fabric Explorer à lista. Salve sua alteração.
+Na página de registro do aplicativo do Azure AD para seu cluster, selecione **autenticação** e, na seção **URIs de redirecionamento** , adicione a URL de Service Fabric Explorer à lista. Salve sua alteração.
 
 ![URL de resposta do aplicativo Web][web-application-reply-url]
 
@@ -138,7 +138,7 @@ Depois de configurar os aplicativos do Azure Active Directory e definir as funç
 
 
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

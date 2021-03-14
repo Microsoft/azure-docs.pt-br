@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686014"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122367"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -40,7 +40,10 @@ Você pode controlar o acesso ao servidor de API usando o controle de acesso bas
 
 ## <a name="node-security"></a>Segurança do nó
 
-Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Os nós do Linux executam uma distribuição Ubuntu otimizada usando o runtime de contêiner do Moby. Os nós do Windows Server executam uma versão otimizada do Windows Server 2019 e também usam o runtime de contêiner do Moby. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
+Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Nós do Linux executam uma distribuição otimizada do Ubuntu usando o `containerd` tempo de execução do contêiner do ou do Moby. Os nós do Windows Server executam uma versão otimizada do Windows Server 2019 e também usam o `containerd` tempo de execução do contêiner do ou do Moby. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
+
+> [!NOTE]
+> Clusters AKS usando pools de nós do kubernetes versão 1,19 e maior uso `containerd` como seu tempo de execução de contêiner. Os clusters AKS usando kubernetes antes do v 1.19 para pools de nós usam [Moby](https://mobyproject.org/) (upstream Docker) como seu tempo de execução de contêiner.
 
 A plataforma Azure aplica automaticamente patches de segurança do sistema operacional aos nós do Linux todas as noites. Se uma atualização de segurança do sistema operacional Linux exigir uma reinicialização do host, essa reinicialização não será executada automaticamente. Você pode reinicializar os nós do Linux manualmente ou pode usar [Kured][kured], um daemon de reinicialização open-source para Kubernetes. O Kured é executado como um [DaemonSet][aks-daemonsets] e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações são gerenciadas no cluster usando o mesmo [o processo de cordon e drenagem](#cordon-and-drain) como uma atualização do cluster.
 

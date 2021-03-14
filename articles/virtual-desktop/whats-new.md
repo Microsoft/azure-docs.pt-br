@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258788"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575306"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -56,7 +56,7 @@ No modelo aninhado do Azure Resource Manager, alteramos o valor padrão de netwo
 
 Lançamos o FSLogix versão 2009 HF_01 (2.9.7654.46150) para resolver problemas da versão anterior (2.9.7621.30127). Recomendamos que você pare de usar a versão anterior e atualize o FSLogix assim que possível.
 
-Para obter mais informações, confira as notas sobre a versão em [Novidades do FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+Para obter mais informações, confira as notas sobre a versão em [Novidades do FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
 
 ### <a name="azure-portal-experience-improvements"></a>Aprimoramentos na experiência do portal do Azure
 

@@ -14,22 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605435"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726964"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detectar ameaças prontas para uso
 
-
-> [!IMPORTANT]
-> A detecção de ameaças pronta para uso está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Depois de [conectar suas fontes de dados](quickstart-onboard.md)   ao Azure Sentinel, convém ser notificado quando algo suspeito ocorrer. É por isso que o Azure Sentinel fornece modelos internos prontos para uso para ajudá-lo a criar regras de detecção de ameaças. Esses modelos foram projetados pela equipe da Microsoft de especialistas em segurança e analistas com base em ameaças conhecidas, em vetores de ataque comuns e em cadeias de escalonamento de atividades suspeitas. As regras criadas com base nesses modelos pesquisarão automaticamente em todo o seu ambiente para qualquer atividade que pareça suspeita. Muitos dos modelos podem ser personalizados para pesquisar atividades ou filtrá-los de acordo com suas necessidades. Os alertas gerados por essas regras criarão incidentes que você pode atribuir e investigar em seu ambiente.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, convém ser notificado quando algo suspeito ocorrer. É por isso que o Azure Sentinel fornece modelos internos prontos para uso para ajudá-lo a criar regras de detecção de ameaças. Esses modelos foram projetados pela equipe da Microsoft de especialistas em segurança e analistas com base em ameaças conhecidas, em vetores de ataque comuns e em cadeias de escalonamento de atividades suspeitas. As regras criadas com base nesses modelos pesquisarão automaticamente em todo o seu ambiente para qualquer atividade que pareça suspeita. Muitos dos modelos podem ser personalizados para pesquisar atividades ou filtrá-los de acordo com suas necessidades. Os alertas gerados por essas regras criarão incidentes que você pode atribuir e investigar em seu ambiente.
 
 Este tutorial ajuda você a detectar ameaças com o Azure Sentinel:
 
@@ -49,13 +43,21 @@ Os seguintes tipos de modelo estão disponíveis:
    
    Os modelos de segurança da Microsoft criam automaticamente incidentes do Azure Sentinel a partir dos alertas gerados em outras soluções de segurança da Microsoft, em tempo real. Você pode usar as regras de segurança da Microsoft como um modelo para criar novas regras com lógica semelhante. Para obter mais informações sobre regras de segurança, consulte [criar automaticamente incidentes de alertas de segurança da Microsoft](create-incidents-from-alerts.md).
 
-- **Flores** 
+- **Fusão** 
 
     Com base na tecnologia de fusão, a detecção avançada de ataques de multiestágio no Azure Sentinel usa algoritmos de aprendizado de máquina escalonáveis que podem correlacionar muitos alertas e eventos de baixa fidelidade em vários produtos em incidentes acionáveis e de alta fidelidade. A fusão é habilitada por padrão. Como a lógica está oculta e, portanto, não é personalizável, você só pode criar uma regra com esse modelo.
 
-- **Análise comportamental do Machine Learning**
+    > [!IMPORTANT]
+    > Algumas das detecções no modelo de regra de fusão estão atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+    >
+    > Para ver quais detecções estão em versão prévia, confira [detecção avançada de ataque de multiestágio no Azure Sentinel](fusion.md).
+
+- **Análise comportamental do aprendizado de máquina**
 
     Esses modelos são baseados em algoritmos proprietários do Microsoft Machine Learning, portanto, você não pode ver a lógica interna de como eles funcionam e quando eles são executados. Como a lógica está oculta e, portanto, não é personalizável, você só pode criar uma regra com cada modelo desse tipo.
+
+    > [!IMPORTANT]
+    > Os modelos de regra de análise comportamental do Machine Learning estão atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 - **Agendado**
 
@@ -65,7 +67,7 @@ Os seguintes tipos de modelo estão disponíveis:
 
 1. Para usar um modelo interno, clique no nome do modelo e, em seguida, clique no botão **criar regra** no painel de detalhes para criar uma nova regra ativa com base nesse modelo. Cada modelo tem uma lista de fontes de dados necessárias. Quando você abre o modelo, as fontes de dados são verificadas automaticamente quanto à disponibilidade. Se houver um problema de disponibilidade, o botão **criar regra** poderá ser desabilitado ou você poderá ver um aviso para esse efeito.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Usar detecções internas para encontrar ameaças com o Azure Sentinel":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Painel de visualização de regra de detecção":::
  
 1. Clicar no botão **criar regra** abre o assistente de criação de regras com base no modelo selecionado. Todos os detalhes são preenchidos de forma automática e com os modelos de segurança **agendados** ou da **Microsoft** , você pode personalizar a lógica e outras configurações de regra para atender melhor às suas necessidades específicas. Você pode repetir esse processo para criar regras adicionais com base no modelo interno. Depois de seguir as etapas no assistente de criação de regra para o final, você terá terminado de criar uma regra com base no modelo. As novas regras serão exibidas na guia **regras ativas** .
 

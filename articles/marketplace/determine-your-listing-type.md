@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247533"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099227"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
 
@@ -38,7 +38,11 @@ Esta tabela mostra quais opções de listagem estão disponíveis para cada tipo
 
 &#42; a opção obter agora de listagem inclui obtê-lo agora (gratuito), traga sua própria licença (BYOL), assinatura e preços com base no uso. Para obter detalhes, consulte [obter agora](#get-it-now).
 
-### <a name="free-trial"></a>Avaliação gratuita
+## <a name="changing-offer-type"></a>Alterando tipo de oferta
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## <a name="free-trial"></a>Avaliação gratuita
 
 Use o Marketplace comercial para aprimorar a capacidade de descoberta e automatizar o provisionamento da experiência de avaliação da solução. Isso permite que os clientes potenciais usem seu SaaS (software como serviço), IaaS ou experiência no aplicativo da Microsoft sem custo de 30 dias a seis meses, dependendo do tipo de oferta.
 
@@ -46,18 +50,18 @@ Os clientes usam o botão _avaliação gratuita_ na página de listagem da sua o
 
 Para ofertas de máquina virtual, os clientes são cobrados pelos custos de infraestrutura do Azure para usar a oferta durante um período de avaliação. Após a expiração do período de avaliação, os clientes são cobrados automaticamente pelo último plano que tentaram com base nas taxas padrão, a menos que sejam cancelados antes do final do período de avaliação.
 
-### <a name="test-drive"></a>Test drive
+## <a name="test-drive"></a>Test drive
 
 Os clientes usam o botão _Test Drive_ na página de listagem da sua oferta para obter acesso a um ambiente pré-configurado por um número fixo de horas. Para saber mais sobre as unidades de teste, consulte [o que é um test drive?](what-is-test-drive.md)
 
 > [!TIP]
 > Uma test drive é diferente de uma avaliação gratuita. Você pode oferecer um test drive, uma avaliação gratuita ou ambos. Ambos fornecem aos seus clientes sua solução por um período de tempo fixo. Mas um test drive também inclui um passeio prático e autoguiado dos principais recursos do produto e os benefícios que são demonstrados em um cenário de implementação real.
 
-### <a name="contact-me"></a>Entre em contato comigo
+## <a name="contact-me"></a>Entre em contato comigo
 
 Listagem simples de seu aplicativo ou serviço. Os clientes usam o botão _entrar em contato comigo_ na página de listagem da sua oferta para solicitar que você se conecte com eles sobre sua oferta.
 
-### <a name="get-it-now"></a>Obtenha agora
+## <a name="get-it-now"></a>Obtenha agora
 
 Essa opção de listagem inclui ofertas de transações (assinaturas e preços baseados em usuários), traga suas próprias ofertas de licença e obtenha-as agora (gratuito). As ofertas de transações são vendidas por meio do Marketplace comercial. A Microsoft é responsável pelas cobranças. Os clientes usam o _botão obter agora_ para obter a oferta.
 
@@ -92,28 +96,28 @@ Esta tabela mostra quais tipos de oferta dão suporte às opções de preços ad
 
 <sup>2</sup> com preço por hora e cobrado mensalmente.
 
-#### <a name="get-it-now-free"></a>Obtenha agora (gratuito)
+### <a name="get-it-now-free"></a>Obtenha agora (gratuito)
 
 Use esta opção de listagem para oferecer seu aplicativo gratuitamente. Os clientes usam o botão _obter agora_ para obter sua oferta gratuita.
 
 > [!NOTE]
 > Obtenha agora (gratuito) ofertas não qualificadas para benefícios de recompensas do Marketplace para ofertas de transações. Como não há nenhuma transação por meio da vitrine, elas são categorizadas como "avaliação". Consulte as [recompensas do Marketplace](#marketplace-rewards) abaixo.
 
-#### <a name="bring-your-own-license-byol"></a>BYOL (Traga sua própria licença)
+### <a name="bring-your-own-license-byol"></a>BYOL (Traga sua própria licença)
 
 Use esta opção de listagem para permitir que os clientes implantem sua oferta usando uma licença comprada fora do Marketplace comercial. Essa opção é ideal para migrações locais para a nuvem. Os clientes usam o botão _obter agora_ para comprar sua oferta usando uma licença adquirida previamente de você.
 
 > [!NOTE]
 > As ofertas do BYOL não são elegíveis para benefícios de recompensas do Marketplace para ofertas de transações. Como eles exigem que um cliente adquira a licença do parceiro e não há transações por meio da vitrine do Marketplace comercial, elas são categorizadas como "lista". Consulte as [recompensas do Marketplace](#marketplace-rewards) abaixo.
 
-#### <a name="subscription"></a>Subscription
+### <a name="subscription"></a>Subscription
 
 Você pode cobrar uma tarifa fixa por esses tipos de oferta:
 
 - Aplicativo Azure (aplicativo gerenciado) oferece suporte a assinaturas mensais.
 - O SaaS oferece suporte a assinaturas mensais e anuais.
 
-#### <a name="usage-based-pricing"></a>Preço com base no uso
+### <a name="usage-based-pricing"></a>Preço com base no uso
 
 Os seguintes tipos de oferta dão suporte a preços com base no uso:
 

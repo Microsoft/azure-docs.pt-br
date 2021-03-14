@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807607"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670475"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
 
@@ -21,7 +22,7 @@ Este artigo mostra como usar uma tarefa DevOps do Azure para injetar artefatos d
 ## <a name="devops-task-versions"></a>Versões da tarefa DevOps
 Há duas tarefas de DevOps do AIB (Construtor de imagens de VM) do Azure:
 
-* A [tarefa ' estável ' de AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), isso nos permite colocar as atualizações e os recursos mais recentes, permitir que os clientes os testem antes de promovê-lo para a tarefa ' estável ', aproximadamente 1 semana depois. 
+* A [tarefa ' estável ' de AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), esta é a compilação estável mais recente que foi testada e a telemetria não mostra nenhum problema. 
 
 
 * [Tarefa ' instável ' AIB](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), isso nos permite colocar as atualizações e os recursos mais recentes, permitir que os clientes os testem antes de promovê-lo para a tarefa ' estável '. Se não houver nenhum problema relatado e nossa telemetria não mostrar nenhum problema, aproximadamente 1 semana depois, promoveremos o código da tarefa para "estável". 
@@ -69,7 +70,7 @@ Selecione no menu suspenso a assinatura que você deseja que o construtor de ima
 
 Use o grupo de recursos em que o artefato do modelo de imagem temporária será armazenado. Ao criar um artefato de modelo, um grupo de recursos de construtor de imagem temporário adicional `IT_<DestinationResourceGroup>_<TemplateName>_guid` é criado. O grupo de recursos temporários armazena os metadados da imagem, como scripts. No final da tarefa, o artefato do modelo de imagem e o grupo de recursos do construtor de imagem temporário são excluídos.
  
-### <a name="location"></a>Location
+### <a name="location"></a>Local
 
 O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
 
@@ -160,7 +161,7 @@ O exemplo a seguir explica como isso funciona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     & 'c:\buildArtifacts\webapp\installAgent.ps1'
     ```
-* Linux – em sistemas Linux, os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o conteúdo do diretório/tmp é excluído. Se você quiser que os artefatos existam na imagem, deverá criar outro diretório e copiá-los.  Por exemplo:
+* Linux – em sistemas Linux, os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o conteúdo do diretório/tmp é excluído. Se você quiser que os artefatos existam na imagem, deverá criar outro diretório e copiá-los.  Por exemplo: 
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -182,7 +183,7 @@ O exemplo a seguir explica como isso funciona:
 > O Image Builder não remove automaticamente os artefatos de compilação, é altamente recomendável que você sempre tenha código para remover os artefatos de compilação.
 > 
 
-* Windows-o construtor de imagem implanta arquivos no `c:\buildArtifacts` diretório. O diretório é persistido, você deve remover o diretório. Você pode removê-lo no script que você executar. Por exemplo:
+* Windows-o construtor de imagem implanta arquivos no `c:\buildArtifacts` diretório. O diretório é persistido, você deve remover o diretório. Você pode removê-lo no script que você executar. Por exemplo: 
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -192,7 +193,7 @@ O exemplo a seguir explica como isso funciona:
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux-os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o `/tmp` conteúdo do diretório é excluído. É recomendável que você tenha código para remover o conteúdo e não confiar no sistema operacional para remover o conteúdo. Por exemplo:
+* Linux-os artefatos de compilação são colocados no `/tmp` diretório. No entanto, em muitos sistemas operacionais Linux, em uma reinicialização, o `/tmp` conteúdo do diretório é excluído. É recomendável que você tenha código para remover o conteúdo e não confiar no sistema operacional para remover o conteúdo. Por exemplo: 
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -318,7 +319,7 @@ Não. Um nome de modelo exclusivo é usado e, em seguida, excluído.
 
 Se houver uma falha de compilação, a tarefa DevOps não excluirá o grupo de recursos de preparo. Você pode acessar o grupo de recursos de preparo que contém o log de compilação personalizada.
 
-Você verá um erro no log do DevOps para a tarefa do construtor de imagens de VM e verá o local de personalização. log. Por exemplo:
+Você verá um erro no log do DevOps para a tarefa do construtor de imagens de VM e verá o local de personalização. log. Por exemplo: 
 
 :::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Exemplo de erro de tarefa DevOps que mostra uma falha.":::
 

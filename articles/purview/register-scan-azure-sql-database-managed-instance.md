@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491716"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677848"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrar e examinar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -117,7 +117,7 @@ A entidade de serviço ou a identidade gerenciada precisa ter permissão para ob
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Configurar a fonte de dados SQL":::
 
-1. Selecione **Inserir manualmente**
+1. Selecione **Da assinatura do Azure**, escolha a assinatura apropriada na caixa suspensa **Assinatura do Azure** e o servidor apropriado na caixa suspensa **Nome do servidor**.
 
 1. Forneça o **nome de domínio totalmente qualificado do ponto de extremidade público** e o **número da porta**. Em seguida, selecione **Concluir** para registrar a fonte de dados.
 

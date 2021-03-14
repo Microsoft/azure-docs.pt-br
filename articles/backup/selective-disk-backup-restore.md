@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre o backup e a restauração de disco 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 38ead1591bf2ecadc8bfca5875ac1fa3e69d56ef
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e82c959dc63222e8565243cc9ac805283cab6617
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806380"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501815"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e restauração de disco seletivo para máquinas virtuais do Azure
 
@@ -185,7 +185,7 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Ao executar esses comandos, você verá `"diskExclusionProperties": null` .
 
-## <a name="using-powershell"></a>Usar o PowerShell
+## <a name="using-powershell"></a>Usando o PowerShell
 
 Verifique se você está usando Azure PowerShell versão 3.7.0 ou superior.
 
@@ -219,7 +219,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ### <a name="get-backup-item-object-to-be-passed-in-modify-protection-with-powershell"></a>Obter o objeto de item de backup a ser passado em modificar proteção com o PowerShell
 
 ```azurepowershell
-$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $Vault.ID -FriendlyName "V2VM"
+$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $targetVault.ID -FriendlyName "V2VM"
 ```
 
 Você precisa passar o objeto de **$Item** obtido acima para o parâmetro **– Item** nos cmdlets a seguir.
@@ -249,7 +249,10 @@ Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -V
 ### <a name="restore-selective-disks-with-powershell"></a>Restaurar discos seletivos com o PowerShell
 
 ```azurepowershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [Strings]
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $item -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [$disks]
 ```
 
 ### <a name="restore-only-os-disk-with-powershell"></a>Restaurar somente o disco do sistema operacional com o PowerShell

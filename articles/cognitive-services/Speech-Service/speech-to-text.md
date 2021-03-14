@@ -12,17 +12,17 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de fala em texto, software de conversão de fala em texto
-ms.openlocfilehash: 102289fd233a744952f37568abf77a753953637e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499638"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434298"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
 Nesta visão geral, você aprenderá sobre os benefícios e capacidades do serviço de conversão de fala em texto.
-A conversão de fala em texto, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto. Seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre esse texto como entrada de comando. Esse serviço é fornecido pela mesma tecnologia de reconhecimento usada pela Microsoft para os produtos Cortana e Office. Ele funciona diretamente com as ofertas <a href="./speech-translation.md" target="_blank">de <span class="docon docon-navigate-external x-hidden-focus"></span> tradução</a> e serviço de conversão de <a href="./text-to-speech.md" target="_blank">texto em fala <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](language-support.md#speech-to-text).
+A conversão de fala em texto, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto. Seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre esse texto como entrada de comando. Esse serviço é fornecido pela mesma tecnologia de reconhecimento usada pela Microsoft para os produtos Cortana e Office. Ele funciona diretamente com as ofertas de tradução e serviço de <a href="./speech-translation.md" target="_blank">conversão </a> de <a href="./text-to-speech.md" target="_blank">texto em fala </a> . Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](language-support.md#speech-to-text).
 
 O serviço de conversão de voz em texto usa o modelo de linguagem universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. É ideal para cenários de conversação e de ditado. Ao usar a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você pode criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados. A personalização é útil para lidar com ruídos de ambiente ou vocabulário específico do setor.
 
@@ -50,7 +50,7 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 Além do modelo de serviço de fala padrão, você pode criar modelos personalizados. A personalização ajuda a superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](./custom-speech-overview.md). As opções de personalização variam por idioma/localidade, consulte [idiomas com suporte](./language-support.md) para verificar o suporte.
 
-## <a name="batch-transcription"></a>Transcrição de lote
+## <a name="batch-transcription"></a>Transcrição em lote
 
 A transcrição do lote é um conjunto de operações da API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Será possível transmitir arquivos de áudio com um URI de SAS (assinatura de acesso compartilhado) e receber resultados de transcrição de maneira assíncrona. Consulte o [instruções](batch-transcription.md) para obter mais informações sobre como usar a API de transcrição do lote.
 

@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475601"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682393"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ Para fins de demonstração, esse exemplo usa um ponto de extremidade publicamen
 Com a configuração adicional, este exemplo dá suporte à conexão com um ponto de extremidade protegido do **Azure AD** (Azure Active Directory), de modo que o logon do usuário seja necessário para que o aplicativo busque um token dos Serviços de Comunicação do Azure. Confira as etapas abaixo:
 
 1. Habilitar a autenticação do Azure Active Directory no seu aplicativo.  
-   - [Registrar seu aplicativo no Azure Active Directory (usando as configurações da plataforma iOS/macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Registrar seu aplicativo no Azure Active Directory (usando as configurações da plataforma iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Acesse a página de visão geral do aplicativo registrado em Registros do aplicativo do Azure Active Directory. Anote a `Application (client) ID`, a `Directory (tenant) ID` e o `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Configuração do Azure Active Directory no portal do Azure.":::

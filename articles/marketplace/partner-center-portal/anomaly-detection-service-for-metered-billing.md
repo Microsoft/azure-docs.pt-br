@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280542"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092399"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de detecção de anomalias para cobrança limitada
 
@@ -50,32 +50,37 @@ O modelo funciona gerando intervalos de confiança retrospectiva. A previsão de
 
 ## <a name="anomaly-detection-notification"></a>Notificação de detecção de anomalias
 
-Enviamos avisos de detecção de anomalias por email semanalmente. Ele inclui todas as anomalias detectadas na semana para todos os medidores e clientes. Este email é enviado para os contatos de **engenharia** e **suporte** fornecidos quando você criou a oferta.
+Você pode avaliar, gerenciar e reconhecer anomalias no Partner Center. Para saber como, consulte [gerenciar anomalias de cobrança limitada no Partner Center](../anomaly-detection.md).
 
-Você deve investigar se as anomalias detectadas são problemas reais e, nesse caso, entrar em contato com a Microsoft para relatar o uso incorreto (consulte a seção de suporte abaixo).
+Para garantir que seus clientes não sejam sobrecarregados para uso medido, você deve investigar se as anomalias detectadas são problemas reais. Nesse caso, você pode reconhecer o uso incorreto no Partner Center.
 
-Se você confirmar que as anomalias detectadas são de uso normal, nenhuma ação adicional será necessária. No entanto, se uma anomalia representar um risco financeiro potencialmente alto, poderemos contatá-lo para confirmar o uso.  
+Recomendamos que você confirme se as anomalias detectadas são de uso normal. Isso melhorará os dados de anomalias que fornecemos a você. Se uma anomalia representar um risco financeiro potencialmente alto, poderemos contatá-lo para confirmar o uso.
 
 ## <a name="when-and-how-to-get-support"></a>Quando e como obter suporte
 
-Se você enviou o uso incorreto à Microsoft e isso resultou em uma subcarga do cliente, a Microsoft não iniciará uma fatura para o cliente para uso informado ou pague você pelo uso. Você precisará arcar com a perda de receita devido a erros no relatório de uso.
+Se você nos enviar um uso limitado incorreto que fez ou resultará em um subencargo para o cliente, não iniciaremos uma cobrança para o cliente sobre o uso relatado ou pagaremos pelo uso. Você precisará arcar com a perda de receita devido a erros no relatório de uso.
 
-Se um dos seguintes casos se aplicar, você poderá abrir um tíquete de suporte para solicitar reembolso ou ajuste de cobrança para seus clientes:
+Se um dos casos a seguir se aplicar, você poderá ajustar o valor de uso no Partner Center, o que resultará em um ajuste de reembolso ou cobrança para seus clientes:
 
-- Você confirmou que uma das anomalias que encontramos é um problema real e o uso incorreto resultaria em um **sobrecarga** do cliente.
-- Você descobre que você enviou o uso incorreto para nós e o uso incorreto resultaria em um **sobrecarga** do cliente.
-- Você gostaria de solicitar um reembolso pelo encargo do uso de cobrança limitado do seu cliente.
+- Você confirmou que uma das anomalias encontradas é um problema real e o uso incorreto resultaria em sobrecarregar o cliente.
+- Você descobre que você enviou o uso incorreto para nós e o uso incorreto resultaria em sobrecarregar o cliente.
 
-Para enviar um tíquete:
+Para enviar um tíquete de suporte relacionado a anomalias de cobrança limitada:
 
-1. Vá para a página de suporte. Na **caixa Conte-nos sobre o seu problema**, digite "uso incorreto".
-2. Em tópicos de suporte, na lista suspensa dos resultados da pesquisa, selecione uma das seguintes opções:
-    - **Marketplace comercial**  >  **Cobrança limitada**  >  **Uso incorreto enviado para a oferta de aplicativos do Azure**ou
-    - **Marketplace comercial**  >  **Cobrança limitada**  >  **Uso incorreto enviado para a oferta de SaaS**
-3. Na **próxima etapa**, selecione o botão **examinar soluções** para ser direcionado para entrar no Partner Center para enviar um tíquete de suporte.
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta corporativa.
+1. No menu no canto superior direito da página, selecione o ícone de **suporte** . O painel **ajuda e suporte** é exibido no lado direito da página.
+1. Para obter ajuda com o Marketplace comercial, selecione **Marketplace comercial**.
+   ![Ilustra o painel de suporte.](../media/support/commercial-marketplace-support-pane.png)
+1. Na caixa **Resumo do problema** , insira o **Marketplace comercial > cobrança limitada**.
+1. Na caixa **tipo de problema** , selecione uma das seguintes opções:
+    - **Mercado comercial > cobrança limitada > uso incorreto enviado para a oferta de aplicativos do Azure**
+    - **Mercado comercial > cobrança limitada > uso incorreto enviado para a oferta de SaaS**
+1. Em **próxima etapa**, selecione **examinar soluções**.
+1. Examine os documentos recomendados, se houver ou selecione **fornecer detalhes do problema** para enviar um tíquete de suporte.
 
 Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](../support.md).
 
-## <a name="next-step"></a>Próxima etapa
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [API do serviço de medição do Marketplace](marketplace-metering-service-apis.md).
+- [Gerenciar anomalias de cobrança limitadas no Partner Center](../anomaly-detection.md)

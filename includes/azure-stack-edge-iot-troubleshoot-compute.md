@@ -4,12 +4,12 @@ ms.service: databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 02/05/2021
-ms.openlocfilehash: b06b91e972fd07543cf02105360cb0400ef6b0f1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750888"
 ---
 Use as respostas de tempo de execução do agente de IoT Edge para solucionar erros relacionados a computação. Aqui está uma lista das possíveis respostas:
 
@@ -20,7 +20,7 @@ Use as respostas de tempo de execução do agente de IoT Edge para solucionar er
 * 406 – o dispositivo do IoT Edge está offline ou não está enviando relatórios de status.
 * 500 – ocorreu um erro no runtime do IoT Edge.
 
-Para obter mais informações, consulte [IOT Edge Agent](/azure/iot-edge/iot-edge-runtime?view=iotedge-2018-06&preserve-view=true#iot-edge-agent).
+Para obter mais informações, consulte [IOT Edge Agent](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent).
 
 O erro a seguir está relacionado ao serviço de IoT Edge em seu Azure Stack Edge pro<!--/ Data Box Gateway--> dispositivo.
 

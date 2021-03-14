@@ -3,15 +3,15 @@ title: Solução de problemas Apache Kafka para nuvem confluente-soluções de p
 description: Este artigo fornece informações sobre solução de problemas e perguntas frequentes (FAQ) para a nuvem confluente no Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709386"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Solução de problemas Apache Kafka para soluções de nuvem confluentes
 
@@ -23,11 +23,21 @@ Se você não encontrar uma resposta ou não puder resolver um problema, [crie u
 
 Para localizar a oferta no Azure Marketplace, use as seguintes etapas:
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
 1. Pesquise _Apache Kafka na nuvem confluente_.
 1. Selecione o bloco do aplicativo.
 
 Se a oferta não for exibida, entre em contato com o [suporte do Fluent](https://support.confluent.io). Sua ID de locatário Azure Active Directory deve estar na lista de locatários permitidos. Para saber como localizar sua ID de locatário, consulte [como localizar sua ID de locatário Azure Active Directory](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## <a name="purchase-errors"></a>Erros de compra
+
+* A compra falha porque um cartão de crédito válido não está conectado à assinatura do Azure ou um método de pagamento não está associado à assinatura.
+
+  Use uma assinatura do Azure diferente. Ou então, adicione ou atualize o cartão de crédito ou o método de pagamento da assinatura. Para obter mais informações, consulte [atualizando o método de crédito e pagamento](../../cost-management-billing/manage/change-credit-card.md).
+
+* A assinatura do EA não permite compras do Marketplace.
+
+  Use uma assinatura diferente. Ou então, verifique se sua assinatura do EA está habilitada para compra do Marketplace. Para obter mais informações, consulte [habilitar compras do Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Se essas opções não resolverem o problema, entre em contato com o [suporte do Fluent](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>Erro de conflito
 

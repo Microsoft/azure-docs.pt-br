@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 27c8a0b80068124613af15565f387f15ac6b8e57
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210811"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning
 
@@ -54,7 +54,7 @@ Para usar uma entidade de serviço (SP), você deve primeiro criar o SP e conced
 >
 > O motivo para conceder o acesso mínimo é que uma entidade de serviço usa uma senha para autenticar e a senha pode ser armazenada como parte de um script de automação. Se a senha for vazada, o acesso mínimo necessário para uma tarefa específica minimizará o uso mal-intencionado do SP.
 
-A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é usando o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Para criar uma entidade de serviço e conceder acesso ao seu espaço de trabalho, use as seguintes etapas:
+A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é usando o [CLI do Azure](/cli/azure/install-azure-cli). Para criar uma entidade de serviço e conceder acesso ao seu espaço de trabalho, use as seguintes etapas:
 
 > [!NOTE]
 > Você deve ser um administrador na assinatura para executar todas essas etapas.
@@ -67,9 +67,9 @@ A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalh
 
     Se a CLI pode abrir seu navegador padrão, ela irá fazê-lo e carregar uma página de entrada. Caso contrário, você precisará abrir um navegador e seguir as instruções na linha de comando. As instruções envolvem a navegação para [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e a inserção de um código de autorização.
 
-    Se você tiver várias assinaturas do Azure, poderá usar o `az account set -s <subscription name or ID>` comando para definir a assinatura. Para saber mais, confira [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) (Usar várias assinaturas do Azure).
+    Se você tiver várias assinaturas do Azure, poderá usar o `az account set -s <subscription name or ID>` comando para definir a assinatura. Para saber mais, confira [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli) (Usar várias assinaturas do Azure).
 
-    Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
+    Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
 
 1. Instale a extensão de Azure Machine Learning:
 
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Usar uma entidade de serviço do CLI do Azure
 
-Você pode usar uma entidade de serviço para CLI do Azure comandos. Para obter mais informações, consulte [entrar usando uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
+Você pode usar uma entidade de serviço para CLI do Azure comandos. Para obter mais informações, consulte [entrar usando uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Usar uma entidade de serviço com a API REST (versão prévia)
 

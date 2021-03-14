@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754072"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389528"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -121,7 +121,7 @@ Se você estiver procurando ajuda de especialistas para começar, a Microsoft te
 Há duas versões do serviço de Migrações para Azure.
 
 - **Versão atual**: use esta versão para criar projetos de Migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: A versão anterior de Migrações para Azure é compatível apenas com a avaliação de VMs VMware locais. Se você usava a versão anterior, agora você deve usar a versão atual. Você não pode mais criar projetos de Migrações para Azure usando a versão anterior. Recomendamos que você não faça novas descobertas com ela.
+- **Versão anterior**: A versão anterior das Migrações para Azure, também conhecida como Migrações para Azure (versão clássica), é compatível apenas com a avaliação de VMs VMware locais. As Migrações para Azure (versão clássica) serão desativadas em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica das Migrações para Azure não terá mais suporte, e os metadados de inventário em projetos clássicos serão excluídos. Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](./create-manage-projects.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tiver um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
     Para acessar projetos existentes, no portal do Azure, pesquise e selecione **Migrações para Azure**. O painel **Migrações para Azure** tem uma notificação e um link para acessar projetos antigos das Migrações para Azure.
 

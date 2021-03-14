@@ -3,17 +3,17 @@ title: Modelo de Dados do Azure Application Insights | Microsoft Docs
 description: Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324379"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584228"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](./app-insights-overview.md) para o portal.
 Você verá essas propriedades na saída de dados de [Exportação Contínua](export-telemetry.md).
-Elas também aparecerão nos filtros da propriedade no [Explorador de Métrica](../platform/metrics-charts.md) e na [Pesquisa de Diagnóstico](./diagnostic-search.md).
+Elas também aparecerão nos filtros da propriedade no [Explorador de Métrica](../essentials/metrics-charts.md) e na [Pesquisa de Diagnóstico](./diagnostic-search.md).
 
 Pontos a serem observados:
 
@@ -114,7 +114,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |booleano |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
 | context.data.samplingRate |número |Porcentagem de telemetria gerada pelo SDK enviado ao portal. Intervalo 0.0-100.0. |
-| context.device |objeto |Dispositivo de cliente |
+| context.device |object |Dispositivo de cliente |
 | context.device.browser |string |IE, Chrome, ... |
 | context.device.browserVersion |string |Chrome 48.0, ... |
 | context.device.deviceModel |string | |
@@ -129,7 +129,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.device.roleName |string | |
 | context.device.screenResolution |string | |
 | context.device.type |string |PC, navegador,... |
-| context.location |objeto |Derivada de `clientip`. |
+| context.location |object |Derivada de `clientip`. |
 | context.location.city |string |Derivado de `clientip` , se conhecido |
 | context.location.clientip |string |Último octógono tornado anônimo pelo valor 0. |
 | context.location.continent |string | |
@@ -156,7 +156,7 @@ Eventos personalizados gerados por [TrackEvent()](./api-custom-events-metrics.md
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| event [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| event [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | event [0] name |string |Nome do evento.  Comprimento máximo 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
@@ -168,7 +168,7 @@ Eventos personalizados gerados por [TrackEvent()](./api-custom-events-metrics.md
 | Caminho | Type | Observações |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| basicException [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -185,8 +185,8 @@ Eventos personalizados gerados por [TrackEvent()](./api-custom-events-metrics.md
 | basicException [0] outerId |string | |
 | basicException [0] parsedStack [0] assembly |string | |
 | basicException [0] parsedStack [0] fileName |string | |
-| basicException [0] parsedStack [0] level |Número inteiro | |
-| basicException [0] parsedStack [0] line |Número inteiro | |
+| basicException [0] parsedStack [0] level |inteiro | |
+| basicException [0] parsedStack [0] line |inteiro | |
 | basicException [0] parsedStack [0] method |string | |
 | basicException [0] stack |string |Comprimento máximo 10k |
 | basicException [0] typeName |string | |
@@ -209,7 +209,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] async |booleano | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Por exemplo, "home/index" |
-| remoteDependency [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
 | remoteDependency [0] `id` |string | |
@@ -227,11 +227,11 @@ Enviado por [TrackRequest](./api-custom-events-metrics.md#trackrequest). Os mód
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| request [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo: 4 =&gt; 25%. |
+| request [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo: 4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
 | solicitação [0] `id` |string |`Operation id` |
 | request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
-| request [0] responseCode |Número inteiro |Resposta HTTP enviada ao cliente |
+| request [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
 | request [0] success |booleano |Padrão == (responseCode &lt; 400) |
 | request [0] url |string |Não incluindo o host |
 | request [0] urlData.base |string | |
@@ -245,12 +245,12 @@ Os valores de contexto mostram a versão do navegador e do sistema operacional c
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| clientPerformance [0] clientProcess.value |Número inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
+| clientPerformance [0] clientProcess.value |inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
 | clientPerformance [0] name |string | |
-| clientPerformance [0] networkConnection.value |Número inteiro |Tempo necessário para estabelecer uma conexão de rede. |
-| clientPerformance [0] receiveRequest.value |Número inteiro |Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
-| clientPerformance [0] sendRequest.value |Número inteiro |Tempo necessário para enviar a solicitação HTTP. |
-| clientPerformance [0] total.value |Número inteiro |Tempo desde o início até o envio da solicitação para exibição da página. |
+| clientPerformance [0] networkConnection.value |inteiro |Tempo necessário para estabelecer uma conexão de rede. |
+| clientPerformance [0] receiveRequest.value |inteiro |Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
+| clientPerformance [0] sendRequest.value |inteiro |Tempo necessário para enviar a solicitação HTTP. |
+| clientPerformance [0] total.value |inteiro |Tempo desde o início até o envio da solicitação para exibição da página. |
 | clientPerformance [0] url |string |URL dessa solicitação |
 | clientPerformance [0] urlData.base |string | |
 | clientPerformance [0] urlData.hashTag |string | |
@@ -262,8 +262,8 @@ Enviado por trackPageView() ou [stopTrackPage](./api-custom-events-metrics.md#pa
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| view [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
-| view [0] durationMetric.value |Número inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
+| view [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
 | view [0] name |string |Título da página.  Comprimento máximo 250 |
 | view [0] url |string | |
 | view [0] urlData.base |string | |
@@ -277,9 +277,9 @@ Relata os [testes de disponibilidade na Web](./monitor-web-app-availability.md).
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |número |1.0 ou 0.0 |
-| availability [0] count |Número inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| availability [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
-| availability [0] dataSizeMetric.value |Número inteiro | |
+| availability [0] dataSizeMetric.value |inteiro | |
 | availability [0] durationMetric.name |string | |
 | availability [0] durationMetric.value |número |Duração do teste. 1e7==1s |
 | availability [0] message |string |Diagnóstico de falha |
@@ -294,7 +294,7 @@ Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 {
@@ -324,7 +324,7 @@ Por exemplo:
 ```
 
 ## <a name="about-metric-values"></a>Sobre valores de métricas
-Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
+Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo: 
 
 ```json
 "durationMetric": {

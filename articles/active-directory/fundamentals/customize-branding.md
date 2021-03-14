@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b69daf9e9fbbb3f6d6597a8e8349dc8bec61fbf
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996654"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008767"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). Suas páginas de entrada são exibidas quando os usuários entram nos aplicativos baseados na Web da sua organização, como Microsoft 365, que usa o Azure AD como seu provedor de identidade.
@@ -58,7 +58,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 
         - **Logotipo de faixa.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos**.
             
-            A imagem não pode ser mais alta que 60 pixels ou maior que 280 pixels. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
+            A imagem não pode ser mais alta que 60 pixels ou maior que 280 pixels, e o arquivo não deve ser maior que 10 KB. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno. 
 
         - **Dica de nome de usuário.** Digite o texto de dica que aparecerá aos usuários, caso não se lembrem do nome de usuário. Esse texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os visitantes entrarem no aplicativo, sugerimos que você não adicione essa dica.
 
@@ -113,7 +113,7 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 
 3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
@@ -130,7 +130,7 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
     A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
 

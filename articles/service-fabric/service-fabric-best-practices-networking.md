@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732557"
 ---
 # <a name="networking"></a>Rede
 
@@ -39,7 +39,7 @@ Maximize o desempenho da sua máquina virtual com rede acelerada, declarando a p
 ```
 O cluster do Service Fabric pode ser provisionado no [Linux com a Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md) e no [Windows com a Rede Acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o Standard_DS8_v3 SKU em 01/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux.
+A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o Standard_DS8_v3 SKU em 01/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux. Observe que a rede acelerada requer pelo menos 4 vCPUs. 
 
 Para habilitar a Rede Acelerada em um cluster existente do Service Fabric, primeiro você precisará [Expandir um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-set-scale-node-type-scale-out.md) para executar o seguinte:
 1. Provisionar um NodeType com a Rede Acelerada habilitada
@@ -79,7 +79,7 @@ Mais informações sobre as regras de segurança de entrada:
 
 * **Azure**. Essa porta é usada pelo Service Fabric Explorer para procurar e gerenciar seu cluster e também é usada pelo provedor de recursos de Service Fabric para consultar informações sobre o cluster a fim de exibi-los na Portal de Gerenciamento do Azure. Se essa porta não estiver acessível do provedor de recursos de Service Fabric, você verá uma mensagem como ' nós não encontrados ' ou ' UpgradeServiceNotReachable ' no portal do Azure e sua lista de nós e aplicativos aparecerá vazia. Isso significa que, se você quiser ter visibilidade do cluster na Portal de Gerenciamento do Azure, o balanceador de carga deverá expor um endereço IP público e seu NSG deverá permitir o tráfego de entrada 19080.  
 
-* **Cliente**do. O ponto de extremidade de conexão de cliente para APIs como REST/PowerShell/CLI. 
+* **Cliente** do. O ponto de extremidade de conexão de cliente para APIs como REST/PowerShell/CLI. 
 
 * **Cluster**. Usado para comunicação entre nós; Nunca deve ser bloqueado.
 

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.service: virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bba81d8fbd24cf81a558b8c953c7a2e5e9290e9f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: e70284a3a89c30d0f1d1363a15652449a6a1d4f5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539561"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558092"
 ---
 # <a name="move-a-marketplace-azure-virtual-machine-to-another-subscription"></a>Mover uma Máquina Virtual do Azure Marketplace para outra assinatura
 
@@ -71,9 +71,12 @@ publisher=$(az vm get-instance-view --resource-group $sourceResourceGroup \
     --name $vmName --query 'storageProfile.imageReference.publisher' --output tsv)
 
 # Get information to create new virtual machine
-planName=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.name' --name $vmName)
-planProduct=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.product' --name $vmName)
-planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.publisher' --name $vmName)
+planName=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.name' --name $vmName)
+planProduct=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.product' --name $vmName)
+planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.publisher' --name $vmName)
 
 # Get the name of the OS disk
 osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
@@ -137,3 +140,8 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 - [az vm image terms accept](/cli/azure/vm/image/terms#az_vm_image_terms_accept)
 - [az vm image terms show](/cli/azure/vm/image/terms#az_vm_image_terms_show)
 - [az vm show](/cli/azure/vm#az_vm_show)
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Mover VMs para outra região do Azure](../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Mover uma VM para outro grupo de recursos ou outra assinatura](./linux/move-vm.md)

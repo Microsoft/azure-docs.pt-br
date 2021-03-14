@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: d85631cd7ace8aa5b9b0725920f477e2447e78c0
-  ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+  ms.openlocfilehash: 02df0a3fc7dedb5ced734efcd3cdd0eb48232c37
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/29/2021
-  ms.locfileid: "99072011"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101701681"
 landingContent:
 - title: Sobre Armazenamento de Blobs
   linkLists:
@@ -64,7 +64,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Analisar dados com o Databricks
-      url: data-lake-storage-quickstart-create-databricks-account.md
+      url: ./data-lake-storage-use-databricks-spark.md
   - linkListType: concept
     links:
     - text: Processamento de Big Data

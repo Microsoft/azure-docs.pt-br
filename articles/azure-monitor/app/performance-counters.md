@@ -4,12 +4,12 @@ description: Monitore o sistema e contadores de desempenho .NET personalizados n
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937385"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031354"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -21,7 +21,7 @@ O painel Métricas mostra o conjunto padrão de contadores de desempenho.
 
 ![Contadores de desempenho reportados no Application Insights](./media/performance-counters/performance-counters.png)
 
-Os contadores padrão atuais configurados para serem coletados para aplicativos Web do ASP.NET/ASP.NET Core são:
+Os contadores padrão atuais que estão configurados para serem coletados para aplicativos Web ASP.NET são:
 - % de processo\\Tempo do processador
 - % de processo\\Tempo do processador normalizado
 - Memória\\Bytes disponíveis
@@ -31,6 +31,14 @@ Os contadores padrão atuais configurados para serem coletados para aplicativos 
 - Processo\\Bytes particulares
 - Processo\\Bytes de dados de E/S/segundo
 - Aplicativos ASP.NET\\Fila de solicitações em aplicativos
+- \Processador(_Total)\\% de tempo do processador
+
+Os contadores padrão atuais que estão configurados para serem coletados para ASP.NET Core aplicativos Web são:
+- % de processo\\Tempo do processador
+- % de processo\\Tempo do processador normalizado
+- Memória\\Bytes disponíveis
+- Processo\\Bytes particulares
+- Processo\\Bytes de dados de E/S/segundo
 - \Processador(_Total)\\% de tempo do processador
 
 ## <a name="add-counters"></a>Adicionar contadores
@@ -110,7 +118,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
-Você pode pesquisar e exibir relatórios do contador de desempenho no [Analytics](../log-query/log-query-overview.md).
+Você pode pesquisar e exibir relatórios do contador de desempenho no [Analytics](../logs/log-query-overview.md).
 
 O esquema **performanceCounters** expõe o nome `category`, `counter` e o nome `instance` de cada contador de desempenho.  Na telemetria de cada aplicativo, você verá apenas os contadores para aquele aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
 
@@ -148,7 +156,7 @@ O suporte para contadores de desempenho no ASP.Net Core é limitado:
 * As versões 2.8.0 e posteriores do SDK dão suporte ao contador de CPU/memória no Linux. Nenhum outro contador tem suporte no Linux. A maneira recomendada para obter contadores do sistema no Linux (e em outros ambientes não Windows) é usando [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertas
-Assim como ocorre com outras métricas, você pode [definir um alerta](../platform/alerts-log.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
+Assim como ocorre com outras métricas, você pode [definir um alerta](../alerts/alerts-log.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 

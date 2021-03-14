@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581747"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175526"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -45,7 +45,7 @@ Você deve ter permissões suficientes para registrar um aplicativo com seu loca
 1. No painel esquerdo, selecione **configurações de usuário**.
 1. Verifique a configuração **Registros do Aplicativo**. Esse valor só pode ser definido por um administrador. Se for definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo.
 
-Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../roles/permissions-reference.md#available-roles) e as [permissões de função](../roles/permissions-reference.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
+Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Consulte [funções internas do Azure ad](../roles/permissions-reference.md#all-roles) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD que são dadas a cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
 
@@ -75,7 +75,7 @@ Para verificar suas permissões de assinatura:
 
 Vamos diretamente para a criação da identidade. Se você encontrar um problema, verifique as [permissões necessárias](#permissions-required-for-registering-an-app) para garantir que sua conta possa criar a identidade.
 
-1. Entre em sua conta do Azure por meio <a href="https://portal.azure.com/" target="_blank">do <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>.
+1. Entre sua conta do Azure através do <a href="https://portal.azure.com/" target="_blank">portal do Microsoft Azure</a>.
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registros do Aplicativo**.
 1. Selecione **Novo registro**.
@@ -84,6 +84,9 @@ Vamos diretamente para a criação da identidade. Se você encontrar um problema
    ![Digite um nome para seu aplicativo](./media/howto-create-service-principal-portal/create-app.png)
 
 Você criou o aplicativo e a entidade de serviço do Azure AD.
+
+> [!NOTE]
+> Você pode registrar vários aplicativos com o mesmo nome no Azure AD, mas os aplicativos devem ter IDs de aplicativo (cliente) diferentes.
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função ao aplicativo
 
@@ -181,7 +184,7 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
 ## <a name="configure-access-policies-on-resources"></a>Configurar políticas de acesso em recursos
 Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.
 
-1. No <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>, navegue até o cofre de chaves e selecione **políticas de acesso**.
+1. No <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>, navegue até o cofre de chaves e selecione **políticas de acesso**.
 1. Selecione **Adicionar política de acesso** e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso e, em seguida, **salvar** para confirmar suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)

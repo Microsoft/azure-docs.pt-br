@@ -7,12 +7,12 @@ ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581594"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570968"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorando a referência de dados do Hub IoT do Azure
 
@@ -24,25 +24,48 @@ Esta seção lista todas as métricas de plataforma coletadas automaticamente pa
 
 As subseções a seguir dividem as métricas da plataforma do Hub IoT por categoria geral e as listam pelo nome de exibição que elas aparecem no portal do Azure com. As informações também são fornecidas relevantes para as métricas que aparecem em cada subseção.
 
-Você também pode encontrar uma única tabela que lista todas as métricas da plataforma do Hub IoT por nome da métrica em [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) na documentação do Azure monitor. Lembre-se de que essa tabela não fornece algumas das informações, como [agregações com suporte](#supported-aggregations) para algumas métricas, disponíveis neste artigo.
+Você também pode encontrar uma única tabela que lista todas as métricas da plataforma do Hub IoT por nome da métrica em [Microsoft. Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) na documentação do Azure monitor. Lembre-se de que essa tabela não fornece algumas das informações, como [agregações com suporte](#supported-aggregations) para algumas métricas, disponíveis neste artigo.
 
-Para saber mais sobre as métricas com suporte em outros serviços do Azure, consulte [métricas com suporte com Azure monitor](../azure-monitor/platform/metrics-supported.md).
+Para saber mais sobre as métricas com suporte em outros serviços do Azure, consulte [métricas com suporte com Azure monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Tópicos nesta seção**
 
-- [Agregações com suporte](#supported-aggregations)
-- [Métricas de comando da nuvem para o dispositivo](#cloud-to-device-command-metrics)
-- [Métricas de métodos diretos de nuvem para dispositivo](#cloud-to-device-direct-methods-metrics)
-- [Métricas de operações de entrelaçamento de nuvem para dispositivo](#cloud-to-device-twin-operations-metrics)
-- [Métricas de configuração](#configurations-metrics)
-- [Métricas de cota diária](#daily-quota-metrics)
-- [Métricas do dispositivo](#device-metrics)
-- [Métricas de telemetria do dispositivo](#device-telemetry-metrics)
-- [Métricas de operações do dispositivo para a nuvem no Cloud](#device-to-cloud-twin-operations-metrics)
-- [Métricas da grade de eventos](#event-grid-metrics)
-- [Métricas de trabalhos](#jobs-metrics)
-- [Métricas de roteamento](#routing-metrics)
-- [Métricas de consulta de entrelaçamento](#twin-query-metrics)
+- [Monitorando a referência de dados do Hub IoT do Azure](#monitoring-azure-iot-hub-data-reference)
+  - [Métricas](#metrics)
+    - [Agregações com suporte](#supported-aggregations)
+    - [Métricas de comando da nuvem para o dispositivo](#cloud-to-device-command-metrics)
+    - [Métricas de métodos diretos de nuvem para dispositivo](#cloud-to-device-direct-methods-metrics)
+    - [Métricas de operações de entrelaçamento de nuvem para dispositivo](#cloud-to-device-twin-operations-metrics)
+    - [Métricas de configuração](#configurations-metrics)
+    - [Métricas de cota diária](#daily-quota-metrics)
+    - [Métricas do dispositivo](#device-metrics)
+    - [Métricas de telemetria do dispositivo](#device-telemetry-metrics)
+    - [Métricas de operações do dispositivo para a nuvem no Cloud](#device-to-cloud-twin-operations-metrics)
+    - [Métricas da grade de eventos](#event-grid-metrics)
+    - [Métricas de trabalhos](#jobs-metrics)
+    - [Métricas de roteamento](#routing-metrics)
+    - [Métricas de consulta de entrelaçamento](#twin-query-metrics)
+  - [Dimensões de métrica](#metric-dimensions)
+  - [Logs de recursos](#resource-logs)
+    - [Conexões](#connections)
+    - [Telemetria do Dispositivo](#device-telemetry)
+    - [Comandos da nuvem para o dispositivo](#cloud-to-device-commands)
+    - [Operações de identidade do dispositivo](#device-identity-operations)
+    - [Operações de upload de arquivo](#file-upload-operations)
+    - [Rotas](#routes)
+    - [Operações de nuvem gêmea para dispositivo](#device-to-cloud-twin-operations)
+    - [Operações de dispositivo gêmeo para nuvem](#cloud-to-device-twin-operations)
+    - [Consultas de gêmeos](#twin-queries)
+    - [Operações de trabalhos](#jobs-operations)
+    - [Métodos diretos](#direct-methods)
+    - [Rastreamento Distribuído (Versão Prévia)](#distributed-tracing-preview)
+      - [Logs D2C do Hub IoT (dispositivo para nuvem)](#iot-hub-d2c-device-to-cloud-logs)
+      - [Logs de entrada do Hub IoT](#iot-hub-ingress-logs)
+      - [Logs de saída do Hub IoT](#iot-hub-egress-logs)
+    - [Configurações](#configurations)
+    - [Fluxos de dispositivo (visualização)](#device-streams-preview)
+  - [Tabelas de Logs do Azure Monitor](#azure-monitor-logs-tables)
+  - [Consulte também](#see-also)
 
 ### <a name="supported-aggregations"></a>Agregações com suporte
 
@@ -58,65 +81,65 @@ Para a maioria das métricas, todos os tipos de agregação são válidos; no en
 
 ### <a name="cloud-to-device-command-metrics"></a>Métricas de comando da nuvem para o dispositivo
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Mensagens C2D expiradas (versão prévia)|C2DMessagesExpired|Contagem|Total|Número de mensagens de nuvem para o dispositivo expiradas|Nenhuma|
-|Entregas de mensagem C2D concluídas|c2d.commands.egress.complete.success|Contagem|Total|Número de entregas de mensagem da nuvem para o dispositivo concluídas com êxito pelo dispositivo|Nenhuma|
-|Mensagens C2D abandonadas|c2d.commands.egress.abandon.success|Contagem|Total|Número de mensagens da nuvem para o dispositivo abandonadas pelo dispositivo|Nenhuma|
-|Mensagens C2D rejeitadas|c2d.commands.egress.reject.success|Contagem|Total|Número de mensagens da nuvem para o dispositivo rejeitadas pelo dispositivo|Nenhuma|
+|Mensagens C2D expiradas (versão prévia)|C2DMessagesExpired|Contagem|Total|Número de mensagens de nuvem para o dispositivo expiradas|Nenhum|
+|Entregas de mensagem C2D concluídas|c2d.commands.egress.complete.success|Contagem|Total|Número de entregas de mensagem da nuvem para o dispositivo concluídas com êxito pelo dispositivo|Nenhum|
+|Mensagens C2D abandonadas|c2d.commands.egress.abandon.success|Contagem|Total|Número de mensagens da nuvem para o dispositivo abandonadas pelo dispositivo|Nenhum|
+|Mensagens C2D rejeitadas|c2d.commands.egress.reject.success|Contagem|Total|Número de mensagens da nuvem para o dispositivo rejeitadas pelo dispositivo|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Métricas de métodos diretos de nuvem para dispositivo
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Invocações de método diretas com falhas|c2d.methods.failure|Contagem|Total|A contagem de todas as chamadas de método diretas com falhas.|Nenhuma|
-|Tamanho da solicitação das invocações de método diretas|c2d.methods.requestSize|Bytes|Média|A contagem de todas as solicitações de método diretas bem-sucedidas.|Nenhuma|
-|Tamanho da resposta das invocações de método diretas|c2d.methods.responseSize|Bytes|Média|A contagem de todas as respostas de método diretas bem-sucedidas.|Nenhuma|
-|Invocações de método diretas bem-sucedidas|c2d.methods.success|Contagem|Total|A contagem de todas as chamadas de método diretas bem-sucedidas.|Nenhuma|
+|Invocações de método diretas com falhas|c2d.methods.failure|Contagem|Total|A contagem de todas as chamadas de método diretas com falhas.|Nenhum|
+|Tamanho da solicitação das invocações de método diretas|c2d.methods.requestSize|Bytes|Média|A contagem de todas as solicitações de método diretas bem-sucedidas.|Nenhum|
+|Tamanho da resposta das invocações de método diretas|c2d.methods.responseSize|Bytes|Média|A contagem de todas as respostas de método diretas bem-sucedidas.|Nenhum|
+|Invocações de método diretas bem-sucedidas|c2d.methods.success|Contagem|Total|A contagem de todas as chamadas de método diretas bem-sucedidas.|Nenhum|
 
 Para métricas com um valor de **unidade** de agregação de **contagem** total (Sum) é válido. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>Métricas de operações de entrelaçamento de nuvem para dispositivo
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Leituras de gêmeos de back-end com falhas|c2d.twin.read.failure|Contagem|Total|A contagem de todas as falhas de leituras de gêmeos iniciadas pelo back-end.|Nenhuma|
-|Atualizações de gêmeos de back-end com falhas|c2d.twin.update.failure|Contagem|Total|A contagem de todas as falhas de atualizações de gêmeos iniciadas pelo back-end.|Nenhuma|
-|Tamanho da resposta das leituras de gêmeos de back-end|c2d.twin.read.size|Bytes|Média|A contagem de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|Nenhuma|
-|Tamanho das atualizações de gêmeos de back-end|c2d.twin.update.size|Bytes|Média|O tamanho total de todas as atualizações de cópia do back-end iniciadas com êxito.|Nenhuma|
-|Leituras de gêmeos de back-end bem-sucedidas|c2d.twin.read.success|Contagem|Total|A contagem de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|Nenhuma|
-|Atualizações de gêmeos de back-end bem-sucedidas|c2d.twin.update.success|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo back-end bem-sucedidas.|Nenhuma|
+|Leituras de gêmeos de back-end com falhas|c2d.twin.read.failure|Contagem|Total|A contagem de todas as falhas de leituras de gêmeos iniciadas pelo back-end.|Nenhum|
+|Atualizações de gêmeos de back-end com falhas|c2d.twin.update.failure|Contagem|Total|A contagem de todas as falhas de atualizações de gêmeos iniciadas pelo back-end.|Nenhum|
+|Tamanho da resposta das leituras de gêmeos de back-end|c2d.twin.read.size|Bytes|Média|A contagem de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|Nenhum|
+|Tamanho das atualizações de gêmeos de back-end|c2d.twin.update.size|Bytes|Média|O tamanho total de todas as atualizações de cópia do back-end iniciadas com êxito.|Nenhum|
+|Leituras de gêmeos de back-end bem-sucedidas|c2d.twin.read.success|Contagem|Total|A contagem de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|Nenhum|
+|Atualizações de gêmeos de back-end bem-sucedidas|c2d.twin.update.success|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo back-end bem-sucedidas.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="configurations-metrics"></a>Métricas de configuração
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Métricas de configuração|configurações|Contagem|Total|Número total de operações CRUD executadas para a configuração do dispositivo e implantação de IoT Edge em um conjunto de dispositivos de destino. Isso também inclui o número de operações que modificam o dispositivo FileMover ou o módulo n por causa dessas configurações.|Nenhuma|
+|Métricas de configuração|configurações|Contagem|Total|Número total de operações CRUD executadas para a configuração do dispositivo e implantação de IoT Edge em um conjunto de dispositivos de destino. Isso também inclui o número de operações que modificam o dispositivo FileMover ou o módulo n por causa dessas configurações.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="daily-quota-metrics"></a>Métricas de cota diária
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Uso total de dados do dispositivo|deviceDataUsage|Bytes|Total|Bytes transferidos entre todos os dispositivos conectados ao lotHub|Nenhuma|
-|Uso total de dados de dispositivos (versão prévia)|deviceDataUsageV2|Bytes|Total|Bytes transferidos entre todos os dispositivos conectados ao lotHub|Nenhuma|
-|Número total de mensagens usadas|dailyMessageQuotaUsed|Contagem|Média|Número total de mensagens utilizadas hoje. Este é um valor cumulativo que é reiniciado para zero em 00:00 UTC diariamente.|Nenhuma|
+|Uso total de dados do dispositivo|deviceDataUsage|Bytes|Total|Bytes transferidos entre todos os dispositivos conectados ao lotHub|Nenhum|
+|Uso total de dados de dispositivos (versão prévia)|deviceDataUsageV2|Bytes|Total|Bytes transferidos entre todos os dispositivos conectados ao lotHub|Nenhum|
+|Número total de mensagens usadas|dailyMessageQuotaUsed|Contagem|Média|Número total de mensagens utilizadas hoje. Este é um valor cumulativo que é reiniciado para zero em 00:00 UTC diariamente.|Nenhum|
 
 Para o *número total de mensagens usadas*, apenas as agregações mínima, máxima e média têm suporte. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="device-metrics"></a>Métricas do dispositivo
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Total de dispositivos (preterido)|devices.totalDevices|Contagem|Total|Número de dispositivos registrados para o seu hub IoT|Nenhuma|
-|Dispositivos conectados (preteridos) |devices.connectedDevices.allProtocol|Contagem|Total|Número de dispositivos registrados ao seu hub IoT|Nenhuma|
-|Total de dispositivos (versão prévia)|totalDeviceCount|Contagem|Média|Número de dispositivos registrados para o seu hub IoT|Nenhuma|
-|Dispositivos conectados (versão prévia)|connectedDeviceCount|Contagem|Média|Número de dispositivos registrados ao seu hub IoT|Nenhuma|
+|Total de dispositivos (preterido)|devices.totalDevices|Contagem|Total|Número de dispositivos registrados para o seu hub IoT|Nenhum|
+|Dispositivos conectados (preteridos) |devices.connectedDevices.allProtocol|Contagem|Total|Número de dispositivos registrados ao seu hub IoT|Nenhum|
+|Total de dispositivos (versão prévia)|totalDeviceCount|Contagem|Média|Número de dispositivos registrados para o seu hub IoT|Nenhum|
+|Dispositivos conectados (versão prévia)|connectedDeviceCount|Contagem|Média|Número de dispositivos registrados ao seu hub IoT|Nenhum|
 
 Para *dispositivos totais (preteridos)* e *dispositivos conectados (preterido)*, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
@@ -126,30 +149,30 @@ Para *dispositivos totais (visualização)* e *dispositivos conectados (visualiz
 
 ### <a name="device-telemetry-metrics"></a>Métricas de telemetria do dispositivo
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Número de erros de limitação|d2c.telemetry.ingress.sendThrottle|Contagem|Total|Número de erros de limitação devido a limitações da taxa de transferência do dispositivo|Nenhuma|
-|Tentativas de envio de mensagem de telemetria|d2c.telemetry.ingress.allProtocol|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|Nenhuma|
-|Mensagens de telemetria enviadas|d2c.telemetry.ingress.success|Contagem|Total|Número de mensagens de telemetria do dispositivo para nuvem enviadas com êxito para o hub IoT|Nenhuma|
+|Número de erros de limitação|d2c.telemetry.ingress.sendThrottle|Contagem|Total|Número de erros de limitação devido a limitações da taxa de transferência do dispositivo|Nenhum|
+|Tentativas de envio de mensagem de telemetria|d2c.telemetry.ingress.allProtocol|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|Nenhum|
+|Mensagens de telemetria enviadas|d2c.telemetry.ingress.success|Contagem|Total|Número de mensagens de telemetria do dispositivo para nuvem enviadas com êxito para o hub IoT|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Métricas de operações do dispositivo para a nuvem no Cloud
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Leituras de gêmeos dos dispositivos com falhas|d2c.twin.read.failure|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo com falhas.|Nenhuma|
-|Atualizações de gêmeos dos dispositivos com falhas|d2c.twin.update.failure|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo.|Nenhuma|
-|Tamanho da resposta das leituras de gêmeos dos dispositivos|d2c.twin.read.size|Bytes|Média|O número de todas as leituras de entrelaçadas iniciadas pelo dispositivo bem-sucedidas.|Nenhuma|
-|Tamanho das atualizações de gêmeos dos dispositivos|d2c.twin.update.size|Bytes|Média|O tamanho total de todas as atualizações de atualização do dispositivo iniciadas com êxito.|Nenhuma|
-|Leituras de gêmeos dos dispositivos bem-sucedidas|d2c.twin.read.success|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhuma|
-|Atualizações de gêmeos dos dispositivos bem-sucedidas|d2c.twin.update.success|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhuma|
+|Leituras de gêmeos dos dispositivos com falhas|d2c.twin.read.failure|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo com falhas.|Nenhum|
+|Atualizações de gêmeos dos dispositivos com falhas|d2c.twin.update.failure|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo.|Nenhum|
+|Tamanho da resposta das leituras de gêmeos dos dispositivos|d2c.twin.read.size|Bytes|Média|O número de todas as leituras de entrelaçadas iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
+|Tamanho das atualizações de gêmeos dos dispositivos|d2c.twin.update.size|Bytes|Média|O tamanho total de todas as atualizações de atualização do dispositivo iniciadas com êxito.|Nenhum|
+|Leituras de gêmeos dos dispositivos bem-sucedidas|d2c.twin.read.success|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
+|Atualizações de gêmeos dos dispositivos bem-sucedidas|d2c.twin.update.success|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="event-grid-metrics"></a>Métricas da grade de eventos
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Entregas da grade de eventos (visualização)|EventGridDeliveries|Contagem|Total|O número de eventos do Hub IoT publicados na grade de eventos. Use a dimensão de resultado para o número de solicitações bem-sucedidas e com falha. A dimensão EventType mostra o tipo de evento ( https://aka.ms/ioteventgrid) .|Resultado,<br/>EventType<br>*Para obter mais informações, consulte [dimensões de métrica](#metric-dimensions)*.|
 |Latência da Grade de Eventos (versão prévia)|EventGridLatency|Milissegundos|Média|A latência média (milissegundos) de quando o evento do Hub IOT foi gerado quando o evento foi publicado na grade de eventos. Esse número é uma média entre todos os tipos de evento. Use a dimensão EventType para ver a latência de um tipo específico de evento.|EventType<br>*Para obter mais informações, consulte [dimensões de métrica](#metric-dimensions)*.|
@@ -158,57 +181,57 @@ Para métricas com um valor de **unidade** de **contagem**, somente a agregaçã
 
 ### <a name="jobs-metrics"></a>Métricas de trabalhos
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Trabalhos concluídos|jobs.completed|Contagem|Total|A contagem de todos os trabalhos concluídos.|Nenhuma|
-|Chamadas para listar trabalhos com falhas|jobs.listJobs.failure|Contagem|Total|A contagem de todas as chamadas para listar trabalhos com falhas.|Nenhuma|
-|Criações de trabalhos de invocação de método com falhas|jobs.createDirectMethodJob.failure|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto com falhas.|Nenhuma|
-|Criações de trabalhos de atualização de gêmeos com falhas|jobs.createTwinUpdateJob.failure|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos com falhas.|Nenhuma|
-|Cancelamentos de trabalho com falhas|jobs.cancelJob.failure|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho com falhas.|Nenhuma|
-|Consultas de trabalho com falhas|jobs.queryJobs.failure|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho com falhas.|Nenhuma|
-|Trabalhos com falha|jobs.failed|Contagem|Total|A contagem de todos os trabalhos com falha.|Nenhuma|
-|Chamadas para listar trabalhos bem-sucedidas|jobs.listJobs.success|Contagem|Total|A contagem de todas as chamadas para listar trabalhos bem-sucedidas.|Nenhuma|
-|Criações de trabalhos de invocação de método bem-sucedidas|jobs.createDirectMethodJob.success|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto bem-sucedidas.|Nenhuma|
-|Criações de trabalhos de atualização de gêmeos bem-sucedidas|Jobs. createTwinUpdateJob.<br>sucesso|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos bem-sucedidos.|Nenhuma|
-|Cancelamentos de trabalho bem-sucedidos|jobs.cancelJob.success|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho bem-sucedidas.|Nenhuma|
-|Consultas de trabalho bem-sucedidas|jobs.queryJobs.success|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho bem-sucedidas.|Nenhuma|
+|Trabalhos concluídos|jobs.completed|Contagem|Total|A contagem de todos os trabalhos concluídos.|Nenhum|
+|Chamadas para listar trabalhos com falhas|jobs.listJobs.failure|Contagem|Total|A contagem de todas as chamadas para listar trabalhos com falhas.|Nenhum|
+|Criações de trabalhos de invocação de método com falhas|jobs.createDirectMethodJob.failure|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto com falhas.|Nenhum|
+|Criações de trabalhos de atualização de gêmeos com falhas|jobs.createTwinUpdateJob.failure|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos com falhas.|Nenhum|
+|Cancelamentos de trabalho com falhas|jobs.cancelJob.failure|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho com falhas.|Nenhum|
+|Consultas de trabalho com falhas|jobs.queryJobs.failure|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho com falhas.|Nenhum|
+|Trabalhos com falha|jobs.failed|Contagem|Total|A contagem de todos os trabalhos com falha.|Nenhum|
+|Chamadas para listar trabalhos bem-sucedidas|jobs.listJobs.success|Contagem|Total|A contagem de todas as chamadas para listar trabalhos bem-sucedidas.|Nenhum|
+|Criações de trabalhos de invocação de método bem-sucedidas|jobs.createDirectMethodJob.success|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto bem-sucedidas.|Nenhum|
+|Criações de trabalhos de atualização de gêmeos bem-sucedidas|Jobs. createTwinUpdateJob.<br>sucesso|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos bem-sucedidos.|Nenhum|
+|Cancelamentos de trabalho bem-sucedidos|jobs.cancelJob.success|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho bem-sucedidas.|Nenhum|
+|Consultas de trabalho bem-sucedidas|jobs.queryJobs.success|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho bem-sucedidas.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="routing-metrics"></a>Métricas de roteamento
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 | Roteamento de tentativas de entrega (visualização) |RoutingDeliveries | Contagem | Total |Essa é a métrica de entrega de roteamento. Use as dimensões para identificar o status de entrega para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Resultado,<br>Roteamento,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Para obter mais informações, consulte [dimensões de métrica](#metric-dimensions)*. |
 | Tamanho dos dados de entrega de roteamento em bytes (versão prévia)|RoutingDataSizeInBytesDelivered| Bytes | Total |O número total de bytes roteados pelo Hub IoT para o ponto de extremidade personalizado e o ponto de extremidade interno. Use as dimensões para identificar o tamanho dos dados roteados para um ponto de extremidade específico ou para uma fonte de roteamento específica.| Roteamento,<br>EndpointType<br>EndpointName<br>*Para obter mais informações, consulte [dimensões de métrica](#metric-dimensions)*.|
 | Latência de roteamento (versão prévia) |RoutingDeliveryLatency| Milissegundos | Média |Essa é a métrica de latência de entrega de roteamento. Use as dimensões para identificar a latência de um ponto de extremidade específico ou de uma fonte de roteamento específica.| Roteamento,<br>EndpointType<br>EndpointName<br>*Para obter mais informações, consulte [dimensões de métrica](#metric-dimensions)*.|
-|Roteamento: blobs entregues ao armazenamento|d2c.endpoints.egress.storage.blobs|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou blobs aos pontos de extremidade de armazenamento.|Nenhuma|
-|Roteamento: dados entregues ao armazenamento|d2c.endpoints.egress.storage.bytes|Bytes|Total|A quantidade de dados (bytes) de roteamento do Hub IoT entregue aos pontos de extremidade de armazenamento.|Nenhuma|
-|Roteamento: latência de mensagem para o Hub de Eventos|d2c.endpoints.latency.eventHubs|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em pontos de extremidade personalizados do tipo Hub de eventos. Isso não inclui rotas de mensagens para ponto de extremidade interno (eventos).|Nenhuma|
-|Roteamento: latência de mensagem para a Fila do Barramento de Serviço|d2c.endpoints.latency.serviceBusQueues|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em um ponto de extremidade da fila do barramento de serviço.|Nenhuma|
-|Roteamento: latência de mensagem para o Tópico do Barramento de Serviço|d2c.endpoints.latency.serviceBusTopics|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagem para o Hub IoT e a entrada de mensagem em um ponto de extremidade de tópico do barramento de serviço.|Nenhuma|
-|Roteamento: latência de mensagem para mensagens/eventos|d2c.Endpoints.Latency.builtIn.Events|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem no ponto de extremidade interno (mensagens/eventos) e na rota de fallback.|Nenhuma|
-|Roteamento: latência de mensagem para armazenamento|d2c.endpoints.latency.storage|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em um ponto de extremidade de armazenamento.|Nenhuma|
-|Roteamento: mensagens entregues ao Hub de Eventos|d2c.endpoints.egress.eventHubs|Contagem|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para pontos de extremidade personalizados do tipo Hub de eventos. Isso não inclui rotas de mensagens para ponto de extremidade interno (eventos).|Nenhuma|
-|Roteamento: mensagens entregues à Fila do Barramento de Serviço|d2c.endpoints.egress.serviceBusQueues|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade da fila do Barramento de Serviço.|Nenhuma|
-|Roteamento: mensagens entregues ao Tópico do Barramento de Serviço|d2c.endpoints.egress.serviceBusTopics|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade do tópico do Barramento de Serviço.|Nenhuma|
-|Roteamento: mensagens entregues ao fallback|d2c.telemetry.egress.fallback|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou mensagens ao ponto de extremidade associado à rota de fallback.|Nenhuma|
-|Roteamento: mensagens entregues a mensagens/eventos|d2c.endpoints.egress.builtIn.events|Contagem|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para o ponto de extremidade interno (mensagens/eventos) e a rota de fallback.|Nenhuma|
-|Roteamento: mensagens entregues ao armazenamento|d2c.endpoints.egress.storage|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade de armazenamento.|Nenhuma|
-|Roteamento: mensagens de telemetria entregues|d2c.telemetry.egress.success|Contagem|Total|O número de vezes que as mensagens foram entregues com êxito a todos os pontos de extremidade usando o roteamento do Hub IoT. Se uma mensagem é encaminhada para vários pontos de extremidade, esse valor aumenta em um para cada entrega bem-sucedida. Se uma mensagem é entregue ao mesmo ponto de extremidade várias vezes, esse valor aumenta em um para cada entrega bem-sucedida.|Nenhuma|
-|Roteamento: mensagens de telemetria removidas |d2c.telemetry.egress.dropped|Contagem|Total|O número de vezes que as mensagens foram removidas pelo roteamento do Hub IoT devido à inatividade dos pontos de extremidade. Esse valor não conta as mensagens entregues à rota de fallback, pois as mensagens removidas não são entregues.|Nenhuma|
-|Roteamento: mensagens de telemetria incompatíveis|d2c.telemetry.egress.invalid|Contagem|Total|O número de vezes que o roteamento do Hub IoT não conseguiu entregar mensagens devido a uma incompatibilidade com o ponto de extremidade. Uma mensagem é incompatível com um ponto de extremidade quando o Hub IOT tenta entregar a mensagem a um ponto de extremidade e falha com um erro não transitório. Mensagens inválidas não são repetidas. Esse valor não inclui novas tentativas.|Nenhuma|
-|Roteamento: mensagens de telemetria órfãs |d2c.telemetry.egress.orphaned|Contagem|Total|O número de vezes que as mensagens ficaram órfãs pelo roteamento do Hub IoT porque não corresponderam a nenhuma consulta de roteamento, quando a rota de fallback está desabilitada.|Nenhuma|
+|Roteamento: blobs entregues ao armazenamento|d2c.endpoints.egress.storage.blobs|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou blobs aos pontos de extremidade de armazenamento.|Nenhum|
+|Roteamento: dados entregues ao armazenamento|d2c.endpoints.egress.storage.bytes|Bytes|Total|A quantidade de dados (bytes) de roteamento do Hub IoT entregue aos pontos de extremidade de armazenamento.|Nenhum|
+|Roteamento: latência de mensagem para o Hub de Eventos|d2c.endpoints.latency.eventHubs|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em pontos de extremidade personalizados do tipo Hub de eventos. Isso não inclui rotas de mensagens para ponto de extremidade interno (eventos).|Nenhum|
+|Roteamento: latência de mensagem para a Fila do Barramento de Serviço|d2c.endpoints.latency.serviceBusQueues|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em um ponto de extremidade da fila do barramento de serviço.|Nenhum|
+|Roteamento: latência de mensagem para o Tópico do Barramento de Serviço|d2c.endpoints.latency.serviceBusTopics|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagem para o Hub IoT e a entrada de mensagem em um ponto de extremidade de tópico do barramento de serviço.|Nenhum|
+|Roteamento: latência de mensagem para mensagens/eventos|d2c.Endpoints.Latency.builtIn.Events|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem no ponto de extremidade interno (mensagens/eventos) e na rota de fallback.|Nenhum|
+|Roteamento: latência de mensagem para armazenamento|d2c.endpoints.latency.storage|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem e o Hub IoT e a entrada da mensagem em um ponto de extremidade de armazenamento.|Nenhum|
+|Roteamento: mensagens entregues ao Hub de Eventos|d2c.endpoints.egress.eventHubs|Contagem|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para pontos de extremidade personalizados do tipo Hub de eventos. Isso não inclui rotas de mensagens para ponto de extremidade interno (eventos).|Nenhum|
+|Roteamento: mensagens entregues à Fila do Barramento de Serviço|d2c.endpoints.egress.serviceBusQueues|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade da fila do Barramento de Serviço.|Nenhum|
+|Roteamento: mensagens entregues ao Tópico do Barramento de Serviço|d2c.endpoints.egress.serviceBusTopics|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade do tópico do Barramento de Serviço.|Nenhum|
+|Roteamento: mensagens entregues ao fallback|d2c.telemetry.egress.fallback|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou mensagens ao ponto de extremidade associado à rota de fallback.|Nenhum|
+|Roteamento: mensagens entregues a mensagens/eventos|d2c.endpoints.egress.builtIn.events|Contagem|Total|O número de vezes que o roteamento do Hub IoT forneceu com êxito mensagens para o ponto de extremidade interno (mensagens/eventos) e a rota de fallback.|Nenhum|
+|Roteamento: mensagens entregues ao armazenamento|d2c.endpoints.egress.storage|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou com êxito mensagens aos pontos de extremidade de armazenamento.|Nenhum|
+|Roteamento: mensagens de telemetria entregues|d2c.telemetry.egress.success|Contagem|Total|O número de vezes que as mensagens foram entregues com êxito a todos os pontos de extremidade usando o roteamento do Hub IoT. Se uma mensagem é encaminhada para vários pontos de extremidade, esse valor aumenta em um para cada entrega bem-sucedida. Se uma mensagem é entregue ao mesmo ponto de extremidade várias vezes, esse valor aumenta em um para cada entrega bem-sucedida.|Nenhum|
+|Roteamento: mensagens de telemetria removidas |d2c.telemetry.egress.dropped|Contagem|Total|O número de vezes que as mensagens foram removidas pelo roteamento do Hub IoT devido à inatividade dos pontos de extremidade. Esse valor não conta as mensagens entregues à rota de fallback, pois as mensagens removidas não são entregues.|Nenhum|
+|Roteamento: mensagens de telemetria incompatíveis|d2c.telemetry.egress.invalid|Contagem|Total|O número de vezes que o roteamento do Hub IoT não conseguiu entregar mensagens devido a uma incompatibilidade com o ponto de extremidade. Uma mensagem é incompatível com um ponto de extremidade quando o Hub IOT tenta entregar a mensagem a um ponto de extremidade e falha com um erro não transitório. Mensagens inválidas não são repetidas. Esse valor não inclui novas tentativas.|Nenhum|
+|Roteamento: mensagens de telemetria órfãs |d2c.telemetry.egress.orphaned|Contagem|Total|O número de vezes que as mensagens ficaram órfãs pelo roteamento do Hub IoT porque não corresponderam a nenhuma consulta de roteamento, quando a rota de fallback está desabilitada.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
 ### <a name="twin-query-metrics"></a>Métricas de consulta de entrelaçamento
 
-|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Nome de exibição da métrica|Métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Consultas de gêmeos com falhas|twinQueries.failure|Contagem|Total|A contagem de todas as consultas de gêmeos com falhas.|Nenhuma|
-|Consultas de gêmeos bem-sucedidas|twinQueries.success|Contagem|Total|A contagem de todas as consultas de gêmeos bem-sucedidas.|Nenhuma|
-|Tamanho do resultado das consultas de gêmeos|twinQueries.resultSize|Bytes|Média|O total do tamanho do resultado de todas as consultas de myup com êxito.|Nenhuma|
+|Consultas de gêmeos com falhas|twinQueries.failure|Contagem|Total|A contagem de todas as consultas de gêmeos com falhas.|Nenhum|
+|Consultas de gêmeos bem-sucedidas|twinQueries.success|Contagem|Total|A contagem de todas as consultas de gêmeos bem-sucedidas.|Nenhum|
+|Tamanho do resultado das consultas de gêmeos|twinQueries.resultSize|Bytes|Média|O total do tamanho do resultado de todas as consultas de myup com êxito.|Nenhum|
 
 Para métricas com um valor de **unidade** de **contagem**, somente a agregação total (Sum) é válida. As agregações mínima, máxima e média sempre retornam 1. Para obter mais informações, consulte [agregações com suporte](#supported-aggregations).
 
@@ -226,31 +249,50 @@ O Hub IoT do Azure tem as seguintes dimensões associadas a algumas das suas mé
 |**Resultado**| **Êxito** ou **falha**.|
 |**Roteamento**| Mensagens do dispositivo<br>Eventos de alteração de entrelaçamento<br>Eventos de ciclo de vida do dispositivo|
 
-Para saber mais sobre dimensões métricas, consulte [métricas multidimensionais](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+Para saber mais sobre dimensões métricas, consulte [métricas multidimensionais](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Logs de recursos
 
-Esta seção lista todos os tipos de categoria de log de recursos e os esquemas coletados para o Hub IoT do Azure. O provedor de recursos e o tipo para todos os logs do Hub IoT são [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
+Esta seção lista todos os tipos de categoria de log de recursos e os esquemas coletados para o Hub IoT do Azure. O provedor de recursos e o tipo para todos os logs do Hub IoT são [Microsoft. Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Tópicos nesta seção**
 
-- [Conexões](#connections)
-- [Telemetria do Dispositivo](#device-telemetry)
-- [Comandos da nuvem para o dispositivo](#cloud-to-device-commands)
-- [Operações de identidade do dispositivo](#device-identity-operations)
-- [Operações de upload de arquivo](#file-upload-operations)
-- [Rotas](#routes)
-- [Operações de nuvem gêmea para dispositivo](#device-to-cloud-twin-operations)
-- [Operações de dispositivo gêmeo para nuvem](#cloud-to-device-twin-operations)
-- [Consultas de gêmeos](#twin-queries)
-- [Operações de trabalhos](#jobs-operations)
-- [Métodos diretos](#direct-methods)
-- [Rastreamento Distribuído (Versão Prévia)](#distributed-tracing-preview)
-  - [Logs D2C do Hub IoT (dispositivo para nuvem)](#iot-hub-d2c-device-to-cloud-logs)
-  - [Logs de entrada do Hub IoT](#iot-hub-ingress-logs)
-  - [Logs de saída do Hub IoT](#iot-hub-egress-logs)
-- [Configurações](#configurations)
-- [Fluxos de dispositivo (visualização)](#device-streams-preview)
+- [Monitorando a referência de dados do Hub IoT do Azure](#monitoring-azure-iot-hub-data-reference)
+  - [Métricas](#metrics)
+    - [Agregações com suporte](#supported-aggregations)
+    - [Métricas de comando da nuvem para o dispositivo](#cloud-to-device-command-metrics)
+    - [Métricas de métodos diretos de nuvem para dispositivo](#cloud-to-device-direct-methods-metrics)
+    - [Métricas de operações de entrelaçamento de nuvem para dispositivo](#cloud-to-device-twin-operations-metrics)
+    - [Métricas de configuração](#configurations-metrics)
+    - [Métricas de cota diária](#daily-quota-metrics)
+    - [Métricas do dispositivo](#device-metrics)
+    - [Métricas de telemetria do dispositivo](#device-telemetry-metrics)
+    - [Métricas de operações do dispositivo para a nuvem no Cloud](#device-to-cloud-twin-operations-metrics)
+    - [Métricas da grade de eventos](#event-grid-metrics)
+    - [Métricas de trabalhos](#jobs-metrics)
+    - [Métricas de roteamento](#routing-metrics)
+    - [Métricas de consulta de entrelaçamento](#twin-query-metrics)
+  - [Dimensões de métrica](#metric-dimensions)
+  - [Logs de recursos](#resource-logs)
+    - [Conexões](#connections)
+    - [Telemetria do Dispositivo](#device-telemetry)
+    - [Comandos da nuvem para o dispositivo](#cloud-to-device-commands)
+    - [Operações de identidade do dispositivo](#device-identity-operations)
+    - [Operações de upload de arquivo](#file-upload-operations)
+    - [Rotas](#routes)
+    - [Operações de nuvem gêmea para dispositivo](#device-to-cloud-twin-operations)
+    - [Operações de dispositivo gêmeo para nuvem](#cloud-to-device-twin-operations)
+    - [Consultas de gêmeos](#twin-queries)
+    - [Operações de trabalhos](#jobs-operations)
+    - [Métodos diretos](#direct-methods)
+    - [Rastreamento Distribuído (Versão Prévia)](#distributed-tracing-preview)
+      - [Logs D2C do Hub IoT (dispositivo para nuvem)](#iot-hub-d2c-device-to-cloud-logs)
+      - [Logs de entrada do Hub IoT](#iot-hub-ingress-logs)
+      - [Logs de saída do Hub IoT](#iot-hub-egress-logs)
+    - [Configurações](#configurations)
+    - [Fluxos de dispositivo (visualização)](#device-streams-preview)
+  - [Tabelas de Logs do Azure Monitor](#azure-monitor-logs-tables)
+  - [Consulte também](#see-also)
 
 ### <a name="connections"></a>conexões
 
@@ -560,7 +602,7 @@ O Hub IoT registra esse log quando uma mensagem que contém propriedades de rast
 
 Aqui, `durationMs` não é calculado, uma vez que o relógio do Hub IoT não pode ser sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos gravar escrever lógica usando carimbos de data/hora na seção `properties` para capturar os picos na latência de dispositivo para nuvem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | O tamanho da mensagem de dispositivo para nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanumérica ASCII de 7 bits | A identidade do dispositivo |
@@ -594,7 +636,7 @@ O Hub IoT registra esse log quando a mensagem que contém as propriedades de ras
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
 | **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
@@ -626,7 +668,7 @@ O Hub IoT registra esse log quando [roteamento](iot-hub-devguide-messages-d2c.md
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | O nome do ponto de extremidade de roteamento |
 | **endpointType** | String | O tipo de roteamento o ponto de extremidade |
@@ -690,4 +732,4 @@ Para obter uma referência de todas as tabelas de Logs do Azure Monitor/Log Anal
 ## <a name="see-also"></a>Consulte Também
 
 * Consulte [monitorar o Hub IOT do Azure](monitor-iot-hub.md) para obter uma descrição do monitoramento do Hub IOT do Azure.
-* Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.
+* Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

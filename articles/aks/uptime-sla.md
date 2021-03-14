@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9f8f697da7499d370c96b77e7e543dec9fbafa3e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664088"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176324"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -76,7 +76,7 @@ Se você criou um cluster AKS com as etapas anteriores, exclua o grupo de recurs
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-Criar um novo grupo de recursos:
+Criar um grupo de recursos:
 
 ```azurecli-interactive
 # Create a resource group
@@ -135,6 +135,6 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

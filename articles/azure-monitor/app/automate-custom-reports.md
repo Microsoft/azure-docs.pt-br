@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diariamente/semanalmente/men
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590040"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tem suas próprias necessidades de relatório, tais como:
 
 Você pode [programaticamente consultar os dados do Application Insights](https://dev.applicationinsights.io/) para gerar relatórios personalizados de forma agendada. As seguintes opções podem ajudá-lo a começar rapidamente:
 
-* [Automatizar relatórios com a automatização de energia](../platform/logicapp-flow-connector.md)
+* [Automatizar relatórios com a automatização de energia](../logs/logicapp-flow-connector.md)
 * [Automatize relatórios com Aplicativos Lógicos](automate-with-logic-apps.md)
 * Use o modelo da [função do Azure](../../azure-functions/functions-get-started.md) “resumo de mensagem agendado do Application Insights” no cenário de Monitoramento. Esta função usa SendGrid para enviar o e-mail. 
 
@@ -150,7 +150,7 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como criar [consultas do Analytics](../log-query/get-started-queries.md).
+* Saiba mais sobre como criar [consultas do Analytics](../logs/get-started-queries.md).
 * Saiba mais sobre [dados consultando programaticamente do Application Insights](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
 * Saiba mais sobre a [automatização de energia da Microsoft](https://ms.flow.microsoft.com).

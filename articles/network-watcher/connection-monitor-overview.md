@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712310"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
 
@@ -74,11 +74,24 @@ As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a
 
 ### <a name="agents-for-on-premises-machines"></a>Agentes para computadores locais
 
-Para fazer com que o monitor de conexão reconheça seus computadores locais como fontes de monitoramento, instale o agente de Log Analytics nos computadores. Em seguida, habilite a solução Monitor de Desempenho de Rede. Esses agentes são vinculados a espaços de trabalho do Log Analytics, portanto, você precisa configurar a ID do espaço de trabalho e a chave primária antes que os agentes possam iniciar o monitoramento.
+Para fazer com que o monitor de conexão reconheça seus computadores locais como fontes de monitoramento, instale o agente de Log Analytics nos computadores.  Em seguida, habilite a solução Monitor de Desempenho de Rede. Esses agentes são vinculados a espaços de trabalho do Log Analytics, portanto, você precisa configurar a ID do espaço de trabalho e a chave primária antes que os agentes possam iniciar o monitoramento.
 
 Para instalar o agente de Log Analytics para computadores Windows, consulte [Azure monitor extensão de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
 
 Se o caminho incluir firewalls ou NVAs (soluções de virtualização de rede), verifique se o destino está acessível.
+
+Para computadores Windows, para abrir a porta, execute o script [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell sem parâmetros em uma janela do PowerShell com privilégios administrativos.
+
+Para computadores Linux, as portNumbers a serem usadas precisam ser alteradas manualmente. 
+* Navegue até o caminho:/var/opt/Microsoft/omsagent/npm_state. 
+* Abrir arquivo: npmdregistry
+* Alterar o valor do número da porta ```“PortNumber:<port of your choice>”```
+
+ Observe que os números de porta que estão sendo usados devem ser iguais em todos os agentes usados em um espaço de trabalho. 
+
+O script cria chaves do registro necessárias pela solução. Ele também cria regras de Firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do Registro criadas pelo script especificam se é preciso registrar os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP de agente usada para comunicação. Os valores para essas chaves são definidos automaticamente pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma em todos os computadores em que o script é executado. [Leia mais](../azure-monitor/agents/log-analytics-agent.md#network-requirements) sobre os requisitos de rede para agentes de log Analytics
+
+O script configura apenas o firewall do windows localmente. Se tiver um firewall de rede, certifique-se que ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Habilitar o observador de rede em sua assinatura
 
@@ -126,7 +139,7 @@ Todas as fontes, destinos e configurações de teste que você adiciona a um gru
 
 | Número do teste | Fonte | Destino | Configuração de teste |
 | --- | --- | --- | --- |
-| 1 | Um | D | Configuração 1 |
+| 1 | A | D | Configuração 1 |
 | 2 | A | D | Configuração 2 |
 | 3 | A | E | Configuração 1 |
 | 4 | A | E | Configuração 2 |
@@ -276,9 +289,9 @@ Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWa
 
 | Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (clássico) | % De investigações com falha (clássico) | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
+| ProbesFailedPercent (clássico) | % De investigações com falha (clássico) | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs (clássico) | Média de tempo de ida e volta (MS) (clássico) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
-| ChecksFailedPercent | % De verificações com falha | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| ChecksFailedPercent | % De verificações com falha | Percentual | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | RoundTripTimeMs | Tempo de ida e volta (ms) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | Result | Resultado do teste | Contagem | Média | Resultado do teste do monitor de conexão | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 

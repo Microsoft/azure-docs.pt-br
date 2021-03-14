@@ -3,15 +3,16 @@ title: Criação do pool de hosts do Windows Virtual Desktop Environment-Azure
 description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539639"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652438"
 ---
 # <a name="host-pool-creation"></a>Criação do pool de host
 
@@ -49,9 +50,21 @@ Se a operação ultrapassar o limite de cota, você poderá executar uma das seg
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erro: não é possível ver as atribuições de usuário em grupos de aplicativos.
 
-Causa: esse erro geralmente ocorre depois que você moveu a assinatura de um locatário de 1 Azure Active Directory (AD) para outro. Se suas atribuições antigas ainda estiverem vinculadas ao locatário antigo do Azure AD, o portal do Azure perderá o controle delas.
+**Causa**: esse erro geralmente ocorre depois que você moveu a assinatura de um locatário de 1 Azure Active Directory (AD) para outro. Se suas atribuições antigas ainda estiverem vinculadas ao locatário antigo do Azure AD, o portal do Azure perderá o controle delas.
 
-Correção: você precisará reatribuir usuários a grupos de aplicativos.
+**Correção**: você precisará reatribuir usuários a grupos de aplicativos.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Só nos vejo ao definir o local para meus objetos de serviço
+
+**Causa**: o Azure atualmente não dá suporte a essa região para o serviço de área de trabalho virtual do Windows. Para saber mais sobre quais regiões damos suporte, confira [locais de dados](data-locations.md). Se a área de trabalho virtual do Windows der suporte à localização, mas ainda não aparecer quando você estiver tentando selecionar um local, isso significa que seu provedor de recursos ainda não foi atualizado.
+
+**Correção**: para obter a lista mais recente de regiões, registre novamente o provedor de recursos:
+
+1. Vá para **assinaturas** e selecione a assinatura relevante.
+2. Selecione **provedor de recursos**.
+3. Selecione **Microsoft. DesktopVirtualization** e, em seguida, selecione **registrar novamente** no menu Ação.
+
+Ao registrar novamente o provedor de recursos, você não verá nenhum comentário da interface do usuário ou status de atualização específicos. O processo de reinscrição também não interferirá nos ambientes existentes.
 
 ## <a name="azure-resource-manager-template-errors"></a>Erros de modelo de Azure Resource Manager
 

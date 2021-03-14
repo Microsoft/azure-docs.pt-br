@@ -7,14 +7,14 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 936a667948c888f3ca7c53eaa5be9cc97facf5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979616"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375350"
 ---
-# <a name="modify-target-settings"></a>Modificar configurações de destino
+# <a name="modify-destination-settings"></a>Modificar configurações de destino
 
 Este artigo descreve como modificar as configurações de destino ao mover recursos entre regiões do Azure com o [Azure Resource mover](overview.md).
 
@@ -43,12 +43,12 @@ As definições de configuração que você pode modificar são resumidas na tab
 **Cofre de chaves de VM** | O cofre de chaves associado ao habilitar a criptografia de disco do Azure em uma VM.
 **Conjunto de criptografia de disco** | O conjunto de criptografia de disco associado se a VM usa uma chave gerenciada pelo cliente para criptografia do lado do servidor.
 **Grupo de recursos** | O grupo de recursos no qual a VM de destino será colocada.
-**Recursos de rede** | Opções para interfaces de rede, redes virtuais (VNets/) e grupos de segurança de rede/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações que o recurso de origem.
+**Recursos de rede** | Opções para interfaces de rede, redes virtuais (VNets/) e grupos de segurança de rede/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações do recurso de origem.
 **Nome do endereço IP público, SKU e zona** | Especifica o nome, a [SKU](../virtual-network/public-ip-addresses.md#sku)e a [zona](../virtual-network/public-ip-addresses.md#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
 * * Nome do balanceador de carga, SKU e zona * * | Especifica o nome, SKU (básico ou padrão) e zona para o balanceador de carga.<br/><br/> É recomendável usar o sKU Standard.<br/><br/> Se você quiser que ele seja de redundância de zona, especifique como com **redundância de zona**.
 **Dependências de recursos** | Opções para cada dependência:<br/><br/>-O recurso usa recursos dependentes de origem que serão movidos para a região de destino.<br/><br/> -O recurso usa diferentes recursos dependentes localizados na região de destino. Nesse caso, você pode escolher entre qualquer recurso semelhante na região de destino.
 
-### <a name="edit-vm-target-settings"></a>Editar configurações de destino da VM
+### <a name="edit-vm-destination-settings"></a>Editar configurações de destino da VM
 
 Se não quiser que os recursos dependentes da região de origem para o destino, você terá algumas outras opções:
 
@@ -86,7 +86,7 @@ Ao mover os recursos do banco de dados SQL do Azure, você pode modificar as con
 **Nome** | Crie um novo banco de dados com o mesmo nome na região de destino.<br/><br/> Crie um novo banco de dados com um nome diferente na região de destino.<br/><br/> Use um banco de dados existente na região de destino. | Crie um novo pool elástico com o mesmo nome na região de destino.<br/><br/> Crie um novo pool elástico com um nome diferente na região de destino.<br/><br/> Use um pool elástico existente na região de destino.
 **Redundância de zona** | Para mover de uma região que dá suporte à redundância de zona para uma região que não faz isso, digite **Disable** na configuração de zona.<br/><br/> Para mover de uma região que não dá suporte à redundância de zona para uma região, digite **habilitar** na configuração de zona. | Para mover de uma região que dá suporte à redundância de zona para uma região que não faz isso, digite **Disable** na configuração de zona.<br/><br/> Para mover de uma região que não dá suporte à redundância de zona para uma região, digite **habilitar** na configuração de zona.
 
-### <a name="edit-sql-target-settings"></a>Editar configurações de destino do SQL
+### <a name="edit-sql-destination-settings"></a>Editar configurações de destino do SQL
 
 Você modifica as configurações de destino para um recurso de banco de dados SQL do Azure da seguinte maneira: 
 

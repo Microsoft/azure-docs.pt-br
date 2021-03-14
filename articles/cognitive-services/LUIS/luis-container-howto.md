@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: local, Docker, contêiner
-ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862008"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040185"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalar e executar contêineres do Docker para LUIS
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
@@ -60,7 +60,7 @@ Criando APIs para aplicativos empacotados:
 
 A tabela abaixo lista os valores mínimos e recomendados para o host do contêiner. Seus requisitos podem mudar dependendo do volume de tráfego.
 
-|Contêiner| Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
+|Contêiner| Mínimo | Recomendadas | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20, 40|
 
@@ -113,7 +113,7 @@ O diretório de montagem de entrada pode conter os modelos de **produção**, de
 |Tipo de pacote|API do ponto de extremidade de consulta|Disponibilidade de consulta|Formato do nome de arquivo do pacote|
 |--|--|--|--|
 |Versão|GET, POST|Somente contêiner|`{APP_ID}_v{APP_VERSION}.gz`|
-|Preparando|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
+|Staging|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
 |Produção|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -281,7 +281,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
 |`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
 
-**_
+***
 
 ### <a name="query-the-luis-app"></a>Consultar o aplicativo LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para fazer consultas ao ambiente _ de *preparo**, substitua `production` na rota por `staging` :
+Para fazer consultas ao ambiente de **preparo** , substitua `production` na rota por `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 O nome da versão tem no máximo 10 caracteres e contém apenas caracteres permitidos em uma URL.
 
-**_
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os logs de ponto de extremidade para aprendizado ativo
 
@@ -346,7 +346,7 @@ O local a seguir mostra a estrutura de diretórios aninhados para os arquivos de
 /output/luis/{INSTANCE_ID}/
 ```
 
-No portal do LUIS, selecione seu aplicativo e, em seguida, selecione _ *importar logs de ponto de extremidade** para carregar esses logs.
+No portal do LUIS, selecione seu aplicativo e selecione **Importar logs de ponto de extremidade** para carregá-los.
 
 ![Importar arquivos de log do contêiner para aprendizado ativo](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

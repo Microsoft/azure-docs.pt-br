@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739579"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518918"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
-Neste artigo, você criará, exibirá e excluirá [**espaços de trabalho Azure Machine Learning**](concept-workspace.md) para [Azure Machine Learning](overview-what-is-azure-ml.md), usando o portal do Azure ou o [SDK para python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
+Neste artigo, você criará, exibirá e excluirá [**espaços de trabalho Azure Machine Learning**](concept-workspace.md) para [Azure Machine Learning](overview-what-is-azure-ml.md), usando o portal do Azure ou o [SDK para python](/python/api/overview/azure/ml/)
 
 Conforme suas necessidades mudam ou os requisitos para aumentar a automação, você também pode criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md)ou [por meio da extensão vs Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* Se estiver usando o SDK do Python, [Instale o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* Se estiver usando o SDK do Python, [Instale o SDK](/python/api/overview/azure/ml/install).
 
 ## <a name="limitations"></a>Limitações
 
@@ -111,7 +111,7 @@ Por padrão, a criação de um espaço de trabalho também cria um ACR (registro
                              exist_ok=False)
    ```
 
-Para obter mais informações, consulte [referência do SDK do espaço de trabalho](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py).
+Para obter mais informações, consulte [referência do SDK do espaço de trabalho](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a autenticação para Azure Machine Learning recursos e fluxos de trabalho](how-to-setup-authentication.md), bem como a [autenticação no Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
@@ -135,7 +135,7 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
    Assinatura |Selecione a assinatura do Azure que você deseja usar.
-   Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
+   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
    | Conta de armazenamento | A conta de armazenamento padrão para o espaço de trabalho. Por padrão, um novo é criado. |
    | Key Vault | O Azure Key Vault usado pelo espaço de trabalho. Por padrão, um novo é criado. |
@@ -167,7 +167,7 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
 
 # <a name="python"></a>[Python](#tab/python)
 
-O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) , que pode ser usada com [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
+O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) , que pode ser usada com [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -363,7 +363,7 @@ A ação padrão não é excluir os recursos associados ao espaço de trabalho, 
 
 Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte superior do espaço de trabalho que você deseja excluir.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir espaço de trabalho":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir workspace":::
 
 ---
 
@@ -374,7 +374,7 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 ## <a name="troubleshooting"></a>Solução de problemas
 
 * **Navegadores com suporte no Azure Machine Learning Studio**: Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
-  * Microsoft Edge (o novo Microsoft Edge, versão mais recente. Não é herdado do Microsoft Edge)
+  * Microsoft Edge (a versão mais recente, não o Microsoft Edge herdado)
   * Safari (última versão, apenas Mac)
   * Chrome (última versão)
   * Firefox (última versão)

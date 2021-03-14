@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4c5ab92fcc1d70d12e37ae351e768514b4e7522f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746636"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501695"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arquivar logs e relatórios no gerenciamento de direitos do Azure Active Directory no Azure Monitor
 
@@ -59,7 +59,7 @@ O arquivamento de logs de auditoria do Azure AD exige que você tenha o Azure Mo
 
 ## <a name="view-events-for-an-access-package"></a>Exibir eventos para um pacote de acesso  
 
-Para exibir eventos de um pacote de acesso, você deve ter acesso ao workspace do Azure monitor subjacente (consulte [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obter informações) em uma das seguintes funções: 
+Para exibir eventos de um pacote de acesso, você deve ter acesso ao workspace do Azure monitor subjacente (consulte [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para obter informações) em uma das seguintes funções: 
 
 - Administrador global  
 - Administrador de segurança  
@@ -130,7 +130,7 @@ Para definir a atribuição de função e criar uma consulta, execute as seguint
 
 ### <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
-Depois de ter a atribuição de função apropriada, inicie o PowerShell e [instale o módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (se ainda não tiver feito isso), digitando:
+Depois de ter a atribuição de função apropriada, inicie o PowerShell e [instale o módulo do Azure PowerShell](/powershell/azure/install-az-ps) (se ainda não tiver feito isso), digitando:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Você pode autenticar e associar sua sessão do PowerShell a essa assinatura usando um comando como `Connect-AzAccount –Subscription $subs[0].id`. Para saber mais sobre como autenticar o Azure do PowerShell, inclusive não interativamente, consulte [Entrar com Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+Você pode autenticar e associar sua sessão do PowerShell a essa assinatura usando um comando como `Connect-AzAccount –Subscription $subs[0].id`. Para saber mais sobre como autenticar o Azure do PowerShell, inclusive não interativamente, consulte [Entrar com Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Se você tiver vários workspaces do Log Analytics nessa assinatura, o cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retornará a lista de workspaces. Em seguida, você poderá encontrar aquele que tem os logs do Azure AD. O campo `CustomerId` retornado por esse cmdlet é o mesmo que o valor da “ID do workspace” exibido no portal do Azure na visão geral do workspace do Log Analytics.
  
@@ -169,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Enviar a consulta para o workspace do Log Analytics
-Por fim, depois que um workspace for identificado, você poderá usar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) para enviar uma consulta Kusto para esse workspace. Essas consultas são gravadas na [linguagem de consulta Kusto](/azure/kusto/query/).
+Por fim, depois que um workspace for identificado, você poderá usar [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) para enviar uma consulta Kusto para esse workspace. Essas consultas são gravadas na [linguagem de consulta Kusto](/azure/kusto/query/).
  
 Por exemplo, você pode recuperar o intervalo de datas dos registros de eventos de auditoria do workspace do Log Analytics, com cmdlets do PowerShell para enviar uma consulta como:
  
@@ -189,4 +187,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Próximas etapas:
-- [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)

@@ -10,16 +10,32 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490870"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738218"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
 Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versão Prévia Pública da API de Leitura v3.2 com suporte de OCR para 73 idiomas
+A versão prévia pública da API de Leitura v3.2 da Pesquisa Visual Computacional, disponível como serviço de nuvem e contêiner do Docker, inclui estas atualizações:
+* [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) incluindo idiomas latinos, chinês simplificado e tradicional, japonês e coreano.
+* Ordem natural de leitura da saída da linha de texto (somente para idiomas latinos)
+* Classificação de estilo manuscrito para linhas de texto juntamente com uma pontuação de confiança (somente em idiomas latinos).
+* Extraia o texto somente das páginas selecionadas de um documento de várias páginas.
+* Disponível como um [contêiner distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação local.
+
+[Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
+
+> [!div class="nextstepaction"]
+> [Use a Versão Prévia Pública da API de Leitura v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -34,8 +50,8 @@ Uma nova versão do [contêiner de análise espacial](spatial-analysis-container
 * **Alteração interruptiva**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Esse evento é gerado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi cruzada.
 * A URL de vídeo pode ser fornecida como "Parâmetro Privado/ofuscado" em todas as operações. A ofuscação é opcional agora e só funcionará se `KEY` e `IV` forem fornecidas como variáveis de ambiente.
 * A calibragem é habilitada por padrão para todas as operações. Defina o `do_calibration: false` para desabilitá-lo.
-* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes
-* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes.
+* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](./spatial-analysis-operations.md) para obter detalhes
+* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](./spatial-analysis-operations.md) para obter detalhes.
 
 
 ## <a name="october-2020"></a>Outubro de 2020

@@ -9,16 +9,16 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/15/2020
+ms.date: 01/15/2021
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
-ms.openlocfilehash: 688845134aaaeea708fd56d4dd6b10a517869677
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ae3a5571019fedce4c255b942b1a5139c2f9795b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562915"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555152"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Detecção Facial
 
@@ -28,15 +28,21 @@ ms.locfileid: "97562915"
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 

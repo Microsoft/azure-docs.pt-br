@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993730"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095827"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
 
-Você pode habilitar o controle de versão do armazenamento de BLOBs para manter automaticamente as versões anteriores de um objeto.  Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
+Você pode habilitar o controle de versão do armazenamento de BLOBs para manter automaticamente as versões anteriores de um blob quando ele é modificado ou excluído. Quando o controle de versão do blob está habilitado, você pode restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
 
 Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB para a conta de armazenamento usando o portal do Azure ou um modelo de Azure Resource Manager. Para saber mais sobre o controle de versão de BLOB, consulte [controle de versão de blob](versioning-overview.md).
 
@@ -29,13 +29,39 @@ Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB p
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para habilitar o controle de versão de blob no portal do Azure:
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento no portal do Azure:
 
 1. Navegue até sua conta de armazenamento no Portal.
 1. Em **serviço blob**, escolha **proteção de dados**.
 1. Na seção **controle de versão** , selecione **habilitado**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Captura de tela mostrando como habilitar o controle de versão de blob no portal do Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento com o PowerShell, primeiro instale o módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) versão 2.3.0 ou posterior. Em seguida, chame o comando [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) para habilitar o controle de versão, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores entre colchetes angulares com seus próprios valores:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para habilitar o controle de versão de BLOB para uma conta de armazenamento com CLI do Azure, primeiro instale o CLI do Azure versão 2.2.0 ou posterior. Em seguida, chame o comando [AZ Storage Account blob-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para habilitar o controle de versão, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores entre colchetes angulares com seus próprios valores:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[Modelo](#tab/template)
 

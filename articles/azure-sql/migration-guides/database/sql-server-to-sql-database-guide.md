@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2d43eda404a5257c0ec28a884b6ebf182330ba51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260021"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488408"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ Este guia ajuda você a migrar sua instância de SQL Server para o banco de dado
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em Máquinas Virtuais  
+- SQL Server em máquinas virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -58,6 +58,8 @@ Como alternativa, use o [Kit de ferramentas de avaliação e planejamento da M
 Para obter mais informações sobre as ferramentas disponíveis para uso na fase de descoberta, consulte [serviços e ferramentas disponíveis para cenários de migração de dados](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Avaliar 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Depois que as fontes de dados tiverem sido descobertas, avalie qualquer banco de SQL Server local que possa ser migrado para o banco de dados SQL do Azure para identificar os bloqueios de migração ou os problemas de compatibilidade. 
 
@@ -157,10 +159,10 @@ Para acelerar a migração para o banco de dados SQL do Azure, você deve consid
 |  | Contenção de recursos | Recomendação |
 |--|--|--|
 | **Fonte (normalmente no local)** |O afunilamento principal durante a migração na origem é a e/s de dados e a latência no arquivo de dados que precisa ser monitorado com cuidado.  |Com base em e/s de dados e latência de arquivo de dados e, dependendo de ser uma máquina virtual ou um servidor físico, você precisará envolver o administrador de armazenamento e explorar as opções para mitigar o afunilamento. |
-|**Destino (banco de dados SQL do Azure)**|O maior fator de limitação é a taxa de geração de log e a latência no arquivo de log. Com o banco de dados SQL do Azure, você pode obter um máximo de 96 MB/s taxa de geração de log. | Para acelerar a migração, escale verticalmente o banco de BD SQL de destino para Comercialmente Crítico Gen5 8 VCORE para obter a taxa de geração de log máxima de 96 MB/s e também obter baixa latência para o arquivo de log. A camada de serviço de [hiperescala](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) fornece a taxa de log de 100 MB/s, independentemente do nível de serviço escolhido |
-|**Rede** |A largura de banda de rede necessária é igual à taxa máxima de ingestão de logs 96 MB/s (768 MB/s) |Dependendo da conectividade de rede do seu data center local para o Azure, verifique a largura de banda da rede (normalmente [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) para acomodar a taxa máxima de ingestão de logs. |
+|**Destino (banco de dados SQL do Azure)**|O maior fator de limitação é a taxa de geração de log e a latência no arquivo de log. Com o banco de dados SQL do Azure, você pode obter um máximo de 96 MB/s taxa de geração de log. | Para acelerar a migração, escale verticalmente o banco de BD SQL de destino para Comercialmente Crítico Gen5 8 vCore para obter a taxa de geração de log máxima de 96 MB/s e também obter baixa latência para o arquivo de log. A camada de serviço de [hiperescala](../../database/service-tier-hyperscale.md) fornece a taxa de logs de 100 MB/s, independentemente do nível de serviço escolhido |
+|**Rede** |A largura de banda de rede necessária é igual à taxa máxima de ingestão de logs 96 MB/s (768 MB/s) |Dependendo da conectividade de rede do seu data center local para o Azure, verifique a largura de banda da rede (normalmente [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) para acomodar a taxa máxima de ingestão de logs. |
 |**Máquina virtual usada para Assistente de Migração de Dados (DMA)** |CPU é o afunilamento principal para a máquina virtual que executa o DMA |Itens a serem considerados para acelerar a migração de dados usando o </br>-VMs com computação intensiva do Azure </br>-Usar pelo menos F8s_v2 (8 VCORE) VM para executar DMA </br>-Verifique se a VM está em execução na mesma região do Azure que o destino |
-|**DMS (Serviço de Migração de Banco de Dados do Azure)** |Consideração da contenção de recursos de computação e objetos de banco de dados para DMS |Use o vCore Premium 4. O DMS cuida automaticamente de objetos de banco de dados como chaves estrangeiras, gatilhos, restrições e índices não clusterizados e não precisa de nenhuma intervenção manual.  |
+|**DMS (Serviço de Migração de Banco de Dados do Azure)** |Consideração da contenção de recursos de computação e objetos de banco de dados para DMS |Use o vCore Premium 4. O DMS cuida automaticamente de objetos de banco de dados como chaves estrangeiras, gatilhos, restrições e índices não clusterizados e não precisa de intervenção manual.  |
 
 
 ## <a name="post-migration"></a>Pós-migração

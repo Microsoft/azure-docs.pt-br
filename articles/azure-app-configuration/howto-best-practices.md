@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371542"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -92,7 +92,7 @@ A configuração do aplicativo é um serviço regional. Para aplicativos com con
 
 ## <a name="client-applications-in-app-configuration"></a>Aplicativos cliente na configuração do aplicativo 
 
-Solicitações excessivas para a configuração do aplicativo podem resultar na limitação ou encargos excedentes. Os aplicativos aproveitam o Caching e a atualização inteligente disponíveis no momento para otimizar o número de solicitações que eles enviam. Esse processo pode ser espelhado em aplicativos cliente de alto volume, evitando conexões diretas com o repositório de configurações. Em vez disso, os aplicativos cliente se conectam a um serviço personalizado e esse serviço se comunica com o repositório de configuração. Essa solução de proxy pode garantir que os aplicativos cliente não se aproximam do limite de limitação no repositório de configuração. Para obter mais informações sobre a limitação, consulte [as perguntas frequentes](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Solicitações excessivas para a configuração do aplicativo podem resultar na limitação ou encargos excedentes. Os aplicativos aproveitam o Caching e a atualização inteligente disponíveis no momento para otimizar o número de solicitações que eles enviam. Esse processo pode ser espelhado em aplicativos cliente de alto volume, evitando conexões diretas com o repositório de configurações. Em vez disso, os aplicativos cliente se conectam a um serviço personalizado e esse serviço se comunica com o repositório de configuração. Essa solução de proxy pode garantir que os aplicativos cliente não se aproximam do limite de limitação no repositório de configuração. Para obter mais informações sobre a limitação, consulte [as perguntas frequentes](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Próximas etapas
 

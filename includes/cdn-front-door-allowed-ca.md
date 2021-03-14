@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: multiple
-author: sharad4u
+author: duongau
 ms.service: multiple
 ms.topic: include
 ms.date: 10/30/2020
-ms.author: sharadag
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1196ec0c3e92df6c359461ea7d1d53c8aea0bd88
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026179"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750439"
 ---
 As ACs a seguir são permitidas quando você criar seu próprio certificado:
 
@@ -54,6 +54,7 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority – G2
 - Go Daddy Secure Certificate Authority - G2
+- Hong Kong pós-AC raiz 1
 - Vamos criptografar Authority X3
 - Microssegundos Szigno CA raiz 2009
 - Raiz QuoVadis CA2 G3
@@ -61,6 +62,7 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - RootCA1 de comunicação de segurança
 - RootCA2 de comunicação de segurança
 - RootCA3 de comunicação de segurança
+- AC raiz do Staat der Nederlanden EV
 - Symantec Class 3 EV SSL CA – G3
 - Symantec Class 3 Secure Server CA – G4
 - Symantec Enterprise Mobile Root for Microsoft

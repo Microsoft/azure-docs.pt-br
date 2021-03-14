@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787152"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453437"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Fazer a triagem, investigar e responder a alertas de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para alertar você quanto à presença de atividades potencialmente mal-intencionadas em seus recursos de rede. Você também pode integrar alertas de outros produtos e serviços de segurança à Central de Segurança. Após um alerta ser gerado, é necessária uma ação rápida para investigação e correção do possível problema de segurança. 
@@ -40,9 +40,9 @@ Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Def
 ## <a name="triage-security-alerts"></a>Classificação de alertas de segurança
 A Central de Segurança fornece uma visualização unificada de todos os alertas de segurança. Os alertas de segurança são classificados com base na severidade da atividade detectada. 
 
-Faça a triagem dos alertas na página **Alertas de segurança** :
+Faça a triagem dos alertas na página **Alertas de segurança**:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página de lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da Central de Segurança do Azure":::
 
 Use esta página para examinar os alertas de segurança ativos em seu ambiente a fim de decidir qual alerta investigar primeiro.
 
@@ -112,7 +112,7 @@ Se você não planeja continuar ou se deseja desabilitar um desses recursos:
 1. Selecione a assinatura relevante.
 1. Para fazer downgrade, selecione **Azure Defender desativado**.
 1. Para desabilitar o provisionamento automático, abra a página **Coleção de Dados** e defina **Provisionamento automático** como **Desativado**.
-4. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o agente do Log Analytics das VMs do Azure que já têm o agente. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

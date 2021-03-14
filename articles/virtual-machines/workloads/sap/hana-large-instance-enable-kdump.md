@@ -6,20 +6,19 @@ documentationcenter: ''
 author: prtyag
 manager: hrushib
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e4b06cbcbef79e243116bddb33adbcf6476fac8a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654465"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213361"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA em Instâncias Grandes do Azure (HLI)
 
@@ -68,7 +67,7 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
 
 ## <a name="setup-details"></a>Detalhes de configuração
 
-- O script para habilitar kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+- O script para habilitar kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)
 > [!NOTE]
 > Esse script é feito com base em nossa configuração de laboratório e o cliente deve contatar o fornecedor do sistema operacional para qualquer ajuste adicional.
 > O LUN separado será provisionado para os servidores novos e existentes para salvar os despejos e o script cuidar da configuração do sistema de arquivos fora do LUN.

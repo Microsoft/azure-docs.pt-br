@@ -1,26 +1,19 @@
 ---
 title: Exportando grupos de recursos do Azure que contêm extensões de VM
 description: Exporte modelos do Resource Manager que incluem as extensões da máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 12/05/2016
-ms.author: akjosh
-ms.openlocfilehash: 40b8ff01a5c8d00d3234af31877ea58c471026e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: df1ae43b2c6a74448a6782a43fb86f8f4939b13a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955745"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559997"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportar Grupos de Recursos que contêm extensões de VM
 

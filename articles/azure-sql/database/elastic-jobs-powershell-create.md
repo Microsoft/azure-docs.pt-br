@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131926"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368822"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Criar um agente de Trabalho Elástico usando o PowerShell (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Os [trabalhos elásticos (versão prévia)](job-automation-overview.md#elastic-database-jobs-preview) habilitam a execução de um ou mais scripts T-SQL (Transact-SQL) em paralelo entre vários bancos de dados.
+Os [trabalhos elásticos (versão prévia)](job-automation-overview.md) habilitam a execução de um ou mais scripts T-SQL (Transact-SQL) em paralelo entre vários bancos de dados.
 
 Neste tutorial, você aprenderá as etapas necessárias para executar uma consulta em vários bancos de dados:
 
@@ -63,7 +63,7 @@ Além do módulo **Az.Sql**, este tutorial também exige o módulo *SqlServer* d
 
 ## <a name="create-required-resources"></a>Criar recursos necessários
 
-A criação de um agente de Trabalho Elástico requer um banco de dados (S0 ou superior) para uso como o [banco de dados de trabalhos](job-automation-overview.md#job-database).
+A criação de um agente de Trabalho Elástico requer um banco de dados (S0 ou superior) para uso como o [banco de dados de trabalhos](job-automation-overview.md#elastic-job-database).
 
 O script a seguir cria um novo grupo de recursos, servidor e banco de dados para uso como o banco de dados de trabalhos. O segundo script cria um segundo servidor com dois bancos de dados em branco nos quais os trabalhos serão executados.
 
@@ -271,7 +271,7 @@ A tabela a seguir lista os estados possíveis de execução de trabalho:
 |:---|:---|
 |**Criado** | A execução do trabalho acabou de ser criada e não ainda está em andamento.|
 |**InProgress** | A execução do trabalho está atualmente em andamento.|
-|**WaitingForRetry** | A execução do trabalho não conseguiu concluir sua ação e está aguardando para tentar novamente.|
+|**WaitingForRetry** | A execução do trabalho não conseguiu concluir a ação e está aguardando para tentar novamente.|
 |**Êxito** | A execução do trabalho foi concluída com êxito.|
 |**SucceededWithSkipped** | A execução do trabalho foi concluída com êxito, mas alguns de seus filhos foram ignorados.|
 |**Com falha** | A execução do trabalho falhou e esgotou suas novas tentativas.|

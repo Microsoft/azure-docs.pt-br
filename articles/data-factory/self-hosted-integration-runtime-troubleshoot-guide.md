@@ -1,18 +1,17 @@
 ---
 title: Solução de problemas do runtime de integração auto-hospedada no Azure Data Factory
 description: Saiba como solucionar problemas do runtime de integração auto-hospedada no Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551069"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376455"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -83,8 +82,8 @@ Cenário de exemplo: o valor máximo de trabalhos simultâneos está definido at
 O limite do número de trabalhos simultâneos depende do núcleo de lógica do computador e da memória. Tente ajustar o valor para baixo para um valor como 24 e, em seguida, exiba o resultado.
 
 > [!TIP] 
-> - Para saber mais sobre a contagem de núcleos lógicos e para determinar a contagem de núcleos lógicos do computador, confira [quatro maneiras de encontrar o número de núcleos em sua CPU no Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Para saber como calcular o Math. log, vá para a [calculadora do logaritmo](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    Para saber mais sobre a contagem de núcleos lógicos e para determinar a contagem de núcleos lógicos do computador, confira [quatro maneiras de encontrar o número de núcleos em sua CPU no Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Para saber como calcular o Math. log, vá para a [calculadora do logaritmo](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Problema de certificado SSL de HA (alta disponibilidade) de IR para hospedagem interna

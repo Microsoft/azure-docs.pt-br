@@ -3,7 +3,7 @@ title: Usar a autenticação do Azure AD para acessar a API dos Serviços de Mí
 description: Este tópico mostra como usar a autenticação do Azure AD (Azure Active Directory) para acessar a API do AMS (Serviços de Mídia do Azure) com o .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 9de7505ffaab244713706984bdeb9ab395766321
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: fd19bce05d18eb8f9b8fd3806082caeebe98bdad
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695731"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013985"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
@@ -65,7 +65,7 @@ Você também tem a opção de substituir a implementação padrão do **AzureAd
 
     Para adicionar referências usando o NuGet, realize as seguintes etapas: no **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e, depois, selecione **Gerenciar pacotes NuGet**. Em seguida, pesquise **windowsazure.mediaservices** e selecione **Instalar**.
 
-    - ou -
+    -ou-
 
     Execute o comando a seguir no **Console do Gerenciador de Pacotes** do Visual Studio.
 

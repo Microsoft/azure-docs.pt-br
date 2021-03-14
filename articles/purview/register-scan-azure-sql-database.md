@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879724"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677736"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrar e examinar um Banco de Dados SQL do Azure
 
@@ -149,9 +149,7 @@ Para registrar um novo Banco de Dados SQL do Azure no seu catálogo de data, fa�
 Na tela **Registrar fontes (Banco de Dados SQL do Azure)** , faça o seguinte:
 
 1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
-1. Escolha como deseja apontá-la para a conta de armazenamento desejada:
-   1. Selecione **Da assinatura do Azure**, escolha a assinatura apropriada na caixa suspensa **Assinatura do Azure** e o servidor apropriado na caixa suspensa **Nome do servidor**.
-   1. Ou, então, escolha **Inserir manualmente** e insira um **Nome do servidor**.
+1. Selecione **Da assinatura do Azure**, escolha a assinatura apropriada na caixa suspensa **Assinatura do Azure** e o servidor apropriado na caixa suspensa **Nome do servidor**.
 1. **Conclua** a etapa para registrar a fonte de dados.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="opções de registro de fontes" border="true":::

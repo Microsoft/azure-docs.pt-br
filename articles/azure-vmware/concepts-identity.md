@@ -3,12 +3,12 @@ title: Conceitos-identidade e acesso
 description: Saiba mais sobre os conceitos de identidade e acesso da solução do Azure VMware
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 0f58cbdaa641af24cef53c3cfd9604cf1b0c1c3b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538934"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364878"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade da solução VMware do Azure
 
@@ -49,7 +49,7 @@ A tabela mostra os privilégios **CloudAdmin** e **CloudGlobalAdmin** .
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acesso e identidade do NSX-T Manager
 
-Use a conta "administrador" para acessar o Gerenciador de NSX-T. Ele tem privilégios totais e permite criar e gerenciar roteadores T1, comutadores lógicos e todos os serviços. Os privilégios dão acesso ao roteador NSX-T T0. Uma alteração no roteador de T0 pode resultar em desempenho de rede degradado ou sem acesso à nuvem privada. Abra uma solicitação de suporte no portal do Azure para solicitar qualquer alteração ao seu roteador do NSX-T T0.
+Use a conta de *administrador* para acessar o Gerenciador de NSX-T. Ele tem privilégios totais e permite criar e gerenciar gateways de camada 1 (T1), segmentos (comutadores lógicos) e todos os serviços. Os privilégios fornecem acesso ao gateway do NSX-T Tier-0 (T0). Uma alteração no gateway de T0 pode resultar em desempenho de rede degradado ou sem acesso à nuvem privada. Abra uma solicitação de suporte no portal do Azure para solicitar qualquer alteração em seu gateway do NSX-T T0.
   
 ## <a name="next-steps"></a>Próximas etapas
 

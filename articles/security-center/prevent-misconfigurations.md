@@ -1,23 +1,22 @@
 ---
 title: Como evitar configurações incorretas com a central de segurança do Azure
 description: Saiba como usar as opções ' impor ' e ' negar ' da central de segurança nas páginas de detalhes de recomendações
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: a3da9cdea543894aa7aec66112e28658beac84b5
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558184"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439520"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Impedir configurações incorretas com as recomendações de Impor/Negar
 
-Configurações incorretas de segurança são uma das principais causas de incidentes de segurança. Agora, a Central de Segurança pode ajudar a *impedir* configurações incorretas de novos recursos, com relação a recomendações específicas. 
+Configurações incorretas de segurança são uma das principais causas de incidentes de segurança. Agora a Central de Segurança pode ajudar a *impedir* configurações incorretas de novos recursos, com relação a recomendações específicas. 
 
 Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar sua classificação de segurança.
 
@@ -62,40 +61,7 @@ Isso pode ser encontrado na parte superior da página de detalhes do recurso par
 
 Essas recomendações podem ser usadas com a opção **Deny** :
 
-- O acesso às contas de armazenamento com configurações de firewall e de rede virtual deve ser restrito
-- O Cache do Azure para Redis deve residir em uma rede virtual
-- As contas do Azure Cosmos DB devem usar chaves gerenciadas pelo cliente para criptografar os dados inativos
-- Os workspaces do Azure Machine Learning devem ser criptografados com uma CMK (chave gerenciada pelo cliente)
-- O Azure Spring Cloud deve usar injeção de rede
-- As contas dos Serviços Cognitivos devem habilitar a criptografia de dados com uma CMK (chave gerenciada pelo cliente)
-- Deverão ser aplicados limites de memória e CPU ao contêiner
-- As imagens de contêiner deverão ser implantadas somente se forem de registros confiáveis
-- Os registros de contêiner devem ser criptografados com uma CMK (chave gerenciada pelo cliente)
-- Os contêineres com elevação de privilégio deverão ser evitados
-- Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados
-- Os contêineres deverão escutar somente em portas permitidas
-- Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres
-- As chaves do Key Vault devem ter uma data de validade
-- Os segredos do Key Vault devem ter uma data de validade
-- Os cofres de chaves devem ter a proteção contra limpeza habilitada
-- Os cofres de chaves devem ter a exclusão temporária habilitada
-- Deverão ser aplicadas aos contêineres funcionalidades do Linux com privilégios mínimos
-- Apenas conexões seguras com o Cache Redis devem ser habilitadas
-- As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas
-- Os contêineres com privilégios deverão ser evitados
-- Executar contêineres como usuário raiz deverá ser evitado
-- A transferência segura para contas de armazenamento deve ser habilitada
-- A propriedade ClusterProtectionLevel dos clusters do Service Fabric deve ser definida como EncryptAndSign
-- Os clusters do Service Fabric só devem usar o Azure Active Directory para autenticação de cliente
-- Os serviços deverão escutar somente em portas permitidas
-- As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
-- As contas de armazenamento devem restringir o acesso à rede usando regras de rede virtual
-- Usar redes e portas do host deverá ser restrito
-- O uso de montagens de volume do Pod HostPath deve ser restrito a uma lista conhecida para restringir o acesso ao nó de contêineres comprometidos
-- O período de validade dos certificados armazenados no Azure Key Vault não deve exceder 12 meses
-- As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager
-- O WAF (Firewall do Aplicativo Web) deve ser habilitado para o Gateway de Aplicativo
-- O WAF (Firewall de Aplicativo Web) deve ser habilitado para o serviço do Azure Front Door Service
+[!INCLUDE [azure-security-center-recommendations-deny](../../includes/asc/recommendations-with-deny.md)]
 
 Essas recomendações podem ser usadas com a opção **impor** :
 

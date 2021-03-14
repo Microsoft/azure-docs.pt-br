@@ -7,14 +7,23 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879975"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564247"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do Linux para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
+
+Este artigo de migração é um dos vários que envolvem as palavras-chave NFS e Sincronização de Arquivos do Azure. Verifique se este artigo se aplica ao seu cenário:
+
+> [!div class="checklist"]
+> * Fonte de dados: NAS (armazenamento anexado à rede)
+> * Rota de migração: servidor Linux com o &rArr; Windows Server 2012R2 do samba ou &rArr; sincronização posterior com compartilhamento (s) de arquivos do Azure
+> * Caching de arquivos locais: Sim, o objetivo final é uma implantação Sincronização de Arquivos do Azure.
+
+Se seu cenário for diferente, examine a [tabela de guias de migração](storage-files-migration-overview.md#migration-guides).
 
 Sincronização de Arquivos do Azure funciona em instâncias do Windows Server com DAS (armazenamento com conexão direta). Ele não oferece suporte à sincronização de e para clientes Linux, ou a um compartilhamento de protocolo SMB ou compartilhamentos de NFS (sistema de arquivos de rede).
 
@@ -22,13 +31,13 @@ Como resultado, transformar os serviços de arquivo em uma implantação híbrid
 
 ## <a name="migration-goals"></a>Metas de migração
 
-O objetivo é mover os compartilhamentos que você tem em seu servidor Samba do Linux para uma instância do Windows Server. Em seguida, use Sincronização de Arquivos do Azure para uma implantação de nuvem híbrida. Essa migração precisa ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. O segundo requer um mínimo de tempo de inatividade, para que ele possa se ajustar ou ter apenas um pouco mais de uma janela de manutenção regular.
+O objetivo é mover os compartilhamentos que você tem em seu servidor Samba do Linux para uma instância do Windows Server. Em seguida, use Sincronização de Arquivos do Azure para uma implantação de nuvem híbrida. Essa migração precisa ser feita de forma a garantir a integridade dos dados de produção e da disponibilidade durante a migração. O segundo requer um mínimo de tempo de inatividade, para que ele possa se ajustar ou ter apenas um pouco mais de uma janela de manutenção regular.
 
 ## <a name="migration-overview"></a>Visão geral da migração
 
 Conforme mencionado no [artigo Visão geral da migração](storage-files-migration-overview.md)de arquivos do Azure, é importante usar a ferramenta de cópia correta e a abordagem. Seu servidor do Linux Samba está expondo compartilhamentos SMB diretamente em sua rede local. O Robocopy, criado no Windows Server, é a melhor maneira de mover seus arquivos nesse cenário de migração.
 
-Se você não estiver executando o samba em seu servidor Linux e, em vez disso, quiser migrar pastas para uma implantação híbrida no Windows Server, poderá usar as ferramentas de cópia do Linux em vez do Robocopy. Se você fizer isso, lembre-se dos recursos de fidelidade em sua ferramenta de cópia de arquivos. Examine a [seção noções básicas de migração](storage-files-migration-overview.md#migration-basics) no artigo Visão geral da migração para saber o que procurar em uma ferramenta de cópia.
+Se você não estiver executando o samba em seu servidor Linux e, em vez disso, quiser migrar pastas para uma implantação híbrida no Windows Server, poderá usar as ferramentas de cópia do Linux em vez do Robocopy. Esteja atento aos recursos de fidelidade da sua ferramenta de cópia. Examine a [seção noções básicas de migração](storage-files-migration-overview.md#migration-basics) no artigo Visão geral da migração para saber o que procurar em uma ferramenta de cópia.
 
 ## <a name="phase-1-identify-how-many-azure-file-shares-you-need"></a>Fase 1: identificar Quantos compartilhamentos de arquivos do Azure você precisa
 
@@ -39,11 +48,13 @@ Se você não estiver executando o samba em seu servidor Linux e, em vez disso, 
 * Crie uma instância do Windows Server 2019 como uma máquina virtual ou um servidor físico. O Windows Server 2012 R2 é o requisito mínimo. Também há suporte para um cluster de failover do Windows Server.
 * Provisione ou adicione o DAS (armazenamento anexado direto). Não há suporte para Armazenamento NAS (Network Attached Storage).
 
-  A quantidade de armazenamento que você provisiona pode ser menor do que o que você está usando atualmente em seu servidor do Linux Samba, se você usar o recurso de [camadas de nuvem](storage-sync-cloud-tiering.md) sincronização de arquivos do Azure. No entanto, ao copiar os arquivos do espaço do servidor Samba do Linux maior para o volume menor do Windows Server em uma fase posterior, você precisará trabalhar em lotes:
+  A quantidade de armazenamento que você provisiona pode ser menor do que o que você está usando atualmente em seu servidor do Linux Samba, se você usar o recurso de [camadas de nuvem](storage-sync-cloud-tiering-overview.md) sincronização de arquivos do Azure. 
+
+A quantidade de armazenamento que você provisiona pode ser menor do que o que você está usando atualmente em seu servidor do Linux Samba. Essa opção de configuração requer que você também use o recurso de camadas de [nuvem](storage-sync-cloud-tiering-overview.md) de sincronizações de arquivos do Azure. No entanto, ao copiar os arquivos do espaço do servidor Samba do Linux maior para o volume menor do Windows Server em uma fase posterior, você precisará trabalhar em lotes:
 
   1. Mova um conjunto de arquivos que caibam no disco.
   2. Permita que a sincronização de arquivos e a camada de nuvem se envolvam.
-  3. Quando mais espaço livre for criado no volume, prossiga com o próximo lote de arquivos. 
+  3. Quando mais espaço livre for criado no volume, prossiga com o próximo lote de arquivos. Como alternativa, examine o comando RoboCopy na próxima [seção Robocopy](#phase-7-robocopy) para usar o novo `/LFSM` comutador. `/LFSM`O uso do pode simplificar significativamente seus trabalhos do Robocopy, mas não é compatível com algumas outras opções do Robocopy nas quais você pode depender.
     
   Você pode evitar essa abordagem de envio em lote Provisionando o espaço equivalente na instância do Windows Server que os arquivos ocupam no servidor do Linux Samba. Considere habilitar a eliminação de duplicação no Windows. Se você não quiser confirmar permanentemente essa grande quantidade de armazenamento para sua instância do Windows Server, poderá reduzir o tamanho do volume após a migração e antes de ajustar as políticas de camadas de nuvem. Isso cria um cache local menor de seus compartilhamentos de arquivos do Azure.
 
@@ -98,80 +109,11 @@ Execute a primeira cópia local em sua pasta de destino do Windows Server:
 
 O comando Robocopy a seguir copiará arquivos do armazenamento do servidor do Linux Samba para a pasta de destino do Windows Server. O Windows Server irá sincronizá-lo para os compartilhamentos de arquivos do Azure. 
 
-Se você provisionou menos armazenamento em sua instância do Windows Server do que seus arquivos ocupam no servidor do Linux Samba, você configurou a camada de nuvem. Como o volume do Windows Server local fica cheio, a disposição em [camadas da nuvem](storage-sync-cloud-tiering.md) será iniciada e os arquivos de camada que já foram sincronizados com êxito. A disposição em camadas da nuvem gerará espaço suficiente para continuar a cópia do servidor do Linux Samba. As verificações de camadas de nuvem uma vez por hora para ver o que foi sincronizado e liberar espaço em disco para alcançar a política de 99% de espaço livre para um volume.
+Se você provisionou menos armazenamento em sua instância do Windows Server do que seus arquivos ocupam no servidor do Linux Samba, você configurou a camada de nuvem. Como o volume do Windows Server local fica cheio, a disposição em [camadas da nuvem](storage-sync-cloud-tiering-overview.md) será iniciada e os arquivos de camada que já foram sincronizados com êxito. A disposição em camadas da nuvem gerará espaço suficiente para continuar a cópia do servidor do Linux Samba. As verificações de camadas de nuvem uma vez por hora para ver o que foi sincronizado e liberar espaço em disco para alcançar a política de 99% de espaço livre para um volume.
 
 É possível que o Robocopy mova arquivos mais rápido do que você pode sincronizar com a nuvem e a camada localmente, fazendo com que você fique sem espaço em disco local. O Robocopy então falhará. Recomendamos que você trabalhe nos compartilhamentos em uma sequência que impede o problema. Por exemplo, considere não iniciar trabalhos de Robocopy para todos os compartilhamentos ao mesmo tempo. Ou considere mover compartilhamentos que caibam na quantidade atual de espaço livre na instância do Windows Server. Se o trabalho do Robocopy falhar, você sempre poderá executar novamente o comando, desde que use a seguinte opção de espelhamento/limpeza:
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Plano de fundo:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permite que o Robocopy seja executado em vários threads. O padrão é 8, o máximo é 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Gera o status para um arquivo de log como Unicode (Substitui o log existente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Saídas para uma janela de console. Usado em conjunto com a saída para um arquivo de log.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Executa o Robocopy no mesmo modo que um aplicativo de backup usaria. Ele permite que o Robocopy mova arquivos aos quais o usuário atual não tem permissões.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permite executar esse comando Robocopy várias vezes, sequencialmente, no mesmo destino/destino. Ele identifica e omite o que foi copiado antes. Somente alterações, adições e exclusões ocorridas desde a última execução são processadas. Se o comando não for executado antes, nada será omitido. O sinalizador **/Mir** é uma excelente opção para locais de origem que ainda são usados e alterados ativamente.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelidade da cópia de arquivo (o padrão é/COPY: DAT). Os sinalizadores de cópia são: D = data, A = atributos, T = carimbos de data/hora, S = segurança = ACLs de NTFS, O = proprietário informações, U = informações de auditoria.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Copie todas as informações do arquivo (equivalente a/COPY: DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelidade para a cópia de diretórios (o padrão é/DCOPY: DA). Sinalizadores de cópia são: D = dados, A = atributos, T = carimbos de data/hora.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: recortar o usuário
 

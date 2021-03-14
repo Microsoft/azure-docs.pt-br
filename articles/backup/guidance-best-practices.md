@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258754"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593345"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -132,7 +132,7 @@ Considere as seguintes diretrizes ao criar a política de backup:
   * Não é possível excluir seletivamente pontos de recuperação específicos.
   * Não é possível desabilitar completamente o backup agendado e manter a fonte de dados em um estado protegido. O backup menos frequente que você pode configurar com a política é ter um backup semanal agendado. Uma alternativa seria interromper a proteção com a retenção de dados e habilitar a proteção sempre que você quiser fazer um backup, fazer um backup sob demanda e desativar a proteção, mas manter os dados de backup. [Saiba mais aqui](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Para ajudá-lo a proteger seus dados de backup e atender às necessidades de segurança de seus negócios, o backup do Azure fornece garantia de confidencialidade, integridade e disponibilidade contra ataques deliberados e abuso de seus dados e sistemas valiosos. Considere as seguintes diretrizes de segurança para sua solução de backup do Azure:
 
@@ -238,9 +238,9 @@ Como um usuário ou administrador de backup, você deve ser capaz de monitorar t
   * Identificação das principais tendências em diferentes níveis de granularidade.
 
 * Além disso,
-  * Você pode enviar dados (por exemplo, trabalhos, políticas e assim por diante) para o espaço de trabalho **log Analytics** . Isso permitirá que os recursos dos logs de Azure Monitor habilitem a correlação de dados com outros dados de monitoramento coletados pelo Azure Monitor, consolide entradas de log de várias assinaturas e locatários do Azure em um local para análise, use consultas de log para executar análises complexas e obter insights aprofundados sobre entradas de log. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Você pode enviar dados para o Hub de eventos para enviar entradas fora do Azure, por exemplo, para um SIEM de terceiros (gerenciamento de eventos e informações de segurança) ou outra solução do log Analytics. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * Você pode enviar dados para uma conta de armazenamento do Azure se desejar manter seus dados de log por mais de 90 dias para auditoria, análise estática ou backup. Se você só precisa reter seus eventos por 90 dias ou menos, não precisa configurar arquivos mortos para uma conta de armazenamento, pois os eventos do log de atividades são mantidos na plataforma do Azure por 90 dias. [Saiba mais](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * Você pode enviar dados (por exemplo, trabalhos, políticas e assim por diante) para o espaço de trabalho **log Analytics** . Isso permitirá que os recursos dos logs de Azure Monitor habilitem a correlação de dados com outros dados de monitoramento coletados pelo Azure Monitor, consolide entradas de log de várias assinaturas e locatários do Azure em um local para análise, use consultas de log para executar análises complexas e obter insights aprofundados sobre entradas de log. [Saiba mais aqui](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * Você pode enviar dados para o Hub de eventos para enviar entradas fora do Azure, por exemplo, para um SIEM de terceiros (gerenciamento de eventos e informações de segurança) ou outra solução do log Analytics. [Saiba mais aqui](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * Você pode enviar dados para uma conta de armazenamento do Azure se desejar manter seus dados de log por mais de 90 dias para auditoria, análise estática ou backup. Se você só precisa reter seus eventos por 90 dias ou menos, não precisa configurar arquivos mortos para uma conta de armazenamento, pois os eventos do log de atividades são mantidos na plataforma do Azure por 90 dias. [Saiba mais](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Alertas
 

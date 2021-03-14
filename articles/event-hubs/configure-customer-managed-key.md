@@ -3,12 +3,12 @@ title: Configure sua própria chave para criptografar dados de hubs de eventos d
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST dos hubs de eventos do Azure.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430672"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595985"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O serviço de hubs de eventos usa o armazenamento do Azure para armazenar os dados. Todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar sua própria chave (também conhecida como Bring Your Own Key (BYOK) ou chave gerenciada pelo cliente), os dados ainda serão criptografados usando a chave gerenciada pela Microsoft, mas, além disso, a chave gerenciada pela Microsoft será criptografada usando a chave gerenciada pelo cliente. Esse recurso permite que você crie, gire, desabilite e revogue o acesso a chaves gerenciadas pelo cliente que são usadas para criptografar chaves gerenciadas pela Microsoft. Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
@@ -70,7 +70,7 @@ Revogar o acesso às chaves de criptografia não limpará os dados dos hubs de e
 Depois que a chave de criptografia for revogada, o serviço de hubs de eventos no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave de exclusão for restaurada, o serviço de hubs de eventos escolherá a chave para que você possa acessar os dados do namespace de hubs de eventos criptografados.
 
 ## <a name="set-up-diagnostic-logs"></a>Configuração dos logs de diagnóstico 
-A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Habilitar logs do usuário
 Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
@@ -90,14 +90,14 @@ Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
 ## <a name="log-schema"></a>Esquema do log 
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
 
-| Nome | Descrição |
+| Name | Descrição |
 | ---- | ----------- | 
 | TaskName | Descrição da tarefa que falhou. |
 | ActivityId | ID interna que é usada para acompanhamento. |
 | category | Define a classificação da tarefa. Por exemplo, se a chave do cofre de chaves estiver sendo desabilitada, ela seria uma categoria de informações ou, se uma chave não puder ser desativada, ela poderá ficar com erro. |
 | resourceId | ID de recurso do Azure Resource Manager |
 | keyVault | Nome completo do cofre de chaves. |
-| key | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
+| chave | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
 | version | A versão da chave que está sendo usada. |
 | operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
 | code | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |

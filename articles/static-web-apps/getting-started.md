@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 2d7a2dcbbd0b6e9a10ca8af93798bfddbee94ee3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562507"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182648"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure
 
@@ -26,6 +26,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta de avaliação grat
 - Conta do [Azure](https://portal.azure.com)
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Extensão dos Aplicativos Web Estáticos do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- [Instalar o Git](https://www.git-scm.com/downloads)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 

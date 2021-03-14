@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109005"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556497"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Criar um fluxo de usuário no Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ ms.locfileid: "97109005"
 ## <a name="before-you-begin"></a>Antes de começar
 
 - **Registre o aplicativo** que você deseja usar para testar o novo fluxo de usuário. Para ver um exemplo, confira o [Tutorial: Registrar um aplicativo Web no Azure AD B2C](tutorial-register-applications.md).
-- **Adicione provedores de identidade externos** se desejar habilitar a entrada de usuário com provedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Para um exemplo, veja [Tutorial: Adicionar provedores de identidade aos seus aplicativos no Azure AD B2C](tutorial-add-identity-providers.md).
+- **Adicione provedores de identidade externos** se desejar habilitar a entrada de usuário com provedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Confira [Adicionar provedores de identidade aos seus aplicativos no Azure AD B2C](add-identity-provider.md).
 - **Configure o provedor de identidade da conta local** para especificar os tipos de identidade (email, nome de usuário, número de telefone) para os quais você deseja dar suporte para contas locais em seu locatário. Em seguida, você pode escolher entre esses tipos de identidade com suporte ao criar fluxos dos usuários individuais. Quando um usuário conclui o fluxo do usuário, uma conta local é criada no diretório do Azure AD B2C, e seu provedor de identidade de **conta local** autentica as informações do usuário. Configure o provedor de identidade de conta local do seu locatário com estas etapas:
 
    1. Entre no [portal do Azure](https://portal.azure.com/). 
@@ -66,7 +66,7 @@ ms.locfileid: "97109005"
 
    - **Conta local**. Se você quiser permitir que os usuários criem contas locais em seu locatário do Azure AD B2C, selecione o tipo de identificador que você deseja que eles usem (por exemplo, email, ID de usuário ou telefone). Somente os tipos de identidade configurados nas configurações do [provedor de identidade de conta local](#before-you-begin) são listados.
 
-   - **Provedores de identidade social**. Se desejar permitir a entrada do usuário com [provedores de identidade social adicionados](tutorial-add-identity-providers.md), como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, selecione os provedores na lista.
+   - **Provedores de identidade social**. Se desejar permitir a entrada do usuário com [provedores de identidade social adicionados](add-identity-provider.md), como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, selecione os provedores na lista.
 
 9. Para **Atributos e declarações do usuário**, escolha as declarações e atributos que deseja coletar e enviar do usuário durante a inscrição. Selecione **Mostrar mais**. Selecione os atributos e as declarações e selecione **OK**.
 

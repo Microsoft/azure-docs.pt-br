@@ -136,6 +136,12 @@
           href: expressroute-howto-set-global-reach.md
         - name: CLI do Azure
           href: expressroute-howto-set-global-reach-cli.md
+    - name: Adicionar suporte a IPv6 para emparelhamento privado (versão prévia)
+      items:
+        - name: Portal do Azure
+          href: expressroute-howto-add-ipv6-portal.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-ipv6-powershell.md
     - name: Monitoramento
       items:
         - name: 'Monitoramento, alertas e métricas do ExpressRoute'

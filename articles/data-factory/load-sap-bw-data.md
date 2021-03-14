@@ -1,22 +1,18 @@
 ---
 title: Carregar dados do SAP Business Warehouse
 description: Usar Azure Data Factory para copiar dados do SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370692"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,7 +47,7 @@ No portal do Azure, acesse seu data factory. Selecione **criar & monitor** para 
 
 1. Na página **vamos começar** , selecione **copiar dados** para abrir a ferramenta copiar dados.
 
-2. Na página **Propriedades** , especifique um **nome de tarefa**e, em seguida, selecione **Avançar**.
+2. Na página **Propriedades** , especifique um **nome de tarefa** e, em seguida, selecione **Avançar**.
 
 3. Na página **armazenamento de dados de origem** , selecione **+ criar nova conexão**. Selecione **SAP BW Hub aberto** na galeria do conector e selecione **continuar**. Para filtrar os conectores, você pode digitar **SAP** na caixa de pesquisa.
 
@@ -61,11 +57,11 @@ No portal do Azure, acesse seu data factory. Selecione **criar & monitor** para 
 
    1. Na lista **conectar via tempo de execução de integração** , selecione um ir para hospedagem interna existente. Ou então, escolha criar um se você ainda não tiver um.
 
-      Para criar um novo IR de hospedagem interna, selecione **+ novo**e, em seguida, selecione **auto-hospedado**. Insira um **nome**e, em seguida, selecione **Avançar**. Selecione **instalação expressa** para instalar no computador atual ou siga as etapas de **configuração manual** que são fornecidas.
+      Para criar um novo IR de hospedagem interna, selecione **+ novo** e, em seguida, selecione **auto-hospedado**. Insira um **nome** e, em seguida, selecione **Avançar**. Selecione **instalação expressa** para instalar no computador atual ou siga as etapas de **configuração manual** que são fornecidas.
 
       Conforme mencionado em [pré-requisitos](#prerequisites), verifique se você tem o conector SAP para Microsoft .net 3,0 instalado no mesmo computador em que o ir auto-hospedado está em execução.
 
-   2. Preencha o nome do **servidor**SAP BW, **o número do sistema**, a ID do **cliente,** o **idioma** (se diferente de **en**), o **nome de usuário**e a **senha**.
+   2. Preencha o nome do **servidor** SAP BW, **o número do sistema**, a ID do **cliente,** o **idioma** (se diferente de **en**), o **nome de usuário** e a **senha**.
 
    3. Selecione **testar conexão** para validar as configurações e, em seguida, selecione **concluir**.
 
@@ -149,7 +145,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
    ![Cópia incremental do modelo de SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-3. Este modelo gera um pipeline com as três atividades a seguir e as torna encadeadas em um êxito: *Lookup*, *copiar dados*e *Web*.
+3. Este modelo gera um pipeline com as três atividades a seguir e as torna encadeadas em um êxito: *Lookup*, *copiar dados* e *Web*.
 
    Vá para a guia **parâmetros** de pipeline. Você verá todas as configurações que precisa fornecer.
 

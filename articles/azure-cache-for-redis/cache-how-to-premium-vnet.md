@@ -1,32 +1,27 @@
 ---
 title: Configurar uma rede virtual-camada Premium cache do Azure para instância Redis
-description: Saiba como criar e gerenciar o suporte de rede virtual para o cache do Azure de camada Premium para instâncias de Redis.
+description: Saiba como criar e gerenciar o suporte de rede virtual para o cache do Azure de camada Premium para a instância Redis
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 908254fec0d9e92b0e30c2e4968c3c505bbbdbf8
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.date: 02/08/2021
+ms.openlocfilehash: 94bbb9bb683f40d44d6649802b66bda6feeee218
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375265"
 ---
-# <a name="configure-virtual-network-support-for-a-premium-tier-azure-cache-for-redis-instance"></a>Configurar o suporte de rede virtual para um cache do Azure de camada Premium para instância Redis
+# <a name="configure-virtual-network-support-for-a-premium-azure-cache-for-redis-instance"></a>Configurar o suporte de rede virtual para um cache do Azure Premium para a instância Redis
 
-O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Os recursos da camada Premium incluem clustering, persistência e suporte à rede virtual. Uma rede virtual é uma rede privada na nuvem. Quando um cache do Azure para instância Redis é configurado com uma rede virtual, ele não é publicamente endereçável e só pode ser acessado de máquinas virtuais e aplicativos na rede virtual. Este artigo descreve como configurar o suporte de rede virtual para um cache do Azure de camada Premium para instância Redis.
+A implantação de [rede virtual do Azure](https://azure.microsoft.com/services/virtual-network/) fornece segurança e isolamento aprimorados juntamente com sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso. Quando um cache do Azure para instância Redis é configurado com uma rede virtual, ele não é publicamente endereçável e só pode ser acessado de máquinas virtuais e aplicativos na rede virtual. Este artigo descreve como configurar o suporte de rede virtual para um cache do Azure de camada Premium para instância Redis.
 
 > [!NOTE]
 > O cache do Azure para Redis dá suporte ao modelo de implantação clássico e Azure Resource Manager redes virtuais.
 > 
 
-## <a name="why-virtual-network"></a>Por que rede virtual?
-
-A implantação de [rede virtual do Azure](https://azure.microsoft.com/services/virtual-network/) fornece segurança e isolamento aprimorados para o cache do Azure para instância Redis, juntamente com sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso.
-
-## <a name="virtual-network-support"></a>Suporte de rede virtual
+## <a name="set-up-virtual-network-support"></a>Configurar o suporte de rede virtual
 
 O suporte à rede virtual é configurado no painel **novo cache do Azure para Redis** durante a criação do cache.
 

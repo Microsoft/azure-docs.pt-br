@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587597"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363161"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Escolha como autorizar o acesso aos dados da fila com CLI do Azure
 
@@ -34,6 +34,9 @@ CLI do Azure comandos para ler e gravar os dados da fila incluem o `--auth-mode`
 
 Para usar o `--auth-mode` parâmetro, verifique se você instalou o CLI do Azure v 2.0.46 ou posterior. Execute `az --version` para verificar sua versão instalada.
 
+> [!NOTE]
+> Quando uma conta de armazenamento é bloqueada com um bloqueio Azure Resource Manager **ReadOnly** , a operação [listar chaves](/rest/api/storagerp/storageaccounts/listkeys) não é permitida para essa conta de armazenamento. **Listar chaves** é uma operação post e todas as operações post são impedidas quando um bloqueio **ReadOnly** é configurado para a conta. Por esse motivo, quando a conta é bloqueada com um bloqueio **ReadOnly** , os usuários que ainda não possuem as chaves de conta devem usar as credenciais do Azure ad para acessar os dados da fila.
+
 > [!IMPORTANT]
 > Se você omitir o `--auth-mode` parâmetro ou defini-lo como `key` , o CLI do Azure tentará usar a chave de acesso da conta para autorização. Nesse caso, a Microsoft recomenda que você forneça a chave de acesso no comando ou na `AZURE_STORAGE_KEY` variável de ambiente. Para obter mais informações sobre variáveis de ambiente, consulte a seção intitulada [definir variáveis de ambiente para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
 >
@@ -41,7 +44,7 @@ Para usar o `--auth-mode` parâmetro, verifique se você instalou o CLI do Azure
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autorizar com as credenciais do Azure AD
 
-Quando você entra no CLI do Azure com as credenciais do Azure AD, um token de acesso OAuth 2,0 é retornado. Esse token é usado automaticamente pelo CLI do Azure para autorizar operações de dados subsequentes no armazenamento de BLOBs ou no armazenamento de filas. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
+Quando você entra no CLI do Azure com as credenciais do Azure AD, um token de acesso OAuth 2,0 é retornado. Esse token é usado automaticamente pelo CLI do Azure para autorizar operações de dados subsequentes no armazenamento de fila. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
 
 Você pode atribuir permissões para dados de fila a uma entidade de segurança do Azure AD por meio do controle de acesso baseado em função do Azure (RBAC do Azure). Para obter mais informações sobre as funções do Azure no armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados do armazenamento do Azure com o Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
@@ -55,7 +58,7 @@ Para obter detalhes sobre as permissões necessárias para cada operação de ar
 
 O exemplo a seguir mostra como criar uma fila de CLI do Azure usando suas credenciais do Azure AD. Para criar a fila, você precisará fazer logon no CLI do Azure, e precisará de um grupo de recursos e uma conta de armazenamento.
 
-1. Antes de criar a fila, atribua a função de [colaborador de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a si mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções do Azure, consulte [usar o portal do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](../common/storage-auth-aad-rbac-portal.md).
+1. Antes de criar a fila, atribua a função de [colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) a você mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções do Azure, consulte [usar o portal do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > As atribuições de função do Azure podem levar alguns minutos para serem propagadas.

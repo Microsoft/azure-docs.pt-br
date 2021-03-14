@@ -3,15 +3,15 @@ title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
 description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108500"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613962"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -112,7 +112,7 @@ As limitações ou cotas no FSLogix dependem da malha de armazenamento usada par
 
 A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil.
 
-| Recurso | Requisito |
+| Resource | Requisito |
 |---|---|
 | IOPS de estado estável | 10 |
 | Entrar/sair do IOPS | 50 |
@@ -125,7 +125,7 @@ Esses fatores podem afetar o limite de escala para pools de hosts:
 
 - O modelo do Azure é limitado a 800 objetos. Para saber mais, confira [assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Cada VM também cria cerca de seis objetos, de modo que isso significa que você pode criar em torno de 132 VMs sempre que executar o modelo.
 
-- Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Enterprise Agreement, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+- Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Contrato Enterprise, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - O nome do prefixo da VM e o número de VMs têm menos de 15 caracteres. Para saber mais, consulte [regras e restrições de nomenclatura para recursos do Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
@@ -136,3 +136,26 @@ O Azure Lighthouse não dá suporte completo ao gerenciamento de ambientes de á
 Você também não pode usar as assinaturas do CSP sandbox com o serviço de área de trabalho virtual do Windows. Para saber mais, consulte [conta da área restrita da integração](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Por fim, se você habilitou o provedor de recursos da conta do proprietário do CSP, as contas de cliente do CSP não poderão modificar o provedor de recursos.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ativar minhas VMs para evitar problemas de registro?
+
+Depois de registrar uma VM em um pool de hosts no serviço de área de trabalho virtual do Windows, o agente atualiza regularmente o token da VM sempre que a VM está ativa. O certificado para o token de registro é válido por 90 dias. Por causa desse limite de 90 dias, recomendamos que você inicie suas VMs a cada 90 dias. Ativar sua VM dentro desse limite de tempo impedirá que seu token de registro expire ou se torne inválido. Se você tiver iniciado sua VM após 90 dias e estiver enfrentando problemas de registro, siga as instruções no [Guia de solução de problemas do agente de área de trabalho virtual do Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para remover a VM do pool de hosts, reinstalar o agente e registrá-lo novamente no pool.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Posso definir opções de disponibilidade ao criar pools de hosts?
+
+Sim. Os pools de hosts da área de trabalho virtual do Windows têm uma opção para selecionar um conjunto de disponibilidade ou zonas de disponibilidade quando você cria uma VM. Essas opções de disponibilidade são as mesmas que as usadas pelo Azure COMPUTE. Se você selecionar uma zona para a VM criada em um pool de hosts, a configuração se aplicará automaticamente a todas as VMs que você criar nessa zona. Se preferir distribuir suas VMs do pool de hosts entre várias zonas, você precisará seguir as instruções em [Adicionar máquinas virtuais com o portal do Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para selecionar manualmente uma nova zona para cada nova VM que você criar.
+
+## <a name="which-availability-option-is-best-for-me"></a>Qual é a melhor opção de disponibilidade para mim?
+
+A opção de disponibilidade que você deve usar para suas VMs depende do local de sua imagem e de seus campos de disco gerenciado. A tabela a seguir explica o relacionamento que cada configuração tem com essas variáveis para ajudá-lo a descobrir qual é a melhor opção para sua implantação. 
+
+| Opção de disponibilidade | Local da imagem | Botão de opção usar disco gerenciado (botão de opção) |
+|---|---|---|
+| Nenhum | Galeria | Desabilitado com "Sim" como padrão |
+| Nenhum | Armazenamento de blob | Habilitado com "não" como padrão |
+| Zona de disponibilidade | Galeria (opção de armazenamento de BLOBs desabilitada) | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Galeria | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de blob | Habilitado com "não" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de BLOBs (opção de galeria desabilitada) | Desabilitado com "não" como padrão |
+| Conjunto de disponibilidade (criado recentemente pelo usuário) | Galeria | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade (criado recentemente pelo usuário) | Armazenamento de blob | Habilitado com "não" como padrão |

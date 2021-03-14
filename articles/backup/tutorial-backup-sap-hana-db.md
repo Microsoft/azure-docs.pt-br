@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695207"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703674"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -98,6 +98,46 @@ Também é possível usar os seguintes FQDNs para permitir o acesso aos serviço
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usar um servidor proxy HTTP para rotear o tráfego
 
 Quando você faz backup de um banco de dados SAP HANA em execução em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. Use a lista de IPs e FQDNs mencionados acima para permitir o acesso aos serviços necessários. Não há suporte para os servidores proxy autenticados.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>Entendendo o desempenho da taxa de transferência de backup e restauração
+
+Os backups (log e não log) nas VMs do Azure do SAP HANA fornecidas por meio do Backint são fluxos para cofres de Serviços de Recuperação do Azure e, portanto, é importante entender essa metodologia de streaming.
+
+O componente Backint do HANA fornece os "pipes" (um pipe do qual ler e um pipe no qual gravar) conectados a discos subjacentes nos quais os arquivos de banco de dados residem, que são lidos pelo serviço de Backup do Azure e transportados para o cofre dos Serviços de Recuperação do Azure. O serviço de Backup do Azure também executa uma soma de verificação para validar os fluxos, além das verificações de validação nativos de backint. Essas validações garantem que os dados presentes no cofre dos Serviços de Recuperação do Azure sejam realmente confiáveis e recuperáveis.
+
+Como os fluxos lidam principalmente com discos, você precisa entender o desempenho do disco para medir o desempenho de backup e restauração. Confira [este artigo](../virtual-machines/disks-performance.md) para ter uma compreensão detalhada da taxa de transferência e do desempenho do disco nas VMs do Azure. Eles também são aplicáveis ao desempenho de backup e restauração.
+
+**O serviço de Backup do Azure tenta atingir até 420 MBps para backups que não são de log (como completo, diferencial e incremental) e até 100 MBps para backups de log para o HANA**. Conforme mencionado acima, essas velocidades não são garantidas e dependem dos seguintes fatores:
+
+* Taxa de transferência máxima do disco não armazenado em cache da VM
+* Tipo de disco subjacente e sua taxa de transferência
+* O número de processos que estão tentando ler e gravar no mesmo disco ao mesmo tempo.
+
+> [!IMPORTANT]
+> Em VMs menores, em que a taxa de transferência do disco não armazenado em cache é muito próxima ou menor que 400 MBps, você pode estar preocupado que toda a IOPS de disco seja consumida pelo serviço de backup, o que pode afetar as operações do SAP HANA relacionadas à leitura/gravação dos discos. Nesse caso, se você quiser restringir ou limitar o consumo do serviço de backup ao limite máximo, poderá consultar a próxima seção.
+
+### <a name="limiting-backup-throughput-performance"></a>Limitando o desempenho da taxa de transferência de backup
+
+Se você quiser restringir o consumo de IOPS de disco do serviço de backup ao valor máximo, execute as etapas a seguir.
+
+1. Vá até a pasta "opt/msawb/bin"
+2. Crie um arquivo JSON chamado "ExtensionSettingOverrides.JSON"
+3. Adicione um par chave-valor ao arquivo JSON da seguinte maneira:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Altere as permissões e a propriedade do arquivo da seguinte maneira:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. Não é necessário reiniciar nenhum serviço. O serviço de Backup do Azure tentará limitar o desempenho da taxa de transferência conforme mencionado neste arquivo.
 
 ## <a name="what-the-pre-registration-script-does"></a>O que o script de pré-registro faz
 
@@ -227,8 +267,8 @@ Especifique as configurações de política da seguinte maneira:
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Backups incrementais já estão disponíveis em versão prévia pública. Você pode escolher um diferencial ou um incremental como um backup diário, mas não ambos.
-   >
+   >Você pode escolher um diferencial ou um incremental como um backup diário, mas não ambos.
+
 7. Em **Política de Backup Incremental**, selecione **Habilitar** para abrir os controles de retenção e frequência.
     * No máximo, você pode disparar um backup incremental por dia.
     * Backups incrementais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.

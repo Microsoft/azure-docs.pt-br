@@ -2,14 +2,14 @@
 title: Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web | Microsoft Docs
 description: Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 03/10/2021
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937418"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012557"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -72,7 +72,6 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |Configuração| Explicação
 |----|----|----|
 |**Quase em tempo real (Versão prévia)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
-|**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limite de locais de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de alertas locais e o número de locais de teste é o **limite de alertas locais** = **número de locais de teste - 2, com um mínimo de cinco locais de teste.**|
 
 ### <a name="location-population-tags"></a>Marcas de população de local
@@ -151,7 +150,7 @@ Clique na linha de exceção para ver os detalhes da exceção do lado servidor 
 
 ![Diagnóstico do lado do servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
-Além dos resultados brutos, você também pode exibir duas métricas de disponibilidade principais no [Metrics Explorer](../platform/metrics-getting-started.md):
+Além dos resultados brutos, você também pode exibir duas métricas de disponibilidade principais no [Metrics Explorer](../essentials/metrics-getting-started.md):
 
 1. Disponibilidade: percentual dos testes que foram bem-sucedidos, em todas as execuções de teste.
 2. Duração do teste: duração média em todas as execuções de teste.
@@ -159,7 +158,7 @@ Além dos resultados brutos, você também pode exibir duas métricas de disponi
 ## <a name="automation"></a>Automação
 
 * [Use os scripts do PowerShell para configurar um teste de disponibilidade](./powershell.md#add-an-availability-test) automaticamente.
-* Configure um [webhook](../platform/alerts-webhooks.md) , que é chamado quando um alerta é gerado.
+* Configure um [webhook](../alerts/alerts-webhooks.md) , que é chamado quando um alerta é gerado.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618766"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103198951"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de bloqueio de conta com um Azure Active Directory Domain Services domínio gerenciado
 
@@ -83,6 +83,23 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
+
+**Observação**
+
+Você pode encontrar os detalhes do evento 4776 e 4740 de "estação de trabalho de origem:" vazio. Isso ocorre porque a senha inadequada ocorreu sobre o logon de rede por meio de alguns outros dispositivos.
+Por exemplo: se você tiver um servidor RADIUS, que pode encaminhar a autenticação para o AAD DS. Para confirmar que habilitar RDP para back-end de DC configurar logs de Netlogon.
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: logon de rede transitiva de contoso\Nagappan.Veerappan de (via LOB11-RADIUS) inserido 
+
+03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: o logon de rede transitiva de contoso\Nagappan.Veerappan de (via LOB11-RADIUS) retorna 0xC000006A
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: logon de rede transitiva de contoso\Nagappan.Veerappan de (via LOB11-RADIUS) inserido 
+
+03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: o logon de rede transitiva de contoso\Nagappan.Veerappan de (via LOB11-RADIUS) retorna 0xC000006A
+
+Habilite o RDP para seus DCs em NSG para o back-end para configurar a captura de diagnóstico (ou seja, Netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules se você já tiver modificado o NSG padrão, siga o modo de PSlet para habilitar https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+
+Para habilitar o log Netlogon em qualquer servidor https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8f698aadc24d0dc0691743f1d8dd54c5d5fd287e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220949"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714724"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas da Análise de Armazenamento do Azure (clássico)
 
@@ -25,7 +25,7 @@ O Armazenamento do Microsoft Azure usa a solução Análise de Armazenamento par
 - Diagnosticar problemas com solicitações feitas no serviço de armazenamento.
 - Melhorar o desempenho dos aplicativos que usam um serviço.
 
- A métrica da Análise de Armazenamento vem habilitada por padrão nas novas contas de armazenamento. Você pode configurar as métricas no [portal do Azure](https://portal.azure.com/), usando o PowerShell ou usando o CLI do Azure. Para obter orientações passo a passo, consulte [habilitar e gerenciar as métricas analíticas do armazenamento do Azure (clássico)](./storage-monitor-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações Definir Propriedades do Serviço para habilitar a Análise de Armazenamento para cada serviço.  
+ A métrica da Análise de Armazenamento vem habilitada por padrão nas novas contas de armazenamento. Você pode configurar as métricas no [portal do Azure](https://portal.azure.com/), usando o PowerShell ou usando o CLI do Azure. Para obter orientações passo a passo, consulte [habilitar e gerenciar as métricas analíticas do armazenamento do Azure (clássico)](./manage-storage-analytics-logs.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações Definir Propriedades do Serviço para habilitar a Análise de Armazenamento para cada serviço.  
 
 > [!NOTE]
 > As métricas da Análise de Armazenamento estão disponíveis para armazenamento de Blobs do Azure, armazenamento de Filas do Azure, armazenamento de Tabelas do Azure e Arquivos do Azure.
@@ -69,7 +69,7 @@ O Armazenamento do Microsoft Azure usa a solução Análise de Armazenamento par
  Essas tabelas são criadas automaticamente quando a Análise de Armazenamento do Azure é habilitada para um ponto de extremidade de serviço de armazenamento. Elas são acessadas por meio do namespace da conta de armazenamento, por exemplo`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. As tabelas de métricas não são exibidas em uma operação de listagem e devem ser acessadas diretamente por meio do nome da tabela.
 
 ## <a name="metrics-alerts"></a>Alertas de métricas
-Considere a possibilidade de configurar alertas no [portal do Azure](https://portal.azure.com) para ser avisado automaticamente sobre alterações importantes no comportamento dos serviços de armazenamento. Para obter orientações passo a passo, consulte [criar alertas de métricas](storage-monitor-storage-account.md#create-metric-alerts).
+Considere a possibilidade de configurar alertas no [portal do Azure](https://portal.azure.com) para ser avisado automaticamente sobre alterações importantes no comportamento dos serviços de armazenamento. Para obter orientações passo a passo, consulte [criar alertas de métricas](./manage-storage-analytics-logs.md).
 
 Se você usar uma ferramenta de Gerenciador de Armazenamento para baixar esses dados de métricas em um formato delimitado, você pode usar o Microsoft Excel para analisar os dados. Para obter uma lista das ferramentas disponíveis do Gerenciador de Armazenamento, confira [Ferramentas do Cliente de Armazenamento do Microsoft Azure](./storage-explorers.md).
 

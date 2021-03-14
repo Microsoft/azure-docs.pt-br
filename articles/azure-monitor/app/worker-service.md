@@ -4,12 +4,12 @@ description: Monitorando aplicativos .NET Core/. NET Framework não HTTP com Azu
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 155a0963146860431cb44c255e1e1d1aca3ae344
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c1ca594626d4384c9dfb62990ee2017d2094fca4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943870"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371848"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
@@ -108,9 +108,9 @@ O exemplo completo é compartilhado [aqui](https://github.com/microsoft/Applicat
 ```json
     {
         "ApplicationInsights":
-            {
+        {
             "InstrumentationKey": "putinstrumentationkeyhere"
-            },
+        },
         "Logging":
         {
             "LogLevel":
@@ -351,7 +351,7 @@ Observe que `ApplicationInsightsServiceOptions` neste SDK está no namespace em 
 
 Configurações comumente usadas no `ApplicationInsightsServiceOptions`
 
-|Configuração | Descrição | Padrão
+|Setting | Descrição | Padrão
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Habilitar/desabilitar o recurso LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar/desabilitar amostragem adaptável | true

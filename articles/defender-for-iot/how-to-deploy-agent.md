@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339958"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447258"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecionar e implantar um agente de segurança em seu dispositivo IoT
 
@@ -28,11 +28,9 @@ Para saber mais, consulte [arquitetura de referência do agente de segurança](s
 Os agentes são desenvolvidos como projetos de código-fonte aberto e estão disponíveis em dois tipos: <br> [C](https://aka.ms/iot-security-github-c)e [C#](https://aka.ms/iot-security-github-cs).
 
 Neste artigo, você aprenderá como:
-
-> [!div class="checklist"]
-> * Comparar tipos de agente de segurança
-> * Descobrir plataformas de agente com suporte
-> * Escolha o tipo de agente correto para sua solução
+- Comparar tipos de agente de segurança
+- Descobrir plataformas de agente com suporte
+- Escolha o tipo de agente correto para sua solução
 
 ## <a name="understand-security-agent-options"></a>Entender as opções do agente de segurança
 
@@ -81,7 +79,7 @@ Responda às seguintes perguntas sobre seus dispositivos IoT para selecionar o a
 Ambos os tipos de agente oferecem o mesmo conjunto de recursos e oferecem suporte a opções de configuração semelhantes.
 Consulte [comparação do agente de segurança](how-to-deploy-agent.md#understand-security-agent-options) para saber mais.
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 A lista a seguir inclui todas as plataformas com suporte no momento.
 

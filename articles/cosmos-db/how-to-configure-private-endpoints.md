@@ -4,15 +4,15 @@ description: Saiba como configurar o Link Privado do Azure para acessar uma cont
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d21943c90e1f77bd4a43cdfd27b183df018f6cc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690661"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,11 +22,11 @@ Usando o Link Privado do Azure, você pode se conectar a uma conta do Azure Cosm
 > [!NOTE]
 > O link privado não impede que os pontos de extremidade do Azure Cosmos sejam resolvidos pelo DNS público. A filtragem de solicitações de entrada ocorre no nível do aplicativo, não no nível de transporte ou de rede.
 
-O Link Privado permite que os usuários acessem uma conta do Azure Cosmos de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o Link Privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou do Azure ExpressRoute. 
+O Link Privado permite que os usuários acessem uma conta do Azure Cosmos de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o Link Privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou do Azure ExpressRoute.
 
-Você pode se conectar a uma conta do Azure Cosmos configurada com o Link Privado usando o método de aprovação automática ou manual. Para saber mais, confira a seção [Fluxo de trabalho de aprovação](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) da documentação do Link Privado. 
+Você pode se conectar a uma conta do Azure Cosmos configurada com o Link Privado usando o método de aprovação automática ou manual. Para saber mais, confira a seção [Fluxo de trabalho de aprovação](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) da documentação do Link Privado.
 
-Este artigo descreve as etapas para criar um ponto de extremidade privado. Ele pressupõe que você esteja usando o método de aprovação automática.
+Este artigo descreve como configurar pontos de extremidade privados para Azure Cosmos DB repositório transacional. Ele pressupõe que você esteja usando o método de aprovação automática. Se você estiver usando o repositório analítico, consulte [pontos de extremidade privados para o artigo de repositório analítico](analytical-store-private-endpoints.md) .
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Criar um ponto de extremidade privado usando o portal do Azure
 
@@ -671,7 +671,7 @@ As seguintes limitações se aplicam quando você está usando o Link Privado co
 
 * Quando você estiver usando a API do Azure Cosmos DB para contas do MongoDB, haverá suporte para um ponto de extremidade privado para contas somente na versão 3.6 do servidor (ou seja, contas que usam o ponto de extremidade no formato `*.mongo.cosmos.azure.com`). Não há suporte para o Link Privado em contas na versão 3.2 do servidor (ou seja, contas que usam o ponto de extremidade no formato `*.documents.azure.com`). Para usar o Link Privado, você deve migrar contas antigas para a nova versão.
 
-* Quando você estiver usando uma API do Azure Cosmos DB para a conta do MongoDB que tem um Link Privado, algumas ferramentas ou bibliotecas poderão não funcionar à medida que removerem automaticamente o parâmetro `appName` da cadeia de conexão. Esse parâmetro é necessário para se conectar à conta por um ponto de extremidade privado. Algumas ferramentas, como o Visual Studio Code, não removem esse parâmetro da cadeia de conexão e são, portanto, compatíveis.
+* Quando você estiver usando uma API de Azure Cosmos DB para a conta do MongoDB que tem um link privado, as ferramentas/bibliotecas devem oferecer suporte à SNI (identificação do nome do serviço) ou passar o `appName` parâmetro da cadeia de conexão para se conectar corretamente. Algumas ferramentas/bibliotecas mais antigas podem não ser compatíveis para usar o recurso de link privado.
 
 * Um administrador de rede deve receber pelo menos a permissão `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` no escopo da conta do Azure Cosmos para criar pontos de extremidade privados aprovados automaticamente.
 

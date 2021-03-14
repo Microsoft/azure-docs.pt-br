@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: c19e6c7e05a3478007505ee4f02f12a7eade5eb6
-  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+  ms.openlocfilehash: 4cc05d3b99530e5ba923bfcbf7f749fbcd1c0f20
+  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93130231"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102616631"
 landingContent:
 - title: Sobre a Leitura Avançada
   linkLists:
@@ -43,28 +43,20 @@ landingContent:
       url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
     - text: Usar o Swift (iOS)
       url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
-  - linkListType: tutorial
-    links:
-    - text: Android
-      url: tutorial-android.md
-    - text: iOS
-      url: tutorial-ios.md
-    - text: Python
-      url: tutorial-python.md
-    - text: Usar vários recursos de Leitura Avançada
-      url: tutorial-multiple-resources.md
 - title: Explorar a Leitura Avançada
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Criar um recurso de Leitura Avançada
       url: how-to-create-immersive-reader.md
+    - text: Usar vários recursos de Leitura Avançada
+      url: how-to-multiple-resources.md
+    - text: Iniciar a Leitura Avançada
+      url: how-to-launch-immersive-reader.md
     - text: Definir a política de cookies
       url: how-to/set-cookie-policy.md
     - text: Exibir matemática
       url: how-to/display-math.md
-    - text: Iniciar a Leitura Avançada com conteúdo de HTML
-      url: how-to-launch-with-html.md
     - text: Botão Personalizar Leitura Avançada
       url: how-to-customize-launch-button.md
     - text: Armazenar o token de autenticação em cache

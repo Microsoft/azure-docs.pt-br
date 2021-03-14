@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257906"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580049"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de Aplicativo do Azure AD
 
@@ -200,7 +200,7 @@ Por exemplo, suponha que você tenha três aplicativos publicados por meio do pr
 
 Quando você habilita a conversão de link para o aplicativo benefícios, os links para despesas e viagens são redirecionados para as URLs externas para esses aplicativos, para que os usuários que acessam os aplicativos de fora da rede corporativa possam acessá-los. Os links de despesas e viagens de volta para os benefícios não funcionam porque a conversão de links não foi habilitada para esses dois aplicativos. O link para comentários não é redirecionado porque não há nenhuma URL externa, de modo que os usuários que usam o aplicativo de benefícios não conseguirão acessar o aplicativo de comentários de fora da rede corporativa. Consulte informações detalhadas sobre [conversão de link e outras opções de redirecionamento](application-proxy-configure-hard-coded-link-translation.md).
 
-### <a name="access-your-application"></a>Acessar seu aplicativo
+### <a name="access-your-application"></a>Acesse seu aplicativo
 
 Existem várias opções para gerenciar o acesso aos recursos publicados do proxy de aplicativo, portanto, escolha o mais apropriado para o cenário e as necessidades de escalabilidade em questão. As abordagens comuns incluem: usando grupos locais que estão sendo sincronizados por meio de Azure AD Connect, criando grupos dinâmicos no Azure AD com base em atributos de usuário, usando grupos de autoatendimento que são gerenciados por um proprietário de recurso ou uma combinação de todos eles. Consulte os recursos vinculados para obter os benefícios de cada um.
 
@@ -302,7 +302,7 @@ Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. V
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Logs de eventos do Windows e contadores de desempenho
 
-Os conectores têm logs de administração e de sessão. Os logs de administrador incluem eventos de chave e seus erros. Os logs de sessão incluem todas as transações e seus detalhes de processamento. Os logs e os contadores estão localizados nos logs de eventos do Windows para obter mais informações, consulte [entender os conectores de proxy de aplicativo do AD do Azure](./application-proxy-connectors.md#under-the-hood). Siga este [tutorial para configurar fontes de dados de log de eventos no Azure monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Os conectores têm logs de administração e de sessão. Os logs de administrador incluem eventos de chave e seus erros. Os logs de sessão incluem todas as transações e seus detalhes de processamento. Os logs e os contadores estão localizados nos logs de eventos do Windows para obter mais informações, consulte [entender os conectores de proxy de aplicativo do AD do Azure](./application-proxy-connectors.md#under-the-hood). Siga este [tutorial para configurar fontes de dados de log de eventos no Azure monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guia de solução de problemas e etapas
 

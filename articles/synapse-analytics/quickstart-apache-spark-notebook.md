@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454653"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669496"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Início Rápido: Criar um Pool do Apache Spark sem servidor no Azure Synapse Analytics usando ferramentas da Web
 
@@ -148,7 +148,7 @@ Para garantir que a instância do Spark seja desligada, encerre todas as sessõe
 Neste guia de início rápido, você aprendeu a criar um Pool do Apache Spark sem servidor e a executar uma consulta SQL básica do Spark.
 
 - [Azure Synapse Analytics](overview-what-is.md)
-- [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentação do .NET para Apache Spark](/dotnet/spark)
 
 
 

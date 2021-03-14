@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222077"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523236"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Sensor do defender para IoT e APIs do console de gerenciamento
 
@@ -108,40 +108,40 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **id** | Numérico | No | - |
-| **ipAddresses** | Matriz JSON | Yes | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
-| **name** | Cadeia de caracteres | No | - |
-| **type** | Cadeia de caracteres | No | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
-| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
+| **id** | Numérico | Não | - |
+| **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
+| **name** | String | Não | - |
+| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
 | **operatingSystem** | String | Sim | - |
-| **engineeringStation** | Booliano | No | Verdadeiro ou falso |
-| **detector** | Booliano | No | Verdadeiro ou falso |
-| **autorizado** | Booliano | No | Verdadeiro ou falso |
+| **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
+| **detector** | Boolean | Não | Verdadeiro ou falso |
+| **autorizado** | Boolean | Não | Verdadeiro ou falso |
 | **fabricante** | String | Sim | - |
-| **protocolos** | Matriz JSON | Yes | Objeto de protocolo |
-| **firmware** | Matriz JSON | Yes | Objeto firmware |
+| **protocolos** | Matriz JSON | Sim | Objeto de protocolo |
+| **firmware** | Matriz JSON | Sim | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **Nome** | Cadeia de caracteres | No |  |
-| **Endereços** | Matriz JSON | Yes | Valores mestre ou numéricos |
+| **Nome** | String | Não |  |
+| **Endereços** | Matriz JSON | Sim | Valores mestre ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **série** | Cadeia de caracteres | No | N/A ou o valor real |
-| **modelo** | Cadeia de caracteres | No | N/A ou o valor real |
-| **firmwareVersion** | Double | No | N/A ou o valor real |
-| **additionalData** | Cadeia de caracteres | No | N/A ou o valor real |
-| **moduleAddress** | Cadeia de caracteres | No | N/A ou o valor real |
-| **montável** | Cadeia de caracteres | No | N/A ou o valor real |
-| **soquete** | Cadeia de caracteres | No | N/A ou o valor real |
-| **address** | Cadeia de caracteres | No | N/A ou o valor real |
+| **série** | String | Não | N/A ou o valor real |
+| **modelo** | String | Não | N/A ou o valor real |
+| **firmwareVersion** | Double | Não | N/A ou o valor real |
+| **additionalData** | String | Não | N/A ou o valor real |
+| **moduleAddress** | String | Não | N/A ou o valor real |
+| **montável** | String | Não | N/A ou o valor real |
+| **soquete** | String | Não | N/A ou o valor real |
+| **address** | String | Não | N/A ou o valor real |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -279,7 +279,7 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Devices | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https: <span> //127 <span> . 0.0.1/API/v1/Devices? Authorized = true |
 
@@ -333,21 +333,21 @@ Matriz de objetos JSON que representam conexões de dispositivo.
 
 #### <a name="fields"></a>Campos
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **firstDeviceId** | Numérico | No | - |
-| **secondDeviceId** | Numérico | No | - |
-| **lastSeen** | Numérico | No | Época (UTC) |
-| **descobrir** | Numérico | No | Época (UTC) |
-| **porta** | Matriz de números | No | - |
-| **protocolos** | Matriz JSON | No | Campo de protocolo |
+| **firstDeviceId** | Numérico | Não | - |
+| **secondDeviceId** | Numérico | Não | - |
+| **lastSeen** | Numérico | Não | Época (UTC) |
+| **descobrir** | Numérico | Não | Época (UTC) |
+| **porta** | Matriz de números | Não | - |
+| **protocolos** | Matriz JSON | Não | Campo de protocolo |
 
 #### <a name="protocol-field"></a>Campo de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **name** | Cadeia de caracteres | No | - |
-| **comandos** | Matriz de cadeia de caracteres | No | - |
+| **name** | String | Não | - |
+| **comandos** | Matriz de cadeia de caracteres | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -452,7 +452,7 @@ Matriz de objetos JSON que representam conexões de dispositivo.
 #### <a name="curl-command"></a>Comando de cURL
 
 > [!div class="mx-tdBreakAll"]
-> | Tipo | APIs | Exemplo |
+> | Type | APIs | Exemplo |
 > |--|--|--|
 > | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Devices/Connections | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Devices/Connections |
 > | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/v1/Devices/ <deviceId> /Connections? lastActiveInMinutes =&discoveredBefore =&discoveredAfter = ' | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" ' https:/ <span> /127.0.0.1/API/v1/Devices/2/Connections? lastActiveInMinutes = 20&discoveredBefore = 1594550986000&discoveredAfter = 1594550986000 ' |
@@ -497,13 +497,13 @@ Matriz de objetos JSON que representam CVEs identificados em endereços IP.
 
 #### <a name="fields"></a>Campos
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **cveId** | Cadeia de caracteres | No | - |
-| **IP** | Cadeia de caracteres | No | Endereço IP |
-| **placar** | Cadeia de caracteres | No | 0,0-10,0 |
-| **attackVector** | Cadeia de caracteres | No | Rede, rede adjacente, local ou físico |
-| **descrição** | Cadeia de caracteres | No | - |
+| **cveId** | String | Não | - |
+| **IP** | String | Não | Endereço IP |
+| **placar** | String | Não | 0,0-10,0 |
+| **attackVector** | String | Não | Rede, rede adjacente, local ou físico |
+| **descrição** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -567,7 +567,7 @@ Matriz de objetos JSON que representam CVEs identificados em endereços IP.
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Devices/CVEs | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Devices/CVEs |
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Devices/ <deviceIpAddress> /CVEs? Top = | ondulação-k-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Devices/10.10.10.15/CVEs? Top = 50 |
@@ -616,24 +616,24 @@ Matriz de objetos JSON que representam alertas.
 
 #### <a name="alert-fields"></a>Campos de alerta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **ID** | Numérico | No | - |
-| **time** | Numérico | No | Época (UTC) |
-| **title** | Cadeia de caracteres | No | - |
-| **message** | Cadeia de caracteres | No | - |
-| **severity** | Cadeia de caracteres | No | Aviso, secundário, principal ou crítico |
-| **motores** | Cadeia de caracteres | No | Violação de protocolo, violação de política, malware, anomalia ou operacional |
-| **sourceDevice** | Numérico | Yes | ID do Dispositivo |
-| **destinationDevice** | Numérico | Yes | ID do Dispositivo |
-| **additionalInformation** | Objeto de informações adicionais | Yes | - |
+| **ID** | Numérico | Não | - |
+| **time** | Numérico | Não | Época (UTC) |
+| **title** | String | Não | - |
+| **message** | String | Não | - |
+| **severity** | String | Não | Aviso, secundário, principal ou crítico |
+| **motores** | String | Não | Violação de protocolo, violação de política, malware, anomalia ou operacional |
+| **sourceDevice** | Numérico | Sim | ID do Dispositivo |
+| **destinationDevice** | Numérico | Sim | ID do Dispositivo |
+| **additionalInformation** | Objeto de informações adicionais | Sim | - |
 
 #### <a name="additional-information-fields"></a>Campos de informações adicionais
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **descrição** | Cadeia de caracteres | No | - |
-| **informações** | Matriz JSON | Não | String |
+| **descrição** | String | Não | - |
+| **divulgação** | Matriz JSON | Não | String |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -701,7 +701,7 @@ Matriz de objetos JSON que representam alertas.
 #### <a name="curl-command"></a>Comando de cURL
 
 > [!div class="mx-tdBreakAll"]
-> | Tipo | APIs | Exemplo |
+> | Type | APIs | Exemplo |
 > |--|--|--|
 > | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/v1/Alerts? estado =&detime =&paratime =&Type = ' | ondulação-k-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/API/v1/Alerts? estado = sem tratamento&detime = 1594550986000&nahora = 1594550986001&tipo = desconexões ' |
 
@@ -739,13 +739,13 @@ Matriz de objetos JSON que representam alertas.
 
 #### <a name="event-fields"></a>Campos de evento
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|--|
-| **timestamp** | Numérico | No | Época (UTC) |
-| **title** | Cadeia de caracteres | No | - |
-| **severity** | Cadeia de caracteres | No | INFORMAÇÕES, aviso ou alerta |
-| **proprietário** | String | Sim | Se o evento foi criado manualmente, esse campo incluirá o nome de usuário que criou o evento |
-| **content** | Cadeia de caracteres | No | - |
+| **timestamp** | Numérico | Não | Época (UTC) |
+| **title** | String | Não | - |
+| **severity** | String | Não | INFORMAÇÕES, aviso ou alerta |
+| **owner** | String | Sim | Se o evento foi criado manualmente, esse campo incluirá o nome de usuário que criou o evento |
+| **content** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -822,7 +822,7 @@ Matriz de objetos JSON que representam alertas.
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" "https://<IP_ADDRESS>/API/v1/Events? minutesTimeFrame =&Type = ' | ondulação-k-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/API/v1/Events? minutesTimeFrame = 20&Type = DEVICE_CONNECTION_CREATED ' |
 
@@ -852,21 +852,21 @@ O objeto de dispositivo contém:
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **name** | Cadeia de caracteres | No | - |
-| **ipAddresses** | Matriz JSON | No | - |
-| **securityScore** | Numérico | No | - |
+| **name** | String | Não | - |
+| **ipAddresses** | Matriz JSON | Não | - |
+| **securityScore** | Numérico | Não | - |
 | **fabricante** | String | Sim |  |
 | **firmwareVersion** | String | Sim | - |
 | **modelo** | String | Sim | - |
-| **isWirelessAccessPoint** | Booliano | No | Verdadeiro ou falso |
-| **operatingSystem** | Objeto do sistema operacional | Yes | - |
-| **vulnerabilidades** | Objeto de vulnerabilidades | Yes | - |
+| **isWirelessAccessPoint** | Boolean | Não | Verdadeiro ou falso |
+| **operatingSystem** | Objeto do sistema operacional | Sim | - |
+| **vulnerabilidades** | Objeto de vulnerabilidades | Sim | - |
 
 #### <a name="operating-system-fields"></a>Campos do sistema operacional
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **Nome** | String | Sim | - |
 | **Tipo** | String | Sim | - |
@@ -875,53 +875,53 @@ O objeto de dispositivo contém:
 
 #### <a name="vulnerabilities-fields"></a>Campos de vulnerabilidades
  
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **antivírus** | Matriz JSON | Yes | Nomes de antivírus |
-| **plainTextPasswords** | Matriz JSON | Yes | Objetos de senha |
-| **remoteAccess** | Matriz JSON | Yes | Objetos de acesso remoto |
-| **isBackupServer** | Booliano | No | Verdadeiro ou falso |
-| **openedPorts** | Matriz JSON | Yes | Objetos de porta abertos |
-| **isEngineeringStation** | Booliano | No | Verdadeiro ou falso |
-| **isKnownScanner** | Booliano | No | Verdadeiro ou falso |
-| **cves** | Matriz JSON | Yes | Objetos de CVE |
-| **isUnauthorized** | Booliano | No | Verdadeiro ou falso |
-| **malwareIndicationsDetected** | Booliano | No | Verdadeiro ou falso |
-| **weakAuthentication** | Matriz JSON | Yes | Aplicativos detectados que estão usando autenticação fraca |
+| **antivírus** | Matriz JSON | Sim | Nomes de antivírus |
+| **plainTextPasswords** | Matriz JSON | Sim | Objetos de senha |
+| **remoteAccess** | Matriz JSON | Sim | Objetos de acesso remoto |
+| **isBackupServer** | Boolean | Não | Verdadeiro ou falso |
+| **openedPorts** | Matriz JSON | Sim | Objetos de porta abertos |
+| **isEngineeringStation** | Boolean | Não | Verdadeiro ou falso |
+| **isKnownScanner** | Boolean | Não | Verdadeiro ou falso |
+| **cves** | Matriz JSON | Sim | Objetos de CVE |
+| **isUnauthorized** | Boolean | Não | Verdadeiro ou falso |
+| **malwareIndicationsDetected** | Boolean | Não | Verdadeiro ou falso |
+| **weakAuthentication** | Matriz JSON | Sim | Aplicativos detectados que estão usando autenticação fraca |
 
 #### <a name="password-fields"></a>Campos de senha
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **password** | Cadeia de caracteres | No | - |
-| **protocol** | Cadeia de caracteres | No | - |
-| **segurança** | Cadeia de caracteres | No | Muito fraco, fraco, médio ou forte |
+| **password** | String | Não | - |
+| **protocol** | String | Não | - |
+| **segurança** | String | Não | Muito fraco, fraco, médio ou forte |
 
 #### <a name="remote-access-fields"></a>Campos de acesso remoto
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **port** | Numérico | No | - |
-| **porta** | Cadeia de caracteres | No | TCP ou UDP |
-| **cliente** | Cadeia de caracteres | No | Endereço IP |
-| **clientSoftware** | Cadeia de caracteres | No | SSH, VNC, área de trabalho remota ou Visualizador de equipe |
+| **port** | Numérico | Não | - |
+| **porta** | String | Não | TCP ou UDP |
+| **cliente** | String | Não | Endereço IP |
+| **clientSoftware** | String | Não | SSH, VNC, área de trabalho remota ou Visualizador de equipe |
 
 #### <a name="open-port-fields"></a>Abrir campos de porta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **port** | Numérico | No | - |
-| **porta** | Cadeia de caracteres | No | TCP ou UDP |
+| **port** | Numérico | Não | - |
+| **porta** | String | Não | TCP ou UDP |
 | **protocol** | String | Sim | - |
-| **isConflictingWithFirewall** | Booliano | No | Verdadeiro ou falso |
+| **isConflictingWithFirewall** | Boolean | Não | Verdadeiro ou falso |
 
 #### <a name="cve-fields"></a>Campos de CVE
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **ID** | Cadeia de caracteres | No | - |
-| **placar** | Numérico | No | Double |
-| **descrição** | Cadeia de caracteres | No | - |
+| **ID** | String | Não | - |
+| **placar** | Numérico | Não | Double |
+| **descrição** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -1076,7 +1076,7 @@ O objeto de dispositivo contém:
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Reports/Vulnerabilities/Devices | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Reports/Vulnerabilities/Devices |
 
@@ -1106,8 +1106,8 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **address** | Cadeia de caracteres | Endereço IP |
-| **name** | Cadeia de caracteres | - |
+| **address** | String | Endereço IP |
+| **name** | String | - |
 | **firstDetectionTime** | Numérico | Época (UTC) |
 | lastSeen | Numérico | Época (UTC) |
 
@@ -1115,10 +1115,10 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **server** | Cadeia de caracteres | Endereço IP |
-| **cliente** | Cadeia de caracteres | Endereço IP |
+| **server** | String | Endereço IP |
+| **cliente** | String | Endereço IP |
 | **port** | Numérico | - |
-| **porta** | Cadeia de caracteres | TCP, UDP ou ICMP |
+| **porta** | String | TCP, UDP ou ICMP |
 
 **weakFirewallRules**
 
@@ -1132,34 +1132,34 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **macAddress** | Cadeia de caracteres | Endereço MAC |
-| **fabricante** | Cadeia de caracteres | Nome do fornecedor |
-| **IP** | Cadeia de caracteres | Endereço IP ou N/A |
-| **name** | Cadeia de caracteres | Nome do dispositivo ou N/A |
-| **sem fio** | Cadeia de caracteres | Não, suspeito ou Sim |
+| **macAddress** | String | Endereço MAC |
+| **fabricante** | String | Nome do fornecedor |
+| **IP** | String | Endereço IP ou N/A |
+| **name** | String | Nome do dispositivo ou N/A |
+| **sem fio** | String | Não, suspeito ou Sim |
 
 **connectionsBetweenSubnets**
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **server** | Cadeia de caracteres | Endereço IP |
-| **cliente** | Cadeia de caracteres | Endereço IP |
+| **server** | String | Endereço IP |
+| **cliente** | String | Endereço IP |
 
 **industrialMalwareIndicators**
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
 | **detecçãotime** | Numérico | Época (UTC) |
-| **alertMessage** | Cadeia de caracteres | - |
-| **descrição** | Cadeia de caracteres | - |
+| **alertMessage** | String | - |
+| **descrição** | String | - |
 | **pseudodispositivos** | Matriz JSON | Nomes de dispositivo | 
 
 **internetConnections**
 
 | Nome do campo | Tipo | Lista de valores |
 | ---------- | ---- | -------------- |
-| **internalAddress** | Cadeia de caracteres | Endereço IP |
-| **autorizado** | Booliano | Sim ou não | 
+| **internalAddress** | String | Endereço IP |
+| **autorizado** | Boolean | Sim ou não | 
 | **externalAddresses** | Matriz JSON | Endereço IP |
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -1323,7 +1323,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Reports/Vulnerabilities/Security | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Reports/Vulnerabilities/Security |
 
@@ -1351,11 +1351,11 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
-| **source** | Cadeia de caracteres | Endereço IP |
-| **destination** | Cadeia de caracteres | Endereço IP |
+| **source** | String | Endereço IP |
+| **destination** | String | Endereço IP |
 | **port** | Numérico | - |
-| **porta** | Cadeia de caracteres | TCP ou UDP |
-| **backupMaximalInterval** | Cadeia de caracteres | - |
+| **porta** | String | TCP ou UDP |
+| **backupMaximalInterval** | String | - |
 | **lastSeenBackup** | Numérico | Época (UTC) |
 
 **ipNetworks**
@@ -1363,31 +1363,31 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
 | **endereçar** s | Numérico | - |
-| **rede** | Cadeia de caracteres | Endereço IP |
-| **mascara** | Cadeia de caracteres | Máscara de sub-rede |
+| **rede** | String | Endereço IP |
+| **mascara** | String | Máscara de sub-rede |
 
 **protocolProblems**
 
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
-| **protocol** | Cadeia de caracteres | - |
+| **protocol** | String | - |
 | **atende** | Matriz JSON | Endereços IP |
-| **alerta** | Cadeia de caracteres | - |
+| **alerta** | String | - |
 | **relatórios** | Numérico | Época (UTC) |
 
 **protocolDataVolumes**
 
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
-| protocolo | Cadeia de caracteres | - |
-| volume | Cadeia de caracteres | "número de volume MB" |
+| protocolo | String | - |
+| volume | String | "número de volume MB" |
 
 **desconexões**
 
 | Nome do campo | Tipo | Lista de valores |
 |--|--|--|
-| **assetAddress** | Cadeia de caracteres | Endereço IP |
-| **assetName** | Cadeia de caracteres | - |
+| **assetAddress** | String | Endereço IP |
+| **assetName** | String | - |
 | **lastDetectionTime** | Numérico | Época (UTC) |
 | **backToNormalTime** | Numérico | Época (UTC) |     
 
@@ -1520,7 +1520,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/v1/Reports/Vulnerabilities/Operational | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/v1/Reports/Vulnerabilities/Operational |
 
@@ -1542,8 +1542,8 @@ Você não precisa de um token de acesso do defender para IoT para usar essa API
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **username** | Cadeia de caracteres | No |
-| **password** | Cadeia de caracteres | No |
+| **username** | String | Não |
+| **password** | String | Não |
 
 #### <a name="request-example"></a>Exemplo de solicitação
 
@@ -1587,7 +1587,7 @@ response:
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/API/external/Authentication/Validation | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/API/external/Authentication/Validation |
 
@@ -1655,13 +1655,13 @@ response:
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **username** | Cadeia de caracteres | No |
-| **password** | Cadeia de caracteres | No |
-| **new_password** | Cadeia de caracteres | No |
+| **username** | String | Não |
+| **password** | String | Não |
+| **new_password** | String | Não |
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | POST | enlaçada-k-d ' {"username": "<USER_NAME>", "password": "<CURRENT_PASSWORD>", "new_password": "<NEW_PASSWORD>"} '-H ' Content-Type: Application/JSON ' https://<IP_ADDRESS>/API/external/Authentication/set_password | enlaçada-k-d ' {"username": "myuser", "senha": " 1234@abcd ", "new_password": " abcd@1234 "} '-H ' Content-Type: Application/JSON ' https:/ <span> /127.0.0.1/API/external/Authentication/set_password |
 
@@ -1734,15 +1734,15 @@ response:
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **admin_username** | Cadeia de caracteres | No |
-| **admin_password** | Cadeia de caracteres | No |
-| **username** | Cadeia de caracteres | No |
-| **new_password** | Cadeia de caracteres | No |
+| **admin_username** | String | Não |
+| **admin_password** | String | Não |
+| **username** | String | Não |
+| **new_password** | String | Não |
 
 #### <a name="curl-command"></a>Comando de cURL
 
 > [!div class="mx-tdBreakAll"]
-> | Tipo | APIs | Exemplo |
+> | Type | APIs | Exemplo |
 > |--|--|--|
 > | POST | enlaçada-k-d ' {"admin_username": "<ADMIN_USERNAME>", "admin_password": "<ADMIN_PASSWORD>", "username": "<USER_NAME>", "new_password": "<NEW_PASSWORD>"} '-H ' Content-Type: Application/JSON ' https://<IP_ADDRESS>/API/external/Authentication/set_password_by_admin | enlaçada-k-d ' {"admin_user": "adminUser", "admin_password": " 1234@abcd ", "username": "myuser", "new_password": " abcd@1234 "} '-H ' Content-Type: Application/JSON ' https:/ <span> /127.0.0.1/API/external/Authentication/set_password_by_admin |
 
@@ -1825,42 +1825,42 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **sensorId** | Numérico | No | - |
-| **zonaid** | Numérico | Yes | - |
-| **siteId** | Numérico | Yes | - |
-| **ipAddresses** | Matriz JSON | Yes | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
-| **name** | Cadeia de caracteres | No | - |
-| **type** | Cadeia de caracteres | No | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
-| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
+| **sensorId** | Numérico | Não | - |
+| **zonaid** | Numérico | Sim | - |
+| **siteId** | Numérico | Sim | - |
+| **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
+| **name** | String | Não | - |
+| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
 | **operatingSystem** | String | Sim | - |
-| **engineeringStation** | Booliano | No | Verdadeiro ou falso |
-| **detector** | Booliano | No | Verdadeiro ou falso |
-| **autorizado** | Booliano | No | Verdadeiro ou falso |
+| **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
+| **detector** | Boolean | Não | Verdadeiro ou falso |
+| **autorizado** | Boolean | Não | Verdadeiro ou falso |
 | **fabricante** | String | Sim | - |
-| **Protocolos** | Matriz JSON | Yes | Objeto de protocolo |
-| **firmware** | Matriz JSON | Yes | Objeto firmware |
+| **Protocolos** | Matriz JSON | Sim | Objeto de protocolo |
+| **firmware** | Matriz JSON | Sim | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| Nome | String | No | - |
-| Endereços | Matriz JSON | Yes | Valores mestre ou numéricos |
+| Nome | String | Não | - |
+| Endereços | Matriz JSON | Sim | Valores mestre ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **série** | Cadeia de caracteres | No | N/A ou o valor real |
-| **modelo** | Cadeia de caracteres | No | N/A ou o valor real |
-| **firmwareVersion** | Double | No | N/A ou o valor real |
-| **additionalData** | Cadeia de caracteres | No | N/A ou o valor real |
-| **moduleAddress** | Cadeia de caracteres | No | N/A ou o valor real |
-| **montável** | Cadeia de caracteres | No | N/A ou o valor real |
-| **soquete** | Cadeia de caracteres | No | N/A ou o valor real |
-| **address** | Cadeia de caracteres | No | N/A ou o valor real |
+| **série** | String | Não | N/A ou o valor real |
+| **modelo** | String | Não | N/A ou o valor real |
+| **firmwareVersion** | Double | Não | N/A ou o valor real |
+| **additionalData** | String | Não | N/A ou o valor real |
+| **moduleAddress** | String | Não | N/A ou o valor real |
+| **montável** | String | Não | N/A ou o valor real |
+| **soquete** | String | Não | N/A ou o valor real |
+| **address** | String | Não | N/A ou o valor real |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -2004,7 +2004,7 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | GET | ondulação-k-H "autorização: <AUTH_TOKEN>" "https://<>IP_ADDRESS>/external/v1/Devices? SiteId =&Identificação_da_Zona =&sensorid =&autorizado = ' | enlaçada-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" ' https:/ <span> /127.0.0.1/external/v1/Devices? SiteId = 1&Identificação_da_Zona = 2&sensorid = 5&Authorized = true ' |
 
@@ -2046,24 +2046,24 @@ Use essa API para recuperar todos os alertas ou filtros filtrados de um console 
 
 #### <a name="alert-fields"></a>Campos de alerta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **ID** | Numérico | No | - |
-| **time** | Numérico | No | Época (UTC) |
-| **title** | Cadeia de caracteres | No | - |
-| **message** | Cadeia de caracteres | No | - |
-| **severity** | Cadeia de caracteres | No | Aviso, secundário, principal ou crítico |
-| **motores** | Cadeia de caracteres | No | Violação de protocolo, violação de política, malware, anomalia ou operacional |
-| **sourceDevice** | Numérico | Yes | ID do Dispositivo |
-| **destinationDevice** | Numérico | Yes | ID do Dispositivo |
-| **additionalInformation** | Objeto de informações adicionais | Yes | - |
+| **ID** | Numérico | Não | - |
+| **time** | Numérico | Não | Época (UTC) |
+| **title** | String | Não | - |
+| **message** | String | Não | - |
+| **severity** | String | Não | Aviso, secundário, principal ou crítico |
+| **motores** | String | Não | Violação de protocolo, violação de política, malware, anomalia ou operacional |
+| **sourceDevice** | Numérico | Sim | ID do Dispositivo |
+| **destinationDevice** | Numérico | Sim | ID do Dispositivo |
+| **additionalInformation** | Objeto de informações adicionais | Sim | - |
 
 #### <a name="additional-information-fields"></a>Campos de informações adicionais
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **descrição** | Cadeia de caracteres | No | - |
-| **informações** | Matriz JSON | Não | String |
+| **descrição** | String | Não | - |
+| **divulgação** | Matriz JSON | Não | String |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -2166,7 +2166,7 @@ Use essa API para recuperar todos os alertas ou filtros filtrados de um console 
 #### <a name="curl-command"></a>Comando de cURL
 
 > [!div class="mx-tdBreakAll"]
-> | Tipo | APIs | Exemplo |
+> | Type | APIs | Exemplo |
 > |--|--|--|
 > | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" "https://<>IP_ADDRESS>/external/v1/Alerts? estado =&Identificação_da_Zona =&detime =&natime =&SiteId =&sensor = ' | ondulação-k-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" "https:/ <span> /127.0.0.1/external/v1/Alerts? estado = sem tratamento&ZoneID = 1&detime = 0&natime = 1594551777000&SiteId = 1&sensor = 1 ' |
 
@@ -2208,9 +2208,9 @@ Objeto JSON que representa a ação a ser executada no alerta que contém o UUID
 
 #### <a name="action-fields"></a>Campos de ação
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **action** | Cadeia de caracteres | No | identificador ou handleAndLearn |
+| **action** | String | Não | identificador ou handleAndLearn |
 
 #### <a name="request-example"></a>Exemplo de solicitação
 
@@ -2232,9 +2232,9 @@ Matriz de objetos JSON que representam dispositivos.
 #### <a name="response-fields"></a>Campos de resposta
 
 
-| Nome | Tipo | Nullable | Descrição |
+| Nome | Type | Nullable | Descrição |
 |--|--|--|--|
-| **conteúdo/erro** | Cadeia de caracteres | No | Se a solicitação for bem-sucedida, a propriedade Content será exibida. Caso contrário, a Propriedade Error será exibida. |
+| **conteúdo/erro** | String | Não | Se a solicitação for bem-sucedida, a propriedade Content será exibida. Caso contrário, a Propriedade Error será exibida. |
 
 #### <a name="possible-content-values"></a>Possíveis valores de conteúdo
 
@@ -2269,7 +2269,7 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | PUT | enlaçada-k-X PUT-d ' {"ação": " <ACTION> "} '-H "autorização: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/Alerts/<UUID> | enlaçada-k-X PUT-d ' {"ação": "identificador"} '-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/Alerts/1-1594550943000 |
 
@@ -2414,24 +2414,24 @@ Matriz de objetos JSON que representam operações de janela de manutenção.
 
 #### <a name="response-structure"></a>Estrutura de resposta
 
-| Nome | Tipo | Comentário | Nullable |
+| Nome | Type | Comentário | Nullable |
 |--|--|--|--|
-| **dateTime** | Cadeia de caracteres | Exemplo: "2012-04-23T18:25:43.511 Z" | não |
-| **TicketID** | Cadeia de caracteres | Exemplo: "9a5fe99c-D914-4bda-9332-307384fe40bf" | não |
-| **tokenname** | Cadeia de caracteres | - | não |
-| **mecanismo** | Matriz de cadeia de caracteres | - | yes |
-| **sensorIds** | Matriz de cadeia de caracteres | - | yes |
-| **sub-redes** | Matriz de cadeia de caracteres | - | yes |
-| **igual** | Numérico | - | yes |
-| **operationType** | Cadeia de caracteres | Os valores são "OPEN", "UPDATE" e "CLOSE" | não |
+| **dateTime** | String | Exemplo: "2012-04-23T18:25:43.511 Z" | não |
+| **TicketID** | String | Exemplo: "9a5fe99c-D914-4bda-9332-307384fe40bf" | não |
+| **tokenname** | String | - | não |
+| **mecanismo** | Matriz de cadeia de caracteres | - | sim |
+| **sensorIds** | Matriz de cadeia de caracteres | - | sim |
+| **sub-redes** | Matriz de cadeia de caracteres | - | sim |
+| **ttl** | Numérico | - | sim |
+| **operationType** | String | Os valores são "OPEN", "UPDATE" e "CLOSE" | não |
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | POST | enlaçada-k-X POST-d ' {"TicketID": "<TICKET_ID>", TTL ": <TIME_TO_LIVE>," Engines ": [<ENGINE1, ENGINE2... ENGINEn>], "sensorIds": [<SENSOR_ID1, SENSOR_ID2... SENSOR_IDn>], "sub-redes": [<SUBNET1, SUBNET2.... SUB-rede>]} '-H "autorização: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | enlaçada-k-X POST-d ' {"TicketID": "a5fe99c-D914-4bda-9332-307384fe40bf", "TTL": "20", "Engines": ["ANOMALIAy"], "sensorIds": ["5", "3"], "sub-redes": ["10.0.0.3"]} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
 | PUT | ondulação-k-X PUT-d ' {"bilheteid": "<TICKET_ID>", TTL ":" <TIME_TO_LIVE> "} '-H" autorização: <AUTH_TOKEN> "https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | enlaçada-k-X PUT-d ' {"bilheteid": "a5fe99c-D914-4bda-9332-307384fe40bf", "TTL": "20"} '-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
-| DELETE | ondulação-k-X DELETE-d ' {"bilheteid": "<TICKET_ID>"} '-H "autorização: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | ondulação-k-X DELETE-d ' {"tgtid": "a5fe99c-D914-4bda-9332-307384fe40bf"} '-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
+| Delete (excluir) | ondulação-k-X DELETE-d ' {"bilheteid": "<TICKET_ID>"} '-H "autorização: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | ondulação-k-X DELETE-d ' {"tgtid": "a5fe99c-D914-4bda-9332-307384fe40bf"} '-H "autorização: 1234b734a9244d54ab8d40aedddcabcd" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow |
 | GET | enlaçada-k-H "autorização: <AUTH_TOKEN>" "https://<IP_ADDRESS>/external/v1/maintenanceWindow? fromDate =&=&tgtid =&tokenname = ' | ondulação-k-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" ' https:/ <span> /127.0.0.1/external/v1/maintenanceWindow? fromDate = 2020-01-01&-out = 2020-07-14&TicketID = a5fe99c-D914-4bda-9332-307384fe40bf&tokenname = a ' |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Autenticar credenciais de usuário-/external/Authentication/Validation
@@ -2476,8 +2476,8 @@ Cadeia de caracteres de mensagem com os detalhes de status da operação:
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **username** | Cadeia de caracteres | No |
-| **password** | Cadeia de caracteres | No |
+| **username** | String | Não |
+| **password** | String | Não |
 
 #### <a name="response-example"></a>Exemplo de resposta
 
@@ -2493,7 +2493,7 @@ response:
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | POST | enlaçada-k-d ' {"username": "<USER_NAME>", "password": "PASSWORD"} ' ' https://<IP_ADDRESS>/external/Authentication/Validation ' | enlaçada-k-d ' {"username": "myuser", "password": " 1234@abcd "} ' ' https:/ <span> /127.0.0.1/external/Authentication/Validation ' |
 
@@ -2561,13 +2561,13 @@ response:
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **username** | Cadeia de caracteres | No |
-| **password** | Cadeia de caracteres | No |
-| **new_password** | Cadeia de caracteres | No |
+| **username** | String | Não |
+| **password** | String | Não |
+| **new_password** | String | Não |
 
 #### <a name="curl-command"></a>Comando de cURL
 
-| Tipo | APIs | Exemplo |
+| Type | APIs | Exemplo |
 |--|--|--|
 | POST | enlaçada-k-d ' {"username": "<USER_NAME>", "password": "<CURRENT_PASSWORD>", "new_password": "<NEW_PASSWORD>"} '-H ' Content-Type: Application/JSON ' https://<IP_ADDRESS>/external/Authentication/set_password | enlaçada-k-d ' {"username": "myuser", "senha": " 1234@abcd ", "new_password": " abcd@1234 "} '-H ' Content-Type: Application/JSON ' https:/ <span> /127.0.0.1/external/Authentication/set_password |
 
@@ -2640,20 +2640,20 @@ response:
 
 | **Nome** | **Tipo** | **Permite valor nulo** |
 |--|--|--|
-| **admin_username** | Cadeia de caracteres | No |
-| **admin_password** | Cadeia de caracteres | No |
-| **username** | Cadeia de caracteres | No |
-| **new_password** | Cadeia de caracteres | No |
+| **admin_username** | String | Não |
+| **admin_password** | String | Não |
+| **username** | String | Não |
+| **new_password** | String | Não |
 
 #### <a name="curl-command"></a>Comando de cURL
 
 > [!div class="mx-tdBreakAll"]
-> | Tipo | APIs | Exemplo |
+> | Type | APIs | Exemplo |
 > |--|--|--|
 > | POST | enlaçada-k-d ' {"admin_username": "<ADMIN_USERNAME>", "admin_password": "<ADMIN_PASSWORD>", "username": "<USER_NAME>", "new_password": "<NEW_PASSWORD>"} '-H ' Content-Type: Application/JSON ' https://<IP_ADDRESS>/external/Authentication/set_password_by_admin | enlaçada-k-d ' {"admin_user": "adminUser", "admin_password": " 1234@abcd ", "username": "myuser", "new_password": " abcd@1234 "} '-H ' Content-Type: Application/JSON ' https:/ <span> /127.0.0.1/external/Authentication/set_password_by_admin |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Investigar as detecções do sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Investigar as detecções do sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-- [Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+[Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

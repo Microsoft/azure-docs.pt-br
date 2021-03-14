@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018785"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581815"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas automatizadas, processos e fluxos de trabalho recorrentes com Aplicativos Lógicos do Azure
 
@@ -90,8 +90,8 @@ Aqui estão alguns padrões que mostram como você pode controlar a recorrência
 | Hora de início | Recorrência sem agendamento | Recorrência com agendamento (somente gatilho de recorrência) |
 |------------|-----------------------------|----------------------------------------------------|
 | {none} | Executa a primeira carga de trabalho imediatamente. <p>Executa futuras cargas de trabalho com base na última hora de execução. | Executa a primeira carga de trabalho imediatamente. <p>Executa futuras cargas de trabalho com base no agendamento especificado. |
-| Hora de início no passado | Gatilho de **recorrência** : calcula os tempos de execução com base na hora de início especificada e descarta os tempos de execução anteriores. Executa a primeira carga de trabalho na próxima hora de execução no futuro. <p>Executa futuras cargas de trabalho com base em cálculos da última hora de execução. <p><p>Gatilho de **janela deslizante** : calcula os tempos de execução com base na hora de início especificada e respeita os tempos de execução anteriores. <p>Executa cargas de trabalho futuras com base em cálculos da hora de início especificada. <p><p>Para obter mais explicações, consulte o exemplo após essa tabela. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** Se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para o agendamento, os aplicativos lógicos calcularão os tempos de execução futuros usando as horas ou os minutos, respectivamente, do primeiro tempo de execução. |
-| Hora de início agora ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p>Executa futuras cargas de trabalho com base em cálculos da última hora de execução. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** Se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para o agendamento, os aplicativos lógicos calcularão os tempos de execução futuros usando as horas ou os minutos, respectivamente, do primeiro tempo de execução. |
+| Hora de início no passado | Gatilho de **recorrência** : calcula os tempos de execução com base na hora de início especificada e descarta os tempos de execução anteriores. <p><p>Executa a primeira carga de trabalho na próxima hora de execução no futuro. <p><p>Executa futuras cargas de trabalho com base na última hora de execução. <p><p>Gatilho de **janela deslizante** : calcula os tempos de execução com base na hora de início especificada e respeita os tempos de execução anteriores. <p><p>Executa cargas de trabalho futuras com base na hora de início especificada. <p><p>Para obter mais explicações, consulte o exemplo após essa tabela. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p><p>Executa futuras cargas de trabalho com base no agendamento especificado. <p><p>**Observação:** Se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para o agendamento, os aplicativos lógicos calcularão os tempos de execução futuros usando as horas ou os minutos, respectivamente, do primeiro tempo de execução. |
+| Hora de início agora ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p><p>Gatilho de **recorrência** : executa cargas de trabalho futuras com base na última hora de execução. <p><p>Gatilho de **janela deslizante** : executa cargas de trabalho futuras com base na hora de início especificada. | Executa a primeira carga de trabalho *não antes* da hora de início, com base no agendamento calculado com base na hora de início. <p><p>Executa futuras cargas de trabalho com base no agendamento especificado. <p>**Observação:** Se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para o agendamento, os aplicativos lógicos calcularão os tempos de execução futuros usando as horas ou os minutos, respectivamente, do primeiro tempo de execução. |
 ||||
 
 *Exemplo de hora de início e recorrência após, mas sem agendamento*

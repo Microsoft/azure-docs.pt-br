@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5d029f4328f955d64c5ce479e553769f8a107e45
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981299"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518561"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -34,7 +34,6 @@ Neste artigo, você aprenderá a proteger os seguintes recursos do inferência e
 > - Cluster AKS privado
 > - Cluster AKS com link privado
 > - ACI (Instâncias de Contêiner do Azure)
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +57,6 @@ Para usar um cluster AKS em uma rede virtual, os requisitos de rede a seguir dev
 > [!div class="checklist"]
 > * Siga os pré-requisitos em [Configurar a rede avançada no AKs (serviço de kubernetes do Azure)](../aks/configure-azure-cni.md#prerequisites).
 > * A instância AKS e a rede virtual devem estar na mesma região. Se você proteger as contas de armazenamento do Azure usadas pelo espaço de trabalho em uma rede virtual, elas deverão estar na mesma rede virtual que a instância AKS também.
-
 
 Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as seguintes etapas:
 
@@ -223,7 +221,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > Usando a CLI, você só pode criar um cluster AKS com um balanceador de carga interno. Não há nenhum comando AZ ml para atualizar um cluster existente para usar um balanceador de carga interno.
 
-Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
 ---
 
@@ -266,7 +264,7 @@ Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
     > [!IMPORTANT]
     > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__.
 
-2. Implante o modelo usando [AciWebservice. deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
+2. Implante o modelo usando [AciWebservice. deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitar a conectividade de saída da rede virtual
 
@@ -274,7 +272,7 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo é a parte três de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte quatro de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: proteger os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)

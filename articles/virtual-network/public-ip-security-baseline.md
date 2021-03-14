@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 7f8633d791e2dd0f0723b272aefcb343d758b248
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806911"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612347"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de base de segurança do Azure para o IP público do Azure
 
@@ -52,7 +52,7 @@ O IP público fornece ferramentas para monitorar, diagnosticar, exibir métricas
 
 Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel ou um SIEM de terceiros.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações e detectar alterações para suas instâncias de IP público. Além do plano de controle (por exemplo, portal do Azure), o próprio IP público não gera logs de auditoria. O IP público fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -74,7 +74,7 @@ Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel
 
 **Diretrizes**: Use Azure monitor para definir o período de retenção de log para os espaços de trabalho de log Analytics associados a instâncias de IP público de acordo com as obrigações de conformidade de sua organização.
 
-- [Como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -88,7 +88,7 @@ Use o log de atividades do Azure para monitorar as configurações e detectar al
 
 O IP público em si não gera logs relacionados ao tráfego de rede que não seja no plano de controle (por exemplo, portal do Azure).
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -114,9 +114,9 @@ O IP público em si não gera logs relacionados ao tráfego de rede que não sej
 
 As funções internas do Azure inventariadas ou de consulta existem para determinados recursos por meio de ferramentas como CLI do Azure, Azure PowerShell ou a portal do Azure.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -242,7 +242,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -350,9 +350,9 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

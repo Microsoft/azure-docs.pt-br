@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 6517cdd7aafa7ae2fe351b349e62a66104469dcd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218223"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653772"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrar aplicativos para a biblioteca de autenticação da Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __P: como o MSAL funciona com AD FS?__
 R: o MSAL.NET dá suporte a determinados cenários para autenticação no AD FS 2019. Se seu aplicativo precisar adquirir tokens diretamente da versão anterior do AD FS, você deverá permanecer no ADAL. [Saiba mais](msal-net-adfs-support.md).
 
 __P: Como fazer obter ajuda para migrar meu aplicativo?__  
-R: consulte a seção [diretrizes de migração](#migration-guidance) deste artigo. Se, depois de ler o guia para a plataforma do seu aplicativo, você tiver outras perguntas, poderá postar no [Microsoft Q&a](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) com a marca `[azure-ad-adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a seção [linguagens e estruturas](msal-overview.md#languages-and-frameworks) do artigo Visão geral do MSAL para obter links para o repositório de cada biblioteca.
+R: consulte a seção [diretrizes de migração](#migration-guidance) deste artigo. Se, depois de ler o guia para a plataforma do seu aplicativo, você tiver outras perguntas, poderá postar no [Microsoft Q&a](/answers/topics/azure-ad-adal-deprecation.html) com a marca `[azure-ad-adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a seção [linguagens e estruturas](msal-overview.md#languages-and-frameworks) do artigo Visão geral do MSAL para obter links para o repositório de cada biblioteca.
 
 ## <a name="next-steps"></a>Próximas etapas
 

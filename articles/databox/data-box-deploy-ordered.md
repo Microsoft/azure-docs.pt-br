@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797614"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201882"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -437,7 +437,7 @@ Execute as seguintes etapas usando a CLI do Azure para solicitar um dispositivo:
    |Consulta| A cadeia de caracteres de consulta JMESPath. Para obter mais informações, confira [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Incluir o registro em log detalhado. | --verbose |
 
-2. No prompt de comando ou terminal escolhido, execute [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) para criar seu pedido do Azure Data Box.
+2. No prompt de comando ou terminal escolhido, execute [az data box job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) para criar seu pedido do Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +605,7 @@ Em seguida, a Microsoft preparará e enviará seu dispositivo por meio de uma op
 
 ### <a name="track-a-single-order"></a>Acompanhar um pedido
 
-Para obter informações de acompanhamento sobre um só pedido do Azure Data Box existente, execute [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
+Para obter informações de acompanhamento sobre um só pedido do Azure Data Box existente, execute [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +646,7 @@ Para obter informações de acompanhamento sobre um só pedido do Azure Data Box
 
 ### <a name="list-all-orders"></a>Listar todos os pedidos
 
-Se você tiver pedido vários dispositivos, execute [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
+Se você tiver pedido vários dispositivos, execute [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) para ver todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
 O comando também exibe carimbos de data/hora de cada pedido.
 
 ```azurecli
@@ -765,7 +765,7 @@ Para excluir um pedido cancelado, vá para **Visão geral** e selecione **Exclui
 
 ### <a name="cancel-an-order"></a>Cancelar um pedido
 
-Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Você precisa especificar o motivo para cancelar o pedido.
+Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel). Você precisa especificar o motivo para cancelar o pedido.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -802,7 +802,7 @@ Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cl
 
 ### <a name="delete-an-order"></a>Excluir um pedido
 
-Se você cancelou um pedido do Azure Data Box, execute [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para excluir o pedido.
+Se você cancelou um pedido do Azure Data Box, execute [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) para excluir o pedido.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 185320868c491d98df5fb6e31d9a627157431944
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527231"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565814"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurar Azure Cosmos DB conta com backup periódico
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,7 +33,7 @@ O Azure Cosmos DB faz backups automáticos de seus dados em intervalos regulares
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modificar o intervalo de backup e o período de retenção
 
-Azure Cosmos DB faz automaticamente um backup completo de seus dados para cada 4 horas e a qualquer momento, os dois backups mais recentes são armazenados. Essa configuração é a opção padrão e é oferecida sem nenhum custo extra. Você pode alterar o intervalo de backup padrão e o período de retenção durante a criação da conta do Azure Cosmos ou após a criação da conta. A configuração de backup é definida no nível da conta do Azure Cosmos e deve ser aplicada em cada conta. Depois de configurar as opções de backup para uma conta, ela é aplicada a todos os contêineres dentro dessa conta. No momento, é possível alterar as opções de backup somente no portal do Azure.
+Azure Cosmos DB faz automaticamente um backup completo de seus dados para cada 4 horas e a qualquer momento, os dois backups mais recentes são armazenados. Essa configuração é a opção padrão e é oferecida sem nenhum custo extra. Você pode mudar o intervalo de backup padrão e o período de retenção durante a criação da conta do Azure Cosmos ou após a criação da conta. A configuração de backup é definida no nível da conta do Azure Cosmos e deve ser aplicada em cada conta. Depois de configurar as opções de backup para uma conta, ela é aplicada a todos os contêineres dentro dessa conta. No momento, é possível alterar as opções de backup somente no portal do Azure.
 
 Se você acidentalmente excluiu ou danificou seus dados, **antes de criar uma solicitação de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup para sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas desse evento.** Dessa forma, a equipe do Azure Cosmos DB tem tempo suficiente para restaurar a conta.
 
@@ -115,7 +115,7 @@ Se você provisionar a taxa de transferência no nível do banco de dados, o pro
 As entidades que fazem parte da função [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), proprietário ou colaborador têm permissão para solicitar uma restauração ou alterar o período de retenção.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Noções básicas sobre custos de backups extras
-Dois backups são fornecidos gratuitamente e os backups extras são cobrados de acordo com os preços baseados em região para o armazenamento de backup descrito em [preços de armazenamento de backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada para 240 h, 10 dias e o intervalo de backup para 24 horas. Isso implica 10 cópias dos dados de backup. Supondo 1 TB de dados no oeste dos EUA 2, o seria 1000 * 0,12 ~ $120 para o armazenamento de backup no mês determinado. 
+Dois backups são fornecidos gratuitamente e os backups extras são cobrados de acordo com os preços baseados em região para o armazenamento de backup descrito em [preços de armazenamento de backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Por exemplo, se a retenção de backup estiver configurada para 240 h, 10 dias e o intervalo de backup para 24 horas. Isso implica 10 cópias dos dados de backup. Supondo 1 TB de dados no oeste dos EUA 2, o custo seria de 0,12 * 1000 * 8 para armazenamento de backup no mês determinado. 
 
 
 ## <a name="options-to-manage-your-own-backups"></a>Opções para gerenciar seus próprios backups

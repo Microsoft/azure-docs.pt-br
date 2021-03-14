@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825664"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172733"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Examinar solicitações de pull em ambientes de pré-produção na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -33,7 +33,7 @@ Há muitos benefícios em usar ambientes de pré-produção. Por exemplo, você 
 - Execute verificações de integridade antes de implantar na produção.
 
 > [!NOTE]
-> Durante a versão prévia, só é permitido [no máximo um ambiente de preparação](quotas.md) por vez.
+> Durante a visualização, um [máximo de três ambientes de preparo](quotas.md) é permitido por vez.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,11 +51,11 @@ Comece fazendo uma alteração em seu repositório. Você pode fazer isso direta
 
 1. Vá até a pasta do _aplicativo_ e altere algum conteúdo do texto. Por exemplo, você pode alterar um título ou parágrafo. Assim que você tiver encontrado o arquivo que deseja editar, clique em **Editar** para fazer a alteração.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Botão Editar arquivo na interface do GitHub":::
 
 1. Depois de fazer as alterações, clique em **Confirmar alterações** para confirmar suas alterações no branch.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Botão Confirmar alterações na interface do GitHub":::
 
 ## <a name="create-a-pull-request"></a>Crie uma solicitação de pull
 
@@ -63,13 +63,13 @@ Em seguida, crie uma solicitação de pull com base nessa alteração.
 
 1. Abra a gruia **Solicitação de pull** do seu projeto no GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Guia Solicitação de pull em um repositório GitHub":::
 
 1. Clique no botão **Comparação e solicitação de pull** do seu Branch.
 
 1. Opcionalmente, você pode preencher alguns detalhes sobre suas alterações e clicar em **Criar solicitação de pull**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Criação de solicitação de pull no GitHub":::
 
 Você pode atribuir revisores e adicionar comentários para discutir suas alterações, se necessário.
 
@@ -82,7 +82,7 @@ Depois que a solicitação de pull for criada, o fluxo de trabalho de implantaç
 
 Depois que o fluxo de trabalho tiver concluído a criação e implantação do seu aplicativo, o bot do GitHub adicionará um comentário à sua solicitação de pull que contém a URL do ambiente de pré-produção. Você pode clicar neste link para ver as alterações preparadas.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Comentário de solicitação de pull com a URL de pré-produção":::
 
 Clique na URL gerada para ver as alterações.
 
@@ -96,7 +96,7 @@ Depois que as alterações forem aprovadas, você poderá publicar suas alteraç
 
 Clique em **mesclar solicitação de pull**:
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Como criar um novo Branch usando a interface do GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Mesclar botão de solicitação de pull na interface do GitHub":::
 
 Mesclar as cópias das suas alterações na ramificação rastreada (o branch de "produção"). Em seguida, o fluxo de trabalho de implantação é iniciado na ramificação rastreada e as alterações ficam ativas depois que o aplicativo é recriado.
 
@@ -109,7 +109,7 @@ As versões em etapas do seu aplicativo estão atualmente acessíveis publicamen
 > [!WARNING]
 > Tenha cuidado ao publicar conteúdo confidencial em versões de preparação, pois o acesso a ambientes de pré-produção não é restrito.
 
-O número de ambientes de pré-produção disponíveis para cada aplicativo implantado com Aplicativos Web Estáticos depende da camada de SKU que você está usando. Por exemplo, com a Camada gratuita, você pode ter 1 ambiente de pré-produção além do ambiente de produção.
+O número de ambientes de pré-produção disponíveis para cada aplicativo implantado com Aplicativos Web Estáticos depende da camada de SKU que você está usando. Por exemplo, com a camada gratuita, você pode ter três ambientes de pré-produção além do ambiente de produção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

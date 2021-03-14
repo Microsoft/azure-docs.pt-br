@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704020"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041273"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -99,7 +99,7 @@ Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operaç
 - Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
-Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize um dos seguintes procedimentos:
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize uma destas ações:
 
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
@@ -167,6 +167,19 @@ Se as VMs descobertas não aparecerem no portal ou se os dados da VM estiverem d
 
 Se você excluir VMs e elas ainda aparecerem no portal, aguarde 30 minutos. Se eles ainda aparecerem, atualize conforme descrito acima.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Aplicativos descobertos e instâncias de SQL Server e bancos de dados que não estão no portal
+
+Depois de ter iniciado a descoberta no dispositivo, pode levar até 24 horas para começar a mostrar os dados de inventário no Portal.
+
+Se você não tiver fornecido autenticação do Windows nem SQL Server credenciais de autenticação no Gerenciador de configuração de dispositivo, adicione as credenciais para que o dispositivo possa usá-las para se conectar às respectivas instâncias de SQL Server.
+
+Uma vez conectado, o dispositivo coleta dados de desempenho e configuração de SQL Server instâncias e bancos de dado. Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos. Portanto, qualquer alteração nas propriedades da SQL Server instância e dos bancos de dados, como status do banco de dados, nível de compatibilidade, etc. pode levar até 24 horas para ser atualizada no Portal.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>SQL Server instância está aparecendo no estado "não conectado" no portal
+Para exibir os problemas encontrados durante a descoberta de instâncias de SQL Server e bancos de dados, clique no status "não conectado" na coluna status da conexão na página ' servidores descobertos ' em seu projeto.
+
+Criando a avaliação sobre servidores que contêm instâncias SQL que não foram descobertas completamente ou que estão no estado não conectado, pode levar à prontidão sendo marcada como "desconhecida".
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede em meus servidores físicos
 
 Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Devido a uma lacuna do produto, a taxa de transferência da rede é capturada nos adaptadores de rede virtual descobertos.
@@ -199,9 +212,9 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 
 | **Erro** | **Causa** | **Ação** |
 |--|--|--|
-| 9000: não é possível detectar o status da ferramenta VMware. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
-| 9001: as ferramentas do VMware não estão instaladas. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
-| 9002: as ferramentas do VMware não estão em execução. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9000: não é possível detectar o status da ferramenta VMware. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9001: as ferramentas do VMware não estão instaladas. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9002: as ferramentas do VMware não estão em execução. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
 | 9003: não há suporte para o tipo de sistema operacional para descoberta de VM convidada. | O sistema operacional em execução no servidor não é o Windows nem o Linux. | Os tipos de sistema operacional com suporte são somente Windows e Linux. Se o servidor for, de fato, Windows ou Linux, verifique o tipo de sistema operacional especificado em vCenter Server. |
 | 9004: a VM não está em execução. | A VM está desligada. | Verifique se a VM está ligada. |
 | 9005: não há suporte para o tipo de sistema operacional para descoberta de VM convidada. | Tipo de sistema operacional sem suporte para descoberta de VM convidada. | Os tipos de sistema operacional com suporte são somente Windows e Linux. |

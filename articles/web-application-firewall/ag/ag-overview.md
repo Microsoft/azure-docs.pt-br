@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fb7d49459b4eae8c3c7b3b1e6ad5bc5d44a089d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879420"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183345"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
@@ -173,7 +173,7 @@ Com a pasta de trabalho interna de eventos de firewall WAF do Azure, você poder
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Pasta de trabalho do Azure Monitor para o WAF
 
-Esta pasta de trabalho permite a visualização personalizada de eventos do WAF relevantes para a segurança em vários painéis filtráveis. Ela funciona com todos os tipos de WAF, incluindo o Gateway de Aplicativo, o Front Door e a CDN, podendo ser filtrada com base no tipo de WAF ou em uma instância de WAF específica. Faça a importação por meio de um modelo do ARM ou um modelo da Galeria. Para implantar essa pasta de trabalho, confira [Pasta de trabalho do WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+Esta pasta de trabalho permite a visualização personalizada de eventos do WAF relevantes para a segurança em vários painéis filtráveis. Ela funciona com todos os tipos de WAF, incluindo o Gateway de Aplicativo, o Front Door e a CDN, podendo ser filtrada com base no tipo de WAF ou em uma instância de WAF específica. Faça a importação por meio de um modelo do ARM ou um modelo da Galeria. Para implantar essa pasta de trabalho, confira [Pasta de trabalho do WAF](https://aka.ms/AzWAFworkbook).
 
 #### <a name="logging"></a>Registro em log
 

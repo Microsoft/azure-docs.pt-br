@@ -1,22 +1,17 @@
 ---
 title: Use o Azure SQL Instância Gerenciada com o SSIS (Azure-SQL Server Integration Services) no Azure Data Factory
 description: Saiba como usar o Azure SQL Instância Gerenciada com o SSIS (SQL Server Integration Services) no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: fb622bdb1d7aa485c421122cdfbd2493a32cf5db
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555654"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451720"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usar o Azure SQL Instância Gerenciada com o SQL Server Integration Services (SSIS) no Azure Data Factory
 
@@ -27,7 +22,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
 - [Provisionar um Azure-SSIS IR com o catálogo do SSIS (SSISDB) hospedado pelo SQL Instância Gerenciada do Azure](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Executar pacotes SSIS pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpar logs do SSISDB pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](#clean-up-ssisdb-logs)
-- [Failover de Azure-SSIS IR com o SQL do Azure Instância Gerenciada](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Failover de Azure-SSIS IR com o SQL do Azure Instância Gerenciada](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migrar cargas de trabalho SSIS locais para o SSIS no ADF com o Azure SQL Instância Gerenciada como destino de carga de trabalho de banco de dados](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Provisionar Azure-SSIS IR com o SSISDB hospedado pelo SQL Instância Gerenciada do Azure
@@ -44,7 +39,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
             - Dentro da mesma rede virtual que a instância gerenciada, com uma **sub-rede diferente**.
             - Dentro de uma rede virtual diferente da instância gerenciada, por meio do emparelhamento de rede virtual (que é limitado à mesma região devido a restrições de emparelhamento de VNet global) ou a uma conexão da rede virtual com a rede virtual.
 
-            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configure a rede virtual](#configure-virtual-network).
 

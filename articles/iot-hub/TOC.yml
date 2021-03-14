@@ -349,6 +349,16 @@
           href: iot-hub-azure-service-health-integration.md
         - name: Ordenar eventos de estado de conexão do dispositivo na Grade de Eventos
           href: iot-hub-how-to-order-connection-state-events.md
+    - name: Implantar atualizações e testar
+      items:
+        - name: Criar uma conta de atualização de dispositivo
+          href: ../iot-hub-device-update/create-device-update-account.md
+        - name: Importar uma atualização
+          href: ../iot-hub-device-update/import-update.md
+        - name: Criar um grupo de atualizações
+          href: ../iot-hub-device-update/create-update-group.md
+        - name: Implantar uma atualização
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Usar dispositivos reais
       items:
         - name: Usar um simulador online
@@ -497,10 +507,10 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ../iot-edge/index.yml
-        - name: Aceleradores de solução do IoT
-          href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
           href: ../iot-pnp/index.yml
+        - name: Aceleradores de solução do IoT
+          href: ../iot-accelerators/index.yml
         - name: Mapas do Azure
           href: ../azure-maps/index.yml
         - name: Time Series Insights

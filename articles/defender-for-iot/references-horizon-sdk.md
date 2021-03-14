@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746012"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523355"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dessetor de protocolo proprietário do horizonte
 
@@ -103,7 +103,7 @@ Entre em contato <support@cyberx-labs.com> para obter informações sobre como r
 
 - Defender para IoT versão 3,0 e posterior.
 
-### <a name="process"></a>Processo
+### <a name="process"></a>Processar
 
 1. [Baixe](https://www.eclipse.org/) o Eclipse IDE para desenvolvedores de C/C++. Você pode usar qualquer outro IDE que preferir. Este documento orienta você pela configuração usando o IDE do eclipse.
 
@@ -1106,7 +1106,7 @@ Você pode aprimorar o dispositivo das informações disponíveis no dispositivo
 
 - Nome
 
-- Tipo
+- Type
 
 - Fornecedor
 
@@ -1148,7 +1148,7 @@ As propriedades que podem ser configuradas neste arquivo são:
 
 | Campo | Descrição |
 |--|--|
-| key | Indica a chave. |
+| chave | Indica a chave. |
 | value | Indica o campo de implementação a ser usado para fornecer os dados. |
 | is_static_key | Indica se o `key` campo é derivado como um valor do pacote ou é um valor predefinido. |
 
@@ -1624,7 +1624,7 @@ A janela **visão geral** do console de horizonte fornece informações sobre o 
 | :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="A opção liga e desliga."::: | Ativar **ou** **desativar** o plug-in. O defender para IoT não tratará o tráfego de protocolo definido no plug-in quando você desativar o plug-in. |
 | Hora | A hora em que os dados foram analisados pela última vez. Atualizado a cada 5 segundos. |
 | PPS | O número de pacotes por segundo. |
-| Largura de banda | A largura de banda média detectada nos últimos 5 segundos. |
+| Largura de Banda | A largura de banda média detectada nos últimos 5 segundos. |
 | Malforms | Validações malformadas são usadas depois que o protocolo tiver sido validado positivamente. Se houver uma falha ao processar os pacotes com base no protocolo, uma resposta de falha será retornada.   <br><br>Esta coluna indica o número de erros malform nos últimos 5 segundos. Para obter mais informações, consulte [validações de código malformado](#malformed-code-validations) para obter detalhes. |
 | Warnings | Os pacotes correspondem à estrutura e à especificação, mas há um comportamento inesperado com base na configuração de aviso do plug-in. |
 | Errors | O número de pacotes que falharam validações de protocolo básicas. Valida se o pacote corresponde às definições de protocolo. O número exibido aqui indica o número de erros detectados nos últimos 5 segundos. Para obter mais informações, consulte [validações de código de sanidade](#sanity-code-validations) para obter detalhes. |
@@ -1640,6 +1640,6 @@ Para monitorar:
 
 Selecione o botão monitorar para o plug-in na visão geral.
 
-Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Configurar sua [API do horizonte](references-horizon-api.md)

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: cli,portal, devx-track-azurecli
-ms.openlocfilehash: 07088ebfa5fde4c3c790bd554c1eba8d6844b7d1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f16cc83257dbf6419fc794f34e4cd6df033d3f8b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736066"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213956"
 ---
 # <a name="find-your-azure-subscription"></a>Encontrar sua assinatura do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "92736066"
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. No título serviços do Azure, selecione assinaturas. (Se nenhuma assinatura estiver listada, talvez seja necessário alternar os locatários do Azure AD.) Suas IDs de assinatura estão listadas na segunda coluna.
@@ -45,9 +45,9 @@ ms.locfileid: "92736066"
 
 [!INCLUDE [List your Azure subscriptions with CLI](./includes/task-list-set-subscription-cli.md)]
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Confira também
 
-* [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
+* [CLI do Azure](/cli/azure/ams)
 
 ---
 

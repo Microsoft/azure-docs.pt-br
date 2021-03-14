@@ -1,23 +1,18 @@
 ---
 title: Mover dados usando a Atividade de Cópia
 description: 'Saiba mais sobre a movimentação de dados em pipelines do Data Factory: migração de dados entre repositórios na nuvem e entre um repositório local e um repositório na nuvem. Use a Atividade de Cópia.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195975"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364011"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -104,10 +99,10 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Oeste dos EUA 2 | Oeste dos EUA 2 |
 | Canada | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
-| Brasil | Sul do Brasil | Sul do Brasil |
+| Brasil | Sul do Brasil | Brazil South |
 | Europa | Norte da Europa | Norte da Europa |
 | &nbsp; | Europa Ocidental | Europa Ocidental |
-| United Kingdom | Oeste do Reino Unido | Sul do Reino Unido |
+| Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Leste da Ásia | Sudeste Asiático |

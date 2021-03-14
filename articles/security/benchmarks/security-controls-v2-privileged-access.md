@@ -4,19 +4,21 @@ description: Acesso privilegiado do benchmark de segurança do Azure v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092043"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035404"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controle de segurança v2: acesso privilegiado
 
 O acesso privilegiado abrange controles para proteger o acesso privilegiado ao seu locatário e recursos do Azure. Isso inclui uma variedade de controles para proteger seu modelo administrativo, contas administrativas e estações de trabalho de acesso privilegiado contra riscos deliberados e inadvertidos.
+
+Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade normativa de benchmark de segurança do Azure: acesso privilegiado](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: proteger e limitar os usuários altamente privilegiados
 
@@ -30,7 +32,7 @@ Limite o número de contas de usuário altamente privilegiadas e proteja essas c
 
 - Administrador de função com privilégios: os usuários com essa função podem gerenciar atribuições de função no Azure AD, bem como dentro de Azure AD Privileged Identity Management (PIM). Além disso, essa função permite o gerenciamento de todos os aspectos do PIM e das unidades administrativas.
 
-Observação: você pode ter outras funções críticas que precisam ser governadas se você usar funções personalizadas com determinadas permissões privilegiadas atribuídas. E você também pode querer aplicar controles semelhantes à conta de administrador de ativos de negócios críticos.  
+Observação: você pode ter outras funções críticas que precisam ser governadas se você usar funções personalizadas com determinadas permissões privilegiadas atribuídas. E você também pode querer aplicar controles semelhantes à conta de administrador de ativos de negócios críticos.
 
 Você pode habilitar o acesso privilegiado JIT (just-in-time) aos recursos do Azure e ao Azure AD usando o Azure AD PIM (Privileged Identity Management). O JIT concede permissões temporárias para executar tarefas privilegiadas somente quando os usuários precisam dela. O PIM também pode gerar alertas de segurança quando há atividades suspeitas ou não seguras na sua organização do Azure AD.
 
@@ -155,11 +157,9 @@ Use os recursos de gerenciamento de direitos do Azure AD para automatizar fluxos
 |--|--|--|--|
 | PA-6 | 4,6, 11,6, 12,12 | AC-2, SC-3, SC-7 |
 
-Estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviço críticos. Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Use o Azure Active Directory, o Microsoft ATP (Proteção Avançada contra Ameaças) e/ou o Microsoft Intune para implantar uma estação de trabalho do usuário protegida e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware e acesso lógico restrito à rede. 
+Estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administrador, desenvolvedor e operador de serviço crítico. Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Use o Azure Active Directory, o Microsoft ATP (Proteção Avançada contra Ameaças) e/ou o Microsoft Intune para implantar uma estação de trabalho do usuário protegida e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware e acesso lógico restrito à rede. 
 
-- [Entender as estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
-
-- [Implantar uma estação de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
+- [Entender as estações de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
 
 **Responsabilidade**: Cliente
 
@@ -178,7 +178,8 @@ Estações de trabalho seguras e isoladas são extremamente importantes para a s
 | PA-7 | 14,6 | AC-2, AC-3, SC-3 |
 
 O Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso a recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, a entidades de serviço de grupo e a identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell e o portal do Azure. Os privilégios que você atribui aos recursos por meio do RBAC do Azure devem ser sempre limitados ao que é exigido pelas funções. Os privilégios limitados complementam a abordagem JIT (just in time) do Azure AD Privileged Identity Management (PIM), e esses privilégios devem ser revisados periodicamente.
-Use funções internas para alocar a permissão e somente crie uma função personalizada quando necessário. 
+
+Use funções internas para alocar permissões e apenas para criar funções personalizadas quando necessário.
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
 
@@ -192,9 +193,9 @@ Use funções internas para alocar a permissão e somente crie uma função pers
 
 - [Segurança de aplicativo e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gerenciamento de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Gerenciamento de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gerenciamento de identidades e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

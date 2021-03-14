@@ -1,22 +1,17 @@
 ---
 title: Copie dados do Jira usando o Azure Data Factory
 description: Saiba como copiar dados do Jira para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: ddf752fc78c8c6bb2d7e7a57178b9cf2d719b810
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16ab0ab0e4c4d647f62b38d71acde69df0ae0d42
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378478"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copie dados do Jira usando o Azure Data Factory
 

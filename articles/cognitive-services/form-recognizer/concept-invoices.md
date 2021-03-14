@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: adcfef19de5987b9b4c54f6765589f2ae9868c11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585068"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736739"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
 
@@ -41,7 +41,7 @@ Você precisará de uma assinatura do Azure ([crie uma gratuitamente](https://az
 
 ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-invoice-operation"></a>A operação de análise de fatura
 
@@ -80,8 +80,8 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
 | PurchaseOrder | string | Um número de referência de ordem de compra | PO-3333 | |  |
 | InvoiceId | string | ID para esta fatura específica (geralmente "número da nota fiscal") | INV-100 | |  |
-| InvoiceDate | date | Data em que a nota fiscal foi emitida | 15/11/2019 | 
-| DueDate | date | O pagamento de data para esta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | date | Data em que a nota fiscal foi emitida | 15/11/2019 | 2019-11-15 |
+| DueDate | date | O pagamento de data para esta fatura é devido | 12/15/2019 | 2019-12-15 |
 | Nome_do_Fornecedor | string | Fornecedor que criou esta fatura | CONTOSO LTD. | |
 | VendorAddress | string | Endereço para correspondência do fornecedor | 123 456th St Nova York, NY, 10001 | |
 | VendorAddressRecipient | string | Nome associado ao VendorAddress | Sede da contoso | |

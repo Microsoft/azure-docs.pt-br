@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: b-juche
-ms.openlocfilehash: f7b9cabdc7c2c706ff3b8dd5a0b3b5f7ed3666d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 705b74fe1fe38e8f65fe24e88c5ffa9bf1ad6175
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369022"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507782"
 ---
 # <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>SDKs Azure NetApp Files, ferramentas CLI e modelos ARM
 
@@ -29,7 +29,7 @@ Este artigo lista os SDKs, as ferramentas de linha de comando (CLI) e os modelos
 
 A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobre os SDKs com suporte em seus locais publicados no GitHub.  
 
-|    Linguagem    |    Local publicado do SDK no GitHub    |
+|    Idioma    |    Local publicado do SDK no GitHub    |
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
@@ -44,8 +44,8 @@ A tabela a seguir lista as ferramentas de CLI com suporte e sua referência de c
 
 |    Ferramenta    |    Referência do comando    |
 |------------------|--------------------------------------------|
-|    CLI do Azure  |    [AZ netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
-|    PowerShell   |    [Azure PowerShell para Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
+|    CLI do Azure  |    [AZ netappfiles](/cli/azure/netappfiles)    |
+|    PowerShell   |    [Azure PowerShell para Azure NetApp Files](/powershell/module/az.netappfiles/#netapp_files&preserve-view=true)    |
 
 ## <a name="code-samples"></a>Exemplos de código
 

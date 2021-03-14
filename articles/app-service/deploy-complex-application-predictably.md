@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962019"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095841"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -45,14 +45,14 @@ Para obter mais informações, consulte [usando Azure PowerShell com Azure Resou
 Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições de JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a criação de modelos, pois mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [portal do Azure](https://portal.azure.com/)e, em seguida, inspecionar suas definições de JSON na ferramenta do Explorer para ajudá-lo a modelar o grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
-Se você usa GitHub para controle do código-fonte, você pode colocar um [botão Implantar no Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) em seu arquivo LEIAME.MD, que permite uma implantação pronta para uso da interface do usuário para Azure. Embora seja possível fazê-lo para qualquer aplicativo simples, você pode estender isso para habilitar a implantação de um grupo de recursos inteiro, colocando um arquivo azuredeploy.json na raiz do repositório. Esse arquivo JSON, que contém o modelo de grupo de recursos, será usado pelo botão Implantar no Azure para criar o grupo de recursos. Para obter um exemplo, consulte a amostra [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que você usará neste tutorial.
+Se você usa GitHub para controle do código-fonte, você pode colocar um [botão Implantar no Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) em seu arquivo LEIAME.MD, que permite uma implantação pronta para uso da interface do usuário para Azure. Embora seja possível fazê-lo para qualquer aplicativo simples, você pode estender isso para habilitar a implantação de um grupo de recursos inteiro, colocando um arquivo azuredeploy.json na raiz do repositório. Esse arquivo JSON, que contém o modelo de grupo de recursos, será usado pelo botão Implantar no Azure para criar o grupo de recursos. Para obter um exemplo, consulte a amostra [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que você usará neste tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obter o modelo de grupo de recursos de exemplo
 Agora vamos direto ao ponto.
 
 1. Navegue até o exemplo de Serviço de Aplicativo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) .
 2. Em readme.md, clique em **Implantar no Azure**.
-3. Você é levado para o site [implantar-no-azure](https://deploy.azure.com) e solicitado a inserir parâmetros de implantação. Observe que a maioria dos campos é preenchida com o nome do repositório e algumas cadeias de caracteres aleatórias para você. Você pode alterar todos os campos se desejar, mas as únicas coisas que você precisa inserir são o logon administrativo do SQL Server e a senha; então, clique em **Próximo**.
+3. Você é levado para o site [implantar-no-azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) e solicitado a inserir parâmetros de implantação. Observe que a maioria dos campos é preenchida com o nome do repositório e algumas cadeias de caracteres aleatórias para você. Você pode alterar todos os campos se desejar, mas as únicas coisas que você precisa inserir são o logon administrativo do SQL Server e a senha; então, clique em **Próximo**.
    
    ![Mostra os parâmetros de implantação de entrada no site Deploy-to-Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Em seguida, clique em **Implantar** para iniciar o processo de implantação. Quando o processo for concluído, clique no link http://todoapp*XXXX*.azurewebsites.net para procurar o aplicativo implantado. 
@@ -183,7 +183,7 @@ Novamente, os recursos aninhados devem ter uma hierarquia muito semelhante àque
 O botão **Implantar no Azure** é ótimo, mas só permite que você implante o modelo de grupo de recursos em azuredeploy.json se você já tiver enviado azuredeploy.json por push para o GitHub. O SDK .NET do Azure também fornece as ferramentas para implantar qualquer arquivo de modelo JSON diretamente do computador local. Para fazer isso, siga as etapas abaixo:
 
 1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
-2. Clique em **Visual C#**  >  **Cloud**  >  **Azure Resource Group**e clique em **OK**.
+2. Clique em **Visual C#**  >  **Cloud**  >  **Azure Resource Group** e clique em **OK**.
    
    ![Crie um novo projeto como um grupo de recursos do Azure no SDK do .NET do Azure.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Em **Selecionar Modelo do Azure**, selecione **Modelo em Branco** e clique em **OK**.

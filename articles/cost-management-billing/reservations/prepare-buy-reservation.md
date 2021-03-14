@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b03db9632f5f47a7600c5b9037d16b1cff6ccf69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344242"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574967"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -67,7 +67,7 @@ Os recursos executados em uma assinatura com outros tipos de oferta não recebem
 
 Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. Leia os seguintes artigos, que se aplicam a você quando você está pronto para fazer uma compra de reserva:
 
-- [Serviço de Aplicativo](prepay-app-service-isolated-stamp.md)
+- [Serviço de Aplicativo](prepay-app-service.md)
 - [Cache Redis do Azure](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)

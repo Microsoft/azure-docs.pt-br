@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para a Grade de Eventos do Azure
 description: Lista as definições de políticas internas do Azure Policy para a Grade de Eventos do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 611622bf7b1ceab3f6709246884a5a138e3f76b0
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: d5db1f40643979fe0ddeb52e158906f18fc63af8
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559120"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618672"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-grid"></a>Definições internas do Azure Policy para a Grade de Eventos do Azure
 

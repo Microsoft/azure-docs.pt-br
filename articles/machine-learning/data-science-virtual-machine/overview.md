@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 'Visão geral da Máquina Virtual de Ciência de Dados do Azure: uma máquina virtual fácil de usar na plataforma de nuvem Azure, com ferramentas e bibliotecas pré-instaladas e configuradas para executar a ciência de dados.'
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322494"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518752"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados do Azure para Linux e Windows?
 
@@ -44,7 +43,7 @@ A DSVM é uma imagem de VM personalizada para ciência de dados, enquanto o [Azu
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparação com as instâncias de computação do AzureML
 
-As [instâncias de Computação do Azure Machine Learning](../concept-compute-instance.md) são uma imagem de VM __totalmente configurada e gerenciada__ , enquanto a DSVM é uma VM __não gerenciada__.
+As [instâncias de Computação do Azure Machine Learning](../concept-compute-instance.md) são uma imagem de VM __totalmente configurada e gerenciada__, enquanto a DSVM é uma VM __não gerenciada__.
 
 As principais diferenças entre essas duas ofertas de produtos são detalhadas abaixo:
 

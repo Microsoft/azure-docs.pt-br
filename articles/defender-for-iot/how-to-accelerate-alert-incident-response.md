@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837617"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526282"
 ---
 # <a name="accelerate-alert-workflows"></a>Acelerar fluxos de trabalho de alerta
 
@@ -70,11 +70,11 @@ O grupo de alertas relevante aparece nas soluções de saída do parceiro.
 
 O grupo de alertas aparecerá em soluções de parceiros com suporte com os seguintes prefixos:
 
-  - **Cat** para QRadar, ArcSight, syslog CEF, syslog LEEF
+- **Cat** para QRadar, ArcSight, syslog CEF, syslog LEEF
 
-  - **Grupo de alertas** para mensagens de texto do syslog
+- **Grupo de alertas** para mensagens de texto do syslog
 
-  - **alert_group** para objetos syslog
+- **alert_group** para objetos syslog
 
 Esses campos devem ser configurados na solução de parceiro para exibir o nome do grupo de alertas. Se não houver nenhum alerta associado a um grupo de alertas, o campo na solução de parceiro será exibido **na**.
 
@@ -92,11 +92,29 @@ Os seguintes grupos de alertas são definidos automaticamente:
 | Falhas de comando | Problemas operacionais |  |
 | Alterações de configuração | Programação |  |
 
-Os grupos de alertas são predefinidos. Para obter detalhes sobre os alertas associados a grupos de alertas e sobre como criar grupos de alertas personalizados, entre em contato com [suporte da Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+Os grupos de alertas são predefinidos. Para obter detalhes sobre os alertas associados a grupos de alertas e sobre como criar grupos de alertas personalizados, entre em contato com [suporte da Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="customize-alert-rules"></a>Personalizar regras de alerta
 
-Você pode adicionar regras de alerta personalizadas com base nas informações detectadas pelos sensores individuais. Por exemplo, defina uma regra que instrua um sensor a disparar um alerta com base em um IP de origem, IP de destino ou comando (dentro de um protocolo). Quando o sensor detecta o tráfego definido na regra, um alerta ou evento é gerado.
+Use regras de alerta personalizadas para identificar mais especificamente a atividade de seu interesse. 
+
+Você pode adicionar regras de alerta personalizadas com base em:
+
+- Uma categoria, por exemplo, um protocolo, uma porta ou um arquivo.
+- Endereços de origem e de destino
+- Uma condição baseada na categoria escolhida, por exemplo, uma função associada a um protocolo, um nome de arquivo, uma porta ou um número de transporte.
+- Uma condição com base na referência de data e hora, por exemplo, se uma detecção foi feita em um dia específico ou em uma determinada parte do dia.
+
+Se o sensor detectar a atividade descrita na regra, o alerta será enviado.
+informações detectadas pelos sensores individuais. Por exemplo, defina uma regra que instrua um sensor a disparar um alerta com base em um IP de origem, IP de destino ou comando (dentro de um protocolo). Quando o sensor detecta o tráfego definido na regra, um alerta ou evento é gerado.
+
+Você também pode usar ações de regra de alerta para instruir o defender para IoT a:
+
+- Permitir que os usuários acessem o arquivo PCAP do alerta.
+- Atribua uma severidade de alerta.
+- Gerar um evento em vez de alertar. As informações detectadas serão exibidas na linha do tempo do evento.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Captura de tela que mostra uma regra definida pelo usuário.":::
 
 A mensagem de alerta indica que uma regra definida pelo usuário disparou o alerta.
 
@@ -106,17 +124,17 @@ Para criar uma regra de alerta personalizada:
 
 1. Selecione **alertas personalizados** no menu lateral de um sensor.
 1. Selecione o sinal de adição ( **+** ) para criar uma regra.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Captura de tela que mostra uma regra definida pelo usuário.":::
-
 1. Defina um nome de regra.
 1. Selecione uma categoria ou um protocolo no painel **categorias** .
 1. Defina um IP e um endereço MAC de origem e de destino específicos ou escolha qualquer endereço.
-1. Adicione uma condição. Uma lista de condições e suas propriedades são exclusivas para cada categoria. Você pode selecionar mais de uma condição para cada alerta.
-1. Indique se a regra dispara um **alarme** ou **evento**.
-1. Atribua um nível de severidade ao alerta.
-1. Indique se o alerta incluirá um arquivo PCAP.
-1. Clique em **Salvar**.
+1. Defina uma ou várias condições de regra. Duas categorias de condições podem ser criadas:
+    - Condições baseadas em valores exclusivos associados à categoria selecionada. Selecione Adicionar e defina os valores.
+    - Condições baseadas no quando a atividade foi detectada. Na seção detecções, selecione um período de tempo e um dia em que a detecção deve ocorrer para enviar o alerta. Você pode optar por enviar o alerta se a atividade for detectada a qualquer momento, durante ou após o horário de trabalho. Use a opção definir horas de trabalho para instruir o defender para o horário de trabalho da IoT para sua organização.
+1. Definir ações de regra: 
+    - Indique se a regra dispara um **alarme** ou **evento**.
+    - Atribua um nível de severidade ao alerta.
+    - Indique se o alerta incluirá um arquivo PCAP.
+1. Selecione **Salvar**.
 
 A regra é adicionada à lista **regras de alertas personalizados** , em que você pode examinar os parâmetros básicos da regra, a última vez que a regra foi disparada e muito mais. Você também pode habilitar e desabilitar a regra na lista.
 
@@ -126,4 +144,4 @@ A regra é adicionada à lista **regras de alertas personalizados** , em que voc
 
 [Exibir informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md)
 
-[Gerenciar o evento de alerta](how-to-manage-the-alert-event.md)
+[Gerenciar o evento de alertas](how-to-manage-the-alert-event.md)

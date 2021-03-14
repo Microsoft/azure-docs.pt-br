@@ -7,12 +7,12 @@ keywords: alteração, controle, controle de alterações, inventário, automaç
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204241"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587938"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solucionar problemas com alterações em uma VM do Azure
 
@@ -54,7 +54,7 @@ Primeiro, é necessário habilitar o Controle de Alterações e Inventário para
 
     ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Escolha o workspace do [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Esse workspace coleta dados gerados por recursos como o Controle de Alterações e o Inventário. O workspace fornece um único local para examinar e analisar dados de várias fontes.
+3. Escolha o workspace do [Log Analytics](../azure-monitor/logs/log-query-overview.md). Esse workspace coleta dados gerados por recursos como o Controle de Alterações e o Inventário. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre como executar e pesquisar arquivos de log nos logs do Azure Monitor, veja [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre como executar e pesquisar arquivos de log nos logs do Azure Monitor, veja [logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o controle de alterações
 
@@ -198,7 +198,7 @@ Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado
 
     ![Configurar sinal lógico](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Selecione **Criar** em **Grupos de Ações**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+10. Selecione **Criar** em **Grupos de Ações**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 11. Em **Detalhes do alerta**, insira um nome e uma descrição para o alerta. 
 

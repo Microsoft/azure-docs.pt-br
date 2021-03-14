@@ -1,22 +1,18 @@
 ---
 title: Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
 description: Este artigo descreve como limpar os logs do SSISDB usando trabalhos de Banco de Dados Elástico do Azure para disparar o procedimento armazenado existente para essa finalidade
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ecabbf88e14d17ac912065c2ed4aa95316efaf9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636622"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387638"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
 

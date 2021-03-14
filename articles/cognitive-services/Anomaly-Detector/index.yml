@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 7e0fe85007aae69bf79557e0f094e275f538d280
-  ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+  ms.openlocfilehash: ccf8dd232bdfa703400a949c8dd948fe9ba21f54
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97683428"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102454916"
 landingContent:
 - title: Sobre a API do Detector de Anomalias
   linkLists:
@@ -58,8 +58,6 @@ landingContent:
     links:
     - text: Visualizar anomalias usando a detecção em lotes e o Power BI
       url: tutorials/batch-anomaly-detection-powerbi.md
-    - text: Detectar anomalias nos dados de streaming usando o Azure Databricks
-      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: Detecção de anomalias nos dados de streaming usando o Azure Databricks

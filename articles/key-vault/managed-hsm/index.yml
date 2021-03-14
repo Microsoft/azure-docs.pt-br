@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/15/2020
-  ms.openlocfilehash: 78d588e24c2bb489c242537c0ac4ed0c1618c529
-  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+  ms.openlocfilehash: be85f521d1db7cdcad9393de52ef1846989e6245
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/06/2021
-  ms.locfileid: "97934181"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100097952"
 landingContent:
 - title: Sobre o HSM Gerenciado do Azure Key Vault (versão prévia)
   linkLists:
@@ -46,6 +46,8 @@ landingContent:
     links:
     - text: CLI do Azure
       url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
     - text: Azure Resource Manager
       url: quick-create-template.md
 - title: Guias de instruções

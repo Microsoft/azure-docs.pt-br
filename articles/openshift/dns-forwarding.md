@@ -3,15 +3,15 @@ title: Configurar o encaminhamento de DNS para o Azure Red Hat OpenShift 4
 description: Configurar o encaminhamento de DNS para o Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: aa18959d0dc78dedf8b57dc120ab6744afa9051f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 68cc5dbee5b96472d11bdfb3a8bf35d118638dcd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070586"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633862"
 ---
 # <a name="configure-dns-forwarding-on-an-azure-red-hat-openshift-4-cluster"></a>Configurar o encaminhamento de DNS em um cluster do Azure Red Hat OpenShift 4
 

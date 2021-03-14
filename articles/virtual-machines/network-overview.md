@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 723b556a2e5fd1fae32d50a382c99025ad726bff
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20cc67d5c6436d7c0f44071509e13af324a88eea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977350"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578859"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais no Azure 
 
@@ -135,10 +135,10 @@ Esta tabela lista os métodos que você pode usar para criar um balanceador de c
 
 | Método | Descrição |
 | ------ | ----------- |
-| Portal do Azure |  Você pode [balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure](../load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
-| [PowerShell do Azure](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PublicIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
+| Portal do Azure |  Você pode [balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure](../load-balancer/quickstart-load-balancer-standard-public-portal.md). |
+| [PowerShell do Azure](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PublicIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
 | [CLI do Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | Use [az network lb create](/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) para adicionar o endereço IP público que você criou anteriormente. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para adicionar as sondas. |
-| [Modelo](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Use [Duas VMs em um balanceador de carga e regras de NAT configuradas no balanceamento de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) como um guia para a implantação de um balanceador de carga usando um modelo. |
+| [Modelo](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Use [3 VMs em um Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) como um guia para implantar um balanceador de carga usando um modelo. |
     
 Esta tabela lista os métodos que você pode usar para criar um balanceador de carga interno.
 
@@ -147,7 +147,7 @@ Esta tabela lista os métodos que você pode usar para criar um balanceador de c
 | Portal do Azure | É possível [balancear carga de tráfego interna com um balanceador de carga no portal do Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md). |
 | [PowerShell do Azure](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) | Para fornecer um endereço IP privado na sub-rede, use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PrivateIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
 | [CLI do Azure](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) | Use o comando [az network lb create](/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Para definir o endereço IP privado, use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) com o parâmetro **--private-ip-address**. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para adicionar as sondas.|
-| [Modelo](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [Duas VMs em um balanceador de carga e regras de NAT configuradas no balanceamento de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) como um guia para a implantação de um balanceador de carga usando um modelo. |
+| [Modelo](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [duas VMs em um Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) como um guia para implantar um balanceador de carga usando um modelo. |
 
 ### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 

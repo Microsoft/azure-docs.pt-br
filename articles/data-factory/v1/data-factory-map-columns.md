@@ -1,28 +1,24 @@
 ---
 title: Mapeando colunas do conjunto de linhas no Azure Data Factory
 description: Saiba como mapear colunas de origem para colunas de destino.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318868"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371117"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
-O mapeamento de coluna pode ser usado para definir como colunas especificadas na "estrutura" da tabela de origem estão correlacionadas a colunas especificada na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade Copiar.
+O mapeamento de coluna pode ser usado para especificar como as colunas especificadas na "estrutura" da tabela de origem são mapeadas para as colunas especificadas na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade Copiar.
 
 O mapeamento de coluna oferece suporte para os seguintes cenários:
 
@@ -31,7 +27,7 @@ O mapeamento de coluna oferece suporte para os seguintes cenários:
 
 Veja a seguir condições de erro que resultam em uma exceção:
 
-* Menos colunas ou mais colunas na "estrutura" da tabela de coletor do que o especificado no mapeamento.
+* Uma quantidade menor de colunas ou mais colunas na "estrutura" da tabela de coletores do que o especificado no mapeamento.
 * Mapeamento duplicado.
 * O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
@@ -140,7 +136,7 @@ O JSON a seguir define uma atividade de cópia em um pipeline. As colunas da fon
 ![Fluxo de mapeamento de coluna](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemplo 2 - mapeamento de coluna com a consulta SQL do SQL Azure para blobs do Azure
-Neste exemplo, uma consulta SQL é usada para extrair dados do SQL Azure, em vez de simplesmente especificar o nome da tabela e os nomes das colunas na seção de "estrutura". 
+Neste exemplo, uma consulta SQL é usada para extrair dados do SQL do Azure em vez de simplesmente especificar o nome da tabela e os nomes de coluna na seção "estrutura". 
 
 ```json
 {
@@ -172,7 +168,7 @@ Neste exemplo, uma consulta SQL é usada para extrair dados do SQL Azure, em vez
         }
 }
 ```
-Nesse caso, os resultados da consulta primeiro são mapeados para colunas especificadas na "estrutura" da origem. Em seguida, as colunas da "estrutura" de origem são mapeadas para colunas na "estrutura" do coletor com as regras especificadas em columnMappings.  Suponha que a consulta retorne cinco colunas, duas colunas adicionais e as especificadas na "estrutura" de origem.
+Nesse caso, os resultados da consulta são mapeados primeiro para colunas especificadas em "Structure" da origem. Em seguida, as colunas da "estrutura" de origem são mapeadas para colunas na "estrutura" do coletor com as regras especificadas em columnMappings.  Suponha que a consulta retorne 5 colunas, mais duas colunas do que aquelas especificadas na "estrutura" da origem.
 
 **Fluxo de mapeamento de coluna**
 

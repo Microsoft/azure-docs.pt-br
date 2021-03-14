@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 51c194ca9b091bc685f293320750da55925ad49d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20b54afdfbb5641def921ffc17b3c38f6650acab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91565608"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736212"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
 
@@ -50,7 +50,7 @@ Para obter uma visão geral detalhada do modo de implantação de servidor únic
 
 ### <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
-O Servidor Flexível do Banco de Dados do Azure para MySQL é um serviço de banco de dados totalmente gerenciado projetado para fornecer controle e flexibilidade mais granulares nas funções de gerenciamento de banco de dados e definições de configuração. Em geral, o serviço fornece mais flexibilidade e personalizações conforme os requisitos do usuário. A arquitetura de servidor flexível permite que os usuários optem por alta disponibilidade dentro de uma zona de disponibilidade única e entre várias zonas de disponibilidade. Os servidores flexíveis fornecem melhores controles de otimização de custos com a capacidade de parar/iniciar o servidor e a camada de computação expansível, ideal para cargas de trabalho que não precisam de capacidade de computação completa continuamente. O serviço atualmente dá suporte à versão da comunidade do MySQL 5.7 com planos para adicionar versões mais recentes em breve. O serviço está em versão prévia pública, disponível em diversas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/services/).
+O Servidor Flexível do Banco de Dados do Azure para MySQL é um serviço de banco de dados totalmente gerenciado projetado para fornecer controle e flexibilidade mais granulares nas funções de gerenciamento de banco de dados e definições de configuração. Em geral, o serviço fornece mais flexibilidade e personalizações conforme os requisitos do usuário. A arquitetura de servidor flexível permite que os usuários optem por alta disponibilidade dentro de uma zona de disponibilidade única e entre várias zonas de disponibilidade. Os servidores flexíveis fornecem melhores controles de otimização de custos com a capacidade de parar/iniciar o servidor e a camada de computação expansível, ideal para cargas de trabalho que não precisam de capacidade de computação completa continuamente. O serviço dá suporte à versão da comunidade do MySQL 5.7 e 8.0. O serviço está em versão prévia pública, disponível em diversas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 Os servidores flexíveis são mais adequados para 
 - Desenvolvimentos de aplicativos que exigem controle e personalizações melhores.

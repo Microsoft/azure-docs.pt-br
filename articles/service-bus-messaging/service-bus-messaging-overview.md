@@ -2,13 +2,13 @@
 title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível do Barramento de Serviço do Azure, um agente de mensagens de integração empresarial totalmente gerenciado.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219155"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570468"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 O Barramento de Serviço do Microsoft Azure é um agente de mensagens empresarial totalmente gerenciado com filas de mensagens e tópicos de publicação/assinatura. O Barramento de Serviço é usado para separar aplicativos e serviços uns dos outros, proporcionando estes benefícios:
@@ -118,11 +118,10 @@ O envio em lote do lado do cliente permite que o cliente de uma fila ou tópico 
 Uma transação agrupa duas ou mais operações em um *escopo de execução*. O Barramento de Serviço permite que você agrupe operações em várias entidades de mensagens no escopo de uma só transação. Uma entidade de mensagem pode ser uma fila, um tópico ou uma assinatura. Para saber mais, confira [Visão geral do processamento de transações do Barramento de Serviço](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Exclusão automática em tempo ocioso
-
-A exclusão automática em tempo ocioso permite que você especifique um intervalo de tempo ocioso após o qual a assinatura de um tópico ou fila será excluída automaticamente. A duração mínima é de 5 minutos. Para saber mais, confira a [Propriedade QueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+A exclusão automática em tempo ocioso permite que você especifique um intervalo de tempo ocioso após o qual a assinatura de um tópico ou fila será excluída automaticamente. A duração mínima é de 5 minutos. 
 
 ### <a name="duplicate-detection"></a>Detecção de duplicidade
-O recurso de detecção de duplicidade permite que o remetente reenvie a mesma mensagem e que o agente remova uma possível duplicidade. A detecção de duplicidade é baseada no rastreamento da propriedade `message-id` de uma mensagem, o que significa que o aplicativo precisa usar o mesmo valor ao reenviar a mensagem, que pode ser derivada diretamente de algum contexto específico do aplicativo. Para saber mais, confira [Detecção de duplicatas](duplicate-detection.md).
+O recurso de detecção de duplicidade permite que o remetente reenvie a mesma mensagem e que o agente remova uma possível duplicidade. Para saber mais, confira [Detecção de duplicatas](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
 

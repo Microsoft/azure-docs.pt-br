@@ -4,12 +4,12 @@ description: Saiba como usar os logs de Azure Monitor para monitorar a integrida
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571893"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorar a disponibilidade do cluster com os logs de Azure Monitor no HDInsight
 
@@ -19,7 +19,7 @@ Os clusters HDInsight incluem a integração de logs de Azure Monitor, que forne
 
 Os logs de Azure Monitor permitem que os dados gerados por vários recursos, como clusters HDInsight, sejam coletados e agregados em um único local para alcançar uma experiência de monitoramento unificada.
 
-Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
+Como pré-requisito, você precisará de um espaço de trabalho Log Analytics para armazenar os dados coletados. Se você ainda não criou uma, você pode seguir as instruções aqui: [criar um log Analytics espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar a integração de logs de Azure Monitor do HDInsight
 
@@ -81,7 +81,7 @@ Como essa consulta só retorna nós indisponíveis como resultados, se o número
 
 Na seção **avaliado com base em** , defina o **período** e a **frequência** com base na frequência com que você deseja verificar se há nós indisponíveis.
 
-Para fins deste alerta, você deseja verificar o **período = frequência.** Mais informações sobre o período, a frequência e outros parâmetros de alerta podem ser encontrados [aqui](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
+Para fins deste alerta, você deseja verificar o **período = frequência.** Mais informações sobre o período, a frequência e outros parâmetros de alerta podem ser encontrados [aqui](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition).
 
 Selecione **concluído** quando tiver terminado de configurar a lógica de sinal.
 
@@ -94,7 +94,7 @@ Se você ainda não tiver um grupo de ações existente, clique em **criar novo*
 Isso abrirá **Adicionar grupo de ação**. Escolha um **nome de grupo de ação**, **nome curto**, **assinatura** e **grupo de recursos.** Na seção **ações** , escolha um **nome de ação** e selecione **email/SMS/Push/voz** como o **tipo de ação.**
 
 > [!NOTE]
-> Há várias outras ações que um alerta pode disparar além de um email/SMS/Push/voz, como um Azure functions, LogicApp, webhook, ITSM e runbook de automação. [Saiba Mais.](../azure-monitor/platform/action-groups.md#action-specific-information)
+> Há várias outras ações que um alerta pode disparar além de um email/SMS/Push/voz, como um Azure functions, LogicApp, webhook, ITSM e runbook de automação. [Saiba Mais.](../azure-monitor/alerts/action-groups.md#action-specific-information)
 
 Isso abrirá **email/SMS/Push/Voice**. Escolha um **nome** para o destinatário, **marque** a caixa **email** e digite um endereço de email para o qual você deseja que o alerta seja enviado. Selecione **OK** em  **email/SMS/Push/voz** e, em seguida, em **Adicionar grupo de ação** para concluir a configuração do grupo de ação.
 

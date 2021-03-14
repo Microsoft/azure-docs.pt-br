@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Concur usando o Azure Data Factory (visualização)
 description: Saiba como copiar dados do Concur para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030791"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383663"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados do Concur usando o Azure Data Factory (visualização)
 
@@ -51,21 +46,21 @@ As propriedades a seguir têm suporte para o serviço vinculado do Concur:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Concur** | Yes |
-| connectionProperties | Um grupo de propriedades que define como se conectar ao concur. | Yes |
-| **_Em `connectionProperties` :_* _ | | |
+| type | A propriedade type deve ser definida como: **Concur** | Sim |
+| connectionProperties | Um grupo de propriedades que define como se conectar ao concur. | Sim |
+| ***Em `connectionProperties` :*** | | |
 | authenticationType | Os valores permitidos são `OAuth_2.0_Bearer` e `OAuth_2.0` (Herdado). A opção de autenticação OAuth 2,0 funciona com a antiga API concur, que foi preterida desde 2017 de fevereiro. | Sim |
-| host | O ponto de extremidade do servidor concur, por exemplo, `implementation.concursolutions.com` .  | Yes |
+| host | O ponto de extremidade do servidor concur, por exemplo, `implementation.concursolutions.com` .  | Sim |
 | baseUrl | A URL base da URL de autorização do seu concur. | Sim para `OAuth_2.0_Bearer` autenticação |
-| clientId | ID do cliente do aplicativo fornecida pelo gerenciamento de aplicativo concur.  | Yes |
+| clientId | ID do cliente do aplicativo fornecida pelo gerenciamento de aplicativo concur.  | Sim |
 | clientSecret | O segredo do cliente correspondente à ID do cliente. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim para `OAuth_2.0_Bearer` autenticação |
 | Nome de Usuário | O nome de usuário que você usa para acessar o serviço concur. | Sim |
 | password | A senha correspondente ao nome de usuário fornecido no campo de nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | No |
-| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | No |
-| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | No |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
+| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | Não |
 
-_ *Exemplo:**
+**Exemplo:**
 
 ```json
 { 

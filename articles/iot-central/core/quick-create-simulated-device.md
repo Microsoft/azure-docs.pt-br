@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f8d366554634444db16eb3292f100540f3808e8a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 488de7114d80e6a88cc619ba3b42f867c985ea11
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992821"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833908"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Início Rápido: Adicionar um dispositivo simulado ao seu aplicativo IoT Central
 
@@ -165,6 +165,10 @@ Depois de criar um novo dispositivo simulado, o construtor pode usar esse dispos
 1. Escolha seu dispositivo simulado na lista. Em seguida, selecione **Aplicar**. Agora você pode ver o mesmo dispositivo simulado em sua experiência de construção de exibições de modelo de dispositivo. Essa exibição é particularmente útil para gráficos e outras visualizações.
 
     :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Captura de tela que mostra um dispositivo de visualização configurado":::
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

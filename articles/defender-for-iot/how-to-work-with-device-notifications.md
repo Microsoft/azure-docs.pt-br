@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509024"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523559"
 ---
 # <a name="work-with-device-notifications"></a>Trabalhar com notificações de dispositivos
 
@@ -98,6 +98,6 @@ Investigue as recomendações para enriquecer a classificação do sistema opera
 
 Quando você aceitar uma recomendação, as informações do tipo de sistema operacional serão atualizadas no sensor.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Exibir alertas](how-to-view-alerts.md)

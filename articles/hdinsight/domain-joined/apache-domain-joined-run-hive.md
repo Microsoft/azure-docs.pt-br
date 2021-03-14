@@ -1,18 +1,15 @@
 ---
 title: Políticas de Apache Hive no Apache Ranger – Azure HDInsight
 description: Aprenda a configurar as políticas do Apache Ranger para o Hive no serviço do Azure HDInsight com o Enterprise Security Package.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932232"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705697"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
@@ -55,7 +52,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |---|---|
     |Nome da política|Read-hivesampletable-All|
     |Banco de dados do hive|padrão|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Coluna do hive|*|
     |Selecionar usuário|hiveuser1|
     |Permissões|select|
@@ -73,7 +70,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |---|---|
     |Nome da política|Leia-hivesampletable-devicemake|
     |Banco de dados do hive|padrão|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Coluna do hive|ClientID, devicemake|
     |Selecionar usuário|hiveuser2|
     |Permissões|select|
@@ -91,7 +88,7 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Insira hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.

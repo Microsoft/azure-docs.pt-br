@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055069"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095456"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
 
@@ -98,7 +98,7 @@ Se você tentar se conectar ao Outlook usando uma conta diferente daquela atualm
 
   1. No menu do grupo de recursos do aplicativo lógico, selecione **controle de acesso (iam)**. Configure a outra conta com a função **colaborador** . 
   
-     Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+     Para obter mais informações, consulte [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
   1. Depois de configurar essa função, entre no portal do Azure com a conta que agora tem permissões de colaborador. Agora você pode usar essa conta para criar a conexão com o Outlook.
 

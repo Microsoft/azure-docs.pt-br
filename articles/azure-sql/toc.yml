@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: Recursos de vários modelos
           href: multi-model-features.md
+        - name: Manutenção agendada
+          items:
+            - name: Janela de manutenção
+              href: database/maintenance-window.md
+            - name: Configurar janela de manutenção
+              href: database/maintenance-window-configure.md
+            - name: Perguntas frequentes sobre a janela de manutenção
+              href: database/maintenance-window-faq.yml
+            - name: Notificações antecipadas
+              href: database/advance-notifications.md
         - name: OLTP na memória
           href: in-memory-oltp-overview.md
         - name: Tabelas temporais
@@ -143,8 +153,10 @@
       items:
         - name: Solicitar aumentos de cota
           href: database/quota-increase-request.md
-        - name: Automação de trabalho
+        - name: Automação de trabalho com trabalhos elásticos
           href: database/job-automation-overview.md
+        - name: Automação de trabalho com SQL Agent
+          href: database/job-automation-managed-instances.md
         - name: Continuidade de negócios
           items:
             - name: Configurar um grupo de failover
@@ -325,6 +337,8 @@
               href: migration-guides/database/sql-server-to-sql-database-overview.md
             - name: Migrações
               href: migration-guides/database/sql-server-to-sql-database-guide.md
+            - name: Regras de avaliação
+              href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
     - name: Conceitos
       items:
         - name: Arquitetura de conectividade
@@ -745,6 +759,8 @@
               href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
             - name: Linha de base de desempenho
               href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+            - name: Regras de avaliação
+              href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
     - name: Conceitos
       items:
         - name: Limites de recursos
@@ -989,6 +1005,8 @@
           href: managed-instance/alerts-create.md
         - name: Iniciar manualmente um failover na instância gerenciada
           href: managed-instance/user-initiated-failover.md
+        - name: Migrar o banco de dados usando o Serviço de Reprodução de Log
+          href: managed-instance/log-replay-service-migrate.md
     - name: Exemplos
       items:
         - name: CLI do Azure
@@ -1212,6 +1230,8 @@
               href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
             - name: Configurar ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+            - name: Configurar grupo de disponibilidade Always On com DH2i DxEnterprise
+              href: virtual-machines/linux/dh2i-high-availability-tutorial.md
         - name: Recursos
           items:
             - name: Perguntas frequentes

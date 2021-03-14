@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044757"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094377"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -27,26 +27,27 @@ O Reconhecimento de Formulários do Azure é um serviço cognitivo que permite c
 O Reconhecimento de Formulários é composto por modelos de processamento de documentos personalizados, por modelos predefinidos para faturas, recibos e cartões de visita e pelo modelo de layout. Chame os modelos do Reconhecimento de Formulários usando uma API REST ou SDKs da biblioteca de clientes para reduzir a complexidade e integrá-lo a seu fluxo de trabalho ou aplicativo.
 
 O Reconhecimento de Formulários é composto pelos seguintes serviços:
+
 * **[API de Layout](#layout-api)** : extraia texto, marcas de seleção e estrutura de tabelas de documentos, juntamente com as respectivas coordenadas de caixa delimitadora.
 * **[Modelos personalizados](#custom-models)** : extraia texto, pares chave/valor, marcas de seleção e dados de tabela de formulários. Esses modelos são treinados usando dados próprios e, portanto, são adaptados para seus formulários.
 * **[Modelos predefinidos](#prebuilt-models)** – extraia dados de tipos de formulário exclusivos usando modelos predefinidos. No momento, os modelos predefinidos a seguir estão disponíveis
-    * [Faturas](./concept-invoices.md)
-    * [Recibos de vendas](./concept-receipts.md)
-    * [Cartões de visita](./concept-business-cards.md)
-
+  * [Faturas](./concept-invoices.md)
+  * [Recibos de vendas](./concept-receipts.md)
+  * [Cartões de visita](./concept-business-cards.md)
 
 ## <a name="try-it-out"></a>Experimente
 
 Para experimentar o serviço Reconhecimento de Formulários, acesse a ferramenta de interface do usuário de exemplo online:
-
-
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Experimentar o Reconhecimento de Formulários](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Experimentar o Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/)
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Experimentar o Reconhecimento de Formulários](https://fott.azurewebsites.net/)
 
 ---
 
@@ -87,13 +88,13 @@ O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprende
 O Reconhecimento de Formulários também inclui modelos predefinidos para o processamento automático de dados de tipos de formulário exclusivos.
 
 ### <a name="prebuilt-invoice-model"></a>Modelo de fatura predefinido
-O modelo de fatura predefinido extrai dados de faturas em uma variedade de formatos e retorna dados estruturados. Esse modelo extrai informações importantes, como ID da fatura, detalhes do cliente, detalhes do fornecedor, endereço para entrega, endereço para cobrança, total, imposto, subtotal, entre outros. Além disso, o modelo de fatura predefinido é treinado para reconhecer e retornar todo o texto e as tabelas da fatura. Confira o guia conceitual [Faturas](./concept-invoices.md) para obter mais informações.
+O modelo de fatura predefinido extrai dados de faturas em uma variedade de formatos e retorna dados estruturados. Esse modelo extrai informações importantes, como ID da fatura, detalhes do cliente, detalhes do fornecedor, endereço para entrega, endereço para cobrança, total, imposto, subtotal, entre outros. Além disso, o modelo de fatura predefinido é treinado para analisar e retornar todo o texto e as tabelas da fatura. Confira o guia conceitual [Faturas](./concept-invoices.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="exemplo de fatura" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de Recibo Predefinido
 
-O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, do Reino Unido, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. Confira o guia conceitual [Recibos](./concept-receipts.md) para obter mais informações.
+O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, do Reino Unido, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para analisar e retornar todo o texto de um recibo. Confira o guia conceitual [Recibos](./concept-receipts.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="exemplo de recibo" lightbox="./media/overview-receipt.jpg":::
 
@@ -137,12 +138,11 @@ Você usará as APIs a seguir para treinar modelos e extrair dados estruturados 
 | **Analisar Recibo** | Analise um documento de recibo para extrair informações importantes e outros tipos de texto do recibo.|
 | **Analisar o Cartão de Visita** | Analise um cartão de visita para extrair informações e texto importantes.|
 
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
+Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
-
-# <a name="v21"></a>[v2.1](#tab/v2-1)
-Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
 
 ---
 
@@ -171,4 +171,4 @@ Assim como ocorre com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.
+Conclua um [guia de início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários na linguagem de desenvolvimento de sua escolha.

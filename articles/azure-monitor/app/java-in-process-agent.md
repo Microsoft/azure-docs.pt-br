@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745693"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008205"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -121,7 +121,7 @@ Consulte [Opções de configuração](./java-standalone-config.md) para obter de
 
 ### <a name="logs"></a>Logs
 
-* Java. util. Logging
+* java.util.logging
 * Log4J (incluindo propriedades MDC)
 * SLF4J/Logback (incluindo propriedades MDC)
 
@@ -147,7 +147,7 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
 | **Dependências**    |            |                     |  Sim    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Exibições de página**      |            |                     |  Sim    |
+| **Visualizações de página**      |            |                     |  Sim    |
 | **Solicitações**        |            |                     |  Sim    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
@@ -230,6 +230,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
@@ -322,4 +323,29 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
+```
+
+### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>Obter a ID da telemetria de solicitação e a ID da operação usando o SDK 2. x
+
+> [!NOTE]
+> Esse recurso só está no 3.0.3-BETA e posterior
+
+Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+e obtenha a ID de telemetria da solicitação e a ID da operação em seu código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
 ```

@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445227"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653893"
 ---
 # <a name="managed-hsm-access-control"></a>Controle de acesso ao HSM Gerenciado
 
@@ -63,7 +63,7 @@ A tabela a seguir mostra os pontos de extremidade para os planos de gerenciament
 | Plano de&nbsp;acesso | Pontos de extremidade de acesso | Operações | Mecanismo de controle de acesso |
 | --- | --- | --- | --- |
 | Plano de gerenciamento | **Global:**<br> management.azure.com:443<br> | Criar, ler, atualizar, excluir e mover HSMs gerenciados<br>Definir marcas HSM gerenciadas | RBAC do Azure |
-| Plano de dados | **Global:**<br> &lt;HSM-name &gt; . Vault.Azure.net:443<br> | **Chaves** : descriptografar, criptografar,<br> desencapsular, encapsular, verificar, assinar, obter, listar, atualizar, criar, importar, excluir, fazer backup, restaurar, limpar<br/><br/> **Função do plano de dados – gerenciamento (RBAC local gerenciado HSM)**_: listar definições de função, atribuir funções, excluir atribuições <br/> <br/> de função, definir funções personalizadas_ * backup/restauração **: backup, restauração, <br/> <br/> verificar status backup/restaurar operações** domínio de segurança * *: baixar e carregar domínio de segurança | RBAC local HSM gerenciado |
+| Plano de dados | **Global:**<br> &lt;HSM-name &gt; . managedhsm.Azure.net:443<br> | **Chaves**: descriptografar, criptografar,<br> desencapsular, encapsular, verificar, assinar, obter, listar, atualizar, criar, importar, excluir, fazer backup, restaurar, limpar<br/><br/> **Função do plano de dados – gerenciamento (RBAC local gerenciado HSM)**_: listar definições de função, atribuir funções, excluir atribuições <br/> <br/> de função, definir funções personalizadas_* backup/restauração **: backup, restauração, <br/> <br/> verificar status backup/restaurar operações** domínio de segurança * *: baixar e carregar domínio de segurança | RBAC local HSM gerenciado |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plano de gerenciamento e RBAC do Azure
 
@@ -71,10 +71,10 @@ No plano de gerenciamento, você usa o RBAC do Azure para autorizar as operaçõ
 
 Você cria um cofre de chaves em um grupo de recursos e gerencia o acesso usando Azure Active Directory. Conceda a usuários ou grupos a capacidade de gerenciar os cofres de chaves em um grupo de recursos. Conceda o acesso em um nível de escopo específico atribuindo funções apropriadas do Azure. Para conceder acesso a um usuário para gerenciar os cofres de chaves, atribua uma função `key vault Contributor` predefinida ao usuário em um escopo específico. Os seguintes níveis de escopos podem ser atribuídos a uma função do Azure:
 
-- **Grupo de gerenciamento** : uma função do Azure atribuída no nível de assinatura se aplica a todas as assinaturas nesse grupo de gerenciamento.
-- **Assinatura** : uma função do Azure atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
-- **Grupo de recursos** : uma função do Azure atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
-- **Recurso específico** : uma função do Azure atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
+- **Grupo de gerenciamento**: uma função do Azure atribuída no nível de assinatura se aplica a todas as assinaturas nesse grupo de gerenciamento.
+- **Assinatura**: uma função do Azure atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos dentro dessa assinatura.
+- **Grupo de recursos**: uma função do Azure atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos.
+- **Recurso específico**: uma função do Azure atribuída a um recurso específico se aplica a esse recurso. Nesse caso, o recurso é um cofre de chaves específico.
 
 Há várias funções predefinidas. Se uma função predefinida não atender às suas necessidades, você poderá definir sua própria função. Para obter mais informações, consulte [RBAC do Azure: funções internas](../../role-based-access-control/built-in-roles.md).
 
@@ -82,8 +82,8 @@ Há várias funções predefinidas. Se uma função predefinida não atender às
 
 Você concede um acesso de entidade de segurança para executar operações de chave específicas atribuindo uma função. Para cada atribuição de função, você precisa especificar uma função e um escopo sobre o qual essa atribuição se aplica. Para dois escopos de RBAC locais do HSM gerenciado estão disponíveis.
 
-- **"/" ou "/Keys"** : escopo de nível de HSM. As entidades de segurança atribuídas a uma função nesse escopo podem executar as operações definidas na função para todos os objetos (chaves) no HSM gerenciado.
-- **"/Keys/ &lt; Key-Name &gt; "** : escopo de nível de chave. As entidades de segurança atribuídas a uma função nesse escopo podem executar as operações definidas nesta função somente para todas as versões da chave especificada.
+- **"/" ou "/Keys"**: escopo de nível de HSM. As entidades de segurança atribuídas a uma função nesse escopo podem executar as operações definidas na função para todos os objetos (chaves) no HSM gerenciado.
+- **"/Keys/ &lt; Key-Name &gt; "**: escopo de nível de chave. As entidades de segurança atribuídas a uma função nesse escopo podem executar as operações definidas nesta função somente para todas as versões da chave especificada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

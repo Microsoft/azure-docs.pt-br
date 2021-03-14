@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: ed2c5b4175745fa14864b2d360bcbf5e5237a495
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4f4f53d4a20397f38b565cb73e74b01d15cc3022
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897638"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633046"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 
@@ -27,9 +27,6 @@ ms.locfileid: "98897638"
 Os Serviços de Mídia do Microsoft Azure servem para codificar vários formatos de arquivo de origem de mídia. O recurso é fornecido por meio de diferentes protocolos de streaming, com ou sem proteção de conteúdo, para alcançar todos os principais dispositivos, como iOS e Android. Esses clientes entendem os diferentes protocolos. Por exemplo, o iOS exige que os fluxos sejam entregues no formato HLS (HTTP Live Streaming), ao passo que os dispositivos Android dão suporte a HLS e a MPEG-DASH.
 
 Nos Serviços de Mídia, um [ponto de extremidade de streaming](streaming-endpoint-concept.md) (origem) representa um serviço de origem e empacotamento dinâmico (just-in-time) que pode enviar conteúdo ativo e sob demanda diretamente para um aplicativo de player do cliente. Ele usa um dos protocolos de streaming de mídia comuns mencionados na seção a seguir. O *Empacotamento dinâmico* é um recurso que vem por padrão em todos os pontos de extremidade de streaming.
-
-> [!NOTE]
-> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md) v3, exibir [ativos](assets-concept.md) v3 e obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, transformações e trabalhos), use a [API REST](/rest/api/media/), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Preparar os arquivos de origem para entrega
 

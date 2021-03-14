@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: eb01ae5e9c7e134e33460674eb2c44b710671a4a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833347"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630360"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 2101 para seus dispositivos Azure Stack Edge. Essas notas de versão são aplicáveis para o Azure Stack Edge pro GPU, o Azure Stack Edge pro R e o Azure Stack dispositivos mini R do Edge. Os recursos e problemas que correspondem a um modelo específico são chamados sempre que aplicável.
 
@@ -27,7 +29,7 @@ Este artigo se aplica à versão do **Azure Stack Edge 2101** , que é mapeada p
 
 Os novos recursos a seguir estão disponíveis na versão do Azure Stack Edge 2101. 
 
-- **Disponibilidade geral do Azure Stack Edge pro r e Azure Stack dispositivos mini r** do Edge – começando com esta versão, os dispositivos do Azure Stack Edge pro r e do Azure Stack Edge da borda estarão disponíveis. Para obter mais informações, consulte [o que é o Azure Stack Edge pro r](azure-stack-edge-j-series-overview.md) e [o que é Azure Stack a borda do Edge r](azure-stack-edge-k-series-overview.md).  
+- **Disponibilidade geral do Azure Stack Edge pro r e Azure Stack dispositivos mini r** do Edge – começando com esta versão, os dispositivos do Azure Stack Edge pro r e do Azure Stack Edge da borda estarão disponíveis. Para obter mais informações, consulte [o que é o Azure Stack Edge pro r](azure-stack-edge-pro-r-overview.md) e [o que é Azure Stack a borda do Edge r](azure-stack-edge-mini-r-overview.md).  
 - **Gerenciamento de nuvem de máquinas virtuais** -iniciando esta versão, você pode criar e gerenciar as máquinas virtuais em seu dispositivo por meio do portal do Azure. Para obter mais informações, consulte [implantar VMs por meio do portal do Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integração com o Azure monitor** – agora você pode usar Azure monitor para monitorar contêineres dos aplicativos de computação executados em seu dispositivo. Não há suporte para o repositório de métricas Azure Monitor nesta versão. Para obter mais informações, consulte como [habilitar o Azure monitor em seu dispositivo](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Registro de contêiner de borda** – nesta versão, um registro de contêiner de borda está disponível para fornecer um repositório na borda do seu dispositivo. Você pode usar esse registro para armazenar e gerenciar imagens de contêiner. Para obter mais informações, consulte [habilitar registro de contêiner de borda](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
@@ -64,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos transmitidos das ve
 |**3.**|Limitação|Durante a limitação, se novas gravações no dispositivo não forem permitidas, as gravações pelo cliente NFS falharão com um erro "permissão negada".| O erro será mostrado como abaixo:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: não é possível criar o diretório ' test ': permissão negada|
 |**4.**|Ingestão de armazenamento de BLOBs|Ao usar o AzCopy versão 10 para ingestão de armazenamento de BLOBs, execute AzCopy com o seguinte argumento: `Azcopy <other arguments> --cap-mbps 2000`| Se esses limites não forem fornecidos para AzCopy, ele poderá enviar um grande número de solicitações para o dispositivo, resultando em problemas com o serviço.|
 |**5.**|Contas de armazenamento em camadas|O seguinte se aplica ao usar contas de armazenamento em camadas:<ul><li> Somente há suporte para BLOBs de blocos. Blobs de página não têm suporte.</li><li>Não há suporte para instantâneo ou API de cópia.</li><li> Não há suporte para a ingestão de carga de trabalho do Hadoop `distcp` , pois ela usa a operação de cópia de forma intensiva.</li></ul>||
-|**6.**|Conexão de compartilhamento NFS|Se vários processos estiverem sendo copiados para o mesmo compartilhamento e o `nolock` atributo não for usado, você poderá ver erros durante a cópia.|O `nolock` atributo deve ser passado para o comando mount para copiar arquivos para o compartilhamento NFS. Por exemplo, `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**6.**|Conexão de compartilhamento NFS|Se vários processos estiverem sendo copiados para o mesmo compartilhamento e o `nolock` atributo não for usado, você poderá ver erros durante a cópia.|O `nolock` atributo deve ser passado para o comando mount para copiar arquivos para o compartilhamento NFS. Por exemplo: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Cluster do Kubernetes|Ao aplicar uma atualização em seu dispositivo que está executando um cluster kubernetes, as máquinas virtuais kubernetes serão reiniciadas e reiniciadas. Nessa instância, somente os pods implantados com réplicas especificadas são automaticamente restaurados após uma atualização.  |Se você criou pods individuais fora de um controlador de replicação sem especificar um conjunto de réplicas, esses pods não serão restaurados automaticamente após a atualização do dispositivo. Você precisará restaurar esses pods.<br>Um conjunto de réplicas substitui os pods que são excluídos ou encerrados por qualquer motivo, como falha de nó ou atualização de nó de interrupção. Por esse motivo, recomendamos que você use um conjunto de réplicas mesmo que seu aplicativo exija apenas um único Pod.|
 |**8.**|Cluster do Kubernetes|Só há suporte para kubernetes no Azure Stack Edge pro com o Helm V3 ou posterior. Para obter mais informações, acesse as perguntas frequentes [: remoção do gaveta](https://v3.helm.sh/docs/faq/).|
 |**9.**|Kubernetes habilitado para Azure Arc |Para a versão GA, o kubernetes habilitado para Arc do Azure é atualizado da versão 0.1.18 para 0.2.9. Como a atualização kubernetes habilitada para o Arc do Azure não tem suporte no dispositivo Azure Stack Edge, você precisará reimplantar o kubernetes habilitado para Arc do Azure.|Siga estas etapas:<ol><li>[Aplique o software do dispositivo e as atualizações do kubernetes](azure-stack-edge-gpu-install-update.md).</li><li>Conecte-se à [interface do PowerShell do dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Remova o agente de arco do Azure existente. Digite: `Remove-HcsKubernetesAzureArcAgent`.</li><li>Implante [o arco do Azure em um novo recurso](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Não use um recurso de arco do Azure existente.</li></ol>|

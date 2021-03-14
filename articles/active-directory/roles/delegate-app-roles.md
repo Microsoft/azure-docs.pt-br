@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071249"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051184"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -77,7 +77,7 @@ O Azure AD tem um conjunto de funções de administrador internas para conceder 
 - Administrador de Aplicativos: usuários nesta função podem criar e gerenciar todos os aspectos de aplicativos corporativos, registros de aplicativo e as configurações de proxy de aplicativo. Essa função também concede a capacidade de consentir com permissões delegadas e permissões de aplicativo, exceto Microsoft Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 - Administrador de Aplicativos de Nuvem: os usuários nesta função têm as mesmas permissões que a função de administrador do aplicativo, exceto a capacidade de gerenciar o proxy de aplicativo. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-Para obter mais informações e exibir a descrição dessas funções, consulte [funções disponíveis](permissions-reference.md#available-roles).
+Para obter mais informações e exibir a descrição dessas funções, consulte [funções internas do Azure ad](permissions-reference.md).
 
 Siga as instruções em [atribuir funções a usuários com Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) guia de instruções para atribuir as funções administrador de aplicativos ou administrador de aplicativos de nuvem.
 

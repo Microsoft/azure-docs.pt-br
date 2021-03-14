@@ -8,20 +8,20 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 18ae21c4b1348a1690818f8c07a5b3fae45102cd
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791733"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232266"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o postmaster para enviar solicitações para as APIs do Azure digital gêmeos
 
-O [postmaster](https://www.getpostman.com/) é uma ferramenta de teste REST que fornece funcionalidades de solicitação HTTP de chave em um desktop e GUI baseada em plug-in. Você pode usá-lo para criar solicitações HTTP e enviá-las para as [APIs REST do Azure digital gêmeos](how-to-use-apis-sdks.md).
+O [Postman](https://www.getpostman.com/) é uma ferramenta de testes REST que fornece importantes funcionalidades de solicitação HTTP em uma GUI baseada em plug-in e desktop. Você pode usá-lo para criar solicitações HTTP e enviá-las para as [APIs REST do Azure digital gêmeos](how-to-use-apis-sdks.md).
 
 Este artigo descreve como configurar o [cliente REST do postmaster](https://www.getpostman.com/) para interagir com as APIs do gêmeos digital do Azure, por meio das seguintes etapas:
 
-1. Use o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para obter um token de portador que será usado para fazer solicitações de API no postmaster.
+1. Use o [CLI do Azure](/cli/azure/install-azure-cli) para obter um token de portador que será usado para fazer solicitações de API no postmaster.
 1. Configure uma coleção do postmaster e configure o cliente REST do postmaster para usar o token de portador para autenticar.
 1. Use o postmaster configurado para criar e enviar uma solicitação para as APIs do Azure digital gêmeos.
 
@@ -41,9 +41,9 @@ Em seguida, baixe a versão da área de trabalho do cliente do postmaster. Naveg
 
 Agora que você configurou o postmaster e sua instância do gêmeos digital do Azure, você precisará obter um token de portador que as solicitações do postmaster podem usar para autorizar nas APIs do gêmeos digital do Azure.
 
-Há várias maneiras possíveis de obter esse token. Este artigo usa o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para entrar em sua conta do Azure e obter um token dessa maneira.
+Há várias maneiras possíveis de obter esse token. Este artigo usa o [CLI do Azure](/cli/azure/install-azure-cli) para entrar em sua conta do Azure e obter um token dessa maneira.
 
-Se você tiver um CLI do Azure [instalado localmente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), poderá iniciar um prompt de comando em seu computador para executar os comandos a seguir.
+Se você tiver um CLI do Azure [instalado localmente](/cli/azure/install-azure-cli), poderá iniciar um prompt de comando em seu computador para executar os comandos a seguir.
 Caso contrário, você pode abrir uma janela de [Azure cloud Shell](https://shell.azure.com) no navegador e executar os comandos.
 
 1. Primeiro, verifique se você está conectado ao Azure com as credenciais apropriadas, executando este comando:
@@ -52,7 +52,7 @@ Caso contrário, você pode abrir uma janela de [Azure cloud Shell](https://shel
     az login
     ```
 
-1. Em seguida, use o comando [AZ Account Get-Access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) para obter um token de portador com acesso ao serviço de gêmeos digital do Azure.
+1. Em seguida, use o comando [AZ Account Get-Access-token](/cli/azure/account#az_account_get_access_token) para obter um token de portador com acesso ao serviço de gêmeos digital do Azure. Neste comando, você passará a ID do recurso para o ponto de extremidade do serviço gêmeos digital do Azure (um valor estático de `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` ), para obter um token de acesso que possa acessar os recursos do gêmeos digital do Azure.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -140,7 +140,7 @@ Para continuar com uma consulta de exemplo, este artigo usará a API de consulta
 1. Verifique se os cabeçalhos mostrados para a solicitação na guia *cabeçalhos* correspondem aos descritos na documentação de referência. Para essa solicitação, vários cabeçalhos foram preenchidos automaticamente. Para a API de consulta, nenhuma das opções de cabeçalho é necessária, portanto, essa etapa é feita.
 1. Verifique se o corpo mostrado para a solicitação na guia *corpo* corresponde às necessidades descritas na documentação de referência. Para a API de consulta, um corpo JSON é necessário para fornecer o texto da consulta. Veja um exemplo de corpo para essa solicitação que consulta todos os gêmeos digitais na instância:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes da nova solicitação, a guia corpo é mostrada. Ele contém um corpo JSON bruto com uma consulta de ' SELECT * FROM DIGITALTWINS '."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes da nova solicitação, a guia corpo é mostrada. Ele contém um corpo JSON bruto com uma consulta de ' SELECT * FROM DIGITALTWINS '." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Para obter mais informações sobre como criar consultas do Azure digital gêmeos, consulte [*como consultar o grafo de entrelaçamento*](how-to-query-graph.md).
 

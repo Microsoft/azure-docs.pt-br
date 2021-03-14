@@ -8,21 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 03/05/2021
 ms.author: pafarley
-ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9293d47d8aade11f4cc3ee55bb32574f125dfafc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258075"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428279"
 ---
 # <a name="whats-new-in-face-service"></a>O que há de novo no serviço de Detecção Facial?
 
 O serviço de face do Azure é atualizado em uma base contínua. Use este artigo para se manter atualizado com os aprimoramentos de recursos, correções e atualizações de documentação.
 
+## <a name="february-2021"></a>Fevereiro de 2021
+
+* Novo modelo de detecção de API de Detecção Facial: o novo modelo de detecção 03 é o modelo de detecção mais preciso disponível no momento. Se você for um cliente novo, é recomendável usar esse modelo. A detecção 03 melhora a RECALL e a precisão em rostos menores encontrados nas imagens (64 x 64 pixels). Os aprimoramentos adicionais incluem uma redução geral em falsos positivos e uma detecção aprimorada em orientações de face giradas. A combinação da detecção 03 com o novo reconhecimento 04 também proporcionará maior precisão de reconhecimento. Consulte [especificar um modelo de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) para obter mais detalhes.
+* Atributo de máscara facial: o atributo de máscara facial está disponível com o modelo de detecção mais recente 03, juntamente com o atributo adicional `"noseAndMouthCovered"` que detecta se a máscara de face está gasta conforme o esperado, cobrindo o nariz e a boca. Para usar o recurso de detecção de máscara mais recente, os usuários precisam especificar o modelo de detecção na solicitação de API: atribuir a versão do modelo com o parâmetro _detectionModel_ para `detection_03` . Consulte [especificar um modelo de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) para obter mais detalhes.
+* Novo modelo de reconhecimento de API de Detecção Facial: o novo modelo de reconhecimento 04 é o modelo de reconhecimento mais preciso disponível no momento. Se você for um novo cliente, recomendamos usar esse modelo para verificação e identificação. Ele melhora a precisão do reconhecimento 03, incluindo o reconhecimento aprimorado para usuários registrados com cobertura de face (máscaras de Surgical, máscaras N95, máscaras de tecido). Agora, os clientes podem criar experiências de usuário seguras e diretas que detectam se um usuário registrado está aproveitando uma capa com o modelo de detecção mais recente 03 e reconhece quem está com o modelo mais recente de reconhecimento 04. Consulte [especificar um modelo de reconhecimento facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) para obter mais detalhes.
+
+
 ## <a name="january-2021"></a>Janeiro de 2021
-* Reduzir a latência ao usar o API de Detecção Facial: a equipe de face publicou um novo artigo detalhando possíveis causas de latência ao usar o serviço e as estratégias de mitigação possíveis. Consulte [mitigar latência ao usar o serviço de face](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+* Reduzir a latência ao usar o API de Detecção Facial: a equipe de face publicou um novo artigo detalhando possíveis causas de latência ao usar o serviço e as estratégias de mitigação possíveis. Consulte [mitigar latência ao usar o serviço de face](./face-api-how-to-topics/how-to-mitigate-latency.md).
 
 ## <a name="december-2020"></a>Dezembro de 2020
 * Configuração do cliente para o armazenamento de ID facial: embora o serviço de face não armazene imagens do cliente, os recursos de face extraídos serão armazenados no servidor. A ID de face é um identificador do recurso facial e será usado em [face-Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [facial-Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)e [face-Find semelhantes](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Os recursos de face armazenados expirarão e serão excluídos 24 horas após a chamada de detecção original. Agora, os clientes podem determinar o período de tempo em que essas IDs de face são armazenadas em cache. O valor máximo ainda é de até 24 horas, mas um valor mínimo de 60 segundos agora pode ser definido. Os novos intervalos de tempo para as IDs de face que estão sendo armazenadas em cache são qualquer valor entre 60 segundos e 24 horas. Mais detalhes podem ser encontrados na referência da API de [detecção de face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (o parâmetro *faceIdTimeToLive* ).
@@ -31,10 +38,10 @@ O serviço de face do Azure é atualizado em uma base contínua. Use este artigo
 * Publicou um exemplo de aplicativo de registro de face para demonstrar as práticas recomendadas para estabelecer um consentimento significativo e criar sistemas de reconhecimento de face de alta precisão por meio de registros de alta qualidade. O exemplo de código-fonte aberto pode ser encontrado no guia [criar um aplicativo de registro](build-enrollment-app.md) e no [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), pronto para os desenvolvedores implantarem ou personalizarem. 
 
 ## <a name="august-2020"></a>Agosto de 2020
-* Criptografia de dados gerenciada pelo cliente em repouso: o serviço de face criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia do serviço de face protege seus dados para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há uma nova opção para gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). Mais detalhes podem ser encontrados em [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+* Criptografia de dados gerenciada pelo cliente em repouso: o serviço de face criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia do serviço de face protege seus dados para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há uma nova opção para gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). Mais detalhes podem ser encontrados em [chaves gerenciadas pelo cliente](./encrypt-data-at-rest.md).
 
 ## <a name="april-2020"></a>Abril de 2020
-* Novo modelo de reconhecimento de API de Detecção Facial: o novo modelo de reconhecimento 03 é o modelo mais preciso disponível no momento. Se você for um novo cliente, recomendamos o uso desse modelo. O reconhecimento 03 fornecerá precisão aprimorada para comparações de semelhanças e comparações de correspondência de pessoas. Mais detalhes podem ser encontrados em [especificar um modelo de reconhecimento facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
+* Novo modelo de reconhecimento de API de Detecção Facial: o novo modelo de reconhecimento 03 é o modelo mais preciso disponível no momento. Se você for um novo cliente, recomendamos o uso desse modelo. O reconhecimento 03 fornecerá precisão aprimorada para comparações de semelhanças e comparações de correspondência de pessoas. Mais detalhes podem ser encontrados em [especificar um modelo de reconhecimento facial](./face-api-how-to-topics/specify-recognition-model.md).
 
 ## <a name="june-2019"></a>Junho de 2019
 

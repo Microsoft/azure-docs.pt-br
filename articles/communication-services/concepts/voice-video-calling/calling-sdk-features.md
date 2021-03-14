@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: ed56d0cf69710173d41c5262e7a3121a0cad1304
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492103"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660133"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Há duas famílias separadas de bibliotecas de clientes de chamada, para *clientes* e *serviços.* No momento, as bibliotecas de clientes disponíveis se destinam a experiências do usuário final: sites e aplicativos nativos.
 
@@ -28,35 +26,35 @@ As bibliotecas de cliente para serviços ainda não estão disponíveis e fornec
 
 A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualmente nas bibliotecas de clientes de chamada dos Serviços de Comunicação do Azure.
 
-| Grupo de recursos | Funcionalidade                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Grupo de recursos | Funcionalidade                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Principais funcionalidades | Fazer uma chamada um-para-um entre dois usuários                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Fazer uma chamada de grupo com mais de dois usuários (até 350 usuários)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Promover uma chamada de um-para-um com dois usuários em uma chamada de grupo com mais de dois usuários                                 | ✔️   | ✔️            | ✔️ 
-|                   | Ingressar em uma chamada de grupo depois que ela for iniciada                                                                              | ✔️   | ✔️            | ✔️ 
+| Principais funcionalidades | Fazer uma chamada um-para-um entre dois usuários                                                                           | ✔️   | ✔️            | ✔️
+|                   | Fazer uma chamada de grupo com mais de dois usuários (até 350 usuários)                                                       | ✔️   | ✔️            | ✔️
+|                   | Promover uma chamada de um-para-um com dois usuários em uma chamada de grupo com mais de dois usuários                                 | ✔️   | ✔️            | ✔️
+|                   | Ingressar em uma chamada de grupo depois que ela for iniciada                                                                              | ✔️   | ✔️            | ✔️
 |                   | Convidar outro participante de VoIP para ingressar em uma chamada de grupo em andamento                                                       | ✔️   | ✔️            | ✔️
-|                   | Ativar/desativar seu vídeo                                                         | ✔️   | ✔️            | ✔️ 
-|                   | Ativar/desativar mudo do microfone                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Alternar entre câmeras                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Ativar/desativar colocação em espera local                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Alto-falante ativo                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Escolher alto-falante para chamadas                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Escolher microfone para chamadas                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o estado de um participante<br/>*Ocioso, Mídia inicial, Conectando, Conectado, Em espera, No lobby, Desconectado*         | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o estado de uma chamada<br/>*Mídia inicial, Realizando, Conectando, Tocando, Conectada, Em espera, Desconectando, Desconectada* | ✔️   | ✔️            | ✔️           
-|                   | Mostrar se um participante está mudo                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Mostrar o motivo pelo qual um participante saiu de uma chamada                                                                       | ✔️   | ✔️            | ✔️     
-| Compartilhamento de tela    | Compartilhar a tela inteira de dentro do aplicativo                                                                 | ✔️   | ❌            | ❌           
-|                   | Compartilhar um aplicativo específico (na lista de aplicativos em execução)                                                | ✔️   | ❌            | ❌           
-|                   | Compartilhar uma guia do navegador da Web na lista de guias abertas                                                                  | ✔️   | ❌            | ❌           
-|                   | O participante pode exibir o compartilhamento de tela remoto                                                                            | ✔️   | ✔️            | ✔️         
-| Lista de participantes            | Listar participantes                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Remover um participante                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Fazer uma chamada um-para-um com um participante PSTN                                                                     | ✔️   | ✔️            | ✔️   
+|                   | Ativar/desativar seu vídeo                                                         | ✔️   | ✔️            | ✔️
+|                   | Ativar/desativar mudo do microfone                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Alternar entre câmeras                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Ativar/desativar colocação em espera local                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Alto-falante ativo                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Escolher alto-falante para chamadas                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Escolher microfone para chamadas                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Mostrar o estado de um participante<br/>*Ocioso, Mídia inicial, Conectando, Conectado, Em espera, No lobby, Desconectado*         | ✔️   | ✔️            | ✔️
+|                   | Mostrar o estado de uma chamada<br/>*Mídia inicial, Realizando, Conectando, Tocando, Conectada, Em espera, Desconectando, Desconectada* | ✔️   | ✔️            | ✔️
+|                   | Mostrar se um participante está mudo                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Mostrar o motivo pelo qual um participante saiu de uma chamada                                                                       | ✔️   | ✔️            | ✔️
+| Compartilhamento de tela    | Compartilhar a tela inteira de dentro do aplicativo                                                                 | ✔️   | ❌            | ❌
+|                   | Compartilhar um aplicativo específico (na lista de aplicativos em execução)                                                | ✔️   | ❌            | ❌
+|                   | Compartilhar uma guia do navegador da Web na lista de guias abertas                                                                  | ✔️   | ❌            | ❌
+|                   | O participante pode exibir o compartilhamento de tela remoto                                                                            | ✔️   | ✔️            | ✔️
+| Lista de participantes            | Listar participantes                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Remover um participante                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Fazer uma chamada um-para-um com um participante PSTN                                                                     | ✔️   | ✔️            | ✔️
 |                   | Fazer uma chamada de grupo com participantes PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promover uma chamada um-para-um com um participante PSTN em uma chamada de grupo                                                 | ✔️   | ✔️            | ✔️
-|                   | Discar de uma chamada de grupo como um participante PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Geral           | Teste o microfone, o alto-falante e a câmera com um serviço de teste de áudio (disponível chamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
+|                   | Discar de uma chamada de grupo como um participante PSTN                                                                    | ✔️   | ✔️            | ✔️
+| Geral           | Teste o microfone, o alto-falante e a câmera com um serviço de teste de áudio (disponível chamando 8:echo123)                   |  ✔️  | ✔️            | ✔️
 
 ## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Suporte para bibliotecas de clientes de Chamada ao JavaScript por SO e navegador
 
@@ -64,7 +62,7 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | Sistema operacional do iPad|
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
-| **Biblioteca de clientes de chamada** | Chrome*, novo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
+| **Biblioteca de clientes de chamada** | Chrome*, novo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Observe há suporte para a versão mais recente do Chrome, além das duas versões anteriores.<br/>
@@ -96,9 +94,10 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo |
-|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 áudio/vídeo ou 1 áudio/compartilhamento de tela | 1 áudio/vídeo |
+|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 áudio/vídeo ou 1 áudio/compartilhamento de tela| 6 áudios/vídeos ou 1 compartilhamento de tela |
 
+Observe que, em cenários de grupo, um fluxo de áudio misto é usado para dar suporte a todos os participantes de áudio.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -108,4 +107,4 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 Para obter mais informações, consulte os seguintes artigos:
 - Familiarize-se com [fluxos de chamada](../call-flows.md) gerais
 - Saiba mais sobre [tipos de chamada](../voice-video-calling/about-call-types.md)
-- [Planeje sua solução PSTN](../telephony-sms/plan-solution.md)
+- Saiba mais sobre [tipos de número de telefone](../telephony-sms/plan-solution.md)

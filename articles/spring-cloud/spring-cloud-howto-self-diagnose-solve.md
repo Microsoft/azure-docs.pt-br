@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904298"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122860"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Como diagnosticar e solucionar problemas automaticamente no Azure Spring Cloud
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
-O Azure Spring Cloud Diagnostics é uma experiência interativa para ajudá-lo a solucionar problemas de seu aplicativo. Nenhuma configuração é necessária. Quando você encontrar problemas, o Azure Spring Cloud Diagnostics indica o que está errado e o orienta a informações que ajudam a solucionar o problema.
+O Azure Spring Cloud Diagnostics é uma experiência interativa para solucionar problemas de seu aplicativo sem configuração. O diagnóstico de nuvem Spring do Azure identifica problemas e orienta você a informações que ajudam a solucionar problemas e a solucioná-los.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará:
@@ -30,7 +30,7 @@ Para concluir este tutorial, você precisará:
 ## <a name="navigate-to-the-diagnostics-page"></a>Navegue até a página de diagnóstico
 1. Entre no portal do Azure.
 2. Vá até a página **Visão geral** do Azure Spring Cloud.
-3. Abra **diagnosticar e solucionar problemas** no menu no lado esquerdo da página.
+3. Selecione **diagnosticar e resolver problemas** no painel de navegação esquerdo.
 
  ![Diagnóstico, caixa de diálogo de resolução](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 
@@ -39,7 +39,7 @@ Para encontrar um problema, você pode pesquisar digitando uma palavra-chave ou 
 
  ![Problemas de pesquisa](media/spring-cloud-diagnose/search-detectors.png)
 
-A seleção de **verificação de integridade do servidor de configuração**, status de integridade do servidor de **configuração**ou histórico de **atualização do servidor** de configuração exibirá vários resultados.
+A seleção de **verificação de integridade do servidor de configuração**, status de integridade do servidor de **configuração** ou histórico de **atualização do servidor** de configuração exibirá vários resultados.
 
 ![Opções de problemas](media/spring-cloud-diagnose/detectors-options.png)
 

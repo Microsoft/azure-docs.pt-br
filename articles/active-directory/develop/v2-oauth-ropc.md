@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752639"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174573"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e concessão de credenciais de senha de proprietário do recurso do OAuth 2.0
 
@@ -34,8 +34,9 @@ A plataforma de identidade da Microsoft dá suporte à [concessão de ROPC (cred
 > * Contas que não têm senhas não podem entrar por meio de ROPC. Para este cenário, recomendamos que você use um fluxo diferente para seu aplicativo em vez disso.
 > * Se os usuários precisarem usar a [MFA (autenticação multifator)](../authentication/concept-mfa-howitworks.md) para fazer logon no aplicativo, eles serão bloqueados em vez disso.
 > * Não há suporte para ROPC em cenários de [federação de identidade híbrida](../hybrid/whatis-fed.md) (por exemplo, Azure AD e ADFS usados para autenticar contas locais). Se os usuários forem redirecionados de página inteira para um provedor de identidade local, o Azure AD não poderá testar o nome de usuário e a senha nesse provedor de identidade. [No entanto, há suporte para a autenticação de passagem](../hybrid/how-to-connect-pta.md) com ROPC.
+> * Uma exceção a um cenário de Federação de identidade híbrida seria o seguinte: a política de descoberta de realm inicial com AllowCloudPasswordValidation definido como TRUE permitirá que o fluxo de ROPC funcione para usuários federados quando a senha local for sincronizada com a nuvem. Para obter mais informações, consulte [habilitar a autenticação direta de ROPC de usuários federados para aplicativos herdados](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
-## <a name="protocol-diagram"></a>Diagrama de protocolo
+## <a name="protocol-diagram"></a>Diagrama do protocolo
 
 O diagrama a seguir mostra o fluxo do ROPC.
 
@@ -77,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 
-O exemplo a seguir mostra uma resposta bem-sucedida do token:
+O exemplo abaixo mostra uma resposta de token bem-sucedida:
 
 ```json
 {

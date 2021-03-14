@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 13894e534dc8d6dd89baf75ea2bd3b6500b718f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650954"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551007"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenções de nomenclatura de tamanhos de máquina virtual do Azure
 
@@ -21,13 +21,14 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 ## <a name="naming-convention-explanation"></a>Explicação da Convenção de nomenclatura
 
-**[Família]**  +  **[Sub-família *]**  +  **[n º de vCPUs]**  +  **[Recursos aditivos]**  +  **[Tipo de acelerador *]**  +  **[Versão]**
+**[Família]**  +  **[Sub-família *]**  +  **[n º de vCPUs]**  +  **[VCPUs restrito *]**  +  **[Recursos aditivos]**  +  **[Tipo de acelerador *]**  +  **[Versão]**
 
 |Valor | Explicação|
 |---|---|
-| Family | Indica a série da família de VMs| 
+| Família | Indica a série da família de VMs| 
 | * Sub-família | Usado somente para diferenciações de VM especializadas|
 | n º de vCPUs| Denota o número de vCPUs da VM |
+| * VCPUs restrita| Usado somente para determinados tamanhos de VM. Denota o número de vCPUs para o [tamanho compatível com vCPU restrito](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
 | Recursos aditivos | Uma ou mais letras minúsculas denotam recursos aditivos, como: <br> a = processador baseado em AMD <br> d = disco (o disco temporário local está presente); Isso é para VMs do Azure mais novas, consulte [Ddv4 e Ddsv4-Series](./ddv4-ddsv4-series.md) <br> h = capacidade de hibernação <br> i = tamanho isolado <br> l = memória insuficiente; uma quantidade menor de memória do que o tamanho intensivo de memória <br> m = uso intensivo de memória; a maior quantidade de memória em um determinado tamanho <br> t = memória mínima; a menor quantidade de memória em um determinado tamanho <br> r = compatível com RDMA <br> s = capacidade de armazenamento Premium, incluindo o uso possível de [SSD ultra](./disks-types.md#ultra-disk) (Observação: alguns tamanhos mais recentes Sem o atributo de s ainda podem dar suporte ao armazenamento Premium, por exemplo, m128, m64, etc.)<br> |
 | * Tipo de acelerador | Denota o tipo de acelerador de hardware nas SKUs especializadas/GPU. Somente os novos SKUs especializados/GPU iniciados do T3 2020 terão o acelerador de hardware no nome. |
 | Versão | Denota a versão da série da família de VMs |
@@ -40,7 +41,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Family | M | 
+| Família | M | 
 | n º de vCPUs | 416 |
 | Recursos aditivos | m = uso intensivo de memória <br> s = capacidade de armazenamento Premium |
 | Versão | v2 |
@@ -49,7 +50,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Family | N | 
+| Família | N | 
 | Sub-família | V |
 | n º de vCPUs | 16 |
 | Recursos aditivos | a = processador baseado em AMD <br> s = capacidade de armazenamento Premium |
@@ -59,12 +60,22 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 |Valor | Explicação|
 |---|---|
-| Family | N | 
+| Família | N | 
 | Sub-família | C |
 | n º de vCPUs | 4 |
 | Recursos aditivos | a = processador baseado em AMD <br> s = capacidade de armazenamento Premium |
 | Tipo de acelerador | T4 |
 | Versão | v3 |
+
+### <a name="example-4-m8-2ms_v2-constrained-vcpu"></a>Exemplo 4: M8-2ms_v2 (vCPU restrito)
+
+|Valor | Explicação|
+|---|---|
+| Família | M | 
+| n º de vCPUs | 8 |
+| n º de vCPUs restritos (real) | 2 |
+| Recursos aditivos | m = uso intensivo de memória <br> s = capacidade de armazenamento Premium |
+| Versão | v2 |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: e051a36b3c91fadc0c3b602cb4ba8e3dbcff1294
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367124"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093481"
 ---
 # <a name="full-backup-and-restore"></a>Backup e restauração completo
 
@@ -44,9 +44,9 @@ O backup é uma operação de execução prolongada, mas que retorna imediatamen
 Enquanto o backup estiver em andamento, o HSM não poderá operar com a taxa de transferência total, pois algumas partições do HSM estarão ocupadas executando a operação de backup.
 
 ```azurecli-interactive
-# time for 30 minutes later for SAS token expiry
+# time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -84,9 +84,9 @@ Você deve fornecer as seguintes informações para executar uma restauração c
 A restauração é uma operação de execução prolongada, mas que retorna imediatamente uma ID de Trabalho. Você pode verificar o status do processo de restauração usando essa ID de Trabalho. Quando o processo de restauração estiver em andamento, o HSM entrará em modo de restauração e todos os comandos do plano de dados (exceto verificar status da restauração) serão desabilitados.
 
 ```azurecli-interactive
-#### time for 30 minutes later for SAS token expiry
+#### time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -97,7 +97,7 @@ skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mh
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions rl --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
 ```
 
-## <a name="backup-hsm"></a>Backup do HSM
+## <a name="restore-hsm"></a>Restaurar HSM
 
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860

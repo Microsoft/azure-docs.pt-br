@@ -3,12 +3,12 @@ title: Habilitar extensão de VM do portal do Azure
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida da portal do Azure.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728935"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587653"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Habilitar extensões de VM do Azure no portal do Azure
 
@@ -33,7 +33,7 @@ As extensões de VM podem ser aplicadas ao seu arco para o computador gerenciado
 
     ![Instalar Log Analytics extensão de VM](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Para concluir a instalação, é necessário fornecer a ID do espaço de trabalho e a chave primária. Se você não estiver familiarizado com a localização dessas informações, consulte [obter ID e chave do espaço de trabalho](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+    Para concluir a instalação, é necessário fornecer a ID do espaço de trabalho e a chave primária. Se você não estiver familiarizado com a localização dessas informações, consulte [obter ID e chave do espaço de trabalho](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 4. Depois de confirmar as informações necessárias fornecidas, selecione **criar**. Um resumo da implantação é exibido e você pode revisar o status da implantação.
 

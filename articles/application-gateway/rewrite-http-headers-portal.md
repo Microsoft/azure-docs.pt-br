@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708927"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescrever cabeçalhos de solicitação e resposta HTTP com Aplicativo Azure gateway-portal do Azure
 
@@ -31,17 +31,17 @@ Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas eta
 
 1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
 
-   - **Ação de regravação** : usada para especificar os campos de cabeçalho de solicitação e solicitação que você pretende reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
+   - **Ação de regravação**: usada para especificar os campos de cabeçalho de solicitação e solicitação que você pretende reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
 
-   - **Condição de regravação** : uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
+   - **Condição de regravação**: uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
 
      Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
 
-   - **Regra de regravação** : contém várias combinações de condição de ação de regravação/regravação.
+   - **Regra de regravação**: contém várias combinações de condição de ação de regravação/regravação.
 
-   - **Sequência de regras** : ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir o mesmo valor de sequência de regra a duas regras de reescrita, a ordem de execução será não determinística.
+   - **Sequência de regras**: ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir o mesmo valor de sequência de regra a duas regras de reescrita, a ordem de execução será não determinística.
 
-   - **Conjunto de regravação** : contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
+   - **Conjunto de regravação**: contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
 
 2. Anexe a regravação definida a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
 
@@ -59,7 +59,7 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
 2. Selecione **regravações** no painel esquerdo.
 
-3. Selecione **reescrever conjunto** :
+3. Selecione **reescrever conjunto**:
 
    ![Adicionar conjunto de regravação](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -85,7 +85,7 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
    - Selecione **Adicionar condição** e, em seguida, selecione a caixa que contém as instruções **If** para expandi-la.
 
-     ![Adicione uma condição](media/rewrite-http-headers-portal/add-condition.png)
+     ![Adicionar uma condição](media/rewrite-http-headers-portal/add-condition.png)
 
    - Na lista **tipo de variável a ser verificada** , selecione **cabeçalho http**.
 
@@ -95,11 +95,11 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
    - Na lista **cabeçalho comum** , selecione **local**.
 
-   - Em **diferenciação de maiúsculas e minúsculas** , selecione **não**.
+   - Em **diferenciação de maiúsculas e minúsculas**, selecione **não**.
 
    - Na lista **operador** , selecione **igual (=)**.
 
-   - Insira um padrão de expressão regular. Neste exemplo, vamos usar o padrão  `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Insira um padrão de expressão regular. Neste exemplo, vamos usar o padrão `(https?)://.*azurewebsites.net(.*)$` .
 
    - Selecione **OK**.
 
@@ -111,7 +111,7 @@ Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho
 
    - Na lista **tipo de cabeçalho** , selecione **resposta**.
 
-   - Em **nome do cabeçalho** , selecione **cabeçalho comum**.
+   - Em **nome do cabeçalho**, selecione **cabeçalho comum**.
 
    - Na lista **cabeçalho comum** , selecione **local**.
 

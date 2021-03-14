@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83ffab432be038a2fbec8672e5e0de8f5c902654
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e10413987a12b32a5f1ca507aa272bab01b20797
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880871"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094814"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Linha de base de segurança do Azure para migrações para Azure
 
@@ -196,7 +196,7 @@ Use funções internas para alocar a permissão e somente crie uma função pers
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -335,9 +335,9 @@ A Central de Segurança do Azure também pode fornecer alertas sobre algumas ati
 
 Logs de atividade, que estão disponíveis automaticamente, contêm todas as operações de gravação (PUT, POST, DELETE) para os recursos de migrações para Azure, exceto operações de leitura (GET). Os logs de atividades podem ser usados para encontrar um erro ao solucionar problemas ou para monitorar como um usuário em sua organização modificou um recurso.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -353,7 +353,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiro
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 

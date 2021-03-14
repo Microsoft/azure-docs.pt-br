@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ac90827fec65187088787971623483a96da77d7c
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862132"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016229"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -51,7 +51,7 @@ A instância de computação do Azure Machine Learning permite que você crie, t
 
 Você pode executar blocos de anotações do Jupyter no [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) usando a instância de computação como o servidor remoto sem o ssh necessário. Você também pode habilitar a integração de VS Code por meio da [extensão SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Você pode [instalar pacotes](how-to-create-manage-compute-instance.md#install-packages) e [Adicionar kernels](how-to-create-manage-compute-instance.md#add-new-kernels) à sua instância de computação.  
+Você pode [instalar pacotes](how-to-access-terminal.md#install-packages) e [Adicionar kernels](how-to-access-terminal.md#add-new-kernels) à sua instância de computação.  
 
 As ferramentas e os ambientes a seguir já estão instalados na instância de computação: 
 
@@ -77,7 +77,7 @@ As ferramentas e os ambientes a seguir já estão instalados na instância de co
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e execute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-access-terminal.md) e execute <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes do PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizado profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -132,7 +132,7 @@ Essas ações podem ser controladas pelo RBAC do Azure:
 
 Para criar uma instância de computação, você precisa ter permissões para as seguintes ações:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *Microsoft. MachineLearningServices/Workspaces/checkComputeNameAvailability/Action*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância de computação
@@ -152,7 +152,7 @@ Os núcleos dedicados por região por cota da família de VMs e a cota regional 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões de RBAC do Azure: 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0ee26e7fe74d87f7b20f9a28b049b8043b376273
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951614"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518036"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -83,7 +83,53 @@ Se um aplicativo tiver coletado dados de DOB e de país/região de maneira confi
 - Se um usuário já tiver sido determinado como adulto, atualize o atributo de diretório **ageGroup** com o valor **Adulto**.
 - Se um usuário já tiver sido determinado como menor, atualize o atributo de diretório **ageGroup** com o valor **Menor** e defina **consentProvidedForMinor** conforme o necessário.
 
-Para obter mais informações sobre a coleta de dados de DOB, confira [Use a restrição de idade no Azure AD B2C](basic-age-gating.md).
+## <a name="minor-calculation-rules"></a>Regras de cálculo secundário
+
+A restrição etária envolve dois valores de idade: a idade que alguém não é mais considerado menor e a idade em que um menor deve ter consentimento dos pais. A tabela a seguir lista as regras de idade que são usadas para definir um menor e um consentimento de autorização de menor.
+
+| País/Região | Nome do país/região | Idade de consentimento de menor | Idade menor |
+| -------------- | ------------------- | ----------------- | --------- |
+| Padrão | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
+| AT | Áustria | 14 | 18 |
+| BE | Bélgica | 14 | 18 |
+| BG | Bulgária | 16 | 18 |
+| BH | Bahrein | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
+| CY | Chipre | 16 | 18 |
+| CZ | República Tcheca | 16 | 18 |
+| DE | Alemanha | 16 | 18 |
+| DK | Dinamarca | 16 | 18 |
+| EE | Estônia | 16 | 18 |
+| EG | Egito | Nenhum | 21 |
+| ES | Espanha | 13 | 18 |
+| FR | França | 16 | 18 |
+| GB | United Kingdom | 13 | 18 |
+| GR | Grécia | 16 | 18 |
+| HR | Croácia | 16 | 18 |
+| HU | Hungria | 16 | 18 |
+| IE | Irlanda | 13 | 18 |
+| IT | Itália | 16 | 18 |
+| KR | Coreia, República da | 14 | 18 |
+| LT | Lituânia | 16 | 18 |
+| LU | Luxemburgo | 16 | 18 |
+| LV | Letônia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| NA | Namíbia | Nenhum | 21 |
+| NL | Países Baixos | 16 | 18 |
+| PL | Polônia | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Romênia | 16 | 18 |
+| SE | Suécia | 13 | 18 |
+| SG | Singapura | Nenhum | 21 |
+| SI | Eslovênia | 16 | 18 |
+| SK | Eslováquia | 16 | 18 |
+| TD | Chade | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 |
+| EUA | Estados Unidos | 13 | 18 |
+
+
 
 ## <a name="capture-terms-of-use-agreement"></a>Capturar contrato de termos de uso
 
@@ -175,5 +221,6 @@ Veja a seguir um exemplo de um consentimento de termos de uso baseado em versão
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Habilitar a retenção de idade em Azure ad B2C](age-gating.md).
 - Saiba como excluir e exportar dados do usuário em [Gerenciar dados de usuário](manage-user-data.md).
 - Para obter um exemplo de política personalizada que implementa um prompt de termos de uso, confira [Uma política personalizada IEF B2C – Inscrever-se e entrar com o prompt "Termos de uso"](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

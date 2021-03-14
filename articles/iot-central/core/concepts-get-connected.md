@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062671"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015447"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -178,7 +178,7 @@ Essa abordagem é útil quando você estiver experimentando o IoT Central ou dis
 
 ## <a name="associate-a-device-with-a-device-template"></a>Associar um dispositivo a um modelo de dispositivo
 
-IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma [ID de modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
+IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma [ID de modelo](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
 
 1. Caso modelo de dispositivo já esteja publicado no aplicativo IoT Central, o dispositivo será associado ao modelo de dispositivo.
 1. Se o modelo de dispositivo ainda não estiver publicado no aplicativo IoT Central, IoT Central procurará o modelo de dispositivo no [repositório de modelos públicos](https://github.com/Azure/iot-plugandplay-models). Se IoT Central encontrar o modelo, ele o usará para gerar um modelo de dispositivo básico.
@@ -214,10 +214,6 @@ Quando um dispositivo real se conectar ao seu aplicativo IoT Central, o status d
     - Um dispositivo foi registrado manualmente na página **Dispositivos** sem especificar o modelo de dispositivo. Em seguida, o dispositivo foi conectado com as credenciais válidas.  
 
     O operador pode associar um dispositivo a um modelo de dispositivo da página **Dispositivos** usando o botão **Migrar**.
-
-## <a name="best-practices"></a>Práticas recomendadas
-
-Não persista nem armazene em cache a cadeia de conexão do dispositivo retornada pelo DPS quando você conectar o dispositivo pela primeira vez. Para reconectar um dispositivo, percorra o fluxo de registro de dispositivo padrão para obter a cadeia de conexão de dispositivo correta. Se o dispositivo armazenar em cache a cadeia de conexão, o software do dispositivo correrá o risco de ter uma cadeia de conexão obsoleta. Se IoT Central atualizar o Hub IoT do Azure subjacente que ele usa, um dispositivo com uma cadeia de conexão obsoleta não poderá se conectar.
 
 ## <a name="sdk-support"></a>Suporte a SDK
 
@@ -267,8 +263,8 @@ Todos os dados trocados entre dispositivos e o Azure IoT Central são criptograf
 
 Se você for um desenvolvedor de dispositivos, algumas próximas etapas sugeridas são:
 
+- Examine [as práticas recomendadas](concepts-best-practices.md) para o desenvolvimento de dispositivos.
 - Examine um exemplo de código que mostra como usar tokens SAS no [tutorial: criar e conectar um aplicativo cliente ao aplicativo de IOT central do Azure](tutorial-connect-device.md)
 - Saiba como [conectar dispositivos com certificados X. 509 usando Node.js SDK do dispositivo para IOT central aplicativo](how-to-connect-devices-x509.md)
 - Saiba como [Monitorar a conectividade do dispositivo usando o CLI do Azure](./howto-monitor-devices-azure-cli.md)
-- Saiba como [Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central](./howto-set-up-template.md)
 - Leia sobre [Dispositivos do Azure IoT Edge e do Azure IoT Central](./concepts-iot-edge.md)

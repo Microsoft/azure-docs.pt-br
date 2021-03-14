@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736586"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570098"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Windows no Azure
 
@@ -86,18 +86,18 @@ Para habilite o monitoramento da VM do Azure com o Azure Monitor para VMs:
 
 3. Na página **Insights (versão prévia)** , selecione **Experimentar agora**.
 
-    ![Habilitar o Azure Monitor para VMs em uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Habilitar o Azure Monitor para VMs em uma VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. Na página **Integração de Insights do Azure Monitor**, caso você tenha um espaço de trabalho do Log Analytics existente na mesma assinatura, selecione-o na lista suspensa.  
 
     A lista selecione previamente o workspace e a localização padrão em que a VM está implantada na assinatura. 
 
     >[!NOTE]
-    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O workspace deve pertencer a uma das [regiões com suporte](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). O workspace deve pertencer a uma das [regiões com suporte](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 Depois de habilitar o monitoramento, talvez você precise aguardar vários minutos antes de poder exibir as métricas de desempenho da VM.
 
-![Habilitar o Azure Monitor para o processamento da implantação do monitoramento das VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Habilitar o Azure Monitor para o processamento da implantação do monitoramento das VMs](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Exibir métricas de desempenho da VM
 

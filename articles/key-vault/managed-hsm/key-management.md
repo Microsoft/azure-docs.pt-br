@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521026"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212035"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerenciar um HSM Gerenciado usando a CLI do Azure
 
 > [!NOTE]
-> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado** . Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
+> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado**. Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
 
 Para obter uma visão geral do HSM Gerenciado, confira [O que é o HSM Gerenciado?](overview.md)
 
@@ -30,7 +30,7 @@ Para concluir as etapas deste artigo, você precisará ter os seguintes itens:
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 * A CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-* Um HSM gerenciado na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
+* Um HSM Gerenciado na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM Gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM Gerenciado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,10 +42,10 @@ Para entrar no Azure usando a CLI, você pode digitar:
 az login
 ```
 
-Para obter mais informações sobre as opções de logon por meio da CLI, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de logon por meio da CLI, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli)
 
 > [!NOTE]
-> Todos os comandos a seguir mostram dois métodos de uso. Um que usa os parâmetros **--hsm-name** e **--name** (para nome da chave) e outro que usa o parâmetro **--id** , em que você pode especificar a URL inteira, inclusive o nome da chave, quando apropriado. O último método é útil quando o chamador (seja um usuário ou um aplicativo) não tem acesso de leitura ao plano de controle e somente acesso restrito ao plano de dados.
+> Todos os comandos a seguir mostram dois métodos de uso. Um que usa os parâmetros **--hsm-name** e **--name** (para nome da chave) e outro que usa o parâmetro **--id**, em que você pode especificar a URL inteira, inclusive o nome da chave, quando apropriado. O último método é útil quando o chamador (seja um usuário ou um aplicativo) não tem acesso de leitura ao plano de controle e somente acesso restrito ao plano de dados.
 
 ## <a name="create-an-hsm-key"></a>Criar uma chave HSM
 
@@ -69,7 +69,7 @@ Observe que a operação `get` retorna apenas a chave pública e os atributos de
 
 ### <a name="create-an-ec-key"></a>Criar uma chave do EC
 
-O exemplo a seguir mostra como criar uma chave do **EC** com curva P-256 que será usada somente para **assinar e verificar** operações (--ops) e que tem duas marcações, **usage** e **appname** . As marcações ajudam na inclusão de metadados adicionais à chave para fins de acompanhamento e gerenciamento.
+O exemplo a seguir mostra como criar uma chave do **EC** com curva P-256 que será usada somente para **assinar e verificar** operações (--ops) e que tem duas marcações, **usage** e **appname**. As marcações ajudam na inclusão de metadados adicionais à chave para fins de acompanhamento e gerenciamento.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256

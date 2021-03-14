@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021891"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716577"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Criptografia de comandos personalizados de dados em repouso
 
 Os comandos personalizados criptografam automaticamente os dados quando eles são persistidos na nuvem. A criptografia do serviço de comandos personalizados protege seus dados e para ajudá-lo a atender aos compromissos de conformidade e segurança da organização.
 
 > [!NOTE]
-> O serviço de comandos personalizados não habilita automaticamente a criptografia para os recursos LUIS associados ao seu aplicativo. Se necessário, você deve habilitar a criptografia para o recurso LUIS [aqui](./../LUIS/luis-encryption-of-data-at-rest.md).
+> O serviço de comandos personalizados não habilita automaticamente a criptografia para os recursos LUIS associados ao seu aplicativo. Se necessário, você deve habilitar a criptografia para o recurso LUIS [aqui](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas
 Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Como os dados são protegidos por padrão, você não precisa modificar seu código ou seus aplicativos para aproveitar a criptografia.

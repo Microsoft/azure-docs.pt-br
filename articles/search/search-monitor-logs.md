@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592476"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
 
@@ -25,7 +25,7 @@ Ao configurar o log de diagnóstico, você será solicitado a especificar um mec
 
 | Recurso | Usada para |
 |----------|----------|
-| [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Enviar para o workspace do Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Arquivar com armazenamento de BLOBs](../storage/blobs/storage-blobs-overview.md) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
 | [Transmitir para o Hub de eventos](../event-hubs/index.yml) | Os eventos e as métricas são transmitidos para um serviço de hubs de eventos do Azure. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 
@@ -33,7 +33,7 @@ Ao configurar o log de diagnóstico, você será solicitado a especificar um mec
 
 Crie recursos com antecedência para que você possa selecionar um ou mais ao configurar o log de diagnóstico.
 
-+ [Criar um espaço de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Criar um espaço de trabalho do log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Criar uma conta de armazenamento](../storage/common/storage-account-create.md)
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Os eventos registrados pelo Azure Monitor incluem aqueles relacionados à indexação e consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
 
-| OperationName | Descrição |
+| OperationName | Description |
 |---------------|-------------|
 | Perstats | Essa operação é uma chamada de rotina para [obter estatísticas de serviço](/rest/api/searchservice/get-service-statistics), chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando ela é carregada ou atualizada. |
 | Consulta. Search |  Solicitações de consulta em um índice consulte [monitorar consultas](search-monitor-queries.md) para obter informações sobre consultas registradas.|

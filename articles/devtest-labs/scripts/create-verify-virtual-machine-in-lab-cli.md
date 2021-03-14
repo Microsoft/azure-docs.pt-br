@@ -4,12 +4,12 @@ description: Esse script de CLI do Azure cria uma máquina virtual em um laborat
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: b64b6fa13bd0d320707dc279cb554d5c23f1d80d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7625f62d7897d61903f864b216ccf9aa13648ea
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136160"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198414"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Use a CLI do Azure para criar e verificar a disponibilidade de uma máquina virtual em um laboratório no Azure DevTest Labs
 
@@ -38,8 +38,8 @@ Este script usa os seguintes comandos:
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az lab vm create](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Cria uma VM (máquina virtual) em um laboratório. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Exibe o status da VM em um laboratório. |
+| [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create) | Cria uma VM (máquina virtual) em um laboratório. |
+| [az lab vm show](/cli/azure/lab/vm#az-lab-vm-show) | Exibe o status da VM em um laboratório. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

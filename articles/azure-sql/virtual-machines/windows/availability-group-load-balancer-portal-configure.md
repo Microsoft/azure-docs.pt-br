@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359380"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096422"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurar um balanceador de carga para um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure
 
@@ -76,7 +76,7 @@ Primeiro, crie o balanceador de carga.
    | **Rede virtual** |Selecione a rede virtual na qual estão as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede na qual estão as instâncias do SQL Server. |
    | **Atribuição de endereço IP** |**Estático** |
-   | **Endereço IP privado** |Especifique um endereço IP disponível na sub-rede. Você usa esse endereço IP ao criar um ouvinte no cluster. Em um script do PowerShell posterior neste artigo, use esse endereço para a variável `$ILBIP`. |
+   | **Endereço IP privado** |Especifique um endereço IP disponível na sub-rede. Você usa esse endereço IP ao criar um ouvinte no cluster. Em um script do PowerShell posterior neste artigo, use esse endereço para a variável `$ListenerILBIP`. |
    | **Assinatura** |Se você tiver várias assinaturas, este campo poderá aparecer. Selecione a assinatura que você deseja associar a esse recurso. Normalmente, trata-se da mesma assinatura de todos os recursos do grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos no qual estão as instâncias do SQL Server. |
    | **Localidade** |Selecione o local do Azure no qual estão as instâncias do SQL Server. |
@@ -249,7 +249,7 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 10. Configure a nova regra de balanceamento de carga usando as seguintes configurações:
 
-    |Setting |Valor
+    |Configuração |Valor
     |:-----|:----
     |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
     |**Endereço IP de front-end** |Selecione o endereço IP que você criou. 

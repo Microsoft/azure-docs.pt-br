@@ -3,25 +3,27 @@ title: Usar marcas de índice de BLOB para gerenciar e localizar dados no armaze
 description: Consulte exemplos de como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95541242"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563261"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usar marcas de índice de BLOB (versão prévia) para gerenciar e localizar dados no armazenamento de BLOBs do Azure
 
 Marcas de índice de blob categorizam dados em sua conta de armazenamento usando atributos de marca de chave-valor. Essas marcas são indexadas e expostas automaticamente como um índice multidimensional pesquisável para localizar dados facilmente. Este artigo mostra como definir, obter e localizar dados usando marcas de índice de blob.
 
-> [!NOTE]
-> O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central**, **leste do Canadá**, **França central** e **França sul** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, consulte [gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
+> [!IMPORTANT]
+> As marcas de índice de blob estão atualmente em **Visualização** e estão disponíveis em todas as regiões públicas. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+
+Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, consulte [gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257178"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687236"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257178"
 
 Este artigo descreve como configurar a Federação direta com outra organização para colaboração B2B. Você pode configurar a Federação direta com qualquer organização cujo IdP (provedor de identidade) dê suporte ao protocolo SAML 2.0 ou WS-Fed.
 Quando você configura a federação direta com o IdP de um parceiro, novos usuários convidados desse domínio podem usar as respectivas contas institucionais gerenciada pelo IdP para entrar no seu locatário do Azure AD e começar a colaborar com você. Não é necessário que o usuário convidado crie uma conta do Azure AD separada.
-> [!NOTE]
-> Os usuários convidados da federação direta precisam entrar usando um link que inclua o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio padrão verificado, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados da federação direta não conseguem entrar usando pontos de extremidade comuns sem contexto do locatário. Por exemplo, usar `https://myapps.microsoft.com`, `https://portal.azure.com` ou `https://teams.microsoft.com` resultará em um erro.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando um usuário convidado é autenticado com a federação direta?
 Após você configurar a federação direta com uma organização, todos os novos usuários convidados que você convidar serão autenticados usando a federação direta. É importante observar que a configuração da federação direta não altera o método de autenticação para usuários convidados que já resgataram um convite de você. Estes são alguns exemplos:
  - Se os usuários convidados já tiverem resgatado convites de você e você configurar posteriormente a federação direta com a organização deles, esses usuários convidados continuarão a usar o mesmo método de autenticação usado antes de você configurar a federação direta.
@@ -42,10 +40,22 @@ A federação direta está vinculada a namespaces de domínio, como contoso.com 
 ## <a name="end-user-experience"></a>Experiência do usuário final 
 Com a federação direta, os usuários convidados usam as respectivas contas organizacionais para entrar em seu locatário do Azure AD. Quando eles acessam recursos compartilhados e recebem uma solicitação para entrar, cada um dos usuários de federação direta é redirecionado para o respectivo IdP. Após a entrada bem-sucedida, eles são retornados ao Azure AD para acessar recursos. Os tokens de atualização dos usuários de federação direta são válidos por 12 horas, o [comprimento padrão para o token de atualização de passagem](../develop/active-directory-configurable-token-lifetimes.md#exceptions) no Azure AD. Se o IdP federado tiver o SSO habilitado, o usuário vivenciará o SSO e não verá nenhum prompt de entrada após a autenticação inicial.
 
+## <a name="sign-in-endpoints"></a>Pontos de extremidade de entrada
+
+Os usuários convidados da Federação direta agora podem entrar em seus aplicativos internos multilocatários ou da Microsoft usando um [ponto de extremidade comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (em outras palavras, uma URL de aplicativo geral que não inclui o contexto do locatário). Durante o processo de entrada, o usuário convidado escolhe **as opções de entrada** e, em seguida, seleciona **entrar em uma organização**. Em seguida, o usuário digita o nome da sua organização e continua entrando usando suas próprias credenciais.
+
+Os usuários convidados de Federação direta também podem usar pontos de extremidade de aplicativo que incluem suas informações de locatário, por exemplo:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Você também pode dar aos usuários convidados de Federação direta um link direto para um aplicativo ou recurso, incluindo suas informações de locatário, por exemplo `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
+
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados por DNS no Azure AD
-O domínio com o qual você deseja federar deve ***não** _ ser verificado pelo DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
+O domínio com o qual você deseja federar ***não*** pode ser verificado por DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio da URL de autenticação corresponde ao domínio de destino ou onde a URL de autenticação é um desses provedores de identidade permitidos (essa lista está sujeita a alterações):
@@ -60,7 +70,7 @@ A federação direta só é permitida para políticas em que o domínio da URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao configurar a Federação direta para _ * fabrikam. com * *, a URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
+Por exemplo, ao configurar a federação direta para **fabrikam.com**, a URL de autenticação `https://fabrikam.com/adfs` passará na validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
 
 ### <a name="signing-certificate-renewal"></a>Renovação de certificado de autenticação
 Se você especificar a URL de metadados nas configurações do provedor de identidade, o Azure AD renovará automaticamente o certificado de autenticação quando ele expirar. No entanto, se a rotação do certificado for realizada por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-lo. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
@@ -147,7 +157,7 @@ Em seguida, você vai configurar a federação com o provedor de identidade conf
 
 1. Vá para o [Portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Confira **Identidades Externas** > **Todos os provedores de identidade**.
-3. Selecione e, em seguida, selecione **novo IDP SAML/WS-Enalimentado**.
+3. Selecione **novo IDP SAML/WS-Enalimentado**.
 
     ![Captura de tela mostrando o botão para adicionar um novo IdP de SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

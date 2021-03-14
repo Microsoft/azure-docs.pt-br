@@ -1,26 +1,19 @@
 ---
 title: Extensão de máquina virtual de dependência Azure Monitor para Windows
 description: Implante o Azure Monitor agente de dependência na máquina virtual do Windows usando uma extensão de máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 82edc70befb7fce95869b238d26c9154ec999c7b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.collection: windows
+ms.date: 03/29/2019
+ms.openlocfilehash: 429cc01f466c55283985729c3395bb2137e38fa6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966829"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566288"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência Azure Monitor para Windows
 
@@ -28,7 +21,7 @@ O recurso Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependen
 
 ## <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
+A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

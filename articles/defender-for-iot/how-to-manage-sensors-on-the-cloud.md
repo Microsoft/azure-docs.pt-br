@@ -1,20 +1,20 @@
 ---
-title: Carregar e gerenciar sensores no portal do defender para IoT
+title: Integração e gerenciamento de sensores e assinaturas no portal do defender para IoT
 description: Saiba como carregar, exibir e gerenciar sensores no portal do defender para IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733254"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Carregar e gerenciar sensores no portal do defender para IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Integração e gerenciamento de sensores e assinaturas no portal do defender para IoT
 
 Este artigo descreve como carregar, exibir e gerenciar sensores no [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -52,12 +52,10 @@ Para baixar um arquivo de ativação:
 
 ## <a name="view-onboarded-sensors"></a>Exibir sensores integrados
 
-No [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), você pode exibir informações básicas sobre sensores integrados. 
+No [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), você pode exibir informações básicas sobre sensores integrados.
 
 1. Selecione **sites e sensores**.
-1. Na página **sites e sensores** , use as ferramentas de filtro e pesquisa para encontrar informações de sensor de que você precisa.
-
-As informações disponíveis incluem:
+1. Use as ferramentas de filtro e pesquisa para encontrar informações de inteligência de sensor e ameaça que você precisa.
 
 - Quantos sensores foram integrados
 - O número de sensores que são conectados à nuvem e gerenciados localmente
@@ -68,32 +66,40 @@ As informações disponíveis incluem:
 
 Use o [defender para o portal de IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) para tarefas de gerenciamento relacionadas a sensores.
 
-### <a name="export"></a>Exportação
+Sensores integrados podem ser exibidos na página **sites e sensores** . Você também pode editar informações de sensor nesta página.
+
+### <a name="export-sensor-details"></a>Detalhes do sensor de exportação
 
 Para exportar informações de sensor integrado, selecione o ícone **Exportar** na parte superior da página **sites e sensores** .
 
-### <a name="edit"></a>Editar
+### <a name="edit-sensor-zone-details"></a>Editar detalhes da zona do sensor
 
-Use as ferramentas de edição de **sites e sensores** para adicionar e editar o nome, a zona e as marcas do site.
+Use as opções de edição **sites e sensores** para editar o nome do sensor e a zona.
 
-### <a name="delete"></a>Excluir
+Para editar:
+
+1. Selecione as **reticências** (**...**) para o sensor que você deseja editar.
+1. Selecione **Editar**.
+1. Atualize a zona do sensor ou crie uma nova zona.
+
+### <a name="delete-a-sensor"></a>Excluir um sensor
 
 Se você excluir um sensor conectado à nuvem, as informações não serão enviadas para o Hub IoT. Exclua os sensores conectados localmente quando você não estiver mais trabalhando com eles.
 
 Para excluir um sensor:
 
-1. Selecione as reticências (**...**) para o sensor que você deseja excluir. 
+1. Selecione as reticências (**...**) para o sensor que você deseja excluir.
 1. Confirme a exclusão.
 
-### <a name="reactivate"></a>Reativar
+### <a name="reactivate-a-sensor"></a>Reativar um sensor 
 
-Talvez você queira atualizar o modo no qual o sensor é gerenciado. Por exemplo:
+Talvez seja necessário reativar o sensor porque você deseja:
 
-- **Trabalhar no modo conectado à nuvem em vez de no modo gerenciado localmente**: para fazer isso, atualize o arquivo de ativação para o sensor conectado localmente com um arquivo de ativação para um sensor conectado à nuvem. Após a reativação, as detecções do sensor são exibidas no sensor e no [defender para o portal de IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Depois que o arquivo de reativação for carregado com êxito, as informações de alerta recém detectadas serão enviadas para o Azure.
+- **Trabalhar no modo conectado à nuvem em vez de no modo gerenciado localmente**: após a reativação, as detecções de sensor são exibidas no sensor e as informações de alerta recém detectadas são entregues por meio do Hub IOT. Essas informações podem ser compartilhadas com outros serviços do Azure, como o Azure Sentinel.
 
-- **Trabalhar no modo conectado localmente em vez do modo conectado à nuvem**: para fazer isso, atualize o arquivo de ativação para um sensor conectado à nuvem com um arquivo de ativação para um sensor gerenciado localmente. Após a reativação, as informações de detecção de sensor são exibidas apenas no sensor.
+- **Trabalhar no modo gerenciado localmente em vez de no modo conectado à nuvem**: após a reativação, as informações de detecção de sensor são exibidas apenas no sensor.
 
-- **Associar o sensor a um novo hub IOT**: para fazer isso, registre novamente o sensor e carregue um novo arquivo de ativação.
+- **Associar o sensor a um novo hub IOT**: para fazer isso, registre novamente o sensor com um novo hub e, em seguida, baixe um novo arquivo de ativação.
 
 Para reativar um sensor:
 
@@ -103,19 +109,37 @@ Para reativar um sensor:
 
 3. Exclua o sensor.
 
-4. Integre o sensor novamente da página de **integração** no modo novo ou com um novo hub IOT.
+4. Integre o sensor novamente no novo modo ou com um novo hub IoT selecionando **um sensor** na página Introdução.
 
-5. Baixe o arquivo de ativação na página **baixar arquivo de ativação** .
+5. Baixe o arquivo de ativação.
 
-6. Entre no console do sensor do defender para IoT.
+1. Entre no console do sensor do defender para IoT.
 
 7. No console do sensor, selecione **configurações do sistema** e, em seguida, selecione **reativação**.
 
    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Carregue o arquivo de ativação para reativar o sensor.":::
 
-8. Selecione **carregar** e selecione o arquivo que você salvou.
+8. Selecione **carregar** e selecione o arquivo que você salvou na página sensor integrado.
 
-9. Selecione **Ativar**. 
+9. Selecione **Ativar**.
+
+## <a name="offboard-a-subscription"></a>Transferir uma assinatura
+
+As assinaturas são gerenciadas mensalmente. Quando você transferir uma assinatura, você será cobrado por essa assinatura até o fim do mês. 
+
+Desinstale todos os sensores associados à assinatura antes de remover a assinatura. Para obter mais informações sobre como excluir um sensor, consulte [excluir um sensor](#delete-a-sensor). 
+
+Para transferir uma assinatura:
+
+1. Navegue até a página de **preços** .
+1. Selecione a assinatura e, em seguida, selecione o ícone **excluir** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. No pop-up de confirmação, marque a caixa de seleção para confirmar que você excluiu todos os sensores associados à assinatura.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Marque a caixa de seleção e selecione transferir para transferir seu sensor.":::
+
+1. Selecione o botão **transferir** . 
+
+O ambiente local não é afetado, mas você deve desinstalar o sensor do ambiente local ou reatribuir o sensor a outra assinatura, de modo a impedir que todos os dados relacionados fluam para o console de gerenciamento local. 
 
 ## <a name="see-also"></a>Confira também
 

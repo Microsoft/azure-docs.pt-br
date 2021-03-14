@@ -1,23 +1,19 @@
 ---
 title: Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 description: Descreve como processar volumes grandes de dados em um pipeline do Azure Data Factory usando a capacidade de processamento paralelo do Lote do Azure.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 365de79db450eda897621ccde3b92478ed93ecc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730857"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -579,9 +575,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
    d. Digite o URI do lote para a propriedade JSON **batchUri** .
 
       > [!IMPORTANT]
-      > A URL da folha **conta do lote** está no seguinte formato: \<accountname\> . \<region\> . batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover a88"accountname."** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > A URL da folha **conta do lote** está no seguinte formato: `<accountname>.<region>.batch.azure.com` . Para a `batchUri` propriedade no script JSON, você precisa remover `<accountname>.` da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Folha Conta do Lote](./media/data-factory-data-processing-using-batch/image9.png)
 

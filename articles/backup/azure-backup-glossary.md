@@ -3,12 +3,12 @@ title: Glossário do backup do Azure
 description: Este artigo define os termos úteis para uso com o backup do Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723907"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502018"
 ---
 # <a name="azure-backup-glossary"></a>Glossário do backup do Azure
 
@@ -299,6 +299,18 @@ Faz backup de arquivos do sistema operacional. Esse backup permite que você rec
 ## <a name="tenant"></a>Locatário
 
 Um locatário é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um desenvolvedor de aplicativos recebe ao criar uma relação com a Microsoft, como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
+
+## <a name="tier"></a>Camada
+
+Atualmente, o backup do Azure dá suporte às seguintes camadas de armazenamento de backup:
+
+### <a name="snapshot-tier"></a>Camada de instantâneo
+
+(Termo específico da carga de trabalho) Na primeira fase do backup de VM, o instantâneo tirado é armazenado junto com o disco. Essa forma de armazenamento é conhecida como camada de instantâneo. Restaurações de camada de instantâneo são mais rápidas (que a restauração de um cofre) porque eliminam o tempo de espera para que os instantâneos sejam copiados do cofre antes de disparar a operação de restauração.
+
+### <a name="vault-standard-tier"></a>Camada de Vault-Standard
+
+Os dados de backup para todas as cargas de trabalho com suporte do backup do Azure são armazenados em cofres que mantêm o armazenamento de backup, um conjunto de dimensionamento automático de contas de armazenamento gerenciadas pelo backup do Azure. A camada de Vault-Standard é uma camada de armazenamento online que permite armazenar uma cópia isolada dos dados de backup em um locatário gerenciado da Microsoft, criando assim uma camada adicional de proteção. Para cargas de trabalho em que a camada de instantâneo tem suporte, há uma cópia dos dados de backup na camada de instantâneo e na camada padrão do cofre. Cofre-a camada padrão garante que os dados de backup estejam disponíveis, mesmo que o backup da fonte seja excluída ou comprometida.
 
 ## <a name="unmanaged-disk"></a>Disco não gerenciado
 

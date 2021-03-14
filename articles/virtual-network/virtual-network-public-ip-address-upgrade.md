@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493712"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522879"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -36,7 +36,7 @@ Os cenários a seguir são revisados neste artigo:
 Para atualizar um IP público, ele não deve ser associado a nenhum recurso (consulte [esta página](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) para obter mais informações sobre como desassociar IPS públicos).
 
 >[!IMPORTANT]
->Os IPs públicos atualizados do SKU básico para o Standard continuam sem [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Isso significa que eles não podem ser associados a um recurso do Azure que seja com redundância de zona ou vinculado a uma zona predefinida em regiões onde isso é oferecido.
+>Os IPs públicos atualizados do SKU básico para o Standard continuam sem [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)garantidas.  Verifique se isso é mantido em mente ao escolher a quais recursos associar o endereço IP.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**Básico para Standard-PowerShell**](#tab/option-upgrade-powershell)

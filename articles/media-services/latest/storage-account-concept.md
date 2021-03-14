@@ -36,13 +36,13 @@ Para proteger seus ativos em repouso, os ativos devem ser criptografados pela cr
 |---|---|---|
 |Criptografia de armazenamento dos serviços de mídia| Criptografia AES-256, chave gerenciada pelos serviços de mídia. |Sem suporte. <sup>1</sup>|
 |[Criptografia do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte.|
-|[Criptografia do lado do cliente de armazenamento](../../storage/common/storage-client-side-encryption.md)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não há suporte.|
+|[Criptografia do lado do cliente de armazenamento](../../storage/common/storage-client-side-encryption.md)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Sem suporte.|
 
 <sup>1</sup> no Media Services V3, a criptografia de armazenamento (criptografia AES-256) tem suporte apenas para compatibilidade com versões anteriores quando seus ativos foram criados com os serviços de mídia v2, o que significa que o V3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
 
 ## <a name="storage-account-double-encryption"></a>Criptografia dupla da conta de armazenamento
 
-As contas de armazenamento dão suporte à criptografia dupla, mas a segunda camada deve ser habilitada explicitamente. Consulte [criptografia de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+As contas de armazenamento dão suporte à criptografia dupla, mas a segunda camada deve ser habilitada explicitamente. Consulte [criptografia de armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Erros de conta de armazenamento
 

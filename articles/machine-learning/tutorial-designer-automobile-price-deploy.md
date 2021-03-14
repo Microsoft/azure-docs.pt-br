@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246461"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576051"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implantar um modelo de machine learning com o designer
 
 
-Você poderá implantar o modelo preditivo desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros uma chance de usá-lo. Na primeira parte, você treinou seu modelo. Agora é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você:
+Você poderá implantar o modelo preditivo desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros uma chance de usá-lo. Na primeira parte, você treinou seu modelo. Agora é hora de gerar previsões com base na entrada de usuário. Nesta parte do tutorial, você:
 
 > [!div class="checklist"]
 > * Criará um pipeline de inferência em tempo real.
@@ -122,17 +122,19 @@ Após o provisionamento do serviço do AKS, volte para o pipeline de inferência
 > Implante também a **ACI** (Instância de Contêiner do Azure) se você selecionar **Instância de Contêiner do Azure** em **Tipo de computação** na caixa configuração de ponto de extremidade em tempo real.
 > A Instância de Contêiner do Azure é usada para teste ou desenvolvimento. Use a ACI para cargas de trabalho baseadas em CPU de baixa escala que exigem menos de 48 GB de RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Ver o ponto de extremidade em tempo real
+## <a name="test-the-real-time-endpoint"></a>Testar o ponto de extremidade em tempo real
 
 Após a conclusão da implantação, veja o ponto de extremidade em tempo real acessando a página **Pontos de extremidade**.
 
 1. Na página **Pontos de extremidade**, selecione o ponto de extremidade implantado.
 
-1. Na guia **Detalhes**, você pode ver mais informações, como o URI REST, o status e as marcas.
+    Na guia **Detalhes**, você pode ver mais informações, como o URI REST, a definição do Swagger, o status e as marcas.
 
-1. Na guia **Consumir**, você pode encontrar chaves de segurança e definir métodos de autenticação.
+    Na guia **Consumir**, você pode encontrar um código de consumo de exemplos, chaves de segurança e definir métodos de autenticação.
 
-1. Na guia **Logs de implantação**, encontre os logs de implantação detalhados do ponto de extremidade em tempo real. 
+    Na guia **Logs de implantação**, encontre os logs de implantação detalhados do ponto de extremidade em tempo real.
+
+1. Para testar o seu ponto de extremidade, acesse a guia **Testar**. Nela, você pode inserir os dados de teste e selecionar **Testar** para verificar a saída do seu ponto de extremidade.
 
 Para obter mais informações sobre como consumir seu serviço Web, confira [Consumir um modelo implantado como um webservice](how-to-consume-web-service.md)
 

@@ -3,15 +3,15 @@ title: Políticas de integração do Dapr de gerenciamento de API do Azure | Mic
 description: Saiba mais sobre as políticas de gerenciamento de API do Azure para interagir com extensões de microserviços do Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560232"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646802"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração do Dapr de gerenciamento de API
 
@@ -45,21 +45,21 @@ template:
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Enviar solicitação para um serviço
 
-Essa política define a URL de destino para a solicitação atual para `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}` Substituir parâmetros de modelo por valores especificados na instrução de política.
+Essa política define a URL de destino para a solicitação atual para `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}` Substituir parâmetros de modelo por valores especificados na instrução de política.
 
 A política pressupõe que Dapr é executado em um contêiner sidecar no mesmo Pod que o gateway. Após o recebimento da solicitação, o tempo de execução do Dapr executa a descoberta de serviço e a invocação real, incluindo a possível conversão de protocolo entre HTTP e gRPC, novas tentativas, rastreamento distribuído e tratamento de erros.
 
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### <a name="examples"></a>Exemplos
 
 #### <a name="example"></a>Exemplo
 
-O exemplo a seguir demonstra como invocar o método chamado "Back" no microserviço chamado "Echo". A `set-backend-service` política define a URL de destino. A `forward-request` política despacha a solicitação para o tempo de execução Dapr, que a entrega para o microserviço.
+O exemplo a seguir demonstra como invocar o método chamado "Back" no microserviço chamado "Echo". A `set-backend-service` política define a URL de destino como `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back` . A `forward-request` política despacha a solicitação para o tempo de execução Dapr, que a entrega para o microserviço.
 
 A `forward-request` política é mostrada aqui para fins de clareza. A política é normalmente "herdada" do escopo global por meio da `base` palavra-chave.
 
@@ -67,7 +67,7 @@ A `forward-request` política é mostrada aqui para fins de clareza. A política
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -92,8 +92,9 @@ A `forward-request` política é mostrada aqui para fins de clareza. A política
 | Atributo        | Descrição                     | Obrigatório | Padrão |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Deve ser definido como "dapr"           | Sim      | N/D     |
-| dapr-ID do aplicativo      | Nome do microserviço de destino. Mapeia para o parâmetro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Sim | N/D |
+| dapr-ID do aplicativo      | Nome do microserviço de destino. Usado para formar o parâmetro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Sim | N/D |
 | dapr-método      | Nome do método ou uma URL a ser invocada no microserviço de destino. Mapeia para o parâmetro [Method-Name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Sim | N/D |
+| dapr-namespace   | Nome do namespace no qual o microserviço de destino reside. Usado para formar o parâmetro [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Não | N/D |
 
 ### <a name="usage"></a>Uso
 

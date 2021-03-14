@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
-ms.openlocfilehash: 6c144f33f32422e27916e1987e0b2e8693f97945
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 952be09662c2c74f883d63de72bba2b9cb58d0e0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656437"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553979"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportar os certificados do emulador Azure Cosmos DB para uso com aplicativos Java, Python e Node.js
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Você precisa exportar o certificado do emulador para usar com êxito o ponto de
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Etapa 3 de exportação do emulador local do Azure Cosmos DB":::
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Etapa 4 de exportação do emulador local do Azure Cosmos DB":::
 
@@ -67,7 +67,7 @@ Você precisa exportar o certificado do emulador para usar com êxito o ponto de
 
 Ao executar aplicativos Java ou aplicativos MongoDB que usam um cliente baseado em Java, é mais fácil instalar o certificado no repositório de certificados Java padrão do que passar os `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` sinalizadores. Por exemplo, o aplicativo de demonstração Java incluído ( `https://localhost:8081/_explorer/index.html` ) depende do repositório de certificados padrão.
 
-Siga as instruções em [adicionando um certificado ao repositório de certificados Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) para importar o certificado X. 509 para o repositório de certificados Java padrão. Tenha em mente que você trabalhará no diretório *% JAVA_HOME%* ao executar a ferramenta de keytool. Depois que o certificado for importado para o repositório de certificados, os clientes para SQL e a API do Azure Cosmos DB para MongoDB poderão se conectar ao emulador de Azure Cosmos DB.
+Siga as instruções em [adicionando um certificado ao repositório de certificados Java](https://docs.oracle.com/cd/E54932_01/doc.705/e54936/cssg_create_ssl_cert.htm) para importar o certificado X. 509 para o repositório de certificados Java padrão. Tenha em mente que você trabalhará no diretório *% JAVA_HOME%* ao executar a ferramenta de keytool. Depois que o certificado for importado para o repositório de certificados, os clientes para SQL e a API do Azure Cosmos DB para MongoDB poderão se conectar ao emulador de Azure Cosmos DB.
 
 Como alternativa, você pode executar o script bash a seguir para importar o certificado:
 

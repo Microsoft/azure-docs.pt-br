@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Enviar notificações por push para todos os registros (SDK versão 1.0.0-preview1)
+            - name: Enviar notificações por push para todos os registros (SDK atual)
               href: android-sdk.md
-            - name: Enviar notificações por push para todos os registros (SDK versão 0.6)
+            - name: Enviar notificações por push para todos os registros (SDK herdado)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Enviar notificações por push para dispositivos específicos
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Pré-requisitos para tutoriais do iOS
               href: ios-sdk-get-started.md
-            - name: Objective-C (versão 3.0.0-preview1)
-              href: ios-sdk-300.md
-            - name: Objective-C (versão 2.0.4)
-              href: ios-sdk-204.md
+            - name: Objective-C (SDK atual)
+              href: ios-sdk-current.md
+            - name: Objective-C (SDK herdado)
+              href: ios-sdk-legacy.md
         - name: Enviar notificações por push para dispositivos específicos
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Enviar notificações por push para usuários específicos
@@ -120,7 +120,7 @@
     - name: Criar hub de notificação usando SDKs
       items:
         - name: Criar hub de notificação - .NET
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+          href: /dotnet/api/overview/azure/notification-hubs
         - name: Criar hub de notificação - Node.js
           href: notification-hubs-nodejs-push-notification-tutorial.md
         - name: Criar hub de notificação - Java
@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Usar o VOIP do APNS por meio de Hubs de Notificação
       href: voip-apns.md
+    - name: Habilitar logs de diagnóstico para os Hubs de Notificação
+      href: notification-hubs-diagnostic-logs.md
 - name: Referência
   items:
     - name: .NET

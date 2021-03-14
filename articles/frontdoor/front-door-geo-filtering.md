@@ -13,18 +13,19 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33ad17e3024011368c909a89e9164ca06d044bad
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612075"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtragem geográfica em um domínio para a porta frontal do Azure
 
 Por padrão, a porta frontal do Azure responderá a todas as solicitações de usuário, independentemente do local de origem da solicitação. Em alguns cenários, talvez você queira restringir o acesso ao seu aplicativo Web por países/regiões. O serviço WAF (firewall do aplicativo Web) na porta frontal permite que você defina uma política usando regras de acesso personalizadas para um caminho específico em seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política de WAF contém um conjunto de regras personalizadas. A regra consiste em condições de correspondência, em uma ação e em uma prioridade. Em uma condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geográfica, uma variável de correspondência é REMOTE_ADDR, o operador é geocorrespondente e o valor é um código de país/região de duas letras de interesse. Você pode combinar uma condição de correspondência geográfica e uma condição de correspondência de cadeia de caracteres de REQUEST_URI para criar uma regra de filtro geográfico baseada em caminho.
+Uma política de WAF contém um conjunto de regras personalizadas. A regra consiste em condições de correspondência, em uma ação e em uma prioridade. Em uma condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geográfica, uma variável de correspondência é REMOTE_ADDR, o operador é geocorrespondente e o valor é um código de país/região de duas letras de interesse. O código do país "ZZ" ou o país "desconhecido" captura endereços IP que ainda não foram mapeados para um país em nosso conjunto de nossos conjuntos de nossos. Você pode adicionar ZZ à sua condição de correspondência para evitar falsos positivos. Você pode combinar uma condição de correspondência geográfica e uma condição de correspondência de cadeia de caracteres de REQUEST_URI para criar uma regra de filtro geográfico baseada em caminho. 
+
 
 Você pode configurar uma política de filtragem geográfica para sua porta frontal usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando um modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
@@ -213,4 +214,4 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba o que é possível para [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).
+- Saiba como [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).

@@ -4,12 +4,12 @@ description: Alerta para alterações incomuns na taxa de solicitações com fal
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f4de3aaba4acf86df37048134089326196e87ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510627"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587548"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](./app-insights-overview.md) alertará você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Nas solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudar você na triagem e no diagnóstico do problema, uma análise das características das falhas e dados relacionados do aplicativo são fornecidos nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -31,7 +31,7 @@ Os detalhes do alerta informarão:
 * Vincula diretamente às pesquisas relevantes nos dados do Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Benefícios da Detecção Inteligente
-Os [alertas de métrica](../platform/alerts-log.md) comuns mostram que pode haver um problema. Mas a Detecção Inteligente inicia o trabalho de diagnóstico para você, executando grande parte da análise que, de outra forma, você teria de fazer por conta própria. Você obtém os resultados empacotados organizadamente, o que ajuda a chegar rapidamente à raiz do problema.
+Os [alertas de métrica](../alerts/alerts-log.md) comuns mostram que pode haver um problema. Mas a Detecção Inteligente inicia o trabalho de diagnóstico para você, executando grande parte da análise que, de outra forma, você teria de fazer por conta própria. Você obtém os resultados empacotados organizadamente, o que ajuda a chegar rapidamente à raiz do problema.
 
 ## <a name="how-it-works"></a>Como ele funciona
 A Detecção Inteligente monitora os dados recebidos do aplicativo, especialmente as taxas de falha. Essa regra calcula o número de solicitações para o qual o `Successful request` propriedade for false, e o número de dependência chamadas para o qual o `Successful call` propriedade é false. Para as solicitações, por padrão, `Successful request == (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](./api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](./api-custom-events-metrics.md#trackrequest)). 
@@ -48,7 +48,7 @@ Quando seu serviço conta com essas chamadas, o analisador procura uma exceção
 
 A análise resultante é enviada como um alerta, a menos que você tenha configurado para isso não acontecer.
 
-Assim como acontece com os [alertas definidos manualmente](../platform/alerts-log.md), você pode inspecionar o estado do alerta acionado, que poderá ser resolvido se o problema for corrigido. Configure as regras de alerta na página Alertas do recurso do Application Insights. Mas, ao contrário de outros alertas, você não precisa configurar a Detecção Inteligente. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
+Assim como acontece com os [alertas definidos manualmente](../alerts/alerts-log.md), você pode inspecionar o estado do alerta acionado, que poderá ser resolvido se o problema for corrigido. Configure as regras de alerta na página Alertas do recurso do Application Insights. Mas, ao contrário de outros alertas, você não precisa configurar a Detecção Inteligente. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
 
 ### <a name="alert-logic-details"></a>Detalhes da lógica de alerta
 
@@ -64,11 +64,11 @@ Os alertas são acionados por nosso algoritmo patenteado de machine learning, po
 
 Você pode desabilitar a regra de alerta de Detecção Inteligente no portal ou usando o Azure Resource Manager ([consulte o exemplo de modelo](./proactive-arm-config.md)).
 
-Essa regra de alerta é criada com um [grupo de ações](../platform/action-groups.md) associado, chamado "Detecção Inteligente do Application Insights", que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta for acionado.
+Essa regra de alerta é criada com um [grupo de ações](../alerts/action-groups.md) associado, chamado "Detecção Inteligente do Application Insights", que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta for acionado.
 
 > [!NOTE]
 > As notificações por email enviadas por essa regra de alerta agora, por padrão, são enviadas aos usuários associados a funções de leitor de monitoramento e colaborador de monitoramento da assinatura. Saiba mais sobre esse assunto [aqui](./proactive-email-notification.md).
-> As notificações enviadas por essa regra de alerta seguem o [esquema de alerta comum](../platform/alerts-common-schema.md).
+> As notificações enviadas por essa regra de alerta seguem o [esquema de alerta comum](../alerts/alerts-common-schema.md).
 >
 
 Abra a página Alertas. As regras de alerta de anomalias de falha são incluídas com todos os alertas que você definiu manualmente e é possível ver se está em estado de alerta no momento.
@@ -410,7 +410,7 @@ Clique em **Alertas** na página de recursos do Application Insights para obter 
 ## <a name="whats-the-difference-"></a>Qual é a diferença...
 A Detecção Inteligente de anomalias de falha complementa outros recursos distintos, mas parecidos, do Application Insights.
 
-* os [alertas de métrica](../platform/alerts-log.md) são definidos por você e podem monitorar uma ampla gama de métricas, como ocupação de CPU, taxas de solicitação, tempos de carregamento de página e assim por diante. Você pode usá-los para receber um aviso, por exemplo, se precisar adicionar mais recursos. Por outro lado, a Detecção Inteligente de anomalias de falha cobre um pequeno grupo de métricas essenciais (atualmente, apenas a taxa de solicitações com falha), projetadas para notificar você quase em tempo real quando a taxa de solicitações com falha de seu aplicativo Web aumenta, em comparação com o comportamento normal do aplicativo Web. Diferentemente dos alertas de métrica, a Detecção Inteligente define e atualiza automaticamente os limites nas alterações de resposta do comportamento. A Detecção Inteligente também inicia o trabalho de diagnóstico para você, economizando tempo na resolução de problemas.
+* os [alertas de métrica](../alerts/alerts-log.md) são definidos por você e podem monitorar uma ampla gama de métricas, como ocupação de CPU, taxas de solicitação, tempos de carregamento de página e assim por diante. Você pode usá-los para receber um aviso, por exemplo, se precisar adicionar mais recursos. Por outro lado, a Detecção Inteligente de anomalias de falha cobre um pequeno grupo de métricas essenciais (atualmente, apenas a taxa de solicitações com falha), projetadas para notificar você quase em tempo real quando a taxa de solicitações com falha de seu aplicativo Web aumenta, em comparação com o comportamento normal do aplicativo Web. Diferentemente dos alertas de métrica, a Detecção Inteligente define e atualiza automaticamente os limites nas alterações de resposta do comportamento. A Detecção Inteligente também inicia o trabalho de diagnóstico para você, economizando tempo na resolução de problemas.
 
 * A [Detecção Inteligente de anomalias de desempenho](proactive-performance-diagnostics.md) também usa a inteligência de máquina para descobrir padrões incomuns em suas métricas, sem qualquer necessidade de configuração da sua parte. Mas diferentemente da Detecção Inteligente de anomalias de falha, a finalidade da Detecção Inteligente de anomalias de desempenho é encontrar segmentos de sua coleção de uso com mau serviço, por exemplo, por páginas específicas em um tipo específico de navegador. A análise é realizada diariamente e, se qualquer resultado for encontrado, provavelmente será muito menos urgente do que um alerta. Por outro lado, a análise de anomalias de falha é feita continuamente com os dados recebidos do aplicativo. Você receberá uma notificação em questão de minutos se as taxas de falha do servidor forem maiores do que o esperado.
 
@@ -441,16 +441,16 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 
 *Alguns dos alertas são sobre problemas conhecidos e não quero recebê-los.*
 
-* Você pode usar o recurso de supressão de [regras de ação de alerta](../platform/alerts-action-rules.md).
+* Você pode usar o recurso de supressão de [regras de ação de alerta](../alerts/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Estas ferramentas de diagnóstico ajudam você a inspecionar os dados do seu aplicativo:
 
-* [Metrics explorer](../platform/metrics-charts.md)
+* [Metrics explorer](../essentials/metrics-charts.md)
 * [Gerenciador de pesquisa](./diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](../log-query/log-analytics-tutorial.md)
+* [Analytics - linguagem de consulta poderosa](../logs/log-analytics-tutorial.md)
 
 As detecções inteligentes são automáticas. Mas talvez você queira configurar alguns outros alertas?
 
-* [Alertas de métrica configurados manualmente](../platform/alerts-log.md)
+* [Alertas de métrica configurados manualmente](../alerts/alerts-log.md)
 * [Testes de disponibilidade na Web](./monitor-web-app-availability.md)

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936362"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518034"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ As [políticas personalizadas](custom-policy-overview.md) são arquivos de confi
 - Se ainda não tiver um, você precisará [criar um locatário do Azure AD B2C](tutorial-create-tenant.md) que esteja vinculado à sua assinatura do Azure.
 - [Registre seu aplicativo](tutorial-register-applications.md) no locatário que você criou para que ele possa se comunicar com Azure AD B2C.
 - Conclua as etapas em [Configurar a inscrição e entrada com a conta do Facebook](identity-provider-facebook.md) para configurar um aplicativo do Facebook. Embora não seja necessário um aplicativo do Facebook para o uso de políticas personalizadas, é usado neste tutorial para demonstrar a habilitação do logon social em uma política personalizada.
+
+> [!TIP]
+> Este artigo explica como configurar seu locatário manualmente. Você pode automatizar todo o processo deste artigo. A automação implantará o Azure AD B2C o [pacote de início do SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), que fornecerá as jornadas de inscrição e entrada, redefinição de senha e edição de perfil. Para automatizar o passo a passos abaixo, visite o [aplicativo de instalação do IEF](https://aka.ms/iefsetup) e siga as instruções.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e de assinatura
 
@@ -111,7 +115,7 @@ Em seguida, exponha a API adicionando um escopo:
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
 1. No menu à esquerda, em **Gerenciar**, selecione **Autenticação**.
-1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
+1. Em **Configurações avançadas**, na seção **permitir fluxos de cliente público** , defina **habilitar os seguintes fluxos móveis e de área de trabalho** para **Sim**. Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
 Agora conceda permissões ao escopo da API que você expôs anteriormente no registro de *IdentityExperienceFramework*:

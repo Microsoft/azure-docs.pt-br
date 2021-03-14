@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 12951f25feb6f3710b8d35fbc682caeeb480e788
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555609"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -164,4 +164,4 @@ Neste tutorial, você aprendeu a:
 > * Atualizar o exemplo para usar o aplicativo
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar provedores de identidade aos aplicativos no Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C](add-identity-provider.md)

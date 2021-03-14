@@ -3,20 +3,25 @@ title: Configurar permissões de serviço do construtor de imagem do Azure usand
 description: Configurar requisitos para o serviço do construtor de imagem de VM do Azure, incluindo permissões e privilégios usando o PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 4f617d680b42a2bb7590cf5aaed657c0469f811d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882409"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440200"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configurar permissões de serviço do construtor de imagem do Azure usando o PowerShell
 
-O serviço do construtor de imagens do Azure requer a configuração de permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando o PowerShell.
+Quando você se registra no (AIB), o serviço AIB recebe permissão para criar, gerenciar e excluir um grupo de recursos de preparo (IT_*), bem como direitos para adicionar a ele recursos necessários para o build da imagem. Para que isso ocorra, um SPN (nome da entidade de serviço) do AIB é disponibilizado em sua assinatura durante um registro bem-sucedido.
+
+Para permitir que o Construtor de Imagens de VM do Azure distribua imagens para as imagens gerenciadas ou para uma Galeria de Imagens Compartilhadas, você precisará criar uma identidade atribuída pelo usuário do Azure que tenha permissões para ler e gravar imagens. Se você estiver acessando o armazenamento do Azure, isso precisará de permissões para ler contêineres privados ou públicos.
+
+Você deve configurar permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando o PowerShell.
 
 > [!IMPORTANT]
 > O Construtor de Imagens do Azure está atualmente em versão prévia pública.
@@ -133,7 +138,7 @@ $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $role_definition="aibRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
@@ -181,7 +186,7 @@ $res_group = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $role_definition="aibRoleNetworking.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing

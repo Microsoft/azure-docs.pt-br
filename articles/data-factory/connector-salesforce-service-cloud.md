@@ -1,22 +1,18 @@
 ---
 title: Copiar dados de e para a nuvem do serviço Salesforce
 description: Saiba como copiar dados da nuvem do serviço Salesforce para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para a nuvem do serviço Salesforce usando uma atividade de cópia em um pipeline data factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2021
-ms.openlocfilehash: 91ab6ca1350a1c6964daeae401bf7b08c6b1cd91
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4075552e2070eba653fba54c7db1d021016644c7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430757"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369757"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
 
@@ -285,14 +281,14 @@ Para consultar os registros com exclusão reversível da lixeira da nuvem do ser
 
 Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL ou a consulta SQL. Note que as duas têm suporte diferente de sintaxe e funcionalidade, não combine-as. É recomendável usar a consulta SOQL, que tem suporte nativo da nuvem do serviço Salesforce. A tabela a seguir lista as principais diferenças:
 
-| Sintaxe | Modo SOQL | Modo SQL |
+| Syntax | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
 | Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
 | Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
+| Relationship | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
@@ -313,9 +309,9 @@ Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeament
 |:--- |:--- |
 | Numeração automática |String |
 | Caixa de seleção |Boolean |
-| Moeda |Decimal |
+| Currency |Decimal |
 | Data |Datetime |
-| Data/Hora |DateTime |
+| Data/Hora |Datetime |
 | Email |String |
 | ID |String |
 | Relação de pesquisa |String |

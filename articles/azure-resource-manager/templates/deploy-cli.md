@@ -1,20 +1,20 @@
 ---
 title: Implantar recursos com CLI do Azure e modelo
-description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
+description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager ou em um arquivo bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/04/2021
+ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881292"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521689"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
-Este artigo explica como usar CLI do Azure com modelos de Azure Resource Manager (modelos ARM) para implantar seus recursos no Azure. Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de suas soluções do Azure, consulte [visão geral da implantação de modelo](overview.md).
+Este artigo explica como usar CLI do Azure com modelos de Azure Resource Manager (modelos ARM) ou arquivos bicep para implantar seus recursos no Azure. Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de suas soluções do Azure, consulte [visão geral da implantação de modelo](overview.md) ou [visão geral do bicep](bicep-overview.md).
 
-Os comandos de implantação foram alterados no CLI do Azure versão 2.2.0. Os exemplos neste artigo exigem CLI do Azure versão 2.2.0 ou posterior.
+Os comandos de implantação foram alterados no CLI do Azure versão 2.2.0. Os exemplos neste artigo exigem CLI do Azure versão 2.2.0 ou posterior. Para implantar arquivos bicep, você precisa [CLI do Azure versão 2.20.0 ou posterior](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,13 +27,13 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 * Para implantar em um **grupo de recursos**, use [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
 * Para implantar em uma **assinatura**, use [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template>
+  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para saber mais sobre as implantações de nível de assinatura, confira [Criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
@@ -41,7 +41,7 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 * Para implantar em um **grupo de gerenciamento**, use [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template>
+  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para saber mais sobre implantações de nível de grupo de gerenciamento, confira [Criar recursos no nível de grupo de gerenciamento](deploy-to-management-group.md).
@@ -49,14 +49,14 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 * Para implantar em um **locatário**, use [AZ Deployment locatário Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template>
+  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para saber mais sobre implantações de nível de locatário, confira [Criar recursos no nível de locatário](deploy-to-tenant.md).
 
-Para cada escopo, o usuário que está implantando o modelo deve ter as permissões necessárias para criar recursos.
+Para cada escopo, o usuário que está implantando o modelo ou o arquivo bicep deve ter as permissões necessárias para criar recursos.
 
-## <a name="deploy-local-template"></a>Implantar o modelo local
+## <a name="deploy-local-template-or-bicep-file"></a>Implantar modelo local ou arquivo bicep
 
 Você pode implantar um modelo de seu computador local ou um que esteja armazenado externamente. Esta seção descreve a implantação de um modelo local.
 
@@ -66,13 +66,13 @@ Se você estiver implantando em um grupo de recursos que não existe, crie o gru
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Para implantar um modelo local, use o `--template-file` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro proveniente do modelo.
+Para implantar um modelo local ou arquivo bicep, use o `--template-file` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file azuredeploy.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,6 +83,9 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 ```
 
 ## <a name="deploy-remote-template"></a>Implantar modelo remoto
+
+> [!NOTE]
+> Atualmente, CLI do Azure não dá suporte à implantação de arquivos bicep remotos. Para implantar um arquivo bicep remoto, use a CLI bicep para compilar o arquivo bicep em um modelo JSON primeiro.
 
 Em vez de armazenar modelos de ARM em seu computador local, você pode preferir armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
 
@@ -106,7 +109,7 @@ O exemplo anterior requer um URI acessível publicamente para o modelo, que func
 
 Para implantar modelos vinculados remotos com o caminho relativo que são armazenados em uma conta de armazenamento, use `query-string` para especificar o token SAS:
 
-```azurepowershell
+```azurecli-interactive
 az deployment group create \
   --name linkedTemplateWithRelativePath \
   --resource-group myResourceGroup \
@@ -143,6 +146,9 @@ Ao especificar um nome exclusivo para cada implantação, você pode executá-lo
 Para evitar conflitos com implantações simultâneas e para garantir entradas exclusivas no histórico de implantação, dê a cada implantação um nome exclusivo.
 
 ## <a name="deploy-template-spec"></a>Implantar especificação de modelo
+
+> [!NOTE]
+> Atualmente, CLI do Azure não dá suporte à criação de especificações de modelo ao fornecer arquivos bicep. No entanto, você pode criar um arquivo bicep com o recurso [Microsoft. Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implantar uma especificação de modelo. Aqui está um [exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
@@ -186,7 +192,7 @@ Para passar parâmetros embutidos, forneça os valores em `parameters`. Por exem
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -197,7 +203,7 @@ Você também pode obter o conteúdo do arquivo e fornecer esse conteúdo como u
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -236,7 +242,7 @@ Use aspas duplas em volta do JSON que você deseja passar para o objeto.
 
 ### <a name="parameter-files"></a>Arquivos de parâmetros
 
-Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro deve ser um arquivo local. Não há suporte para arquivos de parâmetro externos com a CLI do Azure.
+Em vez de passar parâmetros como valores embutidos no script, talvez seja mais fácil usar um arquivo JSON que contenha os valores de parâmetro. O arquivo de parâmetro deve ser um arquivo local. Não há suporte para arquivos de parâmetro externos com a CLI do Azure. O modelo de ARM e o arquivo bicep usam arquivos de parâmetro JSON.
 
 Para saber mais sobre o arquivo de parâmetro, confira [Criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 
@@ -274,7 +280,7 @@ Para implantar um modelo com cadeias de caracteres de várias linhas ou comentá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para reverter para uma implantação bem-sucedida quando você receber um erro, confira [Reverter em caso de erro para uma implantação bem-sucedida](rollback-on-error.md).
-- Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
-- Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
-- Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+* Para reverter para uma implantação bem-sucedida quando você receber um erro, confira [Reverter em caso de erro para uma implantação bem-sucedida](rollback-on-error.md).
+* Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).
+* Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).

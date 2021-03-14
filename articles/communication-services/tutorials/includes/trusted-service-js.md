@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: a16846b8859f93a2d376691115e4b2dd0a7163b6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 6790335e5aa63f515cd125f31a8ccd7877132c10
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633461"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661318"
 ---
 ## <a name="download-code"></a>Código de download
 
@@ -23,8 +23,8 @@ Encontre o código finalizado para este guia de início rápido no [GitHub](http
 
 - Uma conta do Azure com uma assinatura ativa. Para obter detalhes, confira [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) em uma das [plataformas compatíveis](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), versões Active LTS e versões LTS de manutenção (10.14.1 recomendada). Use o comando `node --version` para verificar sua versão. 
-- A [Extensão Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code. 
+- [Node.js](https://nodejs.org/), versões Active LTS e versões LTS de manutenção (10.14.1 recomendada). Use o comando `node --version` para verificar sua versão.
+- A [Extensão Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code.
 - Um recurso e uma cadeia de conexão ativos dos Serviços de Comunicação. [Crie um recurso dos Serviços de Comunicação](../../quickstarts/create-communication-resource.md).
 
 ## <a name="overview"></a>Visão geral
@@ -74,13 +74,13 @@ Agora, vamos continuar instalando as bibliotecas dos Serviços de Comunicação 
 
 ### <a name="install-communication-services-libraries"></a>Instalar bibliotecas dos serviços de comunicação
 
-Usaremos a biblioteca `Administration` para gerar `User Access Tokens`.
+Usaremos a biblioteca `Identity` para gerar `User Access Tokens`.
 
-Use o comando `npm install` para instalar a biblioteca de clientes da Administração dos Serviços de Comunicação do Azure para JavaScript.
+Use o comando `npm install` para instalar a biblioteca de clientes da Identidade dos Serviços de Comunicação do Azure para JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -89,7 +89,7 @@ A opção `--save` lista a biblioteca como uma dependência no arquivo **package
 Na parte superior do arquivo `index.js`, importe a interface para o `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## <a name="access-token-generation"></a>Geração de token de acesso
@@ -102,7 +102,7 @@ Acesse o [guia de início rápido provisionamento de recursos](../../quickstarts
 const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 ```
 
-Em seguida, modificaremos a função original para gerar `User Access Tokens`. 
+Em seguida, modificaremos a função original para gerar `User Access Tokens`.
 
 `User Access Tokens` são gerados criando um usuário pelo método `createUser`. Depois que o usuário é criado, podemos usar o método `issueToken` para gerar um token para ele, que a função do Azure retorna.
 
@@ -136,7 +136,7 @@ Abra a URL no navegador e veja um corpo da resposta com a ID de usuário de comu
 
 Para implantar sua Função do Azure, siga as [instruções passo a passo](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
-Em geral, você precisará:
+Em resumo, você precisará:
 1. Entrar no Azure por meio do Visual Studio
 2. Publicar seu projeto em sua conta do Azure. Aqui, você precisará escolher uma assinatura existente.
 3. Crie um recurso de Função do Azure usando o assistente do Visual Studio ou use um recurso existente. Para um novo recurso, será necessário configurá-lo para a região, o runtime e o identificador exclusivo desejados.

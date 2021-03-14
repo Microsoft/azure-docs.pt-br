@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do DB2 com o Azure Data Factory
 description: Saiba como copiar dados do DB2 para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638186"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381113"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -79,10 +74,10 @@ Propriedades típicas dentro da cadeia de conexão:
 |:--- |:--- |:--- |
 | Servidor |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`.<br>O conector de DB2 utiliza o protocolo DDM/DRDA e, por padrão, usa a porta 50000 caso não seja especificada. A porta que seu banco de dados DB2 específico usa pode ser diferente com base na versão e nas configurações, por exemplo, para DB2 LUW, a porta padrão é 50000, para AS400, a porta padrão é 446 ou 448 quando o TLS está habilitado. Confira os seguintes documentos do DB2 sobre como a porta é configurada normalmente: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) e [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Sim |
 | Banco de Dados |Nome do banco de dados DB2. |Sim |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica** . |Sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
 | Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
 | password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| packageCollection | Especifique onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados. Se isso não estiver definido, o Data Factory usará o {nome de usuário} como valor padrão. | Não |
+| packageCollection    | Especifique onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados. Se isso não estiver definido, o Data Factory usará o {nome de usuário} como valor padrão. | Não |
 | certificateCommonName | Ao usar a criptografia do Protocolo SSL ou do Protocolo TLS, insira um valor para o nome comum do Certificado. | Não |
 
 > [!TIP]

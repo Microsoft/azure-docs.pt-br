@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 59ef34f9d6d42277d8e83bf4e0ebb8ee29096f52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566680"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096847"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Conectar o servidor HTTP do Apache ao Azure Sentinel
 
@@ -37,7 +37,7 @@ Este artigo explica como conectar seu servidor HTTP do Apache ao Azure Sentinel.
 
 ## <a name="configure-and-integrate-apache-http-server-logs-via-log-analytics-agent"></a>Configurar e integrar logs do Apache HTTP Server via agente de Log Analytics
 
-Configure o local dos arquivos de log do Apache HTTP Server para encaminhar dados para o espaço de trabalho do Azure por meio do agente de Log Analytics.
+Configure o Apache HTTP Server para enviar arquivos de log para seu espaço de trabalho do Azure por meio do agente de Log Analytics.
 Configurar o agente de Log Analytics para ler arquivos de log do Apache HTTP Server.
 
 1. Siga as instruções em https://httpd.apache.org/docs/2.4/logs.html para configurar o local dos arquivos de log no Apache HTTP Server.

@@ -6,29 +6,25 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: f77c16f16ddac01329a8315893021767a4120295
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608683"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179231"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
 
 >[!NOTE]
 >A atualização do sistema operacional é responsabilidade do cliente, o suporte às operações da Microsoft pode orientá-lo nas principais áreas a serem observadas durante a atualização. Antes de planejar uma atualização, você deve consultar o fornecedor do sistema operacional.
-
-> [!NOTE]
-> Este artigo contém referências ao termo lista de *bloqueios*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Durante o provisionamento de unidade de HLI, a equipe de operações da Microsoft instala o sistema operacional.
 Ao longo do tempo, você deverá manter o sistema operacional (exemplo: patches, ajustes, atualizações etc.) na unidade HLI.
@@ -69,6 +65,8 @@ A configuração do sistema operacional pode descompasso das configurações rec
   |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
   |   SuSE        |  SLES 12 SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
+  |   Red Hat     |  RHEL 7.6               |   3.2.3 i           |  3.1.137.5   |   2.0.0.50   |
+  |   Red Hat     |  RHEL 7.6               |   4.1.1 b           |  4.0.0.8     |   2.0.0.60   |
  
 
 ### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Comandos para atualização de driver e limpar pacotes de RPM antigos

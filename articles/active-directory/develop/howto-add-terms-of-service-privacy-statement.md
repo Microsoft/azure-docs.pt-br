@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013661"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104188"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
@@ -58,11 +58,11 @@ Quando os termos de serviço e a declaração de privacidade estiverem prontos, 
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Usando o portal do Azure
 Siga estas etapas na portal do Azure.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, selecione o locatário correto do AZUREAD (não B2C).
-2. Navegue até a seção **Registros de aplicativo** e selecione seu aplicativo.
-3. Abra o painel de **identidade visual** .
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e selecione o locatário do Azure ad correto (não B2C).
+2. Navegue até a seção **registros de aplicativo** e selecione seu aplicativo.
+3. Em **gerenciar**, selecione **identidade visual**.
 4. Preencha os campos da **URL de termos de serviço** e **Política de privacidade**.
-5. Salve as alterações.
+5. Clique em **Salvar**.
 
     ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
@@ -73,7 +73,7 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
 1. Navegando até a seção **registros de aplicativo** e selecionando seu aplicativo.
 2. Abra o painel **manifesto** .
 3. Ctrl + F, pesquise "informationalUrls". Preencha as informações.
-4. Salve as alterações.
+4. Salve suas alterações.
 
 ```json
     "informationalUrls": { 

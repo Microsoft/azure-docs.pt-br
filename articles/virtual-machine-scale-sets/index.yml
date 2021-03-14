@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 6fd995fbedafaf91ef98389e556286be218227a8
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 36cb4644dae82802f93e7f6c654005b58d877c20
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87088964"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101672709"
 landingContent:
 - title: Saiba mais sobre os conjuntos de dimensionamento de máquinas virtuais
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Modos de orquestração
+      url: virtual-machine-scale-sets-orchestration-modes.md
     - text: Política de redução horizontal
       url: virtual-machine-scale-sets-scale-in-policy.md
     - text: Encerrar notificação

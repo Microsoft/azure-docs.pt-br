@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738694"
 ---
 # <a name="msix-app-attach-faq"></a>Perguntas frequentes sobre anexação de aplicativo MSIX
 
@@ -61,7 +61,7 @@ Todas as VMs (máquinas virtuais) em um pool de hosts que usa o anexo de aplicat
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Posso usar o anexo de aplicativo MSIX para HTTP ou HTTPs?
 
-Todas as VMs que fazem parte de um pool de hosts que usa o anexo de aplicativo MSIX devem ter permissões de leitura no compartilhamento de arquivos em que as imagens MSIX são armazenadas. Se os arquivos do Azure estiverem sendo usados as permissões de RBAC e NTFS devem ser concedidas.
+Não há suporte para o uso do MSIX app Attach via HTTP ou HTTPs no momento.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Posso descansar o mesmo aplicativo MSIX?
 
@@ -69,7 +69,7 @@ Sim. Você pode colocar os aplicativos que já foram repreparados e isso não de
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>O MSIX app Attach dá suporte a certificados autoassinados?
 
-Não há suporte para o uso do MSIX app Attach via HTTP ou HTTPs no momento.
+Sim. Você precisa instalar o certificado autoassinado em todas as VMs de host de sessão em que o MSIX app Attach é usado para hospedar o aplicativo autoassinado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

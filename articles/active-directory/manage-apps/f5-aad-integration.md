@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730564"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499791"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>F5 BIG-IP Access Policy Manager e Azure Active Directory integração para acesso híbrido seguro
 
@@ -38,7 +38,7 @@ Ter o acesso de pré-autenticação do Azure AD aos serviços publicados BIG-IP 
 
 - [Detecção de credenciais vazadas](../identity-protection/concept-identity-protection-risks.md)
 
-- [SSPR (redefinição de senha de autoatendimento)](../authentication/tutorial-enable-sspr.md)
+- [SSPR (redefinição de senha por autoatendimento)](../authentication/tutorial-enable-sspr.md)
 
 - [Colaboração do parceiro](../governance/entitlement-management-external-users.md) – gerenciamento de direitos para acesso de convidado controlado
 

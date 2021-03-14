@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166466"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653825"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gerenciar a camada de acesso padrão de uma conta de armazenamento do Azure
 
-Cada conta de armazenamento do Azure tem uma camada de acesso padrão, Hot, fria ou arquivo morto. Você atribui a camada de acesso ao criar uma conta de armazenamento. A camada de acesso padrão é quente.
+Cada conta de armazenamento do Azure tem uma camada de acesso padrão, seja quente ou fria. Você atribui a camada de acesso ao criar uma conta de armazenamento. A camada de acesso padrão é quente.
 
 Você pode alterar a camada de conta padrão definindo o atributo **camada de acesso** na conta de armazenamento. A alteração da camada de conta aplica-se a todos os objetos armazenados na conta que não têm um conjunto de camadas explícita. Alternar a camada de conta de operações de gravação quentes para frias (por 10.000) para todos os BLOBs sem uma camada de conjunto somente nas contas GPv2 e alternar de fria para quente incorre em operações de leitura (por 10.000) e de recuperação de dados (por GB) para todos os BLOBs no armazenamento de BLOBs e contas de GPv2.
 

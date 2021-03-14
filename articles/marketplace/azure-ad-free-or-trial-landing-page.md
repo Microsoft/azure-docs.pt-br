@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348348"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559283"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Crie a página de aterrissagem para sua oferta de SaaS gratuita ou de avaliação no Marketplace comercial
 
@@ -51,7 +51,7 @@ A primeira etapa para usar a identidade é verificar se sua página de aterrissa
 
 Para começar, siga as instruções para [registrar um novo aplicativo](../active-directory/develop/quickstart-register-app.md). Para permitir que os usuários de outras empresas visitem o aplicativo, você deve escolher **contas em qualquer diretório organizacional (qualquer diretório do Azure ad — multilocatário) e contas pessoais da Microsoft (como o Skype ou o Xbox)** quando perguntado quem pode usar o aplicativo.
 
-Se você pretende consultar a API de Microsoft Graph, [configure seu novo aplicativo para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Quando você seleciona as permissões de API para esse aplicativo, o padrão de **User. Read** é suficiente para coletar informações básicas sobre o usuário para tornar o processo de integração suave e automático. Não solicite nenhuma permissão de API rotulada **precisa de consentimento do administrador** , pois isso impedirá que todos os usuários não administradores visitem sua página de aterrissagem.
+Se você pretende consultar a API de Microsoft Graph, [configure seu novo aplicativo para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Quando você seleciona as permissões de API para esse aplicativo, o padrão de **User. Read** é suficiente para coletar informações básicas sobre o usuário para tornar o processo de integração suave e automático. Não solicite nenhuma permissão de API rotulada **precisa de consentimento do administrador**, pois isso impedirá que todos os usuários não administradores visitem sua página de aterrissagem.
 
 Se você exigir permissões elevadas como parte de seu processo de integração ou de provisionamento, considere usar a funcionalidade de [consentimento incremental](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) do Azure ad para que todos os usuários enviados do Marketplace possam interagir inicialmente com a página de aterrissagem.
 
@@ -59,7 +59,7 @@ Se você exigir permissões elevadas como parte de seu processo de integração 
 
 A Microsoft forneceu vários aplicativos de exemplo que implementam um site simples com o logon do Azure AD habilitado. Depois que o aplicativo é registrado no Azure AD, a folha **início rápido** oferece uma lista de tipos de aplicativos e pilhas de desenvolvimento comuns (Figura 1). Escolha aquele que corresponda ao seu ambiente e siga as instruções para baixar e configurar.
 
-**_Figura 1: folha de início rápido na portal do Azure_* _
+***Figura 1: folha de início rápido no portal do Azure***
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Ilustra a folha de início rápido no portal do Azure.":::
 
@@ -82,7 +82,7 @@ Como parte do fluxo do [OpenID Connect](../active-directory/develop/v2-protocols
 
 ## <a name="use-the-microsoft-graph-api"></a>Usar a API do Microsoft Graph
 
-O token de ID contém informações básicas para identificar o usuário, mas seu processo de ativação pode exigir detalhes adicionais, como a empresa do usuário, para concluir o processo de integração. Use a [API Microsoft Graph](/graph/use-the-api) para solicitar essas informações para evitar forçar o usuário a inserir esses detalhes novamente. As permissões Standard _ *User. Read* * incluem as seguintes informações, por padrão:
+O token de ID contém informações básicas para identificar o usuário, mas seu processo de ativação pode exigir detalhes adicionais, como a empresa do usuário, para concluir o processo de integração. Use a [API Microsoft Graph](/graph/use-the-api) para solicitar essas informações para evitar forçar o usuário a inserir esses detalhes novamente. As permissões **User. Read** padrão incluem as seguintes informações, por padrão:
 
 | Valor | Descrição |
 | ------------ | ------------- |
@@ -95,7 +95,7 @@ O token de ID contém informações básicas para identificar o usuário, mas se
 | sobrenome | Sobrenome do usuário. |
 |||
 
-Propriedades adicionais — como o nome da empresa do usuário ou o local do usuário (país) — podem ser selecionadas para inclusão na solicitação. Para obter mais detalhes, consulte [Propriedades para o tipo de recurso de usuário](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
+Propriedades adicionais — como o nome da empresa do usuário ou o local do usuário (país) — podem ser selecionadas para inclusão na solicitação. Para obter mais detalhes, consulte [Propriedades para o tipo de recurso de usuário](/graph/api/resources/user#properties).
 
 A maioria dos aplicativos registrados com o Azure AD concede permissões delegadas para ler as informações do usuário do locatário do Azure AD da sua empresa. Qualquer solicitação para Microsoft Graph para essas informações deve ser acompanhada por um token de acesso como autenticação. As etapas específicas para gerar o token de acesso dependerão da pilha de tecnologia que você está usando, mas o código de exemplo conterá um exemplo. Para obter mais informações, consulte [obter acesso em nome de um usuário](/graph/auth-v2-user).
 

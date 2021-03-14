@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575339"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183073"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informações de ativos sobre seus dados no Azure alcance
 
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [gerenciar fontes de dados no Azure alca
 No Azure alcance, você pode registrar e verificar os tipos de origem. Depois que a verificação for concluída, você poderá exibir a distribuição de ativos no Asset insights, que informa o estado do seu espaço de dados por conjuntos de recursos e classificação. Ele também informa se há alguma alteração no tamanho dos dados.
 
 > [!NOTE]
-> Depois de ter examinado os tipos de origem, dê informações de ativos a uma hora para refletir os novos ativos.
+> Depois de ter examinado seus tipos de origem, forneça informações de ativos de 3-8 horas para refletir os novos ativos. O atraso pode ser devido ao alto tráfego na região de implantação ou tamanho da carga de trabalho. Para obter mais informações, entre em contato com a equipe de suporte do campo.
 
 1. Navegue até o recurso alcance do Azure na portal do Azure.
 
@@ -94,7 +94,7 @@ Os próximos dois grafos do Asset insights mostram uma distribuição de tipos d
 
 1. Selecione o caminho para ver a lista de ativos.
 
-O segundo grafo em tipos de origem baseados em arquivo são **_arquivos não associados a um conjunto de recursos_**. Se você espera que todos os arquivos sejam acumulados em um conjunto de recursos, esse grafo pode ajudá-lo a entender quais ativos não foram acumulados. Os ativos ausentes podem ser uma indicação do padrão de arquivo incorreto na pasta. Siga as mesmas etapas de outros grafos para exibir mais detalhes sobre os arquivos.
+O segundo grafo em tipos de origem baseados em arquivo são ***arquivos não associados a um conjunto de recursos***. Se você espera que todos os arquivos sejam acumulados em um conjunto de recursos, esse grafo pode ajudá-lo a entender quais ativos não foram acumulados. Os ativos ausentes podem ser uma indicação do padrão de arquivo incorreto na pasta. Siga as mesmas etapas de outros grafos para exibir mais detalhes sobre os arquivos.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Exibir ativos baseados em arquivo":::  
 

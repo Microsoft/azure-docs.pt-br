@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588602"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -35,8 +35,8 @@ Ative as configurações de diagnóstico para começar a coletar logs em sua ins
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Na página a seguir, preencha os seguintes valores:
-     * **Nome da configuração de diagnóstico** : dê um nome às configurações de diagnóstico.
-     * **Detalhes da categoria** : escolha as operações que você deseja monitorar e marque as caixas para habilitar o diagnóstico para essas operações. As operações que podem ser informadas em configurações de diagnóstico são:
+     * **Nome da configuração de diagnóstico**: dê um nome às configurações de diagnóstico.
+     * **Detalhes da categoria**: escolha as operações que você deseja monitorar e marque as caixas para habilitar o diagnóstico para essas operações. As operações que podem ser informadas em configurações de diagnóstico são:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -44,7 +44,7 @@ Ative as configurações de diagnóstico para começar a coletar logs em sua ins
         - AllMetrics
         
         Para obter mais detalhes sobre essas categorias e as informações que elas contêm, consulte a seção [*categorias de log*](#log-categories) abaixo.
-     * **Detalhes de destino** : escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
+     * **Detalhes de destino**: escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
         - Enviar para o Log Analytics
         - Arquivar em uma conta de armazenamento
         - Transmitir para um hub de eventos
@@ -57,7 +57,7 @@ Ative as configurações de diagnóstico para começar a coletar logs em sua ins
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado de volta na página **configurações de diagnóstico** da instância do. 
 
-Para obter informações mais detalhadas sobre as configurações de diagnóstico e suas opções de instalação, você pode visitar [*criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes*](../azure-monitor/platform/diagnostic-settings.md).
+Para obter informações mais detalhadas sobre as configurações de diagnóstico e suas opções de instalação, você pode visitar [*criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Categorias de log
 
@@ -115,18 +115,18 @@ Aqui estão as descrições de campo e propriedade para logs de API.
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceID` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
-| `OperationVersion` | Cadeia de caracteres | A versão da API utilizada durante o evento |
-| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
-| `ResultType` | Cadeia de caracteres | Resultado do evento |
-| `ResultSignature` | Cadeia de caracteres | Código de status HTTP para o evento |
-| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
-| `DurationMs` | Cadeia de caracteres | Quanto tempo demorou para executar o evento em milissegundos |
-| `CallerIpAddress` | Cadeia de caracteres | Um endereço IP de origem mascarado para o evento |
+| `ResourceID` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
+| `OperationVersion` | String | A versão da API utilizada durante o evento |
+| `Category` | String | O tipo de recurso que está sendo emitido |
+| `ResultType` | String | Resultado do evento |
+| `ResultSignature` | String | Código de status HTTP para o evento |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `DurationMs` | String | Quanto tempo demorou para executar o evento em milissegundos |
+| `CallerIpAddress` | String | Um endereço IP de origem mascarado para o evento |
 | `CorrelationId` | Guid | Identificador exclusivo fornecido pelo cliente para o evento |
-| `Level` | Cadeia de caracteres | A severidade de log do evento |
-| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
+| `Level` | String | A severidade de log do evento |
+| `Location` | String | A região onde o evento ocorreu |
 | `RequestUri` | Uri | O ponto de extremidade utilizado durante o evento |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
@@ -201,13 +201,13 @@ Este é o esquema para `ADTEventRoutesOperation` logs. Eles contêm detalhes ref
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceId` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
-| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
-| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
-| `Level` | Cadeia de caracteres | A severidade de log do evento |
-| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
-| `EndpointName` | Cadeia de caracteres | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
+| `ResourceId` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
+| `Category` | String | O tipo de recurso que está sendo emitido |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `Level` | String | A severidade de log do evento |
+| `Location` | String | A região onde o evento ocorreu |
+| `EndpointName` | String | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
 
@@ -255,10 +255,10 @@ Veja como consultar os logs para sua instância.
     - A guia *consultas* contém as consultas de exemplo que você pode carregar no editor.
     - A guia *filtro* permite que você personalize uma exibição filtrada dos dados que a consulta retorna.
 
-Para obter informações mais detalhadas sobre consultas de log e como escrevê-las, você pode visitar [*visão geral das consultas de log no Azure monitor*](../azure-monitor/log-query/log-query-overview.md).
+Para obter informações mais detalhadas sobre consultas de log e como escrevê-las, você pode visitar [*visão geral das consultas de log no Azure monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre como configurar o diagnóstico, consulte [*coletar e consumir dados de log dos recursos do Azure*](../azure-monitor/platform/platform-logs-overview.md).
+* Para obter mais informações sobre como configurar o diagnóstico, consulte [*coletar e consumir dados de log dos recursos do Azure*](../azure-monitor/essentials/platform-logs-overview.md).
 * Para obter informações sobre as métricas do gêmeos digital do Azure, consulte [*solução de problemas: Exibir métricas com Azure monitor*](troubleshoot-metrics.md).
 * Para ver como habilitar alertas para suas métricas, consulte [*solução de problemas: configurar alertas*](troubleshoot-alerts.md).

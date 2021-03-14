@@ -1,20 +1,18 @@
 ---
 title: Criptografar o Azure Data Factory com uma chave gerenciada pelo cliente
 description: Aprimorar a segurança do Data Factory com o BYOK (Bring Your Own Key)
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.service: data-factory
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a943b82689184353b9d350b931a069df9c35ff2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348935"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392690"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Criptografar o Azure Data Factory com chaves gerenciadas pelo cliente
 

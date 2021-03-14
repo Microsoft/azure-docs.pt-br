@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 82c3dd4ce7f5e7e9f3d5a226bfe65e27eca2d3d4
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937858"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103236"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro do portal do Azure para aplicativos personalizados
 
@@ -25,7 +25,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 
 ## <a name="register-a-new-application"></a>Registrar um novo aplicativo
 
--   Para registrar um novo aplicativo, navegue até a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+-   Para registrar um novo aplicativo, navegue até o <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 
 -   No painel de navegação esquerdo, clique em **Azure Active Directory.**
 
@@ -37,7 +37,7 @@ Este artigo oferece uma breve descrição de todos os campos disponíveis no for
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
+| Name             | O nome do aplicativo. Ele deve ter um mínimo de quatro caracteres.                |
 | Tipos de conta com suporte| Selecione as contas às quais você deseja que seu aplicativo dê suporte: contas neste diretório organizacional somente, contas em qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas pessoais da Microsoft.  |
 | URI de redirecionamento (opcional) | Selecione o tipo de aplicativo que você está criando, cliente **Web** ou **público (Mobile & Desktop)** e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para seu aplicativo. Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, http://localhost:31544 pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web. Para aplicativos cliente públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, como myapp://auth. Para ver exemplos específicos para aplicativos Web ou aplicativos nativos, Confira nossos [guias de início rápido](./index.yml).|
 

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7f98e14c2eae133941f3fc87247a427198ebcdc2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547241"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611956"
 ---
-# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Práticas recomendadas para criar um aplicativo com o banco de dados do Azure para MySQL 
+# <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Melhores práticas para criar um aplicativo com o Banco de Dados do Azure para MySQL 
 
 Aqui estão algumas práticas recomendadas para ajudá-lo a criar um aplicativo pronto para a nuvem usando o banco de dados do Azure para MySQL. Essas práticas recomendadas podem reduzir o tempo de desenvolvimento para seu aplicativo. 
 
@@ -76,7 +76,7 @@ Você perceberá um atraso entre a origem e a réplica porque a replicação é 
 ## <a name="database-deployment"></a>Implantação de banco de dados 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configurar uma tarefa de banco de dados do Azure para MySQL em seu pipeline de implantação de CI/CD
-Ocasionalmente, você precisa implantar alterações em seu banco de dados. Nesses casos, você pode usar a CI (integração contínua) e o CD (entrega contínua) por meio de [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) e usar uma tarefa para [o servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) para atualizar o banco de dados executando um script personalizado em relação a ele.
+Ocasionalmente, você precisa implantar alterações em seu banco de dados. Nesses casos, você pode usar a CI (integração contínua) e o CD (entrega contínua) por meio de [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) e usar uma tarefa para [o servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment) para atualizar o banco de dados executando um script personalizado em relação a ele.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Usar um processo efetivo para implantação manual de banco de dados 
 Durante a implantação manual do banco de dados, siga estas etapas para minimizar o tempo de inatividade ou reduzir o risco de falha na implantação: 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 49c5828e02bf96a536ff14f6b84e81f7adbe3090
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806894"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094008"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Suporte para mover recursos do Azure entre regiões
 
@@ -151,7 +151,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Purview](#microsoftpurview)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -344,7 +344,7 @@ Pule para um namespace de provedor de recursos:
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Movimentação de região | Assinatura |
+> | Tipo de recurso | Movimentação de região | Subscription |
 > | ------------- | ----------- | 
 > | privateclouds | Não | 
 
@@ -1518,7 +1518,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | capacities |  Não | 
 
-## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
+## <a name="microsoftpurview"></a>Microsoft.Purview
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 

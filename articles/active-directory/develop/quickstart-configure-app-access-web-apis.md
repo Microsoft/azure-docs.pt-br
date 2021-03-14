@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012114"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102556"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Início Rápido: Configurar um aplicativo cliente para acessar uma API Web
 
@@ -42,7 +42,7 @@ Este diagrama mostra a relação entre os dois registros de aplicativo. Nesta se
 
 Depois de registrar o aplicativo cliente e a API Web e expor a API criando escopos, você pode configurar as permissões do cliente para a API seguindo estas etapas:
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente (*não* sua API Web).
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Minhas APIs**.
@@ -71,7 +71,7 @@ Além de acessar sua própria API Web em nome do usuário conectado, seu aplicat
 
 Configure a permissão delegada para o Microsoft Graph para permitir que o aplicativo cliente execute operações em nome do usuário conectado, por exemplo, ler o email ou modificar o perfil dele. Por padrão, os usuários do seu aplicativo cliente são solicitados a entrar para dar consentimento às permissões delegadas que você configurou para ele.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente.
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Microsoft Graph**
@@ -96,7 +96,7 @@ Configure permissões de aplicativo para um aplicativo que precisa autenticar-se
 
 Nas etapas a seguir, você concede a permissão *Files.Read.All* do Microsoft Graph como um exemplo.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e selecione o aplicativo cliente.
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Microsoft Graph** > **Permissões de aplicativo**.
@@ -110,7 +110,7 @@ Algumas permissões, como *Files.Read.All* do Microsoft Graph, exigem consentime
 
 ### <a name="configure-client-credentials"></a>Configurar as credenciais do cliente
 
-Aplicativos que usam permissões de aplicativo autenticam-se como eles próprios usando suas respectivas credenciais sem necessidade de nenhuma interação com o usuário. Antes que seu aplicativo (ou API) possa acessar o Microsoft Graph, sua própria API Web ou qualquer outra API usando permissões de aplicativo, você precisa configurar as credenciais do aplicativo cliente.
+Aplicativos que usam permissões de aplicativo autenticam-se como eles próprios usando suas respectivas credenciais sem necessidade de nenhuma interação com o usuário. Para que o seu aplicativo (ou a API) acesse o Microsoft Graph, sua API Web ou qualquer outra API usando permissões de aplicativo, você precisará configurar as credenciais do aplicativo cliente.
 
 Para obter mais informações sobre como configurar as credenciais de um aplicativo, confira a seção [Adicionar credenciais](quickstart-register-app.md#add-credentials) do [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md).
 

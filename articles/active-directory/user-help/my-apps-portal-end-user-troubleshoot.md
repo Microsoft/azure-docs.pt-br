@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833972"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094960"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal Meus Aplicativos
 
@@ -31,9 +31,9 @@ Se você estiver com problemas ao instalar a Extensão de Conexão Segura de Meu
 
     - **Microsoft Edge.** Em execução na Edição de Aniversário do Windows 10 ou posterior.
 
-    - **Google Chrome.** Em execução no Windows 7 ou posterior e no Mac OS X ou posterior.
+    - **Google Chrome.** Em execução no Windows 7 ou posterior e no macOS X ou posterior.
 
-    - **Mozilla Firefox 26.0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
+    - **Mozilla Firefox 26.0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no macOS X 10,6 ou posterior.
 
     - **Internet Explorer 11.** Em execução no Windows 7 ou posterior (suporte limitado).
 
@@ -46,6 +46,11 @@ Se você estiver com problemas ao instalar a Extensão de Conexão Segura de Meu
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Não consigo entrar no portal **Meus Aplicativos**
 
 Se você estiver com problemas para entrar no portal **Meus Aplicativos**, tente o seguinte:
+
+- Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 - Verifique se você está usando a URL correta. Ela deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 

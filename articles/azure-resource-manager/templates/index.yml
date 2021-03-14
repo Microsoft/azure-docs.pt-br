@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 11/06/2020
-  ms.openlocfilehash: 72129eb10de042252c33784d7d98081f0f22a8b9
-  ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+  ms.date: 03/03/2021
+  ms.openlocfilehash: f2410c25aa6c23cc6fe1546e36f379bfecab60df
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97346615"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102452349"
 landingContent:
 - title: Sobre modelos ARM
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: O que são modelos?
       url: overview.md
+    - text: O que é o Bicep?
+      url: bicep-overview.md
   - linkListType: concept
     links:
     - text: Práticas recomendadas
@@ -45,16 +47,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar modelos - portal
+    - text: Criar modelos JSON – Portal
       url: quickstart-create-templates-use-the-portal.md
-    - text: Criar modelos - Visual Studio Code
+    - text: Criar modelos JSON – VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Criar modelos Bicep – VS Code
+      url: quickstart-create-bicep-use-visual-studio-code.md
     - text: Criar e implantar especificações de modelo
       url: quickstart-create-template-specs.md
   - linkListType: tutorial
     links:
-    - text: Tutoriais para iniciantes
+    - text: Tutoriais de modelo para iniciantes
       url: template-tutorial-create-first-template.md
+    - text: Tutoriais do Bicep para iniciantes
+      url: bicep-tutorial-create-first-bicep.md
   - linkListType: learn
     links:
     - text: Fazer a implantação com modelos do Resource Manager
@@ -140,7 +146,7 @@ landingContent:
     - text: Java
       url: /java/api/com.microsoft.azure.management.resources
     - text: Python
-      url: /python/api/overview/azure/resources?view=azure-python
+      url: /python/api/overview/azure/resources
 - title: Gerenciar modelos
   linkLists:
   - linkListType: how-to-guide

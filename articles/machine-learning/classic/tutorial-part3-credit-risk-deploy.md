@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503907"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517375"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implantar modelo de risco de crédito – Azure Machine Learning Studio (clássico)
 
@@ -48,12 +48,12 @@ Concluir a [segunda parte do tutorial](tutorial-part2-credit-risk-train.md).
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 Para que outras pessoas possam usar o modelo preditivo que você desenvolveu neste tutorial, implante-o como um serviço Web no Azure.
 
-Até este ponto, você esteve testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gerará previsões pontuando a entrada do usuário com base em nosso modelo. Então, vamos fazer algumas preparações para converter esse experimento de um teste de ***treinamento** _ em um teste _*_preditivo_*_. 
+Até este ponto, você esteve testando nosso modelo de treinamento. Mas o serviço implantado não fará mais o treinamento – ele gerará previsões pontuando a entrada do usuário com base em nosso modelo. Portanto, vamos fazer algumas preparações para converter esse experimento de ***treinamento** _ em um experimento _ *_preditivo_**. 
 
 A preparação para a implantação é um processo de três etapas:  
 
 1. Remova um dos modelos
-1. Converta o _teste de treinamento* criado em um *teste preditivo*
+1. Converta o *teste de treinamento* criado em um *teste preditivo*
 1. Implantar o teste preditivo como um serviço Web
 
 ### <a name="remove-one-of-the-models"></a>Remova um dos modelos

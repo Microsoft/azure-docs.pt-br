@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693605"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595502"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -94,7 +94,7 @@ A Central de Segurança avalia a configuração de seus recursos para identifica
 >[!Note]
 >Confira [Permissões na Central de Segurança do Azure](../../security-center/security-center-permissions.md) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
 
-A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo serviço de Azure Monitor. Os dados coletados desse agente são armazenados em um [workspace](../../azure-monitor/platform/manage-access.md) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
+A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo serviço de Azure Monitor. Os dados coletados desse agente são armazenados em um [workspace](../../azure-monitor/logs/manage-access.md) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ O Azure Monitor inclui os componentes a seguir.
 
 ### <a name="azure-activity-log"></a>Log de Atividades do Azure
 
-O [Log de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) fornece insights sobre as operações executadas nos recursos de sua assinatura. Ele era conhecido como "Log de Auditoria" ou "Log Operacional", pois relata eventos de plano de controle de suas assinaturas.
+O [Log de Atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) fornece insights sobre as operações executadas nos recursos de sua assinatura. Ele era conhecido como "Log de Auditoria" ou "Log Operacional", pois relata eventos de plano de controle de suas assinaturas.
 
 ### <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
-Os [logs de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md) são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso.
+Os [logs de diagnóstico do Azure](../../azure-monitor/essentials/platform-logs-overview.md) são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso.
 
 Os logs do sistema de eventos do Windows são uma categoria de logs de diagnóstico para VMs. Os logs de blob, tabela e fila são categorias de logs de diagnóstico para contas de armazenamento.
 
-Os logs de diagnóstico são diferentes do [Log de Atividades](../../azure-monitor/platform/platform-logs-overview.md). O Log de Atividades fornece informações sobre as operações executadas em recursos em sua assinatura. Os logs de diagnóstico fornecem insights sobre as operações que o recurso executou por conta própria.
+Os logs de diagnóstico são diferentes do [Log de Atividades](../../azure-monitor/essentials/platform-logs-overview.md). O Log de Atividades fornece informações sobre as operações executadas em recursos em sua assinatura. Os logs de diagnóstico fornecem insights sobre as operações que o recurso executou por conta própria.
 
 ### <a name="metrics"></a>Métricas
 
-O Azure Monitor fornece a telemetria que proporciona a você a visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. O tipo mais importante de dados telemétricos do Azure são as [métricas](../../azure-monitor/platform/data-platform.md) (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir essas métricas para monitorar e solucionar problemas.
+O Azure Monitor fornece a telemetria que proporciona a você a visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. O tipo mais importante de dados telemétricos do Azure são as [métricas](../../azure-monitor/data-platform.md) (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir essas métricas para monitorar e solucionar problemas.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-O Diagnóstico do Azure permite a coleta de dados de diagnóstico em um aplicativo implantado. Use a extensão de Diagnóstico em várias fontes. No momento, as fontes compatíveis são as [funções do serviço de nuvem do Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), as [máquinas virtuais do Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que executam o Microsoft Windows e o [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+O Diagnóstico do Azure permite a coleta de dados de diagnóstico em um aplicativo implantado. Use a extensão de Diagnóstico em várias fontes. No momento, as fontes compatíveis são as [funções do serviço de nuvem do Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), as [máquinas virtuais do Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que executam o Microsoft Windows e o [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Observador de Rede do Azure
 

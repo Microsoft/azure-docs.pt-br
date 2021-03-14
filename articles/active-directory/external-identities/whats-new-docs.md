@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no Azure Active Directory identidades externas
 description: Documentação nova e atualizada para as Azure Active Directory identidades externas.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: e0daa5b1c8d3fcc749f10e48e453ca8f92607643
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: dda3f7c8f4a9a21e16ebab7d243a004c01a40eed
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591694"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453658"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory identidades externas: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de identidades externas Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de identidades externas, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Redefinir o status de resgate de um usuário convidado](reset-redemption-status.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Práticas recomendadas do Azure Active Directory B2B](b2b-fundamentals.md)
+- [Habilitar a colaboração B2B externa e gerenciar quem pode enviar convites](delegate-invitations.md)
+- [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](faq.md)
+- [Autenticação de senha de uso único de email](one-time-passcode.md)
+- [Resgate do convite de colaboração do Azure Active Directory B2B](redemption-experience.md)
+- [Solução de problemas Azure Active Directory colaboração B2B](troubleshoot.md)
+- [Propriedades de um usuário de colaboração B2B do Azure Active Directory](user-properties.md)
+- [O que é o acesso a usuários convidados no Azure Active Directory B2B?](what-is-b2b.md)
+- [Azure Active Directory identidades externas: o que há de novo](whats-new-docs.md)
+- [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md)
+- [API e personalização da colaboração B2B do Azure Active Directory](customize-invitation-api.md)
+- [Convidar usuários internos para colaboração B2B](invite-internal-users.md)
+- [Microsoft 365 compartilhamento externo e colaboração B2B do Azure Active Directory (Azure AD)](o365-external-user.md)
+- [Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)](direct-federation.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

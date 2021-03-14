@@ -3,21 +3,21 @@ title: 'ML Studio (clássico): módulos do PowerShell – Azure'
 description: Use o PowerShell para criar e gerenciar espaços de trabalho do Azure Machine Learning Studio (clássico), experimentos, serviços Web e muito mais.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: f66363ec8b64dea1a076f81f4fc89bafe5ca4151
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 684299d61ba6e9e27e16a162c9f226a7ea3b5f58
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322326"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518004"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos do PowerShell para Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Usando módulos do PowerShell, você pode gerenciar programaticamente seus recursos e ativos de estúdio (clássico), como espaços de trabalho, conjuntos de fontes e serviços Web.
@@ -55,7 +55,7 @@ O PowerShell clássico pode ser instalado juntamente com AZ ou AzureRM para cobr
 
 | Tarefa | **AZ** |  **Clássico do PowerShell** |
 | --- | --- | --- |
-| Criar/excluir espaços de trabalho | [Modelos do Gerenciador de Recursos](./deploy-with-resource-manager-template.md) |  |
+| Criar/excluir espaços de trabalho | [Modelos do Resource Manager](./deploy-with-resource-manager-template.md) |  |
 | Gerenciar planos de compromisso do espaço de trabalho | [New-AzMlCommitmentPlan](/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Gerenciar os usuários do workspace |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Gerenciar serviços Web | [New-AzMlWebService](/powershell/module/az.machinelearning/new-azmlwebservice) <br>("novos" serviços Web)| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(serviços Web "clássicos") |

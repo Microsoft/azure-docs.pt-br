@@ -5,22 +5,20 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520434"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979735"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: mover VMs do Azure entre regiões
 
 Neste artigo, saiba como mover VMs do Azure e recursos de rede/armazenamento relacionados para uma região do Azure diferente, usando o [Azure Resource Mover](overview.md).
-
-> [!NOTE]
-> O Azure Resource Mover está em versão prévia pública no momento.
+.
 
 
 Neste tutorial, você aprenderá como:
@@ -40,26 +38,21 @@ Neste tutorial, você aprenderá como:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar. Em seguida, entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
--  Verifique se você tem acesso de *Proprietário* na assinatura que contém os recursos que deseja mover.
-    - Na primeira vez que você adicionar um recurso para um par de origem e destino específico em uma assinatura do Azure, o Resource Mover criará uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI [Identidade Gerenciada de Serviço]) que é confiável para a assinatura.
-    - Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *Proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
-- A assinatura precisa de cota suficiente para criar os recursos que você está movendo na região de destino. Se não houver cota, [solicite limites adicionais](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para obter ajuda.
+**Requisito** | **Descrição**
+--- | ---
+**Permissões de assinatura** | Verifique se você tem acesso de *Proprietário* na assinatura que contém os recursos que deseja mover<br/><br/> **Por que preciso de acesso de Proprietário?** Na primeira vez que você adicionar um recurso para um par de origem e destino específico em uma assinatura do Azure, o Resource Mover criará uma [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como MSI [Identidade Gerenciada de Serviço]) que é confiável para a assinatura. Para criar a identidade e atribuir a ela a função necessária (colaborador ou administrador de acesso do usuário na assinatura de origem), a conta usada para adicionar recursos precisa de permissões de *Proprietário* na assinatura. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre as funções do Azure.
+**Suporte à VM** |  Verifique se as VMs que você deseja mover são compatíveis.<br/><br/> - [Verifique](support-matrix-move-region-azure-vm.md#windows-vm-support) as VMs do Windows compatíveis.<br/><br/> - [Verifique](support-matrix-move-region-azure-vm.md#linux-vm-support) as VMs do Linux e as versões de kernel compatíveis.<br/><br/> - Verifique as configurações de [computação](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [armazenamento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) e [rede](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) compatíveis.
+**Assinatura de destino** | A assinatura na região de destino precisa de cota suficiente para criar os recursos que você está movendo na região de destino. Se não houver cota, [solicite limites adicionais](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Preços da região de destino** | Verifique os preços e os encargos associados à região de destino para a qual você está movendo as VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para obter ajuda.
     
 
-## <a name="check-vm-requirements"></a>Verificar os requisitos da VM
+## <a name="prepare-vms"></a>Como preparar as VMs
 
-1. Verifique se as VMs que você deseja mover são compatíveis.
-
-    - [Verifique](support-matrix-move-region-azure-vm.md#windows-vm-support) as VMs do Windows compatíveis.
-    - [Verifique](support-matrix-move-region-azure-vm.md#linux-vm-support) as VMs do Linux e as versões de Kernel compatíveis.
-    - Verifique as configurações de [computação](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [armazenamento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) e [rede](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) compatíveis.
-2. Verifique se as VMs que você deseja mover estão ativadas.
-3. Verifique se as VMs têm os certificados raiz confiáveis mais recentes e uma CRL (lista de certificados revogados) atualizada. Para fazer isso:
+1. Após verificar se as VMs atendem aos requisitos, verifique se as VMs que deseja mover estão ativadas. Todos os discos de VMs que você deseja disponibilizar na região de destino devem ser anexados e inicializados na VM.
+1. Verifique se as VMs têm os certificados raiz confiáveis mais recentes e uma CRL (lista de certificados revogados) atualizada. Para fazer isso:
     - Nas VMs do Windows, instale as atualizações mais recentes do Windows.
     - Nas VMs do Linux, siga as diretrizes do distribuidor para que os computadores tenham os certificados mais recentes e a CRL atualizada. 
-4. Permitir conectividade de saída das VMs:
+1. Permitir conectividade de saída das VMs:
     - Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - Caso esteja usando regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, crie essas [regras de marcação de serviço](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Selecione os recursos que deseja mover.
     ![Página para selecionar a região de origem e de destino](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. Em **Recursos a serem movidos**, clique em **Selecionar recursos**.
-7. Em **Selecionar recursos**, selecione a VM desejada. Você só pode adicionar [recursos compatíveis para movimentação](#check-vm-requirements). Em seguida, clique em **Concluído**.
+7. Em **Selecionar recursos**, selecione a VM desejada. Você só pode adicionar [recursos compatíveis para movimentação](#prepare-vms). Em seguida, clique em **Concluído**.
 
     ![Página para selecionar as VMs a serem movidas](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  Em **Recursos a serem movidos**, clique **Próximo**.
-9. Em **Examinar + Adicionar**, verifique as configurações de origem e destino. 
+9. Em **Examinar**, verifique as configurações de origem e de destino. 
 
     ![Página para examinar as configurações e prosseguir com a movimentação](./media/tutorial-move-region-virtual-machines/review.png)
 10. Clique em **Prosseguir**, para começar a adicionar os recursos.
@@ -99,25 +92,27 @@ Selecione os recursos que deseja mover.
 
 > [!NOTE]
 > - Os recursos adicionados estão no estado de *Preparação pendente*.
+> - O grupo de recursos para as VMs é adicionado automaticamente.
 > - Se você quiser remover um recurso de uma coleção de movimentação, o método para fazer isso dependerá do ponto do processo de movimentação em que você se encontra. [Saiba mais](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>Resolver dependências
 
 1. Se os recursos mostrarem uma mensagem *Validar dependências* na coluna **Problemas**, clique no botão **Validar dependências**. O processo de validação começa.
 2. Se forem encontradas dependências, clique em **Adicionar dependências**. 
-3. Em **Adicionar dependências**, selecione os recursos dependentes > **Adicionar dependências**. Monitore o progresso nas notificações.
+3. Em **Adicionar dependências**, deixe a opção padrão **Mostrar todas as dependências**.
+
+    - Mostrar todas as dependências itera em todas as dependências diretas e indiretas de um recurso. Por exemplo, para uma VM, ela mostra a NIC, a rede virtual, os NSGs (grupos de segurança de rede) etc.
+    - Mostrar somente dependências de primeiro nível mostra apenas dependências diretas. Por exemplo, para uma VM, mostra a NIC, mas não a rede virtual.
+
+
+4. Selecione os recursos dependentes que deseja adicionar > **Adicionar dependências**. Monitore o progresso nas notificações.
 
     ![Adicionar dependências](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Adicione outras dependências, se necessário, e valide as dependências novamente. 
+4. Valide as dependências novamente. 
     ![Página para adicionar dependências adicionais](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. Na página **Entre regiões**, verifique se os recursos estão agora no estado de *Preparação pendente*, sem problemas.
 
-    ![Página mostrando recursos no estado de preparação pendente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Se você quiser editar as configurações de destino antes de iniciar a movimentação, selecione o link na coluna **Configuração de destino** para o recurso e edite as configurações. Se você editar as configurações da VM de destino, o tamanho da VM de destino não deverá ser menor que o tamanho da VM de origem.  
 
 ## <a name="move-the-source-resource-group"></a>Mover o grupo de recursos de origem 
 
@@ -158,9 +153,17 @@ Para confirmar e concluir o processo de movimentação:
 
 ## <a name="prepare-resources-to-move"></a>Preparar os recursos a serem movidos
 
+Agora que o grupo de recursos de origem foi movido, você pode se preparar para mover outros recursos que estão no estado *Preparação pendente*.
+
+1. Em **Entre regiões**, verifique se os recursos estão agora no estado de *Preparação pendente*, sem problemas. Se não estiverem, valide novamente e resolva eventuais problemas pendentes.
+
+    ![Página mostrando recursos no estado de preparação pendente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Se você quiser editar as configurações de destino antes de iniciar a movimentação, selecione o link na coluna **Configuração de destino** para o recurso e edite as configurações. Se você editar as configurações da VM de destino, o tamanho da VM de destino não deverá ser menor que o tamanho da VM de origem.  
+
 Agora que o grupo de recursos de origem foi movido, você pode se preparar para mover os outros recursos.
 
-1. Em **Entre regiões**, selecione os recursos que deseja preparar. 
+3. Selecionar os recursos que deseja preparar. 
 
     ![Página para selecionar Preparar para outros recursos](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -238,12 +241,16 @@ Se você quiser concluir o processo de movimentação, confirme a movimentação
 - O serviço Mobilidade não é desinstalado automaticamente das VMs. Desinstale-o manualmente ou deixe-o instalado caso planeje mover o servidor novamente.
 - Modifique as regras do Azure RBAC (controle de acesso baseado em função do Azure) após a movimentação.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Excluir recursos de origem após a confirmação
 
 Após a movimentação, você terá a opção de excluir os recursos da região de origem. 
 
+> [!NOTE]
+> Alguns recursos, por exemplo, cofres de chaves e servidores do SQL Server, não podem ser excluídos do portal e precisam ser excluídos da página de propriedades do recurso.
+
 1. Em **Entre regiões**, clique no nome de cada recurso de origem que deseja excluir.
-2. Na página de propriedades de cada recurso, selecione **Excluir**.
+2. Selecione **Excluir origem**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Excluir recursos adicionais criados para a movimentação
 

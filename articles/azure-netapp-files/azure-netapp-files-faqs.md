@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881411"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552024"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual é o impacto no desempenho do Kerberos no NFSv 4.1?
 
-Consulte [impacto no desempenho do Kerberos no nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) para obter informações sobre as opções de segurança do nfsv 4.1, os vetores de desempenho testados e o impacto esperado no desempenho. 
+Consulte [impacto no desempenho do Kerberos em volumes nfsv 4.1](performance-impact-kerberos.md) para obter informações sobre as opções de segurança do nfsv 4.1, os vetores de desempenho testados e o impacto esperado no desempenho. 
 
 ## <a name="nfs-faqs"></a>Perguntas frequentes sobre NFS
 
@@ -147,6 +147,16 @@ Verifique se `CaseSensitiveLookup` o está habilitado no cliente Windows para ac
 2. Monte o volume no Windows Server.   
     Exemplo:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Como Azure NetApp Files dá suporte ao bloqueio de arquivos do NFSv 4.1? 
+
+Para clientes NFSv 4.1, o Azure NetApp Files dá suporte ao mecanismo de bloqueio de arquivos NFSv 4.1 que mantém o estado de todos os bloqueios de arquivo em um modelo baseado em concessão. 
+
+Por RFC 3530, Azure NetApp Files define um único período de concessão para todos os Estados mantidos por um cliente NFS. Se o cliente não renovar sua concessão dentro do período definido, todos os Estados associados à concessão do cliente serão liberados pelo servidor.  
+
+Por exemplo, se um cliente montando um volume ficar sem resposta ou falhar além dos tempos limite, os bloqueios serão liberados. O cliente pode renovar sua concessão de forma explícita ou implícita, executando operações como a leitura de um arquivo.   
+
+Um período de carência define um período de processamento especial no qual os clientes podem tentar recuperar seu estado de bloqueio durante a recuperação de um servidor. O tempo limite padrão para as concessões é de 30 segundos com um período de carência de 45 segundos. Após esse período, a concessão do cliente será liberada.   
 
 ## <a name="smb-faqs"></a>Perguntas frequentes sobre o SMB
 

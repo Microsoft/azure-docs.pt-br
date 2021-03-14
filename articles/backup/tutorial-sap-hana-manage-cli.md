@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como gerenciar bancos de dados SAP HANA subme
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb552c5a336c3c55652936b87a668b54cfdeb41e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507225"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713279"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerenciar bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="create-incremental-backup-policy"></a>Criar política de backup incremental
 
-Para criar uma política de backup incremental, execute o comando [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) com os seguintes parâmetros:
+Para criar uma política de backup incremental, execute o comando [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) com os seguintes parâmetros:
 
 * **--backup-management-type** – Carga de trabalho do Azure
 * **--workload-type** – SAPHana
@@ -95,7 +95,7 @@ Exemplo:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Saída JSON (sappolicy.json) de exemplo:
+JSON de exemplo (sappolicy.json):
 
 ```json
   "eTag": null,
@@ -226,11 +226,13 @@ Saída JSON (sappolicy.json) de exemplo:
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
+Depois que a política for criada com êxito, a saída do comando exibirá o JSON da política que você passou como um parâmetro ao executar o comando.
 
 Você pode modificar a seção a seguir da política para especificar a frequência de backup e a retenção desejadas para backups incrementais.
 

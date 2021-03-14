@@ -1,22 +1,17 @@
 ---
 title: Migrar cargas de trabalho do SSIS (SQL Server Integration Services locais) para o SSIS no Azure Data Factory (ADF)
 description: Migre cargas de trabalho do SSIS locais para o SSIS no ADF.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: ef4b01e38a60d6770ba476988fab934ada0bc631
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635687"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373599"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho do SSIS local para o SSIS no ADF
 
@@ -28,7 +23,7 @@ Ao migrar suas cargas de trabalho de banco de dados do SQL Server local para os 
 
 Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF) dá suporte a pacotes SSIS em execução. Depois que Azure-SSIS IR for provisionado, você poderá usar ferramentas familiares, como SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) e utilitários de linha de comando, como dtinstall/dtutil/dtexec, para implantar e executar seus pacotes no Azure. Para obter mais informações, consulte [visão geral de elevação e deslocamento do Azure SSIS](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-Este artigo destaca o processo de migração de suas cargas de trabalho de ETL do SSIS local para o SSIS no ADF. O processo de migração consiste em duas fases: **Avaliação** e **Migração** .
+Este artigo destaca o processo de migração de suas cargas de trabalho de ETL do SSIS local para o SSIS no ADF. O processo de migração consiste em duas fases: **Avaliação** e **Migração**.
 
 ## <a name="assessment"></a>Avaliação
 
@@ -49,7 +44,7 @@ O AMD (Assistente de Migração de Dados) é uma ferramenta gratuita que pode se
   - MSDB, que é um banco de dados do sistema em SQL Server usado para armazenar pacotes SSIS.
   - Sistema de arquivos gerenciado, que é uma pasta específica em SQL Server caminho de instalação usado para armazenar pacotes SSIS.
 
-Atualmente, o DMA dá suporte à avaliação em lote de pacotes armazenados no **sistema de arquivos** , no **repositório de pacotes** e no catálogo do **SSIS** desde o **DMA versão v 5.0** .
+Atualmente, o DMA dá suporte à avaliação em lote de pacotes armazenados no **sistema de arquivos**, no **repositório de pacotes** e no catálogo do **SSIS** desde o **DMA versão v 5.0**.
 
 Obtenha o [DMA](/sql/dma/dma-overview)e [realize sua avaliação de pacote com ele](/sql/dma/dma-assess-ssis).
 

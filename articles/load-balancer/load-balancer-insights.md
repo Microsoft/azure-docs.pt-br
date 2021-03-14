@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232753"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589103"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Usando informações para monitorar e configurar seu Azure Load Balancer
 
@@ -40,7 +40,7 @@ Para balanceadores de carga padrão, seus recursos de pool de back-end são codi
 
 ## <a name="metrics-dashboard"></a>Dashboard de métricas
 
-Na folha de informações do seu Load Balancer, você pode selecionar métricas mais detalhadas para exibir uma pasta de trabalho pré-configurada do [Azure monitor](../azure-monitor/platform/workbooks-overview.md) contendo elementos visuais de métricas relevantes para aspectos específicos do seu Load Balancer. Este painel mostrará o status da Load Balancer e os links para a documentação relevante na parte superior da página.
+Na folha de informações do seu Load Balancer, você pode selecionar métricas mais detalhadas para exibir uma pasta de trabalho pré-configurada do [Azure monitor](../azure-monitor/visualize/workbooks-overview.md) contendo elementos visuais de métricas relevantes para aspectos específicos do seu Load Balancer. Este painel mostrará o status da Load Balancer e os links para a documentação relevante na parte superior da página.
 
 Inicialmente, você verá a guia Visão geral. Você pode navegar pelas guias disponíveis, cada uma delas contendo visuais relevantes para um aspecto específico de seu Load Balancer. As diretrizes explícitas para cada um estão disponíveis no painel na parte inferior de cada guia.
 
@@ -80,4 +80,4 @@ A guia definições de métrica contém todas as informações mostradas no [art
 * Examine o painel e forneça comentários usando o link abaixo se houver algo que possa ser melhorado
 * [Examine a documentação de métricas para garantir que você entenda como cada métrica é calculada](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Criar monitores de conexão para seu Load Balancer](../network-watcher/connection-monitor.md)
-* [Crie suas próprias pastas de trabalho](../azure-monitor/platform/workbooks-overview.md), você pode fazer a inspiração clicando no botão Editar em seu painel de métricas detalhado
+* [Crie suas próprias pastas de trabalho](../azure-monitor/visualize/workbooks-overview.md), você pode fazer a inspiração clicando no botão Editar em seu painel de métricas detalhado

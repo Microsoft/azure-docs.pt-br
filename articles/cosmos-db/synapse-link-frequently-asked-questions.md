@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627761"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692259"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,16 @@ Sim, o repositório analítico pode ser habilitado em contêineres com taxa de t
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Há algum efeito nas RUs provisionadas do repositório transacional do Azure Cosmos DB?
 
 O Azure Cosmos DB garante o isolamento de desempenho entre as cargas de trabalho transacionais e analíticas. Habilitar o repositório analítico em um contêiner não afetará as RU/s provisionadas no repositório transacional do Azure Cosmos DB. As transações (leitura e gravação) e os custos de armazenamento para o repositório analítico serão cobrados separadamente. Consulte os [preços para o repositório analítico do Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) para obter mais detalhes.
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Posso restringir o acesso a Azure Cosmos DB repositório analítico?
+
+Sim, você pode configurar um [ponto de extremidade privado gerenciado](analytical-store-private-endpoints.md) e restringir o acesso de rede do repositório analítico à rede virtual gerenciada do Azure Synapse. Pontos de extremidade privados gerenciados estabelecem um link privado para seu repositório analítico. Esse ponto de extremidade privado também restringirá o acesso de gravação ao armazenamento transacional, entre outros serviços de dados do Azure.
+
+Você pode adicionar os pontos de extremidade privados do repositório transacional e do repositório analítico à mesma conta de Azure Cosmos DB em um espaço de trabalho do Azure Synapse Analytics. Se você quiser apenas executar consultas analíticas, convém apenas mapear o ponto de extremidade privado analítico.
+
+### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>Posso usar chaves gerenciadas pelo cliente com o repositório analítico Azure Cosmos DB?
+
+Você pode criptografar diretamente os dados entre os armazenamentos transacionais e analíticos usando as mesmas chaves gerenciadas pelo cliente de maneira automática e transparente. O uso de chaves gerenciadas pelo cliente com o repositório analítico Azure Cosmos DB atualmente requer configuração adicional em sua conta. Entre em contato com a [equipe de Azure Cosmos DB](mailto:azurecosmosdbcmk@service.microsoft.com)  para obter detalhes.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>As operações de exclusão e atualização no repositório transacional se refletem no repositório analítico?
 

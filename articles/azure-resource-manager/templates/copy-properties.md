@@ -3,12 +3,12 @@ title: Definir várias instâncias de uma propriedade
 description: Use a operação de cópia em um modelo de Azure Resource Manager (modelo ARM) para iterar várias vezes ao criar uma propriedade em um recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905920"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521654"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -64,7 +64,7 @@ O exemplo a seguir mostra como aplicar `copy` a `dataDisks` propriedade em uma m
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }

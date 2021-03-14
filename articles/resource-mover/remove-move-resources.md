@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/22/2020
 ms.author: raynew
-ms.openlocfilehash: 63548e2bf470c012e0dd8a5f879a51eeb631f453
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459273"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559097"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Gerenciar coleções de movimentação e grupos de recursos
 
@@ -39,70 +39,111 @@ Você pode remover um grupo de recursos/coleção de movimentação no Portal.
 
 ## <a name="remove-a-resource-powershell"></a>Remover um recurso (PowerShell)
 
-Remova um recurso (em nosso exemplo, os computadores PSDemoVM) de uma coleção usando o PowerShell, da seguinte maneira:
+Usando os cmdlets do PowerShell, você pode remover um único recurso de uma Movecollection ou remover vários recursos.
+
+### <a name="remove-a-single-resource"></a>Remover um único recurso
+
+Remova um recurso (em nosso exemplo, a rede virtual *psdemorm*) da seguinte maneira:
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus -Name PSDemoVM
+Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -Name "psdemorm-vnet"
 ```
-**Saída esperada**
+**Saída após o cmdlet em execução**
 
-![Texto de saída após a remoção de um recurso de uma coleção de movimentação](./media/remove-move-resources/remove-resource.png)
+![Texto de saída após a remoção de um recurso de uma coleção de movimentação](./media/remove-move-resources/powershell-remove-single-resource.png)
 
-## <a name="remove-a-collection-powershell"></a>Remover uma coleção (PowerShell)
+### <a name="remove-multiple-resources"></a>Remover vários recursos
 
-Remova uma coleção de movimentação inteira usando o PowerShell, da seguinte maneira:
+Remova vários recursos da seguinte maneira:
 
-1. Siga as instruções acima para remover recursos na coleção usando o PowerShell.
-2. Execute:
+1. Validar dependências:
+
+    ````azurepowershell-interactive
+    $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-validate-dependencies.png)
+
+2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
+
+    ````azurepowershell-interactive
+    $resp.AdditionalInfo[0].InfoMoveResource
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+
+
+3. Remove all resources, along with the virtual network:
+
+    
+    ````azurepowershell-interactive
+    Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
+    ```
+
+    **Output after running cmdlet**
+
+    ![Output text after removing all resources from a move collection](./media/remove-move-resources/remove-multiple-all.png)
+
+
+## Remove a collection (PowerShell)
+
+Remove an entire move collection from the subscription, as follows:
+
+1. Follow the instructions above to remove resources in the collection using PowerShell.
+2. Run:
 
     ```azurepowershell-interactive
-    # Remove a resource using the resource ID
-    Remove-AzResourceMoverMoveCollection -SubscriptionId <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus -MoveCollectionName MoveCollection-centralus-westcentralus
+    Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
     ```
-    **Saída esperada**
+
+    **Output after running cmdlet**
     
-    ![Texto de saída após a remoção de uma coleção de movimentação](./media/remove-move-resources/remove-collection.png)
+    ![Output text after removing a move collection](./media/remove-move-resources/remove-collection.png)
 
-## <a name="vm-resource-state-after-removing"></a>Estado do recurso da VM após a remoção
+## VM resource state after removing
 
-O que acontece quando você remove um recurso de VM de uma coleção de movimentação depende do estado do recurso, conforme resumido na tabela.
+What happens when you remove a VM resource from a move collection depends on the resource state, as summarized in the table.
 
-###  <a name="remove-vm-state"></a>Remover estado da VM
-**Estado do recurso** | **VM** | **Rede**
+###  Remove VM state
+**Resource state** | **VM** | **Networking**
 --- | --- | --- 
-**Adicionado à coleção de movimentação** | Excluir da coleção de movimentação. | Excluir da coleção de movimentação. 
-**Dependências resolvidas/preparadas pendentes** | Excluir da coleção de movimentação  | Excluir da coleção de movimentação. 
-**Preparação em andamento**<br/> (ou qualquer outro Estado em andamento) | A operação de exclusão falha com erro.  | A operação de exclusão falha com erro.
-**Falha na preparação** | Excluir da coleção de movimentação.<br/>Exclua tudo criado na região de destino, incluindo discos de réplica. <br/><br/> Os recursos de infraestrutura criados durante a movimentação precisam ser excluídos manualmente. | Excluir da coleção de movimentação.  
-**Iniciar movimentação pendente** | Excluir da coleção de movimentação.<br/><br/> Exclua qualquer coisa criada na região de destino, incluindo VM, discos de réplica, etc.  <br/><br/> Os recursos de infraestrutura criados durante a movimentação precisam ser excluídos manualmente. | Excluir da coleção de movimentação.
-**Falha ao iniciar movimentação** | Excluir da coleção de movimentação.<br/><br/> Exclua qualquer coisa criada na região de destino, incluindo VM, discos de réplica, etc.  <br/><br/> Os recursos de infraestrutura criados durante a movimentação precisam ser excluídos manualmente. | Excluir da coleção de movimentação.
-**Confirmação pendente** | É recomendável descartar a movimentação para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. | É recomendável descartar a movimentação para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. 
-**Falha na confirmação** | É recomendável descartar o para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. | É recomendável descartar a movimentação para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí.
-**Descarte concluído** | O recurso volta para o estado **Iniciar movimentação pendente** .<br/><br/> Ele é excluído da coleção de movimentação, junto com qualquer coisa criada em Target-VM, discos de réplica, cofre, etc.  <br/><br/> Os recursos de infraestrutura criados durante a movimentação precisam ser excluídos manualmente. <br/><br/> Os recursos de infraestrutura criados durante a movimentação precisam ser excluídos manualmente. |  O recurso volta para o estado **Iniciar movimentação pendente** .<br/><br/> Ele é excluído da coleção de movimentação.
-**Falha ao descartar** | É recomendável descartar as movimentações para que os recursos de destino sejam excluídos primeiro.<br/><br/> Depois disso, o recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. | É recomendável descartar as movimentações para que os recursos de destino sejam excluídos primeiro.<br/><br/> Depois disso, o recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí.
-**Excluir origem pendente** | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino.  | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino.
-**Falha ao excluir origem** | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino. | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino.
+**Added to move collection** | Delete from move collection. | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection  | Delete from move collection. 
+**Prepare in progress**<br/> (or any other state in progress) | Delete operation fails with error.  | Delete operation fails with error.
+**Prepare failed** | Delete from the move collection.<br/>Delete anything created in the target region, including replica disks. <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from the move collection.  
+**Initiate move pending** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Initiate move failed** | Delete from move collection.<br/><br/> Delete anything created in the target region, including VM, replica disks etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. | Delete from move collection.
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Commit failed** | We recommend that you discard the  so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Discard completed** | The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target - VM, replica disks, vault etc.  <br/><br/> Infrastructure resources created during the move need to be deleted manually. <br/><br/> Infrastructure resources created during the move need to be deleted manually. |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection.
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 
-## <a name="sql-resource-state-after-removing"></a>Estado do recurso SQL após a remoção
+## SQL resource state after removing
 
-O que acontece quando você remove um recurso SQL do Azure de uma coleção de movimentação depende do estado do recurso, conforme resumido na tabela.
+What happens when you remove an Azure SQL resource from a move collection depends on the resource state, as summarized in the table.
 
-**Estado do recurso** | **SQL** 
+**Resource state** | **SQL** 
 --- | --- 
-**Adicionado à coleção de movimentação** | Excluir da coleção de movimentação. 
-**Dependências resolvidas/preparadas pendentes** | Excluir da coleção de movimentação 
-**Preparação em andamento**<br/> (ou qualquer outro Estado em andamento)  | A operação de exclusão falha com erro. 
-**Falha na preparação** | Excluir da coleção de movimentação<br/><br/>Exclua tudo criado na região de destino. 
-**Iniciar movimentação pendente** |  Excluir da coleção de movimentação<br/><br/>Exclua tudo criado na região de destino. O banco de dados SQL existe neste ponto e será excluído. 
-**Falha ao iniciar movimentação** | Excluir da coleção de movimentação<br/><br/>Exclua tudo criado na região de destino. O banco de dados SQL existe neste ponto e deve ser excluído. 
-**Confirmação pendente** | É recomendável descartar a movimentação para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí.
-**Falha na confirmação** | É recomendável descartar a movimentação para que os recursos de destino sejam excluídos primeiro.<br/><br/> O recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. 
-**Descarte concluído** |  O recurso volta para o estado **Iniciar movimentação pendente** .<br/><br/> Ele é excluído da coleção de movimentação, junto com qualquer coisa criada no destino, incluindo bancos de dados SQL. 
-**Falha ao descartar** | É recomendável descartar as movimentações para que os recursos de destino sejam excluídos primeiro.<br/><br/> Depois disso, o recurso volta para o estado **Iniciar movimentação pendente** e você pode continuar a partir daí. 
-**Excluir origem pendente** | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino. 
-**Falha ao excluir origem** | Excluído da coleção de movimentação.<br/><br/> Ele não exclui nada criado na região de destino. 
+**Added to move collection** | Delete from move collection. 
+**Dependencies resolved/prepare pending** | Delete from move collection 
+**Prepare in progress**<br/> (or any other state in progress)  | Delete operation fails with error. 
+**Prepare failed** | Delete from move collection<br/><br/>Delete anything created in the target region. 
+**Initiate move pending** |  Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and will be deleted. 
+**Initiate move failed** | Delete from move collection<br/><br/>Delete anything created in the target region. The SQL database exists at this point and must be deleted. 
+**Commit pending** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there.
+**Commit failed** | We recommend that you discard the move so that the target resources are deleted first.<br/><br/> The resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Discard completed** |  The resource goes back to the **Initiate move pending** state.<br/><br/> It's deleted from the move collection, along with anything created at target, including SQL databases. 
+**Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
+**Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 
-## <a name="next-steps"></a>Próximas etapas
+## Next steps
 
-Tente [mover uma VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource mover.
+Try [moving a VM](tutorial-move-region-virtual-machines.md) to another region with Resource Mover.

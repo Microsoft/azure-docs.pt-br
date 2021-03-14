@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842882"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009956"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -38,13 +38,13 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create"></a>Criar
 
 **Tempo estimado**: aproximadamente 5 minutos.
 
-A criação de uma instância de computação é um processo único para o espaço de trabalho. Você pode reutilizar essa computação como uma estação de trabalho de desenvolvimento ou como um destino de computação para treinamento. Você pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
+A criação de uma instância de computação é um processo único para o espaço de trabalho. Você pode reutilizar a computação como uma estação de trabalho de desenvolvimento ou como um destino de computação para treinamento. Você pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
 
 Os núcleos dedicados por região por cota da família de VMs e a cota regional total, que se aplicam à criação da instância de computação, são unificados e compartilhados com Azure Machine Learning cota de cluster de computação de treinamento. Parar a instância de computação não libera a cota para garantir que você poderá reiniciar a instância de computação. Observe que não é possível alterar o tamanho da máquina virtual da instância de computação depois que ela é criada.
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -93,7 +93,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para obter mais informações, consulte a referência do [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
 
 # <a name="studio"></a>[Estúdio](#tab/azure-studio)
 
@@ -108,7 +108,7 @@ Você também pode criar uma instância de computação com um [modelo de Azure 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões do [Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) : 
@@ -125,7 +125,7 @@ O cientista de dados pode iniciar, parar e reiniciar a instância de computaçã
 
 ## <a name="manage"></a>Gerenciar
 
-Inicie, pare, reinicie e exclua uma instância de computação. Uma instância de computação não reduz verticalmente automaticamente, portanto, certifique-se de interromper o recurso para evitar encargos contínuos.
+Iniciar, parar, reiniciar e excluir uma instância de computação. Uma instância de computação não reduz verticalmente automaticamente, portanto, certifique-se de interromper o recurso para evitar encargos contínuos.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -178,7 +178,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 * Iniciar 
 
@@ -186,7 +186,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 * Reiniciar 
 
@@ -194,7 +194,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
 * Excluir
 
@@ -202,7 +202,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget delete -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 # <a name="studio"></a>[Estúdio](#tab/azure-studio)
 
@@ -226,7 +226,7 @@ Para cada instância de computação em seu espaço de trabalho que você criou 
 
 ---
 
-O [RBAC do Azure](../role-based-access-control/overview.md) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá logon de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
+O [RBAC do Azure](../role-based-access-control/overview.md) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá entrada de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
 
 Essas ações podem ser controladas pelo RBAC do Azure:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -236,62 +236,8 @@ Essas ações podem ser controladas pelo RBAC do Azure:
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/parada/ação*
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/reinicialização/ação*
 
-
-## <a name="access-the-terminal-window"></a>Acessar a janela do terminal
-
-Abra a janela do terminal de sua instância de computação de qualquer uma das seguintes maneiras:
-
-* RStudio: Selecione a guia **Terminal** no canto superior esquerdo.
-* Jupyter Lab:  selecione o bloco **Terminal** no cabeçalho **Outro** na guia Iniciador.
-* Jupyter:  Selecione **Novo > Terminal** no canto superior direito na guia Arquivos.
-* SSH para o computador, se você tiver habilitado o acesso SSH quando a instância de computação foi criada.
-
-Use a janela do terminal para instalar pacotes e criar kernels adicionais.
-
-## <a name="install-packages"></a>Instalar Pacotes
-
-Você pode instalar pacotes diretamente em Jupyter Notebook ou RStudio:
-
-* RStudio Use a guia **Pacotes** no canto inferior direito ou a guia **Console** no canto superior esquerdo.  
-* Python: Adicione o código de instalação e execute em uma célula Jupyter Notebook.
-
-Ou você pode instalar a partir de uma janela de terminal. Instale os pacotes do Python no ambiente **python 3,6-AzureML** .  Instale os pacotes do R no ambiente do **R**.
-
-> [!NOTE]
-> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento**, em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
-
-## <a name="add-new-kernels"></a>Adicionar novos kernels
-
-> [!WARNING]
->  Ao personalizar a instância de computação, certifique-se de não excluir o ambiente de **azureml_py36** Conda ou o kernel **Python 3,6-azureml** . Isso é necessário para a funcionalidade Jupyter/JupyterLab
-
-Para adicionar um novo kernel Jupyter à instância de computação:
-
-1. Criar novo terminal de Jupyter, JupyterLab ou do painel blocos de anotações ou SSH na instância de computação
-2. Use a janela do terminal para criar um ambiente.  Por exemplo, o código a seguir cria `newenv` :
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Ative o ambiente.  Por exemplo, depois de criar `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Instalar o pacote Pip e ipykernel no novo ambiente e criar um kernel para esse Conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Qualquer um dos [Kernels do Jupyter disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
-
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Acessar o terminal da instância de computação](how-to-access-terminal.md)
+* [Criar e gerenciar arquivos](how-to-manage-files.md)
 * [Enviar uma execução de treinamento](how-to-set-up-training-targets.md)

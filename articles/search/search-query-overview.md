@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400804"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487110"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
@@ -24,10 +24,11 @@ No Pesquisa Cognitiva, uma consulta é uma especificação completa de uma opera
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ Os parâmetros usados durante a execução da consulta incluem:
 
 + **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para citar alguns.
 
++ **`searchMode`** Especifica se as correspondências se baseiam em critérios "todos" ou em "qualquer" na expressão. O padrão é Any.
+
 + **`search`** fornece os critérios de correspondência, geralmente os termos ou frases inteiras, com ou sem operadores. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
 
-+ **`searchFields`** restringe a execução da consulta a campos pesquisáveis específicos.
++ **`searchFields`** restringe a execução da consulta a campos pesquisáveis específicos. Durante o desenvolvimento, é útil usar a mesma lista de campos para Select e Search. Caso contrário, uma correspondência pode ser baseada em valores de campo que você não pode ver nos resultados, criando incertezas sobre por que o documento foi retornado.
 
 Parâmetros usados para formatar a resposta:
 
@@ -84,8 +87,8 @@ Você também pode precisar de filtros para invocar um formulário de consulta e
 
 | Cenário de filtro | Descrição |
 |-----------------|-------------|
-| filtros de intervalo | No Pesquisa Cognitiva do Azure, as consultas de intervalo são criadas usando o parâmetro de filtro. Para obter mais informações e exemplos, consulte [exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters). |
-| Pesquisa de localização geográfica | Se um campo pesquisável for do [tipo EDM. GeographyPoint](/rest/api/searchservice/supported-data-types), você poderá criar uma expressão de filtro para "localizar perto de mim" ou controles de pesquisa baseados em mapa. Os campos que orientam a pesquisa geográfica contêm coordenadas. Para obter mais informações e um exemplo, consulte [exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search). |
+| filtros de intervalo | No Pesquisa Cognitiva do Azure, as consultas de intervalo são criadas usando o parâmetro de filtro. Para obter mais informações e exemplos, consulte [exemplo de filtro de intervalo](search-query-simple-examples.md#example-5-range-filters). |
+| Pesquisa de localização geográfica | Se um campo pesquisável for do [tipo EDM. GeographyPoint](/rest/api/searchservice/supported-data-types), você poderá criar uma expressão de filtro para "localizar perto de mim" ou controles de pesquisa baseados em mapa. Os campos que orientam a pesquisa geográfica contêm coordenadas. Para obter mais informações e um exemplo, consulte [exemplo de pesquisa geográfica](search-query-simple-examples.md#example-6-geo-search). |
 | Navegação facetada | Uma estrutura de navegação de faceta se torna fundamental na navegação orientada pelo usuário quando você invoca um filtro em resposta a um `onclick` evento em uma faceta. Assim, as facetas e os filtros são disponibilizados em mãos. Se você adicionar navegação de faceta, precisará de filtros para concluir a experiência. Para obter mais informações, consulte [como criar um filtro de faceta](search-filters-facets.md). |
 
 > [!NOTE]
@@ -101,12 +104,12 @@ Um formulário de consulta avançada depende do analisador de Lucene completo e 
 
 | Tipo de consulta | Uso | Obter mais informações e exemplos |
 |------------|--------|------------------------------|
-| [Pesquisa em campo](query-lucene-syntax.md#bkmk_fields) | **`search`**  meter **`queryType=full`**  | Crie uma expressão de consulta composta visando um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-2-fielded-search) |
-| [pesquisa difusa](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** meter **`queryType=full`** | Corresponde a termos com construção ou ortografia semelhantes. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [pesquisa por proximidade](query-lucene-syntax.md#bkmk_proximity) | **`search`** meter **`queryType=full`** | Descobre condições que estão próximos uns dos outros em um documento. <br/>[Exemplo de pesquisa por proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
-| [aumento de termo](query-lucene-syntax.md#bkmk_termboost) | **`search`** meter **`queryType=full`** | Classifica um documento mais alto se ele contiver o termo potencializado, em relação a outros que não contêm. <br/>[Exemplo de aumento de termo](search-query-lucene-examples.md#example-5-term-boosting) |
-| [pesquisa de expressão regular](query-lucene-syntax.md#bkmk_regex) | **`search`** meter **`queryType=full`** | Correspondências com base no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
-|  [pesquisa de curinga ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* ou **`?`** , **`queryType=full`**| Correspondências baseadas em um prefixo e til (`~`) ou caractere único (`?`). <br/>[Exemplo de pesquisa de curinga](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Pesquisa em campo](query-lucene-syntax.md#bkmk_fields) | **`search`**  meter **`queryType=full`**  | Crie uma expressão de consulta composta visando um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-1-fielded-search) |
+| [pesquisa difusa](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** meter **`queryType=full`** | Corresponde a termos com construção ou ortografia semelhantes. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [pesquisa por proximidade](query-lucene-syntax.md#bkmk_proximity) | **`search`** meter **`queryType=full`** | Descobre condições que estão próximos uns dos outros em um documento. <br/>[Exemplo de pesquisa por proximidade](search-query-lucene-examples.md#example-3-proximity-search) |
+| [aumento de termo](query-lucene-syntax.md#bkmk_termboost) | **`search`** meter **`queryType=full`** | Classifica um documento mais alto se ele contiver o termo potencializado, em relação a outros que não contêm. <br/>[Exemplo de aumento de termo](search-query-lucene-examples.md#example-4-term-boosting) |
+| [pesquisa de expressão regular](query-lucene-syntax.md#bkmk_regex) | **`search`** meter **`queryType=full`** | Correspondências com base no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-5-regex) |
+|  [pesquisa de curinga ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parâmetro com * *_`~`_* ou **`?`** , **`queryType=full`**| Correspondências baseadas em um prefixo e til (`~`) ou caractere único (`?`). <br/>[Exemplo de pesquisa de curinga](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -114,4 +117,4 @@ Para uma análise mais detalhada da implementação da consulta, examine os exem
 
 + [Exemplos de consulta simples](search-query-simple-examples.md)
 + [Exemplos de consulta de sintaxe Lucene para criar consultas avançadas](search-query-lucene-examples.md)
-+ [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md)git

@@ -7,24 +7,24 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509058"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523661"
 ---
 # <a name="view-alerts"></a>Exibir alertas
 
 Este artigo descreve como exibir alertas disparados por seu sensor e gerenciá-los com as ferramentas de alerta.
 
-Você pode exibir alertas com base em várias categorias, como alertas que foram arquivados ou fixados. Ou você pode procurar alertas de interesse, como alertas com base em um endereço IP ou MAC.  
+Você pode exibir alertas com base em várias categorias, como alertas que foram arquivados ou fixados. Você também pode procurar alertas de interesse, como alertas com base em um endereço IP ou MAC.  
 
 Você também pode exibir alertas no painel do sensor.
 
 Para exibir alertas:
 
-- Selecione **alertas** no menu lateral. A janela **alertas** exibe os alertas detectados pelo sensor.
+- Selecione **alertas** no menu lateral. A janela alertas exibe os alertas detectados pelo sensor.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Exibição da tela de alertas.":::
 
@@ -42,21 +42,21 @@ Você pode exibir alertas de acordo com várias categorias da exibição princip
 
 ## <a name="search-for-alerts-of-interest"></a>Pesquisar por alertas de interesse
 
-A exibição principal de **alertas** fornece vários recursos de pesquisa para ajudá-lo a encontrar alertas de interesse.
+A exibição principal de alertas fornece vários recursos de pesquisa para ajudá-lo a encontrar alertas de interesse.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Captura de tela de aprendizado de alertas.":::
 
-### <a name="text-search"></a>Pesquisa de texto 
+### <a name="text-search"></a>Pesquisa de texto
 
-Use a opção **pesquisa gratuita** para procurar alertas por texto, números ou caracteres.
+Use a opção pesquisa gratuita para procurar alertas por texto, números ou caracteres.
 
 Para Pesquisar:
 
-- Digite o texto necessário no campo **pesquisa livre** e pressione Enter no teclado.
+- Digite o texto necessário no campo pesquisa livre e pressione Enter no teclado.
 
 Para limpar a pesquisa:
 
-- Exclua o texto no campo **pesquisa livre** e pressione Enter no teclado.
+- Exclua o texto no campo pesquisa livre e pressione Enter no teclado.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Pesquisa de endereço IP do dispositivo ou do grupo de dispositivos
 
@@ -100,7 +100,7 @@ As mensagens de alerta fornecem as seguintes ações:
 
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para aprender e reconhecer todos os alertas.
 
-- Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar a lista de alertas para um arquivo CSV e selecione a opção Exportar. Escolha **exportação de alertas** para a opção regular exportar para CSV. Ou escolha **exportação de alerta estendida** para a possibilidade de adicionar linhas separadas para obter informações adicionais sobre um alerta no arquivo CSV.
+- Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar informações de alerta para um arquivo. csv. Use a opção **exportação de alerta estendida** para exportar informações de alerta em linhas separadas para cada alerta que abrange vários dispositivos.
 
 ## <a name="alert-pop-up-window-options"></a>Opções da janela pop-up de alerta
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830712"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645460"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planejar a configuração do Azure Active Directory meus aplicativos
 
@@ -143,7 +143,7 @@ Se você precisar integrar esses aplicativos, defina um mecanismo para implantar
 
 * [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager para o Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager para o Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 A extensão permite que os usuários iniciem qualquer aplicativo de sua barra de pesquisa, localizando acesso a aplicativos usados recentemente e tendo um link para a página meus aplicativos.
 
@@ -271,4 +271,3 @@ Você pode usar [Privileged Identity Management](../privileged-identity-manageme
 
 [Planejar uma implantação do Proxy de Aplicativo](application-proxy-deployment-plan.md)
 
- 

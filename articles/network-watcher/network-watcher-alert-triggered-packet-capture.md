@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570985"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -78,7 +78,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |---|---|---|
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
-    |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
+    |**Grupo de Recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
     |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
     |**Localidade**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
@@ -332,7 +332,7 @@ O exemplo a seguir é o código do PowerShell que pode ser usado na função. H�
 
     ![Copiando a URL da função][2]
 
-Se você precisar de propriedades personalizadas no conteúdo da solicitação POST do webhook, confira [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
+Se você precisar de propriedades personalizadas no conteúdo da solicitação POST do webhook, confira [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurar um alerta em uma VM
 
@@ -340,7 +340,7 @@ Os alertas podem ser configurados para notificar as pessoas quando uma métrica 
 
 ### <a name="create-the-alert-rule"></a>Criar a regra de alerta
 
-Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais documentação detalhada sobre como configurar alertas pode ser encontrada em [Criar alertas do Monitor do Azure para serviços do Azure - Portal do Azure](../azure-monitor/platform/alerts-classic-portal.md). Insira os seguintes valores na folha **Regra de alerta** e selecione **OK**.
+Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais documentação detalhada sobre como configurar alertas pode ser encontrada em [Criar alertas do Monitor do Azure para serviços do Azure - Portal do Azure](../azure-monitor/alerts/alerts-classic-portal.md). Insira os seguintes valores na folha **Regra de alerta** e selecione **OK**.
 
   |**Configuração** | **Valor** | **Detalhes** |
   |---|---|---|

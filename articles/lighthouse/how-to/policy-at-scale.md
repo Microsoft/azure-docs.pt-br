@@ -1,14 +1,14 @@
 ---
 title: Implantar o Azure Policy em assinaturas delegadas em escala
 description: Saiba como o Azure Lighthouse permite implantar uma definição de política e uma atribuição de política em vários locatários.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412061"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049773"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar o Azure Policy em assinaturas delegadas em escala
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Embora você possa implantar políticas em vários locatários, no momento, não é possível [Exibir detalhes de conformidade](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) para recursos sem conformidade nesses locatários.
+
 ## <a name="validate-the-policy-deployment"></a>Validar a implantação da política
 
 Depois de implantar o modelo de Azure Resource Manager, você pode confirmar que a definição de política foi aplicada com êxito ao tentar criar uma conta de armazenamento com **EnableHttpsTrafficOnly** definido como **false** em uma de suas assinaturas delegadas. Devido à atribuição de política, não será possível criar essa conta de armazenamento.  
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> Embora você possa implantar políticas em vários locatários, no momento, não é possível [Exibir detalhes de conformidade](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) para recursos sem conformidade nesses locatários.
 
 ## <a name="next-steps"></a>Próximas etapas
 

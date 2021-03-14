@@ -4,27 +4,27 @@ description: A linha de base de segurança do serviço kubernetes do Azure forne
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4cf623ed960fd2efe6fdf506751858796008cef4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: de32de5fc78919154bade3895cab6da82b175a93
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740575"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
-A linha de base de segurança do Azure para o serviço kubernetes do Azure contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
+Essa linha de base de segurança aplica diretrizes do [benchmark de segurança do Azure versão 1,0](../security/benchmarks/overview-v1.md) para o Azure kubernetes. O Azure Security Benchmark fornece recomendações sobre como você pode proteger suas soluções de nuvem no Azure.
+O conteúdo é agrupado pelos **controles de segurança** definidos pelo benchmark de segurança do Azure e pelas diretrizes relacionadas aplicáveis ao Azure kubernetes. Os **controles** não aplicáveis ao Azure kubernetes foram excluídos.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
-
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
+ 
+Para ver como o Azure kubernetes é completamente mapeado para o benchmark de segurança do Azure, consulte o [arquivo de mapeamento de linha de base de segurança de kubernetes do Azure completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](../security/benchmarks/security-control-network-security.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: Segurança de Rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
@@ -40,9 +40,13 @@ Você pode implementar um cluster AKS privado para garantir que o tráfego de re
 
 - [Criar um cluster privado do Serviço de Kubernetes do Azure](private-clusters.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+
+**Azure Policy definições internas-Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-1-1.md)]
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: monitorar e registrar a configuração e o tráfego de redes virtuais, sub-redes e NICs
 
@@ -56,9 +60,9 @@ Habilite logs de fluxo do grupo de segurança de rede e envie os logs para uma c
 
 - [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteger aplicativos Web críticos
 
@@ -72,13 +76,14 @@ Use um gateway de API para autenticação, autorização, limitação, Caching, 
 
 - [Usar o gerenciamento de API do Azure com microservices implantados no serviço kubernetes do Azure](../api-management/api-management-kubernetes.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Rejeitar comunicações com endereços IP maliciosos conhecidos
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: rejeitar comunicações com endereços IP maliciosos conhecidos
 
 **Orientação**: habilitar a proteção padrão de DDoS (negação de serviço distribuído) da Microsoft nas redes virtuais em que os componentes do AKS (serviço de kubernetes do Azure) são implantados para proteger contra ataques de DDoS.
+
 Instale o mecanismo de política de rede e crie políticas de rede kubernetes para controlar o fluxo de tráfego entre pods no AKS como, por padrão, todo o tráfego é permitido entre esses pods. A política de rede só deve ser usada para nós e pods baseados em Linux no AKS. Defina regras que limitam a comunicação pod para melhorar a segurança. 
 
 Escolha permitir ou negar tráfego com base em configurações, como rótulos, namespace ou porta de tráfego atribuídos. As políticas de rede necessárias podem ser aplicadas automaticamente, pois os pods são criados dinamicamente em um cluster AKS. 
@@ -87,21 +92,21 @@ Escolha permitir ou negar tráfego com base em configurações, como rótulos, n
 
 - [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="15-record-network-packets"></a>1,5: gravar pacotes de rede
 
 **Orientação**: Use a captura de pacote do observador de rede conforme necessário para investigar a atividade anômala. 
 
-O observador de rede é habilitado automaticamente na região da sua rede virtual quando você cria ou atualiza uma rede virtual em sua assinatura. Você também pode criar novas instâncias do observador de rede usando o PowerShell, a CLI do Azure, a API REST ou o método ARMClient
+O observador de rede é habilitado automaticamente na região da sua rede virtual quando você cria ou atualiza uma rede virtual em sua assinatura. Você também pode criar novas instâncias do observador de rede usando o PowerShell, a CLI do Azure, a API REST ou o método de cliente Azure Resource Manager
 
 - [Como habilitar o Observador de Rede](../network-watcher/network-watcher-create.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: implantar os sistemas de detecção de intrusão/prevenção de invasão baseado em rede (IDS/IPS)
 
@@ -109,31 +114,15 @@ O observador de rede é habilitado automaticamente na região da sua rede virtua
 
 Se a detecção de intrusão e/ou prevenção baseada na inspeção de carga ou análise de comportamento não for um requisito, um gateway de Aplicativo Azure com WAF poderá ser usado e configurado no "modo de detecção" para registrar alertas e ameaças, ou "modo de prevenção", para bloquear ativamente invasões e ataques detectados.
 
-- [Entenda as práticas recomendadas para proteger o cluster AKS com um WAF](operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Entenda as práticas recomendadas para proteger o cluster AKS com um WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Como implantar Aplicativo Azure gateway (WAF do Azure)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Cliente
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7: gerenciar o tráfego para aplicativos Web
+**Monitoramento da central de segurança do Azure**: nenhum
 
-**Orientação**: use aplicativo Azure um WAF (firewall do aplicativo Web) habilitado para gateway na frente de um cluster AKs para filtrar o tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras que são usadas na WAF do Azure para inspecionar ataques como scripts entre sites ou envenenamento de cookie.
-
-Aplique marcas de FQDN (nome de domínio totalmente qualificado) a aplicativos para facilitar o uso na configuração de regras de aplicativo em um grupo de segurança de rede. Depois de configurar as regras de rede. Adicione uma regra de aplicativo usando uma marca FQDN, por exemplo, AzureKubernetesService, que inclui todos os FQDNs necessários acessíveis por meio da porta TCP 443 e da porta 80. 
-
-- [Entender as práticas recomendadas para conectividade de rede e segurança no AKS](operator-best-practices-network.md)
-
-- [Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)](use-network-policies.md)
-
-- [Como implantar Aplicativo Azure gateway (WAF do Azure)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
-**Responsabilidade**: Não aplicável
-
-### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa de regras de segurança de rede
+### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: minimizar a complexidade e a sobrecarga administrativa de regras de segurança de rede
 
 **Diretrizes**: use marcas de serviço de rede virtual para definir os controles de acesso à rede em grupos de segurança de rede associados às instâncias do AKS (serviço kubernetes do Azure). As marcas de serviço podem ser usadas no lugar de endereços IP específicos ao criar regras de segurança para permitir ou negar o tráfego para o serviço correspondente, especificando o nome da marca de serviço. 
 
@@ -147,33 +136,38 @@ Aplique uma marca do Azure a pools de nós em seu cluster AKS. Eles são diferen
 
 - [Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)](limit-egress-traffic.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: manter configurações de segurança padrão para dispositivos de rede
 
-**Diretrizes**: defina e implemente configurações de segurança padrão com Azure Policy para recursos de rede associados aos seus clusters do AKS (serviço kubernetes do Azure). Use aliases de Azure Policy nos namespaces "Microsoft. ContainerService" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de seus clusters AKS. 
+**Diretrizes**: defina e implemente configurações de segurança padrão com Azure Policy para recursos de rede associados aos seus clusters do AKS (serviço kubernetes do Azure). 
+
+Use aliases de Azure Policy nos namespaces "Microsoft. ContainerService" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede de seus clusters AKS. 
 
 Além disso, use definições de política internas relacionadas a AKS, como:
 
-• Intervalos de IP autorizados devem ser definidos nos serviços Kubernetess
+- Os intervalos de IP autorizados devem ser definidos nos Serviços do Kubernetes
 
-• Impor entrada HTTPS no cluster kubernetes
+- Impor a entrada de HTTPS no cluster do Kubernetes
 
-• Verifique se os serviços escutam somente em portas permitidas no cluster kubernetes
+- Garantir que os serviços escutem somente em portas permitidas no cluster do Kubernetes
+
+Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Exemplos de Azure Policy para rede](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentar regras de configuração de tráfego
 
 **Orientação**: use marcas para grupos de segurança de rede e outros recursos para o fluxo de tráfego de e para clusters do AKS (serviço kubernetes do Azure). Use o campo "Descrição" para regras de grupo de segurança de rede individuais para especificar a necessidade de negócios e/ou duração, e assim por diante, para qualquer regra que permita o tráfego de/para uma rede.
+
 Use qualquer uma das definições relacionadas à marcação de Azure Policy internas, por exemplo, "exigir marca e seu valor" que garanta que todos os recursos sejam criados com marcas e recebam notificações para recursos não marcados existentes.
 
 Escolha permitir ou negar caminhos de rede específicos no cluster com base em namespaces e seletores de rótulo com políticas de rede. Use esses namespaces e rótulos como descritores para regras de configuração de tráfego. Use Azure PowerShell ou CLI (interface de linha de comando) do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
@@ -184,9 +178,9 @@ Escolha permitir ou negar caminhos de rede específicos no cluster com base em n
 
 - [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usar ferramentas automatizadas para monitorar as configurações de recursos de rede e detectar alterações
 
@@ -196,17 +190,17 @@ Crie alertas no Azure Monitor que serão disparados quando ocorrerem alteraçõe
 
 Use logs de Azure Monitor para habilitar e consultar os logs de AKS os componentes mestres, Kube-apiserver e Kube-Controller-Manager. Crie e gerencie os nós que executam o kubelet com tempo de execução de contêiner e implante seus aplicativos por meio do servidor de API kubernetes gerenciado. 
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](view-master-logs.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
 
-## <a name="logging-and-monitoring"></a>Log e monitoramento
+**Monitoramento da central de segurança do Azure**: nenhum
+
+## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
@@ -218,19 +212,19 @@ Verifique se os servidores NTP estão acessíveis pelos nós do cluster se estiv
 
 - [Entender os requisitos de domínio e porta do NTP para nós de cluster AKS](limit-egress-traffic.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Compartilhado
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
 
 **Orientação**: Habilitar logs de auditoria dos componentes mestres do AKS (serviços Kubernetess do Azure), Kube-apiserver e Kube-Controller-Manager, que são fornecidos como um serviço gerenciado. 
 
-• Kube-auditaksService: o nome de exibição no log de auditoria para a operação do plano de controle (do hcpService) 
+- Kube-auditaksService: o nome de exibição no log de auditoria para a operação de plano de controle (do hcpService) 
 
-• MasterClient: o nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials 
+- MasterClient: o nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials 
 
-• nodeclient: o nome de exibição para ClientCertificate, que é usado por nós de agente
+- nodeclient: o nome de exibição para ClientCertificate, que é usado por nós de agente
 
 Habilite outros logs de auditoria, como Kube-Audit também. 
 
@@ -238,45 +232,44 @@ Exporte esses logs para Log Analytics ou outra plataforma de armazenamento. No A
 
 Habilite e integre esses dados ao Azure Sentinel ou a um SIEM de terceiros com base em seus requisitos de negócios organizacionais.
 
-- [Examine o esquema de log, incluindo funções de log aqui](view-master-logs.md)
+- [Examine o esquema de log, incluindo funções de log aqui](/azure/aks/view-master-logs)
 
-- [Entender Azure Monitor para contêineres](../azure-monitor/insights/container-insights-overview.md)
+- [Entender Azure Monitor para contêineres](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/insights/container-insights-onboard.md)
+- [Como habilitar o Azure Monitor para contêineres](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](view-master-logs.md)
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
 
+**Monitoramento da central de segurança do Azure**: nenhum
+
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: habilitar o registro em log de auditoria para recursos do Azure
 
-**Orientação**: Use logs de atividade para monitorar ações em recursos do AKS (serviço kubernetes do Azure) para exibir todas as atividades e seu status. Determine quais operações foram executadas nos recursos em sua assinatura com os logs de atividade: quem iniciou a operação
+**Orientação**: Use logs de atividade para monitorar ações em recursos do AKS (serviço kubernetes do Azure) para exibir todas as atividades e seu status. Determine quais operações foram executadas nos recursos em sua assinatura com os logs de atividade: 
 
-quando a operação ocorreu
-
-o status da operação
-
-os valores de outras propriedades que podem ajudar você a pesquisar a operação
+- quem iniciou a operação
+- quando a operação ocorreu
+- o status da operação
+- os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
 Recupere informações do log de atividades por meio do Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. 
 
 Habilite os logs de auditoria em componentes mestres do AKS, como: 
 
-• Kube-auditaksService: o nome de exibição no log de auditoria para a operação do plano de controle (do hcpService) 
+- Kube-auditaksService: o nome de exibição no log de auditoria para a operação de plano de controle (do hcpService) 
 
-• MasterClient: o nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials 
+- MasterClient: o nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials 
 
-• nodeclient: o nome de exibição para ClientCertificate, que é usado por nós de agente
+- nodeclient: o nome de exibição para ClientCertificate, que é usado por nós de agente
 
 Ative outros logs de auditoria, como Kube-Audit também. 
 
-- [Como habilitar e examinar os logs do nó mestre do kubernetes no AKS](view-master-logs.md)
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Como habilitar e examinar os logs do nó mestre do kubernetes no AKS](/azure/aks/view-master-logs)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: coletar logs de segurança de sistemas operacionais
 
@@ -286,19 +279,19 @@ A coleta de dados é necessária para fornecer visibilidade de atualizações au
 
 - [Como habilitar o provisionamento automático do agente de Log Analytics](../security-center/security-center-enable-data-collection.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Compartilhado
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurar a retenção de armazenamento do log de segurança
 
 **Orientação**: integrar suas instâncias do AKS (serviço kubernetes do Azure) para Azure monitor e definir o período de retenção do espaço de trabalho do Azure log Analytics correspondente de acordo com os requisitos de conformidade da sua organização. 
 
-- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: monitorar e revisar logs
 
@@ -308,27 +301,29 @@ Use o espaço de trabalho Log Analytics do Azure Monitor para examinar os logs e
 
 Exiba os logs gerados por AKS Master Components (Kube-apiserver e Kube-controllermanager) para solucionar problemas de seu aplicativo e serviços. Habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiros para gerenciamento e monitoramento centralizados de log.
 
-- [Como habilitar e examinar os logs do nó mestre do kubernetes no AKS](view-master-logs.md)
+- [Como habilitar e examinar os logs do nó mestre do kubernetes no AKS](/azure/aks/view-master-logs)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Responsabilidade**: Cliente
 
+**Monitoramento da central de segurança do Azure**: nenhum
+
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: habilitar alertas para atividades anômalas
 
-**Orientação**: Use o AKs (serviço kubernetes do Azure) junto com a central de segurança para obter uma visibilidade mais profunda dos nós do AKS. Examine os alertas da central de segurança sobre ameaças e atividades mal-intencionadas detectadas no host e no nível do cluster. A central de segurança implementa a análise contínua de eventos de segurança brutos que ocorrem em um cluster AKS, como dados de rede, criação de processo e o log de auditoria do kubernetes. Determinar se essa atividade é um comportamento esperado ou se o aplicativo está tendo um comportamento inadequado. Use as métricas e os logs em Azure Monitor para obter suas descobertas. 
+**Orientação**: Use o AKs (serviço kubernetes do Azure) junto com a central de segurança para obter uma visibilidade mais profunda dos nós do AKS. 
+
+Examine os alertas da central de segurança sobre ameaças e atividades mal-intencionadas detectadas no host e no nível do cluster. A central de segurança implementa a análise contínua de eventos de segurança brutos que ocorrem em um cluster AKS, como dados de rede, criação de processo e o log de auditoria do kubernetes. Determinar se essa atividade é um comportamento esperado ou se o aplicativo está tendo um comportamento inadequado. Use as métricas e os logs em Azure Monitor para obter suas descobertas. 
 
 - [Entender a integração dos serviços Kubernetess do Azure com a central de segurança](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Como habilitar a camada Standard da central de segurança do Azure](../security-center/security-center-get-started.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizar o registro em log de antimalware
 
@@ -338,11 +333,11 @@ Exiba os logs gerados por AKS Master Components (Kube-apiserver e Kube-controlle
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contêineres-clusters do serviço kubernetes do Azure](../security-center/alerts-reference.md#alerts-akscluster)
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Alertas para contêineres-clusters do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: habilitar o registro em log de consulta DNS
 
@@ -352,9 +347,9 @@ Habilite o log de consultas DNS aplicando a configuração documentada em seu Co
 
 - [Personalizar o CoreDNS com o Serviço de Kubernetes do Azure](coredns-custom.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: habilitar o registro em log de auditoria de linha de comando
 
@@ -364,9 +359,9 @@ Habilite o log de consultas DNS aplicando a configuração documentada em seu Co
 
 - [Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Kubernetes do Azure)](kubelet-logs.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
@@ -374,21 +369,21 @@ Habilite o log de consultas DNS aplicando a configuração documentada em seu Co
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Diretrizes**: o serviço de kubernetes do Azure (AKs) em si não fornece uma solução de gerenciamento de identidade que armazena contas de usuário e senhas regulares. Com a integração do Azure Active Directory (AD do Azure), você pode conceder aos usuários ou grupos o acesso aos recursos do kubernetes em um namespace ou através do cluster. 
+**Diretrizes**: o serviço de kubernetes do Azure (AKs) em si não fornece uma solução de gerenciamento de identidade que armazena contas de usuário e senhas regulares. Com a integração do Azure Active Directory (AD do Azure), você pode conceder aos usuários ou grupos o acesso aos recursos do kubernetes em um namespace ou através do cluster.
 
 Executar consultas ad hoc para descobrir contas que são membros de grupos administrativos do AKS com o módulo do PowerShell do Azure AD
 
 Use CLI do Azure para operações como ' obter credenciais de acesso para um cluster kubernetes gerenciado ' para ajudar a reconciliar o acesso regularmente. Implemente esse processo para manter um inventário atualizado das contas de serviço, que são outro tipo de usuário primário no AKS. Aplique as recomendações de gerenciamento de identidade e acesso da central de segurança.
 
-- [Como integrar o AKS ao Azure AD](./azure-ad-integration-cli.md)
+- [Como integrar o AKS ao Azure AD](azure-ad-integration-cli.md)
 
 - [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Como monitorar a identidade e o acesso à central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
@@ -398,9 +393,9 @@ Executar consultas ad hoc para descobrir contas que são membros de grupos admin
 
 - [Entender as opções de acesso e de identidade para AKS](concepts-identity.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usar contas administrativas dedicadas
 
@@ -414,44 +409,45 @@ Crie políticas e procedimentos em relação ao uso de contas administrativas de
 
 - [Usar controles de acesso com base em função do Azure](control-kubeconfig-access.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usar o SSO (logon único) com o Azure Active Directory
 
 **Orientação**: usar o logon único para o serviço kubernetes do Azure (AKs) com autenticação integrada do Azure Active Directory (AD do Azure) para um cluster AKs.
 
-- [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real](../azure-monitor/insights/container-insights-livedata-overview.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usar a autenticação multifator para todos os acessos baseados no Azure Active Directory
 
 **Orientação**: integre a autenticação do AKS (serviço kubernetes do Azure) com o Azure Active Directory (Azure AD). 
 
-Habilite a MFA (autenticação multifator) do Azure AD e siga as recomendações de gerenciamento de identidade e acesso da central de segurança.
+Habilite a autenticação multifator do Azure AD e siga as recomendações de gerenciamento de identidade e acesso da central de segurança.
 
-- [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Como habilitar a autenticação multifator no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md) 
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usar computadores dedicados (estações de trabalho com acesso privilegiado) para todas as tarefas administrativas
 
 **Diretrizes**: Use uma Paw (estação de trabalho com acesso privilegiado), com a MFA (autenticação multifator), configurada para fazer logon em seus clusters do AKS (serviço kubernetes do Azure) e recursos relacionados.
+
 - [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como habilitar a MFA (autenticação multifator) no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: registrar em log e alertar sobre atividades suspeitas de contas administrativas
 
@@ -461,9 +457,9 @@ Habilite a MFA (autenticação multifator) do Azure AD e siga as recomendações
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: gerenciar recursos do Azure somente de locais aprovados
 
@@ -475,9 +471,9 @@ Limite o acesso ao servidor de API AKS de um conjunto limitado de intervalos de 
 
 - [Como configurar localizações nomeadas no Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
@@ -487,13 +483,13 @@ Use as funções internas do AKS com o controle de acesso baseado em função do
 
 - [Visão geral da política do Azure](../governance/policy/overview.md)
 
-- [Como integrar o Azure AD ao AKS](./azure-ad-integration-cli.md) 
+- [Como integrar o Azure AD ao AKS](azure-ad-integration-cli.md)
 
 - [Integrar o Azure AD gerenciado pelo AKS](managed-aad.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: revisar e reconciliar regularmente o acesso do usuário
 
@@ -509,20 +505,20 @@ Lembre-se das funções usadas para fins de suporte ou solução de problemas. P
 
 - [Como monitorar a atividade de acesso e identidade do usuário na central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: monitorar tentativas de acessar credenciais desativadas
 
 **Orientação**: integrar a autenticação de usuário para o serviço kubernetes do Azure (AKs) com o Azure Active Directory (Azure AD). Crie configurações de diagnóstico para o Azure AD, enviando os logs de auditoria e de entrada para um espaço de trabalho do Azure Log Analytics. Configure os alertas desejados (por exemplo, quando uma conta desativada tenta fazer logon) em um espaço de trabalho do Azure Log Analytics.
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como criar, exibir e gerenciar alertas de log usando Azure Monitor](../azure-monitor/platform/alerts-log.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como criar, exibir e gerenciar alertas de log usando Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: alertar sobre o desvio de comportamento de logon na conta
 
@@ -534,22 +530,13 @@ Lembre-se das funções usadas para fins de suporte ou solução de problemas. P
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornecer à Microsoft acesso a dados relevantes do cliente durante cenários de suporte
-
-**Orientação**: não aplicável ao serviço de kubernetes do Azure (AKs), pois não há suporte pelo sistema de proteção de dados do cliente.
-- [Lista de serviços com suporte Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
-**Responsabilidade**: Não aplicável
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
@@ -559,9 +546,9 @@ Lembre-se das funções usadas para fins de suporte ou solução de problemas. P
 
 - [Atualizar marcas para clusters gerenciados](/rest/api/aks/managedclusters/updatetags)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
@@ -577,9 +564,9 @@ Implemente assinaturas e/ou grupos de gerenciamento separados para ambientes de 
 
 - [Entender as práticas recomendadas para conectividade de rede e segurança no AKS](operator-best-practices-network.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorar e bloquear a transferência não autorizada de informações confidenciais
 
@@ -593,11 +580,11 @@ A Microsoft gerencia a plataforma subjacente e trata todo o conteúdo do cliente
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Compartilhado
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações confidenciais em trânsito
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: criptografar todas as informações confidenciais em trânsito
 
 **Orientação**: Crie um controlador de entrada HTTPS e use seus próprios certificados TLS (ou, opcionalmente, vamos criptografar) para suas implantações do AKS (serviço kubernetes do Azure). 
 
@@ -609,9 +596,9 @@ O tráfego de saída kubernetes é criptografado via HTTPS/TLS por padrão. Revi
 
 - [Lista de portas e protocolos de saída em potencial usados pelo AKS](limit-egress-traffic.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usar uma ferramenta de descoberta ativa para identificar dados confidenciais
 
@@ -622,9 +609,9 @@ Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft 
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usar o RBAC do Azure para gerenciar o acesso aos recursos
 
@@ -636,9 +623,13 @@ Use as funções internas do AKS com o colaborador e o proprietário da polític
 
 - [Como controlar o acesso a recursos de cluster usando o Azure RBAC e identidades do Azure AD no AKS](azure-ad-rbac.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+
+**Azure Policy definições internas-Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 4.6](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-4-6.md)]
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usar a prevenção contra perda de dados baseada em host para impor controle de acesso
 
@@ -647,11 +638,11 @@ A Microsoft gerencia a plataforma subjacente e trata todo o conteúdo do cliente
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Criptografar informações confidenciais em repouso
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: criptografar informações confidenciais em repouso
 
 **Orientação**: os dois tipos principais de armazenamento fornecidos para volumes no serviço de kubernetes do Azure (AKs) são apoiados por discos do Azure ou arquivos do Azure. Os dois tipos de armazenamento usam o Azure Criptografia do Serviço de Armazenamento (SSE), que criptografa os dados em repouso para melhorar a segurança. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft.
 
@@ -661,11 +652,11 @@ A criptografia em repouso usando chaves gerenciadas pelo cliente está disponív
 
 - [Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)](azure-disk-customer-managed-keys.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Compartilhado
 
-### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registrar e alertar sobre alterações em recursos críticos do Azure
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrar e alertar sobre alterações em recursos críticos do Azure
 
 **Diretrizes**: Use Azure monitor para contêineres para monitorar o desempenho de cargas de trabalho de contêiner implantadas em clusters kubernetes gerenciados hospedados no AKs (serviço kubernetes do Azure). 
 
@@ -673,15 +664,15 @@ Configure alertas para notificação proativa ou criação de log quando a utili
 
 Use o log de atividades do Azure para monitorar seus clusters AKS e recursos relacionados em um alto nível. Integre com o Prometheus para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando consultas para criar alertas personalizados, painéis e executar análise detalhada.
 
-- [Entender Azure Monitor para contêineres](../azure-monitor/insights/container-insights-overview.md)
+- [Entender Azure Monitor para contêineres](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/insights/container-insights-onboard.md)
+- [Como habilitar o Azure Monitor para contêineres](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
-
-**Monitoramento da Central de Segurança do Azure**: Sim
+- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
@@ -701,9 +692,9 @@ Use a central de segurança para obter recomendações acionáveis para cada vul
 
 - [Entender a integração do registro de contêiner com a central de segurança do Azure](../security-center/defender-for-container-registries-introduction.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: implantar solução automatizada de gerenciamento de patch de sistema operacional
 
@@ -713,43 +704,47 @@ Observe que o processo de manutenção dos nós do Windows Server é diferente d
 
 - [Entenda como as atualizações são aplicadas a nós de cluster AKS que executam o Linux](node-updates-kured.md)
 
-- [Como atualizar um pool de nós AKS para clusters AKS que usam nós do Windows Server](use-multiple-node-pools.md#upgrade-a-node-pool)
+- [Como atualizar um pool de nós AKS para clusters AKS que usam nós do Windows Server](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Atualizações de imagem de nó do AKS (serviço kubernetes do Azure)](node-image-upgrade.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: implantar uma solução de gerenciamento de patch automatizada para títulos de software de terceiros
 
 **Diretrizes**: implemente um processo manual para garantir que os aplicativos de terceiros do nó de cluster do AKS (serviço kubernetes) do Azure permaneçam corrigidos durante o tempo de vida do cluster. Isso pode exigir a habilitação de atualizações automáticas, o monitoramento dos nós ou a realização de reinicializações periódicas.
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar verificações de vulnerabilidade consecutivas
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
 
-**Orientação**: exportar resultados da verificação da central de segurança em intervalos consistentes e comparar os resultados para verificar se as vulnerabilidades foram corrigidas. 
+**Azure Policy definições internas-Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-5-3.md)]
+
+### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: comparar verificações de vulnerabilidade consecutivas
+
+**Orientação**: exportar resultados da verificação da central de segurança em intervalos consistentes e comparar os resultados para verificar se as vulnerabilidades foram corrigidas.
 
 Use o cmdlet "Get-AzSecurityTask" do PowerShell para automatizar a recuperação de tarefas de segurança que a central de segurança recomenda que você execute para fortalecer a postura de segurança e as descobertas da verificação de vulnerabilidade.
 
 - [Como usar o PowerShell para exibir as vulnerabilidades descobertas pela central de segurança do Azure](/powershell/module/az.security/get-azsecuritytask)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
 
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Usar um processo de avaliação de risco para priorizar a correção das vulnerabilidades descobertas
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: usar um processo de avaliação de risco para priorizar a correção das vulnerabilidades descobertas
 
 **Diretrizes**: Use a classificação de gravidade fornecida pela central de segurança para priorizar a correção de vulnerabilidades. 
 
 Use o CVSS (sistema de Pontuação de vulnerabilidades comuns) (ou outros sistemas de Pontuação fornecidos pela ferramenta de verificação) se estiver usando uma ferramenta de avaliação de vulnerabilidades interna (como Qualys ou Rapid7, oferecida pelo Azure).
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
@@ -767,9 +762,9 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: manter metadados de ativo
 
@@ -777,9 +772,9 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: excluir recursos do Azure não autorizados
 
@@ -797,19 +792,19 @@ Os, rótulos ou marcas podem ser usados para reconciliar o inventário regularme
 
 - [Clusters gerenciados – marcas de atualização](/rest/api/aks/managedclusters/updatetags)
 
-- [Especificar um seu, rótulo ou uma marca para um pool de nós](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Especificar um seu, rótulo ou uma marca para um pool de nós](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definir e manter um inventário de recursos aprovados do Azure
 
 **Diretrizes**: defina uma lista de recursos aprovados do Azure e software aprovado para recursos de computação com base nas necessidades de negócios organizacionais.
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorar recursos do Azure não aprovados
 
@@ -824,9 +819,9 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 - [Como criar consultas com o Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorar aplicativos de software não aprovados nos recursos de computação
 
@@ -838,11 +833,11 @@ Acompanhe as configurações de seus computadores para ajudar a identificar prob
 
 - [Como habilitar o inventário de máquina virtual do Azure](../automation/automation-tutorial-installed-software.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: remover recursos e aplicativos de software não aprovados do Azure
 
 **Diretrizes**: Use os recursos de inventário e controle de alterações de automação do Azure para descobrir o software instalado em seu ambiente. 
 
@@ -856,11 +851,11 @@ Acompanhe as configurações de seus computadores para ajudar a identificar prob
 
 - [Entender Controle de Alterações do Azure](../automation/change-tracking/overview.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="68-use-only-approved-applications"></a>6.8: Usar somente aplicativos aprovados
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="68-use-only-approved-applications"></a>6.8: usar somente aplicativos aprovados
 
 **Diretrizes**: Use os recursos de inventário e controle de alterações de automação do Azure para descobrir o software instalado em seu ambiente. 
 
@@ -872,15 +867,13 @@ Habilite a análise de aplicativo adaptável na central de segurança para aplic
 
 - [Como habilitar o inventário de máquina virtual do Azure](../automation/automation-tutorial-installed-software.md)
 
- 
-Como usar o aplicativo adaptável da central de segurança do Azure
-- [Controles](../security-center/security-center-adaptive-application.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="69-use-only-approved-azure-services"></a>6.9: Usar somente serviços do Azure aprovados
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="69-use-only-approved-azure-services"></a>6.9: usar somente serviços do Azure aprovados
 
 **Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em assinaturas de cliente usando as seguintes definições de política interna:
 
@@ -894,11 +887,11 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: manter um inventário de títulos de software aprovados
 
@@ -906,24 +899,24 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: limitar a capacidade dos usuários de interagir com Azure Resource Manager
 
 **Diretrizes**: Use o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com o Azure Resource Manager configurando "Bloquear acesso" para o aplicativo de "Gerenciamento do Microsoft Azure".
 - [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: limitar a capacidade dos usuários de executar scripts em recursos de computação
 
-**Diretrizes**: o serviço de kubernetes do Azure (AKs) em si não fornece uma solução de gerenciamento de identidades onde contas de usuário e senhas regulares são armazenadas. Em vez disso, use Azure Active Directory (Azure AD) como a solução de identidade integrada para seus clusters AKS. 
+**Diretrizes**: o serviço de kubernetes do Azure (AKs) em si não fornece uma solução de gerenciamento de identidades onde contas de usuário e senhas regulares são armazenadas. Em vez disso, use Azure Active Directory (Azure AD) como a solução de identidade integrada para seus clusters AKS.
 
-Conceda aos usuários ou grupos acesso aos recursos do kubernetes em um namespace ou entre o cluster usando a integração do Azure AD. 
+Conceda aos usuários ou grupos acesso aos recursos do kubernetes em um namespace ou entre o cluster usando a integração do Azure AD.
 
 Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de seus grupos administrativos do AKS e usá-lo para reconciliar o acesso regularmente. Use CLI do Azure para operações como "obter credenciais de acesso para um cluster kubernetes gerenciado. Implemente as recomendações de gerenciamento de acesso e identidade da central de segurança.
 
@@ -931,7 +924,7 @@ Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para desc
 
 - [Entender a integração do AKS e do Azure AD](concepts-identity.md)
 
-- [Como integrar o AKS ao Azure AD](./azure-ad-integration-cli.md)
+- [Como integrar o AKS ao Azure AD](azure-ad-integration-cli.md)
 
 - [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -939,17 +932,17 @@ Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para desc
 
 - [Como monitorar a identidade e o acesso à central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Separar física ou logicamente os aplicativos de alto risco
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separar física ou logicamente os aplicativos de alto risco
 
 **Diretrizes**: Use os recursos do AKS (serviço kubernetes do Azure) para isolar logicamente as equipes e as cargas de trabalho no mesmo cluster para o número mínimo de privilégios, com escopo para os recursos exigidos por cada equipe. 
 
 Implemente o namespace no kubernetes para criar um limite de isolamento lógico. Use Azure Policy aliases no namespace "Microsoft. ContainerService" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias do AKS (serviço kubernetes do Azure). 
 
-Examine e implemente recursos e considerações adicionais do kubernetes para isolamento e multilocação para incluir o seguinte: agendamento, rede, autenticação/autorização e contêineres. Use também assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Separar clusters AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas por um WAF (firewall do aplicativo Web).
+Examine e implemente recursos e considerações adicionais do kubernetes para isolamento e multilocação para incluir o seguinte: agendamento, rede, autenticação/autorização e contêineres. Use também assinaturas e grupos de gerenciamento separados para desenvolvimento, teste e produção. Separar clusters AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas por um WAF (firewall do aplicativo Web).
 
 - [Saiba mais sobre as práticas recomendadas para o isolamento de cluster no AKS](operator-best-practices-cluster-isolation.md)
 
@@ -959,9 +952,9 @@ Examine e implemente recursos e considerações adicionais do kubernetes para is
 
 - [Entender as práticas recomendadas para conectividade de rede e segurança no AKS](operator-best-practices-network.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="secure-configuration"></a>Configuração segura
 
@@ -973,13 +966,13 @@ Examine e implemente recursos e considerações adicionais do kubernetes para is
 
 Exemplos de definições de política internas para AKS incluem:
 
-• Impor entrada HTTPS no cluster kubernetes
+- Impor a entrada de HTTPS no cluster do Kubernetes
 
-• Intervalos de IP autorizados devem ser definidos nos serviços Kubernetess
+- Os intervalos de IP autorizados devem ser definidos nos Serviços do Kubernetes
 
-• O RBAC (controle de acesso baseado em função) deve ser usado nos serviços Kubernetess
+- O RBAC (controle de acesso baseado em função) deve ser usado nos serviços Kubernetess
 
-• Garantir apenas imagens de contêiner permitidas no cluster kubernetes
+- Garantir que haja somente imagens de contêiner permitidas no cluster do Kubernetes
 
 Exporte um modelo de sua configuração do AKS no JavaScript Object Notation (JSON) com Azure Resource Manager. Revise-a periodicamente para garantir que essas configurações atendam aos requisitos de segurança da sua organização. Use as recomendações da central de segurança do Azure como uma linha de base de configuração segura para os recursos do Azure. 
 
@@ -987,9 +980,9 @@ Exporte um modelo de sua configuração do AKS no JavaScript Object Notation (JS
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: estabelecer configurações seguras de sistema operacional
 
@@ -1001,9 +994,9 @@ O Azure aplica patches diários (incluindo patches de segurança) a AKS hosts de
 
 - [Entender a proteção de segurança em hosts de máquina virtual AKS](security-hardened-vm-host-image.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Compartilhado
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: manter configurações seguras de recursos do Azure
 
@@ -1015,17 +1008,19 @@ Use também os efeitos Azure Policy [Deny] e [implantar se não existir] para im
 
 Crie definições de Azure Policy personalizadas usando aliases dos seguintes namespaces: 
 
-• Microsoft. ContainerService
+- Microsoft.ContainerService
 
-• Microsoft. Network
+- Microsoft.Network
+
+Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Compreender os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: manter configurações seguras de sistema operacional
 
@@ -1035,39 +1030,37 @@ Consulte a lista de controles de CIS (central de segurança da Internet) que sã
 
 - [Proteção de segurança para SO host do nó do AKS Agent](security-hardened-vm-host-image.md)
 
-- [Entender a configuração de estado dos clusters AKS](concepts-clusters-workloads.md#control-plane)
+- [Entender a configuração de estado dos clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Entender a proteção de segurança em hosts de máquina virtual AKS](security-hardened-vm-host-image.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: armazenar configuração de recursos do Azure com segurança
 
-**Diretrizes**: Use Azure Repos para armazenar e gerenciar suas configurações com segurança se estiver usando definições de Azure Policy personalizadas. Exporte um modelo de sua configuração do AKS (serviço kubernetes do Azure) no JavaScript Object Notation (JSON) com Azure Resource Manager. Examine-a periodicamente para garantir que as configurações atendam aos requisitos de segurança da sua organização. 
+**Diretrizes**: Use Azure Repos para armazenar e gerenciar suas configurações com segurança se estiver usando definições de Azure Policy personalizadas. Exporte um modelo de sua configuração do AKS (serviço kubernetes do Azure) no JavaScript Object Notation (JSON) com Azure Resource Manager. Examine-a periodicamente para garantir que as configurações atendam aos requisitos de segurança da sua organização.
 
 Implemente soluções de terceiros, como Terraform, para criar um arquivo de configuração que declara os recursos para o cluster kubernetes. Você pode proteger sua implantação do AKS implementando práticas recomendadas de segurança e armazenar sua configuração como código em um local seguro.
 
 - [Definir um cluster do Kubernetes](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks#define-a-kubernetes-cluster)
 
-Proteção de segurança para SO host do nó do AKS Agent
-
-security-hardened-vm-host-image.md
+- [Proteção de segurança para SO host do nó do AKS Agent](security-hardened-vm-host-image.md)
 
 - [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
 **Orientação**: não aplicável ao serviço de kubernetes do Azure (AKs). O AKS fornece um sistema operacional de host otimizado para segurança (SO) por padrão. Não há nenhuma opção atual para selecionar um sistema operacional alternativo ou personalizado.
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: implantar as ferramentas de gerenciamento de configuração para recursos do Azure
 
@@ -1077,11 +1070,11 @@ Crie políticas personalizadas para auditar e impor configurações do sistema. 
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como usar aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: implantar as ferramentas de gerenciamento de configuração para sistemas operacionais
 
@@ -1093,11 +1086,11 @@ Consulte a lista de controles de CIS (central de segurança da Internet) que sã
 
 - [Entender a proteção de segurança em hosts de máquina virtual AKS](security-hardened-vm-host-image.md)
 
-- [Entender a configuração de estado dos clusters AKS](concepts-clusters-workloads.md#control-plane)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Entender a configuração de estado dos clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementar o monitoramento automatizado de configuração para recursos do Azure
 
@@ -1105,21 +1098,23 @@ Consulte a lista de controles de CIS (central de segurança da Internet) que sã
 
 - [Como corrigir recomendações na central de segurança do Azure](../security-center/security-center-remediate-recommendations.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementar monitoramento automatizado de configuração para sistemas operacionais
 
-**Diretrizes**: Use as recomendações de contêiner da central de segurança na &amp; seção "aplicativos de computação" para executar verificações de linha de base para seus clusters do AKS (serviço kubernetes do Azure). Seja notificado no painel da central de segurança quando problemas de configuração ou vulnerabilidades forem encontrados. Isso requer a habilitação do grupo de registros de contêiner opcional que permite que a central de segurança Verifique a imagem.  
+**Diretrizes**: Use as recomendações de contêiner da central de segurança na &amp; seção "aplicativos de computação" para executar verificações de linha de base para seus clusters do AKS (serviço kubernetes do Azure). 
+
+Seja notificado no painel da central de segurança quando problemas de configuração ou vulnerabilidades forem encontrados. Isso requer a habilitação do grupo de registros de contêiner opcional que permite que a central de segurança Verifique a imagem.  
 
 - [Entenda as recomendações do contêiner da Central de Segurança do Azure](../security-center/container-security.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-### <a name="711-manage-azure-secrets-securely"></a>7.11: Gerenciar segredos do Azure com segurança
+**Monitoramento da central de segurança do Azure**: nenhum
+
+### <a name="711-manage-azure-secrets-securely"></a>7.11: gerenciar segredos do Azure com segurança
 
 **Diretrizes**: integre Azure Key Vault com um cluster AKs (serviço kubernetes do Azure) usando uma unidade FlexVolume. Use Azure Key Vault para armazenar e girar regularmente segredos, como credenciais, chaves de conta de armazenamento ou certificados. O driver FlexVolume permite que o cluster do AKS nativamente recupere credenciais do Cofre de Chaves e fornecê-las com segurança apenas para o pod solicitante. Use uma identidade gerenciada pod para solicitar acesso a Key Vault e recuperar as credenciais necessárias por meio do driver FlexVolume. Verifique se a exclusão temporária do cofre de chaves está habilitada. 
 
@@ -1129,27 +1124,27 @@ Evite o uso de credenciais fixas ou compartilhadas.
 
 - [Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)](concepts-security.md)
 
-- [Como usar Key Vault com o cluster AKS](developer-best-practices-pod-security.md#limit-credential-exposure)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como usar Key Vault com o cluster AKS](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Responsabilidade**: Cliente
 
+**Monitoramento da central de segurança do Azure**: nenhum
+
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gerenciar identidades de maneira segura e automática
 
-**Orientação**: não defina credenciais no código do aplicativo como uma prática recomendada de segurança. Use identidades gerenciadas para recursos do Azure para permitir que um pod se autentique em qualquer serviço no Azure que dê suporte a ele, incluindo Azure Key Vault. O pod é atribuído a uma identidade do Azure para autenticar no Azure Active Directory (Azure AD) e receber um token digital que pode ser apresentado a outros serviços do Azure que verificam se o Pod está autorizado a acessar o serviço e executar as ações necessárias. 
+**Orientação**: não defina credenciais no código do aplicativo como uma prática recomendada de segurança. Use identidades gerenciadas para recursos do Azure para permitir que um pod se autentique em qualquer serviço no Azure que dê suporte a ele, incluindo Azure Key Vault. O pod é atribuído a uma identidade do Azure para autenticar no Azure Active Directory (Azure AD) e receber um token digital que pode ser apresentado a outros serviços do Azure que verificam se o Pod está autorizado a acessar o serviço e executar as ações necessárias.
 
 Observe que as identidades de Pod gerenciados são destinadas ao uso apenas com imagens de contêiner e pods do Linux. Provisione Azure Key Vault para armazenar e recuperar credenciais e chaves digitais. Chaves como aquelas usadas para criptografar discos do sistema operacional, os dados do cluster AKS podem ser armazenados em Azure Key Vault.
 
 As entidades de serviço também podem ser usadas em clusters AKS. No entanto, os clusters que usam entidades de serviço podem, eventualmente, atingir um estado no qual a entidade de serviço deve ser renovada para manter o cluster funcionando. O gerenciamento de entidades de serviço adiciona complexidade, motivo pelo qual é mais fácil usar identidades gerenciadas. Os mesmos requisitos de permissão se aplicam a entidades de serviço e identidades gerenciadas.
 
-- [Entender as identidades gerenciadas e Key Vault com o AKS (serviço kubernetes do Azure)](developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Entender as identidades gerenciadas e Key Vault com o AKS (serviço kubernetes do Azure)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
-- [Identidade do pod do Azure Active Directory](https://github.com/Azure/aad-pod-identity)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Identidade do Pod do Azure AD](https://github.com/Azure/aad-pod-identity)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminar a exposição involuntária de credenciais
 
@@ -1161,11 +1156,11 @@ Limite a exposição da credencial não definindo credenciais no código do apli
 
 - [Práticas recomendadas para desenvolvedores para segurança de Pod](developer-best-practices-pod-security.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
 
-## <a name="malware-defense"></a>Defesa contra malware
+**Monitoramento da central de segurança do Azure**: nenhum
+
+## <a name="malware-defense"></a>Defesa contra malwares
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: defesa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
@@ -1175,13 +1170,13 @@ Limite a exposição da credencial não definindo credenciais no código do apli
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contêineres-clusters do serviço kubernetes do Azure](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alertas para contêineres-clusters do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS e conjuntos de daemon de responsabilidade compartilhada](support-policies.md#shared-responsibility)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [AKS e conjuntos de daemon de responsabilidade compartilhada](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsabilidade**: Compartilhado
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: arquivos de pré-verificação a serem carregados para recursos não computados do Azure
 
@@ -1189,9 +1184,9 @@ Limite a exposição da credencial não definindo credenciais no código do apli
 
 - [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/azure-defender.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: garantir que o software antimalware e as assinaturas sejam atualizados
 
@@ -1199,13 +1194,13 @@ Limite a exposição da credencial não definindo credenciais no código do apli
 
 - [Guia de referência de alertas de segurança](../security-center/alerts-reference.md)
 
-- [Alertas para contêineres-clusters do serviço kubernetes do Azure](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alertas para contêineres-clusters do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS e conjuntos de daemon de responsabilidade compartilhada](support-policies.md#shared-responsibility)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [AKS e conjuntos de daemon de responsabilidade compartilhada](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsabilidade**: Compartilhado
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
@@ -1225,19 +1220,15 @@ Remova o estado de seus aplicativos antes do backup. Nos casos em que isso não 
 
 - [Como configurar o Velero no Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: executar backups completos do sistema e fazer backup de qualquer chave gerenciada pelo cliente
 
 **Orientação**: faça backup dos dados usando uma ferramenta apropriada para seu tipo de armazenamento, como Velero, que pode fazer backup de volumes persistentes junto com recursos e configurações de cluster adicionais. 
 
 Execute backups automatizados regulares de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
-
-Por exemplo:
-
-Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Como fazer backup de certificados Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1247,35 +1238,31 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Como fazer backup de Key Vault segredos](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Como habilitar o backup do Azure](../backup/index.yml)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como habilitar o backup do Azure](/azure/backup/)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validar todos os backups, incluindo chaves gerenciadas pelo cliente
 
 **Orientação**: executar periodicamente a restauração de dados de conteúdo no backup do Velero. Se necessário, teste a restauração em uma rede virtual isolada.
 
-Execute periodicamente a restauração de dados de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
+Execute periodicamente a restauração de dados de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell.
 
-Por exemplo:
+- [Como restaurar Key Vault certificados](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
 
-Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
-
-- [Como restaurar Key Vault certificados](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
-
-- [Como restaurar chaves de Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves de Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
 - [Como restaurar Key Vault contas de armazenamento gerenciadas](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Como restaurar segredos de Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Como restaurar segredos de Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Como recuperar arquivos do backup de máquina virtual do Azure](../backup/backup-azure-restore-files-from-vm.md)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como recuperar arquivos do backup de máquina virtual do Azure](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
@@ -1285,15 +1272,15 @@ Habilite Soft-Delete no Key Vault para proteger as chaves contra exclusão acide
 
 - [Entender Criptografia do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md)
 
-- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
+**Monitoramento da central de segurança do Azure**: nenhum
+
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
+*Para obter mais informações, confira o [Azure Security Benchmark: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1305,62 +1292,66 @@ Habilite Soft-Delete no Key Vault para proteger as chaves contra exclusão acide
 
 - [Anatomia de um incidente do Microsoft Security Response Center](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [O cliente também pode aproveitar o guia de tratamento de incidentes de segurança do computador da NIST para ajudar na criação de seu próprio plano de resposta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
-
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Guia de tratamento de incidentes de segurança do computador do NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: criar um procedimento de pontuação e priorização de incidentes
 
-**Orientação**: priorize quais alertas devem ser investigados primeiro com a severidade de segurança atribuída à central para alertas. A severidade se baseia na confiança que a Central de Segurança tem na constatação ou na análise usada para emitir o alerta, bem como no nível de confiança de que houve uma ação mal-intencionada por trás da atividade que levou ao alerta.
+**Orientação**: priorize quais alertas devem ser investigados primeiro com a severidade de segurança atribuída à central para alertas. A gravidade se baseia em quão confiante a central de segurança está na localização ou na análise usada para emitir o alerta, bem como o nível de confiança de que houve uma intenção mal-intencionada por trás da atividade que levou ao alerta.
 Marque claramente as assinaturas (por exemplo, produção, não produção) e crie um sistema de nomeação para identificar e categorizar claramente os recursos do Azure.
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Consulte a publicação do NIST para identificar pontos fracos e lacunas e revisar o plano conforme necessário.
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise os planos de resposta a incidentes conforme necessário.
 
 - [Guia para testar, treinar e exercitar programas para planos de ti e recursos](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: fornecer detalhes de contato do incidente de segurança e configurar notificações de alerta para incidentes de segurança
 
-**Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
+**Diretriz**: as informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal. 
+
+Examine os incidentes, após o fato, para garantir que os problemas sejam resolvidos.
 
 - [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitoramento da Central de Segurança do Azure**: Sim
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretrizes**: exportar alertas e recomendações da central de segurança usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você também pode escolher o conector de dados da central de segurança para transmitir os alertas para o Azure Sentinel com base nos requisitos de negócios organizacionais.
+**Diretrizes**: exportar alertas e recomendações da central de segurança usando seu recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. 
+
+Escolha o conector de dados da central de segurança para transmitir os alertas para o Azure Sentinel, de acordo com a necessidade e com base nos requisitos de negócios organizacionais.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
 - [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizar a resposta a alertas de segurança
 
-**Diretrizes**: Use o recurso de automação de fluxo de trabalho na Central de Segurança do Azure para disparar automaticamente respostas por meio de "Aplicativos Lógicos" em alertas de segurança e recomendações.
+**Diretrizes**: Use o recurso de automação de fluxo de trabalho na central de segurança para disparar automaticamente respostas por meio de "aplicativos lógicos" em alertas de segurança e recomendações.
 
 - [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](../security-center/workflow-automation.md)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitoramento da central de segurança do Azure**: nenhum
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
@@ -1368,15 +1359,17 @@ Marque claramente as assinaturas (por exemplo, produção, não produção) e cr
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
-**Diretriz**: siga as regras de participação da Microsoft para garantir que os testes de penetração não violem as políticas da Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Diretrizes**: siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não sejam violações das políticas da Microsoft. Informações adicionais sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura de nuvem gerenciada pela Microsoft, serviços e aplicativos, nos links mencionados.
 
-- [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de Red Team e testes de penetração de sites ao vivo em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Regras de participação para testes de penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-**Monitoramento da Central de Segurança do Azure**: Não aplicável
+- [Equipes Vermelhas do Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Responsabilidade**: Compartilhado
 
+**Monitoramento da central de segurança do Azure**: nenhum
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)
+- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)

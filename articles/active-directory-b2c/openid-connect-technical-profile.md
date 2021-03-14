@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675145"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120293"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OpenID Connect em uma política personalizada de Azure Active Directory B2C
 
@@ -85,7 +85,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ProviderName | Não | O nome do provedor de identidade.  |
 | response_types | Não | O tipo de resposta de acordo com a especificação do OpenID Connect Core 1.0. Valores possíveis: `id_token`, `code` ou `token`. |
 | response_mode | Não | O método que o provedor de identidade usa para enviar o resultado de volta ao Azure AD B2C. Valores possíveis: `query`, `form_post` (padrão) ou `fragment`. |
-| escopo | Não | O escopo da solicitação que é definido de acordo com a especificação do OpenID Connect Core 1,0. Como `openid`, `profile` e `email`. |
+| scope | Não | O escopo da solicitação que é definido de acordo com a especificação do OpenID Connect Core 1,0. Como `openid`, `profile` e `email`. |
 | HttpBinding | Não | A associação HTTP esperada para o token de acesso e pontos de extremidade do token de declarações. Valores possíveis: `GET` ou `POST`.  |
 | ValidTokenIssuerPrefixes | Não | Uma chave que pode ser usada para entrar em cada um dos locatários ao usando um provedor de identidade multilocatário como o Azure Active Directory. |
 | UsePolicyInRedirectUri | Não | Indica se deve ser usada uma política ao criar o URI de redirecionamento. Quando você configura seu aplicativo no provedor de identidade, precisa especificar o URI de redirecionamento. O URI de redirecionamento aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` .  Se você especificar `true`, precisará adicionar um URI de redirecionamento a cada política que você usar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
@@ -95,6 +95,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | token_endpoint_auth_method | Não | Especifica como Azure AD B2C envia o cabeçalho de autenticação para o ponto de extremidade do token. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para obter mais informações, consulte a [seção autenticação de cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | Não | O algoritmo de assinatura usado para asserções de cliente quando os metadados de **token_endpoint_auth_method** são definidos como `private_key_jwt` . Valores possíveis: `RS256` (padrão). |
 | SingleLogoutEnabled | Não | Indica se, durante a entrada, o perfil técnico tenta sair de provedores de identidade federada. Para obter mais informações, consulte [Azure ad B2C sessão](./session-behavior.md#sign-out)sair.  Valores possíveis: `true` (padrão) ou `false` . |
+|ReadBodyClaimsOnIdpRedirect| Não| Defina como `true` para ler declarações do corpo da resposta no redirecionamento do provedor de identidade. Esses metadados são usados com a [ID da Apple](identity-provider-apple-id.md), em que as declarações retornam na carga de resposta.|
 
 ```xml
 <Metadata>

@@ -9,24 +9,25 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687967"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurar a segurança para seu grupo de servidores de PostgreSQL de Hiperescala habilitado para o Azure Arc
 
 Este documento descreve vários aspectos relacionados à segurança do seu grupo de servidores:
-- Criptografar em repouso
+- Criptografia em repouso
 - Gerenciamento de Usuários
    - Perspectivas gerais
    - Alterar a senha do usuário administrativo do _postgres_
+- Audit
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="encryption-at-rest"></a>Criptografar em repouso
+## <a name="encryption-at-rest"></a>Criptografia em repouso
 Você pode implementar a criptografia em repouso criptografando os discos nos quais você armazena os bancos de dados e/ou usando as funções de banco de dado para criptografar os dados inseridos ou atualizados.
 
 ### <a name="hardware-linux-host-volume-encryption"></a>Hardware: criptografia de volume do host do Linux
@@ -117,7 +118,7 @@ Saída:
 - Nome de usuário: Eu
 - UserPassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado na `mysecrets` tabela e retornará o nome do usuário se houver uma correspondência entre a senha fornecida para o aplicativo e as senhas armazenadas na tabela. Por exemplo:
+Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado na `mysecrets` tabela e retornará o nome do usuário se houver uma correspondência entre a senha fornecida para o aplicativo e as senhas armazenadas na tabela. Por exemplo: 
 
 - Eu passo a senha incorreta:
    ```console
@@ -159,18 +160,19 @@ O formato geral do comando para alterar sua senha é:
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Onde--admin-password é um booliano relacionado à presença de um valor na variável de ambiente da **sessão**de AZDATA_PASSWORD.
-Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir e tiver um valor, a execução do comando acima definirá a senha do usuário postgres como o valor dessa variável de ambiente.
+Em que `--admin-password` é um booliano relacionado à presença de um valor na variável de ambiente de **sessão** AZDATA_PASSWORD.
+Se a variável de ambiente de **sessão** AZDATA_PASSWORD existir e tiver um valor, a execução do comando acima definirá a senha do usuário postgres como o valor dessa variável de ambiente.
 
-Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir, mas não tiver valor ou se a variável de ambiente de AZDATA_PASSWORD **sessão**não existir, a execução do comando acima solicitará que o usuário insira uma senha interativamente
+Se a variável de ambiente de **sessão** AZDATA_PASSWORD existir, mas não tiver valor ou se a variável de ambiente de **sessão** de AZDATA_PASSWORD não existir, a execução do comando acima solicitará que o usuário insira uma senha interativamente
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Alterar a senha do usuário administrativo postgres de maneira interativa:
-1. Exclua a variável de ambiente da **sessão**AZDATA_PASSWORD ou exclua seu valor
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Altere a senha do usuário administrativo postgres de maneira interativa
+
+1. Excluir a variável de ambiente de **sessão** AZDATA_PASSWORD ou excluir seu valor
 2. Execute o comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Por exemplo
+   Por exemplo,
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -186,13 +188,13 @@ Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir, mas não ti
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Alterar a senha do usuário administrativo postgres usando a variável de ambiente da **sessão**AZDATA_PASSWORD:
-1. Defina o valor da variável de ambiente da **sessão**de AZDATA_PASSWORD para o que você deseja que a senha seja.
-2. Executar o comando :
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Altere a senha do usuário administrativo postgres usando a variável de ambiente de **sessão** AZDATA_PASSWORD:
+1. Defina o valor da variável de ambiente de **sessão** AZDATA_PASSWORD para o que você deseja que a senha seja.
+2. Execute o comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Por exemplo
+   Por exemplo,
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -216,9 +218,12 @@ Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir, mas não ti
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>Audit
+
+Para cenários de auditoria, configure seu grupo de servidores para usar as `pgaudit` extensões do Postgres. Para obter mais detalhes sobre como `pgaudit` ver o [ `pgAudit` projeto do GitHub](https://github.com/pgaudit/pgaudit/blob/master/README.md). Para habilitar a `pgaudit` extensão no seu grupo de servidores, leia [usar extensões PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Leia os detalhes sobre a `pgcrypto` extensão [aqui](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Leia os detalhes sobre como usar as extensões postgres [aqui](using-extensions-in-postgresql-hyperscale-server-group.md).
+- Consulte a [ `pgcrypto` extensão](https://www.postgresql.org/docs/current/pgcrypto.html)
+- Consulte [usar extensões do PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md)
 

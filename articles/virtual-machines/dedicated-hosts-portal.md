@@ -3,16 +3,17 @@ title: Implantar hosts dedicados do Azure usando o portal do Azure
 description: Implante VMs e conjuntos de dimensionamento para hosts dedicados usando o portal do Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 3bc7909f38e63256d7d708ec189c628662cf8837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007935"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667325"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Implantar VMs e conjuntos de dimensionamento para hosts dedicados usando o portal 
 
@@ -74,7 +75,7 @@ Ao definir uma contagem de domínios de falha para seu grupo de hosts, você ser
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
 1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione a imagem que deseja usar e, em seguida, escolha **criar**.
+1. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione a imagem que deseja usar e escolha **Criar**.
 1. Na guia **noções básicas** , em **detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, selecione *MyDedicatedHostsRG* como o **grupo de recursos**. 
 1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para **Localização**.
 1. Em **Opções de disponibilidade** selecionar **zona de disponibilidade**, selecione *1* na lista suspensa.
@@ -83,7 +84,7 @@ Ao definir uma contagem de domínios de falha para seu grupo de hosts, você ser
 1. Se você quiser especificar qual host deve ser usado para sua VM, na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. Caso contrário, sua VM será automaticamente colocada em um host com capacidade.
     ![Selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
-1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
+1. Quando você receber a mensagem informando que a validação foi aprovada, selecione **Criar**.
 
 Levará alguns minutos para que sua VM seja implantada.
 

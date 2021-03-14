@@ -2,17 +2,18 @@
 title: Criar uma VM de uma imagem gerenciada no Azure
 description: Crie uma máquina virtual do Windows de uma imagem de gerenciada generalizada usando o Azure PowerShell ou o portal.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: edcaf3fb92b78f2d1fab54cf4db21aaaff0e3d59
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bc87b0ec9cf41b2ddc5746a9734463f544b0cc2a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881848"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102550681"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
 

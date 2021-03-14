@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806006"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699072"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -72,18 +72,7 @@ Para exibir as métricas de seus recursos do Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar as métricas multidimensionais programaticamente por meio de APIs
 
-Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Essas métricas podem ser gravadas em uma conta de armazenamento adicionando uma [configuração de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria ' todas as métricas '. 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurar alertas para métricas multidimensionais ###
-
-O Azure Standard Load Balancer dá suporte a alertas facilmente configuráveis para métricas multidimensionais. Configure limites personalizados para métricas específicas para disparar alertas com diferentes níveis de severidade para capacitar uma experiência de monitoramento de recursos sem toque.
-
-Para configurar alertas:
-1. Ir para a subfolha de alerta para o balanceador de carga
-1. Criar nova regra de alerta
-    1.  Configurar condição de alerta
-    1.  Adicional Adicionar grupo de ação para reparo automatizado
-    1.  Atribuir severidade de alerta, nome e descrição que habilita a reação intuitiva
+Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Essas métricas podem ser gravadas em uma conta de armazenamento adicionando uma [configuração de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para a categoria ' todas as métricas '. 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários comuns de diagnósticos e modos de exibição recomendados
 
@@ -228,6 +217,32 @@ O gráfico exibe as seguintes informações:
 O gráfico permite que os clientes resolvam problemas da implantação sozinhos sem a necessidade de adivinhar ou perguntar ao suporte se outros problemas estão ocorrendo. O serviço não estava disponível porque as investigações de integridade estavam falhando devido a um erro de configuração ou a um aplicativo com falha.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurar alertas para métricas multidimensionais ###
+
+O Azure Standard Load Balancer dá suporte a alertas facilmente configuráveis para métricas multidimensionais. Configure limites personalizados para métricas específicas para disparar alertas com diferentes níveis de severidade para capacitar uma experiência de monitoramento de recursos sem toque.
+
+Para configurar alertas:
+1. Ir para a subfolha de alerta para o balanceador de carga
+1. Criar nova regra de alerta
+    1.  Configurar condição de alerta
+    1.  Adicional Adicionar grupo de ação para reparo automatizado
+    1.  Atribuir severidade de alerta, nome e descrição que habilita a reação intuitiva
+
+### <a name="inbound-availability-alerting"></a>Alertas de disponibilidade de entrada
+Para alertar sobre a disponibilidade de entrada, você pode criar dois alertas separados usando as métricas de status de investigação de integridade e disponibilidade do caminho de dados. Os clientes podem ter diferentes cenários que exigem lógica de alerta específica, mas os exemplos a seguir serão úteis para a maioria das configurações.
+
+Usando a disponibilidade do caminho de dados, você pode acionar alertas sempre que uma regra de balanceamento de carga específica se tornar indisponível. Você pode configurar esse alerta definindo uma condição de alerta para a disponibilidade do caminho de dados e dividindo por todos os valores atuais e valores futuros para a porta de front-end e o endereço IP de front-end. Definir a lógica de alerta como menor ou igual a 0 fará com que esse alerta seja acionado sempre que qualquer regra de balanceamento de carga ficar sem resposta. Defina a granularidade de agregação e a frequência de avaliação de acordo com a avaliação desejada. 
+
+Com o status de investigação de integridade, você pode alertar quando uma determinada instância de back-end não responder à investigação de integridade por um período de tempo significativo. Configure sua condição de alerta para usar a métrica de status de investigação de integridade e dividir por endereço IP de back-end e porta de back-end. Isso garantirá que você possa alertar separadamente para cada capacidade de instância de back-end individual para fornecer o tráfego em uma porta específica. Use o tipo de agregação **média** e defina o valor do limite de acordo com a frequência com que sua instância de back-end é investigada e o que você considera como seu limite íntegro. 
+
+Você também pode alertar em um nível de pool de back-end não dividindo por nenhuma dimensão e usando o tipo de agregação **Average** . Isso permitirá que você configure regras de alerta, como alerta quando 50% dos meus membros do pool de back-end não estiverem íntegros.
+
+### <a name="outbound-availability-alerting"></a>Alertas de disponibilidade de saída
+Para configurar a disponibilidade de saída, você pode configurar dois alertas separados usando a contagem de conexões SNAT e as métricas de porta SNAT usadas.
+
+Para detectar falhas de conexão de saída, configure um alerta usando a contagem de conexões SNAT e a filtragem para o estado de conexão = falha. Use a agregação **total** . Você também pode dividir isso por endereço IP de back-end definido como todos os valores atuais e futuros para alertar separadamente para cada instância de back-end com conexões com falha. Defina o limite como maior que zero ou um número mais alto se você espera ver algumas falhas de conexão de saída.
+
+Por meio de portas SNAT usadas, você pode alertar em um risco maior de esgotamento de SNAT e falha na conexão de saída. Verifique se você está dividindo pelo endereço IP de back-end e pelo protocolo ao usar esse alerta e use a agregação **média** . Defina o limite para ser maior que um percentual do número de portas que você alocou por instância que você considera insegura. Por exemplo, você pode configurar um alerta de severidade baixa quando uma instância de back-end usa 75% de suas portas alocadas e uma severidade alta quando usa 90% ou 100% de suas portas alocadas.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Status de integridade de recurso
 
 O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**. Ela é avaliada a cada **dois minutos** medindo a disponibilidade do caminho de dados que determina se os pontos de extremidade de balanceamento de carga de front-end estão disponíveis.
@@ -235,8 +250,8 @@ O status de integridade para os recursos do Load Balancer Standard é exposto po
 | Status de integridade de recurso | Descrição |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](./troubleshoot-rhc.md) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](./troubleshoot-rhc.md) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
 | Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
 
 Para exibir a integridade dos seus recursos do Load Balancer Standard:
@@ -263,7 +278,7 @@ A descrição do status de integridade do recurso genérico está disponível na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o uso de [percepções](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para exibir essas métricas pré-configuradas para seu Load Balancer
+- Saiba mais sobre o uso de [percepções](./load-balancer-insights.md) para exibir essas métricas pré-configuradas para seu Load Balancer
 - Saiba mais sobre o [Load Balancer Standard](./load-balancer-overview.md).
 - Saiba mais sobre a [Conectividade de saída do balanceador de carga](./load-balancer-outbound-connections.md).
 - Saiba mais sobre [o Azure Monitor](../azure-monitor/overview.md).

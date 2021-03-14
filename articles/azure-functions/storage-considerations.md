@@ -3,12 +3,12 @@ title: Considerações de armazenamento do Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936151"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517256"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento do Azure Functions
 
@@ -27,7 +27,7 @@ O Azure Functions requer uma conta de armazenamento do Azure quando você cria u
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que oferece suporte ao armazenamento de Tabelas, Blobs e Filas. Isso ocorre porque o Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não oferecem suporte a filas e tabelas. Essas contas incluem contas de armazenamento somente de blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS.
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de armazenamento do Azure de uso geral que oferece suporte ao armazenamento de Tabelas, Blobs e Filas. Isso ocorre porque o Functions usa o Armazenamento do Azure para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não oferecem suporte a filas e tabelas. Essas contas incluem contas de armazenamento somente BLOB e armazenamento Premium do Azure.
 
 Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos serviços de Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md#core-storage-services). 
 

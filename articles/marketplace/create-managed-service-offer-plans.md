@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
-ms.openlocfilehash: 624a3a194b451dc1f498a0ded9d68f641b304eab
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918078"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383221"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Como criar planos para sua oferta de serviço gerenciado
 

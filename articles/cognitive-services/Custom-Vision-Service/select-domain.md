@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624818"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095656"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selecionar um domínio para um projeto Visão Personalizada
 
@@ -37,7 +37,7 @@ Na guia Configurações do seu projeto Visão Personalizada, você pode selecion
 |Domínio|Finalidade|
 |---|---|
 |__Geral__| Otimizado para uma ampla variedade de tarefas de detecção de objetos. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio geral. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__Geral [a1]__| Otimizado para maior precisão com o tempo de inferência comparável como domínio geral. Recomendado para necessidades de localização de região mais precisas, conjuntos de grandes maiores ou cenários de usuário mais difíceis. Este domínio requer mais tempo de treinamento e os resultados não são determinísticos: Espere uma diferença de mapa +-1% com os mesmos dados de treinamento fornecidos. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__Geral [a1]__| Otimizado para maior precisão com o tempo de inferência comparável como domínio geral. Recomendado para necessidades de localização de região mais precisas, conjuntos de grandes maiores ou cenários de usuário mais difíceis. Este domínio requer mais tempo de treinamento e os resultados não são determinísticos: Espere uma diferença de precisão média de +-1% (mapa) com os mesmos dados de treinamento fornecidos. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logotipo__|Otimizado para localizar logotipos de marcas em imagens. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Produtos em prateleiras__|Otimizado para detectar e classificar produtos em prateleiras. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domínios compactos__| Otimizado para as restrições de detecção de objetos em tempo real em dispositivos de borda.|
@@ -50,8 +50,8 @@ O desempenho do modelo varia de acordo com o domínio selecionado. Na tabela a s
 
 |Tarefa|Domínio|ID|Tamanho do modelo|Tempo de inferência de CPU|Tempo de inferência de GPU|
 |---|---|---|---|---|---|
-|classificação|Geral (compacto)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10 ms|5 ms|
-|classificação|Geral (Compact) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 MB|50 ms|5 ms|
+|Classificação|Geral (compacto)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10 ms|5 ms|
+|Classificação|Geral (Compact) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 MB|50 ms|5 ms|
 |Detecção de objetos|Geral (compacto)|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 MS|5 ms|
 |Detecção de objetos|Geral (Compact) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 MS|7 ms|
 

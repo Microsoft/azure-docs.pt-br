@@ -2,13 +2,13 @@
 title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916875"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570563"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
@@ -21,9 +21,9 @@ O Azure Monitor fornece interfaces de usuário unificadas para monitoramento ent
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como os logs do Azure Monitor e os Hubs de Eventos. Para obter mais informações, confira [Métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+O Azure Monitor fornece várias maneiras de acessar as métricas. Você pode acessar as métricas por meio do [portal do Azure](https://portal.azure.com) ou usar as APIs do Azure Monitor (REST e .NET) e as soluções de análise como os logs do Azure Monitor e os Hubs de Eventos. Para obter mais informações, confira [Métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
-As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, poderá arquivar dados de métricas em uma conta de armazenamento do Azure. Esse valor pode ser configurado em [configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Azure Monitor.
+As métricas estão habilitadas por padrão e você pode acessar os dados dos últimos 30 dias. Se você precisar manter os dados por um período de tempo maior, poderá arquivar dados de métricas em uma conta de armazenamento do Azure. Esse valor pode ser configurado em [configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 
@@ -74,7 +74,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico. Essa métrica não inclui mensagens que são encaminhadas automaticamente.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 |Mensagens de saída|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 | Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |
 | Mensagens ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |
@@ -100,7 +100,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 > [!NOTE] 
 > As métricas a seguir estão disponíveis apenas com a camada **Premium**. 
 > 
-> As métricas importantes para monitorar interrupções em um namespace da camada Premium são: **Uso da CPU por namespace** e **tamanho da memória por namespace**. [Configure alertas](../azure-monitor/platform/alerts-metric.md) para essas métricas usando o Azure Monitor.
+> As métricas importantes para monitorar interrupções em um namespace da camada Premium são: **Uso da CPU por namespace** e **tamanho da memória por namespace**. [Configure alertas](../azure-monitor/alerts/alerts-metric.md) para essas métricas usando o Azure Monitor.
 > 
 > A outra métrica que você pode monitorar é: **solicitações limitadas**. Ela não deve ser um problema se o namespace permanecer dentro dos seus limites de memória, CPU e conexões agenciadas. Para obter mais informações, confira [Limitação na camada Premium do Barramento de Serviço do Azure](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 

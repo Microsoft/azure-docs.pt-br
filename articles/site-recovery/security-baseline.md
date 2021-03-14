@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197567"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576717"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança do Azure para Site Recovery
 
@@ -66,9 +66,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: monitorar as alterações nas configurações de recurso de rede relacionadas ao serviço de site Recovery usando os logs de atividades do Azure. Crie alertas no Azure Monitor para notificá-lo quando críticos Site Recovery recursos de rede forem alterados.
 
-- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -86,7 +86,7 @@ Use os dados do log de atividades do Azure para determinar o "o que, quem e quan
 
 Ingerir Site Recovery logs em Azure Monitor para agregar dados de segurança gerados. Em Azure Monitor, use espaços de trabalho do Log Analytics para consultar e executar análises e usar contas de armazenamento para armazenamento de longo prazo ou arquivamento. Além disso, você pode habilitar o e os dados integrados ao Azure Sentinel ou uma solução SIEM (gerenciamento de incidentes e eventos de segurança) de terceiros.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorar Site Recovery com os logs do Azure Monitor](monitor-log-analytics.md)
 
@@ -104,7 +104,7 @@ Use os dados do log de atividades do Azure para determinar o "o que, quem e quan
 
 Ingerir Site Recovery logs com Azure Monitor para agregar dados de segurança gerados. Em Azure Monitor, use espaços de trabalho do Log Analytics para consultar e executar análises e usar contas de armazenamento para armazenamento de longo prazo/arquivamento. Habilite e integre dados ao Azure Sentinel ou uma solução de SIEM (gerenciamento de incidentes e eventos de segurança) de terceiros.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorar Site Recovery com os logs do Azure Monitor](monitor-log-analytics.md)
 
@@ -118,7 +118,7 @@ Ingerir Site Recovery logs com Azure Monitor para agregar dados de segurança ge
 
 **Diretrizes**: defina o período de retenção de log para log Analytics espaços de trabalho associados aos seus cofres dos serviços de recuperação do Azure usando Azure monitor de acordo com os regulamentos de conformidade da sua organização. 
 
-- [Como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -132,9 +132,9 @@ Execute consultas em Log Analytics para pesquisar termos, identificar tendência
 
 - [Monitorar Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -150,7 +150,7 @@ Visualize e consulte os resultados do log e configure alertas para executar aç�
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -413,7 +413,7 @@ Somente o cliente tem acesso à chave de criptografia ao usar um cofre de servi�
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registrar e alertar sobre alterações em recursos críticos do Azure
 
 **Diretrizes**: Use Azure monitor com os logs de atividades do Azure para criar alertas quando as alterações ocorrerem em recursos críticos,. Esses recursos podem incluir instâncias de produção de cofres dos serviços de recuperação, recursos do serviço Site Recovery e recursos relacionados.
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

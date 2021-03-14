@@ -1,24 +1,28 @@
 ---
-title: Como configurar a replicação geográfica para o cache do Azure para Redis | Microsoft Docs
-description: Saiba como replicar as instâncias do Cache do Azure para Redis entre regiões geográficas.
+title: Configurar a replicação geográfica para o cache Premium do Azure para instâncias Redis
+description: Saiba como replicar seu cache do Azure para instâncias do Redis Premium em regiões do Azure
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8701f7bcb2e7ff705e4f1d1b401f4eb3e680f28b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536871"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501032"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurar a replicação geográfica para o cache Premium do Azure para instâncias Redis
 
-A replicação geográfica fornece um mecanismo para vincular duas instâncias do Cache do Azure para Redis de camada Premium. Um cache é escolhido como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. A transferência de dados entre as instâncias de cache primária e secundária é protegida por TLS. A replicação geográfica pode ser usada para configurar um cache que abrange duas regiões do Azure. Este artigo fornece um guia para configurar a replicação geográfica para o cache do Azure da camada Premium para instâncias Redis.
+Neste artigo, você aprenderá a configurar um cache do Azure com replicação geográfica usando o portal do Azure.
+
+A replicação geográfica vincula dois caches do Azure Premium para instâncias Redis e cria um relacionamento de replicação de dados. Essas instâncias de cache geralmente estão localizadas em diferentes regiões do Azure, embora não sejam necessárias. Uma instância age como a primária e a outra como a secundária. O primário lida com solicitações de leitura e gravação e propaga as alterações para o secundário. Esse processo continua até que o link entre as duas instâncias seja removido.
 
 > [!NOTE]
-> A replicação geográfica é projetada como uma solução de recuperação de desastre. Por padrão, seu aplicativo irá gravar e ler a partir da região primária. Opcionalmente, ele pode ser configurado para ler a partir da região secundária. A replicação geográfica não fornece failover automático devido a preocupações sobre a latência de rede adicionada entre regiões se o restante do seu aplicativo permanecer na região primária. Você precisará gerenciar e iniciar o failover desvinculando o cache secundário. Isso irá promovê-lo para ser a nova instância primária.
+> A replicação geográfica é projetada como uma solução de recuperação de desastre.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Pré-requisitos de replicação geográfica
 
@@ -67,7 +71,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 
     ![Vincular caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Você pode exibir o andamento do processo de replicação na folha **Replicação geográfica** .
+4. Você pode exibir o andamento do processo de replicação na folha **Replicação geográfica**.
 
     ![Status da vinculação](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +79,7 @@ Após a configuração da replicação geográfica, as seguintes restrições se
 
     ![Captura de tela que realça como exibir o status de vinculação para os caches primários e secundários.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Quando o processo de replicação é concluído, o **Status da vinculação** é alterado para **Êxito** .
+    Quando o processo de replicação é concluído, o **Status da vinculação** é alterado para **Êxito**.
 
     ![Status do cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -166,7 +170,7 @@ Para obter um ponto de recuperação, [exporte](cache-how-to-import-export-data.
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso usar o PowerShell ou o CLI do Azure para gerenciar a replicação geográfica?
 
-Sim, a replicação geográfica pode ser gerenciada usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações, consulte os documentos do [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [CLI do Azure docs](/cli/azure/redis/server-link?view=azure-cli-latest).
+Sim, a replicação geográfica pode ser gerenciada usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações, consulte os documentos do [PowerShell](/powershell/module/az.rediscache/#redis_cache) ou [CLI do Azure docs](/cli/azure/redis/server-link).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto custa para replicar meus dados entre regiões do Azure?
 
@@ -195,3 +199,4 @@ Sim, você pode configurar um [Firewall](./cache-configure.md#firewall) com repl
 Saiba mais sobre o cache do Azure para recursos do Redis.
 
 * [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)
+* [Alta disponibilidade para o cache do Azure para Redis](cache-high-availability.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875729"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439452"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -58,14 +58,22 @@ Se você não tiver uma função que conceda permissões de camada de gerenciame
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir obter as permissões da camada de gerenciamento que preciso do meu administrador?
 
-Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses recursos usando suas credenciais do Azure.
+Se você quiser acessar contêineres de BLOB, ADLS Gen2 contêineres ou diretórios, ou filas, você pode anexar a esses recursos usando suas credenciais do Azure.
 
 1. Abra a caixa de diálogo Conectar.
-2. Selecione "adicionar um recurso via Azure Active Directory (Azure AD)". Selecione Avançar.
-3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Selecione Avançar.
-4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Selecione Avançar e conectar.
+1. Selecione o tipo de recurso ao qual você deseja se conectar.
+1. Selecione **entrar usando Azure Active Directory (Azure AD)**. Selecione **Avançar**.
+1. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Selecione **Avançar**.
+1. Insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Selecione **Avançar** e **conectar**.
 
-Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar uma URL SAS e, em seguida, anexar ao recurso seguindo estas etapas:
+
+1. Abra a caixa de diálogo Conectar.
+1. Selecione o tipo de recurso ao qual você deseja se conectar.
+1. Selecione **SAS (assinatura de acesso compartilhado)**. Selecione **Avançar**.
+1. Insira a URL SAS que você recebeu e insira um nome de exibição exclusivo para a conexão. Selecione **Avançar** e **conectar**.
+ 
+Para obter mais informações sobre como anexar recursos, consulte [anexar a um recurso individual](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
@@ -135,7 +143,7 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
 3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_ de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso Condicional
+### <a name="conditional-access"></a>Acesso condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 

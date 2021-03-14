@@ -1,24 +1,18 @@
 ---
 title: Corrigir recomendações na central de segurança do Azure | Microsoft Docs
 description: Este artigo explica como responder às recomendações na central de segurança do Azure para proteger seus recursos e satisfazer as políticas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807983"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438260"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de correção na Central de Segurança do Azure
 
@@ -36,7 +30,7 @@ Depois de examinar todas as recomendações, decida qual delas corrigir primeiro
 
 1. Depois de concluído, uma notificação é exibida informando se o problema foi resolvido.
 
-## <a name="quick-fix-remediation"></a>Correção de correção rápida
+## <a name="quick-fix-remediation"></a>Correção rápida
 
 Para simplificar a correção e melhorar a segurança do seu ambiente (e aumentar sua pontuação segura), muitas recomendações incluem uma opção de correção rápida.
 
@@ -81,5 +75,5 @@ A operação de correção usa uma implantação de modelo ou chamada à API de 
 
 Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a Central de Segurança, confira as páginas seguintes:
 
-* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) -saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) -saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
+* [O que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)

@@ -1,30 +1,31 @@
 ---
-title: Usar VMs do Azure Spot
-description: Saiba como usar as VMs pontuais do Azure para economizar nos custos.
-author: cynthn
+title: Usar máquinas virtuais do Azure Spot
+description: Saiba como usar as máquinas virtuais do Azure spot para economizar nos custos.
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202123"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673950"
 ---
-# <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
+# <a name="use-azure-spot-virtual-machines"></a>Usar máquinas virtuais do Azure Spot 
 
-O uso de VMs pontuais permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
+O uso de máquinas virtuais do Azure Spot permite que você aproveite a capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as máquinas virtuais do Azure Spot. Portanto, as máquinas virtuais de ponto do Azure são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, cargas de trabalho de computação grande e muito mais.
 
-A quantidade de capacidade disponível pode variar com base no tamanho, região, hora do dia e etc. Ao implantar VMs Spot, o Azure alocará as VMs se houver capacidade disponível, mas não haverá SLA para essas VMs. Uma VM Spot não oferece nenhuma garantia de alta disponibilidade. A qualquer momento quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuadas com um aviso de 30 segundos. 
+A quantidade de capacidade disponível pode variar com base no tamanho, região, hora do dia e etc. Ao implantar máquinas virtuais do Azure Spot, o Azure irá alocar as VMs se houver capacidade disponível, mas não há SLA para essas VMs. Uma máquina virtual do Azure Spot não oferece nenhuma garantia de alta disponibilidade. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as máquinas virtuais do Azure spot com 30 segundos de aviso. 
 
 
 ## <a name="eviction-policy"></a>Política de remoção
 
-As VMs podem ser removidas com base na capacidade ou no preço máximo definido. Ao criar uma VM Spot, você pode definir a política de remoção como *desalocar* (padrão) ou *excluir*. 
+As VMs podem ser removidas com base na capacidade ou no preço máximo definido. Ao criar uma máquina virtual de ponto do Azure, você pode definir a política de remoção como *desalocar* (padrão) ou *excluir*. 
 
 A política de *desalocação* move a VM para o estado parado e desalocada, permitindo que você a implante novamente mais tarde. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs desalocadas serão contadas em relação à sua cota e você será cobrado pelos custos de armazenamento para os discos subjacentes. 
 
@@ -47,25 +48,25 @@ Você pode optar por receber notificações na VM por meio [do Azure eventos age
 
 ## <a name="limitations"></a>Limitações
 
-Os seguintes tamanhos de VM não têm suporte para VMs spot:
+Não há suporte para os seguintes tamanhos de VM em máquinas virtuais do Azure spot:
  - Série B
  - Versões promocionais de qualquer tamanho (como Dv2, NV, NC, tamanhos promocionais de H)
 
-As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China.
+As máquinas virtuais do Azure Spot podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China.
 
 <a name="channel"></a>
 
 Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
 
 -   Contrato Enterprise
--   Pago conforme o uso
+-   Código de oferta pago conforme o uso 003P
 -   Patrocinado
 - Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
 
 
 ## <a name="pricing"></a>Preços
 
-Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Os preços para as máquinas virtuais do Azure Spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 Você também pode consultar informações de preços usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para consultar informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
 
@@ -87,24 +88,24 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 
 ##  <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**P:** Depois de criada, é uma VM Spot a mesma que a VM normal padrão?
+**P:** Uma vez criado, é uma máquina virtual de ponto do Azure igual à VM normal padrão?
 
-**R:** Sim, exceto que não há SLA para VMs do Spot e elas podem ser removidas a qualquer momento.
+**R:** Sim, exceto que não há SLA para máquinas virtuais do Azure Spot e elas podem ser removidas a qualquer momento.
 
 
 **P:** O que fazer quando você é removido, mas ainda precisa de capacidade?
 
-**R:** Recomendamos que você use VMs padrão em vez de VMs do Spot se precisar de capacidade imediatamente.
+**R:** Recomendamos que você use VMs padrão em vez de máquinas virtuais do Azure Spot se precisar de capacidade imediatamente.
 
 
-**P:** Como a cota é gerenciada para VMs pontuais?
+**P:** Como a cota é gerenciada para máquinas virtuais do Azure Spot?
 
-**R:** As VMs pontuais terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**R:** As máquinas virtuais do Azure Spot terão um pool de cotas separado. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**P:** Posso solicitar uma cota adicional para o Spot?
+**P:** Posso solicitar cota adicional para máquinas virtuais do Azure Spot?
 
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](../azure-portal/supportability/per-vm-quota-requests.md).
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota para máquinas virtuais do Azure Spot por meio do [processo de solicitação de cota padrão](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** Onde posso postar perguntas?
@@ -117,8 +118,8 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 **R:** Para poder alterar o preço máximo, você precisa desalocar a VM. Em seguida, você pode alterar o preço máximo no portal, na seção de **configuração** da VM. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.
+Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar máquinas virtuais do Azure Spot.
 
-Você também pode implantar um [conjunto de dimensionamento com instâncias de VM Spot](../virtual-machine-scale-sets/use-spot.md).
+Você também pode implantar um [conjunto de dimensionamento com instâncias de máquina virtual do Azure Spot](../virtual-machine-scale-sets/use-spot.md).
 
 Se você encontrar um erro, consulte [códigos de erro](./error-codes-spot.md).

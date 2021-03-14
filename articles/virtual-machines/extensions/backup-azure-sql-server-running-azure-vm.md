@@ -1,19 +1,19 @@
 ---
 title: Backup do Azure para SQL Server em execução na VM do Azure
 description: Neste artigo, saiba como registrar o backup do Azure em SQL Server em execução em uma máquina virtual do Azure.
-author: dcurwin
-manager: carmonm
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.topic: conceptual
-ms.date: 07/05/2019
+author: dcurwin
 ms.author: dacurwin
-ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.collection: windows
+ms.date: 07/05/2019
+ms.openlocfilehash: 46cc4b23ca7dd70da3f917a3399406480dc9fdbd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738043"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557090"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Backup do Azure para SQL Server em execução na VM do Azure
 

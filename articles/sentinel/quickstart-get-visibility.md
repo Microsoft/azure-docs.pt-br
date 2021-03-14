@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570587"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -52,7 +52,7 @@ O corpo principal da página de visão geral fornece insight rápido sobre o sta
 
 ## <a name="use-built-in-workbooks"></a>Usar pastas de trabalho internas<a name="dashboards"></a>
 
-Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/platform/workbooks-overview.md).
+Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/visualize/workbooks-overview.md).
 
 1. Em **Configurações**, selecione **Pastas de Trabalho**. Em **Instalados**, é possível ver todas as pastas de trabalho instaladas. Em **Todos**, é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
 2. Pesquise uma pasta de trabalho específica ver a lista inteira e a descrição do que cada uma oferece. 
@@ -66,14 +66,14 @@ Pastas de trabalho internas oferecem dados integrados de suas fontes de dados co
       ![Painel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Para personalizar as pastas de trabalho, edite a consulta principal ![botão edição de consulta](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/log-query/log-analytics-tutorial.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
+Para personalizar as pastas de trabalho, edite a consulta principal ![botão edição de consulta](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/logs/log-analytics-tutorial.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
 
-Para obter mais informações sobre como trabalhar com consultas, confira [Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Para obter mais informações sobre como trabalhar com consultas, confira [Tutorial: Dados visuais no Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Adicionar um novo bloco
 
 Se desejar adicionar um novo bloco, será possível adicioná-lo a uma pasta de trabalho existente, seja um criado por você ou uma pasta de trabalho interna do Azure Sentinel. 
-1. No Log Analytics, crie um bloco usando as instruções encontradas em [Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. No Log Analytics, crie um bloco usando as instruções encontradas em [Tutorial: Dados visuais no Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Após a criação do bloco, em **Fixar**, selecione a pasta de trabalho em que deseja que o bloco apareça.
 
 ## <a name="create-new-workbooks"></a>Criar pastas de trabalho

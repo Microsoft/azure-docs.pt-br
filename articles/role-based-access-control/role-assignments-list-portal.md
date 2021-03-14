@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964364"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556178"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -121,7 +121,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
-### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
 
 1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
 
@@ -185,5 +185,5 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Solucionar problemas do RBAC do Azure](troubleshooting.md)

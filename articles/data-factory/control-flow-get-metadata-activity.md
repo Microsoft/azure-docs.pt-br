@@ -1,67 +1,61 @@
 ---
 title: Obter atividade de metadados no Azure Data Factory
 description: Saiba como usar a atividade obter metadados em um pipeline de Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: ''
-ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297599"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178534"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Você pode usar a atividade obter metadados para recuperar os metadados de quaisquer dados em Azure Data Factory. Você pode usar essa atividade nos seguintes cenários:
+Você pode usar a atividade obter metadados para recuperar os metadados de quaisquer dados em Azure Data Factory. Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação ou consumir os metadados nas atividades subsequentes.
 
-- Valide os metadados de quaisquer dados.
-- Disparar um pipeline quando os dados estiverem prontos/disponíveis.
+## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-A seguinte funcionalidade está disponível no fluxo de controle:
-
-- Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
-- Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
-
-## <a name="capabilities"></a>Capacidades
-
-A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é de cerca de 4 MB.
-
->[!NOTE]
->Se você executar a atividade obter metadados em um tempo de execução de integração auto-hospedado, os recursos mais recentes terão suporte na versão 3,6 ou posterior.
+A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e os metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é **4 MB**.
 
 ### <a name="supported-connectors"></a>Conectores com suporte
 
 **Armazenamento de arquivos**
 
-| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | size<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<br/>(arquivo) | ColumnCount<br>(arquivo) | exists<br>(arquivo/pasta) |
+| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>(arquivo) | criado<br>(arquivo/pasta) | lastModified<sup>1</sup><br>(arquivo/pasta) |childItems<br>(pasta) |contentMD5<br>(arquivo) | estrutura<sup>2</sup><br/>(arquivo) | columnCount<sup>2</sup><br>(arquivo) | Existe<sup>3</sup><br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Arquivos do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| [Sistema de Arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Sistema de arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Ao usar a atividade obter metadados em uma pasta, verifique se você tem a permissão lista/executar na pasta especificada.
-- Para o Amazon S3 e o Google Cloud Storage, o `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` aplica-se ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
+<sup>1</sup> metadados `lastModified` :
+- Para o Amazon S3 e o Google Cloud Storage, o `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` aplica-se ao Bucket e à chave, mas não ao prefixo ou à pasta virtual. 
 - Para o armazenamento de BLOBs do Azure, `lastModified` o se aplica ao contêiner e ao blob, mas não à pasta virtual.
-- `lastModified` o filtro atualmente se aplica a itens filho de filtro, mas não ao próprio arquivo/pasta especificado.
+
+<sup>2</sup> metadados `structure` e `columnCount` não têm suporte ao obter metadados de arquivos binários, JSON ou XML.
+
+<sup>3</sup> metadados `exists` : para o Amazon S3 e o Google Cloud Storage, `exists` o se aplica ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
+
+Observe o seguinte:
+
+- Ao usar a atividade obter metadados em uma pasta, verifique se você tem a permissão lista/executar na pasta especificada.
 - O filtro de curingas em pastas/arquivos não tem suporte para a atividade obter metadados.
-- `structure` e `columnCount` não têm suporte ao obter metadados de arquivos binários, JSON ou XML.
+- `modifiedDatetimeStart` e o `modifiedDatetimeEnd` conjunto de filtros no conector:
+
+    - Essas duas propriedades são usadas para filtrar os itens filho ao obter metadados de uma pasta. Ele não se aplica ao obter metadados de um arquivo.
+    - Quando esse filtro é usado, o `childItems` na saída inclui apenas os arquivos que são modificados dentro do intervalo especificado, mas não as pastas.
+    - Para aplicar esse filtro, a atividade GetMetadata enumerará todos os arquivos na pasta especificada e verificará o horário modificado. Evite apontar para uma pasta com um grande número de arquivos, mesmo que a contagem de arquivos qualificados esperada seja pequena. 
 
 **Banco de dados relacional**
 
@@ -80,7 +74,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 |:--- |:--- |
 | itemName | Nome do arquivo ou pasta. |
 | itemType | Tipo do arquivo ou pasta. O valor retornado é `File` ou `Folder` . |
-| size | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
+| tamanho | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
 | criado | O datetime da última modificação do arquivo ou da pasta. |
 | lastModified | O datetime da última modificação do arquivo ou da pasta. |
 | childItems | Lista de subpastas e arquivos na pasta especificada. Aplicável somente a pastas. Valor retornado é uma lista do nome e do tipo de cada item filho. |
@@ -89,11 +83,14 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 | ColumnCount | Número de colunas no arquivo ou na tabela relacional. |
 | exists| Se existe um arquivo, uma pasta ou uma tabela. Se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
 
->[!TIP]
->Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
+> [!TIP]
+> Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
 
->[!NOTE]
->Quando você obtém metadados de repositórios de arquivos e configura `modifiedDatetimeStart` ou `modifiedDatetimeEnd` , o `childItems` na saída incluirá somente os arquivos no caminho fornecido que têm uma hora da última modificação dentro do intervalo especificado. No não incluirá itens em subpastas.
+> [!NOTE]
+> Quando você obtém metadados de repositórios de arquivos e configura `modifiedDatetimeStart` ou `modifiedDatetimeEnd` , o `childItems` na saída inclui apenas os arquivos no caminho especificado que têm uma hora da última modificação dentro do intervalo especificado. Os itens nas subpastas não são incluídos.
+
+> [!NOTE]
+> Para que a lista de campos de **estrutura** forneça a estrutura de dados real para o texto delimitado e os DataSets de formato do Excel, você deve habilitar a `First Row as Header` propriedade, que tem suporte apenas para essas fontes de dados.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -169,7 +166,7 @@ Atualmente, a atividade obter metadados pode retornar os seguintes tipos de info
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | Sim 
-dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
+dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#supported-capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
 formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 

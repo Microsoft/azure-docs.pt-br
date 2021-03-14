@@ -2,18 +2,18 @@
 title: Solucionar problemas usando Cloud-init
 description: Solucionar problemas de provisionamento de uma VM do Azure usando Cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434632"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558960"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solucionando problemas de provisionamento de VM com Cloud-init
 
@@ -56,9 +56,9 @@ Quando a VM não puder ser provisionada, o Azure mostrará o status ' criando ',
 
 Enquanto a VM estiver em execução, você precisará dos logs da VM para entender por que houve falha no provisionamento.  Para entender por que o provisionamento de VM falhou, não pare a VM. Mantenha a VM em execução. Você precisará manter a VM com falha em um estado de execução para coletar logs. Para coletar os logs, use um dos seguintes métodos:
 
-- [Console Serial](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Console serial](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Habilite o diagnóstico de inicialização](./tutorial-monitor.md#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](./tutorial-monitor.md#view-boot-diagnostics) -las durante a inicialização.
+- [Habilite o diagnóstico de inicialização](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) -las durante a inicialização.
 
 - [Execute AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para anexar e montar o disco do sistema operacional, o que permitirá que você colete esses logs:
 ```bash
@@ -133,4 +133,4 @@ Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações. 
+Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações.

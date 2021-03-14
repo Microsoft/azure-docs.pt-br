@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981116"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039794"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure
 
@@ -42,7 +42,7 @@ Para seguir este guia de instruções, é necessário ter:
 - [Adicionar um certificado particular ao seu aplicativo](configure-ssl-certificate.md)
 
 > [!NOTE]
-> A maneira mais fácil de adicionar um certificado particular é [criar um Certificado Gerenciado do Serviço de Aplicativo gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (versão prévia).
+> A maneira mais fácil de adicionar um certificado particular é [criar um Certificado Gerenciado do Serviço de Aplicativo gratuito](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (versão prévia).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -73,7 +73,7 @@ Se seu aplicativo não tiver nenhum certificado para o domínio personalizado se
 - **Importar um certificado do Serviço de Aplicativo** – Siga o fluxo de trabalho em [Importar um certificado do Serviço de Aplicativo](configure-ssl-certificate.md#import-an-app-service-certificate) e, em seguida, selecione essa opção aqui.
 
 > [!NOTE]
-> Você também pode [Criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-certificate-preview) (versão prévia) ou [Importar um certificado Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), mas é preciso fazer isso separadamente e retornar à caixa de diálogo **Associação TLS/SSL**.
+> Você também pode [Criar um certificado gratuito](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (versão prévia) ou [Importar um certificado Key Vault](configure-ssl-certificate.md#import-a-certificate-from-key-vault), mas é preciso fazer isso separadamente e retornar à caixa de diálogo **Associação TLS/SSL**.
 
 ### <a name="create-binding"></a>Criar associação
 
@@ -159,11 +159,11 @@ Os guias de configuração específicos da linguagem, como o guia de [configura�
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 

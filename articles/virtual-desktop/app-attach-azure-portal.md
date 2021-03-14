@@ -3,15 +3,15 @@ title: Visualização do portal de anexação do Windows Virtual Desktop MSIX �
 description: Como configurar o anexo de aplicativo do MSIX para a área de trabalho virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737538"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicativo MSIX com o portal do Azure
 
@@ -36,6 +36,7 @@ Veja o que você precisa para configurar o anexo do aplicativo MSIX:
 - Um aplicativo MSIX expandido em uma imagem MSIX que é carregada em um compartilhamento de arquivos.
 - Um compartilhamento de arquivos em sua implantação de área de trabalho virtual do Windows onde o pacote MSIX será armazenado.
 - O compartilhamento de arquivos em que você carregou a imagem MSIX também deve ser acessível a todas as VMs (máquinas virtuais) no pool de hosts. Os usuários precisarão de permissões somente leitura para acessar a imagem.
+- Se o certificado não for confiável publicamente, siga as instruções em [instalar certificados](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Desligar as atualizações automáticas para aplicativos do MSIX app Attach
 
@@ -65,7 +66,7 @@ Em seguida, você precisará baixar e configurar a interface de gerenciamento de
 
 Para configurar a interface de gerenciamento:
 
-1. [Abra o portal de visualização](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Abra o portal do Azure](https://portal.azure.com).
 2. Se você receber um prompt perguntando se considera a confiabilidade da extensão, selecione **permitir**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +172,9 @@ Para publicar os aplicativos:
 ## <a name="assign-a-user-to-an-app-group"></a>Atribuir um usuário a um grupo de aplicativos
 
 Depois de atribuir aplicativos MSIX a um grupo de aplicativos, você precisará conceder acesso a eles aos usuários. Você pode atribuir o acesso adicionando usuários ou grupos de usuários a um grupo de aplicativos com aplicativos MSIX publicados. Siga as instruções em [gerenciar grupos de aplicativos com o portal do Azure](manage-app-groups.md) para atribuir usuários a um grupo de aplicativos.
+
+>[!NOTE]
+>O aplicativo MSIX anexar aplicativos remotos pode desaparecer do feed quando você testa aplicativos remotos durante a visualização pública. Os aplicativos não aparecem porque o pool de hosts que você está usando no ambiente de avaliação está sendo servido por um agente de RD no ambiente de produção. Como o agente de RD no ambiente de produção não registra a presença do aplicativo MSIX anexar aplicativos remotos, os aplicativos não aparecerão no feed.
 
 ## <a name="change-msix-package-state"></a>Alterar estado do pacote MSIX
 

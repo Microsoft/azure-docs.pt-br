@@ -5,14 +5,15 @@ author: cynthn
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: how-to
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3988d0ed01e5aa75f498f17f9bbd23e567cb9c07
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091339"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556291"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -22,11 +23,9 @@ Este artigo demonstra como habilitar o Hyper-V em uma VM do Azure e configurar a
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar uma VM do Azure com capacidade de aninhamento
 
-Crie uma nova VM do Windows Server 2016 do Azure. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](../acu.md).
+Crie uma nova VM do Azure do Windows Server 2016 ou Windows Server 2019 para seu host. Verifique se você escolheu um tamanho para sua VM que dá suporte a aninhamento e é grande o suficiente para atender às demandas das VMs convidadas. Para obter uma lista de tamanhos de máquina virtual que dão suporte a aninhamento, consulte o artigo [unidade de computação do Azure](../acu.md) .
 
-Escolha um tamanho de VM grande o suficiente para dar suporte às demandas de uma máquina virtual convidada. Neste exemplo, estamos usando uma VM do Azure de tamanho D4_v3. 
-
-Exiba a disponibilidade regional das máquinas virtuais da série Dv3 ou Ev3 [aqui](https://azure.microsoft.com/regions/services/).
+Você pode exibir a disponibilidade regional de tamanhos de VM na página [produtos disponíveis por região](https://azure.microsoft.com/regions/services/) .
 
 >[!NOTE]
 >
@@ -94,7 +93,7 @@ Crie um novo adaptador de rede virtual para a máquina virtual convidada e confi
 4. Crie um endereço IP para o Gateway de NAT.
     
 Para configurar o gateway, você precisa de algumas informações sobre a rede:    
-  * IPAddress – o IP do Gateway de NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão da sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não tenha de ser 1, ela geralmente é (com base no comprimento do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
+  * Endereço IP-o IP do gateway NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão para a sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não tenha de ser 1, ela geralmente é (com base no comprimento do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
   * PrefixLength – o tamanho do prefixo da sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O tamanho do prefixo de sub-rede será um valor inteiro entre 0 e 32. O valor 0 mapeará toda a Internet e 32 permitirá somente um IP mapeado. Os valores comuns variam de 24 a 12, dependendo de quantos IPs precisam ser anexados ao NAT. Um PrefixLength comum é 24 – essa é uma máscara de sub-rede igual a 255.255.255.0.
   * InterfaceIndex – **ifIndex** é o índice de interface do comutador virtual criado na etapa anterior. 
 

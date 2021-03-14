@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5bfa4bf8a9d20cc1a7baf1b5432e68501d65a509
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a848c7c15bf786ba26b8a1fdb1dab41b9aa20b8d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222011"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575769"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Integrar Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager
 
@@ -25,7 +25,7 @@ Você pode relatar e atualizar servidores Windows gerenciados criando e pré-pre
 
 * É necessário adicionar o [Gerenciamento de Atualizações da Automação do Azure](overview.md) à conta de Automação.
 * Os servidores do Windows atualmente gerenciados pelo ambiente do Microsoft Endpoint Configuration Manager também precisam ser relatados para o espaço de trabalho Log Analytics que também tem Gerenciamento de Atualizações habilitado.
-* Esse recurso está habilitado no Microsoft Endpoint Configuration Manager Branch atual versão 1606 e superior. Para integrar o site de administração central do Microsoft Endpoint Configuration Manager ou um site primário autônomo com Azure Monitor logs e importar coleções, examine [conectar Configuration Manager para Azure monitor logs](../../azure-monitor/platform/collect-sccm.md).  
+* Esse recurso está habilitado no Microsoft Endpoint Configuration Manager Branch atual versão 1606 e superior. Para integrar o site de administração central do Microsoft Endpoint Configuration Manager ou um site primário autônomo com Azure Monitor logs e importar coleções, examine [conectar Configuration Manager para Azure monitor logs](../../azure-monitor/logs/collect-sccm.md).  
 * Os agentes do Windows devem ser configurados para se comunicar com um servidor Windows Server Update Services (WSUS) ou ter acesso a Microsoft Update se eles não receberem atualizações de segurança do Microsoft Endpoint Configuration Manager.
 
 A maneira como você gerencia clientes hospedados no Azure IaaS com seu ambiente existente do Microsoft Endpoint Configuration Manager depende principalmente da conexão que você tem entre os datacenters do Azure e sua infraestrutura. Essa conexão afeta as alterações de design que você pode precisar fazer em seu ponto de extremidade da Microsoft Configuration Manager infraestrutura e o custo relacionado para dar suporte a essas alterações necessárias. Para entender quais considerações de planejamento você precisa avaliar antes de continuar, examine [Configuration Manager no Azure – Perguntas Frequentes](/configmgr/core/understand/configuration-manager-on-azure#networking).

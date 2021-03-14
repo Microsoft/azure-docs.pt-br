@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e3df08272b352ee789c9879b1118105c435cffbd
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903523"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011078"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -83,7 +83,7 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
     O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
 ## <a name="resource-roles"></a>Funções de recurso
 
@@ -105,7 +105,7 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     ![Pacote de acesso-seleção de função de recurso](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
 >[!NOTE]
 >Você pode adicionar grupos dinâmicos a um catálogo e a um pacote do Access. No entanto, você poderá selecionar apenas a função de proprietário ao gerenciar um recurso de grupo dinâmico em um pacote de acesso.
@@ -149,3 +149,4 @@ Você também pode criar um pacote de acesso usando Microsoft Graph.  Um usuári
 - [Compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recurso para um pacote de acesso](entitlement-management-access-package-resources.md)
 - [Atribuir diretamente um usuário ao pacote do Access](entitlement-management-access-package-assignments.md)
+- [Criar uma revisão de acesso para um pacote de acesso](entitlement-management-access-reviews-create.md)

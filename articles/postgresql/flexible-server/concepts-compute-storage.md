@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710066"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712208"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -89,7 +89,7 @@ Observe que o IOPS também é restrito por seu tipo de VM. Embora você possa se
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor.
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de e/s](concepts-monitoring.md).
 
@@ -119,6 +119,9 @@ Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos d
 |E64s_v3             |IOPS DE 18.000                               |120|240|500 |1100|2300 |5.000 |7500 |7500 |16000 |18000 |
 
 Quando marcado com um \* , o IOPS é limitado pelo tipo de VM selecionado. Caso contrário, o IOPS será limitado pelo tamanho de armazenamento selecionado.
+
+>[!NOTE]
+> Você pode ver um IOPS maior nas métricas devido à intermitência no nível do disco. Consulte a [documentação](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) para obter mais detalhes. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Largura de banda de e/s máxima (MiB/s) para sua configuração
 
@@ -151,7 +154,10 @@ Quando marcado com uma \* , a largura de banda de e/s é limitada pelo tipo de V
 
 Quando você atingir o limite de armazenamento, o servidor começará a retornar erros e evitará outras modificações. Isso também pode causar problemas com outras atividades operacionais, como backups e WAL Archiving.
 
+Para evitar essa situação, quando a utilização de armazenamento atingir 95% ou se a capacidade disponível for inferior a 5 GiB, o servidor será alternado automaticamente para o **modo somente leitura**.
+
 É recomendável monitorar ativamente o espaço em disco que está em uso e aumentar o tamanho do disco antes de qualquer situação de armazenamento insuficiente. Você pode configurar um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do disco para que você possa evitar problemas com a execução de disco insuficiente. Para mais informações, consulte a documentação em [como configurar um alerta](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Crescimento automático do armazenamento
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654788"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521638"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -30,6 +30,8 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
  * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache*.  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
 
  * **Reutilizar conexões.**  A criação de novas conexões é cara e aumenta a latência. portanto, reutilize as conexões o máximo possível. Se você optar por criar novas conexões, certifique-se de fechar as conexões antigas antes de liberá-las (mesmo em linguagens de memória gerenciada como .NET ou Java).
+
+* **Use o pipeline.**  Tente escolher um cliente Redis que dê suporte ao [pipeline Redis](https://redis.io/topics/pipelining) para fazer uso mais eficiente da rede para obter a melhor taxa de transferência possível.
 
  * **Configure sua biblioteca de cliente para usar um *tempo limite de conexão* de, pelo menos, 15 segundos**, dando à hora do sistema a conexão, mesmo sob condições de CPU mais altas.  Um valor de tempo limite de conexão pequeno não garante que a conexão seja estabelecida nesse período de tempo.  Se algo der errado (alta CPU de cliente, alta CPU de servidor e assim por diante), um valor de tempo limite de conexão curto causará falha na tentativa de conexão. Esse comportamento geralmente resulta em uma situação pior.  Em vez de ajudar, tempos limite mais curtos aggravatem o problema ao forçar o sistema a reiniciar o processo de tentativa de reconexão, o que pode levar a um loop de *repetição de falha > de > conexão* . Geralmente, é recomendável deixar o tempo limite de conexão em 15 segundos ou superior. É melhor permitir que sua tentativa de conexão seja bem-sucedida após 15 ou 20 segundos do que fazer com que ela falhe rapidamente apenas para tentar novamente. Esse loop de repetição pode fazer com que a interrupção seja mais longa do que se você deixar que o sistema simplesmente demore mais tempo inicialmente.  
      > [!NOTE]
@@ -51,7 +53,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
 ## <a name="client-library-specific-guidance"></a>Diretrizes específicas da biblioteca de cliente
  * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-qual cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +75,8 @@ Se você quiser testar como o código funciona em condições de erro, considere
  * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
  * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
+ * **Teste sob condições de failover** em seu cache. É importante garantir que você não teste o desempenho do seu cache somente sob condições de estado estável. Além disso, teste em condições de failover e meça a carga de CPU/servidor no cache durante esse tempo. Você pode iniciar um failover [reiniciando o nó primário](cache-administration.md#reboot). Isso permitirá que você veja como seu aplicativo se comporta em termos de taxa de transferência e latência durante as condições de failover (ocorre durante as atualizações e pode ocorrer durante um evento não planejado). Idealmente, você don't't deseja ver o pico de carga de CPU/servidor para mais do que dizer 80% mesmo durante um failover, pois isso pode afetar o desempenho.
+ * **Alguns tamanhos de cache** são hospedados em VMs com 4 ou mais núcleos. Isso é útil para distribuir a criptografia/descriptografia TLS, bem como cargas de trabalho de conexão/desconexão TLS em vários núcleos para reduzir o uso geral da CPU nas VMs do cache.  [Consulte aqui para obter detalhes sobre tamanhos de VM e núcleos](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Habilite o VRSS** no computador cliente se você estiver no Windows.  [Consulte aqui para obter detalhes](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Exemplo de script do PowerShell:
      >PowerShell-ExecutionPolicy irrestrito Enable-NetAdapterRSS-Name (Get-netadapter). Nomes 
 

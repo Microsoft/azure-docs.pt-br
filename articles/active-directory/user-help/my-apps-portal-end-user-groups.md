@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004137"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095037"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualizar suas Informações de grupo no portal Meus Aplicativos
 
@@ -27,6 +27,11 @@ Você pode usar sua conta corporativa ou de estudante com o portal **meus aplica
 
 >[!Important]
 >Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](../manage-apps/index.yml).
+>
+> Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-groups-information"></a>Exibir suas Informações de grupos
 
@@ -40,7 +45,11 @@ Se seu administrador conceder uma permissão para exibir o bloco **Grupos**, voc
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Abra o navegador da Web e acesse https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado a uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o navegador da Web e acesse https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado a uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com. Se você estiver entrando com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 

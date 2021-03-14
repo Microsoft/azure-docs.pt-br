@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a4299eff296d9795f8d256ff1236a8e8b4ad3e42
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585200"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654367"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -43,7 +43,8 @@ O diagrama a seguir mostra o comportamento do tempo de vida da janela deslizante
 ![Tempo de vida do token de atualização](./media/configure-tokens/refresh-token-lifetime.png)
 
 > [!NOTE]
-> Aplicativos de página única usando o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+> >Os aplicativos de página única que usam o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas enquanto os aplicativos móveis, os aplicativos de área de trabalho e os aplicativos Web não experimentam essa limitação. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 
 ## <a name="configure-token-lifetime"></a>Configurar tempo de vida do token
 

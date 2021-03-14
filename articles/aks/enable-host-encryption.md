@@ -3,13 +3,13 @@ title: Habilitar a criptografia baseada em host no serviço kubernetes do Azure 
 description: Saiba como configurar uma criptografia baseada em host em um cluster do AKS (serviço kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071843"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430148"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Criptografia baseada em host no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -26,6 +26,13 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 ### <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se você tem a `aks-preview` extensão da CLI v 0.4.73 ou versão superior instalada.
+- Verifique se você tem o `EnableEncryptionAtHostPreview` sinalizador de recurso em `Microsoft.ContainerService` habilitado.
+
+Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email **encryptionAtHost@microsoft.com** com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas. 
+
+> [!IMPORTANT]
+> Você deve enviar um email **encryptionAtHost@microsoft.com** com suas IDs de assinatura para obter o recurso habilitado para recursos de computação. Você mesmo não pode habilitá-lo para recursos de computação.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
@@ -41,7 +48,7 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Limitações
 
-- Só pode ser habilitado em novos pools de nós ou em novos clusters.
+- Só pode ser habilitado em novos pools de nós.
 - Só pode ser habilitado em [regiões do Azure][supported-regions] que dão suporte à criptografia do lado do servidor de Azure Managed disks e somente com [tamanhos de VM com suporte][supported-sizes]específicos.
 - Requer um cluster AKS e um pool de nós baseados em VMSS (conjuntos de dimensionamento de máquinas virtuais) como *tipo de conjunto de VMs*.
 

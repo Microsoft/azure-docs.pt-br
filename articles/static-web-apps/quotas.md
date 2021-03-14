@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1bf9a2cf7af8b18994ef2473c11176b8aea74f6e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132730"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042718"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Cotas na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -27,7 +27,7 @@ As seguintes cotas existem para Versão Prévia dos Aplicativos Web Estáticos d
 | Largura de banda excedente           | Indisponível      |
 | Aplicativos por assinatura do Azure | 10               |
 | Tamanho do aplicativo                    | 250 MB           |
-| Ambientes de pré-produção | 1                |
+| Ambientes de pré-produção | 3                |
 | Domínios personalizados              | 1                |
 | Autorização<br><br>Com funções personalizadas e regras de roteamento | Máximo de 25 usuários finais convidados e funções atribuídas |
 | Funções do Azure             | Disponível        |

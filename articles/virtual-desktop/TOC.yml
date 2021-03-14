@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Usar os Arquivos do Azure e o AD DS
           href: create-file-share.md
+        - name: Instalar o Office com contêineres de aplicativos FSLogix
+          href: fslogix-office-app-rule-editor.md
     - name: Definir configurações do pool de hosts
       items:
         - name: Propriedades de RDP
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: Configurar um compartilhamento de arquivo
           href: app-attach-file-share.md
+        - name: Configurar a ferramenta MSIXMGR
+          href: app-attach-msixmgr.md
     - name: Usar o Microsoft Teams
       href: teams-on-wvd.md
     - name: Configurar a Autenticação Multifator do Azure AD
@@ -211,7 +215,7 @@
     - name: Diretrizes de dimensionamento de máquina virtual
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: CLI (interface de linha de comando) do Azure
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Cenários de exemplo do Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Descoberta de email
@@ -219,7 +223,7 @@
 - name: Recursos
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: Referência da API REST
       href: /rest/api/desktopvirtualization/
     - name: Estimador de experiência

@@ -1,5 +1,5 @@
 ---
-title: Criar e excluir pontos de extremidade privados em um cluster do Azure Stream Analytics
+title: Criar e excluir pontos de extremidade privados e gerenciados em um cluster do Azure Stream Analytics
 description: Saiba como gerenciar pontos de extremidade privados em um cluster do Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
@@ -7,28 +7,28 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: cff02bb4b7d0f7e969589a9977a89f89e2674ffc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9939130782594c03a497d98ce6cd9b33b28eadec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718396"
 ---
-# <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Criar e excluir pontos de extremidade privados em um cluster do Azure Stream Analytics
+# <a name="create-and-delete-managed-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Criar e excluir pontos de extremidade privados e gerenciados em um cluster do Azure Stream Analytics
 
-Você pode conectar os seus trabalhos do Azure Stream Analytics em execução em um cluster para a entrada e a saída de recursos que são protegidos por um firewall ou por uma VNet (Rede Virtual) do Azure. Primeiro, você cria um ponto de extremidade privado para um recurso, como o Hub de Eventos do Azure ou o Banco de Dados SQL do Azure, no cluster do Stream Analytics. Em seguida, aprove a conexão de ponto de extremidade privado da entrada ou saída.
+Você pode conectar os seus trabalhos do Azure Stream Analytics em execução em um cluster para a entrada e a saída de recursos que são protegidos por um firewall ou por uma VNet (Rede Virtual) do Azure. Primeiro, crie um ponto de extremidade privado e gerenciado para um recurso, como o Hub de Eventos do Azure ou o Banco de Dados SQL do Azure, no cluster do Stream Analytics. Em seguida, aprove a conexão de ponto de extremidade privado da entrada ou saída.
 
 Depois que você aprovar a conexão, qualquer trabalho em execução no cluster do Stream Analytics poderá acessar o recurso por meio do ponto de extremidade privado. Este artigo mostra como criar e excluir pontos de extremidade privados em um cluster do Stream Analytics. Você pode criar pontos de extremidade privados para o Banco de Dados SQL do Azure, Armazenamento do Azure, Azure Data Lake Storage Gen2, Hub de Eventos do Azure e Barramento de Serviço do Azure. Pontos de extremidade privados para outros serviços serão adicionados em breve. 
 
-## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Criar um ponto de extremidade privado no cluster do Stream Analytics
+## <a name="create-managed-private-endpoint-in-stream-analytics-cluster"></a>Criar um ponto de extremidade privado e gerenciado no cluster do Stream Analytics
 
 Nesta seção, você aprenderá a criar um ponto de extremidade privado em um cluster do Stream Analytics.
 
 1. No portal do Azure, localize e selecione seu cluster do Stream Analytics.
 
-1. Em **Configurações**, selecione **Pontos de extremidade privados**.
+1. Em **Configurações**, selecione **Pontos de extremidade privados e gerenciados**.
 
-1. Selecione **Adicionar ponto de extremidade privado** e insira as informações a seguir para escolher o recurso que você deseja acessar com segurança por meio de um ponto de extremidade privado.
+1. Clique em **Novo** e insira as informações abaixo para escolher o recurso que você deseja acessar com segurança por meio de um ponto de extremidade privado.
 
    |Configuração|Valor|
    |---|---|
@@ -47,11 +47,11 @@ Nesta seção, você aprenderá a criar um ponto de extremidade privado em um cl
 
 1. Você pode voltar para o cluster do Stream Analytics para ver a alteração de estado de **Aprovação de cliente pendente** para **Configuração de DNS Pendente** e para **Configuração completa** em alguns minutos.
 
-## <a name="delete-a-private-endpoint-in-a-stream-analytics-cluster"></a>Excluir um ponto de extremidade privado no cluster do Stream Analytics
+## <a name="delete-a-managed-private-endpoint-in-a-stream-analytics-cluster"></a>Excluir um ponto de extremidade privado e gerenciado em um cluster do Stream Analytics
 
 1. No portal do Azure, localize e selecione seu cluster do Stream Analytics.
 
-1. Em **Configurações**, selecione **Pontos de extremidade privados**.
+1. Em **Configurações**, selecione **Pontos de extremidade privados e gerenciados**.
 
 1. Selecione o ponto de extremidade privado que você deseja excluir e selecione **Excluir**.
 

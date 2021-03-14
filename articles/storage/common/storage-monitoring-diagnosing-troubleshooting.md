@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787953"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724244"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -94,7 +94,7 @@ Os "[apêndices]" incluem informações sobre como usar outras ferramentas, como
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitoramento do seu serviço de armazenamento
 Se você está acostumado com o monitoramento de desempenho do Windows, é possível entender as Métricas de Armazenamento como equivalentes aos contadores do Monitor de Desempenho do Windows. Nas Métricas de Armazenamento, você encontrará um grupo detalhado de métricas (contadores com terminologia de Monitor de Desempenho do Windows) como disponibilidade de serviço, número total de solicitações de serviço ou percentual de êxito em solicitações de serviço. Para obter uma lista completa das métricas disponíveis, confira [Esquema da tabela de métricas da análise do armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). Você pode especificar se deseja que o serviço de armazenamento colete e agregue as métricas a cada hora e ou cada minuto. Para mais informações sobre como habilitar as métricas e monitorar suas contas de armazenamento, confira [Habilitação das métricas de armazenamento e exibição dos dados de métrica](../blobs/monitor-blob-storage.md).
 
-Você pode escolher quais intervalos de hora das métricas que você quer exibir no [Portal do Azure](https://portal.azure.com) e configurar as regras de notificação dos administradores por email caso a métrica a cada hora ultrapasse um valor particular. Para obter mais informações, confira [Receber notificações de alerta](../../azure-monitor/platform/alerts-overview.md).
+Você pode escolher quais intervalos de hora das métricas que você quer exibir no [Portal do Azure](https://portal.azure.com) e configurar as regras de notificação dos administradores por email caso a métrica a cada hora ultrapasse um valor particular. Para obter mais informações, confira [Receber notificações de alerta](../../azure-monitor/alerts/alerts-overview.md).
 
 Recomendamos que você examine o [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (versão prévia). Trata-se de um recurso do Azure Monitor que oferece monitoramento abrangente das contas do Armazenamento do Azure, fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de Armazenamento do Azure. Ele não exige nenhuma habilitação ou configuração e você pode exibir imediatamente essas métricas nos gráficos interativos predefinidos e em outras visualizações incluídas.
 
@@ -789,7 +789,7 @@ Você pode encontrar mais informações em [O que é o Application Insights](../
 
 Para obter mais informações sobre análise no Armazenamento do Azure, consulte estes recursos:
 
-* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
+* [Monitorar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas da análise de armazenamento](storage-analytics-metrics.md)
 * [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)

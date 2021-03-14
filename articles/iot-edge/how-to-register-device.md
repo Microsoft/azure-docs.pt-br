@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 97faf5eff7187bbabe23bbcab60514eef4acc063
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: d75f184a324a9d418b0af2e3cf5790205af0fa42
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633780"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200711"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>Registrar um dispositivo de IoT Edge no Hub IoT
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Este artigo fornece as etapas para registrar um novo dispositivo IoT Edge no Hub IoT.
 
@@ -175,7 +177,7 @@ No Hub IoT na portal do Azure, os dispositivos IoT Edge são criados e gerenciad
    * Selecione **X.509 autoassinado** como o tipo de autenticação.
    * Forneça as impressões digitais do certificado de identidade primário e secundário. Os valores de impressão digital são caracteres 40-hex para hashes SHA-1 ou caracteres 64-hex para hashes SHA-256.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

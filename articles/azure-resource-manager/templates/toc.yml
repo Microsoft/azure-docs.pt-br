@@ -4,12 +4,16 @@
   items:
     - name: O que são modelos ARM?
       href: overview.md
+    - name: Visão geral do Bicep
+      href: bicep-overview.md
 - name: Inícios rápidos
   items:
     - name: Criar modelos - portal
       href: quickstart-create-templates-use-the-portal.md
     - name: Criar modelos - Visual Studio Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Criar Bicep – VS Code
+      href: quickstart-create-bicep-use-visual-studio-code.md
     - name: Criar e implantar especificações de modelo
       href: quickstart-create-template-specs.md
     - name: Serviços do Azure
@@ -141,7 +145,7 @@
             - name: Aplicativos gerenciados
               href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Monitoramento
-              href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+              href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
             - name: Política
               href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Portal
@@ -220,7 +224,7 @@
               href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriais
   items:
-    - name: Modelos para iniciantes
+    - name: Modelos de JSON para iniciantes
       items:
         - name: 1 – Criar primeiro modelo
           href: template-tutorial-create-first-template.md
@@ -242,6 +246,28 @@
           href: template-tutorial-add-tags.md
         - name: 10 – Usar arquivo de parâmetro
           href: template-tutorial-use-parameter-file.md
+    - name: Bicep para iniciantes
+      items:
+        - name: 1 – Criar primeiro modelo
+          href: bicep-tutorial-create-first-bicep.md
+        - name: 2 – Adicionar parâmetros
+          href: bicep-tutorial-add-parameters.md
+        - name: 3 – Adicionar funções de modelo
+          href: bicep-tutorial-add-functions.md
+        - name: 4 – Adicionar variáveis
+          href: bicep-tutorial-add-variables.md
+        - name: 5 – Adicionar saídas
+          href: bicep-tutorial-add-outputs.md
+        - name: 6 – Usar modelo exportado
+          href: bicep-tutorial-export-template.md
+        - name: 7 – Usar modelo de início rápido
+          href: bicep-tutorial-quickstart-template.md
+        - name: 8 – Adicionar marcas
+          href: bicep-tutorial-add-tags.md
+        - name: 9 – Usar arquivo de parâmetro
+          href: bicep-tutorial-use-parameter-file.md
+        - name: 10 – Adicionar módulos
+          href: bicep-tutorial-add-modules.md
     - name: Implantação
       items:
         - name: 1 – Implantar um modelo local
@@ -298,6 +324,12 @@
   items:
     - name: Práticas recomendadas de modelo
       href: template-best-practices.md
+    - name: Bicep
+      items:
+        - name: Comparando JSON com Bicep
+          href: compare-template-syntax.md
+    - name: Tipos de dados
+      href: data-types.md
     - name: Perguntas frequentes
       href: frequently-asked-questions.md
     - name: Modelos de consistência de nuvem
@@ -333,6 +365,8 @@
           href: template-user-defined-functions.md
         - name: Recursos
           items:
+            - name: Declaração de recurso
+              href: resource-declaration.md
             - name: Nome e tipo do recurso filho
               href: child-resource-name-type.md
             - name: Implantação condicional
@@ -491,6 +525,8 @@
       items:
         - name: Todas as funções
           href: template-functions.md
+        - name: Qualquer função (Bicep)
+          href: template-functions-any.md
         - name: Funções de matriz
           href: template-functions-array.md
         - name: Funções de comparação
@@ -520,7 +556,7 @@
     - name: Java
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
-      href: /python/api/overview/azure/resources?view=azure-python
+      href: /python/api/overview/azure/resources
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

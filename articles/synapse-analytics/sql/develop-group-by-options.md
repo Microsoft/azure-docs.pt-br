@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321447"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671307"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opções de agrupar por no Synapse SQL
 
@@ -24,7 +24,7 @@ O Synapse SQL permite desenvolver soluções implementando diferentes opções a
 
 ## <a name="what-group-by-does"></a>O que o GROUP BY faz
 
-A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) agrega dados a um conjunto de linhas de resumo.
+A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) agrega dados a um conjunto de linhas de resumo.
 
 O pool SQL sem servidor dá suporte a todo o intervalo de opções agrupar por. O pool SQL dedicado dá suporte a um número limitado de opções agrupar por.
 
@@ -125,7 +125,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-A imagem a seguir mostra os resultados de [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+A imagem a seguir mostra os resultados de [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true):
 
 ![Agrupar por cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 

@@ -3,7 +3,7 @@ title: Solucionar problemas de gerenciamento de direitos-Azure AD
 description: Saiba mais sobre alguns itens que você deve verificar para ajudá-lo a solucionar problemas de gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca78195d4fb7bb265c4a7fd8d78ea49a35335b6
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746704"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516882"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -47,7 +47,6 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Quando você remove um membro de uma equipe, eles são removidos do grupo de Microsoft 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](/microsoftteams/office-365-groups#group-membership).
 
-* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacotes de acesso
 

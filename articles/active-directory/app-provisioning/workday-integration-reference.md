@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 02/09/2021
 ms.author: chmutali
-ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2b1a43ee6b13d32c0eaed92538cf9c25405e061b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255977"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104324"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Como Azure Active Directory provisionamento se integra ao workday
 
@@ -448,6 +448,21 @@ Digamos que você deseja recuperar as certificações associadas a um usuário. 
 Digamos que você deseja recuperar grupos de *provisionamento* atribuídos a um trabalho. Essas informações estão disponíveis como parte do conjunto de *dados de provisionamento de conta* . Para obter esse conjunto de dados como parte da resposta *Get_Workers* , use o XPath a seguir: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
+
+## <a name="handling-different-hr-scenarios"></a>Lidando com cenários de RH diferentes
+
+### <a name="retrieving-international-job-assignments-and-secondary-job-details"></a>Recuperando atribuições de trabalho internacionais e detalhes do trabalho secundário
+
+Por padrão, o conector do workday recupera atributos associados ao trabalho principal do trabalhador. O conector também dá suporte à recuperação de *dados de trabalho adicionais* associados a atribuições de trabalho internacionais ou a trabalhos secundários. 
+
+Use as etapas abaixo para recuperar atributos associados a atribuições de trabalho internacionais: 
+
+1. Definir a URL de conexão do workday usa a API do serviço Web do workday versão 30,0 ou superior. Portanto, defina os [valores XPath corretos](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) em seu aplicativo de provisionamento do workday. 
+1. Use o seletor `@wd:Primary_Job=0` no `Worker_Job_Data` nó para recuperar o atributo correto. 
+   * **Exemplo 1:** Para obter `SecondaryBusinessTitle` o uso do XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Title/text()`
+   * **Exemplo 2:** Para obter `SecondaryBusinessLocation` o uso do XPath `wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=0]/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Location_Reference/@wd:Descriptor`
+
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
 

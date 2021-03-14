@@ -1,34 +1,37 @@
 ---
-title: Usar a CLI do Azure para arquivos e ACLs no Azure Data Lake Storage Gen2
-description: Use a CLI do Azure para gerenciar diretórios e listas de controle de acesso (ACL) e arquivos nas contas de armazenamento que têm um namespace hierárquico.
+title: Usar CLI do Azure para gerenciar dados (Azure Data Lake Storage Gen2)
+description: Use o CLI do Azure para gerenciar diretórios e arquivos em contas de armazenamento que têm um namespace hierárquico.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3e9afd4617eb7445ba83948d46eef0890832e2be
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913599"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650347"
 ---
-# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
+# <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Use CLI do Azure para gerenciar diretórios e arquivos no Azure Data Lake Storage Gen2
 
-Este artigo mostra como usar a [CLI (Interface de Linha de Comando) do Azure](/cli/azure/) para criar e gerenciar diretórios, arquivos e permissões em contas de armazenamento que têm um namespace hierárquico. 
+Este artigo mostra como usar a [CLI (interface de Command-Line do Azure)](/cli/azure/) para criar e gerenciar diretórios e arquivos em contas de armazenamento que têm um namespace hierárquico.
+
+Para saber mais sobre como obter, definir e atualizar as listas de controle de acesso (ACL) de diretórios e arquivos, consulte [usar CLI do Azure para gerenciar ACLs no Azure data Lake Storage Gen2](data-lake-storage-acl-cli.md).
 
 [Exemplos](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Enviar comentários](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-> [!div class="checklist"]
-> * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](../common/storage-account-create.md) instruções para criar um.
-> * CLI do Azure versão `2.6.0` ou superior
+- Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+- Uma conta de armazenamento que tem o namespace hierárquico habilitado. Siga [estas](create-data-lake-storage-account.md) instruções para criar um.
+
+- CLI do Azure versão `2.6.0` ou superior
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Certifique-se de ter a versão correta da CLI do Azure instalada
 
@@ -39,6 +42,7 @@ Este artigo mostra como usar a [CLI (Interface de Linha de Comando) do Azure](/c
    ```azurecli
     az --version
    ```
+
    Se sua versão da CLI do Azure for inferior a `2.6.0`, instale uma versão posterior. Confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Conectar à conta
@@ -64,7 +68,7 @@ Este artigo mostra como usar a [CLI (Interface de Linha de Comando) do Azure](/c
    Substitua o valor de espaço reservado `<subscription-id>` pela ID da sua assinatura.
 
 > [!NOTE]
-> O exemplo apresentado neste artigo mostra a autorização do Azure Active Directory (AD). Para saber mais sobre os métodos de autorização, confira [Autorizar o acesso a dados de blob ou fila com a CLI do Azure](./authorize-data-operations-cli.md).
+> O exemplo apresentado neste artigo mostra a autorização do Azure Active Directory (Azure AD). Para saber mais sobre os métodos de autorização, confira [Autorizar o acesso a dados de blob ou fila com a CLI do Azure](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
@@ -216,106 +220,9 @@ Este exemplo exclui um arquivo chamado `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-access-control-lists-acls"></a>Gerenciar listas de controle de acesso (ACLs)
+## <a name="see-also"></a>Confira também
 
-Você pode obter, definir e atualizar as permissões de acesso de diretórios e arquivos.
-
-> [!NOTE]
-> Se você estiver usando o Azure AD (Azure Active Directory) para autorizar comandos, confira se a entidade de segurança foi atribuída com a [função de Proprietário dos dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para saber mais sobre como as permissões de ACL são aplicadas e os efeitos por alterá-las, confira [Controle de acesso no Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-### <a name="get-an-acl"></a>Obter uma ACL
-
-Obtenha a ACL de um **diretório** usando o comando `az storage fs access show`.
-
-Este exemplo obtém a ACL de um diretório e, em seguida, imprime a ACL no console.
-
-```azurecli
-az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Obtenha as permissões de acesso de um **arquivo**  usando o comando `az storage fs access show`. 
-
-Este exemplo obtém a ACL de um arquivo e, em seguida, imprime a ACL no console.
-
-```azurecli
-az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-A imagem a seguir mostra a saída depois de obter a ACL de um diretório.
-
-![Obter saída de ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
-
-Neste exemplo, o usuário proprietário tem permissões de leitura, gravação e execução. O grupo proprietário tem permissões de somente leitura e execução. Para obter mais informações sobre as listas de controle de acesso, confira [Controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### <a name="set-an-acl"></a>Definir uma ACL
-
-Use o comando `az storage fs access set` para definir a ACL de um **diretório**. 
-
-Este exemplo define a ACL em um diretório para o usuário proprietário, o grupo proprietário ou outros usuários e imprime a ACL no console.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Este exemplo define a ACL *padrão* em um diretório para o usuário proprietário, o grupo proprietário ou outros usuários e imprime a ACL no console.
-
-```azurecli
-az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Use o comando `az storage fs access set` para definir a ACL de um **arquivo**. 
-
-Este exemplo define a ACL em um arquivo para o usuário proprietário, o grupo proprietário ou outros usuários e imprime a ACL no console.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-A imagem a seguir mostra a saída depois de definir a ACL de um arquivo.
-
-![Obter saída de ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
-
-Neste exemplo, o usuário proprietário e o grupo proprietário têm permissões de somente leitura e gravação. Todos os outros usuários têm permissões de gravação e execução. Para obter mais informações sobre as listas de controle de acesso, confira [Controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### <a name="update-an-acl"></a>Atualizar uma ACL
-
-Outra maneira de definir esta permissão é usar o comando `az storage fs access set`. 
-
-Atualize a ACL de um diretório ou arquivo definindo o parâmetro `-permissions` como a forma abreviada de uma ACL.
-
-Este exemplo atualiza a ACL de um **diretório**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Este exemplo atualiza a ACL de um **arquivo**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Você também pode atualizar o usuário proprietário e o grupo de um diretório ou arquivo definindo os parâmetros `--owner` ou `group` para a ID da entidade ou o UPN (Nome Principal do Usuário) de um usuário. 
-
-Este exemplo altera o proprietário de um diretório. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Este exemplo altera o proprietário de um arquivo. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-
-```
-
-### <a name="set-an-acl-recursively"></a>Definir uma ACL recursivamente
-
-Você pode adicionar, atualizar e remover ACLs recursivamente nos itens filho existentes de um diretório pai sem precisar fazer essas alterações individualmente para cada item filho. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](recursive-access-control-lists.md).
-
-## <a name="see-also"></a>Veja também
-
-* [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-* [Fornecer feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
+- [Fornecer feedback](https://github.com/Azure/azure-cli-extensions/issues)
+- [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Usar CLI do Azure para gerenciar ACLs no Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)

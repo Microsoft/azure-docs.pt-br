@@ -2,18 +2,19 @@
 title: Implantar hosts dedicados do Azure usando o Azure PowerShell
 description: Implante VMs em hosts dedicados usando Azure PowerShell.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ed6319d5374db56cfe85e7ef9413480e523d9a34
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005079"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050878"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
@@ -23,7 +24,6 @@ Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se est
 
 ## <a name="limitations"></a>Limitações
 
-- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
 - Os tamanhos e tipos de hardware disponíveis para hosts dedicados variam de acordo com a região. Consulte a [página de preços](https://aka.ms/ADHPricing) do host para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts

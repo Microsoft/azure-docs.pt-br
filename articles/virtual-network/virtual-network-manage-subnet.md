@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558594"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -81,12 +81,12 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
     | Configuração | Descrição |
     | --- | --- |
     | **Intervalo de endereços** | Se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir recursos que estão em sub-redes, leia a documentação de cada um desses tipos de recursos. Consulte as restrições para o **intervalo de endereços** na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). |
-    | **Usuários** | É possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Adicionar uma atribuição de função](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Usuários** | É possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e usuários para acessar a sub-rede, consulte [atribuir funções do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). |
     | **Grupo de segurança de rede** e **Tabela de rotas** | Consulte a etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). |
     | **Pontos de extremidade de serviço** | <p>Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede. Os pontos de extremidade de serviço vão de usar a rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo do próximo salto da *Internet*, para usar uma nova rota com os prefixos de endereço do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*.</p><p>Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não está habilitado até que o tráfego flua para o serviço para todas as interfaces de rede sejam atualizados com a nova rota. Para saber mais sobre roteamento, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).</p> |
     | **Delegação de sub-rede** | Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). A delegação de sub-rede pode ser modificada para ter nenhuma ou várias delegações habilitadas para ela. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação de sub-rede não poderá ser adicionada ou removida até que todos os recursos do serviço sejam removidos. Para delegar para um serviço diferente, selecione o serviço que você deseja delegar na lista **Serviços**. |
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ### <a name="commands"></a>Comandos
 
@@ -120,7 +120,7 @@ Uma sub-rede somente pode ser excluída se não houver recursos na sub-rede. Se 
 
 Para realizar tarefas em sub-redes, sua conta deve ser atribuída à função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas na tabela a seguir:
 
-|Ação                                                                   |   Name                                       |
+|Ação                                                                   |   Nome                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Ler uma sub-rede de rede virtual              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar uma sub-rede da rede virtual  |

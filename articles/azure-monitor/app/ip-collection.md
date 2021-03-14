@@ -4,12 +4,12 @@ description: Compreendendo como os endereços IP e a localização geográfica s
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333300"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584075"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e manipulação de endereço IP
 
@@ -30,7 +30,7 @@ Esse comportamento é por design para ajudar a evitar a coleta desnecessária de
 
 Embora o padrão seja não coletar endereços IP. Ainda oferecemos a flexibilidade para substituir esse comportamento. No entanto, é recomendável verificar se a coleção não interrompe quaisquer requisitos de conformidade ou regulamentos locais. 
 
-Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](../platform/personal-data-mgmt.md).
+Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Armazenando dados de endereço IP
 
@@ -62,9 +62,9 @@ Para habilitar a coleta e o armazenamento de IP, a `DisableIpMasking` Propriedad
 
 Se você só precisa modificar o comportamento de um único recurso de Application Insights, use o portal do Azure. 
 
-1. Acesse o recurso de **Automation**Application insights >  >  **modelo de exportação** de automação 
+1. Acesse o recurso de Application insights >  >  **modelo de exportação** de automação 
 
-2. Selecionar **implantar**
+2. Escolha **Implantar**
 
     ![Botão com a palavra "implantar" realçada em vermelho](media/ip-collection/deploy.png)
 
@@ -77,7 +77,7 @@ Se você só precisa modificar o comportamento de um único recurso de Applicati
     ![A captura de tela adiciona uma vírgula após "IbizaAIExtension" e adiciona uma nova linha abaixo com "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Se você tiver um erro que diz: ** _o grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
+    > Se você tiver um erro que diz: **_o grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
 
 5. Selecione **concordo**  >  **compra**. 
 
@@ -241,10 +241,10 @@ requests
 
 Os endereços IP recentemente coletados aparecerão na `customDimensions_client-ip` coluna. A `client-ip` coluna padrão ainda terá todos os quatro octetos zerados. 
 
-Se o teste for de localhost e o valor para `customDimensions_client-ip` for `::1` , esse valor será um comportamento esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4.
+Se o teste for de localhost e o valor para `customDimensions_client-ip` for `::1` , esse valor será um comportamento esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.0.1` no IPv4.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [coleta de dados pessoais](../platform/personal-data-mgmt.md) no Application insights.
+* Saiba mais sobre a [coleta de dados pessoais](../logs/personal-data-mgmt.md) no Application insights.
 
 * Saiba mais sobre como a [coleta de endereços IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) no Application insights funciona. (Este artigo é uma postagem de blog externa mais antiga escrita por um de nossos engenheiros. Ele atinge o comportamento padrão atual em que o endereço IP é registrado como `0.0.0.0` , mas ele entra em mais detalhes sobre a mecânica do interno `ClientIpHeaderTelemetryInitializer` .)

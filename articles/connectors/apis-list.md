@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/12/2021
+ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019628"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382881"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rotular | Exemplo | Descrição |
+| Rótulo | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector principal de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -452,15 +452,21 @@ Para chamar as APIs que executam o código personalizado ou não estão disponí
 >
 > Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
+## <a name="get-ready-for-deployment"></a>Preparar-se para a implantação
+
+Embora você crie conexões de dentro de um aplicativo lógico, as conexões são recursos do Azure separados com suas próprias definições de recurso. Para examinar essas definições de recursos de conexão, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que está, na maioria das vezes, pronto para implantação.
+
 <a name="block-connections"></a>
 
 ## <a name="block-creating-connections"></a>Bloquear a criação de conexões
 
 Se sua organização não permitir a conexão a recursos específicos usando seus conectores em aplicativos lógicos do Azure, você poderá [bloquear a capacidade de criar essas conexões](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicativo lógico usando [Azure Policy](../governance/policy/overview.md). Para obter mais informações, consulte [Bloquear conexões criadas por conectores específicos nos aplicativos lógicos do Azure](../logic-apps/block-connections-connectors.md).
 
-## <a name="get-ready-for-deployment"></a>Preparar-se para a implantação
+## <a name="known-issues"></a>Problemas conhecidos
 
-Embora você crie conexões de dentro de um aplicativo lógico, as conexões são recursos do Azure separados com suas próprias definições de recurso. Para examinar essas definições de recursos de conexão, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que está, na maioria das vezes, pronto para implantação.
+#### <a name="error-badgateway-client-request-id-guid"></a>Erro: BadGateway. ID de solicitação do cliente: ' {GUID} '
+
+Esse erro resulta da atualização das marcas em um aplicativo lógico em que uma ou mais conexões não dão suporte à autenticação OAuth Azure Active Directory (Azure AD), como SFTP ad SQL, dividindo essas conexões. Para evitar esse comportamento, evite atualizar essas marcas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

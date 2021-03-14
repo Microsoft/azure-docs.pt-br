@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Office 365 usando Azure Data Factory
 description: Saiba como copiar dados do Office 365 em armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 365896fec555340c3932192aa82086d140d4db0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632984"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392996"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,7 +44,7 @@ Para copiar dados do Office 365 no Azure, você precisa concluir as seguintes et
 
 ## <a name="approving-new-data-access-requests"></a>Aprovação de novas solicitações de acesso a dados
 
-Se esta for a primeira vez que você estiver solicitando dados para este contexto (uma combinação de qual tabela de dados está sendo acessada, em qual conta de destino os dados estão sendo carregados e qual identidade de usuário está fazendo a solicitação de acesso a dados), você verá o status da atividade de cópia como "Em andamento", e somente quando você clicar no link ["Detalhes", em Ações](copy-activity-overview.md#monitoring), você verá o status como "RequestingConsent".  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
+Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em qual conta de destino os dados estão sendo carregados e qual identidade de usuário está fazendo a solicitação de acesso a dados), você verá o status da atividade de cópia como "em andamento" e somente quando clicar no [link "detalhes" em ações](copy-activity-overview.md#monitoring) , você verá o status como "RequestingConsent".  Um membro do grupo de aprovadores de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que seja possível prosseguir com a extração de dados.
 
 Confira [aqui](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) como o aprovador pode aprovar a solicitação de acesso a dados e confira [aqui](/graph/data-connect-pam) para obter uma explicação sobre a integração total com o Privileged Access Management, incluindo como configurar o grupo de aprovador de acesso a dados.
 
@@ -89,7 +84,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 >[!NOTE]
 > A diferença entre **office365TenantId** e **servicePrincipalTenantId** e o valor correspondente a ser fornecido:
 >- Se você for um desenvolvedor empresarial desenvolvendo um aplicativo com base nos dados do Office 365 para uso de sua organização, forneça a mesma ID de locatário para as duas propriedades, que é a ID de locatário do AAD da sua organização.
->- Se você for um desenvolvedor de ISV desenvolvendo um aplicativo para seus clientes, o office365TenantId será a ID de locatário do AAD (instalador do aplicativo) do seu cliente e servicePrincipalTenantId será a ID de locatário do AAD da sua empresa.
+>- Se você for um desenvolvedor de ISV desenvolvendo um aplicativo para seus clientes, office365TenantId será a ID de locatário do AAD do seu cliente (instalador do aplicativo) e servicePrincipalTenantId será a ID de locatário do AAD da sua empresa.
 
 **Exemplo:**
 

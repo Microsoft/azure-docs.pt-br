@@ -3,12 +3,12 @@ title: Logs de diagnóstico do barramento de serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de todos os logs operacionais e de diagnóstico que estão disponíveis para o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064427"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585274"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
 
@@ -25,7 +25,7 @@ Todos os logs são armazenados no formato JavaScript Object Notation (JSON) nos 
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na tabela a seguir:
 
-| Nome | Descrição |
+| Name | Descrição |
 | ------- | ------- |
 | ActivityId | ID interna, usada para identificar a atividade especificada |
 | EventName | Nome da operação |
@@ -101,7 +101,7 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs de d
 
 As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

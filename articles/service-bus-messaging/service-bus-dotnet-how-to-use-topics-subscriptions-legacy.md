@@ -1,16 +1,16 @@
 ---
 title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs
 description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85eb8e6cdaa8636215c5df9d81dbecdca97a2501
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
-ms.translationtype: MT
+ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819239"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652965"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 Este tutorial cobre as seguintes etapas:
@@ -19,12 +19,12 @@ Este tutorial cobre as seguintes etapas:
 2. Escreva um aplicativo de console .NET Core para receber essas mensagens da assinatura.
 
 > [!WARNING]
-> Este guia de início rápido usa o pacote antigo Microsoft. Azure. ServiceBus. Para obter um início rápido que usa o pacote Azure. Messaging. ServiceBus mais recente, consulte [Enviar e receber mensagens usando o pacote Azure. Messaging. ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Para mover seu aplicativo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar do Microsoft. Azure. ServiceBus para o Azure. Messaging. ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> Este guia de início rápido usa o pacote antigo Microsoft.Azure.ServiceBus. Para obter um guia de início rápido que usa o pacote Azure.Messaging.ServiceBus mais recente, confira [Enviar e receber mensagens usando o pacote Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Para migrar seu aplicativo da biblioteca antiga para a nova, confira o [Guia de migração de Microsoft.Azure.ServiceBus para Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
+2. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para executar as seguintes tarefas:
     1. Crie um **namespace** do Barramento de Serviço.
     2. Obtenha a **cadeia de conexão**.
     3. Crie um **tópico** no namespace.
@@ -66,7 +66,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua o `Main()` método pelo método **assíncrono** a seguir, `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que você adicionará na próxima etapa. 
+3. Substitua o método `Main()` pelo método **assíncrono** `Main` a seguir, que envia mensagens de maneira assíncrona usando o método SendMessagesAsync que você adicionará na próxima etapa. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -179,7 +179,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da assinatura
 
-Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Core e instale o pacote NuGet **Microsoft. Azure. ServiceBus** , semelhante ao aplicativo remetente anterior.
+Para receber as mensagens enviadas, crie outro aplicativo de console .NET Core e instale o pacote NuGet **Microsoft.Azure.ServiceBus**, parecido com o aplicativo de remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da assinatura
 
@@ -201,7 +201,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Cor
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua o `Main()` método pelo método **assíncrono** a seguir `Main` . Ele chama o `RegisterOnMessageHandlerAndReceiveMessages()` método que será adicionado na próxima etapa. 
+3. Substitua o método `Main()` pelo método **assíncrono** `Main` a seguir. Ele chama o método `RegisterOnMessageHandlerAndReceiveMessages()` que será adicionado na próxima etapa. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -355,7 +355,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Cor
         }
     }
     ```
-9. Execute o programa e verifique o portal novamente. Observe que a **contagem de mensagens** e os valores **atuais** agora são **0**.
+9. Execute o programa e verifique o portal novamente. Observe que os valores **Contagem de Mensagens** e **Atuais** agora são **0**.
    
     ![Tamanho do tópico][topic-message-receive]
 

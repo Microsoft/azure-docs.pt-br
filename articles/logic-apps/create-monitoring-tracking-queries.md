@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5de795811923c965a1473f8d91e3fd654aeef266
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574545"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Exibir e criar consultas para monitoramento e acompanhamento em logs de Azure Monitor para aplicativos lógicos do Azure
 
-Você pode exibir as consultas subjacentes que produzem os resultados de [logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) e criar consultas que filtram os resultados com base em seus critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico. As consultas usam a [linguagem de consulta Kusto](/azure/data-explorer/kusto/query/), que você pode editar se quiser exibir resultados diferentes. Para obter mais informações, consulte [Azure monitor log queries](/azure/data-explorer/kusto/query/).
+Você pode exibir as consultas subjacentes que produzem os resultados de [logs de Azure monitor](../azure-monitor/logs/log-query-overview.md) e criar consultas que filtram os resultados com base em seus critérios específicos. Por exemplo, você pode encontrar mensagens baseado em um número de controle de intercâmbio específico. As consultas usam a [linguagem de consulta Kusto](/azure/data-explorer/kusto/query/), que você pode editar se quiser exibir resultados diferentes. Para obter mais informações, consulte [Azure monitor log queries](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Um espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Um aplicativo lógico que é configurado com Azure Monitor registro em log e envia essas informações para um espaço de trabalho do Log Analytics. Saiba [como configurar os logs de Azure monitor para seu aplicativo lógico](../logic-apps/monitor-logic-apps.md).
 
@@ -45,7 +45,7 @@ Para exibir ou editar a consulta que produz os resultados no resumo do espaço d
 
 ## <a name="create-your-own-query"></a>Criar sua própria consulta
 
-Para localizar ou filtrar resultados com base em Propriedades ou valores específicos, você pode criar sua própria consulta iniciando a partir de uma consulta vazia ou usar uma consulta existente. Para obter mais informações, consulte Introdução [às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md).
+Para localizar ou filtrar resultados com base em Propriedades ou valores específicos, você pode criar sua própria consulta iniciando a partir de uma consulta vazia ou usar uma consulta existente. Para obter mais informações, consulte Introdução [às consultas de log em Azure monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. Na [portal do Azure](https://portal.azure.com), localize e selecione seu espaço de trabalho do log Analytics.
 
@@ -53,7 +53,7 @@ Para localizar ou filtrar resultados com base em Propriedades ou valores especí
 
 1. Inicie de uma consulta vazia ou de quaisquer consultas existentes disponíveis.
 
-   * Para verificar se alguma consulta existente está disponível, na barra de ferramentas de consulta, **Samples queries**selecione o  >  **histórico**de consultas de exemplos, que mostra consultas de execuções de consulta anteriores ou selecione **Gerenciador**de consultas, que mostra consultas predefinidas.
+   * Para verificar se alguma consulta existente está disponível, na barra de ferramentas de consulta, selecione o  >  **histórico** de consultas de exemplos, que mostra consultas de execuções de consulta anteriores ou selecione **Gerenciador** de consultas, que mostra consultas predefinidas.
 
      Por exemplo, a solução Aplicativos Lógicos B2B fornece essas consultas predefinidas:
 

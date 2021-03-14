@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 17ea6716f090144e8dfef16721bfb69dc23e9912
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220381"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589319"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada com Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Esta página fornece informações sobre os problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada detectados por meio do log de recursos do [Intelligent insights](intelligent-insights-overview.md) . Métricas e logs de recursos podem ser transmitidos para [Azure monitor logs](../../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [armazenamento do Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página fornece informações sobre os problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada detectados por meio do log de recursos do [Intelligent insights](intelligent-insights-overview.md) . Métricas e logs de recursos podem ser transmitidos para [Azure monitor logs](../../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs), [armazenamento do Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 > [!NOTE]
 > Para obter um guia de solução de problemas de desempenho rápido usando Intelligent Insights, consulte o fluxograma de [fluxo de problemas recomendado](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
@@ -32,7 +32,7 @@ Esta página fornece informações sobre os problemas de desempenho do banco de 
 
 Intelligent Insights detecta automaticamente problemas de desempenho com base em tempos de espera de execução de consulta, erros ou tempos limite. Intelligent Insights gera padrões de desempenho detectados para o log de recursos. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
 
-| Padrões de desempenho detectáveis | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
+| Padrões de desempenho detectáveis | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
 | :------------------- | ------------------- | ------------------- |
 | [Atingindo os limites do recurso](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho de banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorado atingiu seus limites de recursos. Isso está afetando o desempenho. | O consumo de recursos de CPU está atingindo seus limites de recursos. Isso está afetando o desempenho do banco de dados. |
 | [Aumento da carga de trabalho](intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados. Isso está afetando o desempenho. | Foi detectado um aumento da carga de trabalho. Isso está afetando o desempenho do banco de dados. |
@@ -41,7 +41,7 @@ Intelligent Insights detecta automaticamente problemas de desempenho com base em
 | [Aumento de MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. |
 | [Contenção de pagelatch](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho. | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do banco de dados. |
 | [Índice Ausente](intelligent-insights-troubleshoot-performance.md#missing-index) | O índice ausente foi detectado, afetando o desempenho. | Foi detectada a ausência do índice, afetando o desempenho do banco de dados. |
-| [Nova consulta](intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada uma nova consulta afetando o desempenho geral. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
+| [Nova Consulta](intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada uma nova consulta afetando o desempenho geral. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
 | [Aumento da Estatística de Espera](intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Foram detectados tempos de espera de banco de dados maiores que afetam o desempenho. | Foi detectado um aumento dos tempos de espera, afetando o desempenho do banco de dados. |
 | [Contenção de TempDB](intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho. | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do banco de dados. |
 | [Escassez de DTU do pool elástico](intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A escassez de eDTUs disponíveis no pool elástico está afetando o desempenho. | Não disponível para o Azure SQL Instância Gerenciada porque ele usa o modelo vCore. |
@@ -335,4 +335,4 @@ O Intelligent Insights geralmente precisa de uma hora para executar a análise d
 - Saiba mais sobre os conceitos de [Intelligent insights](intelligent-insights-overview.md) .
 - Use o [log de diagnóstico de desempenho Intelligent insights](intelligent-insights-use-diagnostics-log.md).
 - Monitor usando o [análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).
-- Saiba como [coletar e consumir dados de log dos recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Saiba como [coletar e consumir dados de log dos recursos do Azure](../../azure-monitor/essentials/platform-logs-overview.md).

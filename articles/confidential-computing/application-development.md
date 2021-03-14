@@ -4,16 +4,16 @@ description: Use ferramentas e bibliotecas para desenvolver aplicativos para com
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 6bb3b8dbc7887419f7901a52b56c25f60c869abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994362"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551378"
 ---
 # <a name="application-development-on-intel-sgx"></a>Desenvolvimento de aplicativos no Intel SGX 
 

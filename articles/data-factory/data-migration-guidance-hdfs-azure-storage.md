@@ -1,22 +1,18 @@
 ---
 title: Migrar dados de um cluster Hadoop local para o armazenamento do Azure
 description: Saiba como usar Azure Data Factory para migrar dados do cluster Hadoop local para o armazenamento do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638118"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367785"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usar Azure Data Factory para migrar dados de um cluster Hadoop local para o armazenamento do Azure 
 
@@ -27,7 +23,7 @@ O Azure Data Factory fornece um mecanismo eficaz, robusto e econômico para migr
 O Data Factory oferece duas abordagens básicas para migrar dados do HDFS local para o Azure. Você pode selecionar a abordagem com base em seu cenário. 
 
 - **Data Factory modo DistCp** (recomendado): em data Factory, você pode usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (cópia distribuída) para copiar arquivos no estado em que se encontram para o armazenamento de BLOBs do Azure (incluindo [cópia em etapas](./copy-activity-performance.md#staged-copy)) ou Azure data Lake Store Gen2. Use Data Factory integrado com o DistCp para tirar proveito de um cluster potente existente para obter a melhor taxa de transferência de cópia. Você também obtém o benefício do agendamento flexível e uma experiência de monitoramento unificada da Data Factory. Dependendo de sua configuração de Data Factory, a atividade de cópia construirá automaticamente um comando DistCp, enviará os dados para o cluster Hadoop e, em seguida, monitorará o status da cópia. É recomendável Data Factory modo DistCp para migrar dados de um cluster Hadoop local para o Azure.
-- **Data Factory modo de tempo de execução de integração nativo** : o DistCp não é uma opção em todos os cenários. Por exemplo, em um ambiente de redes virtuais do Azure, a ferramenta DistCp não dá suporte ao emparelhamento privado do Azure ExpressRoute com um ponto de extremidade de rede virtual do armazenamento do Azure. Além disso, em alguns casos, você não deseja usar seu cluster Hadoop existente como um mecanismo para migrar dados para que você não coloque cargas pesadas no cluster, o que pode afetar o desempenho de trabalhos ETL existentes. Em vez disso, você pode usar a funcionalidade nativa do tempo de execução de integração do Data Factory como o mecanismo que copia dados do HDFS local para o Azure.
+- **Data Factory modo de tempo de execução de integração nativo**: o DistCp não é uma opção em todos os cenários. Por exemplo, em um ambiente de redes virtuais do Azure, a ferramenta DistCp não dá suporte ao emparelhamento privado do Azure ExpressRoute com um ponto de extremidade de rede virtual do armazenamento do Azure. Além disso, em alguns casos, você não deseja usar seu cluster Hadoop existente como um mecanismo para migrar dados para que você não coloque cargas pesadas no cluster, o que pode afetar o desempenho de trabalhos ETL existentes. Em vez disso, você pode usar a funcionalidade nativa do tempo de execução de integração do Data Factory como o mecanismo que copia dados do HDFS local para o Azure.
 
 Este artigo fornece as seguintes informações sobre as duas abordagens:
 > [!div class="checklist"]
@@ -110,7 +106,7 @@ Se qualquer um dos trabalhos de cópia falhar devido a problemas transitórios d
 
 No modo de Data Factory DistCp, você pode usar o parâmetro de linha de comando DistCp `-update` , gravar dados quando o arquivo de origem e o arquivo de destino diferem em tamanho, para migração de dados Delta.
 
-No modo de integração nativa Data Factory, a maneira mais eficaz de identificar arquivos novos ou alterados do HDFS é usando uma Convenção de nomenclatura com particionamento de tempo. Quando os dados no HDFS tiverem sido particionados por tempo com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo, */yyyy/mm/dd/file.csv* ), seu pipeline poderá identificar facilmente quais arquivos e pastas copiar incrementalmente.
+No modo de integração nativa Data Factory, a maneira mais eficaz de identificar arquivos novos ou alterados do HDFS é usando uma Convenção de nomenclatura com particionamento de tempo. Quando os dados no HDFS tiverem sido particionados por tempo com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo, */yyyy/mm/dd/file.csv*), seu pipeline poderá identificar facilmente quais arquivos e pastas copiar incrementalmente.
 
 Como alternativa, se os dados no HDFS não tiverem o particionamento de tempo, Data Factory poderá identificar arquivos novos ou alterados usando seu valor **LastModifiedDate** . Data Factory examina todos os arquivos do HDFS e copia somente arquivos novos e atualizados que têm um carimbo de data/hora modificado pela última vez que é maior que um valor definido. 
 

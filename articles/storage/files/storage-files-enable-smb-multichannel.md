@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2444ec28a2618b638f78926e214de468f56c5e52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95995447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732524"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Habilitar o SMB multicanal em uma conta de armazenamento de File(versão prévia) 
 
@@ -28,7 +28,7 @@ As contas do Azure FileStorage dão suporte ao SMB multicanal (versão prévia),
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de armazenamento de](storage-how-to-create-premium-fileshare.md)File.
+- [Crie uma conta de armazenamento de](./storage-how-to-create-file-share.md)File.
 - Se você pretende usar o módulo Azure PowerShell, [Instale a versão 3.0.1-preview do módulo](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## <a name="getting-started"></a>Introdução

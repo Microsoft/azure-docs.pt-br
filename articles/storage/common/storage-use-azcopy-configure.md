@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881037"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596948"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -183,7 +183,7 @@ Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabal
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
 
-Por padrão, os arquivos de plano e de log estão localizados no `%USERPROFILE%\.azcopy` diretório no Windows ou no `$HOME$\.azcopy` diretório no Mac e no Linux. Você pode alterar esse local.
+Por padrão, os arquivos de plano e de log estão localizados no `%USERPROFILE%\.azcopy` diretório no Windows ou no `$HOME/.azcopy` diretório no Mac e no Linux. Você pode alterar esse local.
 
 ### <a name="change-the-location-of-plan-files"></a>Alterar o local dos arquivos de plano
 

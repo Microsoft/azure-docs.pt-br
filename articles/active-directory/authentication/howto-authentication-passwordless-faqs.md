@@ -1,24 +1,24 @@
 ---
 title: Perguntas frequentes sobre implantação de chave de segurança FIDO2 híbrida-Azure Active Directory
-description: Saiba mais sobre algumas perguntas frequentes sobre a entrada de chave de segurança FIDO2 híbrida sem senha usando o Azure Active Directory (versão prévia)
+description: Saiba mais sobre algumas perguntas frequentes sobre a entrada de chave de segurança FIDO2 híbrida sem senha usando Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743523"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646377"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Perguntas frequentes sobre implantação (FAQs) para chaves de segurança FIDO2 híbridas no Azure AD (versão prévia)
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Perguntas frequentes sobre a implantação de chaves de segurança FIDO2 híbridas no Azure AD 
 
 Este artigo aborda as perguntas frequentes sobre a implantação (FAQs) para dispositivos ingressados no Azure AD híbrido e entrada sem senha em recursos locais. Com esse recurso sem senha, você pode habilitar a autenticação do Azure AD em dispositivos Windows 10 para dispositivos ingressados no Azure AD híbrido usando chaves de segurança FIDO2. Os usuários podem entrar no Windows em seus dispositivos com credenciais modernas, como chaves FIDO2, e acessar recursos baseados em AD DS (Active Directory Domain Services tradicional) com uma experiência de SSO (logon único) contínuo para seus recursos locais.
 
@@ -32,9 +32,6 @@ Para começar a usar as chaves de segurança do FIDO2 e o acesso híbrido a recu
 * [Chaves de segurança FIDO2 sem senha](howto-authentication-passwordless-security-key.md)
 * [Windows 10 sem senha](howto-authentication-passwordless-security-key-windows.md)
 * [Locais sem senha](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="security-keys"></a>Chaves de segurança
 
@@ -234,7 +231,7 @@ A solicitação HTTP é uma solicitação de PRT (token de atualização primár
 
 O Azure AD combina a chave do cliente criptografada e o buffer de mensagens na resposta de PRT como propriedades adicionais. A carga é criptografada usando a chave de sessão de dispositivo do Azure AD.
 
-| Campo              | Type   | Descrição  |
+| Campo              | Tipo   | Descrição  |
 |--------------------|--------|--------------|
 | tgt_client_key     | string | Chave de cliente codificada em Base64 (segredo). Essa chave é o segredo do cliente usado para proteger o TGT. Nesse cenário sem senha, o segredo do cliente é gerado pelo servidor como parte de cada solicitação de TGT e, em seguida, retornado ao cliente na resposta. |
 | tgt_key_type       | INT    | O tipo de chave AD DS local usado para a chave do cliente e a chave de sessão do Kerberos incluídos no KERB_MESSAGE_BUFFER. |

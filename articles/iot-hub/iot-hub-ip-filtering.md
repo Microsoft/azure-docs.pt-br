@@ -5,14 +5,14 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/12/2021
 ms.author: jlian
-ms.openlocfilehash: c6544e8ac00744602476207a89567aea5afe5b1d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 62292a2ee51f8e1838e9cf3376367a02964cad47
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632335"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418735"
 ---
 # <a name="use-ip-filters"></a>Usar filtros IP
 
@@ -20,7 +20,7 @@ A segurança é um aspecto importante de qualquer solução de IoT com base no H
 
 ## <a name="when-to-use"></a>Quando usar
 
-Use o filtro IP para receber tráfego somente de um intervalo especificado de endereços IP e rejeitar todo o resto. Por exemplo, você está usando o Hub IoT com o [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) para criar conexões privadas entre um hub IOT e sua infraestrutura local.
+Use o filtro IP para receber tráfego somente de um intervalo especificado de endereços IP e rejeitar todo o resto. Por exemplo, você está usando o Hub IoT com o [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) para criar conexões privadas entre um hub IOT e sua infraestrutura local.
 
 ## <a name="default-setting"></a>Configuração padrão
 
@@ -85,6 +85,10 @@ Qualquer tentativa de conexão de um endereço IP que não tenha permissão expl
 As regras de filtro IP são regras de *permissão* e aplicadas sem ordenação. Somente endereços IP que você adiciona têm permissão para se conectar ao Hub IoT. 
 
 Por exemplo, se você quiser aceitar endereços no intervalo `192.168.100.0/22` e rejeitar todo o resto, precisará apenas adicionar uma regra na grade com o intervalo de endereços `192.168.100.0/22` .
+
+### <a name="azure-portal"></a>Portal do Azure 
+
+As regras de filtro IP também são aplicadas ao usar o Hub IoT por meio de portal do Azure. Isso ocorre porque as chamadas à API para o serviço do Hub IoT são feitas diretamente usando seu navegador com suas credenciais, o que é consistente com outros serviços do Azure. Para acessar o Hub IoT usando portal do Azure quando o filtro IP estiver habilitado, adicione o endereço IP do computador à lista de permissões. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperar e atualizar os filtros IP usando a CLI do Azure
 
@@ -164,7 +168,7 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>Atualizar as regras do filtro de IP usando REST
 
 
-Você também pode recuperar e modificar um filtro de IP do seu Hub IoT usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.networkRuleSets` no [método createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+Você também pode recuperar e modificar um filtro de IP do seu Hub IoT usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.networkRuleSets` no [método createorupdate](/rest/api/iothub/iothubresource/createorupdate).
 
 ## <a name="ip-filter-classic-retirement"></a>Desativação do filtro IP (clássico)
 
@@ -174,7 +178,7 @@ O filtro de IP clássico foi desativado. Para saber mais, consulte [filtro IP cl
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do IoT Hub](./monitor-iot-hub.md)
 * [Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada](virtual-network-support.md)
 * [Gerenciando o acesso à rede pública para o Hub IoT](iot-hub-public-network-access.md)
 * [Monitorar o Hub IoT](monitor-iot-hub.md)

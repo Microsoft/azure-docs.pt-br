@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538761"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381861"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configurar e gerenciar o backup contínuo e a restauração pontual (versão prévia)-usando portal do Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Por exemplo, se você deseja restaurar para o ponto antes de um determinado cont
 Você pode usar portal do Azure para restaurar completamente uma conta excluída dentro de 30 dias após sua exclusão. Use as seguintes etapas para restaurar uma conta excluída:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
-1. Pesquise recursos de "Azure Cosmos DB" na barra de pesquisa global. Ele lista todas as suas contas existentes.
+1. Pesquise *Azure Cosmos DB* recursos na barra de pesquisa global. Ele lista todas as suas contas existentes.
 1. Em seguida, selecione o botão **restaurar** . O painel restaurar exibe uma lista de contas excluídas que podem ser restauradas dentro do período de retenção, que é de 30 dias a partir do tempo de exclusão.
 1. Escolha a conta que você deseja restaurar.
 
@@ -95,7 +95,7 @@ Você pode usar portal do Azure para restaurar completamente uma conta excluída
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>Acompanhar o status da operação de restauração
 
-Depois de iniciar uma operação de restauração, selecione o ícone de sino de **notificação** no canto superior direito do Portal. Ele fornece um link que exibe o status da conta que está sendo restaurada. Enquanto a restauração estiver em andamento, o status da conta será "criando", após a conclusão da operação de restauração, o status da conta será alterado para "online".
+Depois de iniciar uma operação de restauração, selecione o ícone de sino de **notificação** no canto superior direito do Portal. Ele fornece um link que exibe o status da conta que está sendo restaurada. Enquanto a restauração estiver em andamento, o status da conta será *criado*, após a conclusão da operação de restauração, o status da conta será alterado para *online*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="O status das alterações de conta restauradas de criação para online quando a operação é concluída." border="true":::
 

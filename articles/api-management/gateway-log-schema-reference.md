@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379729"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582496"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Referência: esquema do log de recursos do Gerenciamento de API
 
-Neste artigo, você verá a referência de esquema para o log de recursos GatewayLogs do Gerenciamento de API do Azure. As entradas de log também incluem campos no [esquema comum de nível superior](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+Neste artigo, você verá a referência de esquema para o log de recursos GatewayLogs do Gerenciamento de API do Azure. As entradas de log também incluem campos no [esquema comum de nível superior](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Para habilitar a coleta do log de recursos no Gerenciamento de API, confira [Monitorar APIs publicadas](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Confira a seguir as propriedades registradas para cada solicitação de API.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como monitorar APIs no Gerenciamento de API, confira [Monitorar APIs publicadas](api-management-howto-use-azure-monitor.md)
-* Saiba mais sobre o [Esquema comum e específico de serviço para os Logs de Recursos do Azure](../azure-monitor/platform/resource-logs-schema.md)
+* Saiba mais sobre o [Esquema comum e específico de serviço para os Logs de Recursos do Azure](../azure-monitor/essentials/resource-logs-schema.md)
 

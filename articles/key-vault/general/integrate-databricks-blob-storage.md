@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fc33b24aac8964d0a8390b4b38c5e1862ed639a8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285672"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198907"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Tutorial: Acessar o Armazenamento de Blobs do Azure usando o Azure Databricks e o Azure Key Vault
 
@@ -29,11 +29,11 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Antes de iniciar este tutorial, instale a [CLI do Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Antes de iniciar este tutorial, instale a [CLI do Azure](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Criar uma conta de armazenamento e um contêiner de blobs com a CLI do Azure
 
-Você precisará criar uma conta de armazenamento para uso geral primeiro a fim de usar os blobs. Caso não tenha um [grupo de recursos](/cli/azure/group?view=azure-cli-latest#az-group-create), crie um antes de executar o comando. O comando a seguir cria e exibe os metadados do contêiner de armazenamento. Copie a **ID**.
+Você precisará criar uma conta de armazenamento para uso geral primeiro a fim de usar os blobs. Caso não tenha um [grupo de recursos](/cli/azure/group#az-group-create), crie um antes de executar o comando. O comando a seguir cria e exibe os metadados do contêiner de armazenamento. Copie a **ID**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob

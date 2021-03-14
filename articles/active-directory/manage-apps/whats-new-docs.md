@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no gerenciamento de aplicativos Azure Active Directory
 description: Documentação nova e atualizada para o gerenciamento de aplicativos Azure Active Directory.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,32 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258567"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452043"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de gerenciamento de aplicativos, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Integrar ao SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Migrar a autenticação de aplicativo para o Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Integrar ao SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
+- [Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -34,7 +50,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 - [Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)](application-proxy-faq.md)
 - [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Desenvolver aplicativos de linha de negócios para o Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Desenvolver aplicativos de linha de negócios para o Azure Active Directory](../develop/v2-overview.md)
 - [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
 - [Entender o logon vinculado](configure-linked-sign-on.md)
 - [Entender o logon único baseado em senha](configure-password-single-sign-on-non-gallery-applications.md)
@@ -94,7 +110,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 ### <a name="new-articles"></a>Novos artigos
 - [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
 - [Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo no Docs?](whats-new-docs.md)
+- [O que há de novo no docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados

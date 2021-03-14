@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/25/2019
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c19ad34c2ae9b5fbbdb2f9e3afd78a868b0a3712
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 16aceeddcba574953ac03ccf04d099762b0000c3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459621"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: integração do Azure Active Directory com o Ivanti Service Manager (ISM)
 
-Neste tutorial, você aprenderá como integrar o Invanti Service Manager (ISM) ao Azure Active Directory (Azure AD).
-A integração do Ivanti Service Manager (ISM) ao Azure AD fornece os seguintes benefícios:
+Neste tutorial, você aprenderá integrar o ISM (Ivanti Service Manager) ao Azure AD (Azure Active Directory). Ao integrar o ISM (Ivanti Service Manager) ao Azure AD, você poderá:
 
-* No Azure AD, é possível controlar quem tem acesso ao Ivanti Service Manager (ISM).
-* É possível permitir que os usuários entrem automaticamente (logon único) no ISM (Ivanti Service Manager) com as respectivas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao ISM (Ivanti Service Manager).
+* Permitir que os usuários entrem automaticamente no ISM (Ivanti Service Manager) com as respectivas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para começar, você precisará dos seguintes itens:
 
-Para configurar a integração do Azure AD com o Ivanti Service Manager (ISM), são necessários os seguintes itens:
-
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura do ISM (Ivanti Service Manager) habilitada para logon único
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do ISM (Ivanti Service Manager) habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -44,65 +40,43 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 * O ISM (Ivanti Service Manager) dá suporte ao SSO iniciado por **SP e IDP**
 * O ISM (Ivanti Service Manager) dá suporte ao provisionamento de usuário **Just-in-Time**
 
-## <a name="adding-ivanti-service-manager-ism-from-the-gallery"></a>Adicionando o Ivanti Service Manager (ISM) a partir da galeria
+## <a name="add-ivanti-service-manager-ism-from-the-gallery"></a>Adicionar o ISM (Ivanti Service Manager) por meio da galeria
 
 Para configurar a integração do Ivanti Service Manager (ISM) ao Azure AD, será necessário adicionar Ivanti Service Manager (ISM) da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Ivanti Service Manager (ISM) da galeria, siga as etapas a seguir:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **ISM (Ivanti Service Manager)** na caixa de pesquisa.
+1. Selecione **ISM (Ivanti Service Manager)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-ivanti-service-manager-ism"></a>Configurar e testar o SSO do Azure AD para o ISM (Ivanti Service Manager)
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o ISM (Ivanti Service Manager) usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do ISM (Ivanti Service Manager).
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Para configurar e testar o SSO do Azure AD com o ISM (Ivanti Service Manager), execute as seguintes etapas:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do ISM (Ivanti Service Manager)](#configure-ivanti-service-manager-ism-sso)** – Para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do ISM (Ivanti Service Manager)](#create-ivanti-service-manager-ism-test-user)** – Para ter um equivalente de B.Fernandes no ISM (Ivanti Service Manager) vinculado à declaração de usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **Ivanti Service Manager (ISM)** , selecione **Ivanti Service Manager (ISM)** no painel de resultados, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No portal do Azure, na página de integração do aplicativo **ISM (Ivanti Service Manager)** , localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![Ivanti Service Manager (ISM) na lista de resultados](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o ISM (Ivanti Service Manager) com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ISM (Ivanti Service Manager) precisa ser estabelecido.
-
-Para configurar e testar o logon único do Azure AD com o Ivanti Service Manager (ISM), é necessário concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon Único do ISM (Ivanti Service Manager)](#configure-ivanti-service-manager-ism-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do ISM (Ivanti Service Manager)](#create-ivanti-service-manager-ism-test-user)** – para ter um equivalente de Brenda Fernandes Ivanti Service Manager (ISM) vinculado à representação do usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o ISM (Ivanti Service Manager), siga estas etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **ISM (Ivanti Service Manager)** , selecione **Logon único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
-
-    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
-
-    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando um dos seguintes padrões:
     
     ```http
     https://<customer>.saasit.com/
@@ -114,14 +88,12 @@ Para configurar o logon único do Azure AD com o ISM (Ivanti Service Manager), s
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
-
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<customer>.saasit.com/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<customer>.saasit.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com [equipe de suporte do cliente do Ivanti Service Manager (ISM) ](https://www.ivanti.com/support/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Bruto)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Bruto)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
@@ -129,66 +101,33 @@ Para configurar o logon único do Azure AD com o ISM (Ivanti Service Manager), s
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
-
-### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Configurar o logon único do ISM (Ivanti Service Manager)
-
-Para configurar o logon único no **ISM (Ivanti Service Manager)** , é necessário enviar o **Certificado (bruto)** baixado e as URLs de logon copiadas do portal do Azure à [equipe de suporte do ISM (Ivanti Service Manager)](https://www.ivanti.com/support/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome** , insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Ivanti Service Manager (ISM).
+Nesta seção, você habilitará que B.Fernandes use o logon único do Azure permitindo que ela tenha acesso ao ISM (Ivanti Service Manager).
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **ISM (Ivanti Service Manager)** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Ivanti Service Manager (ISM)** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+## <a name="configure-ivanti-service-manager-ism-sso"></a>Configurar o SSO do ISM (Ivanti Service Manager)
 
-2. Na lista de aplicativos, selecione **Ivanti Service Manager (ISM)** .
-
-    ![O link do ISM (Ivanti Service Manager) na lista de Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+Para configurar o logon único no **ISM (Ivanti Service Manager)** , é necessário enviar o **Certificado (bruto)** baixado e as URLs de logon copiadas do portal do Azure à [equipe de suporte do ISM (Ivanti Service Manager)](https://www.ivanti.com/support/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-ivanti-service-manager-ism-test-user"></a>Criar um usuário de teste do ISM (Ivanti Service Manager)
 
@@ -197,16 +136,22 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no ISM (Ivanti 
 > [!Note]
 > Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte remoto do ISM (Ivanti Service Manager)](https://www.ivanti.com/support/contact).
 
-### <a name="test-single-sign-on"></a>Testar logon único
+## <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Ivanti Service Manager (ISM) no Painel de Acesso, você deverá entrar automaticamente no ISM (Ivanti Service Manager) para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do ISM (Ivanti Service Manager), na qual será possível iniciar o fluxo de logon.  
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+* Acesse diretamente a URL de Logon do ISM (Ivanti Service Manager) e inicie o fluxo de logon nela.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao ISM (Ivanti Service Manager) para o qual o SSO foi configurado. 
+
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do ISM (Ivanti Service Manager) em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao ISM (Ivanti Service Manager) para o qual o SSO foi configurado. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de configurar o ISM (Ivanti Service Manager), você poderá impor um controle de sessão, que fornece proteção contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -2,13 +2,13 @@
 title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 03/02/2021
+ms.openlocfilehash: a9a073284c62efac4e77f8f9b35e8730c350e5f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943475"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722714"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
@@ -29,7 +29,7 @@ Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [F
 
 Retorna informações sobre a operação de implantação atual.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado diferem se você for:
 
@@ -211,7 +211,7 @@ O exemplo anterior retorna o seguinte objeto:
 
 Retorna informações sobre o ambiente do Azure usado para implantação.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar Propriedades ligeiramente diferentes.
 
@@ -313,7 +313,7 @@ O exemplo anterior retorna o seguinte objeto quando implantado no Azure global:
 }
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
@@ -474,7 +474,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |String |O nome da variável a retornar. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor da variável especificada.
 
@@ -508,7 +508,7 @@ Normalmente, você usa variáveis para simplificar seu modelo criando valores co
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
 ```bicep
-var storageName = concat('storage', uniqueString(resourceGroup().id))
+var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName

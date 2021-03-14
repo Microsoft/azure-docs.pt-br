@@ -2,19 +2,16 @@
 title: Formato do Excel no Azure Data Factory
 description: Este tópico descreve como lidar com o formato do Excel no Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bef29bc958253be0498442f842dda67105ce799b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902027"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386519"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato do Excel no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -74,7 +71,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="excel-as-source"></a>Excel como fonte 
 
-As propriedades a seguir têm suporte na seção atividade de cópia **_ \_ origem \****.
+As propriedades a seguir têm suporte na seção ***\* origem \**** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -109,15 +106,15 @@ No mapeamento de fluxos de dados, você pode ler o formato do Excel nos seguinte
 
 A tabela abaixo lista as propriedades com suporte por uma origem do Excel. Você pode editar essas propriedades na guia **Opções de origem** . Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
+| Nome                      | Descrição                                                  | Necessária | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
-| Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no       | String[]                                                  | wildcardPaths                     |
-| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no       | String                                                    | partitionRootPath                 |
-| Lista de arquivos             | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no       | `true` ou `false`                                         | File                          |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | no       | String                                                    | rowUrlColumn                      |
-| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no       | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile         |
-| Filtrar por última modificação   | Escolher filtrar arquivos com base na última alteração | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
+| Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não       | String[]                                                  | wildcardPaths                     |
+| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não       | String                                                    | partitionRootPath                 |
+| Lista de arquivos             | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não       | `true` ou `false`                                         | File                          |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | não       | String                                                    | rowUrlColumn                      |
+| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não       | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile         |
+| Filtrar por última modificação   | Escolher filtrar arquivos com base na última alteração | não       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemplo de origem
 

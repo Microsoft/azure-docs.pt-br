@@ -1,14 +1,14 @@
 ---
-title: Gerenciar projetos de migrações para Azure em escala com o Azure Lighthouse
+title: Gerenciar projetos de migrações para Azure em escala
 description: Saiba como usar efetivamente as migrações para Azure em recursos de cliente delegados.
 ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ed2fc8ae1a3b87a3b2501c3a390fe7a1822003e4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093601"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393574"
 ---
 # <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Gerenciar projetos de migrações para Azure em escala com o Azure Lighthouse
 

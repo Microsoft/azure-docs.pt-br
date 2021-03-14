@@ -1,17 +1,16 @@
 ---
 title: Avaliar System Center Operations Manager com Azure Monitor
 description: Você pode usar a solução System Center Operations Manager Health Check para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 35ae1e09fd0a06014a747cef99631a7bfe2dee1c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731401"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -229,7 +228,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../logs/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +253,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../logs/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +294,5 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquisar logs](../log-query/log-query-overview.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
+- [Pesquisar logs](../logs/log-query-overview.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
 

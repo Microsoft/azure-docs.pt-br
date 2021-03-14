@@ -7,20 +7,20 @@ ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920535"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742136"
 ---
-# <a name="device-model-repository"></a>Repositório de modelos de dispositivo
+# <a name="device-models-repository"></a>Repositório de modelos de dispositivo
 
-O DMR (repositório de modelos de dispositivo) permite que os criadores de dispositivos gerenciem e compartilhem modelos de dispositivos IoT Plug and Play. Os modelos de dispositivo são documentos JSON LD definidos usando a [linguagem de modelagem de gêmeos digital (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+O repositório de modelos de dispositivo (DMR) permite que os criadores de dispositivos gerenciem e compartilhem modelos de dispositivos de Plug and Play IoT. Os modelos de dispositivo são documentos JSON LD definidos usando a [linguagem de modelagem de gêmeos digital (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 O DMR define um padrão para armazenar as interfaces DTDL em uma estrutura de pastas com base no DTMI (identificador de modelo de dispositivo). Você pode localizar uma interface no DMR convertendo o DTMI em um caminho relativo. Por exemplo, o `dtmi:com:example:Thermostat;1` DTMI se traduz em `/dtmi/com/example/thermostat-1.json` .
 
-## <a name="public-device-model-repository"></a>Repositório de modelo de dispositivo público
+## <a name="public-device-models-repository"></a>Repositório de modelos de dispositivo público
 
 A Microsoft hospeda um DMR público com estas características:
 
@@ -28,7 +28,7 @@ A Microsoft hospeda um DMR público com estas características:
 - Imutabilidade.  Depois de publicado, uma interface não pode ser atualizada.
 - Hiperescala. A Microsoft fornece a infraestrutura necessária para criar um ponto de extremidade seguro e escalonável no qual você pode publicar e consumir modelos de dispositivo.
 
-## <a name="custom-device-model-repository"></a>Repositório de modelos de dispositivo personalizado
+## <a name="custom-device-models-repository"></a>Repositório de modelos de dispositivo personalizado
 
 Use o mesmo padrão DMR para criar um DMR personalizado em qualquer mídia de armazenamento, como sistema de arquivos local ou servidores Web HTTP personalizados. Você pode recuperar modelos de dispositivo do DMR personalizado da mesma maneira que a partir do DMR público, alterando a URL base usada para acessar o DMR.
 
@@ -37,7 +37,7 @@ Use o mesmo padrão DMR para criar um DMR personalizado em qualquer mídia de ar
 
 ## <a name="public-models"></a>Modelos públicos
 
-Os modelos de dispositivo público armazenados no repositório de modelo estão disponíveis para todos consumirem e integrarem em seus aplicativos. Os modelos de dispositivo público permitem que um sistema de eco aberto para criadores de dispositivos e desenvolvedores de soluções compartilhem e reutilizem seus modelos de dispositivos IoT Plug and Play.
+Os modelos de dispositivo público armazenados no repositório de modelos estão disponíveis para todos consumirem e integrarem em seus aplicativos. Os modelos de dispositivo público permitem que um sistema de eco aberto para criadores de dispositivos e desenvolvedores de soluções compartilhem e reutilizem seus modelos de dispositivos IoT Plug and Play.
 
 Consulte a seção [publicar um modelo](#publish-a-model) para obter instruções sobre como publicar um modelo no repositório de modelos para torná-lo público.
 

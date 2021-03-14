@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/12/2021
+ms.openlocfilehash: 539e420cb9085fad10ea3972ba0e9e5ffb9d0622
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937483"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419755"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gerenciando o acesso à rede pública para o Hub IoT
 
@@ -28,7 +28,17 @@ Para restringir o acesso somente ao [ponto de extremidade privado para o Hub IOT
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagem mostrando portal do Azure onde desativar o acesso à rede pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-Para ativar o acesso à rede pública, selecione **habilitado**e, em seguida, **salvar**.
+Para ativar o acesso à rede pública, selecione **todas as redes** e, em seguida, **salvar**.
+
+## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Acessando o Hub IoT depois de desabilitar o acesso à rede pública
+
+Depois que o acesso à rede pública é desabilitado, o Hub IoT só é acessível por meio [de seu ponto de extremidade privado de VNet usando o link privado do Azure](virtual-network-support.md). Essa restrição inclui o acesso por meio de portal do Azure, porque as chamadas à API para o serviço do Hub IoT são feitas diretamente usando seu navegador com suas credenciais. 
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Ponto de extremidade do Hub IoT, endereço IP e portas depois de desabilitar o acesso à rede pública
+
+O Hub IoT é uma PaaS (plataforma como serviço) multilocatário, para que clientes diferentes compartilhem o mesmo pool de recursos de hardware de computação, rede e armazenamento. Os nomes de host do Hub IoT são mapeados para um ponto de extremidade público com um endereço IP roteável publicamente pela Internet. Diferentes clientes compartilham esse ponto de extremidade público do Hub IoT e dispositivos IoT em redes de longa distância e redes locais podem acessá-lo. 
+
+A desabilitação do acesso à rede pública é imposta em um recurso de Hub IoT específico, garantindo o isolamento. Para manter o serviço ativo para outros recursos do cliente usando o caminho público, seu ponto de extremidade público permanece resolvido, os endereços IP são detectáveis e as portas permanecem abertas. Isso não é uma causa de preocupação, pois a Microsoft integra várias camadas de segurança para garantir o isolamento completo entre os locatários. Para saber mais, confira [isolamento na nuvem pública do Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## <a name="ip-filter"></a>Filtro IP 
 

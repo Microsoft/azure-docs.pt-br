@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Etapas de implantação do modelo de blueprint dos Serviços Compartilhados da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: acce9ecf906430047fa1e687f719fd4e04daf756
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420267"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577325"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -33,8 +33,8 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
-   - **Nome do blueprint** : Forneça um nome para a cópia da amostra de blueprint dos Serviços Compartilhados ISO 27001.
-   - **Localização da definição** : Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
+   - **Nome do blueprint**: Forneça um nome para a cópia da amostra de blueprint dos Serviços Compartilhados ISO 27001.
+   - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
 1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
@@ -48,7 +48,7 @@ Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
-1. Selecione **Publicar blueprint** na parte superior da página. Na nova página à direita, informe a **Versão** da sua cópia da amostra de blueprint. Essa propriedade será útil se você fizer uma modificação mais tarde. Forneça **Notas de alterações** , como "Primeira versão publicada da amostra de blueprint ISO 27001". Em seguida, selecione **Publicar** na parte inferior da página.
+1. Selecione **Publicar blueprint** na parte superior da página. Na nova página à direita, informe a **Versão** da sua cópia da amostra de blueprint. Essa propriedade será útil se você fizer uma modificação mais tarde. Forneça **Notas de alterações**, como "Primeira versão publicada da amostra de blueprint ISO 27001". Em seguida, selecione **Publicar** na parte inferior da página.
 
 ## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
 
@@ -64,11 +64,11 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
    - Noções básicas
 
-     - **Assinaturas** : Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
-     - **Nome da atribuição** : O nome é pré-preenchido para você com base no nome do blueprint.
+     - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
        Altere-o conforme necessário ou mantenha-o como está.
-     - **Localização** : Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição de blueprint** : Escolha uma versão **Publicada** da cópia da amostra de blueprint.
+     - **Localização**: Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição de blueprint**: Escolha uma versão **Publicada** da cópia da amostra de blueprint.
 
    - Bloquear atribuição
 
@@ -82,9 +82,9 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
      Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição de blueprint para fornecer coerência.
 
-     - **Nome da organização** : insira um nome curto para a sua organização. Essa propriedade é usada principalmente para recursos de nomenclatura.
-     - **Prefixo de endereço da sub-rede dos serviços compartilhados** : Forneça o valor de notação CIDR para colocar os recursos implantados na mesma rede.
-     - **Localização dos serviços compartilhados** : Determina em que local os artefatos são implantados. Nem todos os serviços estão disponíveis em todas as localizações. Os artefatos que implantam esses serviços fornecem uma opção de parâmetro para a localização na qual esse artefato deverá ser implantado.
+     - **Nome da organização**: insira um nome curto para a sua organização. Essa propriedade é usada principalmente para recursos de nomenclatura.
+     - **Prefixo de endereço da sub-rede dos serviços compartilhados**: Forneça o valor de notação CIDR para colocar os recursos implantados na mesma rede.
+     - **Localização dos serviços compartilhados**: Determina em que local os artefatos são implantados. Nem todos os serviços estão disponíveis em todas as localizações. Os artefatos que implantam esses serviços fornecem uma opção de parâmetro para a localização na qual esse artefato deverá ser implantado.
      - **Localização permitida (política: Iniciativa de blueprint para ISO 27001)** : Valor que indica as localizações permitidas para grupos de recursos e recursos.
      - **Workspace do Log Analytics para agentes de VM (política: Iniciativa de blueprint para ISO 27001)** : Especifica a ID do recurso de um workspace. Esse parâmetro usa uma função `concat` para construir a ID do recurso.
 
@@ -110,7 +110,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos permitidos a serem implantados. Essa lista é composta por todos os tipos de recursos implantados nos Serviços Compartilhados.|
 |SKUs de contas de armazenamento permitidas|Atribuição de política|SKUs de armazenamento permitidos|Lista de SKUs de conta de armazenamento dos logs de diagnóstico permitidos. O valor padrão é _["Standard_LRS"]_ .|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual com permissão de serem implantados. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Iniciativa de blueprint para ISO 27001|Atribuição de política|Tipos de recursos para auditar logs de diagnóstico|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Iniciativa de blueprint para ISO 27001|Atribuição de política|Tipos de recursos para auditar logs de diagnóstico|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Grupo de recursos do Log Analytics|Resource group|Nome|**Bloqueado** – concatena o **Nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do Log Analytics|Resource group|Location|**Bloqueado** – usa o parâmetro de blueprint.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviço|Define a camada do workspace do Log Analytics. O valor padrão é _PerNode_.|
@@ -134,7 +134,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Modelo do Key Vault|Modelo do Resource Manager|Chave SSH ou senha do administrador do jumpbox|Chave ou senha para a conta no jumpbox. Precisa corresponder ao mesmo valor da propriedade no **Modelo do jumpbox**. Nenhum valor padrão e não pode ser deixado em branco.|
 |Modelo do Key Vault|Modelo do Resource Manager|Nome de usuário do administrador de domínio|O nome de usuário usado para acessar a VM do Active Directory e para ingressar outras VMs em um domínio. Precisa corresponder ao valor da propriedade **Usuário administrador do domínio** no **Modelo do Active Directory Domain Services**. O valor padrão é _domain-admin-user_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Senha do administrador de domínio|Senha do usuário administrador de domínio. Nenhum valor padrão e não pode ser deixado em branco.|
-|Modelo do Key Vault|Modelo do Resource Manager|ID de objeto do AAD|O identificador de objeto do AAD da conta que exige acesso à instância do Key Vault. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, pesquise e selecione "Usuários" em _Serviços_. Use a caixa _Nome_ para filtrar o nome da conta e selecione essa conta. Na página _Perfil do usuário_ , selecione o ícone "Clique para copiar" ao lado da _ID de Objeto_.  |
+|Modelo do Key Vault|Modelo do Resource Manager|ID de objeto do AAD|O identificador de objeto do AAD da conta que exige acesso à instância do Key Vault. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, pesquise e selecione "Usuários" em _Serviços_. Use a caixa _Nome_ para filtrar o nome da conta e selecione essa conta. Na página _Perfil do usuário_, selecione o ícone "Clique para copiar" ao lado da _ID de Objeto_.  |
 |Modelo do Key Vault|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica o SKU do Key Vault criado. O valor padrão é _Premium_.|
 |Grupo de recursos do jumpbox|Resource group|Nome|**Bloqueado** – concatena o **Nome da organização** com `-sharedsvcs-jb-rg` para tornar o grupo de recursos exclusivo.|

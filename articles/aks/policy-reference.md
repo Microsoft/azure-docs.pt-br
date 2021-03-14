@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Serviço de Kubernetes do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Serviço de Kubernetes do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9ae2339585616c1da993d47a1172d8ec8eddb372
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3167b77591564e0af98462f825e8827abcb9cc6c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557515"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619096"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definições internas do Azure Policy para o Serviço de Kubernetes do Azure
 
@@ -17,11 +17,17 @@ Esta página é um índice de definições de políticas internas do [Azure Poli
 
 O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para exibir a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 
-## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+## <a name="initiatives"></a>Iniciativas
+
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../includes/policy/reference/bycat/policysets-kubernetes.md)]
+
+## <a name="policy-definitions"></a>Definições de política
+
+### <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 [!INCLUDE [azure-policy-reference-rp-aks-containerservice](../../includes/policy/reference/byrp/microsoft.containerservice.md)]
 
-## <a name="aks-engine"></a>Mecanismo do AKS
+### <a name="aks-engine"></a>Mecanismo do AKS
 
 [!INCLUDE [azure-policy-reference-rp-aks-aksengine](../../includes/policy/reference/byrp/aks-engine.md)]
 

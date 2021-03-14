@@ -4,17 +4,17 @@ description: Saiba como você pode usar o atestado para verificar se o seu ambie
 services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 86856d1f66b5b7d723c907c17d7179ffcd2b82ab
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a7b0ca65329016b0a73f612115d8caba43dfbe2a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565663"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551344"
 ---
 # <a name="attesting-sgx-enclaves"></a>Atestado de enclaves SGX
 

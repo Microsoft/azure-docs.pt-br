@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c84966f7b4dc1740235fe6414da2ba832a1334fd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660362"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119902"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de entrada no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ A política de entrada permite que os usuários:
 * Os usuários podem entrar com uma conta local Azure AD B2C
 * Inscrever-se ou entrar com uma conta social
 * Redefinição de senha
-* Os usuários não podem se inscrever em uma conta local Azure AD B2C-para criar uma conta, um administrador pode usar o [MS API do Graph](microsoft-graph-operations.md).
+* Os usuários não podem se inscrever em uma conta local Azure AD B2C. Para criar uma conta, um administrador pode usar [portal do Azure](manage-users-portal.md#create-a-consumer-user)ou [MS API do Graph](microsoft-graph-operations.md).
 
 ![Fluxo de edição de perfil](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -75,26 +75,34 @@ O perfil técnico **SelfAsserted-LocalAccountSignin-email** é uma [declaração
 1. Adicione o seguinte provedor de declarações ao `ClaimsProviders` elemento:
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-          <Metadata>
-            <Item Key="setting.showSignupLink">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
+    <!--
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Local Account</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+            <Metadata>
+              <Item Key="setting.showSignupLink">false</Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    <!--
+    </ClaimsProviders> -->
     ```
 
 1. No `<BuildingBlocks>` elemento, adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência à versão 1.2.0 ou ao URI de dados mais recente:
 
     ```XML
-    <ContentDefinitions>
-     <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!-- 
+    <BuildingBlocks> 
+      <ContentDefinitions>-->
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+        </ContentDefinition>
+      <!--
+      </ContentDefinitions>
+    </BuildingBlocks> -->
     ```
 
 ## <a name="update-and-test-your-policy"></a>Atualizar e testar sua política
@@ -103,7 +111,7 @@ O perfil técnico **SelfAsserted-LocalAccountSignin-email** é uma [declaração
 1. Verifique se você está usando o diretório que contém o locatário do Azure Active Directory escolhendo o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário do Azure Active Directory.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Estrutura de Experiência de Identidade**.
-1. Selecione **Carregar política personalizada** e carregue os dois arquivos de política alterados.
+1. Selecione **carregar política personalizada** e, em seguida, carregue o arquivo de política que você alterou, *TrustFrameworkExtensions.xml*.
 1. Selecione a política de entrada que você carregou e clique no botão **executar agora** .
 1. Você deve ser capaz de entrar com a conta que você criou (usando o MS API do Graph), sem o link de inscrição.
 

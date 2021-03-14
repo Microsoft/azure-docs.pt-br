@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539178"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377322"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Configurar e gerenciar o backup contínuo e a restauração pontual (versão prévia)-usando CLI do Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ Este artigo descreve como provisionar uma conta com backup contínuo e restaurar
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>Provisionar uma conta da API do SQL com backup contínuo
 
-Para provisionar uma conta de API do SQL com backup contínuo, um argumento extra `--backup-policy-type Continuous` deve ser passado junto com o comando de provisionamento normal. O comando a seguir é um exemplo de uma conta de gravação de região única chamada `pitracct2` com a política de backup contínuo criada na região "oeste dos EUA" no grupo de recursos "myrg":
+Para provisionar uma conta de API do SQL com backup contínuo, um argumento extra `--backup-policy-type Continuous` deve ser passado junto com o comando de provisionamento normal. O comando a seguir é um exemplo de uma conta de gravação de região única chamada `pitracct2` com a política de backup contínuo criada na região *oeste dos EUA* em grupo de recursos *myrg* :
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>Provisionar uma conta Azure Cosmos DB API para MongoDB com backup contínuo
 
-O comando a seguir mostra um exemplo de uma conta de gravação de região única chamada `pitracct3` com a política de backup contínuo criou a região "oeste dos EUA" no grupo de recursos "myrg":
+O comando a seguir mostra um exemplo de uma conta de gravação de região única chamada `pitracct3` com a política de backup contínuo criada na região *oeste dos EUA* em grupo de recursos *myrg* :
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ A resposta inclui todas as contas de banco de dados (ao vivo e excluídas) que p
   }
 ```
 
-Assim como o "CreationTime" ou "Requery" para a conta, também há um "CreationTime" ou um "de exclusão" para a região. Esses tempos permitem que você escolha a região correta e um intervalo de tempo válido para restaurar nessa região.
+Assim como o `CreationTime` ou `DeletionTime` para a conta, também há um `CreationTime` ou `DeletionTime` para a região. Esses tempos permitem que você escolha a região correta e um intervalo de tempo válido para restaurar nessa região.
 
 **Listar todas as versões de bancos de dados em uma conta de banco de dados ao vivo**
 
 A listagem de todas as versões de bancos de dados permite que você escolha o banco de dados correto em um cenário em que a hora real da existência do banco de dados é desconhecida.
 
-Execute o comando da CLI a seguir para listar todas as versões de bancos de dados. Esse comando funciona apenas com contas dinâmicas. Os parâmetros "instanceId" e "Location" são obtidos das propriedades "Name" e "Location" na resposta do `az cosmosdb restorable-database-account list` comando. O atributo instanceId também é uma propriedade da conta do banco de dados de origem que está sendo restaurada:
+Execute o comando da CLI a seguir para listar todas as versões de bancos de dados. Esse comando funciona apenas com contas dinâmicas. Os `instanceId` parâmetros e `location` são obtidos das `name` `location` Propriedades e na resposta do `az cosmosdb restorable-database-account list` comando. O atributo instanceId também é uma propriedade da conta do banco de dados de origem que está sendo restaurada:
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ Essa saída de comando agora mostra quando um banco de dados foi criado e exclu�
 
 **Listar todas as versões de contêineres SQL de um banco de dados em uma conta de banco de dados ao vivo**
 
-Use o comando a seguir para listar todas as versões de contêineres SQL. Esse comando funciona apenas com contas dinâmicas. O parâmetro "databaseRid" é o "ResourceId" do banco de dados que você deseja restaurar. É o valor do atributo "ownerResourceid" encontrado na resposta do `az cosmosdb sql restorable-database list` comando.
+Use o comando a seguir para listar todas as versões de contêineres SQL. Esse comando funciona apenas com contas dinâmicas. O `databaseRid` parâmetro é o `ResourceId` do banco de dados que você deseja restaurar. É o valor do `ownerResourceid` atributo encontrado na resposta do `az cosmosdb sql restorable-database list` comando.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>Enumerar recursos restauráveis para a conta da API do MongoDB
 
-Os comandos de enumeração descritos abaixo ajudam a descobrir os recursos que estão disponíveis para restauração em vários carimbos de data/hora. Além disso, eles também fornecem um feed de eventos importantes sobre a conta restaurável, o banco de dados e os recursos de contêiner. Assim como com a API do SQL, você pode usar o `az cosmosdb` comando, mas com "MongoDB" como parâmetro em vez de "SQL". Esses comandos só funcionam para contas dinâmicas.
+Os comandos de enumeração descritos abaixo ajudam a descobrir os recursos que estão disponíveis para restauração em vários carimbos de data/hora. Além disso, eles também fornecem um feed de eventos importantes sobre a conta restaurável, o banco de dados e os recursos de contêiner. Assim como com a API do SQL, você pode usar o `az cosmosdb` comando, mas com o `mongodb` parâmetro as, em vez de `sql` . Esses comandos só funcionam para contas dinâmicas.
 
 **Listar todas as versões de bancos de dados do MongoDB em uma conta de banco de dados ao vivo**
 

@@ -5,12 +5,12 @@ description: Saiba como criar e usar um endereço IP estático com o balanceador
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651882"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509465"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático e um rótulo DNS com o balanceador de carga do AKS (serviço de kubernetes do Azure)
 
@@ -63,16 +63,14 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Criar um serviço usando o endereço IP estático
 
-Antes de criar um serviço, verifique se a entidade de serviço usada pelo cluster AKS tem permissões delegadas para outro grupo de recursos. Por exemplo:
+Antes de criar um serviço, verifique se a identidade do cluster usada pelo cluster AKS tem permissões delegadas para outro grupo de recursos. Por exemplo:
 
 ```azurecli-interactive
 az role assignment create \
-    --assignee <SP Client ID> \
+    --assignee <Client ID> \
     --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
-
-Como alternativa, você pode usar a identidade gerenciada atribuída pelo sistema para permissões em vez da entidade de serviço. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
 
 > [!IMPORTANT]
 > Se você personalizou seu IP de saída, verifique se a identidade do cluster tem permissões para o IP público de saída e esse IP público de entrada.

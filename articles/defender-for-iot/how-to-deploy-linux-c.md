@@ -13,24 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8c03f6b882c8b1a64c9f256493c5d586b5fa0f89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d3f96ed60ca784402b6d24eea7234f37c4fb959
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933676"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449774"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implantar o defender para o agente de segurança baseado em IoT C para Linux
 
 Este guia explica como instalar e implantar o agente de segurança baseado no defender para IoT C no Linux.
 
-Neste guia, você aprenderá a:
-
-> [!div class="checklist"]
-> * Instalar
-> * Verificar implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar a implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,4 +91,4 @@ Verifique o status da implantação executando:
 - Saiba mais sobre a [arquitetura](architecture.md) do defender para IOT
 - Habilite o [serviço](quickstart-onboard-iot-hub.md)
 - Leia as [perguntas frequentes](resources-frequently-asked-questions.md)
-- Entenda os [Alertas de Segurança](concept-security-alerts.md)
+- Entender os [alertas de segurança](concept-security-alerts.md)

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c13167706c2794253108b04eaa2dcc46e0e6c09a
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: c3e2bbc88b896d65592ba742fece723d3f5e168f
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740679"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015753"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>Exibir atribuições de função personalizadas usando Azure Active Directory
 
@@ -48,17 +48,17 @@ Primeiro, você deve [baixar o módulo PowerShell de visualização do Azure ad]
 Para instalar o módulo PowerShell do Azure AD, use os seguintes comandos:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto para ser usado, use o seguinte comando:
 
 ``` PowerShell
-get-module azuread
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### <a name="view-the-assignments-of-a-role"></a>Exibir as atribuições de uma função

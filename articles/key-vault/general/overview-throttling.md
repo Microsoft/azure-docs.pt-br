@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289678"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175746"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -24,7 +24,7 @@ Limites de limitação variam de acordo com o cenário. Por exemplo, se você es
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Como o Key Vault trata os próprios limites?
 
-Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço para todos os clientes do Key Vault. Quando um limite de serviço é excedido, Key Vault limita qualquer solicitação adicional desse cliente por um período de tempo, retorna o código de status HTTP 429 (muitas solicitações) e a solicitação falha. Solicitações com falha que retornam uma contagem de 429 em direção aos limites de limitação rastreados por Key Vault. 
+Os limites de serviço no Key Vault impedem o uso indevido de recursos e garantem a qualidade do serviço para todos os clientes do Key Vault. Quando um limite de serviço é excedido, Key Vault limita qualquer solicitação adicional desse cliente por um período de tempo, retorna o código de status HTTP 429 (muitas solicitações) e a solicitação falha. As solicitações com falha que retornam um 429 não contam para os limites de limitação rastreados por Key Vault. 
 
 O Key Vault foi originalmente projetado para ser usado para armazenar e recuperar seus segredos no momento da implantação.  O mundo evoluiu e Key Vault está sendo usado em tempo de execução para armazenar e recuperar segredos e, muitas vezes, aplicativos e serviços desejam usar Key Vault como um banco de dados.  Os limites atuais não dão suporte a altas taxas de taxa de transferência.
 
@@ -47,8 +47,8 @@ Se você descobrir que o acima ainda não atende às suas necessidades, preencha
 
 Se a capacidade adicional for aprovada, observe o seguinte como resultado da capacidade aumentar:
 1. Alterações no modelo de consistência de dados. Depois que um cofre é permitido listado com capacidade de taxa de transferência adicional, a Key Vault garantia de consistência de dados de serviço é alterada (necessário para atender a um maior volume RPS, já que o serviço de armazenamento do Azure subjacente não pode acompanhar).  Resumindo:
-  1. **Sem a listagem de permissão** : o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) imediatamente nas chamadas subsequentes (por exemplo, SecretGet, keysign).
-  1. **Com a listagem de permissão** : o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo, SecretGet, keysign).
+  1. **Sem a listagem de permissão**: o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) imediatamente nas chamadas subsequentes (por exemplo, SecretGet, keysign).
+  1. **Com a listagem de permissão**: o serviço de Key Vault refletirá os resultados de uma operação de gravação (por exemplo, Secretset, CreateKey) dentro de 60 segundos em chamadas subsequentes (por exemplo, SecretGet, keysign).
 1. O código do cliente deve honrar a política de retirada Para 429 tentativas. O código do cliente que chama o serviço de Key Vault não deve repetir Key Vault solicitações imediatamente quando recebe um código de resposta 429.  As diretrizes de limitação de Azure Key Vault publicadas aqui recomendam a aplicação de retirada exponencial ao receber um código de resposta http 429.
 
 Se você tiver um caso comercial válido para restrições mais altas, entre em contato conosco.

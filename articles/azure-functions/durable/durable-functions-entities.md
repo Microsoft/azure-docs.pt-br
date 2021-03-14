@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341555"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723666"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -24,7 +24,10 @@ As entidades fornecem um meio para escalar horizontalmente os aplicativos, distr
 
 As entidades se comportam de modo um pouco semelhante a pequenos serviços que se comunicam por meio de mensagens. Cada entidade tem uma identidade exclusiva e um estado interno (se existir). Assim como os serviços ou objetos, as entidades executam operações quando é solicitado a elas que o façam. Quando uma operação é executada, ela pode atualizar o estado interno da entidade. Ela também pode chamar serviços externos e aguardar uma resposta. As entidades se comunicam com outras entidades, orquestrações e clientes usando mensagens que são enviadas implicitamente por meio de filas confiáveis. 
 
-Para evitar conflitos, todas as operações em uma única entidade têm garantia de execução em série, ou seja, uma após a outra. 
+Para evitar conflitos, todas as operações em uma única entidade têm garantia de execução em série, ou seja, uma após a outra.
+
+> [!NOTE]
+> Quando uma entidade é invocada, ela processa a carga até a conclusão e, em seguida, agenda uma nova execução para ativar assim que chegarem entradas futuras. Como resultado, os logs de execução da entidade podem mostrar uma execução adicional após cada invocação de entidade. Isso é esperado.
 
 ### <a name="entity-id"></a>ID da Entidade
 As entidades são acessadas por meio de um identificador exclusivo, a *ID da entidade*. Uma ID de entidade é um par de cadeias de caracteres que identifica exclusivamente uma instância de entidade. Ele consiste em um(a):
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Exemplo: entidade do Python
+
+O código a seguir é uma entidade `Counter` implementada como uma função durável escrita em Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Acessar entidades
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 O termo *sinal* significa que a invocação de API de entidade é unidirecional e assíncrona. Não é possível que uma função do cliente saiba quando a entidade processou a operação. Além disso, a função do cliente não pode observar nenhum valor de resultado ou exceções. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> No momento, o Python não dá suporte à leitura dos estados de entidade de um cliente. Em vez disso, use o `callEntity` de um orquestrador.
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > Atualmente, o JavaScript não é compatível com a sinalização de uma entidade de um orquestrador. Use `callEntity` em vez disso.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Somente orquestrações são capazes de chamar entidades e obter uma resposta, que poderia ser um valor retornado ou uma exceção. As funções de cliente que usam a [associação de cliente](durable-functions-bindings.md#entity-client) só podem sinalizar entidades.
@@ -318,6 +395,11 @@ Por exemplo, podemos modificar o exemplo de entidade `Counter` anterior para que
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> O Python ainda não oferece suporte a sinais de entidade para entidade. Em vez disso, use um orquestrador para sinalizar entidades.
 
 ---
 
@@ -421,7 +503,6 @@ Há algumas diferenças importantes que vale a pena serem observadas:
 * Os padrões de solicitação-resposta em entidades estão limitados a orquestrações. De dentro das entidades, apenas o sistema de mensagens unidirecional (também conhecido como sinalização) é permitido, assim como no modelo de ator original e ao contrário dos grãos no Orleans. 
 * As entidades duráveis não geram deadlock. No Orleans, os deadlocks podem ocorrer e não se resolver até atingir o tempo limite das mensagens.
 * As entidades duráveis podem ser usadas em conjunto com orquestrações duráveis e dão suporte a mecanismos de bloqueio distribuídos. 
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

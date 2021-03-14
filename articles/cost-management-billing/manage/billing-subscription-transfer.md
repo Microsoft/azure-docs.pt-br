@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601549"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367190"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -80,7 +80,7 @@ Apenas uma solicitação de transferência está ativa por vez. Uma solicitaçã
 Para cancelar uma solicitação de transferência:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Assinaturas** > selecione a assinatura para a qual você enviou uma solicitação de transferência > selecione **Transferir propriedade da cobrança**.
+1. Navegue até **Assinaturas** > selecione a assinatura para a qual você enviou uma solicitação de transferência e escolha **Transferir propriedade da cobrança**.
 1. Na parte inferior da página, selecione **Cancelar a solicitação de transferência**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Exemplo mostrando a janela Transferir propriedade da cobrança com a opção Cancelar a solicitação de transferência" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,23 @@ Para cancelar uma solicitação de transferência:
 ## <a name="troubleshooting"></a>Solução de problemas
 
 Use as informações de solução de problemas a seguir se tiver problemas com a transferência de assinaturas.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>O proprietário original da cobrança da assinatura do Azure sai da sua organização
+
+> [!Note]
+> Esta seção aplica-se especificamente a uma conta de cobrança para um Contrato de Cliente da Microsoft. Verifique se você tem acesso a um [Contrato de Cliente da Microsoft](mca-request-billing-ownership.md#check-for-access).
+
+É possível que o proprietário da conta original da cobrança que criou uma conta do Azure e uma assinatura do Azure saia da sua organização. Se essa situação ocorrer, a identidade do usuário não estará mais no Azure Active Directory da organização. Então, a assinatura do Azure não tem um proprietário de cobrança. Essa situação impede que qualquer pessoa execute operações de cobrança na conta, incluindo exibição e pagamento de faturas. A assinatura poderá entrar em um estado de atraso. A assinatura poderá acabar sendo desabilitada devido ao não pagamento. Por fim, a assinatura poderá ser excluída, o que afetará todos os serviços executados na assinatura.
+
+Quando uma assinatura não tiver mais um proprietário da conta de cobrança válido, o Azure enviará um email para outros Proprietários da conta de cobrança, Administradores de Serviços (se houver), Coadministradores (se houver) e Proprietários de Assinatura informando-os da situação e fornecerá um link para que eles aceitem a propriedade da cobrança da assinatura. Qualquer um dos usuários pode selecionar o link para aceitar a propriedade da cobrança. Para obter mais informações sobre as funções de cobrança, confira [Funções de cobrança](understand-mca-roles.md) e [Funções clássicas e funções RBAC do Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+Veja um exemplo de como é o email.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Captura de tela que mostra um exemplo de email para aceitação da propriedade da cobrança." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Além disso, o Azure mostra uma faixa na janela de detalhes da assinatura no portal do Azure para os proprietários de Cobrança, os Administradores de Serviços, os Coadministradores e os Proprietários de Assinatura. Selecione o link na faixa para aceitar a propriedade da cobrança.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Captura de tela que mostra um exemplo de assinatura sem um proprietário de cobrança válido." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>A opção "Transferir assinatura" não está disponível
 

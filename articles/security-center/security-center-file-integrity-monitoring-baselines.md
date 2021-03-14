@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439551"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634679"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o FIM (monitoramento de integridade de arquivo)
 
@@ -62,23 +62,22 @@ As linhas de base do FIM começam identificando as características de um estado
 > [!NOTE]
 > Para saber mais sobre as configurações de registro com suporte em várias versões de sistema operacional, consulte a [planilha de referência de configurações de política de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Para configurar o FIM para monitorar linhas de base de registro:*
+Para configurar o FIM para monitorar linhas de base de registro:
 
-1. Na janela **adicionar registro do Windows para controle de alterações** , na caixa de texto **chave do registro do Windows** , insira a chave do registro.
+1. Na janela **adicionar registro do Windows para controle de alterações** , na caixa de texto **chave do registro do Windows** , insira a seguinte chave do registro:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Habilitar FIM em um registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Habilitar FIM em um registro":::
 
 ## <a name="track-changes-to-windows-files"></a>Controlar alterações em arquivos do Windows
 
 1. Na janela **Adicionar arquivo do Windows para controle de alterações** , na caixa de texto **Inserir caminho** , insira a pasta que contém os arquivos que você deseja acompanhar. No exemplo na figura a seguir, o **aplicativo Web contoso** reside no D:\ unidade dentro da estrutura de pastas **ContosWebApp** .  
 1. Crie uma entrada de arquivo do Windows personalizada fornecendo um nome para a classe de configuração, habilitando a recursão e especificando a pasta superior com um sufixo curinga (*).
 
-    ![Habilitar FIM em um arquivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Habilitar FIM em um arquivo":::
 
 ## <a name="retrieve-change-data"></a>Recuperar dados de alteração
 

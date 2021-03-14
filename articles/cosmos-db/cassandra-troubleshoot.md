@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493202"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658564"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Solucionar problemas comuns no Azure Cosmos DB API do Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Algumas causas e soluções populares são as seguintes:
 Você pode ver este erro: `Cannot connect to any host, scheduling retry in 600000 milliseconds` . 
 
 ### <a name="solution"></a>Solução
-Isso pode ser o esgotamento de SNAT no lado do cliente. Siga as etapas em [SNAT para conexões de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para eliminar esse problema. Isso também pode ser um problema de tempo limite de ociosidade em que o balanceador de carga do Azure tem 4 minutos de tempo limite de ociosidade por padrão. Consulte a documentação no [tempo limite de ociosidade do balanceador de carga](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Habilite o TCP-Keep Alive nas configurações do driver (veja [abaixo](#enable-keep-alive-for-java-driver)) e defina o `keepAlive` intervalo no sistema operacional para menos de 4 minutos.
+Isso pode ser o esgotamento de SNAT no lado do cliente. Siga as etapas em [SNAT para conexões de saída](../load-balancer/load-balancer-outbound-connections.md) para eliminar esse problema. Isso também pode ser um problema de tempo limite de ociosidade em que o balanceador de carga do Azure tem 4 minutos de tempo limite de ociosidade por padrão. Consulte a documentação no [tempo limite de ociosidade do balanceador de carga](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Habilite o TCP-Keep Alive nas configurações do driver (veja [abaixo](#enable-keep-alive-for-java-driver)) e defina o `keepAlive` intervalo no sistema operacional para menos de 4 minutos.
 
  
 

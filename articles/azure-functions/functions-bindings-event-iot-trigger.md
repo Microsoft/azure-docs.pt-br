@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 25396da3fb9a4293633308bf2e9d3c6b3d07265d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c9309834b407ee56d29e38afd965ac947fc8a4f
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041639"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612279"
 ---
 # <a name="azure-iot-hub-trigger-for-azure-functions"></a>Gatilho do Hub IoT do Azure para Azure Functions
 
@@ -22,6 +22,10 @@ Para obter informações sobre a instalação e detalhes de configuração, conf
 > Embora os exemplos de código a seguir usem a API do hub de eventos, a sintaxe fornecida é aplicável a funções do Hub IoT.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-trigger.md)]
+
+## <a name="hostjson-properties"></a>Propriedades de host.json
+
+O [host.jsno](functions-host-json.md#eventhub) arquivo contém configurações que controlam o comportamento do gatilho do hub de eventos. Consulte a [host.jsna seção Configurações](functions-bindings-event-iot.md#hostjson-settings) para obter detalhes sobre as configurações disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

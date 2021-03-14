@@ -1,58 +1,70 @@
 ---
-title: Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
+title: Use o Azure Policy para aplicar configurações de cluster em escala
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Use o Azure Policy para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, containers
-ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050039"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121449"
 ---
-# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
+# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Use o Azure Policy para aplicar configurações de cluster em escala
 
-## <a name="overview"></a>Visão geral
+Você pode usar Azure Policy para aplicar configurações ( `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tipo de recurso) em escala em clusters kubernetes habilitados para Arc do Azure ( `Microsoft.Kubernetes/connectedclusters` ).
 
-Use Azure Policy para impor que cada recurso `Microsoft.Kubernetes/connectedclusters` ou Git-Ops `Microsoft.ContainerService/managedClusters` recurso habilitado tenha uma `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicação específica. Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure. Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado. Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
+Para usar Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política:
+1. Defina o escopo da atribuição.
+    * O escopo será um grupo de recursos do Azure ou uma assinatura. 
+2. Defina os parâmetros para a configuração que será criada. 
 
-Se estiver usando vários repositórios Git como as fontes de verdade para cada cluster (por exemplo, um repositório para o operador central de TI/cluster e outros repositórios para equipes de aplicativos), você pode habilitar isso usando várias atribuições de política, cada atribuição de política configurada para usar um repositório Git diferente.
+Depois que a atribuição é criada, Azure Policy mecanismo identifica todos os clusters kubernetes habilitados para o Azure Arc localizados no escopo e aplica a configuração a cada cluster.
+
+Você pode criar várias configurações, cada uma apontando para um repositório git diferente, usando várias atribuições de política. Por exemplo, um repositório para o operador central de ti/cluster e outros repositórios para equipes de aplicativos.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Verifique se você tem `Microsoft.Authorization/policyAssignments/write` permissões no escopo (assinatura ou grupo de recursos) em que deseja criar essa atribuição de política.
+Verifique se você tem `Microsoft.Authorization/policyAssignments/write` permissões no escopo (assinatura ou grupo de recursos) em que você criará essa atribuição de política.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-1. No portal do Azure, vá até a Política e na seção **Criação** da barra lateral, selecione **Definições**.
-2. Escolha a política interna "implantar GitOps no cluster kubernetes" na categoria "kubernetes" e clique em **atribuir**.
-3. Defina o **Escopo** do grupo de gerenciamento, a assinatura ou o grupo de recursos ao qual a atribuição de política será aplicada.
-4. Se você quiser excluir algum recurso do escopo da política, defina as **Exclusões**.
-5. Dê um **Nome** e uma **Descrição** à atribuição de política que você possa usar para identificá-la facilmente.
-6. Verifique se **Imposição de política** está definida como *Habilitado*.
-7. Selecione **Avançar**.
-8. Defina os valores do parâmetro que serão usados durante a criação do `sourceControlConfiguration`.
-9. Selecione **Avançar**.
-10. Habilitar **Criar uma tarefa de correção**.
-11. Verifique se **Criar uma identidade gerenciada** está marcada e se a identidade terá permissões de **Colaborador**. Consulte [este doc](../../governance/policy/assign-policy-portal.md) e [o comentário neste doc](../../governance/policy/how-to/remediate-resources.md) para obter mais informações sobre as permissões necessárias.
-12. Selecione **Examinar + criar**.
+1. No portal do Azure, navegue até a **política**.
+1. Na seção **criação** da barra lateral, selecione **definições**.
+1. Na categoria "kubernetes", escolha a política interna "implantar GitOps no cluster kubernetes". 
+1. Clique em **Atribuir**.
+1. Defina o **escopo** para o grupo de gerenciamento, a assinatura ou o grupo de recursos ao qual a atribuição de política será aplicada.
+    * Se você quiser excluir todos os recursos do escopo da política, defina **exclusões**.
+1. Dê à atribuição de política um **nome** e uma **Descrição** facilmente identificáveis.
+1. Verifique se a **imposição de política** está definida como **habilitada**.
+1. Selecione **Avançar**.
+1. Defina os valores de parâmetro a serem usados ao criar o `sourceControlConfiguration` .
+1. Selecione **Avançar**.
+1. Habilitar **Criar uma tarefa de correção**.
+1. Verifique se a opção **criar uma identidade gerenciada** está marcada e se a identidade terá permissões de **colaborador** . 
+    * Para obter mais informações, consulte o guia de [início rápido criar uma atribuição de política](../../governance/policy/assign-policy-portal.md) e [corrigir recursos não compatíveis com Azure Policy artigo](../../governance/policy/how-to/remediate-resources.md).
+1. Selecione **Examinar + criar**.
 
-Depois que a atribuição de política é criada, para qualquer novo recurso `connectedCluster` (ou recurso `managedCluster` com os agentes do GitOps instalados) que está localizado no escopo da atribuição, o `sourceControlConfiguration` será aplicado. Para clusters existentes, será necessário executar manualmente uma tarefa de correção. Normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
+Depois de criar a atribuição de política, a configuração é aplicada a novos clusters kubernetes habilitados para Arc do Azure criados dentro do escopo de atribuição de política.
+
+Para os clusters existentes, você precisará executar manualmente uma tarefa de correção. Essa tarefa normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
 
 ## <a name="verify-a-policy-assignment"></a>Verificar uma atribuição de política
 
-1. No portal do Azure, vá até um dos recursos `connectedCluster` e, na seção **Configurações**  da barra lateral, selecione **Políticas**. (A UX para o cluster AKS ainda não está implementada, mas está chegando.)
-2. Na lista, você deve ver a atribuição de política que criou acima e o **Estado de conformidade** deve ser *Em conformidade*.
-3. Na seção **Configurações** da barra lateral, selecione **Configurações**.
-4. Na lista, você deve ver o `sourceControlConfiguration` que a atribuição de política criou.
-5. Use **kubectl** para interrogar o cluster: você verá o namespace e os artefatos que foram criados pelo `sourceControlConfiguration`.
-6. Em 5 minutos, você deve ver no cluster os artefatos descritos nos manifestos no repositório Git configurado.
+1. No portal do Azure, navegue até um dos seus clusters kubernetes habilitados para o Azure Arc.
+1. Na seção **configurações** da barra lateral, selecione **políticas**. 
+    * Na lista de políticas, você deve ver a atribuição de política que você criou anteriormente com o **estado de conformidade** definido como *compatível*.
+1. Na seção **Configurações** da barra lateral, selecione **Configurações**.
+    * Na lista configurações, você deve ver a configuração criada pela atribuição de política.
+1. Use `kubectl` para interrogar o cluster. 
+    * Você deve ver o namespace e os artefatos que foram criados pelos recursos de configuração.
+    * Em 5 minutos (supondo que o cluster tenha conectividade de rede com o Azure), você deve ver os objetos descritos pelos manifestos no repositório git, sendo criados no cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar o Azure Monitor para Contêineres com clusters Kubernetes habilitados para Arc](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+[Configure Azure monitor para contêineres com clusters kubernetes habilitados para o Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

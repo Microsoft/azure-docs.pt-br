@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729769"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização no Azure Sentinel
 
@@ -70,6 +70,9 @@ A referência de esquema também inclui a padronização de valor e de formato. 
 
 ## <a name="parsers"></a>Analisadores
 
+- [O que é análise](#what-is-parsing)
+- [Usando analisadores de tempo de consulta](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>O que é análise
 
 Com um conjunto base de tabelas normalizadas definidas disponíveis, você precisará transformar (analisar/mapear) seus dados nessas tabelas. Ou seja, você extrairá dados específicos de sua forma bruta em colunas conhecidas no esquema normalizado. A análise no Azure Sentinel acontece no **momento da consulta** -os analisadores são criados como funções de usuário log Analytics (usando a linguagem de consulta KUSTO-KQL) que transforma dados em tabelas existentes (como CommonSecurityLog, tabelas de logs personalizados, syslog) no esquema de tabelas normalizadas.
@@ -77,6 +80,10 @@ Com um conjunto base de tabelas normalizadas definidas disponíveis, você preci
 O outro tipo de análise, que ainda não tem suporte no Azure Sentinel, está no **tempo de ingestão** , permitindo coletar dados diretamente para as tabelas normalizadas, pois eles são ingeridos de suas fontes de dados. A análise de tempo de ingestão fornece desempenho aprimorado, pois o modelo de dados é consultado diretamente sem a necessidade de usar funções.
 
 ### <a name="using-query-time-parsers"></a>Usando analisadores de tempo de consulta
+
+- [Instalando um analisador](#installing-a-parser)
+- [Usando os analisadores](#using-the-parsers)
+- [Personalizando analisadores](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Instalando um analisador
 
@@ -119,6 +126,12 @@ No painel à direita, expanda a seção "consultas salvas" e localize a pasta ' 
 
 Você pode clicar em cada analisador individual e ver a função subjacente que ele usa e executá-lo (ou acessá-lo diretamente por seu alias, conforme descrito acima). Observe que alguns analisadores podem reter os campos originais lado a lado para os campos normalizados para sua conveniência. Isso pode ser facilmente editado na consulta do analisador.
 
+> [!TIP]
+> Você pode usar suas funções salvas em vez de tabelas do Azure Sentinel em qualquer consulta, incluindo consultas de busca e detecção. Para obter mais informações, consulte:
+>
+> - [Normalização de dados no Azure Sentinel](normalization.md#parsers)
+> - [Analisar texto em logs de Azure Monitor](../azure-monitor/logs/parse-text.md)
+>
 #### <a name="customizing-parsers"></a>Personalizando analisadores
 
 Você pode repetir as etapas acima (localizando o analisador no Gerenciador de consultas), clicar no analisador relevante e ver sua implementação de função.
@@ -132,7 +145,9 @@ Quando a função for alterada, clique em "salvar" novamente e use o mesmo nome,
 
 #### <a name="additional-information"></a>Informações adicionais
 
-Saiba mais sobre as [consultas salvas](../azure-monitor/log-query/example-queries.md) (a implementação de analisadores de tempo de consulta) em log Analytics.
+JSON, XML e CSV são especialmente convenientes para análise no momento da consulta. O Azure Sentinel tem funções de análise internas para JSON, XML e CSV, bem como uma ferramenta de análise de JSON.  Para obter mais informações, consulte [usando campos JSON no Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
+
+Saiba mais sobre as [consultas salvas](../azure-monitor/logs/example-queries.md) (a implementação de analisadores de tempo de consulta) em log Analytics.
 
 
 ## <a name="next-steps"></a>Próximas etapas

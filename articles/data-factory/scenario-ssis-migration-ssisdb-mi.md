@@ -1,22 +1,17 @@
 ---
 title: Migração do SSIS com o Azure SQL Instância Gerenciada como o destino da carga de trabalho do banco de dados
 description: Migração do SSIS com o Azure SQL Instância Gerenciada como o destino da carga de trabalho do banco de dados.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 184cd7ec0dd490152e7234383bffe4f0fd822913
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3d2bc60f8ba7120f8d962500c06be50e905c11a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635704"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373582"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migração do SSIS com o Azure SQL Instância Gerenciada como o destino da carga de trabalho do banco de dados
 

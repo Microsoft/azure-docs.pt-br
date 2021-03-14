@@ -2,19 +2,19 @@
 title: Visão geral do controle de acesso do workspace do Azure Synapse
 description: Este artigo descreve os mecanismos usados para controlar o acesso a um workspace do Azure Synapse e os recursos e artefatos de código que ele contém.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 30cc917e2db3a7c4c6d5d6ebd5a8a47afff5d505
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 20614b1c397bdf24e807d48d3de33f0033da14bc
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133133"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105106"
 ---
 # <a name="synapse-access-control"></a>Controle de acesso do Azure Synapse 
 

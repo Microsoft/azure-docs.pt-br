@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279217"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201049"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Escalar e proteger rapidamente um aplicativo Web usando o Azure Front Door e o WAF (Firewall de Aplicativo Web do Azure)
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As instruções deste tutorial usam a CLI do Azure. [Veja este guia](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) para obter uma introdução à CLI do Azure.
+- As instruções deste tutorial usam a CLI do Azure. [Veja este guia](/cli/azure/get-started-with-azure-cli) para obter uma introdução à CLI do Azure.
 
   > [!TIP] 
   > Uma forma fácil e rápida de começar a usar a CLI do Azure é com o [Bash no Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -48,7 +48,7 @@ Neste tutorial, você aprenderá como:
    ```
 
 > [!NOTE] 
-> Para obter mais informações sobre os comandos usados neste tutorial, confira a [referência da CLI do Azure para o Front Door](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
+> Para obter mais informações sobre os comandos usados neste tutorial, confira a [referência da CLI do Azure para o Front Door](/cli/azure/ext/front-door).
 
 ## <a name="create-an-azure-front-door-resource"></a>Criar um recurso do Azure Front Door
 
@@ -144,7 +144,7 @@ Por fim, se você estiver usando um domínio personalizado para acessar seu apli
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não precisar mais dos recursos usados neste tutorial, use o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para remover o grupo de recursos, o Front Door e a política de WAF:
+Quando não precisar mais dos recursos usados neste tutorial, use o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o Front Door e a política de WAF:
 
 ```azurecli-interactive
   az group delete \

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874791"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832599"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -61,7 +61,7 @@ Se você tiver duas câmeras conectadas ao dispositivo de gateway do IoT Edge, r
 
 Selecione a guia **Dispositivos Downstream** do dispositivo **Gateway de LVA 001** para ver os dispositivos de câmera recém-adicionados:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspecionar":::
 
 Os dispositivos de câmera também são exibidos na lista da página **Dispositivos** no aplicativo.
 
@@ -98,7 +98,7 @@ Clique em **Salvar**.
 
 Após alguns segundos, você verá a mensagem de confirmação **Aceito** para cada configuração:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Detecção de Objetos":::
 
 ## <a name="start-lva-processing"></a>Iniciar processamento de LVA
 
@@ -108,13 +108,13 @@ Execute o comando **Iniciar Processamento de LVA**.
 
 Quando o comando for concluído, exiba o histórico de comandos para verificar se não há erros:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="comando Iniciar processamento de LVA":::
 
 ## <a name="monitor-the-cameras"></a>Monitorar as câmeras
 
 Procure o dispositivo **camera-003** e selecione a guia **Painel**:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Painel da câmera":::
 
 O bloco **Contagem de Detecções** mostra a contagem média de detecções de cada um dos objetos de classes de detecção selecionados durante um intervalo de detecção de um segundo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Procure o dispositivo **camera-003** e selecione a guia **Painel**. Em seguida, clique em um dos hiperlinks de detecção de objetos capturados no bloco **Vídeo de Evento de Inferência**. O vídeo é exibido em uma página mostrada pelo player de vídeo local:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Trecho do vídeo":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Alterar os dispositivos simulados nos painéis do aplicativo
 
@@ -182,7 +182,7 @@ Os painéis de aplicativos são originalmente preenchidos com a telemetria e as 
 
 O painel **Monitor de Câmera Real** agora mostra valores do seu dispositivo de câmera real:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Adicionar Câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Painel do aplicativo Câmeras Reais":::
 
 ## <a name="pause-processing"></a>Pausar o processamento
 
@@ -195,7 +195,7 @@ Pause o processamento da Análise Dinâmica de Vídeo no aplicativo:
     * Clique no recurso **Ponto de Extremidade de Streaming**.
     * Na página **Detalhes do ponto de extremidade de streaming**, selecione **Parar**.
 
-## <a name="tidy-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

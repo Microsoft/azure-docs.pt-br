@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492804"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010347"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -86,7 +86,17 @@ Há dois tipos de restauração disponíveis:
 - A **restauração pontual** está disponível com a opção de redundância de backup e cria um novo servidor na mesma região que o servidor original utilizando a combinação de backups completos e de log de transações.
 - A **restauração geográfica** só estará disponível se você tiver configurado o servidor para armazenamento com redundância geográfica e ele permitir que você restaure o servidor para uma região diferente utilizando o backup mais recente feito.
 
-O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
+O tempo estimado para a recuperação do servidor depende de vários fatores:
+* O tamanho dos bancos de dados
+* O número de logs de transações envolvidos
+* A quantidade de atividade que precisa ser repetida para recuperar até o ponto de restauração
+* A largura de banda de rede se a restauração for para uma região diferente
+* O número de solicitações de restauração simultâneas sendo processadas na região de destino
+* A presença de chave primária nas tabelas no banco de dados. Para uma recuperação mais rápida, considere adicionar a chave primária para todas as tabelas em seu banco de dados. Para verificar se suas tabelas têm a chave primária, você pode usar a seguinte consulta:
+```sql
+select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+Para um banco de dados muito grande ou muito ativo, a restauração pode levar várias horas. Quando há uma interrupção prolongada em uma região, é possível que um número alto de solicitações de restauração geográfica seja iniciado para recuperação de desastre. Quando houver muitas solicitações, o tempo de recuperação dos bancos de dados individuais poderá aumentar. A maioria das restaurações de banco de dados é concluída em menos de 12 horas.
 
 > [!IMPORTANT]
 > Os servidores excluídos podem ser restaurados somente dentro de **cinco dias** após a exclusão, após o qual os backups são excluídos. O backup do banco de dados pode ser acessado e restaurado somente da assinatura do Azure que hospeda o servidor. Para restaurar um servidor descartado, consulte [as etapas documentadas](howto-restore-dropped-server.md). Para proteger recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](../azure-resource-manager/management/lock-resources.md).

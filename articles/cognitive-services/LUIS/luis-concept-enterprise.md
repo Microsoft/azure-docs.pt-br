@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 2e2165b81c7cd634fe79ec4438a550ad365f5a30
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019170"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609678"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para um aplicativo LUIS
 Examine essas estratégias de design para seu aplicativo empresarial.
@@ -48,10 +48,10 @@ Se seu aplicativo deve prever uma ampla variedade de declarações do usuário, 
 Agende um [exame de declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md) periódico para o aprendizado ativo, como a cada duas semanas e, em seguida, treine e publique novamente. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando você precisa ter mais de 500 intenções
-Suponha que você esteja desenvolvendo um assistente do Office com mais de 500 tentativas. Se 200 intenções relacionarem-se ao agendamento de reuniões, 200 forem sobre lembretes, 200 se tratarem de obter informações sobre colegas e 200 forem para envio de email, agrupe as intenções para que cada grupo esteja em um único aplicativo e crie um aplicativo de nível superior que contém cada intenção. Use o [modelo de expedição](#dispatch-tool-and-model) para criar o aplicativo de nível superior. Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
+Suponha que você esteja desenvolvendo um assistente do Office com mais de 500 tentativas. Se 200 intenções relacionarem-se ao agendamento de reuniões, 200 forem sobre lembretes, 200 se tratarem de obter informações sobre colegas e 200 forem para envio de email, agrupe as intenções para que cada grupo esteja em um único aplicativo e crie um aplicativo de nível superior que contém cada intenção. Use o [modelo de expedição](#dispatch-tool-and-model) para criar o aplicativo de nível superior. Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando você precisar combinar vários aplicativos LUIS e QnA Maker
-Se você tiver vários aplicativos LUIS e QnA Maker que precisam responder a um bot, use o [modelo de expedição](#dispatch-tool-and-model) para criar o aplicativo de nível superior.  Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
+Se você tiver vários aplicativos LUIS e QnA Maker que precisam responder a um bot, use o [modelo de expedição](#dispatch-tool-and-model) para criar o aplicativo de nível superior.  Em seguida, altere o bot para usar a chamada em cascata, conforme mostrado no [tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs). 
 
 ## <a name="dispatch-tool-and-model"></a>Ferramenta e modelo de expedição
 Use a ferramenta de linha de comando [Expedir][dispatch-tool], encontrada em [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) para combinar vários aplicativos LUIS e/ou QnA Maker em um aplicativo LUIS pai. Essa abordagem permite que você tenha um domínio pai incluindo todos os sujeitos e diferentes domínios filhos de entidade em aplicativos separados. 
@@ -62,7 +62,7 @@ O domínio pai é indicado no LUIS com uma versão chamada `Dispatch` na lista d
 
 O bot de chat recebe o expressão e, em seguida, envia para o aplicativo LUIS pai para previsão. A principal intenção prevista do aplicativo pai determina qual aplicativo filho LUIS é chamado em seguida. O bot de chat envia o expressão para o aplicativo filho para uma previsão mais específica.
 
-Entenda como essa hierarquia de chamadas é feita em [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0) do Bot Builder v4.  
+Entenda como essa hierarquia de chamadas é feita em [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) do Bot Builder v4.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de expedição
 Um aplicativo de expedição tem 500 fontes de expedição, equivalentes a 500 intenções, como o máximo. 
@@ -70,7 +70,7 @@ Um aplicativo de expedição tem 500 fontes de expedição, equivalentes a 500 i
 ## <a name="more-information"></a>Mais informações
 
 * [SDK do bot Framework](https://github.com/Microsoft/botframework)
-* [Tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
+* [Tutorial do modelo de expedição](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [CLI de expedição](https://github.com/Microsoft/botbuilder-tools)
 * Exemplo de bot de modelo de expedição – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
@@ -78,5 +78,5 @@ Um aplicativo de expedição tem 500 fontes de expedição, equivalentes a 500 i
 
 * Saiba como [testar um lote](luis-how-to-batch-test.md)
 
-[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch
 [dispatch-tool]: https://aka.ms/dispatch-tool

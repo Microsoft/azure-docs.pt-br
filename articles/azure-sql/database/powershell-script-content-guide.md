@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987272"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690956"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Exemplos do Azure PowerShell para Banco de Dados SQL do Azure e Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |---|---|
 |**Criar e configurar instâncias gerenciadas**||
 | [Criar e gerenciar uma instância gerenciada](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell. |
-| [Criar e gerenciar uma instância gerenciada usando o modelo do Azure Resource Manager](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell e o modelo do Azure Resource Manager.|
+| [Criar e gerenciar uma instância gerenciada usando o modelo do Azure Resource Manager](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell e o modelo do Azure Resource Manager.|
 | [Restaurar um banco de dados em uma instância gerenciada em outra região geográfica](../managed-instance/scripts/restore-geo-backup.md) | Este script do PowerShell faz um backup de um banco de dados e o restaura em outra região. Isso é conhecido como cenário de recuperação de desastre de restauração geográfica. |
 | **Configurar a Transparent Data Encryption**||
 | [Gerenciar a Transparent Data Encryption em uma instância gerenciada usando sua própria chave do Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a Transparent Data Encryption em um cenário de Bring Your Own Key para instância Gerenciada de SQL do Azure usando uma chave do Azure Key Vault.|

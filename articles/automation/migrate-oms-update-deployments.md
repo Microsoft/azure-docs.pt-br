@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576022"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar implantações de atualização de logs do Azure Monitor para o portal do Azure
 
-O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-monitor/platform/oms-portal-transition.md). Todas as funcionalidades que estavam disponíveis no portal do OMS para Gerenciamento de Atualizações estão disponíveis no portal do Azure, por meio dos logs do Azure Monitor. Este artigo fornece as informações necessárias para migrar para o portal do Azure.
+O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-monitor/logs/oms-portal-transition.md). Todas as funcionalidades que estavam disponíveis no portal do OMS para Gerenciamento de Atualizações estão disponíveis no portal do Azure, por meio dos logs do Azure Monitor. Este artigo fornece as informações necessárias para migrar para o portal do Azure.
 
 ## <a name="key-information"></a>Principais informações
 
@@ -41,7 +41,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 
 ## <a name="recreate-existing-deployments"></a>Recriar implantações existentes
 
-Todas as implantações de atualização criadas no portal do OMS têm uma [pesquisa salva](../azure-monitor/platform/computer-groups.md) também conhecida como grupo de computadores, com o mesmo nome da implantação de atualização existente. A pesquisa salva contém a lista de computadores que foram agendados na implantação de atualizações.
+Todas as implantações de atualização criadas no portal do OMS têm uma [pesquisa salva](../azure-monitor/logs/computer-groups.md) também conhecida como grupo de computadores, com o mesmo nome da implantação de atualização existente. A pesquisa salva contém a lista de computadores que foram agendados na implantação de atualizações.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de tela da página atualizar implantações com os campos nome e servidores realçados.":::
 
@@ -59,7 +59,7 @@ Para usar essa pesquisa salva existente, siga estas etapas:
     | --- | --- |
     |Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
     |Sistema operacional| Selecione **Linux** ou **Windows**.|
-    |Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha o computador na lista suspensa e selecione computadores individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
+    |Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha o computador na lista suspensa e selecione computadores individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/logs/computer-groups.md) |
     |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
     |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
     |Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência. | 

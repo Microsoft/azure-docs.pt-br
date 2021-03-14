@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579805"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Usar o link privado do Azure para conectar redes com segurança à automação do Azure
 
@@ -34,7 +34,7 @@ Com o Link Privado, você pode:
 - Conecte-se de forma privada a Azure Monitor Log Analytics espaço de trabalho sem abrir nenhum acesso à rede pública.
 
     >[!NOTE]
-    >Um ponto de extremidade privado separado para seu espaço de trabalho de Log Analytics será necessário se sua conta de automação estiver vinculada a um espaço de trabalho Log Analytics para encaminhar dados de trabalho e quando você tiver habilitado recursos como Gerenciamento de Atualizações, Controle de Alterações e inventário, configuração de estado ou Iniciar/Parar VMs fora do horário comercial. Para obter mais informações sobre o link privado para Azure Monitor, consulte [usar o link privado do Azure para conectar redes com segurança a Azure monitor](../../azure-monitor/platform/private-link-security.md).
+    >Um ponto de extremidade privado separado para seu espaço de trabalho de Log Analytics será necessário se sua conta de automação estiver vinculada a um espaço de trabalho Log Analytics para encaminhar dados de trabalho e quando você tiver habilitado recursos como Gerenciamento de Atualizações, Controle de Alterações e inventário, configuração de estado ou Iniciar/Parar VMs fora do horário comercial. Para obter mais informações sobre o link privado para Azure Monitor, consulte [usar o link privado do Azure para conectar redes com segurança a Azure monitor](../../azure-monitor/logs/private-link-security.md).
 
 - Verifique se os dados de automação são acessados somente por meio de redes privadas autorizadas.
 - Evite vazamento de dados de suas redes privadas definindo o recurso de automação do Azure que se conecta por meio de seu ponto de extremidade privado.
@@ -46,8 +46,8 @@ Para mais informações, confira [Principais benefícios do Link Privado](../../
 ## <a name="limitations"></a>Limitações
 
 - Na implementação atual do link privado, os trabalhos de nuvem da conta de automação não podem acessar os recursos do Azure que são protegidos usando o ponto de extremidade privado. Por exemplo, Azure Key Vault, SQL do Azure, conta de armazenamento do Azure, etc. Para solucionar esse problema, use um [Hybrid runbook Worker](../automation-hybrid-runbook-worker.md) em vez disso.
-- Você precisa usar a versão mais recente do [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux.
-- O [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) não oferece suporte ao link privado.
+- Você precisa usar a versão mais recente do [agente de log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para Windows ou Linux.
+- O [Gateway de log Analytics](../../azure-monitor/agents/gateway.md) não oferece suporte ao link privado.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -76,7 +76,7 @@ Para entender & configurar Gerenciamento de Atualizações revisão [sobre geren
 
 Se você quiser que os computadores configurados para o gerenciamento de atualizações se conectem à automação & Log Analytics espaço de trabalho de maneira segura sobre o canal de link privado, será necessário habilitar o link privado para o espaço de trabalho Log Analytics vinculado à conta de automação configurada com o link privado.
 
-Você pode controlar como um espaço de trabalho do Log Analytics pode ser acessado de fora dos escopos de link privado seguindo as etapas descritas em [configurar log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace.
+Você pode controlar como um espaço de trabalho do Log Analytics pode ser acessado de fora dos escopos de link privado seguindo as etapas descritas em [configurar log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace.
 
 Use o subrecurso de destino **DSCAndHybridWorker** para habilitar o link privado para os trabalhos híbridos do sistema & do usuário.
 
@@ -107,7 +107,7 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 3. Em **criar uma máquina virtual-noções básicas**, insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -121,7 +121,7 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 5. Em **criar um ponto de extremidade privado-recurso**, insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
@@ -134,7 +134,7 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 7. Em **criar um ponto de extremidade privado-configuração**, insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |**REDE**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |

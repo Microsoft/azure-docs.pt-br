@@ -8,14 +8,16 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447828"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200470"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer acesso de módulos ao armazenamento local de um dispositivo
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Além de armazenar dados usando os serviços de armazenamento do Azure ou o armazenamento de contêiner do seu dispositivo, você também pode dedicar o armazenamento no próprio dispositivo IoT Edge host para maior confiabilidade, especialmente ao operar offline.
 
@@ -36,7 +38,7 @@ Ou então, você pode configurar o armazenamento local diretamente no manifesto 
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -52,7 +54,7 @@ Ou então, você pode configurar o armazenamento local diretamente no manifesto 
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -85,7 +87,7 @@ Você pode encontrar mais detalhes sobre como criar opções de [documentos do D
 
 ## <a name="encrypted-data-in-module-storage"></a>Dados criptografados no armazenamento de módulo
 
-Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
 
 Se você quiser compartilhar arquivos entre os módulos entre gerações, eles não deverão conter segredos ou não serão descriptografados.
 

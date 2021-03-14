@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4142542c9f17ae464a996df310c50d73d8711d8e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899720"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438192"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Implantar um módulo IoT habilitado para GPU no dispositivo Azure Stack GPU pro Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo descreve como implantar um módulo de IoT Edge habilitado para GPU em seu dispositivo de GPU pro Azure Stack Edge. 
 
@@ -35,7 +37,7 @@ O módulo exemplo de GPU neste artigo inclui o exemplo de código de parâmetro 
 
 Antes de começar, verifique se você tem:
 
-- Você tem acesso a um dispositivo Azure Stack Edge pro de 1 nó com GPU habilitado. Este dispositivo está ativado com um recurso no Azure. Consulte [ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
+- Você tem acesso a um dispositivo Azure Stack Edge pro de 1 nó com GPU habilitado. Esse dispositivo foi ativado com um recurso no Azure. Consulte [ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
 - Você configurou a computação neste dispositivo. Siga as etapas em [tutorial: configurar a computação em seu dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Um ACR (registro de contêiner do Azure). Vá para a folha **chaves de acesso** e anote o servidor de logon do ACR, o nome de usuário e a senha. Para obter mais informações, acesse [início rápido: criar um registro de contêiner privado usando o portal do Azure](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
 - Os seguintes recursos de desenvolvimento em um cliente do Windows:

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 36885e4673b83d1db7972f03c4a6309f766206c5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713092"
 ---
 # <a name="what-is-custom-neural-voice"></a>O que é voz neural personalizada?
 
-A voz neural personalizada é um recurso de [conversão de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) (TTS) que permite criar uma voz sintética personalizada única para seus aplicativos, fornecendo seus próprios dados de áudio como um exemplo. A conversão de texto em fala converte o texto em fala sintética usando um modelo de aprendizado de máquina que parece uma voz escolhida. Com a [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), você pode habilitar seus aplicativos para falar com [vozes predefinidas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) ou seus próprios modelos de [voz personalizados](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-prepare-data) desenvolvidos por meio do recurso de voz neural personalizado. A voz neural personalizada é baseada na tecnologia de TTS de neural que cria uma voz de som natural que geralmente é indistinguíveis quando comparada com uma voz humana.
+A voz neural personalizada é um recurso de [conversão de texto em fala](./text-to-speech.md) (TTS) que permite criar uma voz sintética personalizada única para seus aplicativos, fornecendo seus próprios dados de áudio como um exemplo. A conversão de texto em fala converte o texto em fala sintética usando um modelo de aprendizado de máquina que parece uma voz escolhida. Com a [API REST](./rest-text-to-speech.md), você pode habilitar seus aplicativos para falar com [vozes predefinidas](./language-support.md#neural-voices) ou seus próprios modelos de [voz personalizados](./how-to-custom-voice-prepare-data.md) desenvolvidos por meio do recurso de voz neural personalizado. A voz neural personalizada é baseada na tecnologia de TTS de neural que cria uma voz de som natural que geralmente é indistinguíveis quando comparada com uma voz humana.
 A voz realista e natural de som da voz neural personalizada pode representar marcas, máquinas personifys e permitir que os usuários interajam com aplicativos de forma natural.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Em seguida, a seqüência do fonema entra no modelo acústico acústica para pre
 
 Os modelos de voz TTS da neural são treinados usando redes neurais profundas com base nos exemplos de gravação de vozes humanas. Neste [blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911), descrevemos como a TTS do neural funciona com modelos de síntese de fala neural de ponta. O blog também explica como um modelo de base universal pode ser adaptado com menos de 2 horas de dados de fala (ou menos de 2.000 gravados declarações) de um palestrante de destino e aprender a falar na voz do orador de destino. Para ler sobre como um vocoder neural é treinado, consulte a [postagem no blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860).
 
-Com o recurso de personalização da voz neural personalizada, você pode adaptar o mecanismo de TTS de neural para se adequar melhor aos seus cenários de usuário. Para criar uma voz neural personalizada, use o [Speech Studio](https://speech.microsoft.com/customvoice) para carregar o áudio gravado e os scripts correspondentes, treinar o modelo e implantar a voz em um ponto de extremidade personalizado. Dependendo do caso de uso, a voz neural personalizada pode ser usada para converter texto em fala em tempo real (por exemplo, usado em um assistente virtual inteligente) ou gerar conteúdo de áudio offline (por exemplo, usado como no livro de áudio ou instruções em aplicativos de e-learning) com a entrada de texto fornecida pelo usuário. Isso é disponibilizado por meio da [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), do [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp)ou de um [portal da Web](https://speech.microsoft.com/audiocontentcreation).
+Com o recurso de personalização da voz neural personalizada, você pode adaptar o mecanismo de TTS de neural para se adequar melhor aos seus cenários de usuário. Para criar uma voz neural personalizada, use o [Speech Studio](https://speech.microsoft.com/customvoice) para carregar o áudio gravado e os scripts correspondentes, treinar o modelo e implantar a voz em um ponto de extremidade personalizado. Dependendo do caso de uso, a voz neural personalizada pode ser usada para converter texto em fala em tempo real (por exemplo, usado em um assistente virtual inteligente) ou gerar conteúdo de áudio offline (por exemplo, usado como no livro de áudio ou instruções em aplicativos de e-learning) com a entrada de texto fornecida pelo usuário. Isso é disponibilizado por meio da [API REST](./rest-text-to-speech.md), do [SDK de fala](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall)ou de um [portal da Web](https://speech.microsoft.com/audiocontentcreation).
 
 ## <a name="terms-and-definitions"></a>Termos e definições
 

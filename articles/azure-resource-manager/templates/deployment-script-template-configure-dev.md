@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179360"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200930"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos ARM
 
@@ -357,7 +357,7 @@ O valor padrão para o caminho de montagem é `/mnt/azscripts/azscriptinput` . E
 A imagem de contêiner padrão especificada no modelo é **MCR.Microsoft.com/Azure-CLI:2.9.1**. Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> O script de implantação usa as imagens da CLI disponíveis do registro de contêiner da Microsoft (MCR). Leva cerca de um mês para certificar uma imagem da CLI para um script de implantação. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se você usar uma versão sem suporte, a mensagem de erro listará as versões com suporte.
+> O script de implantação usa as imagens da CLI disponíveis do registro de contêiner da Microsoft (MCR). Leva cerca de um mês para certificar uma imagem da CLI para um script de implantação. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli). Se você usar uma versão sem suporte, a mensagem de erro listará as versões com suporte.
 
 O modelo suspende a instância de contêiner após 1.800 segundos. Você tem 30 minutos antes que a instância do contêiner entre em um estado de terminal e a sessão termine.
 

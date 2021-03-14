@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38235f9b01b321e27664ee837763732971f0b85c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445489"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201491"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo OPC e as dependências do zero
 
@@ -182,9 +182,9 @@ A maneira mais fácil de implantar os módulos em um dispositivo Azure IoT Edge 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente da [interface de linha de comando do Azure (AZ)](/cli/azure/?view=azure-cli-latest) [aqui](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Instale a versão mais recente da [interface de linha de comando do Azure (AZ)](/cli/azure/) [aqui](/cli/azure/install-azure-cli).
 
-### <a name="quickstart"></a>Início Rápido
+### <a name="quickstart"></a>Guia de Início Rápido
 
 1. Salve o manifesto de implantação acima em um `deployment.json` arquivo.  
 

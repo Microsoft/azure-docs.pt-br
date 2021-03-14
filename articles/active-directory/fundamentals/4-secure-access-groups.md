@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb168610f10ac336084ac04c19679d26fc913e0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2d9d63c7a703987d7b17e6e03d8b5596d5f1dfa5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725237"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560609"
 ---
 # <a name="securing-external-access-with-groups"></a>Protegendo o acesso externo com grupos 
 
@@ -54,7 +54,7 @@ Ao desenvolver sua estratégia de grupo para proteger o acesso externo aos seus 
 
    * *Por padrão, todos os usuários podem criar grupos e grupos M365 abertos para todos os usuários (internos e externos) em seu locatário para ingressar*. 
 
-      * [Você pode restringir a criação de Microsoft 365 grupo](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) aos membros de um grupo de segurança específico. Use o Windows PowerShell para definir essa configuração. 
+      * [Você pode restringir a criação de Microsoft 365 grupo](/microsoft-365/solutions/manage-creation-of-groups) aos membros de um grupo de segurança específico. Use o Windows PowerShell para definir essa configuração. 
 
 * **Quem deve ser capaz de convidar pessoas para grupos?** Todos os membros do grupo podem adicionar outros membros ou apenas os proprietários do grupo podem adicionar membros?
 
@@ -107,7 +107,7 @@ Os grupos de segurança do Azure AD e os grupos de Microsoft 365 podem ser criad
 | Quem cria por padrão?| Administradores <br>Usuários finais| Administradores<br>Usuários finais |
 | Quem pode ser adicionado por padrão?| Usuários internos (Membros)| Membros do locatário e convidados de qualquer organização |
 | A que ele concede acesso?| Somente os recursos aos quais ele foi atribuído.| Todos os recursos relacionados ao grupo:<br>(Caixa de correio de grupo, site, equipe, chats e outros recursos de M365 incluídos)<br>Quaisquer outros recursos aos quais o grupo é adicionado |
-| Pode ser usado com| Acesso Condicional<br>Gerenciamento de direitos<br>Licenciamento de grupo| Acesso Condicional<br>Gerenciamento de direitos<br>Rótulos de confidencialidade |
+| Pode ser usado com| Acesso condicional<br>Gerenciamento de direitos<br>Licenciamento de grupo| Acesso condicional<br>Gerenciamento de direitos<br>Rótulos de confidencialidade |
 
 
 
@@ -150,13 +150,13 @@ As organizações híbridas têm uma infraestrutura local e uma infraestrutura d
 
 ## <a name="microsoft-365-groups"></a>Grupos de Microsoft 365
 
-[Grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) são o serviço de associação fundamental que controla todo o acesso em M365. Eles podem ser criados no [portal do Azure](https://portal.azure.com/)ou no portal do [M365](https://admin.microsoft.com/). Quando um grupo de M365 é criado, você concede acesso a um grupo de recursos usados para colaborar. Consulte [visão geral de grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) para obter uma lista completa desses recursos.
+[Grupos de Microsoft 365](/microsoft-365/admin/create-groups/office-365-groups) são o serviço de associação fundamental que controla todo o acesso em M365. Eles podem ser criados no [portal do Azure](https://portal.azure.com/)ou no portal do [M365](https://admin.microsoft.com/). Quando um grupo de M365 é criado, você concede acesso a um grupo de recursos usados para colaborar. Consulte [visão geral de grupos de Microsoft 365 para administradores](/microsoft-365/admin/create-groups/office-365-groups) para obter uma lista completa desses recursos.
 
 Os grupos de M365 têm as nuances a seguir para suas funções
 
 * **Proprietários** -os proprietários do grupo podem adicionar ou remover membros e ter permissões exclusivas como a capacidade de excluir conversas da caixa de entrada compartilhada ou alterar as configurações do grupo. Os proprietários do grupo podem renomear o grupo, atualizar a descrição ou a imagem e muito mais.
 
-* **Membros** -os membros podem acessar tudo no grupo, mas não podem alterar as configurações de grupo. Por padrão, os membros do grupo podem convidar convidados para ingressar no grupo, embora você possa [controlar essa configuração](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Membros** -os membros podem acessar tudo no grupo, mas não podem alterar as configurações de grupo. Por padrão, os membros do grupo podem convidar convidados para ingressar no grupo, embora você possa [controlar essa configuração](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Convidados** -grupos convidados são membros de fora da sua organização. Por padrão, os convidados têm alguns limites para a funcionalidade nas equipes.
 

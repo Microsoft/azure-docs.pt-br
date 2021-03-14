@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory '
 description: Neste tutorial, você usa a API REST para criar um pipeline do Azure Data Factory com uma atividade de cópia a fim de copiar dados de um Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053812"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377016"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -351,7 +345,7 @@ Nesta etapa, você criará um Azure Data Factory chamado **ADFCopyTutorialDF**. 
 
 Observe os seguintes pontos:
 
-* O nome do Azure Data Factory deve ser globalmente exclusivo. Se o erro **O nome de data factory “ADFCopyTutorialDF” não está disponível** for exibido nos resultados, execute as seguintes etapas:  
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se o erro **O nome de data factory "ADFCopyTutorialDF" não está disponível** for exibido nos resultados, execute as seguintes etapas:  
   
   1. Altere o nome (por exemplo, yournameADFCopyTutorialDF) no arquivo **datafactory.json** .
   2. No primeiro comando em que a variável **$cmd** é atribuída um valor, substitua ADFCopyTutorialDF pelo novo nome e execute o comando. 
@@ -522,11 +516,11 @@ Para cada fatia, duas linhas de dados do arquivo de origem são copiadas para a 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você usou uma API REST para criar um Azure Data Factory e copiar dados de um blob do Azure para o Banco de Dados SQL do Azure. Aqui estão as etapas de alto nível executadas nesse tutorial:  
 
-1. Foi criada uma **data factory**do Azure.
+1. Foi criada uma **data factory** do Azure.
 2. Foram criados **serviços vinculados**:
    1. Um serviço vinculado do Armazenamento do Azure para vincular a conta do Armazenamento do Azure que contém os dados de entrada.     
    2. Um serviço vinculado do SQL do Azure para vincular o banco de dados que contém os dados de saída. 
-3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
+3. Foram criados **conjuntos de dados** que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma Atividade de Cópia com BlobSource como origem e SqlSink como coletor. 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492290"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518697"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movendo dados para e entre as etapas de pipeline de ML (Python)
-
 
 Este artigo fornece código para importação, transformação e movimentação de dados entre etapas em um pipeline de Azure Machine Learning. Para obter uma visão geral de como os dados funcionam no Azure Machine Learning, consulte [acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md). Para obter os benefícios e a estrutura de pipelines de Azure Machine Learning, confira [o que são pipelines de Azure Machine Learning?](concept-ml-pipelines.md).
 
@@ -29,7 +28,7 @@ Esta artigo mostrará como:
 - Dividir `Dataset` dados em subconjuntos, como subconjuntos de treinamento e validação
 - Criar `OutputFileDatasetConfig` objetos para transferir dados para a próxima etapa do pipeline
 - Usar `OutputFileDatasetConfig` objetos como entrada para etapas de pipeline
-- Criar novos `Dataset` objetos a partir dos `OutputFileDatasetConfig` quais deseja persistir
+- Criar novos `Dataset` objetos a partir de `OutputFileDatasetConfig` sua wisƒh para persistir
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +36,7 @@ Você precisará de:
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-- O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
+- O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) ou acesso ao [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Um Workspace do Azure Machine Learning.
   
@@ -56,7 +55,7 @@ Você precisará de:
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Usar `Dataset` objetos para dados preexistentes 
 
-A maneira preferida de ingerir dados em um pipeline é usar um objeto [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) . `Dataset` os objetos representam dados persistentes disponíveis em um espaço de trabalho.
+A maneira preferida de ingerir dados em um pipeline é usar um objeto [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29) . `Dataset` os objetos representam dados persistentes disponíveis em um espaço de trabalho.
 
 Há várias maneiras de criar e registrar `Dataset` objetos. Os conjuntos de dados tabulares são para a disponibilidade delimitada em um ou mais arquivos. Os conjuntos de dados de arquivo são para dado binário (como imagens) ou para dados que você analisará. As maneiras programáticas mais simples de criar `Dataset` objetos são usar BLOBs existentes no armazenamento do espaço de trabalho ou URLs públicas:
 
@@ -64,10 +63,12 @@ Há várias maneiras de criar e registrar `Dataset` objetos. Os conjuntos de dad
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 Para obter mais opções sobre como criar conjuntos de dados com opções diferentes e de fontes diferentes, registrá-los e analisá-los na interface do usuário do Azure Machine Learning, entender como o tamanho dos dados interage com a capacidade de computação e o controle de versão deles, consulte [criar conjuntos de Azure Machine Learning](how-to-create-register-datasets.md). 
@@ -153,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Usar `OutputFileDatasetConfig` para dados intermediários
 
-Embora `Dataset` os objetos representem apenas dados persistentes, os [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) objetos podem ser usados para saída de dados temporários de etapas de pipeline **e** dados de saída persistentes. `OutputFileDatasetConfig` dá suporte à gravação de dados no armazenamento de BLOBs, FileShare, adlsgen1 ou adlsgen2. Ele dá suporte ao modo de montagem e ao modo de carregamento. No modo de montagem, os arquivos gravados no diretório montado são armazenados permanentemente quando o arquivo é fechado. No modo de carregamento, os arquivos gravados no diretório de saída são carregados no final do trabalho. Se o trabalho falhar ou for cancelado, o diretório de saída não será carregado.
+Embora `Dataset` os objetos representem apenas dados persistentes, os [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) objetos podem ser usados para saída de dados temporários de etapas de pipeline **e** dados de saída persistentes. `OutputFileDatasetConfig` dá suporte à gravação de dados no armazenamento de BLOBs, FileShare, adlsgen1 ou adlsgen2. Ele dá suporte ao modo de montagem e ao modo de carregamento. No modo de montagem, os arquivos gravados no diretório montado são armazenados permanentemente quando o arquivo é fechado. No modo de carregamento, os arquivos gravados no diretório de saída são carregados no final do trabalho. Se o trabalho falhar ou for cancelado, o diretório de saída não será carregado.
 
  `OutputFileDatasetConfig` o comportamento padrão do objeto é gravar no repositório de armazenamento padrão do espaço de trabalho. Passe seus `OutputFileDatasetConfig` objetos para o `PythonScriptStep` com o `arguments` parâmetro.
 
@@ -200,7 +201,7 @@ with open(args.output_path, 'w') as f:
 
 Depois que a etapa inicial do pipeline grava alguns dados no `OutputFileDatasetConfig` caminho e se torna uma saída dessa etapa inicial, ela pode ser usada como uma entrada para uma etapa posterior. 
 
-No código a seguir, 
+No seguinte código: 
 
 * `step1_output_data` indica que a saída do PythonScriptStep, `step1` é gravada no repositório de armazenamento do ADLS Gen 2, `my_adlsgen2` no modo carregar acesso. Saiba mais sobre como [configurar permissões de função](how-to-access-data.md#azure-data-lake-storage-generation-2) a fim de gravar dados de volta nos armazenamentos de ADLS Gen 2. 
 
@@ -223,7 +224,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -239,6 +240,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## <a name="delete-outputfiledatasetconfig-contents-when-no-longer-needed"></a>Excluir `OutputFileDatasetConfig` conteúdo quando não for mais necessário
+
+O Azure não exclui automaticamente os dados intermediários gravados com o `OutputFileDatasetConfig` . Para evitar encargos de armazenamento para grandes quantidades de dados desnecessários, você deve:
+
+* Exclua programaticamente dados intermediários no final de uma execução de pipeline, quando ele não for mais necessário
+* Use o armazenamento de BLOBs com uma política de armazenamento de curto prazo para dados intermediários (consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Examine regularmente e exclua dados não mais necessários
+
+Para obter mais informações, consulte [planejar e gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

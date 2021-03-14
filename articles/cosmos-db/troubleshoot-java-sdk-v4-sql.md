@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683128"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596470"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solução de problemas ao usar o SDK do Java v4 do Azure Cosmos DB com contas de API do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Comece com esta lista:
 * Se você não encontrar uma solução, leia o restante deste artigo. Em seguida, arquive um [problema do GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar marcas ao problema do GitHub, adicione uma tag *cosmos:v4-item*.
 
 ### <a name="retry-logic"></a>Lógica de repetição <a id="retry-logics"></a>
-Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha se tentar novamente no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
+O SDL do Cosmos DB em qualquer falha de E/S tentará repetir a operação com falha se a nova tentativa no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
 
 1. As falhas de leitura e consulta de e/s serão repetidas pelo SDK sem identificando-las ao usuário final.
 2. As gravações (criar, Upsert, substituir, excluir) são "não" idempotentes e, portanto, o SDK nem sempre pode repetir as operações de gravação com falha. É necessário que a lógica do aplicativo do usuário manipule a falha e tente novamente.
@@ -54,7 +54,7 @@ Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha s
 Para obter o melhor desempenho:
 * Verifique se o aplicativo está em execução na mesma região que sua conta do Azure Cosmos DB. 
 * Verifique o uso da CPU no host em que o aplicativo está sendo executado. Se o uso da CPU estiver em 50% ou mais, execute seu aplicativo em um host com uma configuração superior. Ou você pode distribuir a carga em mais computadores.
-    * Se você estiver executando o aplicativo no Serviço de Kubernetes do Azure, poderá [usar o Azure Monitor para monitorar a utilização da CPU](../azure-monitor/insights/container-insights-analyze.md).
+    * Se você estiver executando o aplicativo no Serviço de Kubernetes do Azure, poderá [usar o Azure Monitor para monitorar a utilização da CPU](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitação de conexão
 A limitação de conexão pode ocorrer devido a um [limite de conexão no computador host] ou a [Esgotamento da porta SNAT (PAT) do Azure].

@@ -1,26 +1,26 @@
 ---
 title: Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
-description: Saiba como proteger suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure de um único painel na central de segurança do Azure.
+description: Proteja suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure no painel da central de segurança do Azure.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 02/12/2021
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584950"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578255"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 
-As ferramentas de segurança nativa do Azure fornecem uma infraestrutura segura para um ambiente híbrido do Azure, solução VMware do Azure e VMs (máquinas virtuais) locais. Este artigo mostra como configurar as ferramentas do Azure para segurança de ambiente híbrido. Você usará várias ferramentas para identificar e resolver diferentes tipos de ameaças.
+As ferramentas de segurança nativa do Azure fornecem proteção para um ambiente híbrido do Azure, solução Azure VMware e VMs (máquinas virtuais) locais. Este artigo mostra como configurar as ferramentas do Azure para segurança de ambiente híbrido. Você usará essas ferramentas para identificar e resolver várias ameaças.
 
 ## <a name="azure-native-services"></a>Serviços nativos do Azure
 
-Aqui está um resumo rápido de cada serviço nativo do Azure:
+Aqui está um resumo rápido dos serviços nativos do Azure:
 
 - **Espaço de trabalho log Analytics:** Log Analytics espaço de trabalho é um ambiente exclusivo para armazenar dados de log. Cada workspace tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um espaço de trabalho específico.
-- **Central de segurança do Azure:** A central de segurança do Azure é um sistema de gerenciamento de segurança de infraestrutura unificado. Ele reforça a postura de segurança dos data centers e fornece proteção avançada contra ameaças em cargas de trabalho híbridas na nuvem ou localmente.
-- **Sentinela do Azure:** O Azure Sentinel é uma solução de disparar (gerenciamento de eventos de informações de segurança) nativa de nuvem e do SIEM (segurança de orquestração automática). Ele fornece análise de segurança inteligente e inteligência contra ameaças em um ambiente. É uma solução única para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças.
+- **Central de segurança do Azure:** A central de segurança do Azure é um sistema de gerenciamento de segurança de infraestrutura unificado. Ele reforça a segurança dos data centers e fornece proteção avançada contra ameaças em cargas de trabalho híbridas na nuvem ou localmente.
+- **Sentinela do Azure:** O Azure Sentinel é uma solução de SIEM (gerenciamento de eventos de informações de segurança) nativa em nuvem. Ele fornece análise de segurança, detecção de alertas e resposta automatizada contra ameaças em um ambiente.
 
 ## <a name="topology"></a>Topologia
 
@@ -30,13 +30,13 @@ O agente de Log Analytics permite a coleta de dados de log do Azure, da soluçã
 
 Depois que os logs são coletados pelo espaço de trabalho Log Analytics, você pode configurar o espaço de trabalho Log Analytics com a central de segurança do Azure. A central de segurança do Azure avaliará o status da vulnerabilidade das VMs da solução Azure VMware e emitirá um alerta para qualquer Vulnerabilidade crítica. Por exemplo, ele avalia patches de sistema operacional ausentes, configurações incorretas de segurança e [proteção de ponto de extremidade](../security-center/security-center-services.md).
 
-Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. No diagrama anterior, a central de segurança do Azure está conectada ao Azure Sentinel usando o conector da central de segurança do Azure. A central de segurança do Azure encaminhará a vulnerabilidade do ambiente para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Você também pode criar a consulta de regras agendadas para detectar atividades indesejadas e convertê-las nos incidentes.
+Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para detecção de alertas, visibilidade de ameaças, busca e resposta a ameaças. No diagrama anterior, a central de segurança do Azure está conectada ao Azure Sentinel usando o conector da central de segurança do Azure. A central de segurança do Azure encaminhará a vulnerabilidade do ambiente para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Você também pode criar a consulta de regras agendadas para detectar atividades indesejadas e convertê-las nos incidentes.
 
 ## <a name="benefits"></a>Benefícios
 
 - Os serviços nativos do Azure podem ser usados para segurança de ambiente híbrido no Azure, solução Azure VMware e serviços locais.
 - Usando um espaço de trabalho Log Analytics, você pode coletar os dados ou os logs para um único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
-- A central de segurança do Azure oferece uma série de recursos, incluindo:
+- A central de segurança do Azure oferece muitos recursos, incluindo:
     - Monitoramento de integridade do arquivo
     - Detecção de ataque de não-arquivo
     - Avaliação de patch do sistema operacional 
@@ -50,15 +50,15 @@ Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel p
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
-Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implantar a central de segurança e configurar VMs da solução Azure VMware
 
-A central de segurança do Azure é uma ferramenta pré-configurada e não requer implantação. Na portal do Azure, pesquise a **central de segurança** e selecione-a.
+A central de segurança do Azure é uma ferramenta pré-configurada que não requer implantação. Na portal do Azure, pesquise a **central de segurança** e selecione-a.
 
 ### <a name="enable-azure-defender"></a>Habilitar o Azure Defender
 
-O Azure defender estende a proteção avançada contra ameaças da central de segurança do Azure em suas cargas de trabalho híbridas localmente e na nuvem. Portanto, para proteger suas VMs de solução do Azure VMware, você precisará habilitar o Azure defender. 
+O Azure defender estende a proteção avançada contra ameaças da central de segurança do Azure em suas cargas de trabalho híbridas, tanto localmente quanto na nuvem. Portanto, para proteger suas VMs de solução do Azure VMware, você precisará habilitar o Azure defender. 
 
 1. Na central de segurança, selecione **Guia de introdução**.
 
@@ -81,9 +81,9 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 4. Na guia **pré-requisitos** , selecione **Avançar**.
 
 5. Na guia **detalhes do recurso** , preencha os seguintes detalhes: 
-    - Assinatura
-    - Grupo de recursos
-    - Region 
+    - Subscription
+    - Resource group
+    - Região 
     - Sistema operacional
     - Detalhes do servidor proxy
     
@@ -149,7 +149,7 @@ Agora você está pronto para conectar o Azure Sentinel com suas fontes de dados
 
 ## <a name="create-rules-to-identify-security-threats"></a>Criar regras para identificar ameaças de segurança
 
-Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras para gerar alertas com base em ameaças detectadas. No exemplo a seguir, criaremos uma regra para identificar as tentativas de entrar no Windows Server com a senha incorreta.
+Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras para gerar alertas para ameaças detectadas. No exemplo a seguir, criaremos uma regra para as tentativas de entrar no Windows Server com a senha incorreta.
 
 1. Na página Visão geral do Sentinela do Azure, em configurações, selecione **análise**.
 
@@ -162,7 +162,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
     - Nome
     - Descrição
     - Táticas
-    - Severity
+    - Severidade
     - Status
 
     Selecione **Avançar: definir >de lógica de regra**.
@@ -196,7 +196,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
 
 Após a terceira tentativa com falha de entrar no Windows Server, a regra criada dispara um incidente para cada tentativa malsucedida.
 
-## <a name="view-generated-alerts"></a>Exibir alertas gerados
+## <a name="view-alerts"></a>Exibir alertas
 
 Você pode exibir incidentes gerados com o Azure Sentinel. Você também pode atribuir incidentes e fechá-los depois que eles forem resolvidos, tudo no Azure Sentinel.
 
@@ -243,5 +243,5 @@ Você pode criar consultas ou usar a consulta predefinida disponível no Azure S
 Agora que você já abordou como proteger suas VMs de solução do Azure VMware, talvez queira saber mais sobre:
 
 - Usando o [painel do Azure defender](../security-center/azure-defender-dashboard.md).
-- [Detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
 - [Gerenciamento do ciclo de vida de VMs de solução do Azure VMware](lifecycle-management-of-azure-vmware-solution-vms.md).

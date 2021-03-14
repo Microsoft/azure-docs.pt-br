@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 08/10/2020
-  ms.openlocfilehash: 396b32a9f84895532c8c233b5c7ccc3d2ce85c11
-  ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+  ms.openlocfilehash: 4727e7ca3e0831483811c77be34e69f794cfb576
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96937297"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101690508"
 landingContent:
 - title: Sobre os Serviços de Comunicação do Azure
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
     links:
     - text: Opções de biblioteca de clientes
       url: concepts/sdk-options.md
+    - text: Interoperabilidade do Teams
+      url: concepts/teams-interop.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -78,7 +80,7 @@ landingContent:
       url: concepts/telephony-sms/sdk-features.md
     - text: Descrição geral da chamada
       url: concepts/voice-video-calling/calling-sdk-features.md
-    - text: Planejar sua solução de telefonia e SMS
+    - text: Tipos de número de telefone
       url: concepts/telephony-sms/plan-solution.md
 - title: Chat
   linkLists:

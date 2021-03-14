@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739051"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -53,6 +53,11 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 | Type | *ExpressRoute* |
 | Nome do IP público do gateway  | *gwpip* |
 
+> [!IMPORTANT]
+> A compatibilidade com IPv6 para emparelhamento privado está atualmente em **Versão Prévia Pública**. Se você quiser conectar sua rede virtual a um circuito do ExpressRoute com o emparelhamento privado configurado baseado em IPv6, verifique se a rede virtual é de pilha dupla e se segue as diretrizes descritas [aqui](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="add-a-gateway"></a>Adicionar um gateway
 
 1. Para se conectar com o Azure, execute `Connect-AzAccount`.
@@ -76,6 +81,11 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    Se você estiver usando uma rede virtual de pilha dupla e planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, crie uma sub-rede de gateway de pilha dupla em vez disso.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Defina a configuração.
 
@@ -102,6 +112,10 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> Se você planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, não se esqueça de selecionar um SKU do AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **-GatewaySku**.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>Verificar se o gateway foi criado
 Use os comandos a seguir para verificar se o gateway foi criado:

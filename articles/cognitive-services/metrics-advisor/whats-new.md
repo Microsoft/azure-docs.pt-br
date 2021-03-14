@@ -7,15 +7,15 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: f448bc4a45a4910ed6023a5fc17a38b31baea1e2
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: d257633a8218399cab1d40ab8e8fb3d819e1922d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186890"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051728"
 ---
 # <a name="metrics-advisor-whats-new-in-the-docs"></a>Assistente de Métricas: novidades na documentação
 

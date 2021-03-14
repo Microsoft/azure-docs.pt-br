@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673368"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527115"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: configurar o CybSafe para o provisionamento automático de usuário
 
@@ -56,7 +56,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-cybsafe-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o CybSafe da Galeria de aplicativos do Azure AD
 
-Adicione o CybSafe da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no CybSafe. Se você tiver configurado anteriormente o CybSafe para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o CybSafe da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no CybSafe. Se você tiver configurado anteriormente o CybSafe para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -121,6 +121,10 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |localidade|String|
    |timezone|String|
    |userType|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para CybSafe**.
 
@@ -153,6 +157,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
 2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Log de alterações
+
+* 02/15/2021- **Departamento** de atributos de extensão da empresa do usuário, **divisão** e **organização** foram adicionados.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

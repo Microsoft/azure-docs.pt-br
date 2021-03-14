@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133541"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575459"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à sua conta de cobrança do Azure atualizada
 
@@ -42,7 +42,7 @@ Quando sua conta for atualizada, um perfil de cobrança será criado automaticam
 
 As funções nos perfis de cobrança têm permissões para exibir e gerenciar faturas e métodos de pagamento. Essas funções devem ser atribuídas a usuários que pagam faturas como membros da equipe de contabilidade em uma organização. Para saber mais, confira [funções e tarefas do perfil de cobrança](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Quando sua conta for atualizada, para cada assinatura na qual você concedeu a permissão para [exibir faturas](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), os usuários que tiverem uma função de proprietário, colaborador, leitor ou leitor de cobrança do Azure receberão a função leitor no respectivo perfil de cobrança.
+Quando sua conta for atualizada, para cada assinatura na qual você concedeu a permissão para [exibir faturas](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice), os usuários que tiverem uma função de proprietário, colaborador, leitor ou leitor de cobrança do Azure receberão a função leitor no respectivo perfil de cobrança.
 
 ## <a name="invoice-sections"></a>Seções da fatura
 

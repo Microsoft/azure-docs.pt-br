@@ -18,6 +18,9 @@
           href: get-started-cli.md
 - name: Conceitos
   items:
+    - name: Configuração
+      href: configuration.md
+      displayName: Routing
     - name: Suporte a API com o Azure Functions
       href: apis.md
     - name: Rotas
@@ -42,6 +45,8 @@
       href: application-settings.md
     - name: Configurar bibliotecas e estruturas de front-end
       href: front-end-frameworks.md
+    - name: Redefinir tokens de implantação
+      href: deployment-token-management.md
 - name: Tutoriais
   items:
     - name: Publicar de um gerador de site estático

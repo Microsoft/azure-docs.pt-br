@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Lista do SharePoint Online usando o Azure Data Factory
 description: Saiba como copiar dados da Lista do SharePoint Online em armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: f8074b69b97a6ef96837e73a1082d2deb67084d9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474940"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177854"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista do SharePoint Online usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ Ao copiar dados da Lista do SharePoint Online, os seguintes mapeamentos são usa
 | Várias linhas de texto                          | Edm.String                                           | String                                   |
 | Escolha (menu para escolher)                    | Edm.String                                           | String                                   |
 | Número (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
-| Moeda ($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| Moeda ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
 | Data e hora                                   | Edm.DateTime                                         | Datetime                                 |
 | Pesquisa (informações já presentes nesse site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de seleção)                              | Edm.Boolean                                          | Boolean                                  |
@@ -237,6 +232,9 @@ Você pode copiar o arquivo do SharePoint Online usando **atividade da Web** par
         - **Método de solicitação**: GET
         - **Cabeçalho adicional**: use a expressão a seguir`@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`, que usa o token de Portador gerado pela atividade da Web upstream como cabeçalho de autorização. Substitua o nome da atividade da Web.
     - Configure o coletor de atividades de cópia como de costume.
+
+> [!NOTE]
+> Mesmo que um aplicativo do Azure AD tenha `FullControl` permissões no SharePoint Online, você não pode copiar arquivos de bibliotecas de documentos com IRM habilitado.
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

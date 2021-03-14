@@ -27,8 +27,6 @@
       href: cdn-custom-ssl.md
     - name: Definir regras de cache
       href: cdn-caching-rules-tutorial.md
-    - name: Impor HTTPS usando o mecanismo de regras Standard
-      href: cdn-standard-rules-engine.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -76,6 +74,8 @@
           href: cdn-improve-performance.md
         - name: Várias origens do ponto de extremidade
           href: endpoint-multiorigin.md
+        - name: Impor HTTPS usando o mecanismo de regras Standard
+          href: cdn-standard-rules-engine.md
         - name: Controlar o comportamento do cache
           items:
             - name: Controlar o comportamento do cache usando regras de cache

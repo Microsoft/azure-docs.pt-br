@@ -1,22 +1,19 @@
 ---
 title: Extensão de script do Azure personalizado para o Windows
 description: Automatizar tarefas de configuração de VM do Windows usando a Extensão de Script Personalizado
-services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: windows
 ms.date: 08/31/2020
-ms.author: robreed
-ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 13b4c4ef50ea37cabe30474d339acb19176cef97
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258697"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553894"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -32,6 +29,7 @@ Este documento detalha como usar a Extensão de Script Personalizado usando o m�
 ### <a name="operating-system"></a>Sistema operacional
 
 A Extensão de Script Personalizado para Windows executará nos SOs de extensão compatíveis da extensão.
+
 ### <a name="windows"></a>Windows
 
 * Windows Server 2008 R2
@@ -67,7 +65,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * A extensão executará um script somente uma vez. Se você quiser executar um script em cada inicialização, use a extensão pra criar uma Tarefa Agendada do Windows.
 * Se você quiser agendar quando um script será executado, use a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
-* A extensão de script personalizado não dá suporte nativo para servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que dá suporte a servidores proxy no script, como a *Curl*
+* A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suporte a servidores proxy em seu script, como *Invoke-WebRequest*
 * Esteja ciente dos locais de diretório não padrão nos quais os scripts ou comandos podem confiar e mantenha uma lógica para lidar com essa situação.
 * A extensão de script personalizado será executada na conta LocalSystem
 * Se você planeja usar as propriedades *storageAccountName* e *storageAccountKey* , essas propriedades deverão ser posicionadas no *protectedSettings*.

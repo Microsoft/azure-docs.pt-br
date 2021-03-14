@@ -3,14 +3,14 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897268"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509346"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configurar relatórios de backup do Azure (visualização)
+# <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
 Um requisito comum para administradores de backup é obter insights sobre backups com base em dados que abrangem um longo período. Os casos de uso para essa solução incluem:
 
@@ -18,12 +18,12 @@ Um requisito comum para administradores de backup é obter insights sobre backup
 - Auditoria de backups e restaurações.
 - Identificação das principais tendências em diferentes níveis de granularidade.
 
-Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) e as [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
+Hoje, o Backup do Azure fornece uma solução de relatório que usa os [logs do Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) e as [pastas de trabalho do Azure](../azure-monitor/visualize/workbooks-overview.md). Esses recursos ajudam você a obter informações detalhadas sobre os backups em toda a sua propriedade de backups. Este artigo explica como configurar e ver Relatórios de Backup do Azure.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-- Há suporte para Relatórios de Backup em VMs do Azure, no SQL em VMs do Azure, no SAP HANA em VMs do Azure, no agente do MARS (Serviços de Recuperação do Microsoft Azure), no MABS (Servidor de Backup do Microsoft Azure) e no System Center DPM (Data Protection Manager). Para o backup do compartilhamento de arquivos do Azure, os dados são exibidos para todos os registros criados em ou após 1º de junho de 2020.
-- Para o backup do compartilhamento de arquivos do Azure, os dados em instâncias protegidas não são exibidos no momento nos relatórios (o padrão é zero para todos os itens de backup).
+- Há suporte para Relatórios de Backup em VMs do Azure, no SQL em VMs do Azure, no SAP HANA em VMs do Azure, no agente do MARS (Serviços de Recuperação do Microsoft Azure), no MABS (Servidor de Backup do Microsoft Azure) e no System Center DPM (Data Protection Manager). Para o backup do compartilhamento de arquivos do Azure, os dados são exibidos para os registros criados em ou após 1º de junho de 2020.
+- Para backup de compartilhamento de arquivos do Azure, os dados em instâncias protegidas são exibidos para registros criados após 1º de fevereiro de 2021 (o padrão é zero para registros mais antigos).
 - Para cargas de trabalho do DPM, há suporte para Relatórios de Backup no DPM versão 5.1.363.0 e superior e no Agente versão 2.0.9127.0 e superior.
 - Para cargas de trabalho do MABS, há suporte para Relatórios de Backup no MABS versão 13.0.415.0 e superior e no Agente versão 2.0.9170.0 e superior.
 - Os Relatórios de Backup podem ser exibidos em todos os itens de backup, cofres, assinaturas e regiões, desde que os dados estejam sendo enviados para um workspace do Log Analytics ao qual o usuário tenha acesso. Para exibir os relatórios de um conjunto de cofres, você só precisa ter acesso de leitor ao workspace do Log Analytics ao qual os cofres estão enviando os dados. Você não precisa ter acesso aos cofres individuais.
@@ -41,9 +41,9 @@ Siga estas etapas para começar a usar os relatórios.
 
 Configure um ou mais workspaces do Log Analytics para armazenar seus dados de relatório de backup. A localização e a assinatura em que esse workspace do Log Analytics pode ser criado são independentes da localização e da assinatura em que os cofres estão.
 
-Para configurar um workspace do Log Analytics, confira [Criar um workspace do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+Para configurar um workspace do Log Analytics, confira [Criar um workspace do Log Analytics no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Por padrão, os dados de um workspace do Log Analytics são mantidos por 30 dias. Para ver os dados em um horizonte de tempo maior, altere o período de retenção do workspace do Log Analytics. Para alterar o período de retenção, confira [Gerenciar o uso e os custos com os logs do Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
+Por padrão, os dados de um workspace do Log Analytics são mantidos por 30 dias. Para ver os dados em um horizonte de tempo maior, altere o período de retenção do workspace do Log Analytics. Para alterar o período de retenção, confira [Gerenciar o uso e os custos com os logs do Azure Monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Definir as configurações de diagnóstico para os cofres
 
@@ -140,6 +140,34 @@ O filtro de **tipo de gerenciamento de backup** na parte superior da guia deve t
 
 ![Otimizar otimizações de agendamento de backup de guia](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
+###### <a name="policy-adherence"></a>Adesão à política
+
+Usando essa guia, você pode identificar se todas as instâncias de backup tiveram pelo menos um backup bem-sucedido todos os dias. Para itens com a política de backup semanal, você pode usar essa guia para determinar se todas as instâncias de backup tiveram pelo menos um backup bem-sucedido de uma semana.
+
+Há dois tipos de exibições de adesão de política disponíveis:
+
+* **Adesão de política por período de tempo**: usando essa exibição, você pode identificar quantos itens tiveram pelo menos um backup bem-sucedido em um determinado dia e quantos não tiveram um backup bem-sucedido nesse dia. Você pode clicar em uma linha para ver os detalhes de todos os trabalhos de backup que foram disparados no dia selecionado. Observe que se você aumentar o intervalo de tempo para um valor maior, como os últimos 60 dias, a grade será renderizada no modo de exibição semanal e exibirá a contagem de todos os itens que tiveram pelo menos um backup bem-sucedido em cada dia da semana determinada. Da mesma forma, há uma exibição mensal para intervalos de tempo maiores.
+
+No caso de itens com backup semanal, essa grade ajuda a identificar todos os itens que tiveram pelo menos um backup bem-sucedido na semana determinada. Para um intervalo de tempo maior, como os últimos 120 dias, a grade é renderizada na exibição mensal e exibe a contagem de todos os itens que tiveram pelo menos um backup bem-sucedido em cada semana no mês determinado. Consulte [convenções usadas em relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obter mais detalhes sobre os modos de exibição diário, semanal e mensal.
+
+![Adesão de política por período de tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Adesão de política por instância de backup**: usando essa exibição, você pode obter detalhes de adesão de política em um nível de instância de backup. Uma célula que é verde indica que a instância de backup tinha pelo menos um backup bem-sucedido no dia determinado. Uma célula que é vermelha indica que a instância de backup não tinha até um backup bem-sucedido no dia determinado. As agregações diária, semanal e mensal seguem o mesmo comportamento que a política de adesão por período de tempo. Você pode clicar em qualquer linha para exibir todos os trabalhos de backup na instância de backup específica no intervalo de tempo selecionado.
+
+![Adesão de política por instância de backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
+
+###### <a name="email-azure-backup-reports"></a>Enviar relatórios de backup do Azure
+
+Usando o recurso de **relatório de email** disponível em relatórios de backup, você pode criar tarefas automatizadas para receber relatórios periódicos por email. Esse recurso funciona implantando um aplicativo lógico em seu ambiente do Azure que consulta dados de seus espaços de trabalho selecionados de Log Analytics (LA), com base nas entradas que você fornecer.
+
+Depois que o aplicativo lógico for criado, você precisará autorizar conexões com Azure Monitor logs e o Office 365. Para fazer isso, navegue até **aplicativos lógicos** na portal do Azure e procure o nome da tarefa que você criou. A seleção do item de menu **conexões de API** abre a lista de conexões de API que você precisa autorizar. [Saiba mais sobre como configurar emails e solucionar problemas](backup-reports-email.md).
+
+###### <a name="customize-azure-backup-reports"></a>Personalizar relatórios de backup do Azure
+
+Os relatórios de backup usam [funções de sistema em logs de Azure monitor](backup-reports-system-functions.md). Essas funções operam em dados nas tabelas brutas de backup do Azure em LA e retornam dados formatados que ajudam a recuperar facilmente as informações de todas as suas entidades relacionadas ao backup, usando consultas simples. 
+
+Para criar suas próprias pastas de trabalho de relatório usando relatórios de backup como base, você pode navegar até relatórios de backup, clicar em **Editar** na parte superior do relatório e Exibir/editar as consultas que estão sendo usadas nos relatórios. Consulte a [documentação de pastas de trabalho do Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para saber mais sobre como criar relatórios personalizados. 
+
 ## <a name="export-to-excel"></a>Exportar para o Excel
 
 Selecione o botão de seta para baixo no canto superior direito de qualquer widget, como uma tabela ou um gráfico, para exportar o conteúdo desse widget como uma planilha do Excel no estado em que se encontra com os filtros existentes aplicados. Para exportar mais linhas de uma tabela para o Excel, aumente o número de linhas exibidas na página usando a seta suspensa **Linhas por Página** na parte superior de cada grade.
@@ -161,6 +189,8 @@ Se você usar o [Azure Lighthouse](../lighthouse/index.yml) com acesso delegado 
 - O relatório mostra os detalhes dos trabalhos (além dos trabalhos de log) que foram *disparados* no intervalo de tempo selecionado.
 - Os valores mostrados para **Armazenamento em Nuvem** e **Instâncias Protegidas** estão no *final* do intervalo de tempo selecionado.
 - Os itens de Backup exibidos nos relatórios são aqueles que estão no *final* do intervalo de tempo selecionado. Os itens de Backup que foram excluídos no meio do intervalo de tempo selecionado não são exibidos. A mesma convenção também se aplica às políticas de Backup.
+- Se o intervalo de tempo selecionado abrange um período de 30 dias de menos, os gráficos são renderizados na exibição diária, em que há um ponto de dados para todos os dias. Se o intervalo de tempo abranger um período maior que 30 dias e menor que (ou igual a) 90 dias, os gráficos serão renderizados no modo de exibição semanal. Para intervalos de tempo maiores, os gráficos são renderizados no modo de exibição mensal. A agregação de dados semanalmente ou mensal ajuda a melhorar o desempenho de consultas e facilitar a legibilidade dos dados em gráficos.
+- As grades de adesão de política também seguem uma lógica de agregação semelhante, conforme descrito acima. No entanto, há algumas pequenas diferenças. A primeira diferença é que, para itens com política de backup semanal, não há nenhuma exibição diária (somente exibições semanais e mensais estão disponíveis). Além disso, nas grades de itens com a política de backup semanal, um ' mês ' é considerado um período de 4 semanas (28 dias) e não 30 dias, para eliminar semanas parciais de consideração.
 
 ## <a name="query-load-times"></a>Tempos de carregamento de consulta
 

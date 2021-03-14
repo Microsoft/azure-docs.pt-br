@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b58280a7a1a49bdc8fc81900a32ee4edc115c71f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98891413"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216149"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: criar e enviar um trabalho
 
@@ -31,8 +31,6 @@ Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, voc
 ## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 
@@ -90,4 +88,4 @@ Você receberá uma resposta semelhante a esta:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job)

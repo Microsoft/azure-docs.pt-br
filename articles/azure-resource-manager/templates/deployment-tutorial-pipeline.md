@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com o Azure Pipelines
 description: Saiba como criar, testar e implantar continuamente modelos do ARM (Azure Resource Manager).
-ms.date: 08/24/2020
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722783"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do ARM com o Azure Pipelines
 
@@ -105,8 +105,8 @@ O _azuredeploy.json_ foi adicionado ao repositório local. Em seguida, faça upl
 
     Você pode receber um aviso sobre LF. É possível ignorá-lo. A **main** é a ramificação principal.  Normalmente, você cria um branch para cada atualização. Para simplificar o tutorial, use a ramificação principal diretamente.
 
-1. Navegue até o repositório GitHub em um navegador. A URL é `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Você deverá ver a pasta _CreateWebApp_ e os três arquivos dentro dela.
-1. Selecione _linkedStorageAccount.json_ para abrir o modelo.
+1. Navegue até o repositório GitHub em um navegador. A URL é `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Você verá a pasta _CreateWebApp_ e os dois arquivos dentro dela.
+1. Selecione _azuredeploy.json_ para abrir o modelo.
 1. Selecione a botão **Bruto**. A URL começa com `https://raw.githubusercontent.com`.
 1. Faça uma cópia da URL. Você precisará fornecer esse valor quando configurar o pipeline posteriormente no tutorial.
 
@@ -134,7 +134,7 @@ Crie uma conexão de serviço usada para implantar projetos no Azure.
 
 1. Selecione as **Configurações do projeto** na parte inferior do menu esquerdo.
 1. Selecione **Conexões de serviço** em **Pipelines**.
-1. Selecione **Nova conexão de serviço**, **Azure Resource Manager** e, em seguida, selecione **Avançar**.
+1. Selecione **Criar conexão de serviço**, **Azure Resource Manager** e **Avançar**.
 1. Selecione **Entidade de serviço** e, em seguida, **Avançar**.
 1. Insira os valores a seguir:
 
@@ -155,7 +155,7 @@ Até agora, você concluiu as seguintes tarefas.  Se você ignorar as seções a
 Para criar um pipeline com uma etapa para implantar um modelo:
 
 1. Selecione **Pipelines** no menu esquerdo.
-1. Selecione **Novo pipeline**.
+1. Escolha **Criar pipeline**.
 1. Na guia **Conectar**, selecione **GitHub**. Se solicitado, insira suas credenciais do GitHub e siga as instruções. Se você vir a tela a seguir, selecione **Selecionar apenas repositórios** e verifique se seu repositório está na lista antes de selecionar **Aprovar e instalar**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines selecionar somente repositórios](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
@@ -174,10 +174,10 @@ Para criar um pipeline com uma etapa para implantar um modelo:
     * **Ação**: selecionar a ação **Criar ou Atualizar Grupo de Recursos** executa 2 ações – 1. criar um grupo de recursos se um novo nome de grupo de recursos for fornecido; 2. implantar o modelo especificado.
     * **Grupo de recursos**: insira um nome para o novo grupo de recursos. Por exemplo, **AzureRmPipeline-rg**.
     * **Localização**: selecione um local para o grupo de recursos, por exemplo, **EUA Central**.
-    * **Local do modelo**: selecione **Artefato vinculado**, que significa que a tarefa pesquisa o arquivo de modelo diretamente do repositório conectado.
-    * **Modelo**: digite _CreateWebApp/azuredeploy.json_. Se você tiver alterado o nome da pasta e o nome do arquivo, precisará alterar esse valor.
-    * **Parâmetros de modelo**: Deixe este campo em branco. Você especificará os valores de parâmetro em **Substituir parâmetros de modelo**.
-    * **Substituir parâmetros de modelo**: digite `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Substitua o nome do projeto e a URL do modelo vinculado. A URL do modelo vinculado é o que você anotou ao final de [Criar um repositório GitHub](#create-a-github-repository). Começa com `https://raw.githubusercontent.com` .
+    * **Localização do modelo**: selecione a **URL do arquivo**, o que significa que a tarefa procura o arquivo de modelo usando a URL. Como _relativePath_ é usado no modelo principal e _relativePath_ é compatível apenas com implantações baseadas em URI, você deve usar a URL aqui.
+    * **Link do modelo**: insira a URL que você obteve ao final da seção [Preparar um repositório GitHub](#prepare-a-github-repository). Começa com `https://raw.githubusercontent.com` .
+    * **Link dos parâmetros do modelo**: deixe este campo em branco. Você especificará os valores de parâmetro em **Substituir parâmetros de modelo**.
+    * **Substituir parâmetros de modelo**: digite `-projectName [EnterAProjectName]` .
     * **Modo de implantação**: selecione **Incremental**.
     * **Nome da implantação**: digite **DeployPipelineTemplate**. Selecione **Avançado** antes de poder ver o **Nome da implantação**.
 

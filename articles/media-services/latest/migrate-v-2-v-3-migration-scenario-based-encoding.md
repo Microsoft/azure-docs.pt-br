@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940103"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612483"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Diretrizes de migração baseadas em cenário de codificação
 
@@ -43,7 +43,7 @@ Clique na imagem abaixo para ver uma versão maior.
 
 [![Fluxo de trabalho de codificação para v2 ](./media/migration-guide/V2-pretty.svg)](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. Configuração
+1. Instalação
     1. Crie um ativo ou use um ativo existente. Se estiver usando um novo ativo, carregue o conteúdo para esse ativo. Se estiver usando um ativo existente, você deve estar codificando arquivos que já existem no ativo.
     2. Obter os valores dos seguintes itens:
         - ID ou objeto do processador de mídia
@@ -58,7 +58,7 @@ Clique na imagem abaixo para ver uma versão maior.
 
 ### <a name="v3-encoding-workflow"></a>Fluxo de trabalho de codificação v3
 
-[![Fluxo de trabalho de codificação para v3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Fluxo de trabalho de codificação para v3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Configuração
     1. Crie um ativo ou use um ativo existente. Se estiver usando um novo ativo, carregue o conteúdo para esse ativo. Se estiver usando um ativo existente, você deve estar codificando arquivos que já existem no ativo. Você não *deve carregar mais conteúdo para esse ativo.*
@@ -84,17 +84,6 @@ Clique na imagem abaixo para ver uma versão maior.
 Se o seu código v2 chamou o codificador padrão com uma predefinição personalizada, primeiro você precisará criar uma nova transformação com a predefinição de codificador padrão personalizado antes de enviar um trabalho.
 
 As predefinições personalizadas agora são JSON e não são mais baseadas em XML. Recrie sua predefinição em JSON seguindo o esquema predefinido personalizado, conforme definido na documentação do [Swagger (Transform Open API)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/examples/transforms-create.json) .
-
-
-<!-- removed because this is covered in the tutorials
-Common custom [encoding](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json) scenarios:
-        1. Create a custom Single Bitrate MP4 encode
-        1. Create a custom [Adaptive Bitrate Encoding Ladder](autogen-bitrate-ladder.md)
-        1. Creating Sprite Thumbnails
-        1. Creating Thumbnails (see below for your preferred method)
-        1. [Sub Clipping](subclip-video-rest-howto.md)
-        1. Cropping
--->
 
 ## <a name="input-and-output-metadata-files-from-an-encoding-job"></a>Arquivos de metadados de entrada e saída de um trabalho de codificação
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030358"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650551"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Início Rápido: Como criar seu primeiro site estático no portal do Azure
 
@@ -55,7 +55,7 @@ Depois de entrar no GitHub, insira as informações do repositório.
 
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-first-web-static-app** na lista suspensa _Repositório_.
-1. Selecione **mestre** na lista suspensa _Branch_
+1. Selecione **principal** na lista suspensa _Ramificação_
 
 > [!NOTE]
 > Caso você não veja nenhum repositório, talvez seja necessário autorizar Aplicativos Web Estáticos do Azure no GitHub. Navegue até o repositório do GitHub e vá para **Configurações > Aplicativos > Aplicativos OAuth Autorizados**, selecione **Aplicativos Web Estáticos do Azure** e **Conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.

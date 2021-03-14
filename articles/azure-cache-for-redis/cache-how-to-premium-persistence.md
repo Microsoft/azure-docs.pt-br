@@ -5,24 +5,22 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 58148e3a20ba41ae9707543be290f2d632cb1185
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375282"
 ---
-# <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados de um Cache Redis do Azure Premium
-Neste artigo, você aprenderá a configurar a persistência em um cache do Azure Premium para a instância do Redis por meio do portal do Azure. O Cache do Azure para Redis apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte de rede virtual. 
+# <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configurar a persistência de dados para um cache do Azure Premium para a instância do Redis
 
-## <a name="what-is-data-persistence"></a>O que é a persistência de dados?
 A [persistência do Redis](https://redis.io/topics/persistence) permite persistir os dados armazenados no Redis. Você também pode tirar instantâneos e fazer backup dos dados, que podem ser carregados em caso de falha de hardware. Essa é uma enorme vantagem em relação às camadas Básica ou Standard, em que todos os dados são armazenados na memória e pode haver uma possível perda de dados em caso de falha quando os nós do Cache estiverem inativos. 
 
 O Cache Redis do Azure oferece a persistência de Redis usando os seguintes modelos:
 
-* **Persistência de RDB** : quando a persistência de RDB (banco de dados do Redis) está configurada, o Cache Redis do Azure persiste um instantâneo do Cache Redis do Azure em um formato binário do Redis em disco com base em uma frequência de backup configurável. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com o uso do instantâneo mais recente. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e as [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) de persistência de RDB.
-* **Persistência de AOF** : quando a persistência de AOF (Arquivo somente para anexação) está configurada, o Cache Redis do Azure salva todas as operações de gravação em um log salvo pelo menos uma vez por segundo em uma conta de Armazenamento do Azure. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com as operações de gravação mais recentes. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e as [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência de AOF.
+* **Persistência de RDB**: quando a persistência de RDB (banco de dados do Redis) está configurada, o Cache Redis do Azure persiste um instantâneo do Cache Redis do Azure em um formato binário do Redis em disco com base em uma frequência de backup configurável. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com o uso do instantâneo mais recente. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e as [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) de persistência de RDB.
+* **Persistência de AOF**: quando a persistência de AOF (Arquivo somente para anexação) está configurada, o Cache Redis do Azure salva todas as operações de gravação em um log salvo pelo menos uma vez por segundo em uma conta de Armazenamento do Azure. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com as operações de gravação mais recentes. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e as [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência de AOF.
 
 A persistência grava dados do Redis em uma conta de armazenamento do Azure que você possui e gerencia. Você pode configurar a partir da folha **novo cache do Azure para Redis** durante a criação do cache e no **menu de recursos** para os caches Premium existentes.
 
@@ -32,19 +30,21 @@ A persistência grava dados do Redis em uma conta de armazenamento do Azure que 
 > 
 > 
 
-1. Para criar um cache Premium, entre no [portal do Azure](https://portal.azure.com) e selecione **criar um recurso** . Além de criar caches no portal do Azure, você também pode criá-los usando os modelos do Resource Manager, PowerShell ou CLI do Azure. Para obter mais informações sobre a criação de um Cache do Azure para Redis, consulte [Criar um cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+## <a name="set-up-data-persistence"></a>Configurar a persistência de dados
+
+1. Para criar um cache Premium, entre no [portal do Azure](https://portal.azure.com) e selecione **criar um recurso**. Além de criar caches no portal do Azure, você também pode criá-los usando os modelos do Resource Manager, PowerShell ou CLI do Azure. Para obter mais informações sobre a criação de um Cache do Azure para Redis, consulte [Criar um cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Criar recurso.":::
    
-2. Na página **Novo** , selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis** .
+2. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Criar recurso.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecionar o Cache do Azure para Redis.":::
 
 3. Na página **novo cache Redis** , defina as configurações para seu novo cache Premium.
    
    | Configuração      | Valor sugerido  | DESCRIÇÃO |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Insira um nome global exclusivo. | O nome do cache deve ser uma cadeia entre 1 e 63 caracteres que contenham apenas números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* de sua instância de cache será *\<DNS name>.redis.cache.windows.net* . | 
+   | **Nome DNS** | Insira um nome global exclusivo. | O nome do cache deve ser uma cadeia entre 1 e 63 caracteres que contenham apenas números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* de sua instância de cache será *\<DNS name>.redis.cache.windows.net*. | 
    | **Assinatura** | Na lista suspensa e selecione sua assinatura. | A assinatura na qual essa nova instância do Cache do Azure para Redis será criada. | 
    | **Grupo de recursos** | Menu suspenso e selecione um grupo de recursos ou selecione **criar novo** e insira um novo nome de grupo de recursos. | Nome do grupo de recursos no qual o cache e outros recursos serão criados. Ao colocar todos os seus recursos de aplicativos em um só grupo de recursos, você pode gerenciá-los ou excluí-los juntos com facilidade. | 
    | **Localidade** | Menu suspenso e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que usarão o cache. |
@@ -52,7 +52,7 @@ A persistência grava dados do Redis em uma conta de armazenamento do Azure que 
 
 4. Selecione a guia **Rede** ou clique no botão **Rede** na parte inferior da página.
 
-5. Na guia **Rede** , escolha o método de conectividade. Para instâncias de cache Premium, você pode se conectar de forma pública, por meio de endereços IP públicos ou pontos de extremidade de serviço, ou, em particular, usando um ponto de extremidade privado.
+5. Na guia **Rede**, escolha o método de conectividade. Para instâncias de cache Premium, você pode se conectar de forma pública, por meio de endereços IP públicos ou pontos de extremidade de serviço, ou, em particular, usando um ponto de extremidade privado.
 
 6. Selecione **Próximo: Avançado** ou clique no botão **Próximo: Avançado** na parte inferior da página.
 
@@ -62,32 +62,35 @@ A persistência grava dados do Redis em uma conta de armazenamento do Azure que 
    
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Frequência de backup** | Na lista suspensa e selecione um intervalo de backup, as opções incluem **15 minutos** , **30 minutos** , **60 minutos** , **6 horas** , **12 horas** e **24 horas** . | Esse intervalo inicia a contagem regressiva depois que a operação de backup anterior for concluída com êxito e quando ela expira, um novo backup é iniciado. | 
+   | **Frequência de backup** | Na lista suspensa e selecione um intervalo de backup, as opções incluem **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** e **24 horas**. | Esse intervalo inicia a contagem regressiva depois que a operação de backup anterior for concluída com êxito e quando ela expira, um novo backup é iniciado. | 
    | **Conta de armazenamento** | Na lista suspensa e selecione sua conta de armazenamento. | Você deve escolher uma conta de armazenamento na mesma região e assinatura que o cache, e uma conta de **armazenamento Premium** é recomendada porque o armazenamento Premium tem maior taxa de transferência.  | 
-   | **Chave de Armazenamento** | Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento** . | 
+   | **Chave de Armazenamento** | Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento**. | 
 
     O primeiro backup é iniciado quando o intervalo de frequência de backup expira.
+    
+   > [!NOTE]
+   > Quando é feito backup dos arquivos RDB para o armazenamento, eles são armazenados na forma de blobs de páginas.
 
 9. Para habilitar a persistência do AOF, clique em **AoF** e defina as configurações. 
    
    | Configuração      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Primeira conta de armazenamento** | Na lista suspensa e selecione sua conta de armazenamento. | Essa conta de armazenamento deve estar na mesma região e assinatura que o cache, e uma conta de **armazenamento Premium** é recomendada porque o armazenamento Premium tem maior taxa de transferência. | 
-   | **Primeira chave de armazenamento** | Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento** . | 
+   | **Primeira chave de armazenamento** | Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento**. | 
    | **Segunda conta de armazenamento** | Adicional Na lista suspensa e selecione sua conta de armazenamento secundária. | Opcionalmente, você pode configurar uma conta de armazenamento adicional. Se uma segunda conta de armazenamento for configurada, as gravações no cache de réplica serão gravadas nessa segunda conta de armazenamento. | 
-   | **Segunda chave de armazenamento** | Adicional Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento** . | 
+   | **Segunda chave de armazenamento** | Adicional Clique na lista suspensa e escolha a chave **primária** ou **secundária** a ser usada. | Se a chave de armazenamento para a sua conta de persistência for regenerada, você deverá reconfigurar a chave desejada no menu suspenso **Chave de Armazenamento**. | 
 
     Quando a persistência de AOF estiver habilitada, as operações de gravação no cache serão salvas na conta de armazenamento designada (ou contas, se você tiver configurado uma segunda conta de armazenamento). No caso de uma falha catastrófica que desative o cache primário e de réplica, o log de AOF armazenado será usado para recriar o cache.
 
 10. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
-11. Opcionalmente, na guia **Marcas** , insira o nome e o valor caso deseje categorizar o recurso. 
+11. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
 
-12. Selecione **Examinar + criar** . Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
+12. Selecione **Examinar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
-13. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar** .
+13. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
 
-A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução** , o cache estará pronto para uso. 
+A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução**, o cache estará pronto para uso. 
 
 ## <a name="persistence-faq"></a>Perguntas frequentes sobre persistência
 A lista a seguir contém respostas para perguntas frequentes sobre a persistência do Cache Redis do Azure.
@@ -97,7 +100,7 @@ A lista a seguir contém respostas para perguntas frequentes sobre a persistênc
 * [Qual modelo de persistência eu devo escolher?](#which-persistence-model-should-i-choose)
 * [O que acontecerá se eu tiver dimensionado para um tamanho diferente e um backup for restaurado, que foi feito antes da operação de escala?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 * [Posso usar a mesma conta de armazenamento para persistência em dois caches diferentes?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
-
+* [Serei cobrado pelo armazenamento que está sendo usado na persistência de dados](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 
 ### <a name="rdb-persistence"></a>Persistência de RDB
 * [Posso alterar a frequência de backup de RDB depois de criar o cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
@@ -160,7 +163,7 @@ A persistência de AOF afeta a taxa de transferência aproximadamente em 15 a 20
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Como posso remover a segunda conta de armazenamento?
 
-Você pode remover a conta de armazenamento secundária de persistência de AOF definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para os caches existentes, a folha **persistência de dados** é acessada no **menu de recursos** do seu cache. Para desabilitar a persistência do AOF, clique em **desabilitado** .
+Você pode remover a conta de armazenamento secundária de persistência de AOF definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para os caches existentes, a folha **persistência de dados** é acessada no **menu de recursos** do seu cache. Para desabilitar a persistência do AOF, clique em **desabilitado**.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>O que é uma regravação e como ela afeta meu cache?
 
@@ -186,6 +189,10 @@ Os dados armazenados em arquivos AOF são divididos em vários blobs de página 
 Quando o clustering estiver habilitado, cada fragmento no cache terá seu próprio conjunto de blobs de página, conforme indicado na tabela anterior. Por exemplo, um cache de P2 com três fragmentos distribui seu arquivo AOF em 24 blobs de páginas (oito blobs por fragmento, com três fragmentos).
 
 Após uma regeneração, dois conjuntos de arquivos AOF existirão no armazenamento. As regenerações ocorrem em segundo plano e acrescentam ao primeiro conjunto de arquivos, enquanto as operações de conjunto que são enviadas ao cache durante a regeneração acrescentam ao segundo conjunto. Um backup é armazenado temporariamente durante regenerações no caso de falha, mas é excluída imediatamente após a conclusão de uma regeneração.
+
+### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>Serei cobrado pelo armazenamento que está sendo usado na persistência de dados?
+
+Sim, você será cobrado pelo armazenamento que está sendo usado de acordo com o modelo de preços da conta de armazenamento que está sendo usada.
 
 
 ## <a name="next-steps"></a>Próximas etapas

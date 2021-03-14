@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 125f2be205760618ab6ffa3175f719f5e91e8c05
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695790"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103012251"
 ---
 # <a name="media-services-regional-availability"></a>Disponibilidade regional dos serviços de mídia
 
@@ -42,10 +42,10 @@ Use os [produtos do Azure por região](https://azure.microsoft.com/global-infras
 
 Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**.
 
-|Name|Status|Região
+|Nome|Status|Região
 |---|---|---|
-|Standard|GA|Tudo|
-|Premium|GA|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ## <a name="live-encoding"></a>Codificação ativa
 
@@ -57,7 +57,7 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Regiões
 |---|---|---|
-|Media Encoder Standard|GA|Tudo|
+|Media Encoder Standard|GA|Todos|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ## <a name="analytics-media-processors"></a>Processadores de mídia da Análise
@@ -70,10 +70,10 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 |Nome do processador de mídia|Status|Região
 |---|---|---|
 |Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Tudo|
+|Indexador de Mídia do Azure|GA|Todos|
 |Detector de Movimento em Mídias do Azure|Visualização|Todos|
 |OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|GA|Tudo|
+|Azure Media Redactor|GA|Todos|
 |Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 
 ## <a name="protection"></a>Proteção
@@ -82,10 +82,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Regiões|
 |---|---|---| 
-|Armazenamento|GA|Tudo|
-|Chaves AES-128|GA|Tudo|
-|FairPlay|GA|Tudo|
-|PlayReady|GA|Tudo|
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|FairPlay|GA|Todos|
+|PlayReady|GA|Todos|
 |Widevine|GA|Todos, exceto Alemanha, governo federal e China.
 
 > [!NOTE]
@@ -103,7 +103,7 @@ Uma conta dos serviços de mídia está associada a um tipo de unidade reservada
 
 |Nome do tipo de UR|Status|Regiões
 |---|---|---|
-|S1|GA|Tudo|
+|S1|GA|Todos|
 |S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 

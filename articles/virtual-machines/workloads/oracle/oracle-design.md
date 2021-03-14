@@ -2,18 +2,19 @@
 title: Projetar e implementar um banco de dados Oracle no Azure | Microsoft Docs
 description: Projete e implemente um banco de dados Oracle no seu ambiente do Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890757"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669982"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -47,7 +48,7 @@ A tabela a seguir lista algumas das diferenças entre uma implementação local 
 | **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (aplicação de patch/upgrades gerenciados pelo Azure) |
 | **Recurso** |Dedicado  |Compartilhado com outros clientes|
 | **Regiões** |Datacenters |[Pares de regiões](../../regions.md#region-pairs)|
-| **Armazenamento** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Storage** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 | **Escala** |Escala vertical |Escala horizontal|
 
 

@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747250"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722663"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Criar e implantar um Serviço de Nuvem do Azure (suporte estendido) usando o Visual Studio
 
@@ -63,7 +63,7 @@ O projeto do Azure no Visual Studio tem associações aos projetos de função n
 - **Arquivo de definição de serviço** – define as configurações em tempo de execução do aplicativo, incluindo quais funções são necessárias, pontos de extremidade e tamanho da máquina virtual.
 - **Arquivo de configuração de serviço** – configura quantas instâncias de uma função são executadas e os valores das configurações definidas para uma função.
 
-Para obter mais informações sobre esses arquivos, confira [Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+Para obter mais informações sobre esses arquivos, confira [Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="publish-a-cloud-service"></a>Publicar um Serviço de Nuvem
 
@@ -75,7 +75,7 @@ Para obter mais informações sobre esses arquivos, confira [Configurar as funç
 
 1. **Conta** - selecione uma conta ou **Adicionar uma conta** na lista suspensa de contas.
 
-1. **Escolha sua assinatura** - escolha a assinatura a ser usada na sua implantação. A assinatura usada para implantar as necessidades dos Serviços de Nuvem (suporte estendido) precisa ter as funções Proprietário ou Colaborador atribuídas por meio do RBAC (controle de acesso baseado em função). Se a sua assinatura não tiver nenhuma dessas funções, confira [Etapas para adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) para adicionar isso antes de prosseguir.
+1. **Escolha sua assinatura** - escolha a assinatura a ser usada na sua implantação. A assinatura usada para implantar as necessidades dos Serviços de Nuvem (suporte estendido) precisa ter as funções Proprietário ou Colaborador atribuídas por meio do RBAC (controle de acesso baseado em função). Se a sua assinatura não tiver nenhuma dessas funções, confira [Etapas para adicionar uma atribuição de função](../role-based-access-control/role-assignments-steps.md) para adicionar isso antes de prosseguir.
 
 1. Escolha **Avançar** para passar para a página **Configurações**.
 
@@ -105,7 +105,7 @@ Para obter mais informações sobre esses arquivos, confira [Configurar as funç
 
    ![Configurações de diagnóstico](./media/diagnostics-settings.png)
 
-   O diagnóstico permite solucionar problemas de um Serviço de Nuvem do Azure (ou da máquina virtual do Azure). Para saber mais sobre diagnósticos, confira [Configuração do Diagnóstico para os Serviço de Nuvem e as Máquinas Virtuais do Azure](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Para saber mais sobre o Application Insights, confira [O que é o Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+   O diagnóstico permite solucionar problemas de um Serviço de Nuvem do Azure (ou da máquina virtual do Azure). Para saber mais sobre diagnósticos, confira [Configuração do Diagnóstico para os Serviço de Nuvem e as Máquinas Virtuais do Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Para saber mais sobre o Application Insights, confira [O que é o Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 1. Escolha **Avançar** para passar para a página **Resumo**.
 
@@ -126,4 +126,4 @@ Para limpar os recursos do Azure que você criou seguindo este tutorial, acesse 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Configure a CI (integração contínua) usando o botão **Configurar** na tela **Publicar**. Para obter mais informações, confira a [documentação do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Configure a CI (integração contínua) usando o botão **Configurar** na tela **Publicar**. Para obter mais informações, confira a [documentação do Azure Pipelines](/azure/devops/pipelines).

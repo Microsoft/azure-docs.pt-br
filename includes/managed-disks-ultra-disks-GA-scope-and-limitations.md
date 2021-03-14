@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016618"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102603210"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -26,7 +26,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 
 |Regiões  |Opções de redundância  |
 |---------|---------|
-|Brazil South     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Sul do Brasil     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Índia Central     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Ásia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Centro-Oeste da Alemanha     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
@@ -39,18 +39,16 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Austrália Central    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Austrália     |Três zonas de disponibilidade         |
 |Sudeste Asiático    |Três zonas de disponibilidade        |
-|Centro-Canadá *     |Três zonas de disponibilidade          |
+|Canadá Central     |Três zonas de disponibilidade          |
 |Centro dos EUA     |Três zonas de disponibilidade          |
 |Leste dos EUA     |Três zonas de disponibilidade          |
 |Leste dos EUA 2     |Três zonas de disponibilidade         |
 |França Central    |Duas zonas de disponibilidade        |
-|Japan East    |Três zonas de disponibilidade        |
+|Leste do Japão    |Três zonas de disponibilidade        |
 |Norte da Europa    |Três zonas de disponibilidade        |
 |Sul do Reino Unido    |Três zonas de disponibilidade        |
 |Europa Ocidental    | Três zonas de disponibilidade|
 |Oeste dos EUA 2    |Três zonas de disponibilidade|
-
-\* Contate o suporte do Azure para obter acesso a Zonas de Disponibilidade para esta região.
 
 - Há suporte apenas na seguinte série de VMs:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7c4dbeae0cfb76063fdca70b3ad1d264b59f9ace
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498601"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634236"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -41,7 +41,7 @@ Para corrigir esse erro, vá para a `server parameters` de sua instância do MyS
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Meu aplicativo falha ou gera um erro inesperado
 
-Quando você estiver Depurando falhas do aplicativo, comece verificando o status de execução e o status de descoberta do aplicativo. Para fazer isso, vá para _Gerenciamento de aplicativo_ no portal do Azure para garantir que o status de todos os aplicativos esteja _em execução e em_ funcionamento. _UP_
+Quando você estiver Depurando falhas do aplicativo, comece verificando o status de execução e o status de descoberta do aplicativo. Para fazer isso, vá para _Gerenciamento de aplicativo_ no portal do Azure para garantir que o status de todos os aplicativos esteja _em execução e em_ funcionamento. 
 
 * Se o status estiver _em execução_ , mas o status da descoberta não estiver _ativo_, vá para a seção ["meu aplicativo não pode ser registrado"](#my-application-cant-be-registered) .
 
@@ -66,7 +66,7 @@ Quando você estiver Depurando falhas do aplicativo, comece verificando o status
 
 
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Meu aplicativo experimenta alto uso da CPU ou alta utilização de memória
 
@@ -88,7 +88,7 @@ Para obter mais informações, consulte [métricas para o Azure Spring Cloud](sp
 
 Se todas as instâncias estiverem em execução, vá para o Azure Log Analytics para consultar os logs do aplicativo e examinar a lógica do código. Isso irá ajudá-lo a ver se algum deles pode afetar o particionamento de escala. Para obter mais informações, consulte [analisar logs e métricas com configurações de diagnóstico](diagnostic-services.md).
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de verificação para implantar seu aplicativo Spring no Azure Spring Cloud
 
@@ -163,7 +163,7 @@ Se você estiver migrando uma solução baseada em nuvem existente do Spring par
 
 Você também pode verificar os logs do cliente _do registro de serviço_ no Azure log Analytics. Para obter mais informações, consulte [analisar logs e métricas com configurações de diagnóstico](diagnostic-services.md)
 
-Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
+Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md). Consulte os logs usando a [linguagem de consulta Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Desejo inspecionar as variáveis de ambiente de meu aplicativo
 
@@ -172,7 +172,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 > [!WARNING]
 > Esse procedimento expõe suas variáveis de ambiente usando seu ponto de extremidade de teste.  Não prossiga se o ponto de extremidade de teste estiver publicamente acessível ou se você tiver atribuído um nome de domínio ao aplicativo.
 
-1. Acesse `https://<your application test endpoint>/actuator/health`.  
+1. Ir para `https://<your application test endpoint>/actuator/health`.  
     - Uma resposta semelhante a `{"status":"UP"}` indica que o ponto de extremidade foi habilitado.
     - Se a resposta for negativa, inclua a seguinte dependência em seu arquivo de *POM.xml* :
 
@@ -210,9 +210,9 @@ Procure o nó filho denominado `systemEnvironment` .  Esse nó contém as variá
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Não consigo encontrar métricas ou logs para meu aplicativo
 
-Vá para **Gerenciamento de aplicativo** para garantir que os status do aplicativo estejam _em execução e em_ funcionamento. _UP_
+Vá para **Gerenciamento de aplicativo** para garantir que os status do aplicativo estejam _em execução e em_ funcionamento. 
 
-Verifique para ver o clima _JMX_ está habilitado em seu pacote de aplicativos. Esse recurso pode ser habilitado com a propriedade de configuração `spring.jmx.enabled=true` .  
+Verifique se o _JMX_ está habilitado no pacote de aplicativos. Esse recurso pode ser habilitado com a propriedade de configuração `spring.jmx.enabled=true` .  
 
 Verifique se a `spring-boot-actuator` dependência está habilitada no pacote do aplicativo e se ela foi inicializada com êxito.
 
@@ -223,7 +223,7 @@ Verifique se a `spring-boot-actuator` dependência está habilitada no pacote do
 </dependency>
 ```
 
-Se os logs do aplicativo puderem ser arquivados em uma conta de armazenamento, mas não forem enviados para o Azure Log Analytics, verifique se você [configurou seu espaço de trabalho corretamente](../azure-monitor/learn/quick-create-workspace.md). Se você estiver usando uma camada gratuita da Log Analytics do Azure, observe que [a camada gratuita não fornece um SLA (contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Se os logs do aplicativo puderem ser arquivados em uma conta de armazenamento, mas não forem enviados para o Azure Log Analytics, verifique se você [configurou seu espaço de trabalho corretamente](../azure-monitor/logs/quick-create-workspace.md). Se você estiver usando uma camada gratuita da Log Analytics do Azure, observe que [a camada gratuita não fornece um SLA (contrato de nível de serviço)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

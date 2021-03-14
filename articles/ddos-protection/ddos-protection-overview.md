@@ -1,5 +1,5 @@
 ---
-title: Visão geral da proteção contra DDoS do Azure Standard
+title: Visão geral de Proteção contra DDoS do Azure Standard
 description: Saiba como a Proteção contra DDoS do Azure Standard, quando combinada com as melhores práticas de design do aplicativo, fornece defesa contra ataque de negação de serviço distribuído.
 services: virtual-network
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 71eada0dcd7f7684e6c6be935bcb44405eb95322
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2b0f8a73a6852883f87ba9fc4333cb6fa8101a39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703109"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral de Proteção contra DDoS do Azure Standard
 
@@ -54,7 +54,7 @@ Para saber mais sobre os preços padrão da proteção contra DDoS do Azure, con
 
 ## <a name="reference-architectures"></a>Arquiteturas de referência
 
-A proteção contra DDoS Standard é projetada para [serviços que são implantados em uma rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). Para outros serviços, a Proteção contra DDoS Básica padrão se aplica. Para saber mais sobre as arquiteturas com suporte, consulte [arquiteturas de referência de proteção contra DDoS](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
+A proteção contra DDoS Standard é projetada para [serviços que são implantados em uma rede virtual](../virtual-network/virtual-network-for-azure-services.md). Para outros serviços, a Proteção contra DDoS Básica padrão se aplica. Para saber mais sobre as arquiteturas com suporte, consulte [arquiteturas de referência de proteção contra DDoS](./ddos-protection-reference-architectures.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

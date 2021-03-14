@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052406"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574640"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -35,7 +35,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
 ## <a name="considerations"></a>Considerações
 
-* Verifique se você atende aos [requisitos de conexões de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Verifique se você atende aos [requisitos de conexões de Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Crie uma zona de pesquisa inversa no servidor DNS e adicione um registro de ponteiro (PTR) do computador host do AD nessa zona de pesquisa inversa. Caso contrário, a criação do volume de protocolo duplo falhará.
 * Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
 * Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Você pode fazer isso instalando e configurando a função [Serviços AD LDS (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
@@ -140,4 +140,4 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 ## <a name="next-steps"></a>Próximas etapas  
 
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md)
-* [Solucionar problemas de volumes de protocolo duplo](troubleshoot-dual-protocol-volumes.md)
+* [Solucionar problemas de volumes de protocolo duplo ou SMB](troubleshoot-dual-protocol-volumes.md)

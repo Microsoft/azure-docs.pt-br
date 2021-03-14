@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842539"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626786"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implantar e atualizar um aplicativo de vários serviços para Malha do Service Fabric
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial é a primeira parte de uma série. Você aprenderá como usar o Visual Studio para criar um aplicativo de Malha do Azure Service Fabric com um front-end da Web do ASP.NET e um serviço de back-end da API Web do ASP.NET Core. Em seguida, você depurará o aplicativo no cluster de desenvolvimento local. Você publicará o aplicativo no Azure e, em seguida, fará alterações de configuração e código e atualizará o aplicativo. Por fim, você limpará os recursos do Azure não utilizados para que você não seja cobrado pelo que não está usando.
 

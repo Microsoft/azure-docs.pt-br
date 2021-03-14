@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d656ce23cf68a1eec23421b769d5847f9b661bb4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 8cdfc9e1243de831364bc6a8a11fe25453cc4931
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955895"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213854"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerenciar pontos de extremidade de streaming com os serviços de mídia v3
 
@@ -55,7 +55,7 @@ Para obter mais informações, consulte:
     Para obter informações sobre como monitorar operações de execução longa, consulte [operações de execução longa](media-services-apis-overview.md).
 * Esta [coleção do postmaster](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contém exemplos de várias operações REST, incluindo como iniciar um ponto de extremidade de streaming.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure 
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure 
  
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Vá para sua conta dos serviços de mídia do Azure.
@@ -73,7 +73,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Para obter mais informações, consulte [AZ AMS streaming-Endpoint Start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Para obter mais informações, consulte [AZ AMS streaming-Endpoint Start](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Usar SDKs
 

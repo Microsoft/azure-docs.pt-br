@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537993"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219056"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteger um ambiente de treinamento Azure Machine Learning com redes virtuais
 
@@ -26,7 +26,7 @@ Este artigo é a parte três de uma série de cinco partes que orienta você pel
 
 Consulte os outros artigos desta série:
 
-[1. visão geral](how-to-network-security-overview.md)  >  [da VNet proteger o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  **3. Proteja o ambiente de treinamento**  >  [4. Proteja o ambiente do inferência](how-to-secure-inferencing-vnet.md)   >  [5. Habilitar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+[1. visão geral da VNet](how-to-network-security-overview.md)  >  [2. Proteja o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  **3. Proteja o ambiente de treinamento**  >  [4. Proteja o ambiente do inferência](how-to-secure-inferencing-vnet.md)   >  [5. Habilitar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
 
 Neste artigo, você aprenderá a proteger os seguintes recursos de computação de treinamento em uma rede virtual:
 > [!div class="checklist"]
@@ -74,7 +74,7 @@ Para usar um [destino de computação __do__ Azure Machine Learning gerenciado](
 > * Um balanceador de carga
 > 
 > No caso de clusters, esses recursos são excluídos (e recriados) sempre que o cluster é reduzido para 0 nós. No entanto, para uma instância, os recursos são mantidos até que a instância seja completamente excluída (a interrupção não remove os recursos). 
-> Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se o grupo de recursos de rede virtual estiver bloqueado, a exclusão do cluster/instância de computação falhará. O balanceador de carga não pode ser excluído até que o cluster/instância de computação seja excluído.
+> Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se o grupo de recursos de rede virtual estiver bloqueado, a exclusão do cluster/instância de computação falhará. O balanceador de carga não pode ser excluído até que o cluster/instância de computação seja excluído. Além disso, verifique se não há nenhuma política do Azure que proíba a criação de grupos de segurança de rede.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Portas obrigatórias
@@ -83,7 +83,7 @@ Se você planeja proteger a rede virtual restringindo o tráfego de rede de/para
 
 O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos adaptadores de rede (NICs) anexados às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
 
-- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__.
+- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__. O tráfego por essas portas é criptografado e usado pelo lote do Azure para a comunicação do Agendador/nó.
 
     ![Uma regra de entrada que usa a marca de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos ad
 
 - Tráfego de saída em qualquer porta para a internet.
 
-- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__.
+- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__. O tráfego por essa porta é criptografado e usado pelo Azure Machine Learning para comunicação com aplicativos em execução em instâncias de computação.
 
 > [!IMPORTANT]
 > Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se um NSG bloquear a comunicação com os nós de computação, os serviços de computação definem o estado dos nós de computação como inutilizáveis.
@@ -171,7 +171,7 @@ Há duas maneiras de fazer isso:
 
     * Baixe os [Intervalos de IP do Azure e as Marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) e pesquise `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` no arquivo, em que `<region>` é a sua região do Azure.
 
-    * Use o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para baixar as informações. O exemplo a seguir baixa as informações de endereço IP e filtra as informações da região leste dos EUA 2 (primária) e região de EUA Central (secundária):
+    * Use o [CLI do Azure](/cli/azure/install-azure-cli) para baixar as informações. O exemplo a seguir baixa as informações de endereço IP e filtra as informações da região leste dos EUA 2 (primária) e região de EUA Central (secundária):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -273,7 +273,7 @@ Para usar o Azure Databricks em uma rede virtual com seu workspace, os seguintes
 > * Se as Contas de Armazenamento do Azure para o workspace também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que o cluster do Azure Databricks.
 > * Além das sub-redes __databricks-particular__ e  __databricks-público__ usadas pelos Azure Databricks, a sub-rede __padrão__ criada para a rede virtual também é necessária.
 
-Para obter informações específicas sobre o uso do Azure Databricks com uma rede virtual, consulte [Implantar o Azure Databricks na sua Rede Virtual do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Para obter informações específicas sobre o uso do Azure Databricks com uma rede virtual, consulte [Implantar o Azure Databricks na sua Rede Virtual do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 <a id="vmorhdi"></a>
 
@@ -321,7 +321,7 @@ Anexe o cluster da VM ou do HDInsight ao seu workspace do Azure Machine Learning
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo é a parte três de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte três de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: proteger os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)

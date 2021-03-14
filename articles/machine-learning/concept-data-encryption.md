@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992039"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521060"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Criptografia de dados com Azure Machine Learning
 
@@ -29,7 +29,7 @@ O Azure Machine Learning usa uma variedade de serviços de armazenamento de dado
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 
 > [!IMPORTANT]
-> Caso seu workspace contenha dados confidenciais, recomendamos definir o [sinalizador hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) ao criar seu workspace. O `hbi_workspace` sinalizador só pode ser definido quando um espaço de trabalho é criado. Ele não pode ser alterado para um espaço de trabalho existente.
+> Caso seu workspace contenha dados confidenciais, recomendamos definir o [sinalizador hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) ao criar seu workspace. O `hbi_workspace` sinalizador só pode ser definido quando um espaço de trabalho é criado. Ele não pode ser alterado para um espaço de trabalho existente.
 
 O `hbi_workspace` sinalizador controla a quantidade de [dados que a Microsoft coleta para fins de diagnóstico](#microsoft-collected-data) e habilita a [criptografia adicional em ambientes gerenciados pela Microsoft](../security/fundamentals/encryption-atrest.md). Além disso, ele habilita as seguintes ações:
 
@@ -68,7 +68,7 @@ Para habilitar o provisionamento de uma instância do Cosmos DB em sua assinatur
     * `cmk_keyvault`: Esse parâmetro é a ID do recurso do cofre de chaves em sua assinatura. O cofre de chaves precisa estar na mesma região e assinatura que você usará para o workspace do Azure Machine Learning. 
     
         > [!NOTE]
-        > Essa instância do cofre de chaves pode ser diferente do cofre de chaves criado pelo Azure Machine Learning quando você provisionar o workspace. Caso queira usar a mesma instância do cofre de chaves para o workspace, passe o mesmo cofre de chaves ao provisionar o workspace usando o [parâmetro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Essa instância do cofre de chaves pode ser diferente do cofre de chaves criado pelo Azure Machine Learning quando você provisionar o workspace. Caso queira usar a mesma instância do cofre de chaves para o workspace, passe o mesmo cofre de chaves ao provisionar o workspace usando o [parâmetro key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -105,7 +105,7 @@ Para usar a chave ao implantar um modelo na ACI, crie uma nova configuração de
 
 Para obter mais informações sobre como criar e usar uma configuração de implantação, consulte os seguintes artigos:
 
-* Referência [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Referência [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Onde e como implantar](how-to-deploy-and-where.md)
 * [Implantar um modelo nas Instâncias de Contêiner do Azure](how-to-deploy-azure-container-instance.md)
 
@@ -148,7 +148,7 @@ Para proteger chamadas externas feitas ao ponto de extremidade de pontuação, A
 
 A Microsoft pode coletar informações de identificação que não são de usuário, como nomes de recursos (por exemplo, o nome do conjunto de dados ou o nome do experimento de machine learning) ou variáveis de ambiente de trabalho para fins de diagnóstico. Todos esses dados são armazenados usando chaves gerenciadas pela Microsoft no armazenamento hospedado em assinaturas de propriedade da Microsoft e seguem [padrões de tratamento de dados e políticas de privacidade padrão da Microsoft](https://privacy.microsoft.com/privacystatement).
 
-A Microsoft também recomenda não armazenar informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas pela Microsoft. De modo semelhante, ao nomear a [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py), evite incluir informações confidenciais, como nomes de usuário ou nomes de projetos secretos. Essas informações podem ser exibidas nos logs de telemetria acessíveis a engenheiros de Suporte da Microsoft.
+A Microsoft também recomenda não armazenar informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas pela Microsoft. De modo semelhante, ao nomear a [run_id](/python/api/azureml-core/azureml.core.run%28class%29), evite incluir informações confidenciais, como nomes de usuário ou nomes de projetos secretos. Essas informações podem ser exibidas nos logs de telemetria acessíveis a engenheiros de Suporte da Microsoft.
 
 Para recusar os dados de diagnóstico sendo coletados, defina o parâmetro `hbi_workspace` como `TRUE` ao provisionar o workspace. Essa funcionalidade tem suporte ao usar o SDK do Python do AzureML, a CLI, as APIs REST ou os modelos do Azure Resource Manager.
 
@@ -168,5 +168,5 @@ Cada workspace tem uma identidade gerenciada associada atribuída pelo sistema q
 
 * [Conectar-se ao armazenamento do Azure](how-to-access-data.md)
 * [Obter dados de um armazenamento de dados](how-to-create-register-datasets.md)
-* [Conectar aos dados](how-to-connect-data-ui.md)
+* [Conectar-se aos dados](how-to-connect-data-ui.md)
 * [Treinar com conjuntos de dados](how-to-train-with-datasets.md)

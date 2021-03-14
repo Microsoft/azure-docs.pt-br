@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090591"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176851"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -184,7 +184,7 @@ Faça o seguinte:
 
    >[!NOTE]
    >Os membros de um grupo são habilitados automaticamente para a distribuição em etapas. Não há suporte para grupos aninhados e dinâmicos na distribuição em etapas.
-   >Ao adicionar um novo grupo, os usuários no grupo (até 200 usuários para um novo grupo) serão atualizados para usar o immidiatly de autenticação gerenciada. Editar um grupo (adicionar ou remover usuários) pode levar até 24 horas para que as alterações entrem em vigor.
+   >Ao adicionar um novo grupo, os usuários no grupo (até 200 usuários para um novo grupo) serão atualizados para usar a autenticação gerenciada imediatamente. Editar um grupo (adicionar ou remover usuários) pode levar até 24 horas para que as alterações entrem em vigor.
    >O SSO contínuo será aplicado somente se os usuários estiverem no grupo de SSO contínuo e também em um grupo PTA ou PHS.
 
 ## <a name="auditing"></a>Auditoria

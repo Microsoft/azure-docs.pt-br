@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 4d735c623a6dffe24108d06d00caa7fba987c7df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a35a7e5e5c7eccf006f18badad88656e8bc73453
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465965"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367683"
 ---
 # <a name="configure-business-continuity-and-disaster-recovery-for-azure-stack-edge-vpn"></a>Configurar a continuidade dos negócios e a recuperação de desastre para VPN Azure Stack Edge
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como configurar a BCDR (continuidade dos negócios e a recuperação de desastre) em uma VPN (rede virtual privada) configurada em um dispositivo de borda Azure Stack.
 

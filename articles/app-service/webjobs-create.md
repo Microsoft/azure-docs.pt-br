@@ -8,12 +8,16 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
+ms.openlocfilehash: 8afc8ca9b0dedb10ecdb30e8abb22a5d0986de5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674031"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723870"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
@@ -31,7 +35,7 @@ O Azure Functions oferece outra maneira de executar programas e scripts. Para ob
 
 ## <a name="webjob-types"></a>Tipos de WebJob
 
-A tabela a seguir descreve as diferenças entre WebJobs *contínuos* e *disparados* .
+A tabela a seguir descreve as diferenças entre WebJobs *contínuos* e *disparados*.
 
 
 |Contínuo  |Disparado  |
@@ -66,15 +70,15 @@ when making changes in one don't forget the other two.
 
 1. No [portal do Azure](https://portal.azure.com), acesse a página **Serviço de Aplicativo** do aplicativo Web, aplicativo de API ou aplicativo móvel do Serviço de Aplicativo.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecionar o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs** , selecione **Adicionar** .
+2. Na página **WebJobs**, selecione **Adicionar**.
 
     ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use as configurações **Adicionar WebJob** , conforme especificado na tabela.
+3. Use as configurações **Adicionar WebJob**, conforme especificado na tabela.
 
    ![Captura de tela que mostra as configurações de adicionar WebJob que você precisa configurar.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
@@ -83,15 +87,15 @@ when making changes in one don't forget the other two.
    | **Nome** | myContinuousWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”. |
    | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
    | **Tipo** | Contínuo | Os [tipos do WebJob](#webjob-types) foram descritos anteriormente neste artigo. |
-   | **Dimensionar** | Várias instâncias | Disponível somente para WebJobs Contínuos. Determina se o programa ou o script é executado em todas as instâncias ou apenas em uma única instância. A opção de execução em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito ou Compartilhado. | 
+   | **Escala** | Várias instâncias | Disponível somente para WebJobs Contínuos. Determina se o programa ou o script é executado em todas as instâncias ou apenas em uma única instância. A opção de execução em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito ou Compartilhado. | 
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
-   O novo WebJob é exibido na página **WebJobs** .
+   O novo WebJob é exibido na página **WebJobs**.
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Para parar ou reiniciar um WebJob contínuo, clique com o botão direito do mouse no WebJob na lista e clique em **Parar** ou **Iniciar** .
+2. Para parar ou reiniciar um WebJob contínuo, clique com o botão direito do mouse no WebJob na lista e clique em **Parar** ou **Iniciar**.
 
     ![Interromper um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -104,15 +108,15 @@ when making changes in one don't forget the other two.
 
 1. No [portal do Azure](https://portal.azure.com), acesse a página **Serviço de Aplicativo** do aplicativo Web, aplicativo de API ou aplicativo móvel do Serviço de Aplicativo.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecionar o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs** , selecione **Adicionar** .
+2. Na página **WebJobs**, selecione **Adicionar**.
 
     ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use as configurações **Adicionar WebJob** , conforme especificado na tabela.
+3. Use as configurações **Adicionar WebJob**, conforme especificado na tabela.
 
    ![Captura de tela que mostra as configurações que precisam ser definidas para a criação de um WebJob disparado manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
@@ -123,13 +127,13 @@ when making changes in one don't forget the other two.
    | **Tipo** | Disparado | Os [tipos do WebJob](#webjob-types) foram descritos anteriormente neste artigo. |
    | **Gatilhos** | Manual | |
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
-   O novo WebJob é exibido na página **WebJobs** .
+   O novo WebJob é exibido na página **WebJobs**.
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Para executar o Trabalho Web, clique com o botão direito do mouse em seu nome na lista e clique em **Executar** .
+7. Para executar o Trabalho Web, clique com o botão direito do mouse em seu nome na lista e clique em **Executar**.
    
     ![Executar o Trabalho Web](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -142,15 +146,15 @@ when making changes in one don't forget the other two.
 
 1. No [portal do Azure](https://portal.azure.com), acesse a página **Serviço de Aplicativo** do aplicativo Web, aplicativo de API ou aplicativo móvel do Serviço de Aplicativo.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecionar o WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs** , selecione **Adicionar** .
+2. Na página **WebJobs**, selecione **Adicionar**.
 
    ![Página do WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use as configurações **Adicionar WebJob** , conforme especificado na tabela.
+3. Use as configurações **Adicionar WebJob**, conforme especificado na tabela.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
@@ -162,9 +166,9 @@ when making changes in one don't forget the other two.
    | **Gatilhos** | Agendado | Para que o agendamento funcione de modo confiável, habilite o recurso AlwaysOn. O AlwaysOn está disponível apenas nos tipos de preço Básico, Standard e Premium.|
    | **Expressão CRON** | 0 0/20 * * * * | As [expressões CRON](#ncrontab-expressions) são descritas na seção a seguir. |
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
-   O novo WebJob é exibido na página **WebJobs** .
+   O novo WebJob é exibido na página **WebJobs**.
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
@@ -184,19 +188,19 @@ Para saber mais, consulte [agendando um WebJob disparado](webjobs-dotnet-deploy-
 
 ## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Exibir o histórico de trabalhos
 
-1. Selecione o WebJob do qual você deseja ver o histórico e, em seguida, selecione o botão **Logs** .
+1. Selecione o WebJob do qual você deseja ver o histórico e, em seguida, selecione o botão **Logs**.
    
    ![Botão Logs](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
-2. Na página **Detalhes do WebJob** , selecione uma hora para ver os detalhes de uma execução.
+2. Na página **Detalhes do WebJob**, selecione uma hora para ver os detalhes de uma execução.
    
    ![Detalhes do WebJob](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. Na página **Detalhes da Execução do WebJob** , selecione **Alternar Saída** para ver o texto do conteúdo do log.
+3. Na página **Detalhes da Execução do WebJob**, selecione **Alternar Saída** para ver o texto do conteúdo do log.
    
     ![Detalhes da execução do trabalho Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Para ver o texto de saída em uma janela separada do navegador, selecione **Baixar** . Para baixar o texto propriamente dito, clique com o botão direito do mouse em **Baixar** e use as opções do navegador para salvar o conteúdo do arquivo.
+   Para ver o texto de saída em uma janela separada do navegador, selecione **Baixar**. Para baixar o texto propriamente dito, clique com o botão direito do mouse em **Baixar** e use as opções do navegador para salvar o conteúdo do arquivo.
    
 5. Selecione o link da barra de trilha **WebJobs** na parte superior da página para ir para uma lista de WebJobs.
 

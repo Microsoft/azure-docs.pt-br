@@ -1,19 +1,19 @@
 ---
 title: Criar uma StorageClass dos Arquivos do Azure no Red Hat OpenShift no Azure 4
 description: Saiba como criar um StorageClass de arquivos do Azure no Red Hat OpenShift do Azure
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: toa, openshift, AZ aro, Red Hat, CLI, arquivo do Azure
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 201ec3293943f53179bcabde45259d15ce6208a6
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 039aa3cce6615e71960db810ae383d22d7bcd909
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901276"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212970"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Criar uma StorageClass dos Arquivos do Azure no Red Hat OpenShift no Azure 4
 
@@ -23,7 +23,7 @@ Neste artigo, você criará um StorageClass para o Azure Red Hat OpenShift 4 que
 > * Configurar os pré-requisitos e instalar as ferramentas necessárias
 > * Criar um StorageClass do Azure Red Hat OpenShift 4 com o provisionamento de arquivo do Azure
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

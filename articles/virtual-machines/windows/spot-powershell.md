@@ -1,28 +1,29 @@
 ---
-title: Usar o PowerShell para implantar VMs de ponto do Azure
-description: Saiba como usar Azure PowerShell para implantar VMs pontuais para economizar em custos.
+title: Usar o PowerShell para implantar máquinas virtuais do Azure Spot
+description: Saiba como usar Azure PowerShell para implantar máquinas virtuais do Azure spot para economizar em custos.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0ca3c99aed8160161c125a89da3cb176c6e745f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202055"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096438"
 ---
-# <a name="deploy-spot-vms-using-azure-powershell"></a>Implantar VMs especiais usando Azure PowerShell
+# <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Implantar máquinas virtuais do Azure Spot usando o Azure PowerShell
 
 
-O uso de [VMs pontuais](../spot-vms.md) permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
+O uso de [máquinas virtuais do Azure Spot](../spot-vms.md) permite que você aproveite a capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as máquinas virtuais do Azure Spot. Portanto, as máquinas virtuais de ponto do Azure são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, cargas de trabalho de computação grande e muito mais.
 
-Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](../spot-vms.md#pricing).
+Os preços para as máquinas virtuais do Azure Spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter mais informações sobre como definir o preço máximo, consulte [máquinas virtuais do Azure Spot – preços](../spot-vms.md#pricing).
 
-Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1` , a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
+Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma máquina virtual de ponto do Azure pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0,98765 USD por hora. Se você definir o preço máximo como `-1` , a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
 
 
 ## <a name="create-the-vm"></a>Criar a VM
@@ -56,7 +57,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration and set this to be a Spot VM
+# Create a virtual machine configuration and set this to be an Azure Spot Virtual Machine
 
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" -MaxPrice -1 -EvictionPolicy Deallocate | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
@@ -75,7 +76,7 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="simulate-an-eviction"></a>Simular uma remoção
 
-Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma VM Spot, para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma máquina virtual de ponto do Azure, para testar como seu aplicativo responderá a uma remoção repentina. 
 
 Substitua o seguinte pelas suas informações: 
 
@@ -84,14 +85,16 @@ Substitua o seguinte pelas suas informações:
 - `vmName`
 
 
-```http
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
 ```
 
+`Response Code: 204` significa que a remoção simulada foi bem-sucedida. 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar uma VM Spot usando o [CLI do Azure](../linux/spot-cli.md), o [portal](../spot-portal.md) ou um [modelo](../linux/spot-template.md).
+Você também pode criar uma máquina virtual do Azure Spot usando o [CLI do Azure](../linux/spot-cli.md), o [portal](../spot-portal.md) ou um [modelo](../linux/spot-template.md).
 
-Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços especiais. O `meterName` e `skuName` os dois conterão `Spot` .
+Consulte as informações de preços atuais usando a [API de preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre os preços de máquina virtual do Azure Spot. O `meterName` e `skuName` os dois conterão `Spot` .
 
 Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

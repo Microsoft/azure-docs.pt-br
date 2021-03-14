@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 0f27688e31f772cc8d784371aa570d55c41f5695
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131807"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522080"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Solucionando problemas de pipelines do Machine Learning
 
-Neste artigo, você aprenderá a solucionar problemas ao obter erros ao executar um [pipeline do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e no designer de [Azure Machine Learning](./concept-designer.md). 
+Neste artigo, você aprenderá a solucionar problemas ao obter erros ao executar um [pipeline do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro) e no designer de [Azure Machine Learning](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -192,7 +192,7 @@ A tabela a seguir fornece informações para opções de depuração diferentes 
 
 | Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SDK do Azure Machine Learning | Metric | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
 | Impressão/log do Python    | Registro    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Registro    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Rastreamentos de Application Insights                | [Depurar pipelines no Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guia de registro em log do Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -244,7 +244,7 @@ Ao enviar uma execução de pipeline e permanecer na página de criação, você
 1. No painel direito do módulo, vá para a guia  **saídas + logs** .
 1. Expanda o painel direito e selecione o **70_driver_log.txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
-    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-py&preserve-View = true)? exibição = Azure-ml-py&preserve-View = true)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obter logs de execuções de pipeline
 
@@ -274,6 +274,6 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 * Para obter um exemplo completo mostrando o Machine Learning automatizado em pipelines de ML, consulte [usar o ml automatizado em um pipeline de Azure Machine Learning no Python](how-to-use-automlstep-in-pipelines.md).
 
-* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e o pacote [azureml-pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](/python/api/azureml-pipeline-core/) e o pacote [azureml-pipelines-Steps](/python/api/azureml-pipeline-steps/) .
 
 * Consulte a lista de [exceções de designer e códigos de erro](algorithm-module-reference/designer-error-codes.md).

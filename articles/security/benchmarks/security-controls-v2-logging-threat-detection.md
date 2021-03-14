@@ -4,19 +4,21 @@ description: Registro em log e detecção de ameaças do Azure Security benchmar
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369065"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042973"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controle de segurança v2: registro em log e detecção de ameaças
 
-O registro em log e a detecção de ameaças abrangem controles para detectar ameaças no Azure e habilitar, coletar e armazenar logs de auditoria para serviços do Azure. Isso inclui a habilitação de processos de detecção, investigação e correção com controles para gerar alertas de alta qualidade com a detecção de ameaças nativas nos serviços do Azure; Ele também inclui a coleta de logs com Azure Monitor, centralização da análise de segurança com o Azure Sentinel, sincronização de tempo e retenção de log. 
+O registro em log e a detecção de ameaças abrangem controles para detectar ameaças no Azure e habilitar, coletar e armazenar logs de auditoria para serviços do Azure. Isso inclui a habilitação de processos de detecção, investigação e correção com controles para gerar alertas de alta qualidade com a detecção de ameaças nativas nos serviços do Azure; Ele também inclui a coleta de logs com Azure Monitor, centralização da análise de segurança com o Azure Sentinel, sincronização de tempo e retenção de log.
+
+Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: registro em log e detecção de ameaças](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 
@@ -46,7 +48,7 @@ Além disso, use o Azure Sentinel para criar regras de análise, que são ameaç
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Inteligência contra ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
-Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de fluxo do NSG, logs de firewall do Azure e logs de firewall do aplicativo Web (WAF) para análise de segurança para dar suporte a investigações de incidentes, busca de ameaças e geração de alertas de segurança. Você pode enviar os logs de fluxo para um espaço de trabalho Azure Monitor Log Analytics e, em seguida, usar Análise de Tráfego para fornecer informações. Verifique se você está coletando logs de consulta DNS para ajudar a correlacionar outros dados de rede.
+Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de fluxo do NSG, logs de firewall do Azure e logs de firewall do aplicativo Web (WAF) para análise de segurança para dar suporte a investigações de incidentes, busca de ameaças e geração de alertas de segurança. Você pode enviar os logs de fluxo para um espaço de trabalho Azure Monitor Log Analytics e, em seguida, usar Análise de Tráfego para fornecer informações.
+
+Certifique-se de que você está coletando logs de consulta DNS para ajudar a correlacionar outros dados de rede.
 
 - [Como habilitar logs de fluxo do grupo de segurança de rede](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,9 +135,9 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de
 
 Habilite o registro em log para recursos do Azure para atender aos requisitos de conformidade, detecção de ameaças, busca e investigação de incidentes. 
 
-Você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e dados de log coletados em recursos do Azure para acesso a logs de auditoria, segurança e recursos. Logs de atividade, que estão automaticamente disponíveis, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis. 
+Você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e dados de log coletados em recursos do Azure para acesso a logs de auditoria, segurança e recursos. Logs de atividade, que estão automaticamente disponíveis, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Entender a coleta de dados da central de segurança do Azure](../../security-center/security-center-enable-data-collection.md)
 
@@ -145,7 +149,7 @@ Você pode usar a central de segurança do Azure e Azure Policy para habilitar l
 
 Segurança de infraestrutura e ponto de extremidade 
 
-- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Inteligência contra ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -161,9 +165,9 @@ Verifique se você está integrando os logs de atividades do Azure ao seu regist
 
 Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência. 
+Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -187,9 +191,9 @@ Configure sua retenção de log de acordo com seus requisitos de conformidade, r
 
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use o armazenamento do Azure, Data Lake ou Log Analytics contas de espaço de trabalho para armazenamento de longo prazo e arquivamento.
 
-- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Exportação de recomendações e alertas da central de segurança do Azure](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gerenciamento de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-A Microsoft mantém fontes de tempo para a maioria dos serviços de PaaS e SaaS do Azure. Para suas máquinas virtuais, use o servidor NTP padrão da Microsoft para sincronização de horário, a menos que você tenha um requisito específico.  Se você precisar criar seu próprio servidor NTP (Network Time Protocol), certifique-se de proteger a porta de serviço UDP 123.
+A Microsoft mantém fontes de tempo para a maioria dos serviços de PaaS e SaaS do Azure. Para suas máquinas virtuais, use o servidor NTP padrão da Microsoft para sincronização de horário, a menos que você tenha um requisito específico. Se você precisar criar seu próprio servidor NTP (Network Time Protocol), certifique-se de proteger a porta de serviço UDP 123.
 
 Todos os logs gerados pelos recursos no Azure fornecem carimbos de data/hora com o fuso horário especificado por padrão.
 

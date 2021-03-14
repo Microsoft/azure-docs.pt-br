@@ -4,22 +4,16 @@ description: Saiba como a rede de distribuição de conteúdo do Azure pode otim
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004493"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387913"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 
@@ -64,7 +58,11 @@ A Microsoft recomenda testar as variações de desempenho entre diferentes prove
 
 ## <a name="select-and-configure-optimization-types"></a>Selecionar e configurar os tipos de otimização
 
-Quando você criar um ponto de extremidade de CDN, selecione um tipo de otimização que melhor corresponda ao cenário e ao tipo de conteúdo que você deseja que seja distribuído pelo ponto de extremidade. **Distribuição na Web geral** é a seleção padrão. Apenas para os pontos de extremidade existentes da **CDN do Azure Standard da Akamai**, é possível atualizar a opção de otimização a qualquer momento. Essa alteração não interrompe a distribuição da CDN do Azure. 
+Quando você criar um ponto de extremidade de CDN, selecione um tipo de otimização que melhor corresponda ao cenário e ao tipo de conteúdo que você deseja que seja distribuído pelo ponto de extremidade. 
+
+**Distribuição na Web geral** é a seleção padrão. Você só pode atualizar o **Azure CDN Standard da otimização de pontos de extremidade do Akamai** a qualquer momento. 
+
+Para a **CDN do Azure Standard da Microsoft**, a **CDN padrão do Azure da Verizon** e a **CDN Premium do Azure da Verizon**, você não pode.
 
 1. Em um perfil da **CDN do Azure Standard da Akamai**, selecione um ponto de extremidade.
 

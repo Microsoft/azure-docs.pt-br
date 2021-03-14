@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555608"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418769"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -75,6 +75,18 @@ Veja a lista a seguir para configurar a identidade gerenciada para Serviço de A
 
 O kubernetes habilitado para Arc do Azure atualmente [dá suporte à identidade atribuída pelo sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). O certificado de identidade de serviço gerenciado é usado por todos os agentes kubernetes habilitados para o Azure ARC para comunicação com o Azure.
 
+### <a name="azure-arc-enabled-servers"></a>Servidores habilitados para Azure Arc
+
+| Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Todos os servidores habilitados para Arc do Azure têm uma identidade atribuída pelo sistema. Não é possível desabilitar ou alterar a identidade atribuída do sistema em um servidor habilitado para Arc do Azure. Consulte os seguintes recursos para saber mais sobre como consumir identidades gerenciadas em servidores habilitados para Arc do Azure:
+
+- [Autenticar em recursos do Azure com servidores habilitados para Arc](../../azure-arc/servers/managed-identity-authentication.md)
+- [Usando uma identidade gerenciada com servidores habilitados para Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+
 ### <a name="azure-automanage"></a>Autogerenciamento do Azure
 
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -98,7 +110,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -176,7 +188,7 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 Consulte a lista a seguir para configurar a identidade gerenciada para o gêmeos digital do Azure (em regiões onde disponível):
 
-- [Portal do Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Portal do Azure](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
@@ -213,9 +225,9 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 | Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
-Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Factory V2 (em regiões em que estiver disponível):
+Consulte a lista a seguir para configurar a identidade gerenciada para o Hub IoT do Azure (em regiões onde disponível):
 
-- [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- [Portal do Azure](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
 ### <a name="azure-importexport"></a>Importação/Exportação do Azure
 
@@ -234,6 +246,14 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 Para obter mais informações, confira [Usar identidades gerenciadas no Serviço de Kubernetes do Azure](../../aks/use-managed-identity.md).
 
+### <a name="azure-log-analytics-cluster"></a>Cluster de Log Analytics do Azure
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+
+Para obter mais informações, consulte [como a identidade funciona no Azure monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### <a name="azure-logic-apps"></a>Aplicativos Lógicos do Azure
 
@@ -355,6 +375,17 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 Consulte a lista a seguir para configurar a identidade gerenciada para o serviço de Signaler do Azure (em regiões onde estiver disponível):
 
 - [Modelo do Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
+
+### <a name="azure-resource-mover"></a>Azure Resource Mover
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Disponível nas regiões em que o serviço do Azure Resource mover está disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte o documento a seguir para usar o Azure Resource mover:
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Serviços do Azure que suportam a autenticação do Azure AD
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369413"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711936"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -167,5 +167,5 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando Site Recovery. Consulte o download white paper [SAP NetWeaver: criando uma solução de recuperação de desastres com site Recovery](https://aka.ms/asr_sap). O white paper discute recomendações para várias arquiteturas SAP. Você pode ver os aplicativos com suporte e os tipos de VM para SAP no Azure. Também há opções de plano para testar sua solução de recuperação de desastre.
+* Saiba mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando Site Recovery. Consulte o download white paper [SAP NetWeaver: criando uma solução de recuperação de desastres com site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). O white paper discute recomendações para várias arquiteturas SAP. Você pode ver os aplicativos com suporte e os tipos de VM para SAP no Azure. Também há opções de plano para testar sua solução de recuperação de desastre.
 * Saiba mais sobre [como replicar outras cargas de trabalho](site-recovery-workload.md) usando o Site Recovery.

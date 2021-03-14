@@ -1,14 +1,14 @@
 ---
 title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 09/30/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424101"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702514"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -80,9 +80,9 @@ Crie e salve Log Analytics consultas para detecção de ameaças de forma centra
 
 Você pode usar a automação para gerenciar vários espaços de trabalho do Azure Sentinel e configurar [consultas de busca](../../sentinel/hunting.md), guias estratégicos e pastas de trabalho. Para obter mais informações, consulte [gerenciamento entre espaços de trabalho usando automação](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
-## <a name="manage-security-of-office-365-environments"></a>Gerenciar a segurança dos ambientes do Office 365
+## <a name="monitor-security-of-office-365-environments"></a>Monitorar a segurança dos ambientes do Office 365
 
-Use o Azure Lighthouse em conjunto com o Azure Sentinel para gerenciar a segurança de ambientes do Office 365 entre locatários. Primeiro, os conectores de dados prontos para uso do [Office 365 devem ser habilitados no locatário gerenciado](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de usuário e administrador no Exchange e no SharePoint (incluindo o onedrive) possam ser ingeridas em um espaço de trabalho do Azure Sentinel dentro do locatário gerenciado. Isso inclui detalhes sobre ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os usuários que executaram as ações. Os [alertas do office 365 DLP](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também têm suporte como parte do conector interno do Office 365.
+Use o Azure Lighthouse em conjunto com o Azure Sentinel para monitorar a segurança de ambientes do Office 365 entre locatários. Primeiro, os conectores de dados prontos para uso do [Office 365 devem ser habilitados no locatário gerenciado](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de usuário e administrador no Exchange e no SharePoint (incluindo o onedrive) possam ser ingeridas em um espaço de trabalho do Azure Sentinel dentro do locatário gerenciado. Isso inclui detalhes sobre ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os usuários que executaram as ações. Os [alertas do office 365 DLP](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também têm suporte como parte do conector interno do Office 365.
 
 Você pode habilitar o [conector de Microsoft Cloud app Security (MCAS)](../../sentinel/connect-cloud-app-security.md) para transmitir alertas e Cloud Discovery logs para o Azure Sentinel. Isso permite que você obtenha visibilidade em aplicativos de nuvem, obtenha análises sofisticadas para identificar e combater ameaças cibernéticas e controlar como os dados são transferidos. Os logs de atividades para MCAS podem ser [consumidos usando o formato de evento comum (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 

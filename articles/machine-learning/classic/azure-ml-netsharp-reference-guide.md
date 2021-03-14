@@ -3,18 +3,18 @@ title: 'ML Studio (clássico): net # redes neurais personalizadas – Azure'
 description: guia de sintaxe para a linguagem de especificação de redes neurais Net#. Saiba como criar modelos de rede neural personalizados no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302791"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519245"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Machine Learning Studio (clássico)
 
@@ -57,7 +57,7 @@ Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avanç
 
 ## <a name="supported-customizations"></a>Personalizações com suporte
 
-A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você poderá:
+A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você pode:
 
 + Criar camadas ocultas e controlar o número de nós em cada camada.
 + Especifique como as camadas devem conectar-se umas às outras.
@@ -266,9 +266,9 @@ A normalização de resposta é usada para auxiliar na generalização de redes 
 
 Os grupos de normalização de resposta dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
 
-+ Se o kernel contiver neurônios no mesmo mapa que **_x_*_, o esquema de normalização será referido como _* normalização de mapa**. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
++ Se o kernel contiver neurônios no mesmo mapa que ***x** _, o esquema de normalização será referido como _ * mesma normalização de mapa * *. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
 
-+ Se o kernel contiver neurônios na mesma posição espacial que **_x_*_, mas os neurônios estiverem em outros mapas, o esquema de normalização será chamado _* na normalização de mapas**. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
++ Se o kernel contiver neurônios na mesma posição espacial que ***x** _, mas os neurônios estiverem em outros mapas, o esquema de normalização será chamado _ * na normalização de mapas * *. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
 
 Já que os grupos de normalização de resposta aplicam uma função predefinida aos valores de nó de origem para determinar o valor do nó de destino, eles não têm estado treinável (pesos ou vieses).
 

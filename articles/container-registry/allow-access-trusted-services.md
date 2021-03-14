@@ -3,12 +3,12 @@ title: Acessar o registro restrito à rede usando o serviço confiável do Azure
 description: Habilitar uma instância de serviço do Azure confiável para acessar com segurança um registro de contêiner de rede restrita para extrair ou enviar imagens por push
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716475"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que os serviços confiáveis acessem com segurança um registro de contêiner de rede restrita (versão prévia)
 
@@ -41,7 +41,6 @@ As instâncias dos serviços a seguir podem acessar um registro de contêiner de
 |Serviço confiável  |Cenários de uso com suporte  |
 |---------|---------|
 |Tarefas do ACR     | [Acessar um registro diferente de uma tarefa ACR](container-registry-tasks-cross-registry-authentication.md)       |
-|Machine Learning | [Implantar](../machine-learning/how-to-deploy-custom-docker-image.md) ou [treinar](../machine-learning/how-to-train-with-custom-image.md) um modelo em um espaço de trabalho Machine Learning usando uma imagem de contêiner personalizada do Docker |
 |Registro de Contêiner do Azure | [Importar imagens de outro registro de contêiner do Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
@@ -72,10 +71,10 @@ Para desabilitar ou reabilitar a configuração no Portal:
 1. No portal, navegue até o registro de contêiner.
 1. Em **Configurações**, selecione **Rede**. 
 1. Em **permitir acesso à rede pública**, selecione **redes selecionadas** ou **desabilitada**.
-1. Realize um dos seguintes procedimentos:
+1. Realize uma destas ações:
     * Para desabilitar o acesso por serviços confiáveis, em **exceção de firewall**, desmarque **permitir que os serviços confiáveis da Microsoft acessem este registro de contêiner**. 
     * Para permitir serviços confiáveis, em **exceção de firewall**, marque **permitir que serviços da Microsoft confiáveis acessem este registro de contêiner**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="trusted-services-workflow"></a>Fluxo de trabalho de serviços confiáveis
 

@@ -1,29 +1,29 @@
 ---
 title: Criar uma preferência personalizada no autogerenciamento do Azure para VMs
-description: Saiba como ajustar o perfil de configuração no Azure automanage para VMs e definir suas próprias preferências.
+description: Saiba como ajustar a configuração de ambiente no Azure Manage e definir suas próprias preferências.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 584a3503bf736fcf727a169611e6c79e0c374c90
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715035"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647907"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Criar uma preferência personalizada no autogerenciamento do Azure para VMs
 
-O autogerenci do Azure para práticas recomendadas de máquina virtual tem perfis de configuração padrão que podem ser ajustados, se necessário. Este artigo explicará como você pode definir suas próprias preferências de perfil de configuração ao habilitar o autogerenciamento em uma VM nova ou existente.
+O autogerenci do Azure para práticas recomendadas de máquina virtual tem ambientes padrão que podem ser ajustados, se necessário. Este artigo explicará como você pode definir suas próprias preferências ao habilitar o autogerenciamento em uma VM nova ou existente.
 
 Atualmente, damos suporte a personalizações no [backup do Azure](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) e [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
 
 
 > [!NOTE]
-> Você não pode alterar o perfil de configuração ou a preferência em sua VM enquanto o autogerenci está habilitado. Será necessário desabilitar o autogerenci para essa VM e reabilitar o autogerenci com o perfil de configuração desejado e as preferências.
+> Você não pode alterar o ambiente ou a preferência em sua VM enquanto o autogerenci está habilitado. Será necessário desabilitar o autogerenci para essa VM e reabilitar o autogerenci com o ambiente de configuração desejado e as preferências.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -44,7 +44,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Habilitar o Gerenciamento Automático para VMs em uma VM existente
 
-1. Na barra de pesquisa, pesquise e selecione **o Gerenciamento Automático – melhores práticas de máquina virtual do Azure**.
+1. Na barra de pesquisa, procure e selecione **Gerenciamento Automatizado – Melhores práticas para computadores do Azure**.
 
 2. Selecione **Habilitar em VM existente**.
 
@@ -55,15 +55,18 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
-4. Em **Perfil de configuração**, clique em **Procurar e alterar perfis e preferências**.
+    > [!NOTE]
+    > Clique em **Mostrar computadores inqualificados** para ver a lista de computadores sem suporte e o raciocínio. 
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
+4. Em **configuração**, clique em **comparar ambientes**.
 
-5. Na folha **selecionar perfil de configuração + preferências** , selecione um perfil no lado esquerdo: *desenvolvimento/teste* para teste, *prod* para produção.
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Comparar ambientes.":::
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
+5. Na folha **detalhes do ambiente** , selecione um ambiente no menu suspenso: *desenvolvimento/teste* para teste, *prod* para produção e clique em **OK**
 
-6. No perfil escolhido, em **preferências de configuração** , há uma lista suspensa onde você pode ajustar para determinados serviços.
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Procure o ambiente de produção.":::
+
+6. Depois de selecionar o ambiente, você pode selecionar **preferências de configuração**. Por padrão, a preferência de práticas recomendadas do Azure será usada. Essa preferência contém as configurações recomendadas para cada serviço. Modifique essas configurações criando uma preferência personalizada: 
     1. Clique em **criar novas preferências**.
     1. Na folha **criar uma preferência de configuração** , preencha a guia noções básicas:
         1. Subscription
@@ -71,14 +74,14 @@ Entre no [portal do Azure](https://portal.azure.com/).
         1. Nome da preferência
         1. Região
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Preencha as preferências de configuração.":::
 
-7. Vá para a guia preferências e ajuste as preferências de configuração desejadas.
+7. Ajuste as preferências de configuração desejadas.
         
     > [!NOTE]
-    > Somente os ajustes que ainda couberem em nossas práticas recomendadas limites superiores e inferiores serão permitidos durante a alteração das configurações de perfil.
+    > Somente os ajustes que ainda couberem em nossas práticas recomendadas limites superiores e inferiores serão permitidos ao alterar as configurações do ambiente.
 
-8. Examine seu perfil de configuração.
+8. Examine os detalhes de configuração.
 9. Selecione o botão **Criar**.
 
 10. Clique no botão **Habilitar**.
@@ -88,7 +91,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 Pare rapidamente de usar o Gerenciamento Automático do Azure para máquinas virtuais desabilitando o gerenciamento automático.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Desabilitar o Gerenciamento Automático em uma máquina virtual.":::
 
 1. Acesse a página **Gerenciamento Automático – melhores práticas de máquina virtual do Azure**, que lista todas as suas VMs gerenciadas automaticamente.
 1. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar.

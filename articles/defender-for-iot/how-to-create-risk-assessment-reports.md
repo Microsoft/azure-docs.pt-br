@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 367974e214892d4dfefeb138ae5bfa516f49882a
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: d13520a6b2f5e473942d7d0221a4e6f0708b6411
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811604"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522250"
 ---
 # <a name="risk-assessment-reporting"></a>Relatórios de avaliação de risco
 
@@ -103,7 +103,7 @@ Para importar um logotipo da empresa:
 
 :::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="Importe seu logotipo por meio da exibição de avaliação de risco.":::
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
 
 [Relatório de vetor de ataque](how-to-create-attack-vector-reports.md)
 

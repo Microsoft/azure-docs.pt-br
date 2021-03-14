@@ -1,22 +1,18 @@
 ---
 title: Copiar dados do SAP ECC
 description: Saiba como copiar dados do SAP ECC para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
-ms.openlocfilehash: 1f3ab61c6030c2871356f494db228711305e5466
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901576"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386689"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +46,7 @@ Especificamente, este conector do SAP ECC dá suporte à:
 A versão 7,0 ou posterior refere-se à versão do SAP NetWeaver em vez da versão do SAP ECC. Por exemplo, o SAP ECC 6,0 EHP 7 em geral tem a versão NetWeaver >= 7,4. Caso você não tenha certeza sobre o seu ambiente, aqui estão as etapas para confirmar a versão do seu sistema SAP:
 
 1. Use a GUI do SAP para se conectar ao sistema SAP. 
-2. Vá para **System**  ->  **status** do sistema. 
+2. Vá para   ->  **status** do sistema. 
 3. Verifique o lançamento do SAP_BASIS, verifique se ele é igual ou maior que 701.  
       ![Verificar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
@@ -61,9 +57,9 @@ A versão 7,0 ou posterior refere-se à versão do SAP NetWeaver em vez da vers�
 
 Para usar esse conector SAP ECC, você precisa expor as entidades de ECC do SAP por meio de serviços OData por meio do gateway SAP. Mais especificamente:
 
-- **Configurar o Gateway do SAP** . Para os servidores com versões do SAP NetWeaver posteriores a 7.4, o SAP Gateway já está instalado. Para obter as versões anteriores, você precisará instalar o SAP Gateway inserido ou o sistema de hub do SAP Gateway antes de expor os dados do SAP ECC por meio de serviços OData. Para configurar o SAP Gateway, confira o [guia de instalação](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
+- **Configurar o Gateway do SAP**. Para os servidores com versões do SAP NetWeaver posteriores a 7.4, o SAP Gateway já está instalado. Para obter as versões anteriores, você precisará instalar o SAP Gateway inserido ou o sistema de hub do SAP Gateway antes de expor os dados do SAP ECC por meio de serviços OData. Para configurar o SAP Gateway, confira o [guia de instalação](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
-- **Ativar e configurar o serviço OData do SAP** . Ative o serviço OData por meio do TCODE SICF em poucos segundos. Configure também quais objetos precisam ser expostos. Para obter mais informações, confira as [diretrizes passo a passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
+- **Ativar e configurar o serviço OData do SAP**. Ative o serviço OData por meio do TCODE SICF em poucos segundos. Configure também quais objetos precisam ser expostos. Para obter mais informações, confira as [diretrizes passo a passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -154,7 +150,7 @@ Há suporte para as seguintes propriedades na seção `source` da atividade de c
 | `type` | A propriedade `type` da seção `source` da atividade de cópia precisa ser definida como `SapEccSource`. | Sim |
 | `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>o conector do SAP ECC copia os dados da URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 | `sapDataColumnDelimiter` | O caractere único que é usado como delimitador passado para SAP RFC para dividir os dados de saída. | Não |
-| `httpRequestTimeout` | O tempo limite (o valor **TimeSpan** ) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. Se não for especificado, o valor padrão será **00:30:00** (30 minutos). | Não |
+| `httpRequestTimeout` | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. Se não for especificado, o valor padrão será **00:30:00** (30 minutos). | Não |
 
 ### <a name="example"></a>Exemplo
 

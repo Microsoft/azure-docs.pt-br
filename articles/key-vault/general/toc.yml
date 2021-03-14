@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Portal
               href: assign-access-policy-portal.md
-        - name: 'Usar um RBAC do Azure para gerenciar o acesso a chaves, segredos e certificados (versão prévia)'
-          href: rbac-guide.md
-        - name: Guia de migração de políticas de acesso do cofre para o RBAC do Azure
-          href: rbac-migration.md
+        - name: Modelo de permissão do RBAC do Azure
+          items:
+            - name: 'Usar um RBAC do Azure para gerenciar o acesso a chaves, segredos e certificados'
+              href: rbac-guide.md
+            - name: Guia de migração de políticas de acesso do cofre para o RBAC do Azure
+              href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
     - name: Desenvolver
@@ -161,17 +163,17 @@
     - name: Versões do Key Vault
       href: versions.md
     - name: Azure PowerShell
-      href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+      href: /powershell/module/az.keyvault/#key_vault
     - name: CLI do Azure
       href: /cli/azure/keyvault
     - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      href: /dotnet/api/overview/azure/key-vault
     - name: Java
-      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+      href: /java/api/overview/azure/keyvault
     - name: Node.js
-      href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      href: /javascript/api/overview/azure/key-vault-index
     - name: Python
-      href: /python/api/overview/azure/key-vault-index?view=azure-python
+      href: /python/api/overview/azure/key-vault-index
     - name: REST
       href: /rest/api/keyvault
     - name: Modelo do Resource Manager

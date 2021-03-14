@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879166"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575130"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
 
@@ -106,7 +106,7 @@ As mesmas considerações sobre o cenário 2 acima se aplicam. Nesse cenário, n
 * Uma assinatura do Azure.
 * Um workspace do Log Analytics.  
 
-Consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md) para criar um espaço de trabalho se você não tiver um em sua assinatura.
+Consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md) para criar um espaço de trabalho se você não tiver um em sua assinatura.
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

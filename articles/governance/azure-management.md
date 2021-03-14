@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949489"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593918"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gerenciamento do Azure?
 
@@ -33,7 +33,7 @@ Monitoramento é o ato de coletar e analisar dados para auditar o desempenho, a 
 ## <a name="configure"></a>Configurar
 
 Configurar refere-se à implantação inicial e à configuração de recursos e manutenção contínua.
-A automação dessas tarefas permite eliminar a redundância, minimizando o tempo e esforço e aumentando a precisão e a eficiência. A [Automação do Azure](../automation/automation-intro.md) fornece a maior parte dos serviços para automatizar tarefas de configuração. Enquanto runbooks lidam com automação de processos, o gerenciamento de atualizações e configurações auxiliam a gerenciar a configuração.
+A automação dessas tarefas permite eliminar a redundância, minimizando o tempo e esforço e aumentando a precisão e a eficiência. A [Automação do Azure](../automation/automation-intro.md) fornece a maior parte dos serviços para automatizar tarefas de configuração. Enquanto os runbooks lidam com a automação de processos, o gerenciamento de atualizações e configurações ajuda a gerenciar a configuração.
 
 ## <a name="govern"></a>Administrar
 

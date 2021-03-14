@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574991"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
 
@@ -326,7 +326,7 @@ Vamos examinar duas das tarefas mais comuns, criar novos indicadores de ameaça 
 
 1. Escolha o tipo de indicador e preencha os campos obrigatórios marcados com um asterisco vermelho (*) no **novo painel indicador** .
 
-1. Escolha **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
+1. Selecione **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
 
 A marcação de indicadores de ameaça é uma maneira fácil de agrupá-los para facilitar sua localização. Normalmente, você pode aplicar uma marca a indicadores relacionados a um incidente específico ou a indicadores que representam ameaças de um ator conhecido específico ou uma campanha de ataque bem conhecida. Você pode marcar os indicadores de ameaça individualmente ou indicadores de seleção múltipla e marcá-los todos de uma vez. Mostrado abaixo está um exemplo de marcação de vários indicadores com uma ID de incidente. Como a marcação é de forma livre, uma prática recomendada é criar convenções de nomenclatura padrão para as marcas de indicador de ameaça. Você pode aplicar várias marcas a cada indicador.
 
@@ -419,7 +419,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
 
-As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md). 
+As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/visualize/workbooks-overview.md). 
 
 Também há uma rica comunidade de [pastas de trabalho do Azure monitor no GitHub](https://github.com/microsoft/Application-Insights-Workbooks) , em que você pode baixar modelos adicionais e contribuir com seus próprios modelos.
 

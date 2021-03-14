@@ -2,17 +2,17 @@
 title: Configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware
 description: Saiba como configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.date: 02/11/2021
+ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549095"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382014"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware
 
-Neste artigo, percorreremos as etapas para configurar o GitHub Enterprise Server, a versão "local" do [github.com](https://github.com/), em sua nuvem privada da solução Azure VMware. O cenário abordado neste passo a passo é para uma instância do servidor empresarial do GitHub capaz de servir até 3.000 desenvolvedores que executam até 25 trabalhos por minuto em ações do GitHub. Ele inclui a configuração do (em vez de escrever) recursos de *Visualização* , como ações do github. Para personalizar a instalação para suas necessidades específicas, examine os requisitos listados em [instalando o GitHub Enterprise Server no VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
+Neste artigo, percorreremos as etapas para configurar o GitHub Enterprise Server, a versão "local" do [github.com](https://github.com/), em sua nuvem privada da solução Azure VMware. O cenário que abordaremos é uma instância do GitHub Enterprise Server que pode servir até 3.000 desenvolvedores que executam até 25 trabalhos por minuto em ações do GitHub. Ele inclui a configuração do (em vez de escrever) recursos de *Visualização* , como ações do github. Para personalizar a instalação para suas necessidades específicas, examine os requisitos listados em [instalando o GitHub Enterprise Server no VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -59,7 +59,7 @@ Aplique suas configurações.  Enquanto a instância é reiniciada, você pode c
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Crie sua conta de administrador.":::
 
-Depois que a instância for reiniciada, crie uma nova conta de administrador na instância. Lembre-se de anotar a senha desse usuário também.
+Depois que a instância for reiniciada, você poderá criar uma nova conta de administrador na instância. Lembre-se de anotar a senha desse usuário também.
 
 ### <a name="other-configuration-steps"></a>Outras etapas de configuração
 
@@ -178,7 +178,7 @@ Para disponibilizar esse executor para as organizações em sua empresa, edite s
 
 :::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Edite o acesso ao executor.":::
 
-Aqui, vamos disponibilizá-lo para todas as organizações, mas você também pode limitar o acesso a um subconjunto de organizações e até mesmo a repositórios específicos.
+Aqui, vamos disponibilizá-lo para todas as organizações, mas você pode limitar o acesso a um subconjunto de organizações e até mesmo a repositórios específicos.
 
 ## <a name="optional-configuring-github-connect"></a>Adicional Configurando o GitHub Connect
 
@@ -227,7 +227,7 @@ Neste artigo, configuramos uma nova instância do GitHub Enterprise Server, o eq
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você viu como configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware, convém aprender sobre: 
+Agora que você já abordou a configuração do GitHub Enterprise Server em sua nuvem privada da solução Azure VMware, talvez queira saber mais sobre: 
 
 - [Introdução às ações do GitHub](https://docs.github.com/en/actions).
 - [Unindo o programa Beta](https://resources.github.com/beta-signup/).

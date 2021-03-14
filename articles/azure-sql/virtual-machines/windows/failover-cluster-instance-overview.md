@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358139"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690916"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ Em ambientes clusterizados tradicionais locais, um cluster de failover do Window
 
 O SQL Server nas VMs do Azure oferece várias opções como solução de armazenamento compartilhado para uma implantação de instâncias de cluster de failover do SQL Server: 
 
-||[Discos compartilhados do Azure](../../../virtual-machines/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D (Espaços de Armazenamento Diretos)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos compartilhados do Azure](../../../virtual-machines/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-file-share.md) |[S2D (Espaços de Armazenamento Diretos)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
 |**Versão mínima do SQL Server**|Todos|SQL Server 2012|SQL Server 2016|
@@ -107,7 +107,7 @@ Para começar, confira [Instância de cluster de failover do SQL Server com os E
 
 ### <a name="premium-file-share"></a>Compartilhamento de arquivo Premium
 
-Os [compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) são um recurso dos [Arquivos do Azure](../../../storage/files/index.yml). Os compartilhamentos de arquivos Premium têm suporte de SSD e têm baixa latência de maneira consistente. Eles têm suporte total para uso com as instâncias de cluster de failover para o SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivo Premium proporcionam maior flexibilidade, porque você pode redimensionar e escalar um compartilhamento de arquivo sem nenhum tempo de inatividade.
+Os [compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-file-share.md) são um recurso dos [Arquivos do Azure](../../../storage/files/index.yml). Os compartilhamentos de arquivos Premium têm suporte de SSD e têm baixa latência de maneira consistente. Eles têm suporte total para uso com as instâncias de cluster de failover para o SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivo Premium proporcionam maior flexibilidade, porque você pode redimensionar e escalar um compartilhamento de arquivo sem nenhum tempo de inatividade.
 
 **SO com suporte**: Windows Server 2012 e posterior   
 **Versão do SQL com suporte**: SQL Server 2012 e posterior   

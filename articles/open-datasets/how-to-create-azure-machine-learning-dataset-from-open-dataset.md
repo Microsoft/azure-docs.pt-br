@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 6b9357c0fcf414c2575ca6966e8e5a3716015058
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd1440cd7bda8d40a81290cd9f633264b9641dc5
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654908"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502545"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de Azure Machine Learning de conjunto de os conjuntos de valores abertos do Azure
 
@@ -41,24 +41,24 @@ Os conjuntos de itens abertos estão na nuvem no Microsoft Azure e são incluíd
 
 Para este artigo, você precisa de:
 
-* Uma assinatura do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma assinatura do Azure. Se você não tiver uma conta gratuita, crie uma antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Um [espaço de trabalho Azure Machine Learning](../machine-learning/how-to-manage-workspace.md).
 
-* O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que inclui o `azureml-datasets` pacote.
+* O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install), que inclui o `azureml-datasets` pacote.
 
     * Crie uma [instância de computação Azure Machine Learning](../machine-learning/how-to-create-manage-compute-instance.md), que é um ambiente de desenvolvimento totalmente configurado e gerenciado que inclui blocos de anotações integrados e o SDK já instalado.
 
     **OR**
 
-    * Trabalhe em seu próprio ambiente de Python e instale o SDK com [estas instruções](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    * Trabalhe em seu próprio ambiente de Python e instale o SDK com [estas instruções](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
 > Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](/python/api/azureml-dataprep/) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Criar conjuntos de os com o SDK
 
-Para criar Azure Machine Learning conjuntos de valores por meio de classes do Azure Open DataSets no SDK do Python, verifique se você instalou o pacote com o `pip install azureml-opendatasets` . Cada conjunto de dados discretos é representado por sua própria classe no SDK, e determinadas classes estão disponíveis como um Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)ou ambos. Consulte a [documentação de referência](/python/api/azureml-opendatasets/azureml.opendatasets?preserve-view=true&view=azure-ml-py) para obter uma lista completa de `opendatasets` classes.
+Para criar Azure Machine Learning conjuntos de valores por meio de classes do Azure Open DataSets no SDK do Python, verifique se você instalou o pacote com o `pip install azureml-opendatasets` . Cada conjunto de dados discretos é representado por sua própria classe no SDK, e determinadas classes estão disponíveis como um Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)ou ambos. Consulte a [documentação de referência](/python/api/azureml-opendatasets/azureml.opendatasets) para obter uma lista completa de `opendatasets` classes.
 
 Você pode recuperar determinadas `opendatasets` classes como um `TabularDataset` ou o `FileDataset` , que permite manipular e/ou baixar os arquivos diretamente. Outras classes **só** podem obter um conjunto de um DataSet usando as `get_tabular_dataset()` `get_file_dataset()` funções ou da `Dataset` classe no SDK do Python.
 
@@ -88,7 +88,8 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Registre um conjunto de Azure Machine Learning com seu espaço de trabalho, para que você possa compartilhá-los com outras pessoas e reutilizá-los entre experimentos em seu espaço de trabalho. Quando você registra um conjunto de dados Azure Machine Learning criado a partir de DataSets abertos, nenhum dado é baixado imediatamente, mas os dados serão acessados posteriormente quando solicitado (durante o treinamento, por exemplo) de um local de armazenamento central.
 
-Para registrar seus conjuntos de registros com um espaço de trabalho, use o [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) método. 
+Para registrar seus conjuntos de registros com um espaço de trabalho, use o [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#register-workspace--name--description-none--tags-none--create-new-version-false-) método. 
+
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',

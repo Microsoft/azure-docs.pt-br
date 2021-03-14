@@ -7,18 +7,21 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5c2b88ad7bef5fb8f7ba576e5f7b416f7458378c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731594"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732302"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Início Rápido: Criar um ponto de extremidade privado usando o Azure PowerShell
 
 Introdução ao Link Privado do Azure usando um ponto de extremidade privado para se conectar com segurança ao Atestado do Azure.
 
 Neste guia de início rápido, você criará um ponto de extremidade privado para o Atestado do Azure e implantará uma máquina virtual para testar a conexão privada.  
+
+> [!NOTE]
+> A implementação atual inclui apenas a opção de aprovação automática. A assinatura deve estar na lista de permissões para que seja possível continuar com a criação do ponto de extremidade privado. Entre em contato com a equipe de serviço ou envie uma solicitação de suporte do Azure na [página de suporte do Azure](https://azure.microsoft.com/support/options/), antes de prosseguir com as etapas a seguir.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

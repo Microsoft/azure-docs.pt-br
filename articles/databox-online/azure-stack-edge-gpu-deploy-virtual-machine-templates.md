@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2922e9620f558e072cfc1264f7e661efd11a90fb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805198"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437001"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implantar VMs em seu dispositivo do Azure Stack Edge pro GPU por meio de modelos
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge pro usando modelos. Esses modelos são arquivos JavaScript Object Notation (JSON) que definem a infraestrutura e a configuração da sua VM. Nesses modelos, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
@@ -149,7 +151,7 @@ Em um ambiente típico, você teria o DNS configurado para que todas as contas d
 
 ### <a name="optional-install-certificates"></a>Adicional Instalar certificados
 
-Ignore esta etapa se você for se conectar via Gerenciador de Armazenamento usando *http*. Se você estiver usando *https*, precisará instalar os certificados apropriados no Gerenciador de armazenamento. Nesse caso, instale o certificado de ponto de extremidade de BLOB. Para obter mais informações, consulte como criar e carregar certificados em [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md). 
+Ignore esta etapa se você for se conectar via Gerenciador de Armazenamento usando *http*. Se você estiver usando *https*, precisará instalar os certificados apropriados no Gerenciador de armazenamento. Nesse caso, instale o certificado de ponto de extremidade de BLOB. Para obter mais informações, consulte como criar e carregar certificados em [gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Criar e carregar um VHD
 

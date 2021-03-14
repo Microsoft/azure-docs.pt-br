@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701629"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547842"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -28,7 +28,7 @@ Como Azure Machine Learning rastreia informações de um repositório git local,
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonar repositórios Git em seu sistema de arquivos de workspace
 Azure Machine Learning fornece um sistema de arquivos compartilhado para todos os usuários no espaço de trabalho.
-Para clonar um repositório git nesse compartilhamento de arquivos, recomendamos que você crie uma instância de computação & abrir um terminal.
+Para clonar um repositório git nesse compartilhamento de arquivos, recomendamos que você crie uma instância de computação & [abrir um terminal](how-to-access-terminal.md).
 Depois que o terminal for aberto, você terá acesso a um cliente git completo e poderá clonar e trabalhar com o Git por meio da experiência da CLI do git.
 
 Recomendamos que você clone o repositório no diretório de usuários para que outros não façam colisões diretamente em seu Branch de trabalho.
@@ -39,7 +39,7 @@ Para obter mais informações sobre a clonagem, consulte o guia sobre [como usar
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autenticar sua conta do git com o SSH
 ### <a name="generate-a-new-ssh-key"></a>Gerar uma nova chave SSH
-1) [Abra a janela do terminal](./how-to-run-jupyter-notebooks.md#terminal) na guia Azure Machine Learning notebook.
+1) [Abra a janela do terminal](./how-to-access-terminal.md) na guia Azure Machine Learning notebook.
 
 2) Cole o texto abaixo, substituindo em seu endereço de email.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [DevOps do Azure](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece na **etapa 2**.
++ [DevOps do Azure](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece na **etapa 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Comece na **etapa 4**.
 
@@ -123,7 +123,7 @@ O SSH exibe essa impressão digital quando se conecta a um host desconhecido par
 
 Quando você envia uma execução de treinamento do SDK do Python ou da CLI do Machine Learning, os arquivos necessários para treinar o modelo são carregados no espaço de trabalho. Se o `git` comando estiver disponível no ambiente de desenvolvimento, o processo de carregamento o usará para verificar se os arquivos estão armazenados em um repositório git. Nesse caso, as informações do repositório git também são carregadas como parte da execução do treinamento. Essas informações são armazenadas nas seguintes propriedades para a execução de treinamento:
 
-| Propriedade | Comando git usado para obter o valor | Description |
+| Propriedade | Comando git usado para obter o valor | Descrição |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
@@ -178,7 +178,7 @@ As informações registradas em log contêm texto semelhante ao JSON a seguir:
 
 ### <a name="python-sdk"></a>SDK do Python
 
-Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
+Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ O `az ml run` comando da CLI pode ser usado para recuperar as propriedades de um
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) .
+Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](/cli/azure/ext/azure-cli-ml/ml/run) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

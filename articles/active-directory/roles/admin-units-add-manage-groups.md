@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 03/10/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: f88a0818d93c33b6265cc8c695479d2a42678ada
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740543"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011027"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar grupos em uma unidade administrativa no Azure Active Directory
 
@@ -31,7 +31,7 @@ Para se preparar para usar o PowerShell e Microsoft Graph para o gerenciamento d
 
 Você pode adicionar grupos a uma unidade administrativa usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Você pode atribuir apenas grupos individuais a uma unidade administrativa. Não há nenhuma opção para atribuir grupos como uma operação em massa. No portal do Azure, você pode atribuir um grupo a uma unidade administrativa de uma das duas maneiras:
 
@@ -66,36 +66,40 @@ No exemplo a seguir, use o `Add-AzureADMSAdministrativeUnitMember` cmdlet para a
 
 
 ```powershell
-$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
 Execute os seguintes comandos:
 
-```http
-Http request
-POST /administrativeUnits/{Admin Unit id}/members/$ref
+Solicitação
 
-Request body
+```http
+POST /administrativeUnits/{admin-unit-id}/members/$ref
+```
+
+Corpo
+
+```http
 {
-"@odata.id":"https://graph.microsoft.com/v1.0/groups/{id}"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/{group-id}"
 }
 ```
 
-Exemplo:
+Exemplo
 
 ```http
 {
-"@odata.id":"https://graph.microsoft.com/v1.0/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+"@odata.id":"https://graph.microsoft.com/v1.0/groups/871d21ab-6b4e-4d56-b257-ba27827628f3"
 }
 ```
 
 ## <a name="view-a-list-of-groups-in-an-administrative-unit"></a>Exibir uma lista de grupos em uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -110,14 +114,14 @@ Exemplo:
 Para exibir uma lista de todos os membros da unidade administrativa, execute o seguinte comando: 
 
 ```powershell
-$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId
 ```
 
 Para exibir todos os grupos que são membros da unidade administrativa, use o seguinte trecho de código:
 
-```http
-foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
+```powershell
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -128,18 +132,23 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o comando a seguir:
+Execute o seguinte comando:
+
+Solicitação
 
 ```http
-HTTP request
-GET /directory/administrativeUnits/{Admin id}/members/$/microsoft.graph.group
-Request body
+GET /directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
+```
+
+Corpo
+
+```http
 {}
 ```
 
 ## <a name="view-a-list-of-administrative-units-for-a-group"></a>Exibir uma lista de unidades administrativas para um grupo
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -153,7 +162,7 @@ Request body
 
 ### <a name="use-powershell"></a>Usar o PowerShell
 
-Execute o comando a seguir:
+Execute o seguinte comando:
 
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
@@ -161,15 +170,15 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o comando a seguir:
+Execute o seguinte comando:
 
 ```http
-https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-group-from-an-administrative-unit"></a>Remover um grupo de uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Você pode remover um grupo de uma unidade administrativa na portal do Azure de uma das duas maneiras:
 
@@ -193,18 +202,18 @@ Você pode remover um grupo de uma unidade administrativa na portal do Azure de 
 
 ### <a name="use-powershell"></a>Usar o PowerShell
 
-Execute o comando a seguir:
+Execute o seguinte comando:
 
 ```powershell
-Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
 ```
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o comando a seguir:
+Execute o seguinte comando:
 
 ```http
-https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref
+https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

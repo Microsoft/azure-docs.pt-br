@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317853"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576018"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experimentos do ML em código Python de produção
 
@@ -353,7 +353,7 @@ Em terceiro lugar, as funções relacionadas precisam ser mescladas em arquivos 
 Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Depois que o notebook for convertido em `train.py`, remova os comentários indesejados. Substitua a chamada a `main()` ao final do arquivo por uma invocação condicional como o seguinte código:
@@ -441,7 +441,7 @@ O arquivo `train_aml.py` encontrado no diretório `diabetes_regression/training`
 Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Depois que o notebook for convertido em `score.py`, remova os comentários indesejados. O arquivo `score.py` deverá ser semelhante ao seguinte código:

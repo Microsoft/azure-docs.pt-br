@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576826"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
@@ -78,7 +78,7 @@ Use a proteção de informações do Azure para identificar informações confid
 
 Use a proteção de informações do SQL do Azure para auxiliar na classificação e no rotulamento de informações armazenadas no banco de dados SQL do Azure.
 
-- [Como implementar a descoberta de dados SQL do Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
+- [Como implementar a descoberta de dados do SQL do Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 - [Como implementar a proteção de informações do Azure](/azure/information-protection/deployment-roadmap)
 
@@ -88,7 +88,7 @@ Use a proteção de informações do SQL do Azure para auxiliar na classificaç�
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4,6 | 14,6 | Cliente |
+| 4.6 | 14,6 | Cliente |
 
 Use o Azure RBAC (controle de acesso baseado em função) para controlar o acesso a dados e recursos, caso contrário use métodos de controle de acesso específicos de serviço.
 
@@ -114,7 +114,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 Use a criptografia em repouso em todos os recursos do Azure. A Microsoft recomenda permitir que o Azure gerencie suas chaves de criptografia, no entanto, há a opção de gerenciar suas próprias chaves em algumas instâncias. 
 
-- [Entender a criptografia em repouso no Azure](../fundamentals/encryption-atrest.md)
+- [Noções básicas sobre a criptografia em repouso do Azure](../fundamentals/encryption-atrest.md)
 
 - [Como configurar chaves de criptografia gerenciadas pelo cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -126,7 +126,7 @@ Use a criptografia em repouso em todos os recursos do Azure. A Microsoft recomen
 
 Use Azure Monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para os recursos críticos do Azure.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

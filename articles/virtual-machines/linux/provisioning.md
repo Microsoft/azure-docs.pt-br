@@ -2,19 +2,20 @@
 title: Visão geral do provisionamento do Linux
 description: Visão geral de como trazer suas imagens de VM do Linux ou criar imagens para serem usadas no Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dafa400f2ce2421db6775084befc0abeab70a04
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87080141"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563210"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisionamento de VM do Linux do Azure
 Quando você cria uma VM com base em uma imagem generalizada (Galeria de Imagens Compartilhadas ou Imagem Gerenciada), o painel de controle permitirá que você crie uma VM e passe parâmetros e configurações para a VM. Isso é chamado de *provisionamento* de VM. Durante o provisionamento, a plataforma disponibiliza os valores de parâmetros de criação de VM necessários (nome de host, nome de usuário, senha, chaves SSH, customData) para a VM enquanto ela é inicializada. 

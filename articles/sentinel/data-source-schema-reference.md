@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 32ec711309190d4bb7c6c98a05b6a75cf88a8f5c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920495"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698341"
 ---
 # <a name="data-source-schema-reference"></a>Referência de esquema de fonte de dados
 
@@ -34,14 +34,17 @@ Este artigo lista esquemas de fonte de dados do Azure e de terceiros com suporte
 | **Rede**                          | Logs IIS               | W3CIISLog              | [Referência do Azure Monitor W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Rede**                          | VMinsights             | VMConnection           | [Referência do Azure Monitor VMConnection](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Rede**                          | Solução de dados de transmissão     | WireData               | [Referência do Azure Monitor WireData](/azure/azure-monitor/reference/tables/wiredata) |
-| **Rede**                          | Logs de fluxo do NSG          | AzureNetworkAnalytics  | [Agregação de esquema e dados no Análise de Tráfego](/azure/network-watcher/traffic-analytics-schema) |
+| **Rede**                          | Logs de fluxo do NSG          | AzureNetworkAnalytics  | [Agregação de esquema e dados no Análise de Tráfego](../network-watcher/traffic-analytics-schema.md) |
 | | | | |
 
+> [!NOTE]
+> Para obter mais informações, consulte toda a [referência de dados de Azure monitor](/azure/azure-monitor/reference/).
+>
 ## <a name="3rd-party-vendor-data-sources"></a>fontes de dados de fornecedores de terceiros
 
 A tabela a seguir lista os fornecedores de terceiros com suporte e sua documentação de mapeamento de syslog ou formato de evento comum (CEF) para vários tipos de log com suporte, que contêm mapeamentos de campo CEF e logs de exemplo para cada tipo de categoria.
 
-| Tipo |    Fornecedor |    Product | Log Analytics TableName | Campo CEF – referência de mapeamento  |
+| Tipo |    Fornecedor |    Produto | Log Analytics TableName | Campo CEF – referência de mapeamento  |
 | ----- | ----- | ----- | ----- |----- |
 | **Rede** | Palo Alto   | PANORÂMICA DO SISTEMA OPERACIONAL    | CommonSecurityLog |   [Guia de integração de formato de evento comum do Pan-OS 9,0](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) (pesquise *formatos de log de estilo CEF*) |
 | **Rede** | Ponto de Verificação  |ALL   | CommonSecurityLog | [Descrição de campos de log](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |

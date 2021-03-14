@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813608"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596167"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Como provisionar automaticamente agentes e extensões por meio da Central de Segurança do Azure
 
@@ -83,7 +83,7 @@ Para habilitar o provisionamento automático do agente do Log Analytics:
 
     - **Conectar VMs do Azure a outro workspace**: na lista suspensa, selecione o workspace para armazenar os dados coletados. A lista suspensa inclui todos os workspaces em todas as suas assinaturas. Você pode usar essa opção para coletar dados de máquinas virtuais em execução em diferentes assinaturas e armazená-las no workspace selecionado.  
 
-        Se você já tiver um workspace do Log Analytics, o ideal será usar o mesmo workspace (exige permissões de leitura e gravação no workspace). Essa opção será útil se você estiver utilizando um workspace centralizado na sua organização e quiser usá-lo para coleta de dados de segurança. Saiba mais em [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../azure-monitor/platform/manage-access.md).
+        Se você já tiver um workspace do Log Analytics, o ideal será usar o mesmo workspace (exige permissões de leitura e gravação no workspace). Essa opção será útil se você estiver utilizando um workspace centralizado na sua organização e quiser usá-lo para coleta de dados de segurança. Saiba mais em [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../azure-monitor/logs/manage-access.md).
 
         Se o workspace selecionado já tiver uma solução de Segurança ou SecurityCenterFree habilitada, o preço será definido automaticamente. Caso contrário, instale uma solução da Central de Segurança no workspace:
 
@@ -218,7 +218,7 @@ Para instalar manualmente o agente do Log Analytics:
    - [Instalar o agente do Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md)
    - [Instalar o agente do Log Analytics para Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. Para implantar agentes nas VMs existentes, siga as instruções descritas em [Coletar dados sobre as Máquinas Virtuais do Azure](../azure-monitor/learn/quick-collect-azurevm.md) (a seção **Coletar dados de evento e desempenho** é opcional).
+1. Para implantar agentes nas VMs existentes, siga as instruções descritas em [Coletar dados sobre as Máquinas Virtuais do Azure](../azure-monitor/vm/quick-collect-azurevm.md) (a seção **Coletar dados de evento e desempenho** é opcional).
 
 1. Para usar o PowerShell para implantar os agentes, use as instruções da documentação de máquinas virtuais:
 

@@ -3,13 +3,13 @@ title: Usar Azure Active Directory identidades gerenciadas por pod no serviço k
 description: Saiba como usar identidades gerenciadas gerenciadas pelo Pod do AAD no serviço de kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557357"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233489"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Usar Azure Active Directory identidades gerenciadas por pod no serviço kubernetes do Azure (versão prévia)
 
@@ -24,13 +24,13 @@ Azure Active Directory identidades gerenciadas pelo Pod usam primitivos kubernet
 
 Você deve ter o seguinte recurso instalado:
 
-* O CLI do Azure, versão 2.8.0 ou posterior
-* A `azure-preview` versão de extensão 0.4.68 ou posterior
+* O CLI do Azure, versão 2.20.0 ou posterior
+* A `azure-preview` versão de extensão 0.5.5 ou posterior
 
 ### <a name="limitations"></a>Limitações
 
-* Um máximo de 50 identidades de Pod são permitidas para um cluster.
-* Um máximo de 50 exceções de identidade de Pod são permitidas para um cluster.
+* Um máximo de 200 identidades de Pod são permitidas para um cluster.
+* Um máximo de 200 exceções de identidade de Pod são permitidas para um cluster.
 * As identidades gerenciadas por Pod estão disponíveis somente em pools de nós do Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registrar o `EnablePodIdentityPreview`
@@ -67,6 +67,21 @@ Use [AZ AKs Get-Credentials][az-aks-get-credentials] para entrar no seu cluster 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Criar um cluster AKS com o plug-in de rede Kubenet
+
+Crie um cluster AKS com o plug-in de rede Kubenet e a identidade gerenciada por Pod habilitada.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Atualizar um cluster AKS existente com o plug-in de rede Kubenet
+
+Atualize um cluster AKS existente com o plug-in de rede Kubnet para incluir a identidade gerenciada por Pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
 
 ## <a name="create-an-identity"></a>Criar uma identidade
 
@@ -79,6 +94,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## <a name="assign-permissions-for-the-managed-identity"></a>Atribuir permissões para a identidade gerenciada
+
+A identidade gerenciada *IDENTITY_CLIENT_ID* deve ter permissões de leitor no grupo de recursos que contém o conjunto de dimensionamento de máquinas virtuais do cluster AKs.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## <a name="create-a-pod-identity"></a>Criar uma identidade de Pod
@@ -176,11 +201,11 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 Para obter mais informações sobre identidades gerenciadas, consulte [Identidades gerenciadas para recursos do Azure][az-managed-identities].
 
 <!-- LINKS - external -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
-[az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

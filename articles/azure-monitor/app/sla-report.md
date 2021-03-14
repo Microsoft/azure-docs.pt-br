@@ -3,12 +3,12 @@ title: Tempo de inatividade, SLA e a pasta de trabalho de interrupção-Applicat
 description: Calcule e relate o SLA para o teste na Web por meio de um único painel de vidro em seus recursos de Application Insights e assinaturas do Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714044"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Tempo de inatividade, SLA e a pasta de trabalho de interrupções
 
@@ -51,13 +51,13 @@ A guia **interrupções e tempo de inatividade** tem informações sobre as inst
 
 ## <a name="edit-the-report"></a>Editar o relatório
 
-Você pode editar o relatório como qualquer outra [pasta de trabalho Azure monitor](../platform/workbooks-overview.md). Você pode personalizar as consultas ou visualizações com base nas necessidades da sua equipe.
+Você pode editar o relatório como qualquer outra [pasta de trabalho Azure monitor](../visualize/workbooks-overview.md). Você pode personalizar as consultas ou visualizações com base nas necessidades da sua equipe.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF de selecionar o botão Editar para alterar a visualização para um gráfico de pizza." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-As consultas podem ser executadas em [log Analytics](../log-query/log-analytics-overview.md) e usadas em outros relatórios ou painéis. Remova a restrição de parâmetro e reutilize a consulta principal.
+As consultas podem ser executadas em [log Analytics](../logs/log-analytics-overview.md) e usadas em outros relatórios ou painéis. Remova a restrição de parâmetro e reutilize a consulta principal.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF de consulta de log." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ O relatório pode ser compartilhado com suas equipes, liderança ou fixado em um
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Log Analytics dicas de otimização de consulta](../log-query/query-optimization.md).
-- Saiba como [criar um gráfico em pastas de trabalho](../platform/workbooks-chart-visualizations.md).
+- [Log Analytics dicas de otimização de consulta](../logs/query-optimization.md).
+- Saiba como [criar um gráfico em pastas de trabalho](../visualize/workbooks-chart-visualizations.md).
 - Saiba como monitorar seu site com [testes de disponibilidade](monitor-web-app-availability.md).

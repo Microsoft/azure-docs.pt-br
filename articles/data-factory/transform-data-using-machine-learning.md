@@ -3,19 +3,16 @@ title: Criar pipelines de dados de previsão
 description: Saiba como criar um pipeline de previsão usando a atividade de execução Azure Machine Learning Studio (clássica) em lote no Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637727"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375656"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Criar um pipeline de previsão usando Azure Machine Learning Studio (clássico) e Azure Data Factory
 
@@ -27,9 +24,9 @@ ms.locfileid: "92637727"
 
 [Azure Machine Learning Studio (clássico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite que você crie, teste e implante soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
 
-1. **Crie um teste de treinamento** . Você faz essa etapa usando o Azure Machine Learning Studio (clássico). Azure Machine Learning Studio (clássico) é um ambiente de desenvolvimento Visual colaborativo que você usa para treinar e testar um modelo de análise preditiva usando dados de treinamento.
-2. **Convertê-lo em um teste preditivo** . Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
-3. **Implantá-lo como um serviço da Web** . Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo via esse ponto de extremidade de serviço Web e receber previsões de resultados do modelo.
+1. **Crie um teste de treinamento**. Você faz essa etapa usando o Azure Machine Learning Studio (clássico). Azure Machine Learning Studio (clássico) é um ambiente de desenvolvimento Visual colaborativo que você usa para treinar e testar um modelo de análise preditiva usando dados de treinamento.
+2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
+3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo via esse ponto de extremidade de serviço Web e receber previsões de resultados do modelo.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory e Azure Machine Learning Studio (clássico) juntos
 Azure Data Factory permite que você crie facilmente pipelines que usam um serviço Web publicado [Azure Machine Learning Studio (clássico)](https://azure.microsoft.com/documentation/services/machine-learning) para análise preditiva. Usando a **atividade de execução em lote** em um pipeline Azure data Factory, você pode invocar um serviço Web Azure Machine Learning Studio (clássico) para fazer previsões sobre os dados no lote.
@@ -39,7 +36,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação Azure
 1. Publique o experimento de treinamento (e não um experimento preditivo) como um serviço Web. Você faz essa etapa na Azure Machine Learning Studio (clássica) como fez para expor o experimento de previsão como um serviço Web no cenário anterior.
 2. Use a atividade de execução de lote Azure Machine Learning Studio (clássica) para invocar o serviço Web para o teste de treinamento. Basicamente, você pode usar a atividade de execução de lote Azure Machine Learning Studio (clássica) para invocar o serviço Web de treinamento e o serviço Web de pontuação.
 
-Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** . Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](update-machine-learning-models.md) para obter detalhes.
+Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)**. Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](update-machine-learning-models.md) para obter detalhes.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio (clássico)
 
@@ -68,7 +65,7 @@ Você cria um serviço vinculado **Azure Machine Learning Studio (clássico)** p
 
 Consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados) para obter descrições sobre as propriedades na definição JSON.
 
-Azure Machine Learning Studio (clássico) dá suporte a serviços Web clássicos e novos serviços Web para seu experimento de previsão. Você pode escolher aquele que é mais adequado no Data Factory. Para obter as informações necessárias para criar o serviço vinculado do Azure Machine Learning Studio (clássico), vá para https://services.azureml.net , onde todos os seus (novos) serviços Web e serviços Web clássicos estão listados. Clique no serviço Web que deseja acessar e clique na página **Consumir** . Copie a **Chave Primária** da propriedade **apiKey** e **Solicitações de Lote** da propriedade **mlEndpoint** .
+Azure Machine Learning Studio (clássico) dá suporte a serviços Web clássicos e novos serviços Web para seu experimento de previsão. Você pode escolher aquele que é mais adequado no Data Factory. Para obter as informações necessárias para criar o serviço vinculado do Azure Machine Learning Studio (clássico), vá para https://services.azureml.net , onde todos os seus (novos) serviços Web e serviços Web clássicos estão listados. Clique no serviço Web que deseja acessar e clique na página **Consumir**. Copie a **Chave Primária** da propriedade **apiKey** e **Solicitações de Lote** da propriedade **mlEndpoint**.
 
 ![Serviços Web Azure Machine Learning Studio (clássico)](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +127,7 @@ O trecho JSON a seguir define uma atividade de execução de lote Azure Machine 
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nome da atividade no pipeline     | Sim      |
 | descrição       | Texto que descreve o que a atividade faz.  | Não       |
-| type              | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution** . | Sim      |
+| type              | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | Sim      |
 | linkedServiceName | Serviços vinculados ao serviço vinculado Azure Machine Learning Studio (clássico). Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | webServiceInputs  | Pares de chave, valor, mapeando os nomes das entradas do serviço Web Azure Machine Learning Studio (clássico). A chave deve corresponder aos parâmetros de entrada definidos no serviço Web publicado Azure Machine Learning Studio (clássico). Valor é um par de propriedades FilePath e serviços vinculados do Armazenamento do Azure especificando os locais de Blob de entrada. | Não       |
 | webServiceOutputs | Pares chave, valor, mapeando os nomes das saídas do serviço Web Azure Machine Learning Studio (clássico). A chave deve corresponder aos parâmetros de saída definidos no serviço Web publicado Azure Machine Learning Studio (clássico). Valor é um par de propriedades FilePath e serviços vinculados do Armazenamento do Azure especificando os locais de Blob de saída. | Não       |
@@ -213,7 +210,7 @@ Vejamos um cenário para o uso de parâmetros de serviço Web. Você tem um serv
 > [!NOTE]
 > Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
 
-Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)** . Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](update-machine-learning-models.md) para obter detalhes.
+Depois de fazer o novo treinamento, atualize o serviço Web de Pontuação (teste de previsão exposto como um serviço Web) com o modelo treinado recentemente usando a **atividade de recurso de atualização Azure Machine Learning Studio (clássica)**. Veja o artigo [Atualização de modelos usando a Atividade do Recurso de Atualização](update-machine-learning-models.md) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:

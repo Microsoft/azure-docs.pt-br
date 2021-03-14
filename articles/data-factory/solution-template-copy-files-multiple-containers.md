@@ -1,22 +1,18 @@
 ---
 title: Copiar arquivos de vários contêineres
 description: Saiba como usar um modelo de solução para copiar arquivos de vários contêineres usando Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629418"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376081"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copiar várias pastas com Azure Data Factory
 
@@ -37,8 +33,8 @@ O modelo contém três atividades:
 - **Copiar** copia cada pasta do repositório de armazenamento de origem para o repositório de destino.
 
 O modelo define os seguintes parâmetros:
-- *SourceFileFolder* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory* , onde você pode obter uma lista das subpastas. 
-- *SourceFileDirectory* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory* , onde você pode obter uma lista das subpastas. 
+- *SourceFileFolder* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory*, onde você pode obter uma lista das subpastas. 
+- *SourceFileDirectory* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory*, onde você pode obter uma lista das subpastas. 
 - *DestinationFileFolder* faz parte do caminho da pasta pai: *DestinationFileFolder/DestinationFileDirectory* em que os arquivos serão copiados para o armazenamento de destino. 
 - *DestinationFileDirectory* faz parte do caminho da pasta pai: *DestinationFileFolder/DestinationFileDirectory* em que os arquivos serão copiados para o armazenamento de destino. 
 
@@ -54,7 +50,7 @@ Se você quiser copiar vários contêineres em pastas raiz entre armazenamentos 
 
     ![Criar uma nova conexão para o destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selecione **Usar este modelo** .
+3. Selecione **Usar este modelo**.
 
     ![Usar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -62,7 +58,7 @@ Se você quiser copiar vários contêineres em pastas raiz entre armazenamentos 
 
     ![Mostrar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selecione **Depurar** , insira os **Parâmetros** e, em seguida, selecione **Concluir** .
+5. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
 
     ![Executar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

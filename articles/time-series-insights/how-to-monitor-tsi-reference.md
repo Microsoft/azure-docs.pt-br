@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 0b564ddfdea2cf24b7f9b1bc608d47fa4cfe541b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632542"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591390"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Monitorando Azure Time Series Insights referência de dados
 
@@ -23,12 +23,12 @@ Saiba mais sobre os dados e os recursos coletados pelo Azure Monitor de seu ambi
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Time Series Insights. Para obter uma lista de todas as métricas de suporte de Azure Monitor (incluindo Azure Time Series Insights), consulte [Azure monitor métricas com suporte](../azure-monitor/platform/metrics-supported.md). O provedor de recursos para essas métricas é [Microsoft. TimeSeriesInsights/ambientes/EventSources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft. TimeSeriesInsights/Environments](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments).
+Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Time Series Insights. Para obter uma lista de todas as métricas de suporte de Azure Monitor (incluindo Azure Time Series Insights), consulte [Azure monitor métricas com suporte](../azure-monitor/essentials/metrics-supported.md). O provedor de recursos para essas métricas é [Microsoft. TimeSeriesInsights/ambientes/EventSources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft. TimeSeriesInsights/Environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
 
 
 ### <a name="ingress"></a>Entrada
  
-|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Description|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Description|
 |---|---|---|---|---|
 |IngressReceivedBytes|Bytes de entrada recebidos|Bytes|Total|Contagem de bytes lidos da fonte de evento|
 |IngressReceivedInvalidMessages|Mensagens de entrada inválidas recebidas|Contagem|Total|Contagem de mensagens inválidas lidas na origem do evento|
@@ -40,7 +40,7 @@ Esta seção lista todas as métricas de plataforma coletadas automaticamente co
 
 ### <a name="storage"></a>Armazenamento
 
-|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Description|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Description|
 |---|---|---|---|---|
 |WarmStorageMaxProperties|Propriedades máximas de armazenamento quente|Contagem|Máximo|Número máximo de propriedades usadas permitidas pelo ambiente para SKU S1/S2 e número máximo de propriedades permitidas pelo armazenamento quente para o SKU PAYG|
 |WarmStorageUsedProperties|Propriedades usadas de armazenamento quente |Contagem|Máximo|Número de propriedades usadas pelo ambiente para SKU S1/S2 e número de propriedades usadas pelo armazenamento quente para SKU PAYG|

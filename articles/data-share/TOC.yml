@@ -73,11 +73,11 @@
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
-      href: /powershell/module/az.datashare/?view=azps-2.6.0
+      href: /powershell/module/az.datashare/
     - name: API REST
       href: /rest/api/datashare
     - name: CLI do Azure
-      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-data-share
 - name: Recursos
   items:
     - name: Página de perguntas de P e R da Microsoft

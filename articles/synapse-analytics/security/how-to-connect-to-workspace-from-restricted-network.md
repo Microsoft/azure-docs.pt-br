@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218358"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384513"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conectar-se a recursos de espaço de trabalho de uma rede restrita
 
@@ -74,7 +74,7 @@ Depois que o ponto de extremidade do link privado for criado, você poderá aces
 
 Para acessar os recursos dentro do recurso de espaço de trabalho do Azure Synapse Analytics Studio, você precisa criar o seguinte:
 
-- Pelo menos um ponto de extremidade de link privado com um tipo de **desenvolvimento** de **subrecurso de destino**.
+- Pelo menos um ponto de extremidade de link privado com um tipo de **subrecurso de destino** de **desenvolvimento**.
 - Dois outros pontos de extremidade de link privado opcionais com tipos de **SQL** ou **OnDemand**, dependendo de quais recursos no espaço de trabalho você deseja acessar.
 
 Criá-los é semelhante a como você cria o ponto de extremidade na etapa anterior.  
@@ -146,7 +146,8 @@ Depois que o link de rede virtual for adicionado, você precisará adicionar o c
 
 * Para **nome**, insira as cadeias de caracteres de nome dedicado para um ponto de extremidade particular diferente: 
   * a **Web** é para o ponto de extremidade privado do acesso ao Azure Synapse Analytics Studio.
-  * "***YourWorkSpaceName * * _" é para o ponto de extremidade privado da execução da consulta SQL no pool do SQL e também para o ponto de extremidade privado do acesso a todo o resto nos espaços de trabalho do Azure Synapse Analytics Studio. _ "*** YourWorkSpaceName *-OnDemand * *" é para o ponto de extremidade privado da execução da consulta SQL no pool interno.
+  * "***YourWorkSpaceName***" é para o ponto de extremidade privado da execução da consulta SQL no pool do SQL e também para o ponto de extremidade privado do acesso a todo o resto nos espaços de trabalho do Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName *-OnDemand**" é para o ponto de extremidade privado da execução da consulta SQL no pool interno.
 * Para **tipo**, selecione registro DNS tipo apenas **um** . 
 * Para **endereço IP**, insira o endereço IP correspondente de cada ponto de extremidade privado. Você pode obter o endereço IP na **interface de rede** de sua visão geral do ponto de extremidade privado.
 

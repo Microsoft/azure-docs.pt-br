@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1f37ee36710211e95bcc5d99a095de4303c85281
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788665"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172385"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -67,7 +67,7 @@ Esse comando abre um navegador para coletar suas credenciais. Quando o comando f
 
 Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
 
-Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
+Está com problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>Clonar o exemplo
 
@@ -230,7 +230,7 @@ Está enfrentando problemas? Confira primeiro o [Guia de solução de problemas]
 
 Você pode acessar os logs do console gerados de dentro do aplicativo e do contêiner no qual ele é executado. Os logs incluem todas as saídas geradas usando instruções `print`.
 
-Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail):
+Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail):
 
 ```azurecli
 az webapp log tail

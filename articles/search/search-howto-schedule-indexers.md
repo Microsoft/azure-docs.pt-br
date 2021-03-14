@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063206"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097969"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Como agendar indexadores no Azure Pesquisa Cognitiva
 
 Um indexador normalmente é executado uma vez, imediatamente após sua criação. Posteriormente, você poderá executá-lo novamente sob demanda usando portal do Azure, [executar o indexador (REST)](/rest/api/searchservice/run-indexer)ou um SDK do Azure. Como alternativa, você também pode configurar um indexador para ser executado em um agendamento. Algumas situações em que o agendamento do indexador é útil incluem:
 
-* Os dados de origem serão alterados ao longo do tempo e você deseja que o indexador de pesquisa processe automaticamente o Delta.
-* Os dados de origem são muito grandes e você deseja espalhar o processamento do indexador ao longo do tempo. Para obter mais informações sobre como indexar grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure pesquisa cognitiva](search-howto-large-index.md).
+* Os dados de origem serão alterados ao longo do tempo e você deseja que o indexador de pesquisa processe automaticamente a diferença.
+
+* Os dados de origem são muito grandes e você deseja espalhar o processamento do indexador ao longo do tempo. Os trabalhos do indexador estão sujeitos a um tempo máximo de execução de 24 horas para fontes de dados regulares e 2 horas para indexadores com habilidades. Se a indexação não puder ser concluída dentro do intervalo máximo, você poderá configurar uma agenda que seja executada a cada 2 horas. Os indexadores podem selecionar automaticamente onde saíram, como evidenciado por uma marca d' água alta interna que marca onde a indexação foi encerrada pela última vez. A execução de um indexador em uma agenda de 2 horas recorrente permite processar um conjunto de dados muito grande (muitos milhões de documentos) Além do intervalo permitido para um único trabalho. Para obter mais informações sobre como indexar grandes volumes de dados, consulte [como indexar grandes conjuntos de dados no Azure pesquisa cognitiva](search-howto-large-index.md).
+
 * Um índice de pesquisa será preenchido de várias fontes de dados e você deseja que os indexadores sejam executados em momentos diferentes para reduzir os conflitos.
 
 Visualmente, um agendamento pode ser semelhante ao seguinte: a partir de 1º de Janeiro e a execução a cada 50 minutos.

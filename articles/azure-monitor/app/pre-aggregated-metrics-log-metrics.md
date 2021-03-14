@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027152"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717818"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e pré-agregadas no Application Insights
 
@@ -30,12 +30,12 @@ Ao mesmo tempo, coletar um conjunto completo de eventos pode ser impraticável (
 
 ## <a name="pre-aggregated-metrics"></a>Métricas pré-agregadas
 
-Além das métricas baseadas em log, no final de 2018, a equipe de Application Insights enviou uma visualização pública das métricas que são armazenadas em um repositório especializado que é otimizado para a série temporal. As novas métricas não são mais mantidas como eventos individuais com muitas propriedades. Em vez disso, elas são armazenadas como séries temporais pré-agregadas e somente com dimensões de chave. Isso torna as novas métricas superiores no momento da consulta: a recuperação de dados ocorre muito mais rapidamente e exige menos potência de computação. Consequentemente, isso possibilita novos cenários, como [alertas quase em tempo real sobre dimensões de métricas](../platform/alerts-metric-near-real-time.md), [painéis](./overview-dashboard.md) mais dinâmicos e muito mais.
+Além das métricas baseadas em log, no final de 2018, a equipe de Application Insights enviou uma visualização pública das métricas que são armazenadas em um repositório especializado que é otimizado para a série temporal. As novas métricas não são mais mantidas como eventos individuais com muitas propriedades. Em vez disso, elas são armazenadas como séries temporais pré-agregadas e somente com dimensões de chave. Isso torna as novas métricas superiores no momento da consulta: a recuperação de dados ocorre muito mais rapidamente e exige menos potência de computação. Consequentemente, isso possibilita novos cenários, como [alertas quase em tempo real sobre dimensões de métricas](../alerts/alerts-metric-near-real-time.md), [painéis](./overview-dashboard.md) mais dinâmicos e muito mais.
 
 > [!IMPORTANT]
 > As métricas baseadas em log e pré-agregadas coexistem no Application Insights. Para diferenciar os dois, no Application Insights UX, as métricas previamente agregadas agora são chamadas de "métricas padrão (versão prévia)", enquanto as métricas tradicionais dos eventos foram renomeadas para "métricas baseadas em log".
 
-Os SDKs mais recentes ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK ou posterior para .net) métricas pré-configuradas durante a coleta. Isso se aplica a  [métricas padrão enviadas por padrão](../platform/metrics-supported.md#microsoftinsightscomponents) , portanto, a precisão não é afetada por amostragem ou filtragem. Ele também se aplica a métricas personalizadas enviadas usando [getmetric](./api-custom-events-metrics.md#getmetric) , resultando em menos ingestão de dados e menor custo.
+Os SDKs mais recentes ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK ou posterior para .net) métricas pré-configuradas durante a coleta. Isso se aplica a  [métricas padrão enviadas por padrão](../essentials/metrics-supported.md#microsoftinsightscomponents) , portanto, a precisão não é afetada por amostragem ou filtragem. Ele também se aplica a métricas personalizadas enviadas usando [getmetric](./api-custom-events-metrics.md#getmetric) , resultando em menos ingestão de dados e menor custo.
 
 Para os SDKs que não implementam a pré-autenticação (ou seja, versões mais antigas de SDKs de Application Insights ou instrumentação de navegador), o back-end Application Insights ainda preenche as novas métricas agregando os eventos recebidos pelo ponto de extremidade de coleta de eventos Application Insights. Isso significa que, embora você não se beneficie do volume reduzido de dados transmitidos pela rede, ainda poderá usar as métricas previamente agregadas e experimentar um melhor desempenho e suporte do alerta dimensional quase em tempo real com SDKs que não agregam métricas durante a coleta.
 
@@ -48,8 +48,10 @@ Vale a pena mencionar que o ponto de extremidade de coleta pré-agrega eventos a
 | .NET Core e .NET Framework | Com suporte (V 2.13.1 +)| Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Com suporte (V 2.7.2 +) via [Getmetric](get-metric.md) |
 | Java                         | Sem suporte       | Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
 | Node.js                      | Sem suporte       | Com suporte via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
-| Python                       | Sem suporte       | Com suporte                                 | Com suporte via [OpenCensus. stats](opencensus-python.md#metrics) |  
+| Python                       | Sem suporte       | Com suporte                                 | Suporte parcial por meio de [OpenCensus. stats](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  A implementação de métricas para Python usando OpenCensus. stats é diferente de getmetric. Para obter detalhes, consulte [a documentação do Python sobre métricas](./opencensus-python.md#metrics).
 
 ### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela de métricas previamente agregadas com suporte sem código
 
@@ -81,7 +83,7 @@ A coleta de dimensões de métricas personalizadas está desativada por padrão 
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Criando gráficos e explorando métricas baseadas em log e pré-agregadas padrão
 
-Use [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) para plotar gráficos de métricas previamente agregadas e baseadas em log e para criar painéis com gráficos. Depois de selecionar o recurso desejado do Application Insights, use o seletor de namespace para alternar entre as métricas padrão (versão prévia) e as métricas baseadas em log, ou selecione um namespace de métrica personalizado:
+Use [Azure Monitor Metrics Explorer](../essentials/metrics-getting-started.md) para plotar gráficos de métricas previamente agregadas e baseadas em log e para criar painéis com gráficos. Depois de selecionar o recurso desejado do Application Insights, use o seletor de namespace para alternar entre as métricas padrão (versão prévia) e as métricas baseadas em log, ou selecione um namespace de métrica personalizado:
 
 ![Namespace da métrica](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -93,5 +95,5 @@ A seleção da opção [habilitar alertas em dimensões de métricas personaliza
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Alertas quase em tempo real](../platform/alerts-metric-near-real-time.md)
+* [Alertas quase em tempo real](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric e TrackValue](./api-custom-events-metrics.md#getmetric)

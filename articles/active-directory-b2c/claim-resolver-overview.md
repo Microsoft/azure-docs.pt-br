@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119766"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1046 |
-| {Culture:RegionName} | As duas letras do código ISO para a região. | US |
+| {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
 | {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Política
@@ -87,6 +87,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Context:CorrelationId} | ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |A data e hora em UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |O modo de implantação de política.  | Produção |
+| {Context: nome_do_host} | O nome do host da solicitação atual.  | contoso.b2clogin.com |
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
 | {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) está marcada. |  true |
 
@@ -123,8 +124,8 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | {SAML: AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O `Format` atributo, do `NameIDPolicy` elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emissor} |  O `Issuer` valor do elemento SAML da solicitação SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | Verdadeiro |
-| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | Verdadeiro |
+| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | True |
+| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | True |
 | {SAML: ProviderName} | O `ProviderName` valor do atributo, do `AuthnRequest` elemento da solicitação SAML.| Contoso.com |
 | {SAML: Relaystate} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
 | {SAML: subject} | O `Subject` do elemento NameID da solicitação do SAML Authn.| 
@@ -141,7 +142,7 @@ Você pode usar resolvedores de declarações com os seguintes elementos:
 |Perfil técnico do [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico de [transformação de declarações](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Perfil técnico do [provedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Perfil técnico do [provedor de identidade SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico do [provedor de identidade SAML](identity-provider-generic-saml.md)| `OutputClaim`| 1, 2|
 |Perfil técnico [autodeclarado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

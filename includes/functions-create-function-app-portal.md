@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9ec5920295117b1726a684bcd08534cd6917f7e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "100569784"
 ---
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187107"
     | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
     | **Nome do aplicativo de funções** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `-`.  |
     |**Publicar**| Código | Opção para publicar arquivos de código ou um contêiner do Docker. |
-    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. Atualmente, não há suporte para edição no portal para [desenvolvimento do Python](../articles/azure-functions/functions-reference-python.md). |
+    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. A edição no portal só está disponível para JavaScript, PowerShell, TypeScript e script de C#. As funções da biblioteca de classes do C#, do Java e do Python precisam ser [desenvolvidas localmente](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Versão**| Número de versão | Escolha a versão do seu runtime instalado. |
     |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 

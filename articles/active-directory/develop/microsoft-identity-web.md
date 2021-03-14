@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173508"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102539"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteca de autenticação na Web do Microsoft Identity
 
@@ -70,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### <a name="github"></a>GitHub
 
-O Microsoft Identity Web é um projeto de código-fonte aberto hospedado no GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft- <span class="docon docon-navigate-external x-hidden-focus"></span> Identity-Web</a>
+O Microsoft Identity Web é um projeto de código-fonte aberto hospedado no GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/Microsoft-Identity-Web</a>
 
 O [wiki do repositório](https://github.com/AzureAD/microsoft-identity-web/wiki) contém documentação adicional e, se você precisar de ajuda ou descobrir um bug, poderá [arquivar um problema](https://github.com/AzureAD/microsoft-identity-web/issues).
 
@@ -99,12 +99,14 @@ Para ver o Microsoft Identity Web em ação, experimente nosso tutorial de servi
 
 O Microsoft Identity Web wiki no GitHub contém uma documentação de referência extensiva para vários aspectos da biblioteca. Por exemplo, o uso de certificado, o consentimento incremental e a referência de acesso condicional podem ser encontrados aqui:
 
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Usando certificados com Microsoft. Identity. Web <span class="docon docon-navigate-external x-hidden-focus"></span> </a> GitHub
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Consentimento incremental e acesso <span class="docon docon-navigate-external x-hidden-focus"></span> condicional</a> GitHub
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Usando certificados com Microsoft. Identity. Web</a> (github)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Consentimento incremental e acesso condicional</a> (github)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
 <!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
 <!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
 <!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
-[cenário-API-Call-API]: cenário-Web-API-Call-API-Call-API. MD # Option-1-Call-Microsoft-grafo-with-the-SDK [cenário-API-Call-Graph]: cenário-Web-API-Call-API-Call-API. MD # Option-1-Call-Microsoft-Graph-by-The-SDK [Scenario-API-Validation]: scenario-protected-web-api-verification-scope-app-roles.md
+[cenário-API-Call-API]: cenário-Web-API-Call-API-Call-API. MD # opção-1-Call-Microsoft-Graph-with-the-SDK  
+[cenário-API-Call-Graph]: cenário-Web-API-Call-API-Call-API. MD # opção-1-Call-Microsoft-Graph-with-the-SDK  
+[cenário-validação de API]: scenario-protected-web-api-verification-scope-app-roles.md  

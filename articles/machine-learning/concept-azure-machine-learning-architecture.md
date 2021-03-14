@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540167"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503684"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -47,28 +47,15 @@ Um espaço de trabalho inclui outros recursos do Azure que são usados pelo espa
 
 Você pode compartilhar um workspace com outras pessoas.
 
-### <a name="create-workspace"></a>Criar workspace
-
-O diagrama a seguir mostra o fluxo de trabalho da criação de um workspace.
-
-* Você entra no Azure AD de um dos clientes do Azure Machine Learning com suporte (CLI do Azure, SDK do Python, portal do Azure) e solicita o token apropriado do Azure Resource Manager.
-* Você chama o Azure Resource Manager para criar o workspace. 
-* O Azure Resource Manager contata o provedor de recursos do Azure Machine Learning para provisionar o workspace.
-* Se você não especificar recursos existentes, recursos adicionais necessários serão criados em sua assinatura.
-
-Você também pode provisionar outros destinos de computação anexados a um espaço de trabalho (como o serviço kubernetes do Azure ou VMs), conforme necessário.
-
-[![Criar fluxo de trabalho do workspace](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## <a name="computes"></a>Calcula
 
 <a name="compute-targets"></a> Um [destino de computação](concept-compute-target.md) é qualquer computador ou conjunto de máquinas que você usa para executar o script de treinamento ou hospedar sua implantação de serviço. Você pode usar seu computador local ou um recurso de computação remota como um destino de computação.  Com os destinos de computação, você pode iniciar o treinamento em seu computador local e, em seguida, expandir para a nuvem sem alterar o script de treinamento.
 
 Azure Machine Learning introduz duas VMS (máquinas virtuais) baseadas em nuvem totalmente gerenciadas configuradas para tarefas de aprendizado de máquina:
 
-* <a name="compute-instance"></a>**Instância de computação** : uma instância de computação é uma VM que inclui várias ferramentas e ambientes instalados para aprendizado de máquina. O uso principal de uma instância de computação é para sua estação de trabalho de desenvolvimento.  Você pode começar a executar blocos de anotações de exemplo sem a necessidade de configuração. Uma instância de computação também pode ser usada como um destino de computação para trabalhos de treinamento e inferência.
+* <a name="compute-instance"></a>**Instância de computação**: uma instância de computação é uma VM que inclui várias ferramentas e ambientes instalados para aprendizado de máquina. O uso principal de uma instância de computação é para sua estação de trabalho de desenvolvimento.  Você pode começar a executar blocos de anotações de exemplo sem a necessidade de configuração. Uma instância de computação também pode ser usada como um destino de computação para trabalhos de treinamento e inferência.
 
-* **Clusters de computação** : clusters de computação são um cluster de VMs com recursos de dimensionamento de vários nós. Os clusters de computação são mais adequados para destinos de computação para trabalhos grandes e produção.  O cluster é dimensionado automaticamente quando um trabalho é enviado.  Use como um destino de computação de treinamento ou para implantação de desenvolvimento/teste.
+* **Clusters de computação**: clusters de computação são um cluster de VMs com recursos de dimensionamento de vários nós. Os clusters de computação são mais adequados para destinos de computação para trabalhos grandes e produção.  O cluster é dimensionado automaticamente quando um trabalho é enviado.  Use como um destino de computação de treinamento ou para implantação de desenvolvimento/teste.
 
 Para obter mais informações sobre os destinos de computação de treinamento, consulte [Training Compute targets](concept-compute-target.md#train).  Para obter mais informações sobre destinos de computação de implantação, consulte [destinos de implantação](concept-compute-target.md#deploy).
 
@@ -115,7 +102,7 @@ Uma execução é produzida quando você envia um script para fazer o treinament
 
 [Espaço de trabalho](#workspace)  >  [Experimentos](#experiments)  >  [Executar](#runs)  >  **Configuração de execução**
 
-Uma configuração de execução define como um script deve ser executado em um destino de computação especificado. Você usa a configuração para especificar o script, o destino de computação e o ambiente do Azure ML a ser executado, todas as configurações específicas de trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+Uma configuração de execução define como um script deve ser executado em um destino de computação especificado. Você usa a configuração para especificar o script, o destino de computação e o ambiente do Azure ML a ser executado, todas as configurações específicas de trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 Uma configuração de execução pode ser persistida em um arquivo dentro do diretório que contém o script de treinamento.   Ou pode ser construído como um objeto na memória e usado para enviar uma execução.
 
@@ -126,10 +113,6 @@ Por exemplo, execute as configurações, consulte [Configurar uma execução de 
 [Espaço de trabalho](#workspace)  >  [Experimentos](#experiments)  >  [Executar](#runs)  >  **Instantâneo**
 
 Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao workspace pode procurar um registro de execução e baixar o instantâneo.
-
-O diagrama a seguir mostra o fluxo de trabalho do instantâneo do código.
-
-[![Fluxo de trabalho do instantâneo de código](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Registrando em log
 
@@ -272,13 +255,13 @@ As etapas do pipeline são reutilizáveis e poderão ser executadas sem realizar
 
 Azure Machine Learning fornece os seguintes recursos de monitoramento e registro em log:
 
-* Para __cientistas de dados__ , você pode monitorar seus experimentos e informações de log de suas execuções de treinamento. Para obter mais informações, confira os seguintes artigos:
+* Para __cientistas de dados__, você pode monitorar seus experimentos e informações de log de suas execuções de treinamento. Para obter mais informações, confira os seguintes artigos:
    * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
    * [Métricas de logs para execuções de treinamento](how-to-track-experiments.md)
    * [Acompanhar experimentos com o MLflow](how-to-use-mlflow.md)
    * [Visualizar execuções com o TensorBoard](how-to-monitor-tensorboard.md)
-* Para __Administradores__ , você pode monitorar informações sobre o espaço de trabalho, recursos do Azure relacionados e eventos, como a criação e exclusão de recursos usando Azure monitor. Para obter mais informações, consulte [como monitorar Azure Machine Learning](monitor-azure-machine-learning.md).
-* Para __DevOps__ ou __MLOps__ , você pode monitorar as informações geradas por modelos implantados como serviços web ou módulos de IOT Edge para identificar problemas com as implantações e coletar dados enviados para o serviço. Para obter mais informações, consulte [coletar dados de modelo](how-to-enable-data-collection.md) e [monitorar com Application insights](how-to-enable-app-insights.md).
+* Para __Administradores__, você pode monitorar informações sobre o espaço de trabalho, recursos do Azure relacionados e eventos, como a criação e exclusão de recursos usando Azure monitor. Para obter mais informações, consulte [como monitorar Azure Machine Learning](monitor-azure-machine-learning.md).
+* Para __DevOps__ ou __MLOps__, você pode monitorar as informações geradas por modelos implantados como serviços web ou módulos de IOT Edge para identificar problemas com as implantações e coletar dados enviados para o serviço. Para obter mais informações, consulte [coletar dados de modelo](how-to-enable-data-collection.md) e [monitorar com Application insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interagindo com seu espaço de trabalho
 
@@ -299,7 +282,7 @@ O estúdio também é onde você acessa as ferramentas interativas que fazem par
 > As ferramentas marcadas (visualização) abaixo estão atualmente em visualização pública.
 > A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 + Interaja com o serviço em qualquer ambiente do R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versão prévia).
 + Use [Azure Machine Learning designer](concept-designer.md) para executar as etapas do fluxo de trabalho sem escrever código. 
 + Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) para automação.

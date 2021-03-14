@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e8d00055d9a4d7355ccd8a33c8a9b811b852f5c8
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 500587dc6564aa55eb430365eb67bb958bbd2482
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955273"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519972"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados de arco do Azure usando ferramentas de kubernetes
 
@@ -142,10 +142,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 Depois de codificar o nome de usuário e a senha, você pode criar um arquivo com base no [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir os valores de nome de usuário e senha pelos seus próprios.
@@ -175,16 +175,27 @@ Edite o seguinte, conforme necessário:
 **RECOMENDADO PARA REVISAR E POSSIVELMENTE ALTERAR OS PADRÕES**
 - **armazenamento.. className**: a classe de armazenamento a ser usada para os dados do controlador de dados e os arquivos de log.  Se não tiver certeza das classes de armazenamento disponíveis no cluster kubernetes, você poderá executar o seguinte comando: `kubectl get storageclass` .  O padrão é o pressuposto de que `default` há uma classe de armazenamento que existe e que é nomeada `default` não que haja uma classe de armazenamento que _seja_ o padrão.  Observação: há duas configurações de className a serem definidas para a classe de armazenamento desejada – uma para os dados e outra para os logs.
 - **ServiceType**: altere o tipo de serviço para `NodePort` se você não estiver usando um balanceador de carga.  Observação: há duas configurações do serviceType que precisam ser alteradas.
+- Na plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, você deve aplicar a restrição de contexto de segurança antes de criar o controlador de dados. Siga as instruções em [aplicar uma restrição de contexto de segurança para serviços de dados habilitados para o Azure Arc no OpenShift](how-to-apply-security-context-constraint.md).
+- **Segurança** do Para a plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, substitua as `security:` configurações pelos valores a seguir no arquivo YAML do controlador de dados. 
+
+```yml
+  security:
+    allowDumps: true
+    allowNodeMetricsCollection: false
+    allowPodMetricsCollection: false
+    allowRunAsRoot: false
+```
 
 **ADICIONAL**
 - **nome**: o nome padrão do controlador de dados é `arc` , mas você pode alterá-lo, se desejar.
 - **DisplayName**: Defina como o mesmo valor que o atributo Name na parte superior do arquivo.
 - **registro**: o registro de contêiner da Microsoft é o padrão.  Se você estiver extraindo as imagens do registro de contêiner da Microsoft e [enviando-as por push para um registro de contêiner privado](offline-deployment.md), insira o endereço IP ou o nome DNS do registro aqui.
 - **dockerRegistry**: o segredo de pull de imagem a ser usado para efetuar pull das imagens de um registro de contêiner privado, se necessário.
-- **Repository**: o repositório padrão no registro de contêiner da Microsoft é `arcdata` .  Se você estiver usando um registro de contêiner privado, insira o caminho da pasta/repositório que contém as imagens de contêiner de serviços de dados habilitados do Azure arr.
+- **Repository**: o repositório padrão no registro de contêiner da Microsoft é `arcdata` .  Se você estiver usando um registro de contêiner privado, insira o caminho da pasta/repositório que contém as imagens de contêiner de serviços de dados habilitados para Arc do Azure.
 - **imageTag**: a marca de versão mais recente atual é padronizada no modelo, mas você pode alterá-la se quiser usar uma versão mais antiga.
 
-Exemplo de um arquivo de YAML do controlador de dados concluído:
+O exemplo a seguir mostra um arquivo de YAML do controlador de dados concluído. Atualize o exemplo para seu ambiente, com base em seus requisitos e nas informações acima.
+
 ```yaml
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: datacontroller
@@ -194,7 +205,7 @@ metadata:
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: mssql-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always

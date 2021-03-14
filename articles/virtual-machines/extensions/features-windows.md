@@ -1,27 +1,19 @@
 ---
 title: Recursos e extensões de VM do Azure para Windows
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 03/30/2018
-ms.author: akjosh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb1b05afbaa57fb86033c568142da32443adc1f9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016447"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559760"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -36,7 +28,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
-- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
+- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../azure-monitor/vm/quick-collect-azurevm.md).
 - Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](/azure/developer/chef/windows-vm-configure).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 

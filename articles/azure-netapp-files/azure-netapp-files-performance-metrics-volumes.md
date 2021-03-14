@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593405"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste de parâmetros de comparação de desempenho para o Azure NetApp Files
 
@@ -105,7 +105,7 @@ Você pode exibir dados históricos para as seguintes informações:
 
 Você pode acessar contadores de Azure NetApp Files por volume na página de métricas, conforme mostrado abaixo:
 
-![Métricas de Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
+![Métricas do Azure Monitor](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
 
 Você também pode criar um painel em Azure Monitor para Azure NetApp Files acessando a página métricas, filtrando o NetApp e especificando os contadores de volume de interesse: 
 
@@ -113,7 +113,7 @@ Você também pode criar um painel em Azure Monitor para Azure NetApp Files aces
 
 ### <a name="azure-monitor-api-access"></a>Acesso Azure Monitor API
 
-Você pode acessar contadores de Azure NetApp Files usando chamadas à API REST. Consulte [métricas com suporte com Azure monitor: Microsoft. NetApp/netAppAccounts/capacityPools/volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para contadores para pools de capacidade e volumes.
+Você pode acessar contadores de Azure NetApp Files usando chamadas à API REST. Consulte [métricas com suporte com Azure monitor: Microsoft. NetApp/netAppAccounts/capacityPools/volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para contadores para pools de capacidade e volumes.
 
 O exemplo a seguir mostra uma URL GET para exibição do tamanho do volume lógico:
 

@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691137"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como fazer failover manual de um nó primário nas camadas de serviço GP (SQL Instância Gerenciada Uso Geral) e Comercialmente Crítico (BC) e como fazer failover manualmente de um nó de réplica somente leitura secundário na camada de serviço BC.
 
@@ -33,7 +34,7 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 - Em alguns casos de degradações de desempenho de consulta, o failover manual pode ajudar a mitigar o problema de desempenho.
 
 > [!NOTE]
-> Garantir que seus aplicativos sejam resistentes a failover antes da implantação na produção ajudará a reduzir o risco de falhas de aplicativo na produção e contribuirá para a disponibilidade do aplicativo para seus clientes.
+> Garantir que seus aplicativos sejam resistentes a failover antes da implantação na produção ajudará a reduzir o risco de falhas de aplicativo na produção e contribuirá para a disponibilidade do aplicativo para seus clientes. Saiba mais sobre como testar seus aplicativos para prontidão de nuvem com o [teste da preparação da nuvem de aplicativo para resiliência de failover com a recodificação de vídeo do SQL instância gerenciada](https://youtu.be/FACWYLgYDL8) .
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar o failover manual no SQL Instância Gerenciada
 
@@ -42,11 +43,11 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 O usuário que estiver iniciando um failover precisará ter uma das seguintes funções do Azure:
 
 - Função de proprietário da assinatura ou
-- Instância Gerenciada função colaborador ou
+- [Instância gerenciada função colaborador](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) ou
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 A versão mínima do AZ. SQL precisa ser [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere o uso de [Azure cloud Shell](../../cloud-shell/overview.md) do portal do Azure que sempre tenha a versão mais recente do PowerShell disponível. 
 
@@ -150,8 +151,9 @@ A pequena perda de conectividade do cliente durante o failover, normalmente dura
 > - Para instâncias de BC, deve existir quorum de réplicas para que a solicitação de failover seja aceita.
 > - Para instâncias de BC, não é possível especificar em qual réplica secundária legível iniciar o failover.
 > - O failover não será permitido até que o primeiro backup completo de um novo banco de dados seja concluído por sistemas de backup automatizados.
+> - O failover não será permitido se houver uma restauração de banco de dados em andamento.
 
 ## <a name="next-steps"></a>Próximas etapas
-
+- Saiba mais sobre como testar seus aplicativos para prontidão de nuvem com o [teste da preparação da nuvem de aplicativo para resiliência de failover com a recodificação de vídeo do SQL instância gerenciada](https://youtu.be/FACWYLgYDL8) .
 - Saiba mais sobre a alta disponibilidade da instância gerenciada [alta disponibilidade para o Azure SQL instância gerenciada](../database/high-availability-sla.md).
 - Para obter uma visão geral, consulte [o que é o Azure SQL instância gerenciada?](sql-managed-instance-paas-overview.md).

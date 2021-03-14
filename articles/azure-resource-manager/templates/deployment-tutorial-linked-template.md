@@ -1,20 +1,20 @@
 ---
 title: Tutorial – Implantar um modelo vinculado
 description: Saiba como implantar um modelo vinculado
-ms.date: 01/12/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8f2bbd327adca6eef62d5e79f422f61d460ea7a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134187"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589271"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implantar um modelo vinculado
 
-Nos [tutoriais anteriores](./deployment-tutorial-local-template.md), você aprendeu a implantar um modelo que é armazenado em seu computador local. Para implantar soluções complexas, você pode dividir um modelo em vários modelos e implantar esses modelos por meio de um modelo principal. Neste tutorial, você aprenderá a implantar um modelo principal que contém a referência a um modelo vinculado. Quando o modelo principal é implantado, ele dispara a implantação do modelo vinculado. Você também aprende como armazenar e proteger o modelo vinculado usando um token SAS. Esse procedimento demora cerca de **12 minutos** para ser concluído.
+Nos [tutoriais anteriores](./deployment-tutorial-local-template.md), você aprendeu a implantar um modelo que é armazenado em seu computador local. Para implantar soluções complexas, você pode dividir um modelo em vários modelos e implantar esses modelos por meio de um modelo principal. Neste tutorial, você aprenderá a implantar um modelo principal que contém a referência a um modelo vinculado. Quando o modelo principal é implantado, ele dispara a implantação do modelo vinculado. Saiba também como armazenar e proteger os modelos usando um token SAS. Esse procedimento demora cerca de **12 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,15 +32,18 @@ Você pode separar o recurso de conta de armazenamento em um modelo vinculado:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-O modelo a seguir é o modelo principal. O objeto `Microsoft.Resources/deployments` realçado mostra como chamar um modelo vinculado. O modelo vinculado não pode ser armazenado como um arquivo local nem como um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua HTTP ou HTTPS. O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item. O URI é passado para o modelo usando um parâmetro. Consulte a definição do parâmetro realçado.
+O modelo a seguir é o modelo principal. O objeto `Microsoft.Resources/deployments` realçado mostra como chamar um modelo vinculado. O modelo vinculado não pode ser armazenado como um arquivo local nem como um arquivo que esteja disponível apenas em sua rede local. Você pode fornecer um valor de URI do modelo vinculado que inclui HTTP ou HTTPS ou usar a propriedade _relativePath_ para implantar um modelo vinculado remoto em uma localização relativa ao modelo pai. Uma opção é colocar o modelo principal e o modelo vinculado em uma conta de armazenamento.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
-
-Salve uma cópia do modelo principal no computador local com a extensão _.json_, por exemplo, _azuredeploy.json_. Você não precisa salvar uma cópia do modelo vinculado. O modelo vinculado será copiado de um repositório GitHub para uma conta de armazenamento.
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
 ## <a name="store-the-linked-template"></a>Armazenar o modelo vinculado
 
-O script do PowerShell a seguir cria uma conta de armazenamento, cria um contêiner e copia o modelo vinculado de um repositório GitHub para o contêiner. Uma cópia do modelo vinculado é armazenada no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+O modelo principal e o modelo vinculado são armazenados no GitHub:
+
+O script do PowerShell a seguir cria uma conta de armazenamento e um contêiner, além de copiar os dois modelos de um repositório GitHub para o contêiner. Esses dois modelos são:
+
+- O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+- O modelo vinculado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Selecione **Experimentar** para abrir o Cloud Shell, selecione **Copiar** para copiar o script do PowerShell e clique com o botão direito do mouse no painel do shell para colar o script:
 
@@ -55,11 +58,15 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json"
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -76,11 +83,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -88,7 +101,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Implantar modelo
 
-Para implantar um modelo privado em uma conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação. O blob que contém o modelo fica acessível somente para o proprietário da conta. No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI. Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
+Para implantar modelos em uma conta de armazenamento, gere um token SAS e forneça-o ao parâmetro _-QueryString_. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação. Os blobs que contêm o modelo ficam acessíveis somente para o proprietário da conta. No entanto, quando você cria um token SAS para um blob, o blob fica acessível para qualquer pessoa com o token SAS. Se outro usuário intercepta o URI e o token SAS, esse usuário pode acessar o modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
 
 Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -97,69 +110,66 @@ Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recurs
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file and path"
+$projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 
-# Generate a SAS token
-$linkedTemplateUri = New-AzStorageBlobSASToken `
+$mainTemplateUri = $context.BlobEndPoint + "$containerName/azuredeploy.json"
+$sasToken = New-AzStorageContainerSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
     -Permission r `
-    -ExpiryTime (Get-Date).AddHours(2.0) `
-    -FullUri
+    -ExpiryTime (Get-Date).AddHours(2.0)
+$newSas = $sasToken.substring(1)
 
-# Deploy the template
+
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFile `
+  -TemplateUri $mainTemplateUri `
+  -QueryString $newSas `
   -projectName $projectName `
-  -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-fileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $fileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 

@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804787"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633165"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -527,6 +527,53 @@ Um usuário pode restaurar seletivamente alguns discos em vez do conjunto de bac
 
 Depois de restaurar os discos, vá para a próxima seção para criar a VM.
 
+#### <a name="restore-disks-to-a-secondary-region"></a>Restaurar discos para uma região secundária
+
+Se a restauração entre regiões estiver habilitada no cofre com o qual você protegeu suas VMs, os dados de backup serão replicados para a região secundária. Você pode usar os dados de backup para executar uma restauração. Execute as seguintes etapas para disparar uma restauração na região secundária:
+
+1. [Busque a ID do cofre](#fetch-the-vault-id) com a qual suas VMs estão protegidas.
+1. Selecione o [item de backup correto a ser restaurado](#select-the-vm-when-restoring-files).
+1. Selecione o ponto de recuperação apropriado na região secundária que você deseja usar para executar a restauração.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Execute o cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) com o `-RestoreToSecondaryRegion` parâmetro para disparar uma restauração na região secundária.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    A saída será semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Execute o cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) com o `-UseSecondaryRegion` parâmetro para monitorar o trabalho de restauração.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    A saída será semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
+
 ## <a name="replace-disks-in-azure-vm"></a>Substituir discos na VM do Azure
 
 Para substituir os discos e as informações de configuração, execute as seguintes etapas:
@@ -575,7 +622,7 @@ O modelo não pode ser acessado diretamente, pois está sob a conta de armazenam
 3. Implante o modelo para criar uma nova VM, conforme explicado [aqui](../azure-resource-manager/templates/deploy-powershell.md).
 
     ```powershell
-    New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI
     ```
 
 ### <a name="create-a-vm-using-the-config-file"></a>Criar uma VM usando o arquivo de configuração

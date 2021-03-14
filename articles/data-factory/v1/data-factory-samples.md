@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory - Exemplos
 description: Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b373b5c440bf2ef2f50bf323baa2488981cdc775
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82c871e8914d70dde7f2586b7dbf6556ebd2621f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495184"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387029"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -80,7 +76,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-* Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização**.
+* Baixe o último plug-in do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando Visual Studio 2013, também poderá atualizar o plug-in executando as seguintes etapas: no menu, clique em **ferramentas**  ->  **extensões e atualizações**  ->  **online**  ->  **Visual Studio Galeria**  ->  **Microsoft Azure data Factory ferramentas para Visual Studio**  ->  **atualização**.
 
 ### <a name="use-data-factory-templates"></a>Use modelos de Data Factory
 1. Clique em **Arquivo** no menu, aponte para **Novo** e clique em **Projeto**.

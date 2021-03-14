@@ -2,17 +2,14 @@
 title: Ajustar cotas e limites no Azure Data Lake Analytics
 description: Saiba como ajustar e aumentar cotas e limites em contas do ADLA (Azure Data Lake Analytics).
 ms.service: data-lake-analytics
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 416b77fd86316acb8098531257e12b591a0ff052
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710168"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar cotas e limites no Azure Data Lake Analytics
 
@@ -33,7 +30,7 @@ Se você deseja ultrapassar esse limite, tente estas opções:
 
 **Número máximo de unidades de análise (AUS) por conta:** 250, padrão 32
 
-Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo:
+Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo: 
 
 - Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
 - Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
@@ -44,7 +41,7 @@ Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua
 
 Esse é o número máximo de AUs que cada trabalho individual pode ser atribuído em sua conta. Os trabalhos que recebem mais do que esse limite serão rejeitados, a menos que o remetente seja afetado por uma política de computação (limite de envio de trabalho) que forneça uma quantidade maior de AUs por trabalho. O limite superior desse valor é o limite de AU da conta.
 
-**Número máximo de trabalhos U-SQL simultâneos por conta: ** 20
+**Número máximo de trabalhos U-SQL simultâneos por conta:** 20
 
 Esse é o número máximo de trabalhos que podem ser executados simultaneamente em sua conta. Exceder esse valor faz com que os trabalhos mais recentes sejam enfileirados automaticamente.
 

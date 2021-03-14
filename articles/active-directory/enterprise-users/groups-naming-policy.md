@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784992"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365694"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos de Microsoft 365 no Azure Active Directory
 
@@ -78,8 +78,6 @@ Para configurar a política de nomenclatura, uma das seguintes funções é nece
 Administradores selecionados podem ser isentos dessas políticas, em todas as cargas de trabalho de grupo e pontos de extremidade, para que eles possam criar grupos usando palavras bloqueadas e com suas próprias convenções de nomenclatura. A seguir estão a lista de funções de administrador isentos da política de nomenclatura de grupos.
 
 - Administrador global
-- Suporte ao parceiro de Nível 1
-- Suporte ao parceiro de Nível 2
 - Administrador de usuários
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurar a política de nomenclatura no portal do Azure
@@ -174,7 +172,7 @@ Certifique-se de desinstalar qualquer versão anterior do Azure Active Directory
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-É isso. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
+Isso é tudo. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportar ou importar palavras bloqueadas personalizadas
 

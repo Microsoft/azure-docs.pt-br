@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636870"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376353"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -45,17 +45,17 @@ No entanto, se você quiser todos os recursos e atualizações mais recentes, a 
 Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partir de 1º de novembro de 2020, começaremos a implementar um processo de substituição pelo qual as versões do Azure AD Connect lançadas há mais de 18 meses serão preteridas. Vamos começar esse processo preterindo todas as versões do Azure AD Connect com a versão 1.3.20.0 (lançada em 24/4/2019) e anteriores, e continuaremos a avaliar a substituição de versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
+> A partir de 1º de abril de 2024, desativaremos as versões de Azure AD Connect que foram lançadas antes de 1º de maio de 2018-versão 1.1.751.0 e mais antigas. 
 >
 > Você precisa verificar se está executando uma versão recente do Azure AD Connect para ter uma experiência de suporte ideal. 
 >
->Se você executar uma versão preterida do Azure AD Connect, talvez não tenha as correções de segurança, as melhorias de desempenho, a solução de problemas, as ferramentas de diagnóstico e aprimoramentos de serviço mais recentes e, se precisar de suporte, talvez não consiga receber o nível de serviço de que sua organização precisa.
+>Se você executar uma versão desativada do Azure AD Connect talvez você não tenha as mais recentes correções de segurança, melhorias de desempenho, solução de problemas e ferramentas de diagnóstico e aprimoramentos de serviço e, se precisar de suporte, talvez não seja possível fornecer o nível de serviço de que sua organização precisa.
 >
->Se você tiver habilitado Azure AD Connect para sincronização, começará automaticamente a receber notificações de Integridade que avisam sobre substituições futuras quando estiver executando uma das versões mais antigas.
+
 >
 >Consulte [este artigo](./how-to-upgrade-previous-version.md) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 >
->Para obter informações de histórico de versão sobre versões preteridas, consulte [Azure ad Connect arquivo de histórico de lançamento de versão](reference-connect-version-history-archive.md)
+>Para obter informações de histórico de versão sobre versões desativadas, consulte [Azure ad Connect arquivo de histórico de lançamento de versão](reference-connect-version-history-archive.md)
 
 ## <a name="15450"></a>1.5.45.0
 
@@ -127,7 +127,7 @@ Esse build de hotfix corrigirá um problema no build 1.5.20.0 se você tiver clo
      - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
-> Se você tiver clonado a regra de sincronização **In from AD - Group Join** , não tiver clonado a regra de sincronização **In from AD - Group Common** e planejar fazer upgrade, conclua as seguintes etapas como parte da atualização:
+> Se você tiver clonado a regra de sincronização **In from AD - Group Join**, não tiver clonado a regra de sincronização **In from AD - Group Common** e planejar fazer upgrade, conclua as seguintes etapas como parte da atualização:
 > 1. Durante a atualização, desmarque a opção **Iniciar o processo de sincronização ao concluir a configuração**.
 > 2. Edite a regra de sincronização de junção clonada e adicione as seguintes duas transformações:
 >     - Defina o fluxo direto `objectGUID` como `sourceAnchorBinary`.

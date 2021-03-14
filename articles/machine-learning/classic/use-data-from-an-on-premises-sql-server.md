@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): SQL Server local-Azure'
 description: Use os dados de um banco de dado SQL Server para executar análises avançadas com Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8cdf1029371e0e11c38616e7800652ca9debbba7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325696"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517392"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Executar análise com Azure Machine Learning Studio (clássico) usando um banco de dados SQL Server
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Muitas vezes, empresas que trabalham com dados locais gostariam de aproveitar a escala e a agilidade da nuvem para sua cargas de trabalho de aprendizado de máquina. Mas elas não querem interromper seus fluxos de trabalho e processos de negócios atuais, movendo seus dados locais para a nuvem. Azure Machine Learning Studio (clássico) agora dá suporte à leitura de seus dados de um banco de SQL Server e, em seguida, ao treinamento e à pontuação de um modelo com esses dados. Você não precisa mais copiar manualmente e sincronizar os dados entre a nuvem e o servidor local. Em vez disso, o módulo **importar dados** no Azure Machine Learning Studio (clássico) agora pode ler diretamente do seu banco de SQL Server para seus trabalhos de treinamento e pontuação.
@@ -83,7 +83,7 @@ A primeira etapa é criar e configurar o gateway para acessar o banco de dados S
 3. Clique em **NOVO GATEWAY DE DADOS** na parte inferior da tela.
 
     ![Novo Gateway de Dados](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
-4. Na caixa de diálogo **Novo gateway de dados** , insira o **Nome do Gateway** e, se preferir, adicione uma **Descrição**. Clique na seta no canto inferior direito para ir para a próxima etapa da configuração.
+4. Na caixa de diálogo **Novo gateway de dados**, insira o **Nome do Gateway** e, se preferir, adicione uma **Descrição**. Clique na seta no canto inferior direito para ir para a próxima etapa da configuração.
 
     ![Insira o nome e a descrição do gateway](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. Na caixa de diálogo Baixar e registrar gateway de dados, copie a CHAVE DE REGISTRO DO GATEWAY para a área de transferência.
@@ -91,7 +91,7 @@ A primeira etapa é criar e configurar o gateway para acessar o banco de dados S
     ![Baixar e registrar o gateway de dados](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Se você ainda não tiver baixado e instalado o Gateway de Gerenciamento de Dados da Microsoft, clique em **Baixar gateway de gerenciamento de dados**. Isso levará você ao Centro de Download da Microsoft, em que você pode selecionar a versão de gateway necessária, baixá-la e instalá-la. Você pode encontrar informações detalhadas sobre pré-requisitos de instalação, etapas de instalação e dicas de solução de problemas nas seções de início do artigo [Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Depois que o gateway estiver instalado, o Gerenciador de Configurações do Gateway de Gerenciamento de Dados será aberto e a caixa de diálogo **Registrar gateway** será exibida. Cole a **Chave de Registro de Gateway** que você copiou para a área de transferência e clique em **Registrar**.
-8. Se você já tiver um gateway instalado, execute o Gerenciador de Configuração do Gateway de Gerenciamento de Dados. Clique em **Alterar chave** , cole a **Chave de Registro do Gateway** copiada na área de transferência na etapa anterior e clique em **OK**.
+8. Se você já tiver um gateway instalado, execute o Gerenciador de Configuração do Gateway de Gerenciamento de Dados. Clique em **Alterar chave**, cole a **Chave de Registro do Gateway** copiada na área de transferência na etapa anterior e clique em **OK**.
 9. Quando a instalação estiver concluída, a caixa de diálogo **Registrar gateway** para o Gerenciador de Configurações do Gateway de Gerenciamento de Dados da Microsoft será exibida. Cole a CHAVE DE REGISTRO DE GATEWAY que você copiou na área de transferência em uma etapa anterior e clique em **Registrar**.
 
     ![Registrar gateway](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -134,7 +134,7 @@ Depois de configurar o gateway, você pode adicionar um módulo **importar dados
 5. Selecione o **Gateway de dados** instalado e registrado. Você pode configurar outro gateway selecionando "(adicionar novo Gateway de Dados...)".
 
    ![Selecionar o gateway de dados para o módulo Importar Dados](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. Insira o **nome do servidor de Banco de Dados** SQL e o **Nome do banco de dados** , com a **consulta de Banco de Dados** SQL que você deseja executar.
+6. Insira o **nome do servidor de Banco de Dados** SQL e o **Nome do banco de dados**, com a **consulta de Banco de Dados** SQL que você deseja executar.
 7. Clique em **Inserir valores** em **Nome de usuário e senha** e insira suas credenciais de banco de dados. Você pode usar a autenticação integrada do Windows ou a autenticação SQL Server dependendo de como o SQL Server está configurado.
 
    ![Inserir as credenciais do banco de dados](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)

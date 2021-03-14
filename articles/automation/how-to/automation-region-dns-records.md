@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183712"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576000"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registros DNS para regiões do Azure usadas pela automação do Azure
 
@@ -21,7 +21,7 @@ O serviço de [automação do Azure](../automation-intro.md) usa vários registr
 * Webhooks
 
 >[!NOTE]
->O registro de Hybrid Runbook Worker do Linux falhará com os novos registros, a menos que seja a versão 1.6.10.2 ou superior. Você deve atualizar para uma versão mais recente do [agente de log Analytics para Linux](../../azure-monitor/platform/agent-linux.md) a fim de o computador receber uma versão atualizada da função de trabalho e usar esses novos registros. Os computadores existentes continuarão funcionando sem problemas.  
+>O registro de Hybrid Runbook Worker do Linux falhará com os novos registros, a menos que seja a versão 1.6.10.2 ou superior. Você deve atualizar para uma versão mais recente do [agente de log Analytics para Linux](../../azure-monitor/agents/agent-linux.md) a fim de o computador receber uma versão atualizada da função de trabalho e usar esses novos registros. Os computadores existentes continuarão funcionando sem problemas.  
 
 ## <a name="dns-records-per-region"></a>Registros DNS por região
 

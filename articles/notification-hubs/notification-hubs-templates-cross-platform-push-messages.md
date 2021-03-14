@@ -5,23 +5,21 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 02/16/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee42512a468f4ff86ad7ba273d3971fd124779e2
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86219956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635635"
 ---
 # <a name="notification-hubs-templates"></a>Modelos de hubs de notificação
 
@@ -32,7 +30,7 @@ Os modelos permitem que um aplicativo cliente especifique o formato exato das no
 - Independência da versão do cliente
 - Localização fácil
 
-Esta seção fornece dois exemplos detalhados de como usar modelos para enviar notificações independentes de plataformas ao direcionar todos os dispositivos em plataformas e para personalizar a notificação de difusão para cada dispositivo.
+Esta seção fornece dois exemplos detalhados de como usar modelos para enviar notificações independentes de plataforma direcionando todos os seus dispositivos entre plataformas e para personalizar notificações de difusão para cada dispositivo.
 
 ## <a name="using-templates-cross-platform"></a>Como usar modelos de plataforma cruzada
 
@@ -58,9 +56,9 @@ Para enviar uma mensagem de notificação do sistema semelhante em um aplicativo
 
 Esse requisito força o back-end do aplicativo a produzir cargas diferentes para cada plataforma e torna o back-end responsável por parte da camada de apresentação do aplicativo. Algumas questões incluem a localização e layouts gráficos (especialmente para aplicativos da Windows Store que englobam notificações para vários tipos de blocos).
 
-O recurso de modelo de Hubs de Notificação permite que um aplicativo cliente crie registros especiais, chamados registros modelos, que abrangem, além do conjunto de marcas, um modelo. O recurso modelo dos Hubs de Notificação permite que um aplicativo cliente associe os dispositivos com modelos se você estiver trabalhando com instalações (preferidas) ou Registros. Considerando os exemplos anteriores de carga, a única informação independente de plataforma é a mensagem de alerta real (Olá!). Um modelo é um conjunto de instruções para o Hub de Notificação sobre como formatar uma mensagem independente de plataforma para o registro daquele aplicativo cliente específico. No exemplo anterior, a mensagem independente de plataforma é uma propriedade única: `message = Hello!`.
+O recurso de modelo de Hubs de Notificação permite que um aplicativo cliente crie registros especiais, chamados registros modelos, que abrangem, além do conjunto de marcas, um modelo. O recurso de modelo de hubs de notificação permite que um aplicativo cliente associe dispositivos a modelos se você estiver trabalhando com instalações (preferenciais) ou registros. Considerando os exemplos de carga precedentes, as únicas informações independentes de plataforma são a mensagem de alerta real (**Olá!**). Um modelo é um conjunto de instruções para o Hub de notificação sobre como formatar uma mensagem independente de plataforma para o registro desse aplicativo cliente específico. No exemplo anterior, a mensagem independente de plataforma é uma propriedade única: `message = Hello!`.
 
-A figura a seguir ilustra o processo:
+A seguinte figura ilustra o processo:
 
 ![Diagrama mostrando o processo para usar modelos de plataforma cruzada](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -82,15 +80,15 @@ O modelo correspondente para o aplicativo do cliente da Windows Store é:
 </toast>
 ```
 
-Observe que a mensagem real é substituída pela expressão $(message). A expressão instrui o Hub de Notificação, sempre que ele envia uma mensagem para este determinado registro, para compilar uma mensagem que segue a ele e aos comutadores no valor comum.
+Observe que a mensagem real é substituída pela expressão `$(message)` . Essa expressão instrui o Hub de notificação, sempre que envia uma mensagem para esse registro específico, para criar uma mensagem que a segue e insere o valor comum.
 
-Se você estiver trabalhando com o modelo de instalação, a chave de instalação “modelos” terá uma JSON de vários modelos. Se você estiver trabalhando com o modelo de registro, o aplicativo cliente poderá criar vários registros para usar vários modelos. Por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de bloco. Os aplicativos clientes também podem mesclar registros nativos (registros sem um modelo) e registros de modelo.
+Se você estiver trabalhando com o modelo de instalação, a chave de instalação "modelos" mantém um JSON de vários modelos. Se você estiver trabalhando com o modelo de registro, o aplicativo cliente poderá criar vários registros para usar vários modelos; por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de bloco. Os aplicativos clientes também podem mesclar registros nativos (registros sem um modelo) e registros de modelo.
 
-O Hub de Notificação envia uma notificação para cada modelo sem considerar se eles pertencem ao mesmo aplicativo cliente. Esse comportamento pode ser usado para converter notificações independentes de plataforma em mais notificações. Por exemplo, a mesma mensagem independente de plataforma para o Hub de Notificação pode ser convertida em um alerta de notificação do sistema e uma atualização de bloco, sem a necessidade de back-end para estar ciente dele. Algumas plataformas (por exemplo, iOS) podem recolher diversas notificações no mesmo dispositivo se elas forem enviadas em um curto período de tempo.
+O Hub de notificação envia uma notificação para cada modelo sem considerar se eles pertencem ao mesmo aplicativo cliente. Esse comportamento pode ser usado para converter notificações independentes de plataforma em mais notificações. Por exemplo, a mesma mensagem independente de plataforma para o Hub de notificação pode ser convertida diretamente em um alerta do sistema e uma atualização de bloco, sem exigir que o back-end esteja ciente dela. Algumas plataformas (por exemplo, iOS) podem recolher várias notificações para o mesmo dispositivo se elas forem enviadas em um curto período de tempo.
 
 ## <a name="using-templates-for-personalization"></a>Como usar modelos para personalização
 
-Outra vantagem de usar modelos é a capacidade de usar os Hubs de Notificação para realizar a personalização por registro de notificações. Por exemplo, considere um aplicativo sobre clima que exibe um bloco com as condições climáticas em um local específico. Um usuário pode escolher entre graus Celsius ou Fahrenheit e uma previsão única ou de cinco dias. Ao usar modelos, cada instalação do aplicativo cliente pode registrar para o formato necessário (1 dia Celsius, 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit) e o back-end pode enviar uma única mensagem que contenha todas as informações necessárias para preencher esses modelos (por exemplo, uma previsão de cinco dias com graus Celsius e Fahrenheit).
+Outra vantagem de usar modelos é a capacidade de usar os Hubs de Notificação para realizar a personalização por registro de notificações. Por exemplo, considere um aplicativo meteorológico que exibe um bloco com as condições meteorológicos em um local específico. Um usuário pode escolher entre graus Celsius ou Fahrenheit e uma previsão única ou de cinco dias. Ao usar modelos, cada instalação do aplicativo cliente pode registrar para o formato necessário (1 dia Celsius, 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit) e o back-end pode enviar uma única mensagem que contenha todas as informações necessárias para preencher esses modelos (por exemplo, uma previsão de cinco dias com graus Celsius e Fahrenheit).
 
 O modelo para a previsão de um dia com temperaturas em graus Celsius é como segue:
 
@@ -106,18 +104,12 @@ O modelo para a previsão de um dia com temperaturas em graus Celsius é como se
 </tile>
 ```
 
-A mensagem enviada ao Hub de Notificação contém as seguintes propriedades:
+A mensagem enviada para o Hub de notificação contém todas as seguintes propriedades:
 
-```html
-<table border="1">
-
-<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
-
-<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
-
-<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
-</table><br/>
-```
+| day1_image | day2_image | day3_image | day4_image | day5_image |
+|------------|------------|------------|------------|------------|
+| day1_tempC | day2_tempC | day3_tempC | day4_tempC | day5_tempC |
+| day1_tempF | day2_tempF | day3_tempF | day4_tempF | day5_tempF |
 
 Ao usar esse padrão, o back-end envia apenas uma única mensagem sem ter que armazenar opções de personalização específicas para os usuários do aplicativo. A figura a seguir ilustra esse cenário:
 
@@ -125,22 +117,22 @@ Ao usar esse padrão, o back-end envia apenas uma única mensagem sem ter que ar
 
 ## <a name="how-to-register-templates"></a>Como registrar modelos
 
-Para registrar usando modelos de instalação (preferencial) ou o modelo de registro, consulte a seção [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md).
+Para registrar com modelos usando o modelo de instalação (preferencial) ou o modelo de registro, consulte [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md).
 
 ## <a name="template-expression-language"></a>Linguagem de expressão do modelo
 
-Os modelos são limitados aos formatos de documento XML ou JSON. Além disso, só é possível usar expressões em determinados locais. Por exemplo, os atributos de nó ou valores para XML, cadeia de valores de propriedade para JSON.
+Os modelos são limitados aos formatos de documento XML ou JSON. Além disso, você só pode colocar expressões em locais específicos; por exemplo, atributos de nó ou valores para XML, valores de propriedade de cadeia de caracteres para JSON.
 
 A tabela a seguir mostra a linguagem permitida nos modelos:
 
 | Expression       | Descrição |
 | ---------------- | --- |
 | $(prop)          | Referência para uma propriedade de evento com o nome fornecido. Os nomes de propriedade não diferenciam maiúsculas de minúsculas. Esta expressão é convertida para o valor de texto da propriedade ou em uma sequência de caracteres vazia se a propriedade não estiver presente. |
-| $(prop, n)       | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |
-| .(prop, n)       | Como consta acima, mas o texto é sufixado com três pontos quando é cortado. O tamanho total da cadeia de caracteres cortada e do sufixo não excede n caracteres. .(title, 20) com uma propriedade de entrada de "Esta é a linha de título" resulta em **Este é o título...** |
+|$(prop, n)       | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |
+| .(prop, n)      | Como consta acima, mas o texto é sufixado com três pontos quando é cortado. O tamanho total da cadeia de caracteres recortada e o sufixo não excedem n caracteres. (título, 20) com uma propriedade de entrada de "esta é a linha de título" resulta neste **é o título...** |
 | %(prop)          | Semelhante ao $(name), exceto que a saída é codificada para URI. |
-| #(prop)          | Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente como $(prop) anteriormente especificada, exceto quando usada em modelos JSON (por exemplo, modelos Apple). Nesse caso, se essa função não for delimitada por "{','}" (por exemplo, 'myJsonProperty': '#(name)') e for avaliada como um número em formato Javascript, por exemplo,regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;\*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, a saída JSON será um número.<br><br>Por exemplo, ‘badge : ‘#(name)’se torna 'badge': 40 (e não ‘40‘). |
-| 'texto' ou "texto" | Um literal. Literais contêm texto arbitrário entre aspas simples ou duplas. |
+| #(prop)          | Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente da mesma forma que ' $ (prop) ' especificada anteriormente, exceto quando usada em modelos JSON (por exemplo, modelos da Apple). Nesse caso, se essa função não estiver entre "{", "}" (por exemplo, "myjsonproperty": "# (Name)") e for avaliada como um número no formato JavaScript, por exemplo, RegExp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93; *)) ( \.&#91;0-9&#93;+)? ( (e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, em seguida, o JSON de saída é um número.<br><br>Por exemplo, ' Emblema: ' # (Name) ' torna-se ' crachá ': 40 (e não ' 40 '). |
+| ' texto ' ou "texto" | Um literal. Literais contêm texto arbitrário entre aspas simples ou duplas. |
 | expr1 + expr2    | O operador de concatenação que une duas expressões em uma única cadeia de caracteres. |
 
 As expressões podem ter qualquer uma das formas anteriores.

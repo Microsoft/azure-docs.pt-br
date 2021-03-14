@@ -3,12 +3,12 @@ title: Restaurar Managed Disks do Azure
 description: Saiba como restaurar Managed Disks do Azure do portal do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737369"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703742"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Managed Disks do Azure (em versão prévia)
 
@@ -66,7 +66,7 @@ Os pré-requisitos a seguir são necessários para executar uma operação de re
     >
     >Durante os backups agendados ou uma operação de backup sob demanda, o backup do Azure armazena os instantâneos incrementais de disco no grupo de recursos de instantâneo fornecido durante a configuração do backup do disco. O backup do Azure usa esses instantâneos incrementais durante a operação de restauração. Se os instantâneos forem excluídos ou movidos do grupo de recursos de instantâneo ou se as atribuições de função do cofre de backup forem revogadas no grupo de recursos de instantâneo, a operação de restauração falhará.
 
-1. Se o disco a ser restaurado for criptografado com [chaves gerenciadas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou usando a [criptografia dupla usando chaves gerenciadas por plataforma e chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), atribua a permissão de função de **leitor** à identidade gerenciada do cofre de backup no recurso de **conjunto de criptografia de disco** .
+1. Se o disco a ser restaurado for criptografado com [chaves gerenciadas pelo cliente (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) ou usando a [criptografia dupla usando chaves gerenciadas por plataforma e chaves gerenciadas pelo cliente](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), atribua a permissão de função de **leitor** à identidade gerenciada do cofre de backup no recurso de **conjunto de criptografia de disco** .
 
 Depois que os pré-requisitos forem atendidos, siga estas etapas para executar a operação de restauração.
 

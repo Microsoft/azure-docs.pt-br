@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/03/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837861"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523576"
 ---
 # <a name="view-information-in-alerts"></a>Exibir informações em alertas
 
@@ -90,8 +90,8 @@ Para baixar um arquivo PCAP, selecione :::image type="content" source="media/how
 
 A área de **recomendação** de um alerta exibe informações que podem ajudá-lo a entender melhor um evento. Examine essas informações antes de gerenciar o evento de alerta ou executar uma ação no dispositivo ou na rede.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)
 
-[Gerenciar o evento de alerta](how-to-manage-the-alert-event.md)
+[Gerenciar o evento de alertas](how-to-manage-the-alert-event.md)

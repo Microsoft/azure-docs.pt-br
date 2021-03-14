@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241600"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030606"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como solucionar falhas de tempo de execução do U-SQL devido a alterações no tempo de execução
 
@@ -55,7 +55,7 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* A referência a Newtonsoft.Jsna versão do arquivo 12.0.3 ou em diante em um script USQL causará a seguinte falha de compilação:
+1. A referência a Newtonsoft.Jsna versão do arquivo 12.0.3 ou em diante em um script USQL causará a seguinte falha de compilação:
 
     *"Lamentamos; os trabalhos em execução na sua conta de Data Lake Analytics provavelmente serão executados mais lentamente ou não serão concluídos. Um problema inesperado está nos impedindo de restaurar automaticamente essa funcionalidade para sua conta de Azure Data Lake Analytics. Os engenheiros de Azure Data Lake foram contatados para investigar. "*  
 
@@ -65,6 +65,10 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
     `...`
 
     **Solução**: Use Newtonsoft.Jsno arquivo v 12.0.2 ou inferior.
+2. Os clientes podem ver arquivos e pastas temporários em seu armazenamento. Elas são produzidas como parte da execução normal do trabalho, mas geralmente são excluídas antes que os clientes as vejam. Em determinadas circunstâncias, que são raras e aleatórias, elas podem permanecer visíveis por um período de tempo. Eles são eventualmente excluídos e nunca são contados como parte do armazenamento do usuário ou geram qualquer forma de cobranças. Dependendo da lógica de trabalho dos clientes, eles podem causar problemas. Por exemplo, se o trabalho enumerar todos os arquivos na pasta e, em seguida, comparar as listas de arquivos, ele poderá falhar devido à presença dos arquivos temporários inesperados. Da mesma forma, se um trabalho downstream enumerar todos os arquivos de uma determinada pasta para processamento adicional, ele também poderá enumerar os arquivos temporários.  
+
+    **Solução**: uma correção é identificada no tempo de execução em que os arquivos temporários serão armazenados na pasta temporária de nível de conta do que a pasta de saída atual. Os arquivos temporários serão gravados nessa nova pasta Temp e serão excluídos no final da execução do trabalho.  
+    Como essa correção está lidando com os dados do cliente, é extremamente importante que essa correção seja bem validada no MSFT antes de ser liberada. Espera-se que essa correção esteja disponível como tempo de execução beta no meio do ano 2021 e como tempo de execução padrão na segunda metade do ano 2021. 
 
 
 ## <a name="see-also"></a>Confira também

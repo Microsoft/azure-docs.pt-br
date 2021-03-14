@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 4768dbe292b7c71770ded1e8ad27025bc9944608
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f29be1807dfcc314c89d30301107670a970263ce
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930255"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172868"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
 Além de usar o HMAC (Message Authentication Code baseado em hash), a configuração do Azure App dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações às instâncias de configuração do aplicativo.  O Azure AD permite que você use o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança.  Uma entidade de segurança pode ser um usuário, uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) ou uma [entidade de serviço de aplicativo](../active-directory/develop/app-objects-and-service-principals.md).  Para saber mais sobre as funções e atribuições de função, confira [Noções básicas sobre funções diferentes](../role-based-access-control/overview.md).
@@ -37,9 +37,6 @@ O Azure fornece as seguintes funções internas do Azure para autorizar o acesso
 - **Leitor de Dados da Configuração de Aplicativos**: Use essa função para conceder acesso de leitura aos dados da Configuração de Aplicativos. Isso não concede acesso ao recurso de Configuração de Aplicativos.
 - **Colaborador**: Use essa função para gerenciar o recurso de Configuração de Aplicativos. Embora os dados de configuração do aplicativo possam ser acessados usando chaves de acesso, essa função não concede acesso direto aos dados usando o Azure AD.
 - **Leitor**: Use essa função para conceder acesso de leitura ao recurso de Configuração de Aplicativos. Isso não concede acesso às chaves de acesso do recurso nem aos dados armazenados na Configuração de Aplicativos.
-
-> [!NOTE]
-> Atualmente, o portal do Azure dá suporte apenas à autenticação HMAC para acessar os dados de configuração do aplicativo. Não há suporte para a autenticação do Azure AD. Portanto, os usuários do portal do Azure exigem que a função de *colaborador* recupere as chaves de acesso do recurso de configuração de aplicativo. A concessão de dados de *configuração de aplicativo* ou funções de proprietário de dados de *configuração de aplicativo* não tem impacto sobre o acesso por meio do Portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o uso de [identidades gerenciadas](howto-integrate-azure-managed-service-identity.md) para administrar o serviço de Configuração de Aplicativos.

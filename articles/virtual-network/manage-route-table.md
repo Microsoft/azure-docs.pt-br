@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220585"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574127"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -85,7 +85,7 @@ Acesse o [portal do Azure](https://portal.azure.com) para gerenciar sua rede vir
 
 Para saber mais sobre configurações comuns do Azure, veja as seguintes informações:
 
-- [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
+- [Log de atividades](../azure-monitor/essentials/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -127,7 +127,7 @@ Opcionalmente, você pode associar uma tabela de rotas a uma sub-rede. Uma tabel
 
 1. Em **tabela de rotas**, escolha a tabela de rotas que você deseja associar à sub-rede.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se sua rede virtual estiver conectada a um gateway de VPN do Azure, não associe uma tabela de rotas à [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de *0.0.0.0/0*. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar *0.0.0.0/0* em uma rota, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md#default-route).
 
@@ -152,7 +152,7 @@ Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tr�
 
 1. Em **tabela de rotas**, escolha **nenhum**.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="dissociate-a-route-table---commands"></a>Dissociar uma tabela de rotas – comandos
 
@@ -333,7 +333,7 @@ Após uma breve espera, o Azure informa o tipo do próximo salto e a ID da rota 
 
 Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída à [função de colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                          |   Name                                                  |
+| Ação                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar tabela de rotas                        |

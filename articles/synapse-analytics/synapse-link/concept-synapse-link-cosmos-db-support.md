@@ -1,20 +1,20 @@
 ---
-title: Recursos compatíveis do Link do Azure Synapse (versão prévia) para o Azure Cosmos DB
+title: Recursos compatíveis do Link do Azure Synapse para Azure Cosmos DB
 description: Entender a lista atual de ações compatíveis com o Link do Azure Synapse para Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: cb2cadadacd914bfa5473b512255c1ab0f856150
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119808"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666318"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Recursos compatíveis do Link do Azure Synapse para Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Você pode se conectar a um contêiner de Azure Cosmos DB sem habilitar o link S
 
 | Categoria              | Descrição |[Pool do Apache Spark](../sql/on-demand-workspace-overview.md) | [Pool de SQL sem servidor](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Suporte para tempo de execução** |Tempo de execução do Azure Synapse com suporte para acessar Azure Cosmos DB| ✓ | Versão Prévia |
+| **Suporte para tempo de execução** |Tempo de execução do Azure Synapse com suporte para acessar Azure Cosmos DB| ✓ | ✓ |
 | **Suporte para API do Azure Cosmos DB** | Tipo de API Azure Cosmos DB com suporte | SQL/MongoDB | SQL/MongoDB |
 | **Objeto**  |Objetos, como uma tabela que pode ser criada, apontando diretamente para o contêiner do Azure Cosmos DB| Dataframe, exibição, tabela | Visualizar |
 | **Leitura**    | Tipo de contêiner de Azure Cosmos DB que pode ser lido | OLTP/HTAP | HTAP  |
@@ -51,7 +51,6 @@ Você pode se conectar a um contêiner de Azure Cosmos DB sem habilitar o link S
 | **Gravar DataFrame no contêiner** |Gravar dados em um contêiner|✓| ✓ |
 | **Carregar DataFrame de streaming do contêiner** |Transmitir dados usando o feed de alterações do Azure Cosmos DB|✓| ✓ |
 | **Gravar DataFrame de streaming no contêiner** |Transmitir dados usando o feed de alterações do Azure Cosmos DB|✓| ✓ |
-
 
 ## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Ações geradas por código com suporte para o pool SQL sem servidor
 

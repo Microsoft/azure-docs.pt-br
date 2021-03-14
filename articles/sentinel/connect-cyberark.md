@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: c375595951eb760d5341db424c5572719b97046a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102792"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530494"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Conectar o CyberArk Enterprise password Vault (EPV) ao Azure Sentinel
 
@@ -36,15 +36,15 @@ O conector de syslog CyberArk permite que você conecte facilmente todos os seus
 
 Os logs do CyberArk EPV são enviados do cofre para um servidor de encaminhamento de log baseado em Linux (executando rsyslog ou syslog-ng) com o agente de Log Analytics instalado, que exporta os logs para o Azure Sentinel. Se você não tiver esse servidor de encaminhamento de log, consulte [estas instruções](connect-cef-agent.md) para colocar um em funcionamento.
 
-1. No portal do Azure Sentinel, clique em **conectores de dados** , selecione **eventos do EPV (CyberArk Enterprise password Vault) (versão prévia)** e **abra a página conector** .
+1. No portal do Azure Sentinel, clique em **conectores de dados**, selecione **eventos do EPV (CyberArk Enterprise password Vault) (versão prévia)** e **abra a página conector**.
 
-1. Siga as instruções do CyberArk EPV para configurar o envio de dados syslog para o servidor de encaminhamento de log.
+1. Siga as [instruções do CYBERARK EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) para configurar o envio de dados syslog para o servidor de encaminhamento de log.
 
 1. Valide sua conexão e verifique a ingestão de dados usando [estas instruções](connect-cef-verify.md). Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 
 ## <a name="find-your-data"></a>Encontre seus dados
 
-Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **logs** , na seção **Sentinela do Azure** , na tabela *CommonSecurityLog* .
+Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **logs**, na seção **Sentinela do Azure** , na tabela *CommonSecurityLog* .
 
 Para consultar os logs do CyberArk EPV no Log Analytics, digite `CommonSecurityLog` na parte superior da janela de consulta.
 

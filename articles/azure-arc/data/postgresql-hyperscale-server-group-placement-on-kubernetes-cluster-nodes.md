@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985913"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377747"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Posicionamento do grupo de servidores de hiperescala do PostgreSQL habilitado para o Azure Arc
 
@@ -28,13 +28,13 @@ Neste exemplo, estamos usando um cluster AKS (serviço kubernetes do Azure) que 
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="cluster AKS de 4 nós no portal do Azure":::
 
-Liste os nós físicos do cluster kubernetes executando o comando:
+Liste os nós físicos do cluster kubernetes. Execute o comando:
 
 ```console
 kubectl get nodes
 ```
 
-Que mostra os quatro nós físicos dentro do cluster kubernetes:
+`kubectl` retorna quatro nós físicos dentro do cluster kubernetes:
 
 ```output
 NAME                                STATUS   ROLES   AGE   VERSION
@@ -55,7 +55,7 @@ Liste o pods com o comando:
 ```console
 kubectl get pods -n arc3
 ```
-Que produz esta saída:
+`kubectl` apresenta
 
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ postgres01c-0         3/3     Running   0          9h
 postgres01w-0         3/3     Running   0          9h
 postgres01w-1         3/3     Running   0          9h
 ```
-Cada um desses pods hospeda uma instância do PostgreSQL. Juntos, eles formam o grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc:
+Cada um desses pods hospeda uma instância do PostgreSQL. Juntos, o pods formam o grupo de servidores de hiperescala do PostgreSQL habilitado para o Azure Arc:
 
 ```output
 Pod name        Role in the server group
@@ -80,7 +80,7 @@ Vejamos como o kubernetes coloca o pods do grupo de servidores. Descreva cada po
 kubectl describe pod postgres01c-0 -n arc3
 ```
 
-Que produz esta saída:
+`kubectl` apresenta
 
 ```output
 Name:         postgres01c-0
@@ -104,7 +104,7 @@ Além disso, observe também, na descrição do pods, os nomes dos contêineres 
 kubectl describe pod postgres01w-1 -n arc3
 ```
 
-Que produz esta saída:
+`kubectl` apresenta
 
 ```output
 …
@@ -131,7 +131,7 @@ A arquitetura é semelhante ao:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 pods, cada um colocado em nós separados":::
 
-Isso significa que, neste ponto, cada instância PostgreSQL que constituem o grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc é hospedado em um host físico específico dentro do contêiner kubernetes. Esta é a melhor configuração para ajudar a obter o máximo desempenho do grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc, uma vez que cada função (coordenador e trabalhadores) usa os recursos de cada nó físico. Esses recursos não são compartilhados entre várias funções do PostgreSQL.
+Isso significa que, neste ponto, cada instância PostgreSQL que constituem o grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc é hospedado em um host físico específico dentro do contêiner kubernetes. Essa configuração fornece o máximo de desempenho do grupo de servidores de hiperescala PostgreSQL habilitado para Arc do Azure, pois cada função (coordenador e trabalhadores) usa os recursos de cada nó físico. Esses recursos não são compartilhados entre várias funções do PostgreSQL.
 
 ## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Escalar horizontalmente a hiperescala do PostgreSQL habilitada para o Arc do Azure
 
@@ -217,19 +217,19 @@ Usando os mesmos comandos acima; vemos o que cada nó físico está hospedando:
 
 |Outros nomes de pods\* |Uso|Nó físico kubernetes hospedando o pods
 |----|----|----
-|bootstrapper-jh48b|Esse é um serviço que manipula as solicitações de entrada para criar, editar e excluir recursos personalizados, como instâncias gerenciadas do SQL, grupos de servidores de hiperescala PostgreSQL e controladores de dados|AKs-agentpool-42715708-vmss000003
+|bootstrapper-jh48b|Um serviço que manipula solicitações de entrada para criar, editar e excluir recursos personalizados, como instâncias gerenciadas do SQL, grupos de servidores de hiperescala PostgreSQL e controladores de dados|AKs-agentpool-42715708-vmss000003
 |controle-gwmbs||AKs-agentpool-42715708-vmss000002
-|controldb-0|Esse é o armazenamento de dados do controlador que é usado para armazenar a configuração e o estado do controlador de dados.|AKs-agentpool-42715708-vmss000001
-|controlwd-zzjp7|Esse é o serviço "Watch Dog" do controlador que fica atento à disponibilidade do controlador de dados.|AKs-agentpool-42715708-vmss000000
-|logsdb-0|Esta é uma instância de pesquisa elástica que é usada para armazenar todos os logs coletados em todos os pods dos serviços de dados de arco. Elasticsearch, recebe dados do `Fluentbit` contêiner de cada pod|AKs-agentpool-42715708-vmss000003
-|logsui-5fzv5|Essa é uma instância Kibana que fica sobre o banco de dados de pesquisa elástica para apresentar uma GUI do log Analytics.|AKs-agentpool-42715708-vmss000003
-|metricsdb-0|Essa é uma instância de InfluxDB que é usada para armazenar todas as métricas coletadas em todos os pods de serviços de dados de arco. InfluxDB, recebe dados do `Telegraf` contêiner de cada pod|AKs-agentpool-42715708-vmss000000
-|metricsdc-47d47|Este é um daemonset implantado em todos os nós kubernetes no cluster para coletar métricas no nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000002
-|metricsdc-864kj|Este é um daemonset implantado em todos os nós kubernetes no cluster para coletar métricas no nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000001
-|metricsdc-l8jkf|Este é um daemonset implantado em todos os nós kubernetes no cluster para coletar métricas no nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000003
-|metricsdc-nxm4l|Este é um daemonset implantado em todos os nós kubernetes no cluster para coletar métricas no nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000000
-|metricsui-4fb7l|Essa é uma instância Grafana que fica na parte superior do banco de dados InfluxDB para apresentar uma GUI do painel de monitoramento.|AKs-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp|Essa é uma camada de proxy de aplicativo Web que fica na frente das instâncias Grafana e Kibana.|AKs-agentpool-42715708-vmss000002
+|controldb-0|O armazenamento de dados do controlador que é usado para armazenar a configuração e o estado do controlador de dados.|AKs-agentpool-42715708-vmss000001
+|controlwd-zzjp7|O serviço "Watch Dog" do controlador que fica atento à disponibilidade do controlador de dados.|AKs-agentpool-42715708-vmss000000
+|logsdb-0|Uma instância de pesquisa elástica que é usada para armazenar todos os logs coletados em todos os pods dos serviços de dados de arco. Elasticsearch, recebe dados do `Fluentbit` contêiner de cada pod|AKs-agentpool-42715708-vmss000003
+|logsui-5fzv5|Uma instância de Kibana que fica na parte superior do banco de dados de pesquisa elástica para apresentar uma GUI do log Analytics.|AKs-agentpool-42715708-vmss000003
+|metricsdb-0|Uma instância de InfluxDB que é usada para armazenar todas as métricas coletadas em todos os pods de serviços de dados de arco. InfluxDB, recebe dados do `Telegraf` contêiner de cada pod|AKs-agentpool-42715708-vmss000000
+|metricsdc-47d47|Um conjunto de daemon implantado em todos os nós kubernetes no cluster para coletar métricas em nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000002
+|metricsdc-864kj|Um conjunto de daemon implantado em todos os nós kubernetes no cluster para coletar métricas em nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Um conjunto de daemon implantado em todos os nós kubernetes no cluster para coletar métricas em nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|Um conjunto de daemon implantado em todos os nós kubernetes no cluster para coletar métricas em nível de nó sobre os nós.|AKs-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Uma instância Grafana que fica na parte superior do banco de dados InfluxDB para apresentar uma GUI do painel de monitoramento.|AKs-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Uma camada de proxy de aplicativo Web que fica na frente das instâncias Grafana e Kibana.|AKs-agentpool-42715708-vmss000002
 
 > \* O sufixo nos nomes de Pod variará em outras implantações. Além disso, estamos listando apenas os pods hospedados no namespace kubernetes do controlador de dados de arco do Azure.
 
@@ -237,7 +237,7 @@ A arquitetura é semelhante ao:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Todos os pods no namespace em vários nós":::
 
-Isso significa que os nós de coordenador (Pod 1) do grupo de servidores postgres de hiperescala habilitados para o Azure Arc compartilham os mesmos recursos físicos que o terceiro nó de trabalho (Pod 4) do grupo de servidores. Isso é aceitável, pois o nó de coordenador normalmente está usando muito poucos recursos em comparação com o que um nó de trabalho pode estar usando. A partir disso, você pode inferir que você deve escolher cuidadosamente:
+Conforme descrito acima, os nós de coordenador (Pod 1) do grupo de servidores postgres de hiperescala habilitados para o Azure Arc compartilham os mesmos recursos físicos que o terceiro nó de trabalho (Pod 4) do grupo de servidores. Isso é aceitável porque o nó de coordenador geralmente usa muito poucos recursos em comparação com o que um nó de trabalho pode estar usando. Por esse motivo, escolha cuidadosamente:
 - o tamanho do cluster kubernetes e as características de cada um de seus nós físicos (memória, vCore)
 - o número de nós físicos dentro do cluster kubernetes
 - os aplicativos ou as cargas de trabalho que você hospeda no cluster kubernetes.

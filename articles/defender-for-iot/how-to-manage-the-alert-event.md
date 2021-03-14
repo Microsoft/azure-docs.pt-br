@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508736"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526894"
 ---
 # <a name="manage-alert-events"></a>Gerenciar eventos de alerta
 
@@ -23,7 +23,8 @@ As opções a seguir estão disponíveis para o gerenciamento de eventos de aler
  | **Learn** | Autorize o evento detectado. Para obter mais informações, consulte [sobre como aprender e desaprender eventos](#about-learning-and-unlearning-events). |
  | **Reconhecer** | Oculte o alerta uma vez para o evento detectado. O alerta será disparado novamente se o evento for detectado novamente. Para obter mais informações, consulte [sobre como confirmar e não confirmar eventos](#about-acknowledging-and-unacknowledging-events). |
  | **Mute** | Ignore continuamente a atividade com dispositivos idênticos e tráfego comparável. Para obter mais informações, consulte [about mudo e unmudo de eventos](#about-muting-and-unmuting-events). |
-
+ 
+Você também pode exportar informações de alerta.
 ## <a name="about-learning-and-unlearning-events"></a>Sobre aprendizagem e desaprendizado de eventos
 
 Eventos que indicam desvios da rede aprendida podem refletir alterações de rede válidas. Exemplos podem incluir um novo dispositivo autorizado que ingressou na rede ou uma atualização de firmware autorizado.
@@ -68,7 +69,7 @@ Nessas situações, o aprendizado não está disponível. Quando o aprendizado n
 > [!NOTE] 
 > Não é possível ativar mudo de eventos nos quais um dispositivo de Internet é definido como a origem ou o destino.
 
-### <a name="what-traffic-is-muted"></a>Qual tráfego está mudo?
+### <a name="what-alert-activity-is-muted"></a>Qual atividade de alerta está sem áudio?
 
 Um cenário sem áudio inclui os dispositivos de rede e o tráfego detectado para um evento. O título do alerta descreve o tráfego que está sendo mudo.
 
@@ -88,7 +89,7 @@ Quando um evento está mudo, ele é ignorado sempre que a origem envia um cabeç
 
 **Após o mudo de um evento:**
 
-- O alerta estará acessível no modo de exibição de alerta **confirmado** até que ele não esteja mudo.
+- O alerta estará acessível no modo de exibição de alerta **confirmado** até que ele esteja mudo.
 
 - A ação de mudo aparecerá na **linha do tempo do evento**.
 
@@ -105,6 +106,25 @@ Quando um evento está mudo, ele é ignorado sempre que a origem envia um cabeç
 1. Selecione a opção **confirmada** formulário a tela principal de **alertas** .
 
 2. Focalize um alerta para ver se ele está mudo.  
+
+## <a name="export-alert-information"></a>Exportar informações de alerta
+
+Exportar informações de alerta para um arquivo. csv. Você pode exportar informações de todos os alertas detectados ou exportar informações com base na exibição filtrada. As seguintes informações são exportadas:
+
+- Endereço de origem
+- Endereço de destino
+- Título do alerta
+- Severidade do alerta
+- Mensagem de alerta
+- Informações adicionais
+- Status confirmado
+- Disponibilidade do PCAP
+
+Para exportar:
+
+1. Selecione alertas no menu lateral.
+1. Selecione Exportar.
+1. Selecione exportar alertas estendidos para exportar informações de alerta em linhas separadas para cada alerta que abrange vários dispositivos. Quando exportar alertas estendidos estiver selecionado, o arquivo. csv criará uma linha duplicada do evento de alerta com os itens exclusivos em cada linha. Usar essa opção torna mais fácil investigar eventos de alerta exportados.
 
 ## <a name="see-also"></a>Consulte também
 

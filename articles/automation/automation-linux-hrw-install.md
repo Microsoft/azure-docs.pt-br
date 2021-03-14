@@ -3,14 +3,14 @@ title: Implantar um Hybrid Runbook Worker do Linux na Automação do Azure
 description: Este artigo informa como instalar um Hybrid Runbook Worker de automação do Azure para executar runbooks em computadores baseados em Linux em seu datacenter local ou ambiente de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183610"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182325"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -24,15 +24,15 @@ Depois de implantar com êxito um trabalhador de runbook, revise [Executar runbo
 
 Antes de começar, verifique se você tem o seguinte.
 
-### <a name="a-log-analytics-workspace"></a>Um espaço de trabalho Log Analytics
+### <a name="a-log-analytics-workspace"></a>Um workspace do Log Analytics
 
-A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
+Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/logs/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
-A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) para o sistema operacional Linux com suporte. Para servidores ou computadores hospedados fora do Azure, você pode instalar o agente de Log Analytics usando os [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md).
+A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-monitor/agents/log-analytics-agent.md) para o sistema operacional Linux com suporte. Para servidores ou computadores hospedados fora do Azure, você pode instalar o agente de Log Analytics usando os [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md).
 
 >[!NOTE]
 >Depois de instalar o agente de Log Analytics para Linux, você não deve alterar as permissões da `sudoers.d` pasta ou sua propriedade. A permissão sudo é necessária para a conta **nxautomation** , que é o contexto do usuário no qual a Hybrid runbook Worker é executada. As permissões não devem ser removidas. Restringir isso a determinadas pastas ou comandos pode resultar em uma alteração significativa.
@@ -43,12 +43,15 @@ A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-mon
 O recurso Hybrid Runbook Worker dá suporte às seguintes distribuições. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
 * Amazon Linux 2012, 9 a 2015, 9
-* CentOS Linux 5, 6 e 7
+* CentOS Linux 5, 6, 7 e 8
 * Oracle Linux 5, 6 e 7
-* Red Hat Enterprise Linux Server 5, 6 e 7
+* Red Hat Enterprise Linux Server 5, 6, 7 e 8
 * Debian GNU/Linux 6, 7 e 8
 * Ubuntu 12, 4 LTS, 14, 4 LTS, 16, 4 LTS e 18, 4 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 e 15 (o SUSE não liberou as versões 13 ou 14)
+
+> [!IMPORTANT]
+> Antes de habilitar o recurso Gerenciamento de Atualizações, que depende da função de Hybrid Runbook Worker do sistema, confirme as distribuições às quais ele dá suporte [aqui](update-management/overview.md#supported-operating-systems).
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -63,7 +66,7 @@ Os requisitos mínimos para um sistema Linux e Hybrid Runbook Worker de usuário
 |Glibc |Biblioteca GNU C| 2.5-12 |
 |Openssl| Bibliotecas OpenSSL | 1.0 (há suporte para TLS 1.1 e TLS 1.2)|
 |Curl | cliente Web cURL | 7.15.5|
-|Python-ctypes | O Python 2.x é obrigatório |
+|Python-ctypes | Python 2. x ou Python 3. x são necessários |
 |PAM | Módulos de autenticação conectáveis|
 | **Pacotes opcionais** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar runbooks do PowerShell, o PowerShell Core precisa ser instalado. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo. | 6.0.0 |
@@ -87,13 +90,16 @@ Os Hybrid runbook Workers do Linux dão suporte a um conjunto limitado de tipos 
 
 |Tipo de runbook | Com suporte |
 |-------------|-----------|
-|Python 2 |Sim |
-|PowerShell |Sim<sup>1</sup> |
+|Python 3 (visualização)|Sim, necessário somente para esses distribuições: SUSE LES 15, RHEL 8 e CentOS 8|
+|Python 2 |Sim, para qualquer distribuição que não exija Python 3<sup>1</sup> |
+|PowerShell |Sim<sup>2</sup> |
 |Fluxo de trabalho do PowerShell |Não |
 |Gráfico |Não |
 |Fluxo de Trabalho Gráfico do PowerShell |Não |
 
-<sup>1</sup> Os runbooks do PowerShell exigem que o PowerShell Core seja instalado no computador Linux. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.
+<sup>1</sup> Consulte [sistemas operacionais Linux com suporte](#supported-linux-operating-systems).
+
+<sup>2</sup> Os runbooks do PowerShell exigem que o PowerShell Core seja instalado no computador Linux. Consulte [Instalar PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para saber como instalá-lo.
 
 ### <a name="network-configuration"></a>Configuração de rede
 

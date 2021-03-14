@@ -1,27 +1,19 @@
 ---
 title: Adicionar monitoramento e diagnóstico a uma máquina virtual do Azure
 description: Use um modelo do Azure Resource Manager para criar uma máquina virtual do Windows com a extensão de diagnóstico do Azure.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 05/31/2017
-ms.author: mimckitt
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a91e21994dda126e14c100bcf1d2a69c36b13e1e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 6d365c7e927c11f52b97fbb0cc01a7aa37ad5afd
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202157"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560048"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](../windows/template-description.md#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  
@@ -80,7 +72,7 @@ Você pode usar o valor da propriedade *name* para fazer referência a extensão
 
 A propriedade *typeHandlerVersion* especifica a versão da extensão que você deseja usar. Definindo a versão secundária *autoUpgradeMinorVersion* como **true**, você obtém a versão secundária mais recente da extensão disponível. É altamente recomendável definir a propriedade *autoUpgradeMinorVersion* sempre como **true** para que você possa usar sempre a extensão de diagnóstico disponível mais recente, com todos os novos recursos e correções de erros. 
 
-O elemento *settings* contém propriedades de configurações da extensão, que podem ser definidas e gravadas novamente a partir da extensão (também conhecido como configuração pública). A propriedade *xmlcfg* contém a configuração baseada em XML dos logs de diagnóstico, contadores de desempenho etc., que são coletados pelo agente de diagnóstico. Confira o artigo [Esquema de configuração de diagnóstico](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) para saber mais sobre o esquema XML. Uma prática comum é armazenar a configuração XML real como uma variável no modelo do Gerenciador de Recursos do Azure e, em seguida, concatená-la e codificá-la Base64 para definir o valor de *xmlcfg*. Confira a seção [Variáveis de configuração de diagnóstico](#diagnostics-configuration-variables) para saber mais sobre como armazenar o XML em variáveis. A propriedade *storageAccount* especifica o nome da conta de armazenamento para a qual os dados de diagnóstico são transferidos. 
+O elemento *settings* contém propriedades de configurações da extensão, que podem ser definidas e gravadas novamente a partir da extensão (também conhecido como configuração pública). A propriedade *xmlcfg* contém a configuração baseada em XML dos logs de diagnóstico, contadores de desempenho etc., que são coletados pelo agente de diagnóstico. Confira o artigo [Esquema de configuração de diagnóstico](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) para saber mais sobre o esquema XML. Uma prática comum é armazenar a configuração XML real como uma variável no modelo do Gerenciador de Recursos do Azure e, em seguida, concatená-la e codificá-la Base64 para definir o valor de *xmlcfg*. Confira a seção [Variáveis de configuração de diagnóstico](#diagnostics-configuration-variables) para saber mais sobre como armazenar o XML em variáveis. A propriedade *storageAccount* especifica o nome da conta de armazenamento para a qual os dados de diagnóstico são transferidos. 
 
 As propriedades em *protectedSettings* , conhecidas também como configuração particular, podem ser definidas, mas não podem ser gravadas novamente após a definição. A natureza somente gravação do elemento *protectedSettings* é útil para armazenar segredos, como a chave da conta de armazenamento e que os dados de diagnóstico são gravados.    
 
@@ -118,7 +110,7 @@ O snippet JSON de extensão de diagnóstico anterior define uma variável *accou
 
 A propriedade *xmlcfg* da extensão de diagnóstico é definida através do uso de diversas variáveis concatenadas. Os valores dessas variáveis estão em XML e devem ser escapados corretamente após a definição das variáveis JSON.
 
-O exemplo a seguir descreve a configuração de diagnóstico XML que coleta contadores de desempenho no nível do sistema padrão juntamente com alguns logs de eventos do Windows e logs de infraestrutura de diagnóstico. Ela foi escapada e formatada corretamente, de modo que a configuração pode ser transferida diretamente na seção de variáveis do modelo. Confira o artigo [Esquema de configuração de diagnóstico](../../azure-monitor/platform/diagnostics-extension-schema-windows.md) para obter um exemplo mais legível da configuração XML.
+O exemplo a seguir descreve a configuração de diagnóstico XML que coleta contadores de desempenho no nível do sistema padrão juntamente com alguns logs de eventos do Windows e logs de infraestrutura de diagnóstico. Ela foi escapada e formatada corretamente, de modo que a configuração pode ser transferida diretamente na seção de variáveis do modelo. Confira o artigo [Esquema de configuração de diagnóstico](../../azure-monitor/agents/diagnostics-extension-schema-windows.md) para obter um exemplo mais legível da configuração XML.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",

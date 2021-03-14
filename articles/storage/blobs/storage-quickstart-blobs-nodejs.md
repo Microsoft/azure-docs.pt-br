@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0883fd1546ac3b55ec4211e5048569556858de29
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012758"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179911"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js
 
@@ -97,7 +97,7 @@ No diretório do projeto:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const { v1: uuid} = require('uuid');
+    const { v1: uuidv1} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
@@ -140,7 +140,7 @@ Esses exemplos de trechos de código mostram como executar o seguinte com a bibl
 * [Baixar blobs](#download-blobs)
 * [Excluir um contêiner](#delete-a-container)
 
-### <a name="get-the-connection-string"></a>Obter a cadeia de conexão
+### <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
 
 O código a seguir recupera a cadeia de conexão da conta de armazenamento a partir da variável de ambiente criada na seção [Configurar a cadeia de conexão do armazenamento](#configure-your-storage-connection-string).
 
@@ -276,7 +276,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 Esse aplicativo cria uma cadeia de texto e a carrega no armazenamento de blobs. Em seguida, lista os blobs no contêiner, baixa o blob e exibe os dados baixados.
 
-Em um prompt de console, navegue até o diretório que contém o arquivo *blob-quickstart-v12.py* e execute o comando `node` para executar o aplicativo.
+Em um prompt de console, navegue até o diretório que contém o arquivo *blob-quickstart-v12.js* e execute o comando `node` para executar o aplicativo.
 
 ```console
 node blob-quickstart-v12.js

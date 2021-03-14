@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222761"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366935"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
 
@@ -214,10 +214,15 @@ O exemplo a seguir mostra como usar o pacote de imparcialidade. Vamos carregar i
     1. Selecione **experimentos** no painel esquerdo para ver uma lista de experimentos que você executou em Azure Machine Learning.
     1. Selecione um experimento específico para exibir todas as execuções nesse experimento.
     1. Selecione uma execução e, em seguida, a guia **imparcialidade** para o painel de visualização da explicação.
+    1. Após o pouso na guia **Imparciality** , clique em uma **ID de imparcialidade** no menu à direita.
+    1. Configure seu painel selecionando seu atributo confidencial, a métrica de desempenho e a métrica de imparcialidade de interesse para chegar à página de avaliação de imparcialidade.
+    1. Alterne o tipo de gráfico de um para outro para observar os danos de **alocação** e a **qualidade dos danos de serviço** .
 
 
-    [![Painel de imparcialidade](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Alocação do painel de imparcialidade](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Qualidade de serviço do painel de imparcialidade](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Painel de modelos**
     1. Se você registrou seu modelo original seguindo as etapas anteriores, você pode selecionar **modelos** no painel esquerdo para exibi-lo.
     1. Selecione um modelo e, em seguida, a guia **imparcialidade** para exibir o painel de visualização de explicação.

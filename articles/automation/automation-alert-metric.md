@@ -4,16 +4,16 @@ description: Este artigo descreve como configurar um alerta de métrica com base
 services: automation
 ms.date: 08/10/2020
 ms.topic: article
-ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a52824a7030d78647d8a664819f439d92d7296d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593948"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorar runbooks com alertas de métrica
 
-Neste artigo, você aprenderá a criar um [alerta de métrica](../azure-monitor/platform/alerts-metric-overview.md) com base no status de conclusão do runbook.
+Neste artigo, você aprenderá a criar um [alerta de métrica](../azure-monitor/alerts/alerts-metric-overview.md) com base no status de conclusão do runbook.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -31,7 +31,7 @@ Os alertas permitem que você defina uma condição para monitorar e uma ação 
 
 ### <a name="configure-alert-criteria"></a>Configurar critérios de alerta
 
-1. Clique em **Selecionar condição**. Selecione **métricas** para o **tipo de sinal**e escolha **total de trabalhos** na lista.
+1. Clique em **Selecionar condição**. Selecione **métricas** para o **tipo de sinal** e escolha **total de trabalhos** na lista.
 
 2. A página **Configurar lógica de sinal** é onde você define a lógica que aciona o alerta. Sob o gráfico de histórico, são apresentadas duas dimensões, **Nome do Runbook** e **Status**. As dimensões são propriedades diferentes para uma métrica que pode ser usada para filtrar os resultados. Para **Nome do Runbook**, selecione o runbook sobre o qual você deseja alertar ou deixe em branco para alertar em todos os runbooks. Para **Status**, selecione um status na lista suspensa que deseja monitorar. Os valores de nome e status de runbook que aparecem na lista suspensa são somente para trabalhos que foram executados na semana anterior.
 
@@ -46,13 +46,13 @@ Os alertas permitem que você defina uma condição para monitorar e uma ação 
 
 3. Em **Lógica de alerta**, defina a condição e o limite para o alerta. Uma visualização da sua condição definida é mostrada abaixo.
 
-4. Em **avaliado com base em**, selecione o período para a consulta e a frequência com que você deseja que a consulta seja executada. Por exemplo, se você escolher **nos últimos 5 minutos** para o **período**e a **cada 1 minuto** para a **frequência**, o alerta procurará o número de runbooks que atenderam aos seus critérios nos últimos 5 minutos. Essa consulta é executada a cada minuto e, quando os critérios de alerta definidos não são mais encontrados em uma janela de 5 minutos, o alerta é resolvido sozinho. Ao terminar, clique em **Concluído**.
+4. Em **avaliado com base em**, selecione o período para a consulta e a frequência com que você deseja que a consulta seja executada. Por exemplo, se você escolher **nos últimos 5 minutos** para o **período** e a **cada 1 minuto** para a **frequência**, o alerta procurará o número de runbooks que atenderam aos seus critérios nos últimos 5 minutos. Essa consulta é executada a cada minuto e, quando os critérios de alerta definidos não são mais encontrados em uma janela de 5 minutos, o alerta é resolvido sozinho. Ao terminar, clique em **Concluído**.
 
    ![Selecionar um recurso para o alerta](./media/automation-alert-activity-log/configure-signal-logic.png)
 
 ### <a name="define-the-action-to-take"></a>Definir a ação a ser executada
 
-1. Em **grupo de ações**, selecione **especificar grupo de ações**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações e etapas para criar um que envia uma notificação por email, consulte [criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+1. Em **grupo de ações**, selecione **especificar grupo de ações**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações e etapas para criar um que envia uma notificação por email, consulte [criar e gerenciar grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 ### <a name="define-alert-details"></a>Definir os detalhes do alerta
 

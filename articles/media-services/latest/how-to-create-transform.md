@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adbd7deccf32312f67cff7b92ff7813036e9b1b3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4623610960d8f21a2dab3293c7499a2112416254
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898521"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101718906"
 ---
 # <a name="create-a-transform"></a>Criar uma transformação
 
@@ -33,8 +33,6 @@ O script da CLI do Azure neste artigo mostra como criar uma transformação. Tra
 [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
 > Você só pode especificar um caminho para um arquivo JSON de predefinição de Codificador Standard personalizado para [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset); confira o exemplo [Codificação com uma transformação personalizada](custom-preset-cli-howto.md).
@@ -53,4 +51,4 @@ O script da CLI do Azure neste artigo mostra como criar uma transformação. Tra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Mais sobre transformações e trabalhos](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

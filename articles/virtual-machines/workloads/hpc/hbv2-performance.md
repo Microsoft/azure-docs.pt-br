@@ -4,18 +4,18 @@ description: Saiba mais sobre os resultados de testes de desempenho para tamanho
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b782f3d435b7b3737de09b7a12d0fb17aa5f1edc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28e7066c166a4c61c2f6436e9bd126f712f89f78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963310"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670067"
 ---
 # <a name="hbv2-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HBv2
 

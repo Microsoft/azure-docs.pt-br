@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: e9845eaf6d84caad3ddb8c7e615cb72f71c91f3b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412826"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595581"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
@@ -44,7 +44,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 É recomendável que você leia o artigo [Práticas recomendadas de segurança do banco de dados do Azure](../../azure-sql/database/security-best-practice.md) antes de examinar esta lista de verificação. Você poderá tirar o máximo proveito desta lista de verificação depois de entender as práticas recomendadas. Você pode usar essa lista de verificação para certificar-se de que você resolveu os problemas importantes na segurança de banco de dados do Azure.
 
 
-|Categoria da lista de verificação| Descrição|
+|Categoria da lista de verificação| Description|
 | ------------ | -------- |
 |**Proteger dados**||
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) em TLS (Transport Layer Security).</li></ul> |
@@ -53,7 +53,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 |<br> Acesso a banco de dados | <ul><li>[Autenticação](../../azure-sql/database/logins-create-manage.md) (Autenticação do Azure Active Directory), a autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>[Autorização](../../azure-sql/database/logins-create-manage.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
 |<br>Acesso a aplicativos| <ul><li>[Segurança em nível de linha](/sql/relational-databases/security/row-level-security) (Usando política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, função ou contexto de execução do usuário).</li><li>[Máscara de Dados Dinâmicos](../../azure-sql/database/dynamic-data-masking-overview.md) (Usando permissão e política, limita a exposição de dados confidenciais através do mascaramento dos dados a usuários sem privilégios)</li></ul>|
 |**Monitoramento proativo**||  
-| <br>Acompanhamento e detecção| <ul><li>[Auditoria](../../azure-sql/database/auditing-overview.md) rastreia eventos do banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de Armazenamento do Azure](../../storage/common/storage-account-create.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Logs de atividades do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Detecção de Ameaças](../../azure-sql/database/threat-detection-configure.md) detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
+| <br>Acompanhamento e detecção| <ul><li>[Auditoria](../../azure-sql/database/auditing-overview.md) rastreia eventos do banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de Armazenamento do Azure](../../storage/common/storage-account-create.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Logs de atividades do Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md).</li><li>[Detecção de Ameaças](../../azure-sql/database/threat-detection-configure.md) detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
 |<br>Central de Segurança do Azure| <ul><li>[Monitoramento de dados](../../security-center/security-center-remediate-recommendations.md) Use a Central de Segurança do Azure como solução de monitoramento centralizado de segurança para SQL e outros serviços do Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusão

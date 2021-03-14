@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017745"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103967"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Início Rápido: Configurar um aplicativo para expor uma API Web
 
@@ -45,7 +45,7 @@ O código em um aplicativo cliente solicita permissão para executar operações
 
 Primeiro, siga estas etapas para criar um escopo de exemplo chamado `Employees.Read.All`:
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que contém o registro do aplicativo cliente.
 1. Selecione **Azure Active Directory** > **Registros de aplicativo** e o registro do aplicativo da API.
 1. Selecione **Expor uma API** > **Adicionar um escopo**.

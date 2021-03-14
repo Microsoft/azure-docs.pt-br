@@ -11,26 +11,22 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 300df35918ea4868664fcb7c5882709eee4090ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582883"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007985"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
 Saiba como configurar o código para seu aplicativo daemon que chama APIs da Web.
 
-## <a name="msal-libraries-that-support-daemon-apps"></a>Bibliotecas MSAL que dão suporte a aplicativos daemon
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>Microsoft Libraries com suporte a aplicativos daemon
 
-Essas bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
+As seguintes bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
 
-  Biblioteca MSAL | Descrição
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core têm suporte para a criação de aplicativos daemon. (UWP, Xamarin. iOS e Xamarin. Android não têm suporte porque essas plataformas são usadas para criar aplicativos cliente públicos.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Suporte para aplicativos daemon em Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Suporte para aplicativos daemon em Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## <a name="configure-the-authority"></a>Configurar a autoridade
 

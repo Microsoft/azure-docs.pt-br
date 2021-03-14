@@ -1,19 +1,18 @@
 ---
 title: Guia de solução de problemas da Central de Segurança do Azure | Microsoft Docs
 description: Este guia destina-se aos profissionais de Ti, analistas de segurança e administradores de nuvem que precisam solucionar problemas relacionados à Central de Segurança do Azure.
-services: security-center
-author: v-miegge
-manager: dcscontentpm
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9822dfe50fa50fdd70f4e09e188188cad0f9b8f0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460423"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438209"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -42,7 +41,7 @@ Os clientes podem compartilhar comentários sobre a descrição e a relevância 
 
 ## <a name="audit-log"></a>Log de auditoria
 
-A maioria das soluções de problemas na Central de Segurança ocorre por meio do exame inicial dos registros do [Log de Auditoria](../azure-monitor/platform/platform-logs-overview.md) em busca do componente com falha. Com os logs de auditoria, você pode determinar:
+A maioria das soluções de problemas na Central de Segurança ocorre por meio do exame inicial dos registros do [Log de Auditoria](../azure-monitor/essentials/platform-logs-overview.md) em busca do componente com falha. Com os logs de auditoria, você pode determinar:
 
 * Quais operações ocorreram
 * Quem iniciou a operação
@@ -87,8 +86,8 @@ O **estado de monitoramento** define o motivo pelo qual a Central de Segurança 
 | Estado de energia desativado | A máquina virtual está parada.  O agente do Log Analytics só pode ser instalado em uma VM em execução. | Reinicie a VM. |
 | Agente de VM do Azure ausente ou inválido | O agente do Log Analytics ainda não foi instalado.  Para a Central de Segurança instalar a extensão, é necessário um agente válido da VM do Azure. | Instale, reinstale ou atualize o agente de VM do Azure na máquina virtual. |
 | O estado da máquina virtual não está pronto para instalação  | O agente do Log Analytics ainda não foi instalado porque a VM não está pronta para a instalação. A máquina virtual não está pronta para a instalação devido a um problema com o agente de VM ou o provisionamento de VM. | Verifique o status da máquina virtual. Volte para as **máquinas virtuais** no portal e selecione a máquina virtual para ver as informações de status. |
-|Falha na instalação - erro geral | O agente do Log Analytics foi instalado, mas falhou devido a um erro. | [Instale manualmente a extensão](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou desinstale a extensão para que a Central de Segurança tente instalar novamente. |
-| A instalação falhou - o agente local já está instalado | Falha na instalação do agente do Log Analytics. A Central de Segurança identificou um agente local (Log Analytics ou SCOM) já instalado na VM. Para evitar a configuração de hospedagem múltipla, quando a máquina virtual envia relatórios a dois workspaces diferentes, a instalação do agente do Log Analytics parou. | Há duas maneiras de resolver: [instalar manualmente a extensão](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e conectá-la ao workspace desejado. Outra opção é definir o workspace desejado como o workspace padrão e habilitar o provisionamento automático do agente.  Veja [habilitar o provisionamento automático](security-center-enable-data-collection.md). |
+|Falha na instalação - erro geral | O agente do Log Analytics foi instalado, mas falhou devido a um erro. | [Instale manualmente a extensão](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou desinstale a extensão para que a Central de Segurança tente instalar novamente. |
+| A instalação falhou - o agente local já está instalado | Falha na instalação do agente do Log Analytics. A Central de Segurança identificou um agente local (Log Analytics ou SCOM) já instalado na VM. Para evitar a configuração de hospedagem múltipla, quando a máquina virtual envia relatórios a dois workspaces diferentes, a instalação do agente do Log Analytics parou. | Há duas maneiras de resolver: [instalar manualmente a extensão](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e conectá-la ao workspace desejado. Outra opção é definir o workspace desejado como o workspace padrão e habilitar o provisionamento automático do agente.  Veja [habilitar o provisionamento automático](security-center-enable-data-collection.md). |
 | O agente não consegue se conectar ao workspace | O agente do Log Analytics foi instalado, mas falhou devido à conectividade de rede.  Verifique se há acesso à Internet ou se um proxy HTTP válido foi configurado para o agente. | Confira Monitoramento de requisitos de rede do agente. |
 | Agente conectado a um workspace ausente ou desconhecido | A Central de Segurança identificou que o agente do Log Analytics instalado na máquina virtual está conectado a um workspace ao qual não tem acesso. | Isso pode acontecer em dois casos. O workspace foi excluído e não existe mais. Reinstale o agente com o workspace correto ou desinstale o agente e permita que a Central de Segurança conclua a instalação do provisionamento automático. O segundo caso acontece quando o workspace faz parte de uma assinatura à qual a Central de Segurança não tem permissões. A Central de Segurança requer assinaturas para permitir que o Microsoft Security Resource Provider os acesse. Para habilitar, registre a assinatura no Microsoft Security Resource Provider. Isso pode ser feito pela API, PowerShell, portal ou simplesmente filtrando-se a assinatura no painel **Visão geral** da Central de Segurança. Para saber mais, veja [Provedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | O agente não responde ou sua ID está ausente | A Central de Segurança não consegue recuperar os dados de segurança obtidos da máquina virtual, mesmo com o agente instalado. | O agente não está relatando dado algum, incluindo a pulsação. O agente pode estar danificado ou algo está bloqueando o tráfego. Também pode ser que o agente esteja fazendo relatórios de dados, mas não tenha uma ID de recurso do Azure. Portanto, é impossível corresponder os dados à VM do Azure. Para solucionar problemas do Linux, consulte [Guia de Solução de Problemas para o Agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para solucionar problemas do Windows, consulte [Solucionar problemas de Máquinas Virtuais do Windows](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |
@@ -98,7 +97,7 @@ O **estado de monitoramento** define o motivo pelo qual a Central de Segurança 
 
 Para que os agentes se conectem e se registrem na Central de Segurança, eles deverão ter acesso aos recursos de rede, incluindo os números de porta e as URLs de domínio.
 
-* Para servidores proxy, você precisa garantir que os recursos do servidor proxy apropriados estejam configurados nas configurações do agente. Leia este artigo para saber mais sobre [como alterar as configurações de proxy](../azure-monitor/platform/agent-windows.md).
+* Para servidores proxy, você precisa garantir que os recursos do servidor proxy apropriados estejam configurados nas configurações do agente. Leia este artigo para saber mais sobre [como alterar as configurações de proxy](../azure-monitor/agents/agent-windows.md).
 * Para os firewalls que restringem o acesso à Internet, será necessário configurar o firewall para permitir o acesso ao Log Analytics. Nenhuma ação é necessária nas configurações do agente.
 
 A tabela a seguir mostra os recursos necessários para comunicação.
@@ -141,7 +140,6 @@ Alguns problemas podem ser identificados usando as diretrizes fornecidas neste a
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 * [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](./security-center-alerts-overview.md)
 * [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)

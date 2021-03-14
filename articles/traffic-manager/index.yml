@@ -11,12 +11,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 08/19/2019
-  ms.openlocfilehash: da5a925596eb407dc95109d249862080c9bdc086
-  ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+  ms.openlocfilehash: 43035d33019496e96af6fbd28add543fb80fe16d
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/14/2021
-  ms.locfileid: "98185624"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102506660"
 landingContent:
 - title: Sobre o Gerenciador de Tráfego
   linkLists:
@@ -85,6 +85,6 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure PowerShell
-      url: /powershell/module/az.trafficmanager/?view=azps-2.5.0
+      url: /powershell/module/az.trafficmanager/
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest
+      url: https://docs.microsoft.com/cli/azure/network/traffic-manager

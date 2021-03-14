@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937654"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451890"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -66,6 +66,13 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [despejo e restaure](../howto-migrate-using-dump-and-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
 
+### <a name="storage"></a>Armazenamento
+
+- Uma vez configurado, o tamanho do armazenamento não pode ser reduzido. Você precisaria criar um novo servidor com o tamanho de armazenamento desejado e executar o despejo manual e o processo de restauração para migrar seus bancos de dados.
+- Atualmente, o recurso de crescimento automático do armazenamento não está disponível. Monitore o uso e aumente o armazenamento para um tamanho maior. 
+- Quando o uso de armazenamento atinge 95% ou se a capacidade disponível é inferior a 5 GiB, o servidor é alternado automaticamente para o **modo somente leitura** para evitar erros associados a situações de disco cheio. 
+- É recomendável definir regras de alerta para o `storage used` ou `storage percent` quando eles excedem determinados limites para que você possa tomar medidas de forma proativa, como aumentar o tamanho do armazenamento. Por exemplo, você pode definir um alerta se a porcentagem de armazenamento exceder 80% de uso.
+  
 ### <a name="networking"></a>Rede
 
 - No momento, não há suporte para a movimentação para dentro e para fora da VNET.

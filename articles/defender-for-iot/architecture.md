@@ -8,17 +8,17 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 1eb939a63edc4abc638dc128af0d9ebbd7241bef
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
-ms.translationtype: MT
+ms.openlocfilehash: 1478baa889faf84a53d373863961abc92c1fa34a
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809296"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449179"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
@@ -116,7 +116,7 @@ O portal do defender para IoT no Azure é usado para ajudá-lo:
 
 - Atualizar pacotes de inteligência contra ameaças
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [FAQ do defender for IoT](resources-frequently-asked-questions.md)
 

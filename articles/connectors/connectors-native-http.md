@@ -3,16 +3,16 @@ title: Chamar pontos de extremidade de serviço usando HTTP ou HTTPS
 description: Enviar solicitações HTTP ou HTTPS de saída para pontos de extremidade de serviço de aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719433"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -249,8 +249,8 @@ Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos 
 
 * `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
-* `Cookie`
+* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` , que são respeitados quando você usa as operações post e put. No entanto, os aplicativos lógicos descartam esses cabeçalhos quando você usa a operação GET.
+* `Cookie` cabeçalho, mas os aplicativos lógicos honram qualquer valor que você especificar usando a propriedade **Cookie** .
 * `Expires`
 * `Host`
 * `Last-Modified`

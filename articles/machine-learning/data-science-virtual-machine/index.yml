@@ -4,19 +4,18 @@ summary: A DSVM (Máquina Virtual de Ciência de Dados) do Azure é uma imagem d
 metadata:
   title: Documentação da Máquina Virtual de Ciência de Dados – Azure
   description: A DSVM (Máquina Virtual de Ciência de Dados) do Azure é uma imagem de máquina virtual pré-carregada com ciência de dados e ferramentas de aprendizado de máquina.
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
+  ms.service: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
   author: gvashishtha
   ms.author: gopalv
   ms.date: 09/13/2019
-  ms.openlocfilehash: 6cce3a1c8ec5c330c84009a8c20cbddd769b129c
-  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+  ms.openlocfilehash: f6f844875d69584052625c33aa8d3d42be2fd2dd
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94985766"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100518462"
 landingContent:
 - title: Introdução à sua Máquina Virtual de Ciência de Dados
   linkLists:

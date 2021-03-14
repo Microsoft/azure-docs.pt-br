@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 84cbc681d0974e91561daf8918dff389226fa7aa
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334694"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553945"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificado para uma identidade do Azure AD para acessar chaves de uma conta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,7 +46,7 @@ Nesta etapa, você registrará um aplicativo Web de exemplo em sua conta do Azur
 
 1. Selecione **registrar** depois de preencher o formulário.
 
-1. Depois que o aplicativo for registrado, anote a ID do **aplicativo (cliente)** e a **ID do objeto** , você usará esses detalhes nas próximas etapas. 
+1. Depois que o aplicativo for registrado, anote a ID do **aplicativo (cliente)** e a **ID do objeto**, você usará esses detalhes nas próximas etapas. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Obter o aplicativo e as IDs de objeto":::
 
@@ -65,7 +65,7 @@ Nesta etapa, você instalará o módulo do PowerShell do Azure AD. Esse módulo 
    Set-AzContext $context 
    ```
 
-1. Instalar e importar o módulo [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true)
+1. Instalar e importar o módulo [AzureAD](/powershell/module/azuread/)
 
    ```powershell
    Install-Module AzureAD
@@ -80,7 +80,7 @@ Entre no Azure AD em que você registrou o aplicativo. Use o comando Connect-Azu
 Connect-AzureAD 
 ```
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Abra outra instância do ISE do Windows PowerShell e execute os seguintes comandos para criar um certificado autoassinado e ler a chave associada ao certificado:
 

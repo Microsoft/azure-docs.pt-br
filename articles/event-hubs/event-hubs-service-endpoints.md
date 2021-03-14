@@ -2,17 +2,17 @@
 title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556523"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de redes virtuais específicas 
 
-A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
+A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades. As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não há suporte na camada **básica** .
 
 Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace de hubs de eventos não aceitará mais o tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
@@ -21,8 +21,8 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >[!WARNING]
 > A habilitação de redes virtuais para seu namespace de hubs de eventos bloqueia solicitações de entrada por padrão, a menos que as solicitações sejam originadas de um serviço operando de redes virtuais permitidas. Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis mesmo quando as redes virtuais estiverem habilitadas. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
 
-> [!NOTE]
-> As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não há suporte na camada **básica** .
+> [!IMPORTANT]
+> Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada. Se não houver nenhuma regra de rede virtual e IP, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 
@@ -46,8 +46,8 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 1. Navegue até o seu **namespace dos Hubs de Eventos** no [portal do Azure](https://portal.azure.com).
 4. Selecione **rede** em **configurações** no menu à esquerda. Você vê a guia **rede** somente para namespaces **padrão** ou **dedicados** . 
 
-    > [!NOTE]
-    > Por padrão, a opção **redes selecionadas** é selecionada conforme mostrado na imagem a seguir. Se você não especificar uma regra de firewall IP ou adicionar uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a chave de acesso). 
+    > [!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a tecla de acesso). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Guia redes – opção redes selecionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -58,6 +58,9 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente** _. Selecione _ *+ criar nova rede virtual** se desejar criar uma nova VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a tecla de acesso).
 3. Selecione a rede virtual na lista de redes virtuais e, em seguida, escolha a **sub-rede**. Você precisa habilitar o ponto de extremidade de serviço antes de adicionar a rede virtual à lista. Se o ponto de extremidade de serviço não estiver habilitado, o portal solicitará que você o habilite.
    
    ![selecionar sub-rede](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
@@ -79,28 +82,12 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
+O modelo do Gerenciador de recursos de exemplo a seguir adiciona uma regra de rede virtual a um namespace existente de hubs de eventos. Para a regra de rede, ele especifica a ID de uma sub-rede em uma rede virtual. 
 
-O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Hubs de Eventos existente.
+A ID é um caminho totalmente qualificado do Resource Manager para a sub-rede da rede virtual. Por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
-Parâmetros de modelo:
+Ao adicionar regras de rede virtual ou firewalls, defina o valor de `defaultAction` como `Deny` .
 
-* `namespaceName`: Namespace de hubs de eventos.
-* `vnetRuleName`: Nome da regra de rede virtual a ser criada.
-* `virtualNetworkingSubnetId`: Caminho do Gerenciador de recursos totalmente qualificado para a sub-rede da rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
-
-> [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
-> Ao tornar as regras de rede virtual ou firewalls, devemos alterar o **_"DefaultAction"_**
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +189,9 @@ Parâmetros de modelo:
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver nenhuma regra de rede virtual e IP, todo o tráfego fluirá para o namespace mesmo se você definir `defaultAction` como `deny` .  O namespace pode ser acessado pela Internet pública (usando a chave de acesso). Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

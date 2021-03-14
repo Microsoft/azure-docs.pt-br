@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 12/14/2020
-ms.openlocfilehash: 289f22230a38ef8dd6e369573091c5b30dd4a5c7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: f1171bdd087d6ca72a09a2e3efb7f4767a575d21
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706993"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517783"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -90,6 +90,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Pesquisa armazenada em cache](https://www.youtube.com/watch?v=HqCn42FaRJs)
 
 [Contexto de linha por meio da transformação de Janela](http://youtu.be/jqt1gmX2XUg)
+
+[Analisar a transformação](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
 ## <a name="source-and-sink"></a>Fonte e coletor
 

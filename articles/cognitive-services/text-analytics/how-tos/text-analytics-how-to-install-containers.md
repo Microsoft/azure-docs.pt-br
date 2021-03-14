@@ -9,20 +9,20 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: local, Docker, contêiner, análise de sentimentos, processamento de idioma natural
-ms.openlocfilehash: f785a5e6749e46b34723af11b4d61a98b5d94384
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ac82781ed4a05fbbca7f5b16edb0b5349dfc400a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862493"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432053"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
 > [!NOTE]
-> * O contêiner para Análise de Sentimento v3 agora está disponível para o público geral. Os contêineres de extração de frase principal e detecção de idioma estão disponíveis como versão prévia pública livre.
+> * O contêiner para detecção de Análise de Sentimento e idioma agora está disponível para o público geral. O contêiner de extração de frases-chave está disponível como uma visualização pública não restrita.
 > * A vinculação de entidade e NER não estão disponíveis no momento como um contêiner.
 > * Acessar o Análise de Texto para o contêiner de integridade requer um [formulário de solicitação](https://aka.ms/csgate). No momento, você não será cobrado pelo seu uso.
 > * Os locais da imagem de contêiner podem ter sido alterados recentemente. Leia este artigo para ver o local atualizado para esse contêiner.
@@ -32,7 +32,7 @@ Contêineres permitem executar APIs de Análise de Texto no seu ambiente e são 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 > [!IMPORTANT]
-> A conta gratuita é limitada a 5.000 transações por mês e apenas os <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">tipos <span class="docon docon-navigate-external x-hidden-focus"></span> de preço</a> **gratuito** e **padrão** são válidos para contêineres. Para obter mais informações sobre taxas de solicitação de transação, consulte [limites de dados](../overview.md#data-limits).
+> A conta gratuita é limitada a 5.000 transações por mês e apenas os tipos de  <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">preço</a> **gratuito** e padrão são válidos para contêineres. Para obter mais informações sobre taxas de solicitação de transação, consulte [limites de dados](../overview.md#data-limits).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,11 +42,11 @@ Para executar qualquer um dos contêineres de Análise de Texto, você deve ter 
 
 Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de Análise de Texto:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
-|Recurso de Análise de Texto |Para usar o contêiner, você precisará ter:<br><br>Um [recurso de análise de texto](../../cognitive-services-apis-create-account.md) do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas Visão Geral e Chaves da Análise de Texto no portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**|
+|Recurso de Análise de Texto |Para usar o contêiner, você precisará ter:<br><br>Um [recurso de análise de texto](../../cognitive-services-apis-create-account.md) do Azure com o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)gratuito (F0) ou Standard (S). Você precisará obter a chave de API e o URI de ponto de extremidade associados navegando até a página de **ponto de extremidade e a chave** do recurso no portal do Azure. <br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis. <br><br>**{ENDPOINT_URI}**: o ponto de extremidade para seu recurso. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -61,7 +61,7 @@ A tabela a seguir descreve as especificações mínimas e recomendadas para os c
 |  | Especificações mínimas do host | Especificações de host recomendadas | TPS mínimo | TPS máximo|
 |---|---------|-------------|--|--|
 | **Detecção de idioma, extração de frases-chave**   | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15 | 30|
-| **Análise de Sentimento v3**   | 1 núcleo, 2 GB de memória | 4 núcleos, 8 GB de memória |15 | 30|
+| **Análise de Sentimento**   | 1 núcleo, 2 GB de memória | 4 núcleos, 8 GB de memória |15 | 30|
 | **Análise de Texto para o documento/solicitação de integridade 1**   |  4 núcleos, 10 GB de memória | 6 núcleos, memória de 12 GB |15 | 30|
 | **Análise de Texto para a integridade-10 documentos/solicitação**   |  6 núcleos, memória 16 GB | 8 núcleos, 20 GB de memória |15 | 30|
 
@@ -73,7 +73,7 @@ O núcleo da CPU e a memória correspondem às `--cpus` `--memory` configuraçõ
 
 As imagens de contêiner para Análise de Texto estão disponíveis no registro de contêiner da Microsoft.
 
-# <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento ](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -81,7 +81,7 @@ As imagens de contêiner para Análise de Texto estão disponíveis no registro 
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Detecção de Idioma (versão prévia)](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -89,7 +89,7 @@ As imagens de contêiner para Análise de Texto estão disponíveis no registro 
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
-**_
+***
 
 ## <a name="how-to-use-the-container"></a>Como usar o contêiner
 
@@ -103,11 +103,11 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar os contêineres. O contêiner continuará a ser executado até que você o interrompa.
 
 > [!IMPORTANT]
-> _ Os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+> * os comandos do Docker nas seções a seguir usam a barra invertida, `\`, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
 > * As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
-> * O contêiner de análise de opiniões v3 agora está disponível para o público geral, que retorna [Rótulos de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) na resposta. A extração de frases-chave e os contêineres de detecção de idioma usam V2 da API e estão em versão prévia.
+> * Os contêineres análise de sentimentos e detecção de idioma estão geralmente disponíveis. O contêiner de extração de frases-chave usa V2 da API e está em versão prévia.
 
-# <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -115,7 +115,7 @@ Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandl
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Detecção de Idioma (versão prévia)](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -162,7 +162,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * O Análise de Texto fornece três contêineres do Linux para o Docker, encapsulando vários recursos:
    * *Análise de Sentimento*
    * *Extração de Frases-chave (versão prévia)* 
-   * *Detecção de Idioma (versão prévia)*
+   * *Detecção de Idioma*
    * *Análise de Texto para integridade (versão prévia)*
 * As imagens de contêiner são baixadas do registro de contêiner da Microsoft (MCR) ou do repositório de contêiner de visualização.
 * Imagens de contêiner são executadas no Docker.

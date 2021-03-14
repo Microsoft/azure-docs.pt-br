@@ -1,5 +1,5 @@
 ---
-title: Scripts do Windows para Azure IoT Edge | Microsoft Docs
+title: Scripts para Azure IoT Edge com contêineres do Windows | Microsoft Docs
 description: Informações de referência para IoT Edge scripts do PowerShell a serem instalados, desinstalados ou atualizados em dispositivos Windows
 author: kgremban
 manager: philmea
@@ -8,14 +8,14 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b7614f7ccd24d0237a043a9b5bf0ad988146d89c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630609"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615900"
 ---
-# <a name="powershell-scripts-for-iot-edge-on-windows"></a>Scripts do PowerShell para IoT Edge no Windows
+# <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Scripts do PowerShell para IoT Edge com contêineres do Windows
 
 Entenda os scripts do PowerShell que instalam, atualizam ou desinstalam IoT Edge em dispositivos Windows.
 
@@ -96,7 +96,7 @@ O comando Initialize-IoTEdge configura IoT Edge com a cadeia de conexão do disp
 
 | Parâmetro | Valores aceitos | Comentários |
 | --------- | --------------- | -------- |
-| **Aplicação** | nenhum | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
+| **Force** | nenhum | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
 | **RestartIfNeeded** | nenhum | Esse sinalizador permite que o script de desinstalação reinicie o computador sem avisar, se necessário. |
 
 ## <a name="next-steps"></a>Próximas etapas

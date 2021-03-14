@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): otimizar algoritmos – Azure'
 description: Explica como escolher o conjunto de parâmetros ideal para um algoritmo no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519296"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de Machine Learning tem parâmetros para serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que você escolhe. O processo de localizar o melhor conjunto de parâmetros é conhecido como *seleção de modelo*.
 
@@ -28,10 +28,10 @@ Há várias maneiras de realizar a seleção de modelo. No Machine Learning, a v
 
 Há quatro etapas no processo de localizar o melhor conjunto de parâmetros:
 
-1. **Defina o espaço de parâmetro** : para o algoritmo, primeiro decida os valores de parâmetro exatos que você quer considerar.
-2. **Definir as configurações de validação cruzada** : decida como escolher dobras de validação cruzada no conjunto de dados.
-3. **Definir métrica** : decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, recall ou pontuação f.
-4. **Treinar, avaliar e comparar** : para cada combinação exclusiva de valores de parâmetros, a validação cruzada é executada por e com base na métrica de erro que você definir. Após a avaliação e a comparação, você pode escolher o modelo com melhor desempenho.
+1. **Defina o espaço de parâmetro**: para o algoritmo, primeiro decida os valores de parâmetro exatos que você quer considerar.
+2. **Definir as configurações de validação cruzada**: decida como escolher dobras de validação cruzada no conjunto de dados.
+3. **Definir métrica**: decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, recall ou pontuação f.
+4. **Treinar, avaliar e comparar**: para cada combinação exclusiva de valores de parâmetros, a validação cruzada é executada por e com base na métrica de erro que você definir. Após a avaliação e a comparação, você pode escolher o modelo com melhor desempenho.
 
 A imagem a seguir ilustra como isso pode ser obtido no Azure Machine Learning Studio (clássico).
 
@@ -66,7 +66,7 @@ O módulo também tem uma entrada de conjunto de dados opcional. Conecte o conju
 
 ![Classificador de árvore de decisão aumentada](./media/algorithm-parameters-optimize/fig6a.png)
 
-Então, o modelo é avaliado no conjunto de dados de validação. A porta de saída à esquerda do módulo mostra métricas diferentes como funções de valores de parâmetro. A porta de saída à direita fornece o modelo treinado que corresponde ao modelo de melhor desempenho, de acordo com a métrica escolhida ( **Precisão** , nesse caso).  
+Então, o modelo é avaliado no conjunto de dados de validação. A porta de saída à esquerda do módulo mostra métricas diferentes como funções de valores de parâmetro. A porta de saída à direita fornece o modelo treinado que corresponde ao modelo de melhor desempenho, de acordo com a métrica escolhida (**Precisão**, nesse caso).  
 
 ![Conjunto de dados de validação](./media/algorithm-parameters-optimize/fig6b.png)
 

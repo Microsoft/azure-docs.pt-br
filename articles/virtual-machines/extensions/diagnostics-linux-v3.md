@@ -1,21 +1,19 @@
 ---
 title: Computação do Azure-extensão de diagnóstico do Linux 3,0
 description: Como configurar a extensão de diagnóstico Linux do Azure (LAD) 3,0 para coletar métricas e eventos de log de VMs Linux em execução no Azure.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 12/13/2018
-ms.author: akjosh
-ms.openlocfilehash: 88f8d62a6321deae8a46d32441625c5960547694
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: d063aec3b093f00640d909a6ce3c2cde6d2d2420
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982084"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547417"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux 3,0 para monitorar as métricas e os logs
 
@@ -825,6 +823,6 @@ Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-about.md) c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que você coletar.
-* Criar [gráficos de monitoramento](../../azure-monitor/platform/data-platform.md) para suas métricas.
+* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para as métricas que você coletar.
+* Criar [gráficos de monitoramento](../../azure-monitor/data-platform.md) para suas métricas.
 * Aprenda a [criar um conjunto de dimensionamento de máquinas virtuais](../linux/tutorial-create-vmss.md) usando suas métricas para controlar o dimensionamento automático.

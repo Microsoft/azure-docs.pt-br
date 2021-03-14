@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559237"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389443"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Digite                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -119,7 +119,7 @@ Se você for um administrador global do locatário de sua organização, eleve s
 
 ### <a name="run-the-script"></a>Executar o script
 
-Saiba mais sobre o script do PowerShell, **Get-DanglingDnsRecords.ps1** e baixe-o do github: https://aka.ms/DanglingDNSDomains .
+Saiba mais sobre o script do PowerShell, **Get-DanglingDnsRecords.ps1** e baixe-o do github: https://aka.ms/Get-DanglingDnsRecords .
 
 ## <a name="remediate-dangling-dns-entries"></a>Corrigir entradas DNS pendente 
 

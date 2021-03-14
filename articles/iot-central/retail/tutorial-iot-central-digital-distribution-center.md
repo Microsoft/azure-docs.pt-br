@@ -7,22 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346190"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702684"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo do centro de distribuição digital
-
-
 
 Este tutorial mostra como iniciar a implantação de um modelo de aplicativo do **centro de distribuição digital** para IoT Central. Veja como implantar o modelo, o conteúdo incluído pronto para uso e o que você poderá fazer em seguida.
 
 Neste tutorial, você aprenderá a: 
-* Criar um aplicativo do centro de distribuição digital 
-* Explorar o aplicativo 
+
+> [!div class="checklist"]
+> * Criar um aplicativo do centro de distribuição digital 
+> * Explorar o aplicativo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Não há pré-requisitos específicos para implantar este aplicativo
@@ -110,8 +110,8 @@ Caso não pretenda usar esse aplicativo, acesse **Administração** > **Configur
 > ![Captura de tela mostrando como excluir o aplicativo quando você terminar](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a arquitetura da solução do centro de distribuição digital 
+
+Saiba mais sobre a arquitetura da solução do centro de distribuição digital:
+
 > [!div class="nextstepaction"]
 > [conceito de centro de distribuição digital](./architecture-digital-distribution-center.md)
-* Saiba mais sobre outros [modelos comerciais do IoT Central](./overview-iot-central-retail.md)
-* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../core/overview-iot-central.md)

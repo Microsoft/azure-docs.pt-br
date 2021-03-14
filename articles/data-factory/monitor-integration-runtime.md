@@ -1,21 +1,17 @@
 ---
 title: Monitorar o tempo de execução de integração no Azure Data Factory
 description: Saiba como monitorar diferentes tipos de runtime de integração no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862438"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740011"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
 
@@ -47,9 +43,9 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 
 | Propriedade | Descrição |
 -------- | ------------- | 
-| Nome | Nome do Azure Integration runtime. |  
+| Name | Nome do Azure Integration runtime. |  
 | Estado | Status do Azure Integration runtime. | 
-| Localização | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
+| Local | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o Azure Integration runtime pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | Descrição | Descrição do runtime de integração.  |
@@ -76,7 +72,7 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
-| Nome | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
+| Name | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
 | Status | O status do runtime de integração auto-hospedada geral e de cada nó. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a próxima seção. | 
 | Versão | A versão do runtime de integração auto-hospedada geral e de cada nó. A versão do runtime de integração auto-hospedada é determinada com base na versão da maioria dos nós no grupo. Se há nós com versões diferentes na configuração do runtime de integração auto-hospedada, somente os nós com o mesmo número de versão que o runtime de integração auto-hospedada funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). | 
 | Memória disponível | Memória disponível em um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
@@ -182,7 +178,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | OtherErrors                  | Os erros acionáveis não específicos do nó em seu Azure-SSIS IR. |
 | LastOperation                | O resultado da última operação de iniciar/parar no seu Azure-SSIS IR com erros acionáveis, caso tenha falhado. |
 | Estado                        | O status geral (inicial/iniciando/iniciado/parando/parado) do seu Azure-SSIS IR. |
-| Localização                     | O local do seu Azure-SSIS IR. |
+| Local                     | O local do seu Azure-SSIS IR. |
 | NodeSize                     | O tamanho de cada nó em seu Azure-SSIS IR. |
 | NodeCount                    | O número de nós em seu Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | O número máximo de execuções paralelas por nó em seu Azure-SSIS IR. |
@@ -193,10 +189,10 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | VNetId                       | A ID de recurso de rede virtual para seu Azure-SSIS IR ingressar. |
 | Sub-rede                       | O nome da sub-rede para o Azure-SSIS IR ingressar. |
 | ID                           | A ID de recurso do seu Azure-SSIS IR. |
-| Type                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
+| Tipo                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do grupo de recursos do Azure, no qual o ADF e o Azure-SSIS IR foram criados. |
 | DataFactoryName              | O nome do ADF. |
-| Nome                         | O nome do seu Azure-SSIS IR. |
+| Name                         | O nome do seu Azure-SSIS IR. |
 | Descrição                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (por nó de Azure-SSIS IR)
@@ -228,7 +224,17 @@ Para monitorar seus Azure-SSIS IR no portal do Azure, acesse a página **tempos 
 
 ![Monitorar todos os tempos de execução de integração](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Em seguida, selecione o nome do seu Azure-SSIS IR para abrir sua página de monitoramento, onde você pode ver suas propriedades e status gerais/específicas do nó. Nessa página, dependendo de como você configura as configurações geral, implantação e avançado de seu Azure-SSIS IR, você encontrará vários blocos informativos/funcionais.  Os blocos informativos de **tipo** e **região** mostram o tipo e a região de seu Azure-SSIS ir, respectivamente. O bloco informativo de **tamanho de nó** mostra o SKU (SSIS edition_VM série tier_VM), o número de núcleos de CPU e o tamanho de RAM por nó para sua Azure-SSIS ir. O bloco informativo de **nó (S) em execução/solicitado** compara o número de nós em execução no momento para o número total de nós solicitados anteriormente para sua Azure-SSIS ir. Os blocos funcionais são descritos em mais detalhes abaixo.
+Em seguida, selecione o nome do seu Azure-SSIS IR para abrir sua página de monitoramento, onde você pode ver suas propriedades e status gerais/específicas do nó. Nessa página, dependendo de como você configura as configurações geral, implantação e avançado de seu Azure-SSIS IR, você encontrará vários blocos informativos/funcionais.
+
+Os blocos informativos de **tipo** e **região** mostram o tipo e a região de seu Azure-SSIS ir, respectivamente.
+
+O bloco informativo de **tamanho de nó** mostra o SKU (SSIS edition_VM série tier_VM), o número de núcleos de CPU e o tamanho de RAM por nó para sua Azure-SSIS ir. 
+
+O bloco informativo de **nó (S) em execução/solicitado** compara o número de nós em execução no momento para o número total de nós solicitados anteriormente para sua Azure-SSIS ir.
+
+O bloco informativo de **função/par de espera dupla** mostra o nome do seu par de Azure-SSIS ir em espera duplo que funciona em sincronia com o grupo de failover do banco de dados SQL/instância gerenciada do Azure para continuidade dos negócios e recuperação de desastres (BCDR) e a função primária/secundária atual de seu Azure-SSIS ir. Quando ocorre o failover do SSISDB, seu IRs do Azure-SSIS primário e secundário trocarão funções (consulte [configurando seu Azure-SSIS ir para BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+Os blocos funcionais são descritos em mais detalhes abaixo.
 
 ![Monitorar seu Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -258,13 +264,13 @@ Se você ingressar seu Azure-SSIS IR em uma VNet, verá o bloco **validar VNet/s
 
 No bloco **diagnosticar conectividade** da sua página de monitoramento de Azure-SSIS ir, você pode selecionar o link **testar conexão** para exibir uma janela, na qual você pode verificar as conexões entre seu Azure-SSIS ir e os armazenamentos de pacote/configuração/dados relevantes, bem como serviços de gerenciamento, por meio de seu endereço de FQDN (nome de domínio totalmente qualificado) e porta designada (consulte [testando conexões de seu Azure-SSIS ir](./ssis-integration-runtime-diagnose-connectivity-faq.md))
 
-![Captura de tela que mostra onde você pode testar as conexões entre seus Azure-SSIS IR e os armazenamentos de pacote/configuração/dados relevantes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Monitore seu bloco Azure-SSIS IR-DIAGNOSTICAr](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Bloco de endereços IP públicos ESTÁTICOs
 
 Se você colocar seus próprios endereços IP públicos estáticos para Azure-SSIS IR, verá o bloco **endereços IP públicos estáticos** na sua página de monitoramento de Azure-SSIS ir (consulte [trazendo seus próprios endereços IP públicos estáticos para Azure-SSIS ir](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Nesse bloco, você pode selecionar links que designam seus primeiros/segundo endereços IP públicos estáticos para Azure-SSIS IR para exibir uma janela, onde você pode copiar sua ID de recurso ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) de uma caixa de texto. Na janela pop-up, você também pode selecionar o link **ver seu primeiro/segundo configurações de endereço IP público estático** para gerenciar seu primeiro/segundo endereço IP público estático no portal do Azure.
 
-![Captura de tela que mostra onde você pode designar seus primeiros/segundo endereços IP públicos estáticos.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Monitorar seu bloco Azure-SSIS IR-estático](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Bloco de REPOSITÓRIOs de pacotes
 
@@ -276,7 +282,7 @@ Se você usar o modelo de implantação de pacote em que os pacotes são armazen
 
 Se houver problemas com a inicialização/interrupção/manutenção/atualização do seu Azure-SSIS IR, você verá um bloco adicional de **erros** na sua página de monitoramento de Azure-SSIS ir. Nesse bloco, você pode selecionar um link que designa o número de erros gerados pelo seu Azure-SSIS IR para exibir uma janela, em que você pode ver esses erros em mais detalhes e copiá-los para encontrar as soluções recomendadas em nosso guia de solução de problemas (consulte [Solucionando problemas de seu Azure-SSIS ir](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Monitore seu bloco Azure-SSIS IR-DIAGNOSTICAr](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Monitore seu bloco Azure-SSIS IR-erro](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitorar o tempo de execução de integração do Azure-SSIS com o Azure Monitor
 

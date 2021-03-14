@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em IoT Edge perguntas frequentes – Azure
 description: Este artigo responde às perguntas mais frequentes sobre a análise de vídeo ao vivo em IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 0cb378bf614582070dd1bdd0a11706b26437af53
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880043"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702242"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Perguntas frequentes sobre a análise de vídeo ao vivo IoT Edge
 
@@ -230,7 +230,7 @@ Sim. Você pode consumir métricas Prometheus e publicá-las na sua grade de eve
 
 **Posso usar Azure Monitor para exibir a integridade, as métricas e o desempenho de meus gráficos de mídia na nuvem ou na borda?**
 
-Sim, damos suporte a essa abordagem. Para saber mais, consulte [visão geral de métricas de Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Sim, damos suporte a essa abordagem. Para saber mais, consulte [visão geral de métricas de Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 **Há alguma ferramenta para facilitar o monitoramento do módulo IoT Edge de serviços de mídia?**
 

@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 01/22/2021
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007730"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485666"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -30,7 +30,7 @@ Antes de implantar Gerenciamento de Atualizações e habilitar seus computadores
 
 As máquinas gerenciadas pelo Gerenciamento de Atualizações dependem do seguinte para executar a avaliação e para implantar atualizações:
 
-* [Agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux
+* [Agente de log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para Windows ou Linux
 * DSC (PowerShell Desired State Configuration) para Linux
 * Hybrid Runbook Worker de automação (instalado automaticamente quando você habilita Gerenciamento de Atualizações no computador)
 * Microsoft Update ou [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) para computadores Windows
@@ -53,7 +53,7 @@ O Gerenciamento de Atualizações relata o grau de atualização do computador c
 
 Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como opcionais não são incluídas no escopo de implantação para computadores com Windows. Somente as atualizações necessárias são incluídas no escopo de implantação.
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis. Ele faz isso especificando explicitamente determinados computadores ou selecionando um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) com base em pesquisas de log de um conjunto específico de computadores (ou em uma [consulta do Azure](query-logs.md) que seleciona dinamicamente as VMs do Azure com base em critérios especificados). Esses grupos diferem da [configuração de escopo](../../azure-monitor/insights/solution-targeting.md), que é usada para controlar o direcionamento de computadores que recebem a configuração para habilitar o Gerenciamento de Atualizações. Isso impede que eles executem e relatem a conformidade de atualizações e instalem atualizações necessárias aprovadas.
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis. Ele faz isso especificando explicitamente determinados computadores ou selecionando um [grupo de computadores](../../azure-monitor/logs/computer-groups.md) com base em pesquisas de log de um conjunto específico de computadores (ou em uma [consulta do Azure](query-logs.md) que seleciona dinamicamente as VMs do Azure com base em critérios especificados). Esses grupos diferem da [configuração de escopo](../../azure-monitor/insights/solution-targeting.md), que é usada para controlar o direcionamento de computadores que recebem a configuração para habilitar o Gerenciamento de Atualizações. Isso impede que eles executem e relatem a conformidade de atualizações e instalem atualizações necessárias aprovadas.
 
 Ao definir uma implantação, você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período é chamado de janela de manutenção. Um período de 20 minutos da janela de manutenção é reservado para reinicializações, supondo que uma seja necessária e você tenha selecionado a opção de reinicialização apropriada. Se a aplicação de patch demorar mais do que o esperado e houver menos de 20 minutos na janela de manutenção, uma reinicialização não ocorrerá.
 
@@ -78,11 +78,11 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 |Windows Server 2008 R2 (RTM e SP1 Standard)| O Gerenciamento de Atualizações dá suporte a avaliações e aplicação de patches para este sistema operacional. O [Hybrid runbook Worker](../automation-windows-hrw-install.md) tem suporte para o Windows Server 2008 R2. |
 |CentOS 6 e 7 (x64)      | Os agentes do Linux requerem acesso a um repositório de atualização. O patch baseado em classificação requer que `yum` retorne dados de segurança que as versões RTM do CentOS não têm. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, confira [Classificações de atualização no Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
-|SUSE Linux Enterprise Server 12 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
+|SUSE Linux Enterprise Server 12, 15 e 15,1 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização. Para o SUSE 15. x, o Python 3 é necessário no computador.      |
 |Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 LTS (x64)      |Os agentes do Linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
-> Os conjuntos de dimensionamento de máquinas virtuais do Azure podem ser gerenciados por meio do Gerenciamento de Atualizações. O Gerenciamento de Atualizações funciona nas instâncias e não na imagem base. Você precisará agendar as atualizações de maneira incremental, para que nem todas as instâncias de VM sejam atualizadas de imediato. Você pode adicionar nós para conjuntos de dimensionamento de máquinas virtuais seguindo as etapas em [Adicionar um computador não Azure ao Controle de Alterações e Inventário](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
+> Gerenciamento de Atualizações não dá suporte à automatização segura do gerenciamento de atualizações em todas as instâncias em um conjunto de dimensionamento de máquinas virtuais do Azure. [Atualizações automáticas de imagem do sistema operacional](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é o método recomendado para gerenciar atualizações de imagem do sistema operacional em seu conjunto de dimensionamento.
 
 ### <a name="unsupported-operating-systems"></a>Sistemas operacionais sem suporte
 
@@ -94,7 +94,7 @@ A tabela a seguir lista os sistemas operacionais sem suporte pelo Gerenciamento 
 |Windows Server 2016 Nano Server     | Sem suporte.       |
 |Nós do Serviço de Kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [Aplicar atualizações de segurança e kernel a nós do Linux no AKS (Serviço de Kubernetes do Azure)](../../aks/node-updates-kured.md)|
 
-### <a name="system-requirements"></a>Requisitos de sistema
+### <a name="system-requirements"></a>Requisitos do sistema
 
 As informações a seguir descrevem os requisitos específicos do sistema operacional. Para obter diretrizes adicionais, confira [Planejamento de rede](#ports). Para entender os requisitos do TLS 1,2, consulte [imposição tls 1,2 para a automação do Azure](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -107,7 +107,7 @@ Requisitos de software:
 
 Os agentes do Windows precisam ser configurados para comunicarem-se com um servidor WSUS, caso contrário, eles exigem acesso ao Microsoft Update. Para computadores híbridos, recomendamos instalar o agente de Log Analytics para Windows primeiro conectando o computador aos [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md)e, em seguida, use Azure Policy para atribuir o agente de log Analytics de implantação à política interna de [computadores Arc do Windows Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Como alternativa, se você planeja monitorar as máquinas com Azure Monitor para VMs, use a iniciativa [habilitar Azure monitor para VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
-Você pode usar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager. Para saber mais sobre cenários de integração, confira [Integrar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager](mecmintegration.md). O [agente do Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows gerenciados por sites em seu ambiente do Configuration Manager.
+Você pode usar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager. Para saber mais sobre cenários de integração, confira [Integrar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager](mecmintegration.md). O [agente do Log Analytics para Windows](../../azure-monitor/agents/agent-windows.md) é necessário para servidores Windows gerenciados por sites em seu ambiente do Configuration Manager.
 
 Por padrão, as VMs do Windows que são implantadas no Azure Marketplace são definidas para receber atualizações automáticas do serviço Windows Update. Esse comportamento não é alterado quando você adiciona VMs do Windows ao seu workspace. Se você não gerenciou atualizações ativamente usando o Gerenciamento de Atualizações, o comportamento padrão (para aplicar automaticamente as atualizações) é aplicado.
 
@@ -147,7 +147,7 @@ Você pode adicionar o computador Windows a um usuário Hybrid Runbook Worker gr
 
 ### <a name="management-packs"></a>Pacotes de gerenciamento
 
-Se o grupo de gerenciamento do Operations Manager estiver [conectado a um workspace do Log Analytics](../../azure-monitor/platform/om-agents.md), os pacotes de gerenciamento a seguir serão instalados no Operations Manager. Esses pacotes de gerenciamento também são instalados para o Gerenciamento de Atualizações em computadores com Windows conectados diretamente. Você não precisa configurar ou gerenciar esses pacotes de gerenciamento.
+Se o grupo de gerenciamento do Operations Manager estiver [conectado a um workspace do Log Analytics](../../azure-monitor/agents/om-agents.md), os pacotes de gerenciamento a seguir serão instalados no Operations Manager. Esses pacotes de gerenciamento também são instalados para o Gerenciamento de Atualizações em computadores com Windows conectados diretamente. Você não precisa configurar ou gerenciar esses pacotes de gerenciamento.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -156,7 +156,7 @@ Se o grupo de gerenciamento do Operations Manager estiver [conectado a um worksp
 > [!NOTE]
 > Se você tiver um grupo de gerenciamento do Operations Manager 1807 ou 2019 conectado a um workspace do Log Analytics com agentes configurados no grupo de gerenciamento para coletar dados de log, será necessário substituir o parâmetro `IsAutoRegistrationEnabled` e defini-lo como True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init**.
 
-Para obter mais informações sobre atualizações para pacotes de gerenciamento, confira [Conectar o Operations Manager aos logs do Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre atualizações para pacotes de gerenciamento, confira [Conectar o Operations Manager aos logs do Azure Monitor](../../azure-monitor/agents/om-agents.md).
 
 > [!NOTE]
 > Para que o Gerenciamento de Atualizações gerencie totalmente os computadores com o agente do Log Analytics, você precisa atualizar para o agente do Log Analytics para Windows ou o agente do Log Analytics para Linux. Para saber como atualizar o agente, consulte [como atualizar um agente do Operations Manager](/system-center/scom/deploy-upgrade-agents). Em ambientes que usam o Operations Manager, você precisa estar executando o System Center Operations Manager 2012 R2 UR 14 ou posterior.
@@ -181,7 +181,7 @@ O Gerenciamento de Atualizações verifica os dados em computadores gerenciados 
 
 * Cada computador com Linux – o Gerenciamento de Atualizações faz uma verificação a cada hora.
 
-A média de uso de dados por logs do Azure Monitor para um computador usando o Gerenciamento de Atualizações é de aproximadamente 25 MB por mês. Esse valor é somente uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que você monitore seu ambiente para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/platform/manage-cost-storage.md).
+A média de uso de dados por logs do Azure Monitor para um computador usando o Gerenciamento de Atualizações é de aproximadamente 25 MB por mês. Esse valor é somente uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que você monitore seu ambiente para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Planejamento de rede
 
@@ -193,7 +193,7 @@ Para computadores com Red Hat Linux, confira [IPs para os servidores de distribu
 
 Para obter mais informações sobre as portas necessárias para o Hybrid Runbook Worker, confira [Endereços do Gerenciamento de Atualizações para o Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Se suas políticas de segurança de ti não permitirem que computadores na rede se conectem à Internet, você poderá configurar um [log Analytics gateway](../../azure-monitor/platform/gateway.md) e, em seguida, configurar o computador para se conectar por meio do gateway para a automação do Azure e Azure monitor.
+Se suas políticas de segurança de ti não permitirem que computadores na rede se conectem à Internet, você poderá configurar um [log Analytics gateway](../../azure-monitor/agents/gateway.md) e, em seguida, configurar o computador para se conectar por meio do gateway para a automação do Azure e Azure monitor.
 
 ## <a name="update-classifications"></a>Classificações de origem
 

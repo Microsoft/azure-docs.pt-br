@@ -5,19 +5,19 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556133"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726166"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
 > [!NOTE]
-> Este artigo descreve como entender e controlar seus custos no Application Insights.  Um artigo relacionado chamado [Monitorar o uso e os custos estimados](../platform/usage-estimated-costs.md) descreve como visualizar o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços.
+> Este artigo descreve como entender e controlar seus custos no Application Insights.  Um artigo relacionado chamado [Monitorar o uso e os custos estimados](..//usage-estimated-costs.md) descreve como visualizar o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços.
 
 O Application Insights foi projetado para obter tudo o que você precisa para monitorar a disponibilidade, o desempenho e o uso de seus aplicativos Web, estejam eles hospedados no Azure ou no local. O Application Insights dá suporte a linguagens e estruturas conhecidas, como .NET, Java e Node.js, além de integrar-se com processos e ferramentas DevOps como o Azure DevOps, o Jira e o PagerDuty. É importante entender o que determina os custos de monitoramento de seus aplicativos. Neste artigo, examinaremos o que impulsiona os custos de monitoramento de seu aplicativo e como você pode monitorá-los e controlá-los proativamente.
 
@@ -33,7 +33,7 @@ A opção do Application Insights para [Habilitar alertas sobre dimensões de m�
 
 ### <a name="workspace-based-application-insights"></a>Application Insights baseado em workspace
 
-Para recursos do Application Insights que enviam dados para um workspace do Log Analytics, chamados de [recursos do Application Insights baseados em workspace](create-workspace-resource.md), a cobrança para a ingestão e a retenção de dados é feita pelo workspace em que os dados do Application Insights estão localizados. Isso permite que os clientes aproveitem todas as opções do [modelo de preços](../platform/manage-cost-storage.md#pricing-model) do Log Analytics que incluem Reservas de Capacidade, além do Pagamento Conforme o Uso. O Log Analytics também tem mais opções de retenção de dados, incluindo [retenção por tipo de dados](../platform/manage-cost-storage.md#retention-by-data-type). Os tipos de dados do Application Insights no workspace recebem 90 dias de retenção sem encargos. O uso de testes da Web e a habilitação de alertas sobre dimensões de métricas personalizadas ainda são relatados por meio do Application Insights. Saiba como acompanhar a ingestão de dados e os custos de retenção no Log Analytics por meio de [Usos e custos estimados](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Gerenciamento de Custos do Azure + Cobrança](../platform/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) e [consultas do Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
+Para recursos do Application Insights que enviam dados para um workspace do Log Analytics, chamados de [recursos do Application Insights baseados em workspace](create-workspace-resource.md), a cobrança para a ingestão e a retenção de dados é feita pelo workspace em que os dados do Application Insights estão localizados. Isso permite que os clientes aproveitem todas as opções do [modelo de preços](../logs/manage-cost-storage.md#pricing-model) do Log Analytics que incluem Reservas de Capacidade, além do Pagamento Conforme o Uso. O Log Analytics também tem mais opções de retenção de dados, incluindo [retenção por tipo de dados](../logs/manage-cost-storage.md#retention-by-data-type). Os tipos de dados do Application Insights no workspace recebem 90 dias de retenção sem encargos. O uso de testes da Web e a habilitação de alertas sobre dimensões de métricas personalizadas ainda são relatados por meio do Application Insights. Saiba como acompanhar a ingestão de dados e os custos de retenção no Log Analytics por meio de [Usos e custos estimados](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Gerenciamento de Custos do Azure + Cobrança](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) e [consultas do Log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimar os custos para gerenciar seu aplicativo
 
@@ -106,7 +106,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Observe que essa consulta pode ser usada em um [Alerta de Log do Azure](../platform/alerts-unified-log.md) para configurar alertas sobre volumes de dados.  
+Observe que essa consulta pode ser usada em um [Alerta de Log do Azure](../alerts/alerts-unified-log.md) para configurar alertas sobre volumes de dados.  
 
 Para saber mais sobre as alterações de dados telemétricos, podemos obter a contagem de eventos por tipo usando a consulta:
 
@@ -224,7 +224,7 @@ Para [alterar o limite diário por meio do Azure Resource Manager](./powershell.
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o limite diário
 
-O limite diário do Application Insights cria um evento no log de atividades do Azure quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de limite diário.  Você pode [criar um alerta com base nesses eventos do log de atividades](../platform/alerts-activity-log.md#create-with-the-azure-portal). Os nomes de sinal para esses eventos são:
+O limite diário do Application Insights cria um evento no log de atividades do Azure quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de limite diário.  Você pode [criar um alerta com base nesses eventos do log de atividades](../alerts/alerts-activity-log.md#create-with-the-azure-portal). Os nomes de sinal para esses eventos são:
 
 * Foi atingido o limite de aviso de limite diário do componente do Application Insights
 
@@ -248,7 +248,7 @@ Para definir a amostragem de ingestão, vá para o painel **Preços**:
 > O painel **Amostragem de dados** controla somente o valor de amostragem de ingestão. Ele não reflete a taxa de amostragem aplicada pelo SDK do Application Insights no seu aplicativo. Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
 >
 
-Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](../log-query/log-query-overview.md). A consulta tem esta aparência:
+Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](../logs/log-query-overview.md). A consulta tem esta aparência:
 
 ```kusto
 requests | where timestamp > ago(1d)
@@ -286,15 +286,18 @@ Para desabilitar os emails de limite diário, na seção **Configurar** do recur
 
 Para os usuários pioneiros do Azure Application Insights, ainda há dois possíveis tipos de preços: Básico e Enterprise. O tipo de preço Basic é o mesmo descrito acima e é a camada padrão. Ele inclui todos os recursos da camada Enterprise, sem nenhum custo adicional. A camada Basic cobra principalmente o volume de dados ingeridos.
 
-> [!NOTE]
-> Esses tipos de preço herdados foram renomeados. O tipo de preço Enterprise agora é chamado de **Por Nó**, e o tipo de preço Basic agora é chamado de **Por GB**. Esses novos nomes são usados abaixo e no portal do Azure.  
+Esses tipos de preço herdados foram renomeados. O tipo de preço Enterprise agora é chamado de **Por Nó**, e o tipo de preço Basic agora é chamado de **Por GB**. Esses novos nomes são usados abaixo e no portal do Azure.  
 
-A camada Por Nó (antiga Enterprise) tem um encargo por nó, e cada nó recebe uma concessão de dados diária. No tipo de preço Por Nó, você será cobrado pelos dados ingeridos acima da bonificação incluída. Se você estiver usando o Operations Management Suite, deverá escolher a camada Por Nó.
+A camada Por Nó (antiga Enterprise) tem um encargo por nó, e cada nó recebe uma concessão de dados diária. No tipo de preço Por Nó, você será cobrado pelos dados ingeridos acima da bonificação incluída. Se você estiver usando o Operations Management Suite, deverá escolher a camada Por Nó. Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitoramento do Azure. Esse modelo adota um modelo de "pagamento conforme o uso" simples no portfólio completo de serviços de monitoramento. Saiba mais sobre o [novo modelo de preços](..//usage-estimated-costs.md).
 
 Para preços atuais em sua moeda e região, consulte [Preços do Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitoramento do Azure. Esse modelo adota um modelo de "pagamento conforme o uso" simples no portfólio completo de serviços de monitoramento. Saiba mais sobre o [novo modelo de preços](../platform/usage-estimated-costs.md), como a [avaliar o impacto de migrar para esse modelo](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) com base nos seus padrões de uso e [como aceitar o novo modelo](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Entendendo o uso cobrado na camada Legacy Enterprise (por nó) 
+
+Conforme descrito abaixo mais detalhadamente, a camada de empresa herdada (por nó) combina o uso de todos os recursos de Application Insights em uma assinatura para calcular o número de nós e os dados excedentes. Devido a esse processo de combinação, o **uso de todos os Application insights recursos em uma assinatura é relatado em apenas um dos recursos**.  Isso torna a reconciliação do [uso cobrado](#viewing-application-insights-usage-on-your-azure-bill) com o uso que você observa para cada Application insights recursos muito complicados. 
+
+> [!WARNING]
+> Devido à complexidade de acompanhar e entender o uso de recursos de Application Insights na camada corporativa herdada (por nó), é altamente recomendável usar o tipo de preço pago conforme o uso atual. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Direitos de assinatura da camada Por Nó e do Operations Management Suite
 
@@ -347,4 +350,3 @@ Você pode escrever um script para definir o tipo de preço com o Gerenciamento 
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

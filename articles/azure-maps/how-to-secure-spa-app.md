@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684065"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092731"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como proteger um aplicativo de página única com entrada não interativa
 
@@ -109,9 +109,9 @@ Conceda acesso ao Azure *RBAC (controle de acesso baseado em função)* atribuin
     > [!div class="mx-imgBorder"]
     > ![Conceder acesso usando o RBAC do Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **atribuir acesso a**, selecione **aplicativo de funções**. Selecione a entidade de segurança por nome. Em seguida, selecione **Salvar**.
+2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **atribuir acesso a**, selecione **aplicativo de funções**. Selecione a entidade de segurança por nome. Depois, selecione **Salvar**.
 
-   * Veja detalhes em [Adicionar ou remover atribuições de função](../role-based-access-control/role-assignments-portal.md).
+   * Consulte os detalhes em [atribuir funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > As definições de função internas do Azure Maps fornecem um acesso de autorização muito grande a muitas APIs REST do Azure Maps. Para restringir o acesso de APIs a um mínimo, consulte [criar uma definição de função personalizada e atribuir a identidade atribuída pelo sistema](../role-based-access-control/custom-roles.md) à definição de função personalizada. Isso habilitará o privilégio mínimo necessário para que o aplicativo acesse o Azure Maps.

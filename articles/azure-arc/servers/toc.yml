@@ -31,6 +31,8 @@
       items:
         - name: Visão geral do agente do Connected Machine
           href: agent-overview.md
+        - name: Planejar implantação em escala
+          href: plan-at-scale-deployment.md
         - name: Conecte computadores ao Azure Arc usando o portal do Azure
           href: onboard-portal.md
         - name: Conecte computadores em escala usando uma entidade de serviço
@@ -59,6 +61,8 @@
           href: managed-identity-authentication.md
         - name: Gerenciar agente
           href: manage-agent.md
+        - name: Migrar um computador entre regiões
+          href: manage-howto-migrate.md
     - name: Cenários
       items:
         - name: Fazer a integração ao Azure Sentinel

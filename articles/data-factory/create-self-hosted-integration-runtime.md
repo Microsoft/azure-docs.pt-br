@@ -1,22 +1,17 @@
 ---
 title: Criar um Integration Runtime auto-hospedado
 description: Saiba como criar um tempo de execução de integração auto-hospedado no Azure Data Factory, que permite que as fábricas de dados acessem armazenamentos de dados em uma rede privada.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
-ms.custom: seo-lt-2019
-ms.date: 12/25/2020
-ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217389"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389479"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -30,7 +25,6 @@ Este artigo descreve como você pode criar e configurar um IR para hospedagem in
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações para o uso de um IR auto-hospedado
 
 - Você pode usar um único tempo de execução de integração auto-hospedado para várias fontes de dados locais. Você também pode compartilhá-lo com outro data factory no mesmo locatário do Azure Active Directory (AD do Azure). Para obter mais informações, confira [Compartilhando um runtime de integração auto-hospedada](./create-shared-self-hosted-integration-runtime-powershell.md).
@@ -42,7 +36,6 @@ Este artigo descreve como você pode criar e configurar um IR para hospedagem in
 - Use o tempo de execução de integração auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma máquina virtual de IaaS (infraestrutura como serviço) do Azure.
 - As tarefas podem falhar em um Integration Runtime de hospedagem interna que você instalou em um Windows Server para o qual a criptografia compatível com FIPS está habilitada. Para contornar esse problema, você tem duas opções: armazenar credenciais/valores secretos em um Azure Key Vault ou desabilitar a criptografia em conformidade com FIPS no servidor. Para desabilitar a criptografia compatível com FIPS, altere o valor da subchave do registro a seguir de 1 (habilitado) para 0 (desabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se você usar o [tempo de execução de integração auto-hospedado como um proxy para o tempo de execução de integração do SSIS](./self-hosted-integration-runtime-proxy-ssis.md), a criptografia compatível com FIPS poderá ser habilitada e será usada ao mover dados do local para o armazenamento de BLOBs do Azure como uma área de preparo.
 
-
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
 
 Quando você move dados entre o local e a nuvem, a atividade usa um tempo de execução de integração auto-hospedado para transferir os dados entre uma fonte de dados local e a nuvem.
@@ -51,32 +44,36 @@ Aqui está um resumo de alto nível das etapas de fluxo de dados para copiar com
 
 ![A visão geral de alto nível do fluxo de dados](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
-1. Um desenvolvedor de dados cria um tempo de execução de integração auto-hospedado em um data factory do Azure usando um cmdlet do PowerShell. Atualmente, o portal do Azure não dá suporte a esse recurso.
-2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local. O desenvolvedor faz isso especificando a instância do Integration Runtime de hospedagem interna que o serviço deve usar para se conectar a armazenamentos de dados.
-3. O nó do runtime de integração auto-hospedada criptografa a credencial usando a DPAPI (Interface de Programação do Aplicativo de Proteção de Dados) do Windows e salva as credenciais localmente. Se vários nós forem definidos para alta disponibilidade, as credenciais serão mais sincronizadas em outros nós. Cada nó criptografa as credenciais usando a DPAPI e as armazena localmente. A sincronização de credenciais é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.
-4. Azure Data Factory se comunica com o Integration Runtime de hospedagem interna para agendar e gerenciar trabalhos. A comunicação é por meio de um canal de controle que usa uma conexão de [retransmissão do Azure](../azure-relay/relay-what-is-it.md#wcf-relay) compartilhada. Quando um trabalho de atividade precisa ser executado, o Data Factory enfileira a solicitação junto com qualquer informação de credencial. Ele faz isso, caso as credenciais ainda não estejam armazenadas no tempo de execução de integração auto-hospedado. O tempo de execução de integração auto-hospedado inicia o trabalho depois de sondar a fila.
-5. O Integration Runtime de hospedagem interna copia dados entre um repositório local e um armazenamento em nuvem. A direção da cópia depende de como a atividade de cópia é configurada no pipeline de dados. Para esta etapa, o Integration Runtime de hospedagem interna se comunica diretamente com serviços de armazenamento baseados em nuvem como o armazenamento de BLOBs do Azure por meio de um canal HTTPS seguro.
+1. Um desenvolvedor de dados cria um tempo de execução de integração auto-hospedado em um data factory do Azure usando o portal do Azure ou o cmdlet do PowerShell.
 
+2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local. O desenvolvedor faz isso especificando a instância do Integration Runtime de hospedagem interna que o serviço deve usar para se conectar a armazenamentos de dados.
+
+3. O nó do runtime de integração auto-hospedada criptografa a credencial usando a DPAPI (Interface de Programação do Aplicativo de Proteção de Dados) do Windows e salva as credenciais localmente. Se vários nós forem definidos para alta disponibilidade, as credenciais serão mais sincronizadas em outros nós. Cada nó criptografa as credenciais usando a DPAPI e as armazena localmente. A sincronização de credenciais é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.
+
+4. Azure Data Factory se comunica com o Integration Runtime de hospedagem interna para agendar e gerenciar trabalhos. A comunicação é por meio de um canal de controle que usa uma conexão de [retransmissão do Azure](../azure-relay/relay-what-is-it.md#wcf-relay) compartilhada. Quando um trabalho de atividade precisa ser executado, o Data Factory enfileira a solicitação junto com qualquer informação de credencial. Ele faz isso, caso as credenciais ainda não estejam armazenadas no tempo de execução de integração auto-hospedado. O tempo de execução de integração auto-hospedado inicia o trabalho depois de sondar a fila.
+
+5. O Integration Runtime de hospedagem interna copia dados entre um repositório local e um armazenamento em nuvem. A direção da cópia depende de como a atividade de cópia é configurada no pipeline de dados. Para esta etapa, o Integration Runtime de hospedagem interna se comunica diretamente com serviços de armazenamento baseados em nuvem como o armazenamento de BLOBs do Azure por meio de um canal HTTPS seguro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - As versões do Windows com suporte são:
-  + Windows 8.1
-  + Windows 10
-  + Windows Server 2012
-  + Windows Server 2012 R2
-  + Windows Server 2016
-  + Windows Server 2019
-   
+  - Windows 8.1
+  - Windows 10
+  - Windows Server 2012
+  - Windows Server 2012 R2
+  - Windows Server 2016
+  - Windows Server 2019
+
 Não há suporte para a instalação do tempo de execução de integração auto-hospedado em um controlador de domínio.
-- O tempo de execução de integração auto-hospedado requer um sistema operacional de 64 bits com .NET Framework 4.7.2 ou superior consulte [.NET Framework requisitos de sistema](/dotnet/framework/get-started/system-requirements) para obter detalhes.
+
+- O tempo de execução de integração auto-hospedado requer um sistema operacional de 64 bits com .NET Framework 4.7.2 ou superior. Confira [Requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
 - A configuração mínima recomendada para o computador de tempo de execução de integração auto-hospedado é um processador de 2 GHz com 4 núcleos, 8 GB de RAM e 80 GB de espaço disponível no disco rígido. Para obter detalhes sobre os requisitos do sistema, consulte [baixar](https://www.microsoft.com/download/details.aspx?id=39717).
 - Se o computador host hibernar, o Integration Runtime de hospedagem interna não responderá às solicitações de dados. Configure um plano de energia adequado no computador antes de instalar o runtime de integração auto-hospedada. Se o computador estiver configurado para hibernar, o instalador do Integration Runtime auto-hospedado solicitará uma mensagem.
 - Você deve ser um administrador no computador para instalar e configurar com êxito o tempo de execução de integração auto-hospedado.
 - As execuções de atividade de cópia acontecem com uma frequência específica. O uso do processador e da RAM no computador segue o mesmo padrão com horários de pico e ocioso. O uso de recursos também depende muito da quantidade de dados movidos. Quando vários trabalhos de cópia estiverem em andamento, você verá o uso do recurso aumentar durante horários de pico.
 - As tarefas podem falhar durante a extração de dados nos formatos parquet, ORC ou Avro. Para obter mais informações sobre parquet, consulte [parquet Format in Azure data Factory](./format-parquet.md#using-self-hosted-integration-runtime). A criação do arquivo é executada no computador de integração auto-hospedado. Para funcionar conforme o esperado, a criação do arquivo requer os seguintes pré-requisitos:
-    - [Visual C++ redistribuível 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
-    - Java Runtime (JRE) versão 8 de um provedor de JRE, como [adotar o OpenJDK](https://adoptopenjdk.net/). Verifique se a `JAVA_HOME` variável de ambiente está definida.
+  - [Visual C++ redistribuível 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
+  - Java Runtime (JRE) versão 8 de um provedor de JRE, como [adotar o OpenJDK](https://adoptopenjdk.net/). Verifique se a `JAVA_HOME` variável de ambiente está definida como a pasta JRE (e não apenas a pasta JDK).
 
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>Configurando um tempo de execução de integração auto-hospedado
 
@@ -112,7 +109,7 @@ Use as etapas a seguir para criar um IR auto-hospedado usando Azure Data Factory
 
    ![Criar um Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado** e, em seguida, selecione **continuar**. 
+1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado** e, em seguida, selecione **continuar**.
 
 1. Na página a seguir, selecione **auto-hospedado** para criar um Self-Hosted ir e, em seguida, selecione **continuar**.
    ![Criar um IR selfhosted](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
@@ -128,7 +125,7 @@ Use as etapas a seguir para criar um IR auto-hospedado usando Azure Data Factory
     1. Baixe o runtime de integração auto-hospedada em uma máquina local do Windows. Execute o instalador.
 
     1. Na página **registrar Integration Runtime (auto-hospedado)** , Cole a chave que você salvou anteriormente e selecione **registrar**.
-    
+
        ![Registrar o Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
     1. Na página **Novo nó do Integration Runtime (auto-hospedado)** , selecione **Concluir**.
@@ -155,7 +152,7 @@ dmgcmd ACTION args...
 
 Aqui estão os detalhes das ações e dos argumentos do aplicativo: 
 
-|ACTION|args|Description|
+|ACTION|args|Descrição|
 |------|----|-----------|
 |`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó.|
 |`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Habilite o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou habilite as credenciais de configuração diretamente no IR de hospedagem interna sem passar pelo Azure Data Factory. Você faz o último usando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de um computador remoto na mesma rede.|
@@ -172,7 +169,6 @@ Aqui estão os detalhes das ações e dos argumentos do aplicativo:
 |`-tonau`,<br/>`-TurnOnAutoUpdate`||Ative a atualização automática do Integration Runtime de hospedagem interna.|
 |`-toffau`,<br/>`-TurnOffAutoUpdate`||Desative a atualização automática do Integration Runtime de hospedagem interna.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Defina DIAHostService para executar como uma nova conta. Use a senha vazia "" para contas de sistema e contas virtuais.|
-
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalar e registrar um IR auto-hospedado do centro de download da Microsoft
 
@@ -199,6 +195,7 @@ Aqui estão os detalhes das ações e dos argumentos do aplicativo:
     3. Selecione **Registrar**.
 
 ## <a name="service-account-for-self-hosted-integration-runtime"></a>Conta de serviço para o tempo de execução de integração auto-hospedado
+
 A conta de serviço de logon padrão do tempo de execução de integração auto-hospedado é **NT SERVICE\DIAHostService**. Você pode vê-lo em **Serviços-> Integration Runtime > Propriedades do serviço-> logon**.
 
 ![Conta de serviço para o tempo de execução de integração auto-hospedado](media/create-self-hosted-integration-runtime/shir-service-account.png)
@@ -209,21 +206,18 @@ Verifique se a conta tem a permissão de fazer logon como um serviço. Caso cont
 
 ![Captura de tela da atribuição de direitos de usuário de logon como um serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
-
 ## <a name="notification-area-icons-and-notifications"></a>Ícones e notificações da área de notificação
 
 Se você mover o cursor sobre o ícone ou a mensagem na área de notificação, poderá ver detalhes sobre o estado do tempo de execução de integração auto-hospedado.
 
 ![Notificações na área de notificação](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
-
-
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
 
 Você pode associar um Integration Runtime de hospedagem interna a vários computadores locais ou máquinas virtuais no Azure. Esses computadores são chamados de nós. Você pode ter até quatro nós associados a um runtime de integração auto-hospedada. Os benefícios de ter vários nós em computadores locais que têm um gateway instalado para um gateway lógico são:
 
-* Maior disponibilidade do tempo de execução de integração auto-hospedado para que ele não seja mais o ponto único de falha em sua solução de Big Data ou integração de dados de nuvem com Data Factory. Essa disponibilidade ajuda a garantir a continuidade quando você usa até quatro nós.
-* Desempenho e taxa de transferência aprimorados durante a movimentação de dados entre os armazenamentos de dados de nuvem e locais. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
+- Maior disponibilidade do tempo de execução de integração auto-hospedado para que ele não seja mais o ponto único de falha em sua solução de Big Data ou integração de dados de nuvem com Data Factory. Essa disponibilidade ajuda a garantir a continuidade quando você usa até quatro nós.
+- Desempenho e taxa de transferência aprimorados durante a movimentação de dados entre os armazenamentos de dados de nuvem e locais. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 
 Você pode associar vários nós instalando o software de tempo de execução de integração auto-hospedado do [centro de download](https://www.microsoft.com/download/details.aspx?id=39717). Em seguida, registre-o usando qualquer uma das chaves de autenticação que foram obtidas do cmdlet **New-AzDataFactoryV2IntegrationRuntimeKey** , conforme descrito no [tutorial](tutorial-hybrid-copy-powershell.md).
 
@@ -265,7 +259,6 @@ Aqui estão os requisitos para o certificado TLS/SSL que você usa para proteger
 > Sugerimos que você use esse certificado se o seu ambiente de rede privada não for seguro ou se você quiser proteger a comunicação entre os nós em sua rede privada.
 >
 > A movimentação de dados em trânsito de um IR autohospedado para outros armazenamentos de dados sempre acontece dentro de um canal criptografado, independentemente de o certificado ser ou não definido.
-
 
 ## <a name="proxy-server-considerations"></a>Considerações do servidor proxy
 
@@ -313,6 +306,7 @@ Se você selecionar a opção **usar proxy do sistema** para o proxy http, o tem
         <defaultProxy useDefaultCredentials="true" />
     </system.net>
     ```
+
     Em seguida, você pode adicionar detalhes do servidor proxy, conforme mostrado no exemplo a seguir:
 
     ```xml
@@ -328,6 +322,7 @@ Se você selecionar a opção **usar proxy do sistema** para o proxy http, o tem
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
+
 1. Salve o arquivo de configuração em seu local original. Em seguida, reinicie o serviço de host do Integration Runtime de hospedagem interna, que pega as alterações.
 
    Para reiniciar o serviço, use o miniaplicativo serviços no painel de controle. Ou, no Configuration Manager do Integration Runtime, selecione o botão **Interromper serviço** e, depois, selecione **Iniciar serviço**.
@@ -343,13 +338,13 @@ Você também precisa ter certeza de que Microsoft Azure está na lista de permi
 
 Se você vir mensagens de erro como as seguintes, a razão provável é a configuração incorreta do firewall ou do servidor proxy. Essa configuração impede que o tempo de execução de integração auto-hospedado se conecte a Data Factory para se autenticar. Para garantir que seu firewall e servidor proxy estejam configurados corretamente, confira a seção anterior.
 
-* Ao tentar registrar o tempo de execução de integração auto-hospedado, você recebe a seguinte mensagem de erro: "falha ao registrar este Integration Runtime nó! Confirme se a chave de autenticação é válida e se o serviço de host do serviço de integração está em execução neste computador. "
-* Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime**, você verá mensagens de erro como esta:
+- Ao tentar registrar o tempo de execução de integração auto-hospedado, você recebe a seguinte mensagem de erro: "falha ao registrar este Integration Runtime nó! Confirme se a chave de autenticação é válida e se o serviço de host do serviço de integração está em execução neste computador. "
+- Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime**, você verá mensagens de erro como esta:
 
-    ```
-    Unable to connect to the remote server
-    A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
-    ```
+  ```output
+  Unable to connect to the remote server
+  A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+  ```
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Habilitar o acesso remoto de uma intranet
 
@@ -361,12 +356,11 @@ Quando você executa a instalação do tempo de execução de integração autoh
 
 Ao usar um firewall de um parceiro ou de outras pessoas, você pode abrir manualmente a porta 8060 ou a porta configurada pelo usuário. Se você tiver um problema de firewall durante a configuração do tempo de execução de integração auto-hospedado, use o seguinte comando para instalar o tempo de execução de integração auto-hospedado sem configurar o firewall:
 
-```
+```cmd
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 
 Se você optar por não abrir a porta 8060 no computador do Integration Runtime de hospedagem interna, use mecanismos diferentes do aplicativo de credenciais de configuração para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell **New-AzDataFactoryV2LinkedServiceEncryptCredential** .
-
 
 ## <a name="ports-and-firewalls"></a>Portas e firewalls
 
@@ -381,7 +375,6 @@ No nível do firewall corporativo, é necessário configurar os seguintes domín
 
 [!INCLUDE [domain-and-outbound-port-requirements](./includes/domain-and-outbound-port-requirements-internal.md)]
 
-
 No nível do firewall do Windows ou do computador, essas portas de saída são normalmente habilitadas. Se não forem, você poderá configurar os domínios e as portas em um computador do Integration Runtime de hospedagem interna.
 
 > [!NOTE]
@@ -395,12 +388,14 @@ Com base na fonte e nos coletores, talvez seja necessário permitir domínios ad
 Para alguns bancos de dados de nuvem, como o banco de dados SQL do Azure e Azure Data Lake, talvez seja necessário permitir endereços IP de máquinas do Integration Runtime de hospedagem interna em sua configuração de firewall.
 
 ### <a name="get-url-of-azure-relay"></a>Obter URL da retransmissão do Azure
-Um domínio e uma porta necessários que precisam ser colocados na lista de permissões do firewall são para a comunicação com a retransmissão do Azure. O tempo de execução de integração auto-hospedado o usa para criação interativa, como conexão de teste, pesquisa de lista de pastas e lista de tabelas, obter esquema e Visualizar dados. Se você não quiser permitir **. ServiceBus.Windows.net** e quiser ter URLs mais específicas, poderá obter todos os FQDNs que são necessários para o tempo de execução de integração auto-hospedado do portal do ADF.
+
+Um domínio e uma porta necessários que precisam ser colocados na lista de permissões do firewall são para a comunicação com a retransmissão do Azure. O Integration Runtime de hospedagem interna o utiliza para criação interativa, como conexão de teste, pesquisa de lista de pastas e lista de tabelas, obter esquema e Visualizar dados. Se você não quiser permitir **. ServiceBus.Windows.net** e quiser ter URLs mais específicas, poderá ver todos os FQDNs exigidos pelo seu tempo de execução de integração auto-hospedado no portal do ADF. Siga estas etapas:
+
 1. Acesse o portal do ADF e selecione seu Integration Runtime de hospedagem interna.
 2. Na página Editar, selecione **nós**.
-3. Clique em **exibir URLs de serviço** para obter todos os FQDNs.
+3. Selecione **exibir URLs de serviço** para obter todos os FQDNs.
 
-![URLs de retransmissão do Azure](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
+   ![URLs de retransmissão do Azure](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
 
 4. Você pode adicionar esses FQDNs na lista de permissões de regras de firewall.
 
@@ -416,16 +411,13 @@ Por exemplo, para copiar de um armazenamento de dados local para um coletor de b
 > [!NOTE]
 > Se o firewall não permitir a porta de saída 1433, o Integration Runtime de hospedagem interna não poderá acessar o banco de dados SQL diretamente. Nesse caso, você pode usar uma [cópia em etapas](copy-activity-performance.md) para o banco de dados SQL e o Azure Synapse Analytics. Nesse cenário, você precisa apenas de HTTPS (porta 443) para a movimentação de dados.
 
-
 ## <a name="installation-best-practices"></a>Melhores práticas de instalação
 
 Você pode instalar o Integration Runtime de hospedagem interna baixando um pacote de instalação de identidade gerenciada do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [mover dados entre o local e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
 
 - Configure um plano de energia no computador host para o tempo de execução de integração auto-hospedado para que o computador não hiberne. Se o computador host hibernar, o runtime de integração auto-hospedada ficará offline.
 - Faça backup regularmente das credenciais associadas ao tempo de execução de integração auto-hospedado.
-- Para automatizar as operações de configuração de IR auto-hospedadas, consulte [configurar um ir de hospedagem interna existente por meio do PowerShell](#setting-up-a-self-hosted-integration-runtime).  
-
-
+- Para automatizar as operações de configuração de IR auto-hospedadas, consulte [configurar um ir de hospedagem interna existente por meio do PowerShell](#setting-up-a-self-hosted-integration-runtime).
 
 ## <a name="next-steps"></a>Próximas etapas
 

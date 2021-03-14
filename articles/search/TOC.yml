@@ -96,6 +96,8 @@
   items:
     - name: Pesquisa de texto completo
       href: search-lucene-query-architecture.md
+    - name: Pesquisa semântica
+      href: semantic-search-overview.md
     - name: Pontuação de relevância
       href: index-similarity-and-scoring.md
     - name: Indexadores
@@ -212,10 +214,14 @@
       items:
         - name: Criar um indexador
           href: search-howto-create-indexers.md
+        - name: Executar ou reiniciar indexadores
+          href: search-howto-run-reset-indexers.md
         - name: Agendar um indexador
           href: search-howto-schedule-indexers.md
         - name: Definir mapeamentos de campo
           href: search-indexer-field-mappings.md
+        - name: Propriedades de metadados de conteúdo
+          href: search-blob-metadata-properties.md
         - name: Conectar-se a identidades gerenciadas
           items:
             - name: Visão geral de identidades gerenciadas
@@ -226,6 +232,8 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: Banco de Dados SQL
               href: search-howto-managed-identities-sql.md
+        - name: SharePoint online
+          href: search-howto-index-sharepoint-online.md
         - name: Blobs do Azure
           items:
             - name: Pesquisar em blobs
@@ -246,8 +254,6 @@
               href: search-howto-index-json-blobs.md
             - name: Indexar blobs criptografados
               href: search-howto-index-encrypted-blobs.md
-            - name: Propriedades de metadados para o conteúdo de blob
-              href: search-blob-metadata-properties.md
         - name: Tabelas do Azure
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB
@@ -304,6 +310,10 @@
       items:
         - name: Criar uma consulta básica
           href: search-query-create.md
+        - name: Criar uma consulta semântica
+          href: semantic-how-to-query-request.md
+        - name: Adicionar verificação ortográfica a consultas
+          href: speller-how-to-add.md
         - name: Tipos de consulta e composição
           href: search-query-overview.md
         - name: Usar sintaxe simples (exemplos)
@@ -346,6 +356,8 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
+        - name: Estruturar uma resposta semântica
+          href: semantic-how-to-query-response.md
         - name: Perfis de pontuação
           href: index-add-scoring-profiles.md
         - name: Algoritmo de similaridade
@@ -386,6 +398,8 @@
           href: search-manage.md
         - name: PowerShell
           href: search-manage-powershell.md
+        - name: CLI do Azure
+          href: search-manage-azure-cli.md
         - name: Mover o serviço entre regiões
           href: search-howto-move-across-regions.md
         - name: Acesso de administrador baseado em função
@@ -530,6 +544,8 @@
   items:
     - name: Suporte da Comunidade do Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Destaques do parceiro
+      href: resource-partners-knowledge-mining.md
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Fórum de comentários (UserVoice)
@@ -554,8 +570,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Curso de desenvolvedor (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Soluções de parceiros
-      href: resource-partners-knowledge-mining.md
     - name: Perguntas frequentes
       href: search-faq-frequently-asked-questions.md
     - name: Preços

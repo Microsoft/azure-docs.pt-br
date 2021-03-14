@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762779"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507510"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usar o armazenamento de Blobs do Azure para conversão de modelo
 
@@ -28,7 +28,7 @@ O serviço de [conversão de modelo](model-conversion.md) requer acesso ao armaz
 A criação da conta de armazenamento e os contêineres de blob podem ser feitos com uma das seguintes ferramentas:
 
 - [Azure portal](https://portal.azure.com)
-- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando AZ](/cli/azure/install-azure-cli)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python...)
 
@@ -52,7 +52,7 @@ Um URI SAS pode ser gerado usando um dos:
 
 - módulo AZ PowerShell
   - consulte o [exemplo de scripts do PowerShell](../../samples/powershell-example-scripts.md)
-- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando AZ](/cli/azure/install-azure-cli)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - Clique com o botão direito do mouse no contêiner "obter assinatura de acesso compartilhado" (leitura, acesso à lista para o contêiner de entrada, acesso de gravação para o contêiner de saída)
 - SDKs (C#, Python...)
@@ -65,7 +65,7 @@ Para iniciar a conversão de um modelo, você precisa carregá-lo usando uma das
 
 - [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) -uma interface do usuário conveniente para carregar/baixar/gerenciar arquivos no armazenamento de BLOBs do Azure
 - [Linha de comando do Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps)
   - consulte o [exemplo de scripts do PowerShell](../../samples/powershell-example-scripts.md)
 - [Usando um SDK de armazenamento (Python, C#...)](../../../storage/index.yml)
 - [Usando as APIs REST do armazenamento do Azure](/rest/api/storageservices/blob-service-rest-api)

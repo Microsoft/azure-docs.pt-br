@@ -9,16 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 88a5ad66cb401715790bcff8c773e6d7881b103d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813591"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487688"
 ---
 # <a name="communication-services-notifications"></a>Notificações de Serviços de Comunicação
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 As bibliotecas de cliente de chat e chamada dos Serviços de Comunicação do Azure criam um canal de mensagens em tempo real que permite enviar mensagens de sinalização por push a clientes conectados de maneira eficiente e confiável. Com isso, você pode criar funcionalidades de comunicação avançadas e em tempo real em seus aplicativos sem implementar uma lógica de sondagem HTTP complicada. No entanto, em aplicativos móveis, esse canal de sinalização permanece conectado somente quando o aplicativo está ativo em primeiro plano. Se desejar que os usuários recebam chamadas de entrada ou mensagens de chat com o aplicativo em segundo plano, você deverá usar notificações por push.
 
@@ -34,7 +35,7 @@ Saiba mais sobre o [processamento de eventos nos Serviços de Comunicação do A
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Entregar notificações por push pelos Hubs de Notificação do Azure
 
-Você pode conectar um Hub de Notificação do Azure ao seu recurso de serviços de comunicação para enviar notificações por push automaticamente ao dispositivo móvel de um usuário quando ele receber uma chamada de entrada. Use essas notificações por push para ativar o aplicativo em segundo plano e exibir a interface do usuário que permite aos usuários aceitar ou recusar a chamada. 
+Você pode conectar um Hub de Notificação do Azure ao seu recurso de serviços de comunicação para enviar notificações por push automaticamente ao dispositivo móvel de um usuário quando ele receber uma chamada de entrada. Use essas notificações por push para ativar o aplicativo em segundo plano e exibir a interface do usuário que permite aos usuários aceitar ou recusar a chamada.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama mostrando como os serviços de comunicação integram-se aos Hubs de Notificação do Azure.":::
 
@@ -43,13 +44,13 @@ Os Serviços de Comunicação usam o Hub de Notificação do Azure como um servi
 > [!NOTE]
 > No momento, há suporte apenas para notificações por push de chamada.
 
-### <a name="notification-hub-provisioning"></a>Provisionamento do Hub de Notificação 
+### <a name="notification-hub-provisioning"></a>Provisionamento do Hub de Notificação
 
 Para entregar notificações por push a dispositivos cliente usando Hubs de Notificação, [crie um Hub de Notificação](../../notification-hubs/create-notification-hub-portal.md) na mesma assinatura que o recurso de Serviços de Comunicação. Você deve configurar o Hub de Notificações do Azure para o Sistema de Notificação de Plataforma que deseja usar. Para saber como obter notificações por push em seu aplicativo cliente desde Hubs de Notificação, veja [Introdução aos Hubs de Notificação](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) e selecione a plataforma de cliente de destino na lista suspensa na parte superior da página.
 
 > [!NOTE]
-> No momento, há suporte para APNs e plataformas FCM.  
-A plataforma de APNs precisa ser configurada com o modo de autenticação de token. De agora em diante, o modo de autenticação de certificado não é mais compatível. 
+> No momento, há suporte para APNs e plataformas FCM.
+A plataforma de APNs precisa ser configurada com o modo de autenticação de token. De agora em diante, o modo de autenticação de certificado não é mais compatível.
 
 Depois que o hub de notificações estiver configurado, você poderá associá-lo ao recurso de Serviços de Comunicação fornecendo uma cadeia de conexão para o hub usando o Cliente do Azure Resource Manager ou por meio do portal do Azure. A cadeia de conexão deve conter permissões para `Send`. É recomendável criar outra política de acesso com permissões para `Send` apenas para o hub. Saiba mais sobre [políticas de acesso e segurança dos Hubs de Notificação](../../notification-hubs/notification-hubs-push-notification-security.md)
 
@@ -74,10 +75,10 @@ No portal, navegue até o recurso Serviços de Comunicação do Azure. Dentro do
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de tela mostrando as configurações de notificações por push no portal do Azure.":::
 
 > [!NOTE]
-> Se a cadeia de conexão do Hub de Notificações do Azure for atualizada, o recurso dos Serviços de Comunicação precisará ser atualizado também.  
+> Se a cadeia de conexão do Hub de Notificações do Azure for atualizada, o recurso dos Serviços de Comunicação precisará ser atualizado também.
 Qualquer alteração na maneira como o hub é vinculado será refletida no plano de dados (por exemplo, ao enviar uma notificação) com o período máximo de ``10`` minutos. Isso também é aplicável quando o hub é vinculado pela primeira vez **se** havia notificações enviadas antes.
 
-### <a name="device-registration"></a>Registro de dispositivos 
+### <a name="device-registration"></a>Registro de dispositivos
 
 Confira o [guia de início rápido de chamada de voz](../quickstarts/voice-video-calling/getting-started-with-calling.md) para saber como registrar seu identificador de dispositivo com os Serviços de Comunicação.
 
@@ -91,7 +92,7 @@ Quando você não vir notificações por push no dispositivo, haverá três loca
 
 O primeiro local em que uma notificação pode ser removida (os Hubs de Notificação do Azure não aceitaram as notificações dos Serviços de Comunicação do Azure) é abordado abaixo. Para os outros dois locais, confira [Diagnosticar notificações removidas nos Hubs de Notificação do Azure](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-Uma forma de ver se o recurso de serviços de comunicação envia notificações para os Hubs de Notificação do Azure é examinar a métrica `incoming messages` das [métricas do hub de notificações do Azure](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) vinculadas.
+Uma forma de ver se o recurso de serviços de comunicação envia notificações para os Hubs de Notificação do Azure é examinar a métrica `incoming messages` das [métricas do hub de notificações do Azure](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) vinculadas.
 
 A seguir estão algumas configurações incorretas comuns que podem ser a causa pela qual o Hub de Notificações do Azure não aceita as notificações do recurso de Serviços de Comunicação.
 

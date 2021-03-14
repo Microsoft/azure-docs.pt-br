@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943594"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713058"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de detecção facial
 
@@ -28,7 +28,7 @@ Este guia mostra como:
 - Obtenha os locais de vários pontos de referência de face, como Pupils, nariz e boca, em uma imagem.
 - Adivinhe o gênero, a idade, a emoção e outros atributos de uma face detectada.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 Este guia pressupõe que você já construiu um objeto [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) , chamado `faceClient` , com uma chave de assinatura facial e uma URL de ponto de extremidade. A partir daqui, você pode usar o recurso de detecção facial chamando o [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), que é usado neste guia ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Para obter instruções sobre como configurar esse recurso, siga um dos guias de início rápido.
 
@@ -36,7 +36,7 @@ Este guia concentra-se nas especificidades da chamada de detecção, como os arg
 
 ## <a name="get-basic-face-data"></a>Obter dados básicos de face
 
-Para localizar faces e obter seus locais em uma imagem, chame o método [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) com o parâmetro _returnFaceId_ definido como **true**. Essa é a configuração padrão.
+Para localizar faces e obter seus locais em uma imagem, chame o método [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) com o parâmetro _returnFaceId_ definido como **true**. Esta é a configuração padrão.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 

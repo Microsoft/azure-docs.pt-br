@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792041"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666354"
 ---
 # <a name="conditional-cognitive-skill"></a>Habilidade de cognitiva condicional
 
@@ -134,7 +134,7 @@ A saída a seguir cria uma anotação ("/document/languageWithDefault") que é d
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemplo de definição de habilidade 3: mesclar valores de dois campos em um
 
-Neste exemplo, algumas frases têm uma propriedade *frenchSentiment* . Sempre que a propriedade *frenchSentiment* for nula, queremos usar o valor *englishSentiment* . Atribuímos a saída a um membro que é chamado de *sentimentos* ("/Document/Sentiment/*/Sentiment").
+Neste exemplo, algumas frases têm uma propriedade *frenchSentiment* . Sempre que a propriedade *frenchSentiment* for nula, queremos usar o valor *englishSentiment* . Atribuímos a saída a um membro que é chamado de *sentimentos* ("/Document/Sentences/*/Sentiment").
 
 ```json
 {

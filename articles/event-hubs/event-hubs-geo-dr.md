@@ -2,13 +2,13 @@
 title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Microsoft Docs
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222875"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042361"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -44,11 +44,7 @@ Os seguintes termos são usados neste artigo:
 -  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias.
-
-    > [!IMPORTANT]
-    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários. 
 -  *Metadados*: entidades, como hubs de eventos e os grupos de consumidores; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. Mensagens e eventos não são replicados. 
-
 -  *Failover*: o processo de ativação do namespace secundário.
 
 ## <a name="supported-namespace-pairs"></a>Pares de namespace com suporte
@@ -75,24 +71,27 @@ A seção a seguir é uma visão geral do processo de failover e explica como co
 Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
 
 1. Crie o namespace primário.
-1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. Crie o namespace secundário em uma região diferente. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
 1. No portal do Azure, navegue até o namespace primário.
 1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
-1. Na página **Iniciar emparelhamento** , selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace principal. Em seguida, selecione **Criar**. No exemplo a seguir, um namespace secundário existente está selecionado. 
+1. Na página **Iniciar emparelhamento** , siga estas etapas:
+    1. Selecione um namespace secundário existente ou crie um em uma região diferente. Neste exemplo, um namespace existente é selecionado.  
+    1. Para **alias**, insira um alias para o emparelhamento de Dr geográfica. 
+    1. Em seguida, selecione **Criar**. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecionar o namespace secundário":::        
-1. Agora, ao selecionar a **recuperação geográfica** para o namespace primário, você deverá ver a página de **alias do geo-Dr** semelhante à imagem a seguir:
+1. Você deverá ver a página de **alias do geo-Dr** . Você também pode navegar até essa página do namespace primário selecionando **recuperação geográfica** no menu à esquerda.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página de alias do geo-DR":::    
+1. Na página **alias do geo-Dr** , selecione **políticas de acesso compartilhado** no menu à esquerda para acessar a cadeia de conexão primária para o alias. Use essa cadeia de conexão em vez de usar a cadeia de conexão para o namespace primário/secundário diretamente. 
 1. Nesta página de **visão geral** , você pode executar as seguintes ações: 
     1. Quebre o emparelhamento entre os namespaces primário e secundário. Selecione **quebrar emparelhamento** na barra de ferramentas. 
     1. Fazer failover manual para o namespace secundário. Selecione **failover** na barra de ferramentas. 
     
         > [!WARNING]
         > O failover ativará o namespace secundário e removerá o namespace primário do emparelhamento de recuperação Geo-Disaster. Crie outro namespace para ter um novo par de recuperação de desastres geograficamente. 
-1. Na página **alias do geo-Dr** , selecione **políticas de acesso compartilhado** para acessar a cadeia de conexão primária para o alias. Use essa cadeia de conexão em vez de usar a cadeia de conexão para o namespace primário/secundário diretamente. 
 
 Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
 
@@ -133,9 +132,9 @@ Observe as seguintes considerações para ter em mente:
 
 1. Por design, a recuperação de desastre geográfico dos Hubs de Eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes métodos:
 
-- *EventPosition.FromStart()* – se você quiser ler todos os dados em seu hub de eventos secundário.
-- *EventPosition.FromEnd()* – se você quiser ler todos os novos dados da hora da conexão com o hub de eventos secundário.
-- *EventPosition.FromEnqueuedTime(dateTime)* – se você desejar ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
+   - *EventPosition.FromStart()* – se você quiser ler todos os dados em seu hub de eventos secundário.
+   - *EventPosition.FromEnd()* – se você quiser ler todos os novos dados da hora da conexão com o hub de eventos secundário.
+   - *EventPosition.FromEnqueuedTime(dateTime)* – se você desejar ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
 
 2. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
  
@@ -153,6 +152,8 @@ O SKU Standard dos Hubs de Eventos oferece suporte às [Zonas de Disponibilidade
 > O suporte a Zonas de Disponibilidade para o Standard do Hubs de Eventos do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-region.md) em que existem zonas de disponibilidade.
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. Os Hubs de Eventos não dão suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
+
+Quando você usa zonas de disponibilidade, os metadados e os dados (eventos) são replicados entre data centers na zona de disponibilidade. 
 
 ![3][]
 

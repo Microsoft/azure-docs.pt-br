@@ -1,23 +1,18 @@
 ---
 title: Redundância de dados no Azure Data Factory | Microsoft Docs
 description: Saiba mais sobre os mecanismos de redundância de metadados no Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: weehyongtok
 ms.reviewer: abnarain
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 7f95adc264ed91e75eef668b43f674ddeb7d9e89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350017"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369689"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Redundância de dados Azure Data Factory**
 
@@ -49,7 +44,7 @@ Azure Data Factory permite mover dados entre armazenamentos de dados localizados
 
  
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Pares regionais do Azure](../best-practices-availability-paired-regions.md)
 - [Residência de dados no Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)

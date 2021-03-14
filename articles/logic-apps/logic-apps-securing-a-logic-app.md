@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055171"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556376"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -70,7 +70,7 @@ Cada URL contém o parâmetro de consulta `sp`, `sv` e `sig`, conforme descrito 
 
 | Parâmetro de consulta | Descrição |
 |-----------------|-------------|
-| `sp` | Especifica as permissões para os métodos HTTP permitidos para uso. |
+| `sp` | Especifica as permissões para os métodos HTTP permitidos a serem usados. |
 | `sv` | Especifica a versão SAS a ser usada para gerar a assinatura. |
 | `sig` | Especifica a assinatura a ser usada para autenticar o acesso ao gatilho. Essa assinatura é gerada usando o algoritmo SHA256 com uma chave de acesso secreta em todos os caminhos de URL e propriedades. Nunca exposta ou publicada, essa chave é mantida criptografada e armazenada com o aplicativo lógico. Seu aplicativo lógico autoriza somente gatilhos que contenham uma assinatura válida criada com a chave secreta. |
 |||
@@ -123,11 +123,11 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Habilitar o OAuth do Azure AD (Open Authorization do Azure Active Directory)
 
-Para chamadas de entrada para um ponto de extremidade que é criado por um gatilho baseado em solicitação, você pode habilitar [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml) definindo ou adicionando uma política de autorização para seu aplicativo lógico. Dessa forma, as chamadas de entrada usam [tokens de acesso](../active-directory/develop/access-tokens.md) OAuth para autorização.
+Para chamadas de entrada para um ponto de extremidade que é criado por um gatilho baseado em solicitação, você pode habilitar o [OAuth do Azure ad](../active-directory/develop/index.yml) definindo ou adicionando uma política de autorização para seu aplicativo lógico. Dessa forma, as chamadas de entrada usam [tokens de acesso](../active-directory/develop/access-tokens.md) OAuth para autorização.
 
 Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de acesso OAuth, o serviço de aplicativos lógicos do Azure compara as declarações do token com as declarações especificadas por cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
 
-Antes de habilitar o OAuth do Azure AD, examine estas considerações:
+#### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Considerações antes de habilitar o OAuth do Azure AD
 
 * Uma chamada de entrada para o ponto de extremidade de solicitação pode usar apenas um esquema de autorização, o OAuth do Azure AD ou a [SAS (assinatura de acesso compartilhado)](#sas). Embora o uso de um esquema não desabilite o outro esquema, o uso de ambos os esquemas ao mesmo tempo causa um erro porque o serviço de aplicativos lógicos não sabe qual esquema deve ser escolhido.
 
@@ -180,11 +180,15 @@ Antes de habilitar o OAuth do Azure AD, examine estas considerações:
    }
    ```
 
+#### <a name="enable-azure-ad-oauth-for-your-logic-app"></a>Habilitar o OAuth do Azure AD para seu aplicativo lógico
+
+Siga estas etapas para o portal do Azure ou seu modelo de Azure Resource Manager:
+
 <a name="define-authorization-policy-portal"></a>
 
-#### <a name="define-authorization-policy-in-azure-portal"></a>Definir a política de autorização no portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azure, siga estas etapas para adicionar uma ou mais políticas de autorização ao seu aplicativo lógico:
+No [portal do Azure](https://portal.azure.com), adicione uma ou mais políticas de autorização ao seu aplicativo lógico:
 
 1. No [portal do Azure](https://portal.microsoft.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
@@ -199,14 +203,14 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID do JWT** (identificador de token da Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
    |||
 
 1. Para adicionar outra declaração, selecione uma destas opções:
 
    * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
 
-   * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
+   * Para adicionar sua própria declaração, selecione **Adicionar declaração personalizada**. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo](../active-directory/develop/active-directory-optional-claims.md). Sua declaração personalizada é então armazenada como parte da ID do JWT; por exemplo, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . 
 
 1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
 
@@ -214,11 +218,15 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
 
 1. Para incluir o `Authorization` cabeçalho do token de acesso nas saídas do gatilho baseado em solicitação, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](#include-auth-header).
 
+
+As propriedades do fluxo de trabalho, como as políticas, não aparecem no modo de exibição de código do aplicativo lógico na portal do Azure. Para acessar suas políticas programaticamente, chame a seguinte API por meio de Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Certifique-se de substituir os valores de espaço reservado para sua ID de assinatura do Azure, nome do grupo de recursos e nome do fluxo de trabalho.
+
+
 <a name="define-authorization-policy-template"></a>
 
-#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definir a política de autorização no modelo de Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modelo do Resource Manager](#tab/azure-resource-manager)
 
-Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo lógico, siga estas etapas e a sintaxe abaixo:
+No modelo do ARM, defina uma política de autorização seguindo estas etapas e a sintaxe abaixo:
 
 1. Na `properties` seção para a [definição de recurso do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), adicione um `accessControl` objeto, se não houver nenhum, que contenha um `triggers` objeto.
 
@@ -271,6 +279,8 @@ Aqui está a sintaxe a seguir:
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### <a name="include-authorization-header-in-request-trigger-outputs"></a>Incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação
@@ -310,11 +320,13 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 
 Independentemente de qualquer endereço IP que você especificar, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho – solicitação de execução](/rest/api/logic/workflowtriggers/run) ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
+Para restringir os endereços IP de entrada para seu aplicativo lógico, siga estas etapas para o portal do Azure ou seu modelo de Azure Resource Manager:
+
 <a name="restrict-inbound-ip-portal"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP de entrada no portal do Azure
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Quando você usa o portal para restringir os endereços IP de entrada para seu aplicativo lógico, essas restrições afetam gatilhos *e* ações, apesar da descrição no portal em **endereços IP de entrada permitidos**. Para configurar restrições em gatilhos separadamente de ações, use o [ `accessControl` objeto no modelo de Azure Resource Manager do seu aplicativo lógico](#restrict-inbound-ip-template) ou a [API REST de aplicativos lógicos: fluxo de trabalho-criar ou atualizar operação](/rest/api/logic/workflows/createorupdate).
+No [portal do Azure](https://portal.azure.com), esse filtro afeta os gatilhos *e* as ações, ao contrário da descrição no portal em **endereços IP de entrada permitidos**. Para configurar esse filtro separadamente para gatilhos e ações, use o `accessControl` objeto em um modelo de Azure Resource Manager para seu aplicativo lógico ou a [API REST de aplicativos lógicos: fluxo de trabalho-criar ou atualizar operação](/rest/api/logic/workflows/createorupdate).
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
@@ -323,27 +335,27 @@ Quando você usa o portal para restringir os endereços IP de entrada para seu a
 1. Na seção **configuração do controle de acesso** , em **endereços IP de entrada permitidos**, escolha o caminho para seu cenário:
 
    * Para tornar seu aplicativo lógico que possa ser chamado somente como um aplicativo lógico aninhado usando a [ação interna de aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md), selecione **somente outros aplicativos lógicos**, que *só* funcionarão quando você usar a ação **aplicativos lógicos do Azure** para chamar o aplicativo lógico aninhado.
-   
+
      Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico e requer que apenas chamadas de aplicativos lógicos pai que usam a ação interna de **aplicativos lógicos do Azure** possam disparar o aplicativo lógico aninhado.
 
    * Para fazer com que seu aplicativo lógico seja chamado somente como um aplicativo aninhado usando a ação HTTP, selecione **intervalos de IP específicos**, *não* **apenas outros aplicativos lógicos**. Quando a caixa **intervalos de IP para gatilhos** for exibida, insira os [endereços IP de saída](../logic-apps/logic-apps-limits-and-config.md#outbound)do aplicativo lógico pai. Um intervalo de IP válido usa estes formatos: x. x. x *. x/x* ou x. x. x. x *-x.* x. x.
-   
+
      > [!NOTE]
      > Se você usar a opção **somente outros aplicativos lógicos** e a ação http para chamar seu aplicativo lógico aninhado, a chamada será bloqueada e você receberá um erro "401 não autorizado".
-        
+
    * Para cenários em que você deseja restringir chamadas de entrada de outros IPs, quando a caixa **intervalos de IP para gatilhos** for exibida, especifique os intervalos de endereços IP que o gatilho aceita. Um intervalo de IP válido usa estes formatos: x. x. x *. x/x* ou x. x. x. x *-x.* x. x.
 
 1. Opcionalmente, em **restringir chamadas para obter mensagens de entrada e saída do histórico de execução para os endereços IP fornecidos**, você pode especificar os intervalos de endereços IP para chamadas de entrada que podem acessar mensagens de entrada e saída no histórico de execução.
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modelo do Resource Manager](#tab/azure-resource-manager)
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` , e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.*  x. x. x/x ou x. x-x. x. x.x.x. x.
+No modelo do ARM, especifique os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.* x. x. x/x ou *x.x.x. x-x. x* . x. x.
 
-* Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia (**[]**).
+* Se seu aplicativo lógico aninhado usar a única opção de **outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure, defina a `allowedCallerIpAddresses` propriedade como uma matriz vazia (**[]**) e *omita* a `addressRange` propriedade.
 
-* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, defina a `addressRange` propriedade como o intervalo de IP permitido.
+* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, inclua a `allowedCallerIpAddresses` seção e defina a `addressRange` propriedade como o intervalo de IP permitido.
 
 Este exemplo mostra uma definição de recurso para um aplicativo lógico aninhado que permite chamadas de entrada somente de aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure:
 
@@ -370,18 +382,14 @@ Este exemplo mostra uma definição de recurso para um aplicativo lógico aninha
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -439,6 +447,8 @@ Este exemplo mostra uma definição de recurso para um aplicativo lógico aninha
 }
 ```
 
+---
+
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Acesso a operações de aplicativo lógico
@@ -473,11 +483,15 @@ Para controlar o acesso às entradas e saídas no histórico de execuções do a
 
 ### <a name="restrict-access-by-ip-address-range"></a>Restringir o acesso por intervalo de endereços IP
 
-Você pode limitar o acesso às entradas e saídas no histórico de execuções do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados. Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo de endereços IP, como `0.0.0.0-0.0.0.0`. Apenas uma pessoa com permissões de administrador pode remover essa restrição, o que dá a possibilidade de acesso "Just-In-Time" aos dados do aplicativo lógico. Você pode especificar os intervalos de IP restritos usando o portal do Azure ou um modelo do Azure Resource Manager utilizado para a implantação de aplicativo lógico.
+Você pode limitar o acesso às entradas e saídas no histórico de execuções do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP de entrada no portal do Azure
+Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo de endereços IP, como `0.0.0.0-0.0.0.0`. Apenas uma pessoa com permissões de administrador pode remover essa restrição, o que dá a possibilidade de acesso "Just-In-Time" aos dados do aplicativo lógico.
 
-1. No portal do Azure, abra o aplicativo lógico no Designer de Aplicativo lógico.
+Para especificar os intervalos de IP permitidos, siga estas etapas para o portal do Azure ou seu modelo de Azure Resource Manager:
+
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
 1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
 
@@ -487,9 +501,9 @@ Você pode limitar o acesso às entradas e saídas no histórico de execuções 
 
    Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x*
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Modelo do Resource Manager](#tab/azure-resource-manager)
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de IP usando a seção `accessControl` com a seção `contents` na definição de recurso do aplicativo lógico, por exemplo:
+No modelo do ARM, especifique os intervalos de IP usando a seção `accessControl` com a `contents` seção na definição de recurso do aplicativo lógico, por exemplo:
 
 ``` json
 {
@@ -528,11 +542,41 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Proteger dados no histórico de execuções usando ofuscação
 
-Muitos gatilhos e ações têm configurações para proteger entradas, saídas ou ambos do histórico de execuções de um aplicativo lógico. Antes de usar essas configurações para ajudá-lo a proteger esses dados, [examine estas considerações](#obfuscation-considerations).
+Muitos gatilhos e ações têm configurações para proteger entradas, saídas ou ambos do histórico de execuções de um aplicativo lógico. Antes de usar essas configurações para ajudá-lo a proteger esses dados, examine estas considerações:
+
+* Quando você obscurece as entradas ou saídas em um gatilho ou ação, os Aplicativos Lógicos não enviam os dados protegidos para a Análise de Logs do Azure. Além disso, não é possível adicionar [propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitoramento.
+
+* A [API dos Aplicativos Lógicos para manipular o histórico de fluxo de trabalho](/rest/api/logic/) não retorna saídas seguras.
+
+* Para proteger as saídas de uma ação que obscurece entradas ou oculta explicitamente as saídas, ative manualmente as **Saídas Seguras** nessa ação.
+
+* Ative as **Entradas Seguras** ou **Saídas Seguras** nas ações de downstream em que você espera que o histórico de execuções oculte esses dados.
+
+  **Configuração de Saídas Seguras**
+
+  Quando você ativa manualmente as **Saídas Seguras** em um gatilho ou ação, os Aplicativos Lógicos ocultam essas saídas no histórico de execuções. Se uma ação de downstream usar explicitamente essas saídas protegidas como entradas, os Aplicativos Lógicos ocultarão as entradas dessa ação no histórico de execuções, mas *não habilitarão* a configuração de **Entradas Seguras** da ação.
+
+  ![Saídas protegidas como entradas e impacto downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  As ações de Compor, Analisar JSON e Responder têm apenas a configuração de **Entradas Seguras**. Quando ativada, a configuração também oculta as saídas das ações. Se essas ações usarem explicitamente as saídas protegidas de upstream como entradas, os Aplicativos Lógicos ocultarão as entradas e saídas das ações, mas *não habilitarão* a configuração de **Entradas Seguras** dessas ações. Se uma ação de downstream usar explicitamente as saídas ocultas das ações de Compor, Analisar JSON ou Responder como entradas, os Aplicativos Lógicos *não ocultarão as entradas ou saídas da ação de downstream*.
+
+  ![Saídas protegidas como entradas com impacto downstream em ações específicas](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Configuração de Entradas Seguras**
+
+  Quando você ativa manualmente as **Saídas Seguras** em um gatilho ou ação, os Aplicativos Lógicos ocultam essas saídas no histórico de execuções. Se uma ação de downstream usar explicitamente as saídas visíveis desse gatilho ou ação como entradas, os Aplicativos Lógicos ocultarão as entradas dessa ação de downstream no histórico de execuções, mas *não habilitarão* as **Entradas Seguras** nessa ação e não ocultarão as saídas dessa ação.
+
+  ![Entradas protegidas e impacto downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+
+  Se as ações de Compor, Analisar JSON e Responder usarem explicitamente as saídas visíveis do gatilho ou da ação que tem as entradas protegidas, os Aplicativos Lógicos ocultarão as entradas e saídas dessas ações, mas *não habilitarão* a configuração de **Entradas Seguras** dessas ações. Se uma ação de downstream usar explicitamente as saídas ocultas das ações de Compor, Analisar JSON ou Responder como entradas, os Aplicativos Lógicos *não ocultarão as entradas ou saídas da ação de downstream*.
+
+  ![Entradas protegidas e impacto downstream em ações específicas](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>Proteger entradas e saídas no designer
 
@@ -575,8 +619,6 @@ Na definição de gatilho ou ação subjacente, adicione ou atualize a matriz `r
 * `"inputs"`: Protege as entradas no histórico de execuções.
 * `"outputs"`: Protege as saídas no histórico de execuções.
 
-Aqui estão algumas [considerações para revisão](#obfuscation-considerations) quando você usa essas configurações para ajudá-lo a proteger os dados.
-
 ```json
 "<trigger-or-action-name>": {
    "type": "<trigger-or-action-type>",
@@ -594,38 +636,6 @@ Aqui estão algumas [considerações para revisão](#obfuscation-considerations)
    <other-attributes>
 }
 ```
-
-<a name="obfuscation-considerations"></a>
-
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Considerações ao proteger entradas e saídas
-
-* Quando você obscurece as entradas ou saídas em um gatilho ou ação, os Aplicativos Lógicos não enviam os dados protegidos para a Análise de Logs do Azure. Além disso, não é possível adicionar [propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitoramento.
-
-* A [API dos Aplicativos Lógicos para manipular o histórico de fluxo de trabalho](/rest/api/logic/) não retorna saídas seguras.
-
-* Para proteger as saídas de uma ação que obscurece entradas ou oculta explicitamente as saídas, ative manualmente as **Saídas Seguras** nessa ação.
-
-* Ative as **Entradas Seguras** ou **Saídas Seguras** nas ações de downstream em que você espera que o histórico de execuções oculte esses dados.
-
-  **Configuração de Saídas Seguras**
-
-  Quando você ativa manualmente as **Saídas Seguras** em um gatilho ou ação, os Aplicativos Lógicos ocultam essas saídas no histórico de execuções. Se uma ação de downstream usar explicitamente essas saídas protegidas como entradas, os Aplicativos Lógicos ocultarão as entradas dessa ação no histórico de execuções, mas *não habilitarão* a configuração de **Entradas Seguras** da ação.
-
-  ![Saídas protegidas como entradas e impacto downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  As ações de Compor, Analisar JSON e Responder têm apenas a configuração de **Entradas Seguras**. Quando ativada, a configuração também oculta as saídas das ações. Se essas ações usarem explicitamente as saídas protegidas de upstream como entradas, os Aplicativos Lógicos ocultarão as entradas e saídas das ações, mas *não habilitarão* a configuração de **Entradas Seguras** dessas ações. Se uma ação de downstream usar explicitamente as saídas ocultas das ações de Compor, Analisar JSON ou Responder como entradas, os Aplicativos Lógicos *não ocultarão as entradas ou saídas da ação de downstream*.
-
-  ![Saídas protegidas como entradas com impacto downstream em ações específicas](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-  **Configuração de Entradas Seguras**
-
-  Quando você ativa manualmente as **Saídas Seguras** em um gatilho ou ação, os Aplicativos Lógicos ocultam essas saídas no histórico de execuções. Se uma ação de downstream usar explicitamente as saídas visíveis desse gatilho ou ação como entradas, os Aplicativos Lógicos ocultarão as entradas dessa ação de downstream no histórico de execuções, mas *não habilitarão* as **Entradas Seguras** nessa ação e não ocultarão as saídas dessa ação.
-
-  ![Entradas protegidas e impacto downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
-
-  Se as ações de Compor, Analisar JSON e Responder usarem explicitamente as saídas visíveis do gatilho ou da ação que tem as entradas protegidas, os Aplicativos Lógicos ocultarão as entradas e saídas dessas ações, mas *não habilitarão* a configuração de **Entradas Seguras** dessas ações. Se uma ação de downstream usar explicitamente as saídas ocultas das ações de Compor, Analisar JSON ou Responder como entradas, os Aplicativos Lógicos *não ocultarão as entradas ou saídas da ação de downstream*.
-
-  ![Entradas protegidas e impacto downstream em ações específicas](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 
@@ -923,7 +933,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Log Analytics do Azure, logs de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
+| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
 |||
 
 <a name="basic-authentication"></a>

@@ -7,7 +7,7 @@
     - name: Práticas recomendadas
       href: howto-best-practices.md
     - name: Perguntas frequentes
-      href: faq.md
+      href: faq.yml
 - name: Inícios rápidos
   expanded: true
   items:
@@ -132,12 +132,14 @@
       href: howto-backup-config-store.md
     - name: Usar identidades gerenciadas para acessar a Configuração de Aplicativos
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Integrar a Configuração de Aplicativos no Visual Studio
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Referência
   items:
     - name: Configuração
       items:
         - name: CLI do Azure
-          href: /cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig
         - name: Provedor do .NET Core
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: Construtor do .NET Framework

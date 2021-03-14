@@ -1,5 +1,5 @@
 ---
-title: Visualização de dados em tempo real do Hub IoT do Azure de frm de dados – Power BI
+title: Visualização de dados em tempo real de dados do Hub IoT do Azure – Power BI
 description: Use o Power BI para visualizar dados de temperatura e umidade que são coletados do sensor e enviados para o Hub IoT do Azure.
 author: robinsh
 keywords: visualização de dados em tempo real, visualização de dados dinâmicos, visualização de dados de sensor
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146782"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177327"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 
@@ -72,7 +72,7 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
 2. Em **Topologia do trabalho**, selecione **Entradas**.
 
-3. No painel **entradas** , selecione **Adicionar entrada de fluxo**e, em seguida, selecione **Hub IOT** na lista suspensa. No painel novo entrada, insira as seguintes informações:
+3. No painel **entradas** , selecione **Adicionar entrada de fluxo** e, em seguida, selecione **Hub IOT** na lista suspensa. No painel novo entrada, insira as seguintes informações:
 
    **Alias de entrada**: Insira um alias exclusivo para a entrada.
 
@@ -110,7 +110,7 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
    **Espaço de trabalho de grupo**: Selecione seu espaço de trabalho do grupo de destino.
 
-   **Nome do conjunto**de um: Insira um nome de conjunto de um.
+   **Nome do conjunto** de um: Insira um nome de conjunto de um.
 
    **Nome da tabela**: Insira um nome de tabela.
 
@@ -134,7 +134,7 @@ Vamos começar criando um trabalho do Stream Analytics. Depois de criar o trabal
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
-No trabalho Stream Analytics, selecione **visão geral**e, em seguida, selecione **Iniciar**  >  **agora**  >  **Iniciar**. Depois que o trabalho é iniciado com êxito, o status do trabalho muda de **parado** para **executando**.
+No trabalho Stream Analytics, selecione **visão geral** e, em seguida, selecione **Iniciar**  >  **agora**  >  **Iniciar**. Depois que o trabalho é iniciado com êxito, o status do trabalho muda de **parado** para **executando**.
 
 ![Executar um trabalho do Stream Analytics no Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
 
@@ -187,7 +187,7 @@ As etapas a seguir mostram como criar e publicar um relatório usando o serviço
     >
     > ![Contate a notificação do administrador](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
 
-11. Selecione **criar código de inserção**e, em seguida, selecione **publicar**.
+11. Selecione **criar código de inserção** e, em seguida, selecione **publicar**.
 
 Você forneceu o link de relatório que pode compartilhar com qualquer pessoa para acesso de relatório e um trecho de código que você pode usar para integrar o relatório em seu blog ou site.
 

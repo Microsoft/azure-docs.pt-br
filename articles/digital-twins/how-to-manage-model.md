@@ -1,5 +1,5 @@
 ---
-title: Gerenciar modelos personalizados
+title: Gerenciar modelos de DTDL
 titleSuffix: Azure Digital Twins
 description: Veja como criar, editar e excluir um modelo no Azure digital gêmeos.
 author: baanders
@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737771"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433243"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
-Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
+Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
 
 As operações de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos. 
 

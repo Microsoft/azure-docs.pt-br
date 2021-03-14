@@ -4,16 +4,16 @@ description: Analise o uso e o desempenho de seu aplicativo da área de trabalho
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15331494b40021f10c162fba75abf6fe88d2d419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827862"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583315"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho clássica do Windows
 
-Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](./ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../learn/mobile-center-quickstart.md).
+Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](./ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../app/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar telemetria ao Application Insights a partir de um aplicativo do Windows clássico
 1. No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](./create-new-resource.md). 
@@ -175,8 +175,8 @@ namespace WindowsFormsApp2
 > Embora você possa usar tecnicamente um processador de telemetria, conforme descrito acima, mesmo se você estiver no [tipo de preço corporativo herdado (por nó)](./pricing.md#legacy-enterprise-per-node-pricing-tier), isso resultará em potencial para cobrança excessiva devido à incapacidade de distinguir corretamente os nós para os preços por nó.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um dashboard](./overview-dashboard.md)
+* [Criar um painel](./overview-dashboard.md)
 * [Pesquisa de Diagnóstico](./diagnostic-search.md)
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas do Analytics](../logs/log-query-overview.md)
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937877"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103185"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -42,7 +42,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 > O portal a ser usado é diferente dependendo se o aplicativo é executado no Microsoft Azure nuvem pública ou em uma nuvem nacional ou soberanas. Para obter mais informações, consulte [nuvens nacionais](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>. 
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -57,8 +57,8 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Em **gerenciar**, selecione **autenticação** e, em seguida, adicione as seguintes informações:
    1. Na seção **da Web** , adicione `https://localhost:44321/signin-oidc` como um **URI de redirecionamento**.
    1. Na **URL de logoff de front-Channel**, digite `https://localhost:44321/signout-oidc` .
-   1. Em **concessão implícita e fluxos híbridos**, selecione **tokens de ID**.
-   1. Selecione **Salvar**.
+   1. Em **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**.
+   1. Clique em **Salvar**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -68,8 +68,8 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira um **URI de redirecionamento** de `https://localhost:44326/` .
    1. Selecione **Registrar** para criar o aplicativo.
 1. Em **Gerenciar**, selecione **Autenticação**.
-1. Na seção **concessão implícita e fluxos híbridos** , selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Selecione **Salvar**.
+1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
+1. Clique em **Salvar**.
 
 # <a name="java"></a>[Java](#tab/java)
 

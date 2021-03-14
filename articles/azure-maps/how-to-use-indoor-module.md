@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905274"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708672"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Usar o módulo Mapas do Azure Mapas Interno
 
 > [!IMPORTANT]
-> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Os serviços do Criador do Azure Mapas estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O SDK da Web do Azure Mapas inclui o módulo *Mapas do Interior do Azure Mapas*. O módulo do  *Azure Maps interno* permite que você processe mapas de interno criados nos serviços do Azure Maps Creator (versão prévia) 
@@ -27,7 +27,7 @@ O SDK da Web do Azure Mapas inclui o módulo *Mapas do Interior do Azure Mapas*.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
+2. [Criar um recurso de Criador (versão prévia)](how-to-manage-creator.md)
 3. [Obter uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 4. Obtenha um `tilesetId` e um `statesetId` concluindo o [tutorial para a criação de mapas do interior](tutorial-creator-indoor-maps.md).
  Você precisará usar esses identificadores para renderizar mapas do interior com o módulo Mapas do Azure Mapas Interno.
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Para carregar os conjuntos de peças dos mapas do interior e o estilo do mapa das peças, você deve criar uma instância do *Gerenciador de Mapas do Interior*. Crie uma instância do *Gerenciador de Mapas do Interior* fornecendo o *objeto Mapa* e o `tilesetId`correspondente. Se desejar dar suporte a [estilos de mapa dinâmicos](indoor-map-dynamic-styling.md), você deverá passar o `statesetId`. O nome da variável `statesetId` diferencia maiúsculas de minúsculas. Seu código deve ser semelhante ao JavaScript abaixo.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Para habilitar a sondagem de dados de estado fornecidos, você deve fornecer o `statesetId` e chamar `indoorManager.setDynamicStyling(true)`. A sondagem de dados de estado permite atualizar dinamicamente o estado das propriedades dinâmicas ou *estados*. Por exemplo, um recurso como sala pode ter uma propriedade dinâmica (*estado*) chamada `occupancy`. Seu aplicativo pode desejar sondar quaisquer alterações de *estado* para refletir a alteração dentro do mapa Visual. O código abaixo mostra como habilitar a sondagem de estado:
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ Seu arquivo agora deve ter aparência semelhante à do HTML abaixo.
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ Seu arquivo agora deve ter aparência semelhante à do HTML abaixo.
 Para ver seu mapa do interior, carregue-o em um navegador da Web. Ele deve aparecer como a imagem abaixo. Se você clicar no recurso escada, o *seletor de piso* será exibido no canto superior direito.
 
   ![imagem de mapa do interior](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Consulte a demonstração ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Próximas etapas
 

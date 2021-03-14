@@ -5,16 +5,19 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690090"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370080"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
-A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
+A tabela a seguir lista os limites funcionais do Azure digital gêmeos. 
+
+> [!TIP]
+> Para que as recomendações de modelagem operem dentro desses limites funcionais, consulte [práticas recomendadas para a criação de modelos](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
 
 | Área | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
@@ -28,6 +31,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 | Roteamento | Número de rotas para uma única instância de gêmeos digital do Azure | 6 | Sim |
 | Modelos | Número de modelos em uma única instância de gêmeos digital do Azure | 10.000 | Sim |
 | Modelos | Número de modelos que podem ser carregados em uma única chamada à API | 250 | Não |
+| Modelos | Tamanho máximo (do corpo JSON em uma solicitação PUT ou PATCH) de um único modelo | 1 MB | Não |
 | Modelos | Número de itens retornados em uma única página | 100 | Não |
 | Consulta | Número de itens retornados em uma única página | 100 | Sim |
 | Consulta | Número de `AND`  /  `OR` expressões em uma consulta | 50 | Sim |
@@ -42,7 +46,7 @@ A tabela a seguir reflete os limites de taxa de APIs diferentes.
 | API | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
-| API gêmeos digital | Número de solicitações por segundo | 2.000 | Sim |
+| API gêmeos digital | Número de solicitações por segundo | 2\.000 | Sim |
 | API gêmeos digital | Número de operações de criação/exclusão por segundo em **todas as gêmeos e relações** | 50 | Sim |
 | API gêmeos digital | Número de operações de criação/atualização/exclusão por segundo em uma **única** ou suas relações | 10 | Não |
 | API de Consulta | Número de solicitações por segundo | 500 | Sim |

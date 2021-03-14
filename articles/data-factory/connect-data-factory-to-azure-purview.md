@@ -1,24 +1,20 @@
 ---
 title: Conectar um Data Factory ao Azure Purview
 description: Saiba mais sobre como conectar um Data Factory ao Azure alcance
-services: data-factory
 ms.author: lle
 author: lrtoyou1223
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: ce37e26730fbef9e5e40fd95190727062f9044ac
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727933"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Conectar Data Factory ao Azure alcance (versão prévia)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -44,10 +40,10 @@ Se você vir um aviso no portal Azure Data Factory depois de registrar a conta d
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Captura de tela para marcas de registro de uma conta do alcance.":::
 
-2. Verifique se a permissão é concedida para registrar uma conta do Azure alcance para Data Factory. Veja [como conectar Azure data Factory e o Azure alcance](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection)
+2. Verifique se a permissão é concedida para registrar uma conta do Azure alcance para Data Factory. Veja [como conectar Azure data Factory e o Azure alcance](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection)
 
 ### <a name="register-data-factory-in-azure-purview"></a>Registrar Data Factory no Azure alcance
-Para saber como registrar Data Factory no Azure alcance, consulte [como conectar Azure data Factory e o Azure alcance](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+Para saber como registrar Data Factory no Azure alcance, consulte [como conectar Azure data Factory e o Azure alcance](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Relatar dados de linhagem para o Azure alcance
 Quando os clientes executam a atividade copiar, fluxo de dados ou executar pacote SSIS no Azure Data Factory, os clientes podem obter a relação de dependência e ter uma visão geral de alto nível de todo o processo de fluxo de trabalho entre fontes de dados e destino.

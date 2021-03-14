@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004605"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149470"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerenciar agendamentos na Automação do Azure
 
@@ -119,6 +119,47 @@ O exemplo a seguir mostra como criar um agendamento recorrente que é executado 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Criar uma agenda com um modelo do Resource Manager
+
+Neste exemplo, usamos um modelo ARM (Automation Resource Manager) que cria uma nova agenda de trabalho. Para obter informações gerais sobre este modelo para gerenciar agendas de trabalho de automação, consulte [referência de modelo Microsoft. Automation automationAccounts/jobSchedules](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+Copie este arquivo de modelo em um editor de texto:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edite os seguintes valores de parâmetro e salve o modelo como um arquivo JSON:
+
+* Nome do objeto de agendamento de trabalho: um GUID (identificador global exclusivo) é usado como o nome do objeto de agenda de trabalho.
+
+   >[!IMPORTANT]
+   > Para cada agenda de trabalho implantada com um modelo ARM, o GUID deve ser exclusivo. Mesmo que você esteja Reagendando uma agenda existente, precisará alterar o GUID. Isso se aplica mesmo que você tenha excluído anteriormente um plano de trabalho existente que foi criado com o mesmo modelo. Reutilizar o mesmo GUID resulta em uma implantação com falha.</br></br>
+   > Há serviços online que podem gerar um novo GUID para você, como este gerador de [GUID online gratuito](https://guidgenerator.com/).
+
+* Nome do agendamento: representa o nome do plano de trabalho de automação que será vinculado ao runbook especificado.
+* Nome do runbook: representa o nome do runbook de automação ao qual a agenda de trabalho deve ser associada.
+
+Depois que o arquivo tiver sido salvo, você poderá criar o agendamento de trabalho do runbook com o comando do PowerShell a seguir. O comando usa o `TemplateFile` parâmetro para especificar o caminho e o nome do arquivo do modelo.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## <a name="link-a-schedule-to-a-runbook"></a>Vincular um agendamento a um runbook

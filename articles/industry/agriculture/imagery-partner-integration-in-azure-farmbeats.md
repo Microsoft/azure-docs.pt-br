@@ -4,14 +4,14 @@ description: Este artigo descreve a integração de parceiros com imagens.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1bc723892e29ccc24a7612cfbe50d4b274cdacdf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675937"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183787"
 ---
 # <a name="imagery-partner-integration"></a>Integração com parceiros de imagens
 
@@ -138,10 +138,10 @@ Depois que o parceiro tiver credenciais para se conectar ao FarmBeats Datahub, o
 
 1.  Crie um novo tipo estendido para os seguintes campos, de acordo com o tipo de imagens a serem carregadas:
 
-    - **Origem da cena** : por exemplo, drone_partner_name
-    - **Tipo de cena** : por exemplo, drone
-    - **Tipo de arquivo de cena** : por exemplo, índice chlorophyll
-    - **Tipo de conteúdo do arquivo de cena** : por exemplo, imagem/TIFF
+    - **Origem da cena**: por exemplo, drone_partner_name
+    - **Tipo de cena**: por exemplo, drone
+    - **Tipo de arquivo de cena**: por exemplo, índice chlorophyll
+    - **Tipo de conteúdo do arquivo de cena**: por exemplo, imagem/TIFF
 
 2.  Chame a API/farms para obter a lista de farms de dentro do sistema FarmBeats do Azure.
 3.  Forneça ao cliente a capacidade de escolher um único farm na lista de farms.

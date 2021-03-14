@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484372"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505895"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma SAP BusinessObjects BI no Azure
 
@@ -184,7 +183,7 @@ O banco de dados SQL do Azure oferece os três modelos de compra a seguir:
 
 O banco de dados do Azure para MySQL vem com três tipos de preço diferentes. Eles são diferenciados pela quantidade de computação em vCores, memória por vCore e a tecnologia de armazenamento usada para armazenar a data. Veja a seguir os detalhes de alto nível sobre as opções e para obter mais detalhes sobre atributos diferentes, consulte [camada de preços](../../../mysql/concepts-pricing-tiers.md) do banco de dados do Azure para MySQL.
 
-- Básico
+- Basic
 
   Ele é usado para as cargas de trabalho de destino que exigem desempenho de e/s e computação leve.
 
@@ -223,7 +222,7 @@ A plataforma SAP BI contém muitos componentes diferentes e, ao criar a arquitet
 
 Além disso, o número de domínios de atualização e de falha que podem ser usados por um conjunto de disponibilidade do Azure em uma unidade de escala do Azure é finito. Portanto, se você continuar adicionando VMs a um único conjunto de disponibilidade, duas ou mais VMs eventualmente terminarão no mesmo domínio de falha ou de atualização. Para obter mais informações, consulte a seção [conjuntos de disponibilidade do Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) do documento planejamento e implementação de máquinas virtuais do Azure para SAP.
 
-Para entender o conceito de conjuntos de disponibilidade do Azure e a maneira como os conjuntos de disponibilidade se relacionam a domínios de falha e atualização, leia o artigo [gerenciar disponibilidade](../../manage-availability.md) .
+Para entender o conceito de conjuntos de disponibilidade do Azure e a maneira como os conjuntos de disponibilidade se relacionam a domínios de falha e atualização, leia o artigo [gerenciar disponibilidade](../../availability.md) .
 
 > [!Important]
 > Os conceitos de Zonas de Disponibilidade do Azure e conjuntos de disponibilidade do Azure são mutuamente exclusivos. Isso significa que você pode implantar um par ou várias VMs em uma Zona de Disponibilidade específica ou em um conjunto de disponibilidade do Azure. Mas não em ambos.

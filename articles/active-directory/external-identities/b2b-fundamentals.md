@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547756"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365626"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Práticas recomendadas do Azure Active Directory B2B
 Este artigo contém recomendações e práticas recomendadas para colaboração B2B (entre empresas) no Azure Active Directory (AD do Azure).
 
    > [!IMPORTANT]
-   > A **partir de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados ("viral" ou "Just-in-time") do Azure ad para cenários de colaboração B2B. Nesse momento, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Estamos habilitando o recurso de senha de uso único de email porque ele fornece um método de autenticação de fallback contínuo para seus usuários convidados. No entanto, você tem a opção de desabilitar esse recurso se optar por não usá-lo. Para obter detalhes, consulte [autenticação de senha de email de uso único](one-time-passcode.md)
+   > A **partir de outubro de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados ("viral" ou "Just-in-time") do Azure ad para cenários de colaboração B2B. Nesse momento, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Estamos habilitando o recurso de senha de uso único de email porque ele fornece um método de autenticação de fallback contínuo para seus usuários convidados. No entanto, você tem a opção de desabilitar esse recurso se optar por não usá-lo. Para obter detalhes, consulte [autenticação de senha de email de uso único](one-time-passcode.md)
 
 
 ## <a name="b2b-recommendations"></a>Recomendações B2B

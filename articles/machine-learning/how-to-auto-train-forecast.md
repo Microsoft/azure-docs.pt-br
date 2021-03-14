@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132075"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503497"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
 
-Neste artigo, você aprenderá a configurar e treinar um modelo de regressão de previsão de série temporal usando o Machine Learning automatizado, AutoML, no [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+Neste artigo, você aprenderá a configurar e treinar um modelo de regressão de previsão de série temporal usando o Machine Learning automatizado, AutoML, no [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/). 
 
 Para fazer isso, você deve: 
 
@@ -120,7 +120,7 @@ Saiba mais sobre como o AutoML aplica a validação cruzada para [evitar modelos
 
 ## <a name="configure-experiment"></a>Configurar o experimento
 
-O objeto [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) define as configurações e os dados necessários para uma tarefa de machine learning automatizado. A configuração de um modelo de previsão é semelhante à configuração de um modelo de regressão padrão, mas determinados modelos, opções de configuração e etapas de personalização existem especificamente para dados de série temporal. 
+O objeto [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) define as configurações e os dados necessários para uma tarefa de machine learning automatizado. A configuração de um modelo de previsão é semelhante à configuração de um modelo de regressão padrão, mas determinados modelos, opções de configuração e etapas de personalização existem especificamente para dados de série temporal. 
 
 ### <a name="supported-models"></a>Modelos com suporte
 O aprendizado de máquina automatizado tenta automaticamente modelos e algoritmos diferentes como parte do processo de criação e ajuste do modelo. Como usuário, não há necessidade de especificar o algoritmo. Para prever experimentos, os modelos de série temporal nativa e de aprendizado profundo fazem parte do sistema de recomendação. A tabela a seguir resume esse subconjunto de modelos. 
@@ -138,7 +138,7 @@ ForecastTCN (versão prévia)| O ForecastTCN é um modelo de rede neural projeta
 
 Como em um problema de regressão, você define parâmetros de treinamento padrão, como tipo de tarefa, número de iterações, dados de treinamento e número de validações cruzadas. Para tarefas de previsão, há parâmetros adicionais que afetam o experimento e precisam ser definidos. 
 
-A tabela a seguir resume esses parâmetros adicionais. Consulte a [documentação de referência da classe ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) para obter padrões de design de sintaxe.
+A tabela a seguir resume esses parâmetros adicionais. Consulte a [documentação de referência da classe ForecastingParameter](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) para obter padrões de design de sintaxe.
 
 | Nome&nbsp;do parâmetro | Descrição | Obrigatório |
 |-------|-------|-------|
@@ -154,7 +154,7 @@ A tabela a seguir resume esses parâmetros adicionais. Consulte a [documentaçã
 
 
 O código a seguir, 
-* Aproveita a [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) classe para definir os parâmetros de previsão para o treinamento do experimento
+* Aproveita a [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) classe para definir os parâmetros de previsão para o treinamento do experimento
 * Define o `time_column_name` para o `day_datetime` campo no conjunto de dados. 
 * Define o `time_series_id_column_names` parâmetro para `"store"` . Isso garante que **dois grupos de série temporal separados** sejam criados para os dados; uma para A loja A e B.
 * Define o `forecast_horizon` como 50 para prever o conjunto de teste inteiro. 
@@ -193,6 +193,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              verbosity=logging.INFO,
                              **forecasting_parameters)
 ```
+
+A quantidade de dados necessária para treinar com êxito um modelo de previsão com ML automatizado é influenciada `forecast_horizon` pelos `n_cross_validations` valores, e `target_lags` ou `target_rolling_window_size` especificados quando você configura o `AutoMLConfig` . 
+
+A fórmula a seguir calcula a quantidade de dados históricos que seriam necessários para construir recursos de série temporal.
+
+Dados históricos mínimos necessários: (2x `forecast_horizon` ) + # `n_cross_validations` + Max (Max ( `target_lags` ), `target_rolling_window_size` )
+
+Uma exceção de erro será gerada para qualquer série no conjunto de dados que não atenda à quantidade necessária de dado históricos para as configurações relevantes especificadas. 
 
 ### <a name="featurization-steps"></a>Etapas de personalização
 
@@ -290,7 +298,7 @@ Veja um exemplo de código Python que aproveita o [recurso de agregação de jan
 
 ### <a name="short-series-handling"></a>Manipulação de série curta
 
-O ML automatizado considera uma série temporal uma **pequena seqüência** se não houver pontos de dados suficientes para conduzir as fases de treinamento e validação do desenvolvimento de modelo. O número de pontos de dados varia para cada experimento e depende do max_horizon, do número de divisões de validação cruzada e do comprimento do modelo lookback, que é o máximo do histórico necessário para construir os recursos da série temporal. Para obter o cálculo exato, consulte a [documentação de referência do short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+O ML automatizado considera uma série temporal uma **pequena seqüência** se não houver pontos de dados suficientes para conduzir as fases de treinamento e validação do desenvolvimento de modelo. O número de pontos de dados varia para cada experimento e depende do max_horizon, do número de divisões de validação cruzada e do comprimento do modelo lookback, que é o máximo do histórico necessário para construir os recursos da série temporal. Para obter o cálculo exato, consulte a [documentação de referência do short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
 
 O ML automatizado oferece manipulação de série curta por padrão com o `short_series_handling_configuration` parâmetro no `ForecastingParameters` objeto. 
 
@@ -307,7 +315,7 @@ forecast_parameters = ForecastingParameters(time_column_name='day_datetime',
 ```
 A tabela a seguir resume as configurações disponíveis para o `short_series_handling_config` .
  
-|Configuração|Descrição
+|Setting|Descrição
 |---|---
 |`auto`| Este é o comportamento padrão para manipulação de série curta <li> *Se todas as séries forem curtas*, preencha os dados. <br> <li> *Se nem todas as séries forem curtas*, descarte a série curta. 
 |`pad`| Se `short_series_handling_config = pad` , o ml automatizado adiciona valores aleatórios a cada série curta encontrada. O seguinte lista os tipos de coluna e com que eles são preenchidos: <li>Colunas de objeto com NaNs <li> Colunas numéricas com 0 <li> Colunas boolianas/lógicas com false <li> A coluna de destino é preenchida com valores aleatórios com média de zero e desvio padrão de 1. 
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Repita as etapas necessárias para carregar esses dados futuros em um dataframe e, em seguida, execute `best_run.predict(test_data)` para prever valores futuros.
 
 > [!NOTE]
-> Não é possível prever valores para o número de períodos maiores que `forecast_horizon`. Você precisa treinar de novo o modelo com um horizonte maior se quiser prever valores futuros além do horizonte atual.
+> As previsões em amostra não têm suporte para previsão com ML automatizado quando `target_lags` e/ou `target_rolling_window_size` estão habilitados.
 
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo

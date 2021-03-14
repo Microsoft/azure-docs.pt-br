@@ -1,19 +1,19 @@
 ---
-title: Criar uma VM do Linux zoneada com o CLI do Azure
-description: Crie uma VM do Linux em uma zona de disponibilidade com a CLI do Azure
+title: Criar uma VM zoneada com o CLI do Azure
+description: Criar uma máquina virtual em uma zona de disponibilidade com o CLI do Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3405468c64a7130bb0d71543403dd4ce5ef9c241
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016396"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558365"
 ---
-# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Crie uma máquina virtual do Linux em uma zona de disponibilidade com a CLI do Azure
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-cli"></a>Criar uma máquina virtual em uma zona de disponibilidade usando CLI do Azure
 
 Este artigo aborda usando o CLI do Azure para criar uma máquina virtual do Linux em uma região de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona fisicamente separada em uma região do Azure. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
 

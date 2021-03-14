@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: f6bd0c13d5cbad802613e2bdea8fd6002f4deea2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955630"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445771"
 ---
 O Hub de Eventos organiza as sequências de eventos em uma ou mais partições. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
 
@@ -57,4 +57,3 @@ Definir o número de partições com o valor máximo permitido é tentador, mas 
 
 Embora as partições possam ser enviadas diretamente, isso não é recomendado. Em vez disso, será possível usar os constructos de nível superior apresentados na seção [Editores de eventos](../articles/event-hubs/event-hubs-features.md#event-publishers). 
 
-Para saber mais sobre partições e a compensação entre disponibilidade e confiabilidade, consulte os artigos [Guia de programação dos Hubs de Eventos](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) e [Disponibilidade e consistência em Hubs de Eventos](../articles/event-hubs/event-hubs-availability-and-consistency.md).

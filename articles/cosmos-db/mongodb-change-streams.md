@@ -5,15 +5,15 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658513"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Fluxos de alteração na API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "97359227"
 O suporte do [feed de alterações](change-feed.md) na API do Azure Cosmos DB para MongoDB está disponível usando a API de fluxos de alteração. Usando a API de fluxos de alteração, seus aplicativos podem obter as alterações feitas na coleção ou nos itens em um único fragmento. Posteriormente, você pode executar ações adicionais com base nos resultados. As alterações nos itens na coleção são capturadas na ordem de seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentação.
 
 > [!NOTE]
-> Para usar os fluxos de alteração, crie a conta com a versão 3.6 da API do Azure Cosmos DB para MongoDB ou uma versão posterior. Se você executar os exemplos de fluxo de alterações em uma versão anterior, poderá ver o erro de `Unrecognized pipeline stage name: $changeStream`.
+> Para usar os fluxos de alteração, crie a API do Azure Cosmos DB para a conta do MongoDB com a versão do servidor 3,6 ou superior. Se você executar os exemplos de fluxo de alterações em uma versão anterior, poderá ver o *nome do estágio de pipeline não reconhecido: $changeStream* erro.
 
 ## <a name="examples"></a>Exemplos
 

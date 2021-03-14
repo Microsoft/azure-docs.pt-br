@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687395"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658581"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,14 +25,14 @@ Sem servidor é uma camada de computação para bancos de dados individuais no b
 
 ## <a name="serverless-compute-tier"></a>Camada de computação sem servidor
 
-A camada de computação sem servidor para bancos de dados individuais no banco de dados SQL do Azure é parametrizada por um intervalo de dimensionamento automático de computação e um atraso de pausa automático. A configuração desses parâmetros forma a experiência de desempenho do banco de dados e o custo de computação.
+A camada de computação sem servidor para bancos de dados individuais no banco de dados SQL do Azure é parametrizada por um intervalo de dimensionamento automático de computação e um atraso de pausa automática. A configuração desses parâmetros forma a experiência de desempenho do banco de dados e o custo de computação.
 
 ![cobrança sem servidor](./media/serverless-tier-overview/serverless-billing.png)
 
 ### <a name="performance-configuration"></a>Configuração do desempenho
 
 - **mínimo de vCores** e **máximo de vCores** são parâmetros configuráveis que definem o intervalo de capacidade de computação disponível para o banco de dados. Os limites de memória e E/S são proporcionais ao intervalo de vCore especificado.  
-- O **atraso de pausa automática** é um parâmetro configurável que define o período que o banco de dados deve ficar inativo antes que ele entre automaticamente em pausa. O banco de dados é retomado automaticamente quando o próximo logon ou outra atividade ocorre.  Como alternativa, a pausa automática pode ser desabilitada.
+- O **atraso de pausa automática** é um parâmetro configurável que define o período de tempo que o banco de dados deve ficar inativo antes de ser pausado automaticamente. O banco de dados é retomado automaticamente quando o próximo logon ou outra atividade ocorre.  Como alternativa, a pausa automática pode ser desabilitada.
 
 ### <a name="cost"></a>Custo
 
@@ -48,16 +48,16 @@ Para obter mais detalhes, consulte [Cobrança](serverless-tier-overview.md#billi
 
 A camada sem servidor é otimizada para preço/desempenho para bancos de dados individuais com padrões de uso intermitentes e imprevisíveis que podem gerar atraso no aquecimento de computação após períodos ociosos. Por outro lado, a camada de computação provisionada é otimizada para preço/desempenho para bancos de dados individuais ou múltiplos bancos de dados em pools elásticos com maior uso médio que não podem apresentar atrasos no aquecimento de computação.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários adequados para a computação sem servidor
+### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários bem adequados para computação sem servidor
 
 - Bancos de dados individuais com padrões de uso intermitentes e imprevisíveis intercalados com períodos de inatividade e menor utilização média de computação ao longo do tempo.
 - Bancos de dados individuais na camada de computação provisionada que são frequentemente reescalonados e clientes que preferem delegar o reescalonamento de computação para o serviço.
 - Novos bancos de dados individuais sem histórico de uso em que o escalonamento de computação é difícil ou impossível de estimar antes da implantação no Banco de Dados SQL.
 
-### <a name="scenarios-well-suited-for-provisioned-compute"></a>Cenários adequados para computação provisionada
+### <a name="scenarios-well-suited-for-provisioned-compute"></a>Cenários bem adequados para computação provisionada
 
 - Bancos de dados individuais com padrões de uso mais regulares, previsíveis e maior utilização média de computação ao longo do tempo.
-- Bancos de dados que não podem tolerar compensações de desempenho resultantes do corte mais frequente de memória ou do atraso de retomada automática após uma pausa.
+- Bancos de dados que não podem tolerar compensações de desempenho resultantes de recorte de memória mais frequente ou atrasos na retomada de um estado em pausa.
 - Vários bancos de dados com padrões de uso intermitentes e imprevisíveis que podem ser consolidados em pools elásticos para melhor otimização de preços e desempenho.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Comparação com a camada de computação provisionada
@@ -93,40 +93,40 @@ Ao contrário dos bancos de dados de computação provisionados, a memória do c
 - A utilização do cache ativo é considerada baixa quando o tamanho total das entradas de cache usadas mais recentemente fica abaixo de um limite por um período de tempo.
 - Quando a recuperação do cache é disparada, o tamanho do cache de destino é reduzido incrementalmente para uma fração do tamanho anterior, e a recuperação só continua se o uso permanece baixo.
 - Quando ocorre a recuperação do cache, a política para selecionar entradas de cache a serem removidas é a mesma política de seleção que para bancos de dados de computação provisionados quando a pressão de memória é alta.
-- O tamanho do cache nunca é reduzido abaixo do limite mínimo de memória, conforme definido pelo mínimo de vCores que pode ser configurado.
+- O tamanho do cache nunca é reduzido abaixo do limite mínimo de memória definido por min vCores, que pode ser configurado.
 
 Em bancos de dados de computação sem servidor e provisionados, as entradas de cache poderão ser removidas se toda a memória disponível for usada.
 
-Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.  Além disso, pode haver atraso adicional depois que a atividade do usuário for interrompida antes que a recuperação de memória ocorra devido a processos de plano de fundo periódicos respondendo à atividade anterior do usuário.  Por exemplo, operações de exclusão e tarefas de limpeza QDS geram registros fantasmas que são marcados para exclusão, mas não são fisicamente excluídos até que o processo de limpeza de fantasma seja executado, o que pode envolver a leitura de páginas de dados no cache.
+Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.  Além disso, pode haver atrasos adicionais depois que a atividade do usuário for interrompida antes que a recuperação de memória ocorra devido a processos de plano de fundo periódicos respondendo à atividade anterior do usuário.  Por exemplo, operações de exclusão e tarefas de limpeza QDS geram registros fantasmas que são marcados para exclusão, mas não são fisicamente excluídos até que o processo de limpeza de fantasma seja executado, o que pode envolver a leitura de páginas de dados no cache.
 
 #### <a name="cache-hydration"></a>Hidratação de cache
 
 O cache do SQL cresce à medida que os dados são obtidos do disco da mesma forma e com a mesma velocidade que para bancos de dados provisionados. Quando o banco de dados está ocupado, o cache tem permissão para aumentar sem restrição até o limite máximo de memória.
 
-## <a name="autopausing-and-autoresuming"></a>Pausa e retomada automáticas
+## <a name="auto-pausing-and-auto-resuming"></a>Pausa automática e retomada automática
 
-### <a name="autopausing"></a>Pausa automática
+### <a name="auto-pausing"></a>Pausa automática
 
-A pausa automática será ativada se todas as seguintes condições forem verdadeiras pela duração do atraso de pausa automática:
+A pausa automática será disparada se todas as condições a seguir forem verdadeiras durante o atraso de pausa automática:
 
 - Número de sessões = 0
 - CPU = 0 para a carga de trabalho do usuário em execução no pool de usuários
 
-Se desejado, será possível desabilitar a pausa automática.
+Uma opção é fornecida para desabilitar a pausa automática, se desejado.
 
-Os recursos a seguir não oferecem suporte à pausa automática, mas oferecem suporte ao dimensionamento automático.  Se qualquer um dos recursos a seguir for usado, a autopausa deverá ser desabilitada e o banco de dados permanecerá online, independentemente da duração da inatividade do banco de dados:
+Os recursos a seguir não oferecem suporte à pausa automática, mas oferecem suporte ao dimensionamento automático.  Se qualquer um dos recursos a seguir for usado, a pausa automática deverá ser desabilitada e o banco de dados permanecerá online, independentemente da duração da inatividade do banco de dados:
 
 - Replicação geográfica (replicação geográfica ativa e grupos de failover automático).
 - LTR (retenção de backup de longo prazo).
-- O banco de dados de sincronização usado na sincronização de dados SQL.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de hub e de membros dão suporte à pausa automática.
+- O banco de dados de sincronização usado no SQL Data Sync.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de Hub e de membros dão suporte à pausa automática.
 - Alias de DNS
 - O banco de dados de trabalho usado em trabalhos elásticos (visualização).
 
-A pausa automática é impedida temporariamente durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática será permitida novamente após a conclusão da atualização do serviço.
+A pausa automática é temporariamente impedida durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática é permitida novamente após a conclusão da atualização do serviço.
 
-### <a name="autoresuming"></a>Retomada automática
+### <a name="auto-resuming"></a>Retomada automática
 
-A retomada automática será ativada se qualquer uma das seguintes condições for verdadeira a qualquer momento:
+A retomada automática será disparada se qualquer uma das seguintes condições for verdadeira a qualquer momento:
 
 |Recurso|Gatilho de retomada automática|
 |---|---|
@@ -139,7 +139,7 @@ A retomada automática será ativada se qualquer uma das seguintes condições f
 |Avaliação de vulnerabilidade|Verificações ad hoc e verificações periódicas, se habilitadas|
 |Consultar o armazenamento de dados (desempenho)|Modificar ou exibir configurações do repositório de consultas|
 |Recomendações do desempenho|Exibindo ou aplicando recomendações de desempenho|
-|Ajuste automático|Aplicação e verificação de recomendações de ajuste automático, como indexação automática|
+|Ajuste automático|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como uma cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados membro e hub que são executados em um cronograma configurável ou são executados manualmente|
 |Modificar alguns metadados do banco de dados|Adicionar novas marcas de banco de dados.<br>Alterar o máximo de vCores, mínimo de vCores ou atraso de pausa automática.|
@@ -155,7 +155,7 @@ Se um banco de dados sem servidor estiver em pausa, o primeiro logon retomará o
 
 ### <a name="latency"></a>Latency
 
-A latência para a retomada e a pausa automática de um banco de dados sem servidor geralmente é uma ordem de 1 minuto para retomar automaticamente e 1 a 10 minutos para pausar automaticamente.
+A latência para retomar automaticamente e pausar automaticamente um banco de dados sem servidor geralmente é uma ordem de 1 minuto para retomar automaticamente e 1-10 minutos para pausar automaticamente.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Transparent Data Encryption (BYOK) gerenciada pelo cliente
 
@@ -180,7 +180,7 @@ Criar um novo banco de dados ou mover um banco de dados existente para uma camad
 
 Os exemplos seguintes criam um novo banco de dados na camada de computação sem servidor.
 
-#### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+#### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Confira [Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](single-database-create-quickstart.md).
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Para obter detalhes, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Para obter detalhes, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Mover um banco de dados da camada de computação provisionada para a camada de computação sem servidor
 
@@ -234,14 +234,14 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Usar o Transact-SQL (T-SQL)
 
-Ao usar o T-SQL, os valores padrão são aplicados para o mínimo de vCores e o atraso de pausa automática.
+Ao usar o T-SQL, os valores padrão são aplicados para o mínimo de vcores e o atraso de pausa automática.
 
 ```sql
 ALTER DATABASE testdb 
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Para obter detalhes, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Para obter detalhes, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Mover um banco de dados da camada de computação sem servidor para a camada de computação provisionada
 

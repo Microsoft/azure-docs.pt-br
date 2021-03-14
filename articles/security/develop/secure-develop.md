@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576609"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548437"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
@@ -34,7 +34,7 @@ Imagine que seu aplicativo venha a ser usado de maneiras que você não pretendi
 
 ### <a name="perform-code-reviews"></a>Executar revisões de código
 
-Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
+Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) para gerenciar o processo de revisão de código.
 
 ### <a name="perform-static-code-analysis"></a>Executar análise de código estático
 

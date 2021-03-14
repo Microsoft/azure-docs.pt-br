@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91e74668224d1cdbbc462bf6c2c0a22c4f0a9837
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590750"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorar as métricas dos Serviços de Mídia do Microsoft Azure
 
@@ -67,10 +67,10 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "egresso" pelo nome da métrica em que você está interessado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
-- [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
-- [Crie, exiba e gerencie alertas de métrica usando Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+- [Métricas do Azure Monitor](../../azure-monitor/data-platform.md)
+- [Crie, exiba e gerencie alertas de métrica usando Azure monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

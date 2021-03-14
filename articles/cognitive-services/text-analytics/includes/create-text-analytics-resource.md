@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b6479d48a51ba962f2f6bfba16dac3b0886a9ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750356"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto dos Serviços Cognitivos
 
@@ -37,5 +37,5 @@ ms.locfileid: "96009837"
 
     |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0` .|
+    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0` .|
     |**Chaves**|Chave de API|Copie uma das duas chaves. É uma cadeia de caracteres alfanumérica de 32 caracteres sem espaços ou traços: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

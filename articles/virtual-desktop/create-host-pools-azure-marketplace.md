@@ -3,15 +3,16 @@ title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows �
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735174"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651452"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -67,6 +68,9 @@ Para começar a criar seu pool de host:
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela do portal do Azure mostrando o campo Localização com a localização Leste dos EUA selecionada. Ao lado do campo está o texto que diz "Os metadados serão armazenados no Leste dos EUA".](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Caso deseje criar seu pool de host em [uma região compatível](data-locations.md) fora dos EUA, registre novamente o provedor de recursos. Após o novo registro, você verá as outras regiões na lista suspensa de seleção da localização. Saiba como se registrar novamente em nosso artigo de solução de problemas de [criação do pool de host](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects).
 
 8. Em Tipo de pool de host, selecione se o pool de host será **Pessoal** ou **Em pool**.
 
@@ -164,7 +168,7 @@ O processo de instalação do pool de host cria um grupo de aplicativos de deskt
 
 Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
-1. Selecione **Sim** na barra superior.
+1. Selecione **Sim**.
 
    Se você selecionar **Não**, poderá registrar o grupo de aplicativos mais tarde, mas recomendamos que você faça o registro do workspace assim que puder para que seu pool de host funcione corretamente.
 

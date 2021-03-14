@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891152"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048130"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicionar uma camada de linhas ao mapa
 
@@ -66,7 +66,7 @@ Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Mostrar a s
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adicionar um gradiente de traço a uma linha
 
-Você pode aplicar uma cor de traço único a uma linha. Você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o outro. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e de acordo com a distância ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados precisa ter a opção `lineMetrics` definida como true e, em seguida, uma expressão de gradiente de cor pode ser passada para a opção `strokeColor` da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados `['line-progress']` que expõe as métricas de linha calculada para a expressão.
+Você pode aplicar uma cor de traço único a uma linha. Você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o outro. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e de acordo com a distância ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a `lineMetrics` opção definida como `true` e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados `['line-progress']` que expõe as métricas de linha calculada para a expressão.
 
 <br/>
 

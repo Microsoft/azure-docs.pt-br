@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719025"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos autoprovisionados anteriormente 
 
@@ -23,7 +23,7 @@ Em geral, o desprovisionamento de um dispositivo envolve duas etapas:
 1. Cancele o registro do dispositivo do serviço de provisionamento para evitar autoprovisionamentos futuros. Dependendo se você deseja revogar o acesso temporária ou permanentemente, convém desabilitar ou excluir uma entrada de registro. Para dispositivos que usam o atestado X.509, convém desabilitar/excluir uma entrada na hierarquia dos grupos de registros existentes.  
  
    - Para saber como cancelar o registro de um dispositivo, consulte [Como cancelar o registro de um dispositivo no Provisionamento de Dispositivos no Hub IoT](how-to-revoke-device-access-portal.md).
-   - Para saber como cancelar o registro de um dispositivo programaticamente usando uma das SDKs do serviço de provisionamento, consulte [Gerenciar registros de dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
+   - Para saber como cancelar o registro de um dispositivo programaticamente usando uma das SDKs do serviço de provisionamento, consulte [Gerenciar registros de dispositivos com SDKs de serviço](./quick-enroll-device-x509-java.md).
 
 2. Cancele o registro do dispositivo do Hub IoT para evitar futuras comunicações e transferência de dados. Novamente, será possível desabilitar temporariamente ou excluir permanentemente a entrada do dispositivo no registro de identidade do Hub IoT em que foi provisionado. Consulte [Desabilitar dispositivos](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) para saber mais sobre a desabilitação. Consulte "Gerenciamento de Dispositivos/Dispositivos de IoT" para o recurso Hub IoT, no [Portal do Azure](https://portal.azure.com).
 

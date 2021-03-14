@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125962"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390463"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implantar e seguir passo a passo o modelo de aplicativo de microcentral de atendimento
 
-Neste tutorial, você usará o modelo de aplicativo de microcentral de atendimento do Azure IoT Central para criar uma solução de varejo. Você aprenderá a implantar o modelo, saberá o que ele inclui e o que você poderá fazer em seguida.
+Neste tutorial, você usará o modelo de aplicativo de microcentral de atendimento do Azure IoT Central para criar uma solução de varejo.
+
+Neste tutorial, você aprenderá:
+
+> [!div class="checklist"]
+> * A implantar o modelo de aplicativo
+> * A usar o modelo de aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir esta série de tutoriais, você precisará ter uma assinatura do Azure. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
@@ -92,8 +98,7 @@ Se não quiser continuar usando este aplicativo, exclua o modelo de aplicativo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre
+Saiba mais sobre:
+
 > [!div class="nextstepaction"]
 > [arquitetura da solução da microcentral de atendimento](./architecture-micro-fulfillment-center.md)
-* Saiba mais sobre os [Modelos de varejo do Azure IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre o [Azure IoT Central](../core/overview-iot-central.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693169"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093982"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
 Neste artigo, discutiremos uma coleção de melhores práticas de segurança do Armazenamento do Azure para proteger seus aplicativos PaaS (plataforma como serviço) móveis e Web. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
@@ -33,7 +33,7 @@ O [Guia de segurança do Armazenamento do Azure](../../storage/blobs/security-re
 
 Este artigo aborda as seguintes melhores práticas:
 
-- SAS (Assinaturas de Acesso Compartilhado)
+- SAS (assinaturas de acesso compartilhado)
 - RBAC do Azure (controle de acesso baseado em função do Azure)
 - Criptografia do lado do cliente para dados de alto valor
 - Criptografia do Serviço de Armazenamento
@@ -64,7 +64,7 @@ As organizações que não impõem o controle de acesso a dados usando recursos 
 
 Para saber mais sobre o RBAC do Azure, consulte:
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)
 - [Guia de segurança do Armazenamento do Microsoft Azure](../../storage/blobs/security-recommendations.md) 
 

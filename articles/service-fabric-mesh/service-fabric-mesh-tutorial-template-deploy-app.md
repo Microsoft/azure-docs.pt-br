@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499825"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625409"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial é a primeira parte de uma série. Você aprenderá como implantar um aplicativo de Malha do Azure Service Fabric usando um modelo.  O aplicativo é composto de um serviço de front-end de web do ASP.NET e um serviço de back-end de API Web ASP.NET Core, que são encontrados no Hub do Docker.  Efetue pull de duas imagens de contêiner do Hub do Docker e, em seguida, envie-as ao seu próprio registro privado. Em seguida, crie um modelo do Azure RM para o aplicativo e implante-o do seu registro de contêiner para a Malha do Service Fabric. Quando tiver terminado, você terá um aplicativo simples de lista de tarefas em execução na Malha do Serviço Fabric.
 

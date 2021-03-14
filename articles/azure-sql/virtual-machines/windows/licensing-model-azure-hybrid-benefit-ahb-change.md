@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361546"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir o
 
 ## <a name="change-license-model"></a>Alterar modelo de licença
 
-# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -119,7 +119,6 @@ A alteração do modelo de licença:
    - Só é compatível com as edições Standard e Enterprise do SQL Server. As alterações de licença não são compatíveis com o Express, o Web e o Developer. 
    - Só é compatível com as máquinas virtuais implantadas por meio do modelo do Azure Resource Manager. As máquinas virtuais implantadas por meio do modelo clássico não são compatíveis. 
    - Está disponível somente para as nuvens públicas ou do Azure Government. 
-   - Só é compatível com as máquinas virtuais que têm um NIC (adaptador de rede) exclusivo. 
 
 > [!Note]
 > Somente SQL Server licenciamento baseado em núcleo com licenças de assinatura ou Software Assurance são elegíveis para Benefício Híbrido do Azure. Se você estiver usando o licenciamento do servidor + CAL para SQL Server e tiver o Software Assurance, poderá usar o traga sua própria licença para uma imagem de máquina virtual do Azure SQL Server para aproveitar a mobilidade de licenças para esses servidores, mas não poderá aproveitar os outros recursos do Benefício Híbrido do Azure. 
@@ -136,10 +135,6 @@ Esse erro ocorre quando você tenta alterar o modelo de licença em uma VM SQL S
 
 Você precisará registrar sua assinatura com o provedor de recursos e [registrar sua VM de SQL Server com a extensão do agente IaaS do SQL](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**A máquina virtual ' \<vmname\> ' tem mais de uma NIC associada**
-
-Esse erro ocorre em máquinas virtuais que têm mais de um NIC. Remova um dos NICs antes de alterar o modelo de licenciamento. Embora seja possível adicionar o NIC de volta à VM depois de alterar o modelo de licença, as operações no portal do Azure, como backup automático e aplicação de patches, não terão mais compatibilidade. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

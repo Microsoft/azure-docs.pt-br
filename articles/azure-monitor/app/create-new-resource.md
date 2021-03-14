@@ -2,17 +2,20 @@
 title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/10/2021
+ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100926"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
 O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* do Microsoft Azure. Por isso, criar um recurso faz parte da [configuração do Application Insights para monitorar um novo aplicativo][start]. Depois de criar o recurso, você pode obter a chave de instrumentação dele e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
+
+> [!IMPORTANT]
+> O [Application insights clássico foi preterido](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Siga estas [instruções sobre como atualizar para Application insights baseadas em espaço de trabalho](convert-classic-resource.md).
 
 ## <a name="sign-in-to-microsoft-azure"></a>Entrar no Microsoft Azure
 
@@ -32,7 +35,7 @@ Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Applic
    | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados em workspace estão atualmente em versão prévia pública e permitem que você envie sua telemetria do Application Insights para um workspace comum do Log Analytics. Para obter mais informações, confira o [artigo sobre recursos baseados em workspace](create-workspace-resource.md).
 
 > [!NOTE]
-> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](../log-query/cross-workspace-query.md#identifying-an-application), pois simplifica a sintaxe necessária.
+> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](../logs/cross-workspace-query.md#identifying-an-application), pois simplifica a sintaxe necessária.
 
 Insira os valores apropriados nos campos obrigatórios e selecione **Examinar + criar**.
 
@@ -156,13 +159,13 @@ Para obter a documentação completa da CLI do Azure para esse comando e saber c
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisa de Diagnóstico](./diagnostic-search.md)
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas do Analytics](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
 

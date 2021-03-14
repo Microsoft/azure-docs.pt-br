@@ -1,163 +1,412 @@
 ---
-title: Integrar Azure Functions com uma rede virtual do Azure
-description: Um tutorial passo a passo que mostra como conectar uma função a uma rede virtual do Azure
+title: Usar pontos de extremidade privados para integrar Azure Functions a uma rede virtual
+description: Este tutorial mostra como conectar uma função a uma rede virtual do Azure e bloqueá-la usando pontos de extremidade privados.
 ms.topic: article
-ms.date: 4/23/2020
-ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 2/22/2021
+ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937002"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630462"
 ---
-# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: Integrar o Functions a uma rede virtual do Azure
+# <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: integrar Azure Functions com uma rede virtual do Azure usando pontos de extremidade privados
 
-Este tutorial mostra como usar Azure Functions para se conectar a recursos em uma rede virtual do Azure. Você criará uma função que tem acesso à Internet e a uma VM que executa o WordPress na rede virtual.
+Este tutorial mostra como usar Azure Functions para se conectar a recursos em uma rede virtual do Azure usando pontos de extremidade privados. Você criará uma função usando uma conta de armazenamento bloqueada por trás de uma rede virtual. A rede virtual usa um gatilho de fila do barramento de serviço.
+
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar um aplicativo de funções no plano Premium
-> * Implantar um site do WordPress na VM em uma rede virtual
-> * Conectar o aplicativo de funções à rede virtual
-> * Criar um proxy de função para acessar recursos do WordPress
-> * Solicitar um arquivo do WordPress de dentro da rede virtual
-
-## <a name="topology"></a>Topologia
-
-O diagrama a seguir mostra a arquitetura da solução que você cria:
-
- ![Interface do usuário para integração de rede virtual](./media/functions-create-vnet/topology.png)
-
-As funções em execução no plano Premium têm os mesmos recursos de hospedagem que os aplicativos Web no serviço Azure App, que inclui o recurso de integração VNet. Para saber mais sobre a integração VNet, incluindo solução de problemas e configuração avançada, confira [integrar seu aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para este tutorial, é importante que você tenha noções básicas do endereçamento IP e das sub-redes. Você pode começar com [este artigo que aborda os conceitos básicos de endereçamento e sub-redes](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Muitos outros artigos e vídeos estão disponíveis online.
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Crie um aplicativo de funções no plano Premium.
+> * Crie recursos do Azure, como o barramento de serviço, a conta de armazenamento e a rede virtual.
+> * Bloqueie sua conta de armazenamento por trás de um ponto de extremidade privado.
+> * Bloqueie o barramento de serviço por trás de um ponto de extremidade privado.
+> * Implante um aplicativo de funções que usa o barramento de serviço e os gatilhos HTTP.
+> * Bloqueie seu aplicativo de funções por trás de um ponto de extremidade privado.
+> * Teste para ver se seu aplicativo de funções é seguro dentro da rede virtual.
+> * Limpe os recursos.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Criar um aplicativo de funções em um plano Premium
 
-Primeiro, você cria um aplicativo de funções no [plano Premium]. Este plano fornece escala sem servidor enquanto dá suporte à integração de rede virtual.
+Você criará um aplicativo de funções do .NET no plano Premium porque este tutorial usa C#. Também há suporte para outros idiomas no Windows. O plano Premium fornece escala sem servidor enquanto dá suporte à integração de rede virtual.
 
-[!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
+1. No menu portal do Azure ou na **Home** Page, selecione **criar um recurso**.
 
-Você pode fixar o aplicativo de funções no painel selecionando o ícone de pino no canto superior direito. A fixação torna mais fácil retornar a esse aplicativo de funções depois de criar sua VM.
+1. Na página **novo** , selecione aplicativo de funções de **computação**  >  .
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>Criar uma VM dentro de uma rede virtual
+1. Na página **noções básicas** , use a tabela a seguir para definir as configurações do aplicativo de funções.
 
-Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma rede virtual ([WordPress LEMP7 desempenho máximo](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) por Jetware). Uma VM do WordPress é usada devido a seu baixo custo e conveniência. Esse mesmo cenário funciona com qualquer recurso em uma rede virtual, como APIs REST, ambientes de serviço de aplicativo e outros serviços do Azure. 
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **Assinatura** | Sua assinatura | Assinatura sob a qual esse novo aplicativo de funções é criado. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do novo grupo de recursos em que você criará seu aplicativo de funções. |
+    | **Nome do aplicativo de funções** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `-`.  |
+    |**Publicar**| Código | Escolha publicar arquivos de código ou um contêiner do Docker. |
+    | **Pilha de runtime** | .NET | Este tutorial usa o .NET. |
+    |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
-1. No portal, escolha **+ criar um recurso** no painel de navegação à esquerda, no tipo de campo de pesquisa `WordPress LEMP7 Max Performance` e pressione Enter.
+1. Selecione **Avançar: Hospedagem**. Na página **Hospedagem**, insira as configurações a seguir.
 
-1. Escolha o **desempenho máximo do WordPress LEMP** nos resultados da pesquisa. Selecione um plano de software de **desempenho do WordPress LEMP Max para centos** como o **plano de software** e selecione **criar**.
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes de conta de armazenamento devem ter entre 3 e 24 caracteres. Eles podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](./storage-considerations.md#storage-account-requirements). |
+    |**Sistema operacional**| Windows | Este tutorial usa o Windows. |
+    | **[Plano](./functions-scale.md)** | Premium | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Por padrão, quando você seleciona **Premium**, um novo plano do serviço de aplicativo é criado. O **SKU e o tamanho** padrão são **ep1**, em que o *EP* representa o _elástico Premium_. Para obter mais informações, consulte a lista de [SKUs Premium](./functions-premium-plan.md#available-instance-skus).<br/><br/>Ao executar funções JavaScript em um plano Premium, escolha uma instância que tenha menos vCPUs. Para obter mais informações, confira [Escolher planos Premium de núcleo único](./functions-reference-node.md#considerations-for-javascript-functions).  |
 
-1. Na guia **Informações Básicas**, use as configurações da VM, conforme especificado na tabela abaixo da imagem:
+1. Selecione **Avançar: Monitoramento**. Na página **Monitoramento**, insira as configurações a seguir.
 
-    ![Guia básico para criar uma VM](./media/functions-create-vnet/create-vm-1.png)
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](./functions-monitoring.md)** | Padrão | Crie um recurso de Application Insights do mesmo nome de aplicativo na região com suporte mais próximo. Expanda essa configuração se você precisar alterar o **nome do novo recurso** ou armazenar seus dados em um **local** diferente em uma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/). |
+
+1. Selecione **Examinar + criar** para examinar as seleções de configuração do aplicativo.
+
+1. Na página **revisar + criar** , examine suas configurações. Em seguida, selecione **criar** para provisionar e implantar o aplicativo de funções.
+
+1. No canto superior direito do portal, selecione o ícone **notificações** e observe a mensagem **implantação bem-sucedida** .
+
+1. Selecione **Ir para recursos** para exibir o novo aplicativo de funções. Você também pode selecionar **Fixar no painel**. A fixação torna mais fácil retornar a esse recurso de aplicativo de função no seu painel.
+
+Parabéns! Você criou com êxito seu aplicativo de funções Premium.
+
+## <a name="create-azure-resources"></a>Criar recursos do Azure
+
+Em seguida, você criará uma conta de armazenamento, um barramento de serviço e uma rede virtual. 
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+
+Suas redes virtuais precisarão de uma conta de armazenamento separada da que você criou com seu aplicativo de funções.
+
+1. No menu portal do Azure ou na **Home** Page, selecione **criar um recurso**.
+
+1. Na **nova** página, pesquise conta de *armazenamento*. Em seguida, selecione **Criar**.
+
+1. Na guia **noções básicas** , use a tabela a seguir para definir as configurações da conta de armazenamento. Todas as outras configurações podem usar os valores padrão.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup` ou o grupo de recursos que você criou com seu aplicativo de funções. Usar o mesmo grupo de recursos para o aplicativo de funções, a VM do WordPress e o plano de hospedagem facilita a limpeza de recursos quando você terminar este tutorial. |
-    | **Nome da máquina virtual** | VNET-Wordpress | O nome da VM precisa ser exclusivo no grupo de recursos |
-    | **[Região](https://azure.microsoft.com/regions/)** | Européia Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
-    | **Tamanho** | B1s | Escolha **alterar tamanho** e, em seguida, selecione a imagem B1s padrão, que tem 1 vCPU e 1 GB de memória. |
-    | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, uma **senha** segura e, em seguida, **confirmar a senha**. Para este tutorial, você não precisará entrar na VM, a menos que precise solucionar problemas. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que você criou com seu aplicativo de funções. |
+    | **Nome** | mysecurestorage| O nome da conta de armazenamento à qual o ponto de extremidade privado será aplicado. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região em que você criou seu aplicativo de funções. |
 
-1. Escolha a guia **rede** e, em configurar redes virtuais, selecione **criar novo**.
+1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**.
 
-1. Em **Criar rede virtual**, use as configurações na tabela abaixo da imagem:
+### <a name="create-a-service-bus"></a>Criar um barramento de serviço
 
-    ![Guia rede de criar VM](./media/functions-create-vnet/create-vm-2.png)
+1. No menu portal do Azure ou na **Home** Page, selecione **criar um recurso**.
+
+1. Na página **novo** , procure barramento de *serviço*. Em seguida, selecione **Criar**.
+
+1. Na guia **noções básicas** , use a tabela a seguir para definir as configurações do barramento de serviço. Todas as outras configurações podem usar os valores padrão.
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Nome** | myResourceGroup-vnet | Use o nome padrão gerado para a rede virtual. |
-    | **Intervalo de endereços** | 10.10.0.0/16 | Use um só intervalo de endereços para a rede virtual. |
-    | **Nome da sub-rede** | Tutorial-Net | Nome da sub-rede. |
-    | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define o número de interfaces que podem ser adicionadas à sub-rede. Essa sub-rede é usada pelo site do WordPress.  Uma `/24` sub-rede fornece endereços de host de 254. |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que você criou com seu aplicativo de funções. |
+    | **Nome** | myServiceBus| O nome do barramento de serviço ao qual o ponto de extremidade privado será aplicado. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região em que você criou seu aplicativo de funções. |
+    | **Tipo de preço** | Premium | Escolha esta camada para usar pontos de extremidade privados com o barramento de serviço do Azure. |
 
-1. Selecione **OK** para criar a rede virtual.
+1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**.
 
-1. De volta à guia **rede** , escolha **nenhum** para **IP público**.
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Escolha a guia **Gerenciamento** e, em **conta de armazenamento de diagnóstico**, escolha a conta de armazenamento que você criou com seu aplicativo de funções.
+Os recursos do Azure neste tutorial se integram ao ou são colocados em uma rede virtual. Você usará pontos de extremidade privados para conter o tráfego de rede na rede virtual.
 
-1. Selecione **Examinar + criar**. Depois de concluir a validação, selecione **Criar**. O processo de criação da VM leva alguns minutos. A VM criada só pode acessar a rede virtual.
+O tutorial cria duas sub-redes:
+- **Default**: sub-rede para pontos de extremidade privados. Os endereços IP privados são fornecidos por essa sub-rede.
+- **funções**: sub-rede para Azure Functions integração de rede virtual. Essa sub-rede é delegada para o aplicativo de funções.
 
-1. Depois que a VM for criada, escolha **ir para o recurso** para exibir a página de sua nova VM e, em seguida, escolha **rede** em **configurações**.
+Crie a rede virtual para a qual o aplicativo de funções se integra:
 
-1. Verifique se não há um **IP público**. Anote o **IP privado**, que você usa para se conectar à VM do seu aplicativo de funções.
+1. No menu portal do Azure ou na **Home** Page, selecione **criar um recurso**.
 
-    ![Configurações de rede na VM](./media/functions-create-vnet/vm-networking.png)
+1. Na **nova** página, procure *rede virtual*. Em seguida, selecione **Criar**.
 
-Agora você tem um site do WordPress implantado inteiramente em sua rede virtual. Esse site não pode ser acessado pela Internet pública.
+1. Na guia **noções básicas** , use a tabela a seguir para definir as configurações de rede virtual.
 
-## <a name="connect-your-function-app-to-the-virtual-network"></a>Conectar seu aplicativo de funções à rede virtual
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que você criou com seu aplicativo de funções. |
+    | **Nome** | myVirtualNet| O nome da rede virtual à qual seu aplicativo de funções se conectará. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região em que você criou seu aplicativo de funções. |
 
-Com um site do WordPress em execução em uma VM em uma rede virtual, agora você pode conectar seu aplicativo de funções a essa rede virtual.
+1. Na guia **endereços IP** , selecione **Adicionar sub-rede**. Use a tabela a seguir para definir as configurações de sub-rede.
 
-1. Em seu novo aplicativo de funções, selecione **rede** no menu à esquerda.
+    :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="Captura de tela da exibição criar configuração de rede virtual.":::
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Nome da sub-rede** | funções | O nome da sub-rede à qual seu aplicativo de funções se conectará. | 
+    | **Intervalo de endereços da sub-rede** | 10.0.1.0/24 | O intervalo de endereços da sub-rede. Na imagem anterior, observe que o espaço de endereço IPv4 é 10.0.0.0/16. Se o valor fosse 10.1.0.0/16, o intervalo de endereços de sub-rede recomendado seria 10.1.1.0/24. |
+
+1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**.
+
+## <a name="lock-down-your-storage-account"></a>Bloquear sua conta de armazenamento
+
+Os pontos de extremidade privados do Azure são usados para se conectar a recursos específicos do Azure usando um endereço IP privado. Essa conexão garante que o tráfego de rede permaneça dentro da rede virtual escolhida e o acesso esteja disponível somente para recursos específicos. 
+
+Crie pontos de extremidade privados para armazenamento de arquivos do Azure e armazenamento de BLOBs do Azure usando sua conta de armazenamento:
+
+1. Em sua nova conta de armazenamento, no menu à esquerda, selecione **rede**.
+
+1. Na guia **conexões do ponto de extremidade privado** , selecione **ponto de extremidade privado**.
+
+    :::image type="content" source="./media/functions-create-vnet/2-navigate-private-endpoint-store.png" alt-text="Captura de tela de como criar pontos de extremidade privados para a conta de armazenamento.":::
+
+1. Na guia **noções básicas** , use as configurações de ponto de extremidade particular mostradas na tabela a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha o grupo de recursos que você criou com seu aplicativo de funções. | |
+    | **Nome** | ponto de extremidade de arquivo | O nome do ponto de extremidade privado para arquivos da sua conta de armazenamento. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | Escolha a região em que você criou sua conta de armazenamento. |
+
+1. Na guia **recurso** , use as configurações do ponto de extremidade privado mostradas na tabela a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.Storage/storageAccounts | O tipo de recurso para contas de armazenamento. |
+    | **Recurso** | mysecurestorage | A conta de armazenamento que você criou. |
+    | **Sub-recurso de destino** | arquivo | O ponto de extremidade privado que será usado para arquivos da conta de armazenamento. |
+
+1. Na guia **configuração** , para a configuração **sub-rede** , escolha **padrão**.
+
+1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**. Os recursos na rede virtual agora podem se comunicar com os arquivos de armazenamento.
+
+1. Crie outro ponto de extremidade privado para BLOBs. Na guia **recursos** , use as configurações mostradas na tabela a seguir. Para todas as outras configurações, use os mesmos valores que você usou para criar o ponto de extremidade privado para arquivos.
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.Storage/storageAccounts | O tipo de recurso para contas de armazenamento. |
+    | **Recurso** | mysecurestorage | A conta de armazenamento que você criou. |
+    | **Sub-recurso de destino** | blob | O ponto de extremidade privado que será usado para BLOBs da conta de armazenamento. |
+
+## <a name="lock-down-your-service-bus"></a>Bloquear o barramento de serviço
+
+Crie o ponto de extremidade privado para bloquear seu barramento de serviço:
+
+1. No novo barramento de serviço, no menu à esquerda, selecione **rede**.
+
+1. Na guia **conexões do ponto de extremidade privado** , selecione **ponto de extremidade privado**.
+
+    :::image type="content" source="./media/functions-create-vnet/3-navigate-private-endpoint-service-bus.png" alt-text="Captura de tela de como ir para pontos de extremidade privados para o barramento de serviço.":::
+
+1. Na guia **noções básicas** , use as configurações de ponto de extremidade particular mostradas na tabela a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que você criou com seu aplicativo de funções. |
+    | **Nome** | SB-ponto de extremidade | O nome do ponto de extremidade privado para arquivos da sua conta de armazenamento. |
+    | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região em que você criou sua conta de armazenamento. |
+
+1. Na guia **recurso** , use as configurações do ponto de extremidade privado mostradas na tabela a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
+    | **Tipo de recurso**  | Microsoft.ServiceBus/namespaces | O tipo de recurso para o barramento de serviço. |
+    | **Recurso** | myServiceBus | O barramento de serviço criado anteriormente no tutorial. |
+    | **Sub-recurso de destino** | namespace | O ponto de extremidade privado que será usado para o namespace do barramento de serviço. |
+
+1. Na guia **configuração** , para a configuração **sub-rede** , escolha **padrão**.
+
+1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**. 
+
+Os recursos na rede virtual agora podem se comunicar com o barramento de serviço.
+
+## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivo
+
+1. Na conta de armazenamento que você criou, no menu à esquerda, selecione **compartilhamentos de arquivos**.
+
+1. Selecione **+ compartilhamentos de arquivos**. Para os fins deste tutorial, nomeie os *arquivos* de compartilhamento de arquivo.
+
+    :::image type="content" source="./media/functions-create-vnet/4-create-file-share.png" alt-text="Captura de tela de como criar um compartilhamento de arquivos na conta de armazenamento.":::
+
+1. Selecione **Criar**.
+
+## <a name="get-the-storage-account-connection-string"></a>Obter a cadeia de conexão da conta de armazenamento
+
+1. Na conta de armazenamento que você criou, no menu à esquerda, selecione **chaves de acesso**.
+
+1. Selecione **Mostrar chaves**. Copie e salve a cadeia de conexão da **key1**. Você precisará dessa cadeia de conexão ao definir as configurações do aplicativo.
+
+    :::image type="content" source="./media/functions-create-vnet/5-get-store-connection-string.png" alt-text="Captura de tela de como obter uma cadeia de conexão da conta de armazenamento.":::
+
+## <a name="create-a-queue"></a>Criar uma fila
+
+Crie a fila onde o gatilho do barramento de serviço Azure Functions receberá eventos:
+
+1. No barramento de serviço, no menu à esquerda, selecione **filas**.
+
+1. Selecione **Políticas de acesso compartilhado**. Para os fins deste tutorial, nomeie a *fila* de lista.
+
+    :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Captura de tela de como criar uma fila do barramento de serviço.":::
+
+1. Selecione **Criar**.
+
+## <a name="get-a-service-bus-connection-string"></a>Obter uma cadeia de conexão do barramento de serviço
+
+1. No barramento de serviço, no menu à esquerda, selecione políticas de **acesso compartilhado**.
+
+1. Selecione **RootManageSharedAccessKey**. Copie e salve a **cadeia de conexão primária**. Você precisará dessa cadeia de conexão ao definir as configurações do aplicativo.
+
+    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Captura de tela de como obter uma cadeia de conexão do barramento de serviço.":::
+
+## <a name="integrate-the-function-app"></a>Integrar o aplicativo de funções
+
+Para usar seu aplicativo de funções com redes virtuais, você precisa associá-la a uma sub-rede. Você usará uma sub-rede específica para a integração de rede virtual Azure Functions. Você usará a sub-rede padrão para outros pontos de extremidade privados criados neste tutorial.
+
+1. Em seu aplicativo de funções, no menu à esquerda, selecione **rede**.
 
 1. Em **Integração VNET**, selecione **Clique aqui para configurar**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Escolher rede no aplicativo de funções":::
+    :::image type="content" source="./media/functions-create-vnet/8-connect-app-vnet.png" alt-text="Captura de tela de como ir para a integração de rede virtual.":::
 
-1. Na página **integração VNET** , selecione **Adicionar VNET**.
+1. Selecione **Adicionar VNet**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Adicionar a visualização de integração de VNet":::
+1. Em **rede virtual**, selecione a rede virtual que você criou anteriormente.
 
-1. Em **status do recurso de rede**, use as configurações na tabela abaixo da imagem:
+1. Selecione a sub-rede do **Functions** que você criou anteriormente. Seu aplicativo de funções agora está integrado à sua rede virtual!
 
-    ![Definir a rede virtual do aplicativo de funções](./media/functions-create-vnet/networking-3.png)
+    :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Captura de tela de como conectar um aplicativo de funções a uma sub-rede.":::
+
+## <a name="configure-your-function-app-settings"></a>Definir as configurações do aplicativo de funções
+
+1. Em seu aplicativo de funções, no menu à esquerda, selecione **configuração**.
+
+1. Para usar seu aplicativo de funções com redes virtuais, atualize as configurações do aplicativo mostradas na tabela a seguir. Para adicionar ou editar uma configuração, selecione **+ nova configuração de aplicativo** ou o ícone **Editar** na coluna mais à direita da tabela configurações do aplicativo. Quando terminar, selecione **Salvar**.
+
+    :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Captura de tela de como definir as configurações do aplicativo de funções para pontos de extremidade privados.":::
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Rede Virtual** | MyResource-vnet | Essa rede virtual é aquela que você criou anteriormente. |
-    | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para uso do seu aplicativo de funções. A integração VNet deve ser configurada para usar uma sub-rede vazia. Não importa que suas funções usem uma sub-rede diferente da VM. A rede virtual roteia automaticamente o tráfego entre as duas sub-redes. |
-    | **Nome da sub-rede** | Function-Net | Nome da nova sub-rede. |
-    | **Bloco de endereço de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereço usado pelo site do WordPress. Você deve ter apenas um bloco de endereço definido. |
-    | **Intervalo de endereços** | 10.10.2.0/24   | O tamanho da sub-rede restringe o número total de instâncias para as quais seu aplicativo de funções de plano Premium pode ser expandido. Este exemplo usa uma `/24` sub-rede com 254 endereços de host disponíveis. Essa sub-rede está excessivamente provisionada, mas fácil de calcular. |
+    | **AzureWebJobsStorage** | mysecurestorageConnectionString | A cadeia de conexão da conta de armazenamento que você criou. Essa cadeia de conexão de armazenamento é da seção [obter a cadeia de conexão da conta de armazenamento](#get-the-storage-account-connection-string) . Essa configuração permite que seu aplicativo de funções use a conta de armazenamento seguro para operações normais em tempo de execução. | 
+    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | A cadeia de conexão da conta de armazenamento que você criou. Essa configuração permite que seu aplicativo de funções use a conta de armazenamento seguro para arquivos do Azure, que é usada durante a implantação. |
+    | **WEBSITE_CONTENTSHARE** | files | O nome do compartilhamento de arquivos que você criou na conta de armazenamento. Use essa configuração com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
+    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Crie essa configuração de aplicativo para a cadeia de conexão do seu barramento de serviço. Essa cadeia de conexão de armazenamento é da seção [obter uma cadeia de conexão do barramento de serviço](#get-a-service-bus-connection-string) .|
+    | **WEBSITE_CONTENTOVERVNET** | 1 | Crie essa configuração de aplicativo. Um valor de 1 permite que seu aplicativo de funções seja dimensionado quando sua conta de armazenamento é restrita a uma rede virtual. |
+    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Crie essa configuração de aplicativo. Quando seu aplicativo se integra a uma rede virtual, ele usará o mesmo servidor DNS que a rede virtual. Seu aplicativo de funções precisa dessa configuração para que possa trabalhar com as zonas privadas do DNS do Azure. É necessário quando você usa pontos de extremidade privados. Essa configuração e WEBSITE_VNET_ROUTE_ALL enviarão todas as chamadas de saída do seu aplicativo para sua rede virtual. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Crie essa configuração de aplicativo. Quando seu aplicativo se integra a uma rede virtual, ele usa o mesmo servidor DNS que a rede virtual. Seu aplicativo de funções precisa dessa configuração para que possa trabalhar com as zonas privadas do DNS do Azure. É necessário quando você usa pontos de extremidade privados. Essa configuração e WEBSITE_DNS_SERVER enviarão todas as chamadas de saída do seu aplicativo para sua rede virtual. |
 
-1. Selecione **OK** para adicionar a sub-rede. Feche as páginas **integração VNet** e **status do recurso de rede** para retornar à página do aplicativo de funções.
+1. Na exibição **configuração** , selecione a guia **configurações de tempo de execução da função** .
 
-O aplicativo de funções agora pode acessar a rede virtual onde o site do WordPress está em execução. Em seguida, você usa [proxies do Azure Functions](functions-proxies.md) para retornar um arquivo do site do WordPress.
+1. Defina **monitoramento de escala de tempo de execução** como **ativado**. Em seguida, selecione **Salvar**. O dimensionamento controlado por tempo de execução permite que você conecte funções de gatilho não HTTP a serviços que são executados dentro de sua rede virtual.
 
-## <a name="create-a-proxy-to-access-vm-resources"></a>Criar um proxy para acessar os recursos da VM
+    :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Captura de tela de como habilitar o dimensionamento controlado por tempo de execução para Azure Functions.":::
 
-Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo de funções para encaminhar solicitações para a VM em execução na rede virtual.
+## <a name="deploy-a-service-bus-trigger-and-http-trigger"></a>Implantar um gatilho do barramento de serviço e um gatilho HTTP
 
-1. Em seu aplicativo de funções, selecione  **proxies** no menu à esquerda e, em seguida, selecione **Adicionar**. Use as configurações de proxy na tabela abaixo da imagem:
+1. No GitHub, vá para o repositório de exemplo a seguir. Ele contém um aplicativo de funções e duas funções, um gatilho HTTP e um gatilho de fila do barramento de serviço.
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definir as configurações de proxy":::
+    <https://github.com/Azure-Samples/functions-vnet-tutorial>
 
-    | Configuração  | Valor sugerido  | Descrição      |
-    | -------- | ---------------- | ---------------- |
-    | **Nome** | PlAnT | O nome pode ser qualquer valor. Ele é usado para identificar o proxy. |
-    | **Modelo de rota** | /plant | Rota que mapeia para um recurso de VM. |
-    | **URL do back-end** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Substitua `<YOUR_VM_IP>` pelo endereço IP da sua VM do WordPress que você criou anteriormente. Esse mapeamento retorna um único arquivo do site. |
+1. Na parte superior da página, selecione **bifurcação** para criar uma bifurcação desse repositório em sua própria conta ou organização do github.
 
-1. Selecione **criar** para adicionar o proxy ao seu aplicativo de funções.
+1. Em seu aplicativo de funções, no menu à esquerda, selecione **central de implantação**. Em seguida, selecione **configurações**.
 
-## <a name="try-it-out"></a>Experimente
+1. Na guia **configurações** , use as configurações de implantação mostradas na tabela a seguir.
 
-1. No navegador, tente acessar a URL usada como a **URL de back-end**. Conforme esperado, a solicitação atinge o tempo limite. Um tempo limite ocorre porque o site do WordPress está conectado somente à sua rede virtual e não à Internet.
+    | Configuração      | Valor sugerido  | Descrição      |
+    | ------------ | ---------------- | ---------------- |
+    | **Origem** | GitHub | Você deve ter criado um repositório GitHub para o código de exemplo na etapa 2. | 
+    | **Organização**  | myOrganization | A organização na qual o seu repositório está verificado. Em geral, é sua conta. |
+    | **Repositório** | myrepositório | O repositório que você criou para o código de exemplo. |
+    | **Branch** | main | A ramificação principal do repositório que você criou. |
+    | **Pilha de runtime** | .NET | O código de exemplo está em C#. |
 
-1. Copie o valor da **URL do proxy** do seu novo proxy e cole-o na barra de endereços do seu navegador. A imagem retornada é do site do WordPress em execução dentro de sua rede virtual.
+1. Clique em **Salvar**. 
 
-    ![Arquivo de imagem de fábrica retornado do site do WordPress](./media/functions-create-vnet/plant.png)
+    :::image type="content" source="./media/functions-create-vnet/12-deploy-portal.png" alt-text="Captura de tela de como implantar código Azure Functions por meio do Portal.":::
 
-Seu aplicativo de funções está conectado à Internet e à sua rede virtual. O proxy está recebendo uma solicitação pela Internet pública e, em seguida, agindo como um proxy HTTP simples para encaminhar essa solicitação para a rede virtual conectada. Em seguida, o proxy transmite a resposta de volta para você publicamente pela Internet.
+1. A implantação inicial pode levar alguns minutos. Quando seu aplicativo for implantado com êxito, na guia **logs** , você verá uma mensagem de status **êxito (ativa)** . Se necessário, atualize a página.
+
+Parabéns! Você implantou com êxito o aplicativo de funções de exemplo.
+
+## <a name="lock-down-your-function-app"></a>Bloquear seu aplicativo de funções
+
+Agora, crie o ponto de extremidade privado para bloquear seu aplicativo de funções. Esse ponto de extremidade privado conectará seu aplicativo de funções de forma privada e segura à sua rede virtual usando um endereço IP privado. 
+
+Para obter mais informações, consulte a [documentação do ponto de extremidade particular](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+1. Em seu aplicativo de funções, no menu à esquerda, selecione **rede**.
+
+1. Em **conexões de ponto de extremidade privado**, selecione **configurar suas conexões de ponto de extremidade privado**.
+
+    :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Captura de tela de como navegar para um ponto de extremidade particular do aplicativo de funções.":::
+
+1. Selecione **Adicionar**.
+
+1. No painel que é aberto, use as seguintes configurações de ponto de extremidade privado:
+
+    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Captura de tela de como criar um ponto de extremidade particular do aplicativo de funções. O nome é functionapp-Endpoint. A assinatura é ' Private Test sub CACHHAI '. A rede virtual é MyVirtualNet-tutorial. A sub-rede é padrão.":::
+
+1. Selecione **OK** para adicionar o ponto de extremidade privado. 
+ 
+Parabéns! Você protegeu com êxito seu aplicativo de funções, barramento de serviço e conta de armazenamento adicionando pontos de extremidade privados!
+
+### <a name="test-your-locked-down-function-app"></a>Testar seu aplicativo de funções bloqueados
+
+1. No aplicativo de funções, no menu à esquerda, selecione **funções**.
+
+1. Selecione **ServiceBusQueueTrigger**.
+
+1. No menu à esquerda, selecione **Monitor**. 
+ 
+Você verá que não é possível monitorar seu aplicativo. Seu navegador não tem acesso à rede virtual e, portanto, não pode acessar diretamente os recursos dentro da rede virtual. 
+ 
+Aqui está uma maneira alternativa de monitorar sua função usando Application Insights:
+
+1. No aplicativo de funções, no menu à esquerda, selecione **Application insights**. Em seguida, selecione **exibir dados de Application insights**.
+
+    :::image type="content" source="./media/functions-create-vnet/16-app-insights.png" alt-text="Captura de tela de como exibir o Application insights para um aplicativo de funções.":::
+
+1. No menu à esquerda, selecione **métricas em tempo real**.
+
+1. Abra uma nova guia. No barramento de serviço, no menu à esquerda, selecione **filas**.
+
+1. Selecione sua fila.
+
+1. No menu à esquerda, selecione Gerenciador do **barramento de serviço**. Em **Enviar**, para **tipo de conteúdo**, escolha **texto/simples**. Em seguida, insira uma mensagem. 
+
+1. Selecione **Enviar** para enviar a mensagem.
+
+    :::image type="content" source="./media/functions-create-vnet/17-send-service-bus-message.png" alt-text="Captura de tela de como enviar mensagens do barramento de serviço usando o Portal.":::
+
+1. Na guia **métricas ao vivo** , você deve ver que o gatilho de fila do barramento de serviço foi acionado. Se não tiver, reenvie a mensagem do **Gerenciador do barramento de serviço**.
+
+    :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Captura de tela de como exibir mensagens usando métricas em tempo real para aplicativos de funções.":::
+
+Parabéns! Você testou com êxito a configuração do aplicativo de funções com pontos de extremidade privados.
+
+## <a name="understand-private-dns-zones"></a>Entender as zonas DNS privadas
+Você usou um ponto de extremidade privado para se conectar aos recursos do Azure. Você está se conectando a um endereço IP privado em vez do ponto de extremidade público. Os serviços existentes do Azure são configurados para usar um DNS existente para se conectar ao ponto de extremidade público. Você deve substituir a configuração de DNS para se conectar ao ponto de extremidade privado.
+
+Uma zona DNS privada é criada para cada recurso do Azure que foi configurado com um ponto de extremidade privado. Um registro DNS é criado para cada endereço IP privado associado ao ponto de extremidade privado.
+
+As seguintes zonas DNS foram criadas neste tutorial:
+
+- privatelink.file.core.windows.net
+- privatelink.blob.core.windows.net
+- privatelink.servicebus.windows.net
+- privatelink.azurewebsites.net
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, o site do WordPress serve como uma API que é chamada usando um proxy no aplicativo de funções. Esse cenário faz um bom tutorial porque é fácil de configurar e Visualizar. Você pode usar qualquer outra API implantada em uma rede virtual. Você também pode ter criado uma função com código que chama APIs implantadas na rede virtual. Um cenário mais realista é uma função que usa APIs de cliente de dados para chamar uma instância de SQL Server implantada na rede virtual.
+Neste tutorial, você criou um aplicativo de funções Premium, uma conta de armazenamento e um barramento de serviço. Você protegeu todos esses recursos por trás de pontos de extremidade privados. 
 
-As funções em execução em um plano Premium compartilham a mesma infraestrutura de serviço de aplicativo subjacente que aplicativos Web em planos de PremiumV2. Toda a documentação dos [aplicativos Web no serviço Azure app](../app-service/overview.md) se aplica às suas funções de plano Premium.
+Use os links a seguir para saber mais sobre os recursos de rede disponíveis:
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as opções de rede do Functions](./functions-networking-options.md)
+> [Opções de rede no Azure Functions](./functions-networking-options.md)
 
-[Plano Premium]: functions-premium-plan.md
+
+> [!div class="nextstepaction"]
+> [Azure Functions plano Premium](./functions-premium-plan.md)

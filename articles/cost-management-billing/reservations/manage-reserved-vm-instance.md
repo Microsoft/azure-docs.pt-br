@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 02/09/2021
 ms.author: banders
-ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562966"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392265"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -35,7 +35,7 @@ Para ver um Pedido de Reserva, acesse **Reservas** > selecione a reserva e escol
 
 ![Exemplo dos detalhes do pedido de reserva mostrando a ID do pedido de reserva ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-Uma reserva herda permissões de seu pedido de reserva.
+Uma reserva herda permissões de seu pedido de reserva. Para trocar ou reembolsar uma reserva, o usuário deve ser adicionado à ordem de reserva.
 
 ## <a name="change-the-reservation-scope"></a>Alterar o escopo da reserva
 

@@ -8,16 +8,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805522"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517864"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solução de problemas de sincronização de nuvem
 
-A sincronização de nuvem atinge muitas coisas diferentes e tem várias dependências diferentes. Esse escopo amplo pode dar ao aumento de vários problemas. Este artigo ajuda você a solucionar esses problemas. Ele apresenta as áreas típicas para você se concentrar, como reunir informações adicionais e as várias técnicas que você pode usar para rastrear problemas.
+A sincronização em nuvem atinge muitos pontos diferentes e tem várias dependências diferentes. Esse escopo amplo pode causar vários problemas. Este artigo ajuda você a solucionar esses problemas. Ela mostra as áreas típicas para você se concentrar, como reunir informações adicionais e as várias técnicas que você pode usar para rastrear problemas.
 
 
 ## <a name="common-troubleshooting-areas"></a>Áreas de solução de problemas comuns
@@ -120,7 +120,7 @@ Você pode receber uma mensagem de erro ao instalar o agente de provisionamento 
 
 Esse problema é geralmente causado pelo agente não poder executar os scripts de registro do PowerShell devido a políticas de execução do PowerShell local.
 
-Para resolver esse problema, altere as políticas de execução do PowerShell no servidor. Você precisa ter políticas de computador e de usuário definidas como *indefinido* ou *RemoteSigned*. Se eles estiverem definidos como *irrestrito*, você verá esse erro. Para obter mais informações, consulte [políticas de execução do PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Para resolver esse problema, altere as políticas de execução do PowerShell no servidor. Você precisa ter políticas de computador e de usuário definidas como *indefinido* ou *RemoteSigned*. Se eles estiverem definidos como *irrestrito*, você verá esse erro. Para obter mais informações, consulte [políticas de execução do PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Arquivos de log
 
@@ -176,7 +176,7 @@ Clicar com o botão direito do mouse no status abrirá opções adicionais:
 
 
 ### <a name="resolve-a-quarantine"></a>Resolver uma quarentena
-Há duas maneiras diferentes de resolver uma quarentena.  Eles são:
+Há duas maneiras diferentes de resolver uma quarentena.  Elas são:
 
   - limpar quarentena-limpa a marca-d ' água e executa uma sincronização Delta
   - reiniciar o trabalho de provisionamento-limpa a marca-d ' água e executa uma sincronização inicial

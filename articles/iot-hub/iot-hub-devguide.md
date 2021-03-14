@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1fcf560ba1fef137a28ab1872635cc2182cd07e1
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735933"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009191"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia do desenvolvedor do Hub IoT do Azure
 
@@ -56,7 +56,7 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 
 * [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md) descreve o modelo de segurança usado para conceder acesso à funcionalidade do Hub IoT para componentes de dispositivos e da nuvem. O artigo inclui informações sobre como usar tokens e certificados X.509, e os detalhes das permissões que você pode conceder.
 
-* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivos gêmeos* . O artigo também descreve a funcionalidade que o dispositivo gêmeos expõe, como a sincronização de um dispositivo com seu dispositivo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivos gêmeos*. O artigo também descreve a funcionalidade que o dispositivo gêmeos expõe, como a sincronização de um dispositivo com seu dispositivo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
 
 * [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md) descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos em um dispositivo de seu aplicativo de back-end e manipular o método direto no seu dispositivo.
 
@@ -75,5 +75,3 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 * [Referência – SDKs de dispositivo e serviço](iot-hub-devguide-sdks.md) lista os SDKs do IoT do Azure para o desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT. O artigo inclui links para documentação online da API.
 
 * [Referência - Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece informações detalhadas sobre como o Hub IoT oferece suporte ao protocolo MQTT. O artigo descreve o suporte para o protocolo MQTT interno para os SDKs do IoT do Azure e fornece informações sobre como usar o protocolo MQTT diretamente.
-
-* [Glossário](iot-hub-devguide-glossary.md) uma lista de termos comuns relacionados ao Hub IoT.

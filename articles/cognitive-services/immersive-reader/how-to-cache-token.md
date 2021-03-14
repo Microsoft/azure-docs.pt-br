@@ -6,16 +6,16 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: metang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: fd92de3bc5f306cd5ebbcd80b9f1d92af3a9e45d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e79ae3914e32038e2823fb37e3eee658c95e0003
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633308"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608760"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Como armazenar em cache o token de autenticação
 

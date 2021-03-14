@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 1f3c4ef56feb77e9b01375b8b5dbdb567f5bfadb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599357"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179962"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Retorna um valor booliano dependendo se uma cadeia de caracteres específica corresponde a um padrão especificado. Um padrão pode incluir caracteres normais e curingas. Você pode escrever consultas logicamente equivalentes usando a `LIKE` palavra-chave ou a função de sistema [RegexMatch](sql-query-regexmatch.md) . Você observará a mesma utilização de índice, independentemente de qual delas escolher. Portanto, você deve usar `LIKE` se preferir sua sintaxe mais do que expressões regulares.
 
 > [!NOTE]
-> Como `LIKE` o pode utilizar um índice, você deve [criar um índice de intervalo](indexing-policy.md) para as propriedades que você está comparando usando `LIKE` .
+> Como `LIKE` o pode utilizar um índice, você deve [criar um índice de intervalo](./index-policy.md) para as propriedades que você está comparando usando `LIKE` .
 
 Você pode usar os seguintes caracteres curinga com LIKE:
 
@@ -135,7 +135,7 @@ FROM c
 WHERE c.description LIKE "%fruit%"
 ```
 
-Se você usar apenas um `%` caractere no início do padrão, retornará apenas itens com uma descrição iniciada com `fruit` :
+Se você usar apenas um `%` caractere no final do padrão, retornará apenas itens com uma descrição iniciada com `fruit` :
 
 ```sql
 SELECT *

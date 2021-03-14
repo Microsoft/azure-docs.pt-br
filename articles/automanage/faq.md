@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696169"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688001"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
@@ -27,7 +27,7 @@ Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azu
 **Quais são os pré-requisitos necessários para habilitar o autogerenciamento do Azure?**
 
 Veja a seguir os pré-requisitos para habilitar o autogerenciamento do Azure:
-- Somente VMs do Windows Server
+- [Versões do Windows Server](automanage-windows-server.md#supported-windows-server-versions) e [distribuições Linux](automanage-linux.md#supported-linux-distributions-and-versions) com suporte
 - As VMs devem estar em uma região com suporte
 - O usuário deve ter as permissões corretas
 - Somente VMs de conjunto sem escala
@@ -42,12 +42,12 @@ Se você estiver usando uma nova conta de autogerenciamento ao habilitar o, deve
 
 **Quais regiões têm suporte?**
 
-As VMs nas seguintes regiões têm suporte: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central, leste do Japão.
+A lista completa de regiões com suporte está disponível [aqui](./automanage-virtual-machines.md#supported-regions).
 
 
 **Quais recursos o Azure autogerenci automatiza?**
 
-O autogerencie registra, configura e monitora durante todo o ciclo de vida da VM os serviços listados [aqui](virtual-machines-best-practices.md).
+O autogerencie registra, configura e monitora durante todo o ciclo de vida da VM os serviços listados [aqui](automanage-virtual-machines.md).
 
 **O Azure autogerenci funciona com VMs habilitadas para Arc do Azure?**
 
@@ -55,12 +55,12 @@ O autogerenci atualmente não dá suporte a VMs habilitadas para Arc.
 
 **Posso personalizar as configurações no autogerenciamento do Azure?**
 
-Os clientes podem personalizar as configurações para serviços específicos, como retenção de backup do Azure, por meio de preferências de configuração. Para obter a lista completa de configurações que podem ser alteradas, consulte nossa documentação [aqui](virtual-machines-best-practices.md).
+Os clientes podem personalizar as configurações para serviços específicos, como retenção de backup do Azure, por meio de preferências de configuração. Para obter a lista completa de configurações que podem ser alteradas, consulte nossa documentação [aqui](automanage-virtual-machines.md#customizing-an-environment-using-preferences).
 
 
 **O Azure autogerenci funciona com VMs Linux e Windows?**
 
-Atualmente, o autogerenci oferece suporte a VMs do Azure do Windows Server.
+Sim, consulte as versões com suporte do [Windows Server](automanage-windows-server.md#supported-windows-server-versions) e [Linux distribuições](automanage-linux.md#supported-linux-distributions-and-versions).
 
 
 **Posso aplicar a autogerenciamento de forma seletiva somente em um conjunto de VMs?**
@@ -80,7 +80,7 @@ O autogerenciamento do Azure está disponível sem custo adicional na visualiza�
 
 **Posso aplicar o autogerenciamento por meio da política do Azure?**
 
-Sim, temos uma política interna que aplicará automaticamente a autogerenciamento a todas as VMs em seu escopo definido. Você também especificará o perfil de configuração (DevTest ou produção) junto com sua conta de autogerenciamento. Saiba mais sobre como habilitar o autogerenciamento por meio da política do Azure [aqui](virtual-machines-policy-enable.md).
+Sim, temos uma política interna que aplicará automaticamente a autogerenciamento a todas as VMs em seu escopo definido. Você também especificará a configuração de ambiente (DevTest ou produção) junto com sua conta de autogerenciamento. Saiba mais sobre como habilitar o autogerenciamento por meio da política do Azure [aqui](virtual-machines-policy-enable.md).
 
 
 **O que é uma conta de autogerenciamento?**
@@ -93,9 +93,9 @@ A conta de autogerenciamento é uma MSI (Identidade de Serviço Gerenciada) que 
 Se sua VM estiver vinculada a um espaço de trabalho Log Analytics existente, usaremos esse espaço de trabalho para aplicar essas soluções: Controle de Alterações, inventário e Gerenciamento de Atualizações. Todas as VMs conectadas a esse espaço de trabalho terão essas soluções habilitadas.
 
 
-**Posso alterar o perfil de configuração da minha VM?**
+**Posso alterar o ambiente da minha VM?**
 
-Neste momento, você precisará desabilitar o autogerenci para essa VM e, em seguida, reabilitar o autogerenci com o perfil de configuração desejado e as preferências.
+Neste momento, você precisará desabilitar o autogerenci para essa VM e, em seguida, reabilitar o autogerenci com o ambiente e as preferências desejadas.
 
 
 **Se minha VM já estiver configurada para um serviço, como Gerenciamento de Atualizações, o autoconfigurável a reconfigurará?**

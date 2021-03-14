@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26c4e154deec02b0642e6c131ced50acb02f9899
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb97ed6e43f70db4cce6a6f8013c8669a6a62a78
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98951506"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448074"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Weibo usando o Azure Active Directory B2C
 
@@ -32,19 +32,19 @@ ms.locfileid: "98951506"
 
 ## <a name="create-a-weibo-application"></a>Criar um aplicativo Weibo
 
-Para habilitar a entrada para usuários com uma conta do Weibo no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [portal do desenvolvedor do Weibo](https://open.weibo.com/). Se você ainda não tiver uma conta do Weibo, poderá se inscrever em [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
+Para habilitar a entrada para usuários com uma conta do Weibo no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no portal do desenvolvedor do Weibo. Se você ainda não tiver uma conta do Weibo, poderá se inscrever em [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
-1. Acesse o [portal do desenvolvedor do Weibo](https://open.weibo.com/) com suas credenciais de conta do Weibo.
+1. Acesse o portal do desenvolvedor do Weibo com suas credenciais de conta do Weibo.
 1. Depois de entrar, selecione seu nome para exibição no canto superior direito.
 1. No menu suspenso, selecione **编辑开发者信息** (editar informações do desenvolvedor).
 1. Insira as informações necessárias e selecione **提交** (enviar).
 1. Conclua o processo de verificação de email.
-1. Acesse a [página de verificação de identidade](https://open.weibo.com/developers/identity/edit).
+1. Acesse a página de verificação de identidade.
 1. Insira as informações necessárias e selecione **提交** (enviar).
 
 ### <a name="register-a-weibo-application"></a>Registrar um aplicativo Weibo
 
-1. Acesse a [nova página de registro de aplicativo Weibo](https://open.weibo.com/apps/new).
+1. Acesse a nova página de registro de aplicativo Weibo.
 1. Insira as informações necessárias de aplicativo.
 1. Selecione **创建** (criar).
 1. Copie os valores de **Chave do Aplicativo** e **Segredo do Aplicativo**. Você precisa de ambos para adicionar o provedor de identidade para seu locatário.
@@ -73,10 +73,13 @@ Para habilitar a entrada para usuários com uma conta do Weibo no Azure Active D
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade Weibo.
 1. Em **provedores de identidade social**, selecione **Weibo**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Selecione o botão **executar fluxo de usuário** .
+1. Na página inscrever-se ou entrar, selecione **Weibo** para entrar com a conta do Weibo.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end
 
@@ -205,6 +208,13 @@ O perfil técnico do GitHub requer que as transformações de Declaração **Cre
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
+1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **Weibo** para entrar com a conta do Weibo.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end

@@ -3,18 +3,17 @@ title: Explorar o Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Saiba como concluir várias tarefas comuns de ciência de dados usando a Máquina Virtual de Ciência de Dados do Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517664"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Ubuntu no Azure
 
@@ -62,7 +61,7 @@ mv headers spambaseHeaders.data
 
 O conjunto de dados tem vários tipos de estatísticas para cada email:
 
-* Colunas como **word\_freq\__WORD_** indicam a porcentagem de palavras no email que correspondem a *WORD*. Por exemplo se **word\_freq\_make** is **1** , então 1% de todas as palavras no email eram *make*.
+* Colunas como **word\_freq\__WORD_** indicam a porcentagem de palavras no email que correspondem a *WORD*. Por exemplo se **word\_freq\_make** is **1**, então 1% de todas as palavras no email eram *make*.
 * Colunas como **char\_freq\__CHAR_** indicam a porcentagem de todos os caracteres no email que são *CHAR*.
 * **capital\_run\_length\_longest** é o maior comprimento de uma sequência de letras maiúsculas.
 * **capital\_run\_length\_average** é a duração média de todas as sequências de letras maiúsculas.
@@ -315,7 +314,7 @@ Vários blocos de anotações de exemplo já estão instalados na DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily) é uma ferramenta R gráfica para mineração de dados. O Rattle tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos. [Rattle: uma GUI da mineração de dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra os recursos do Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A* nalytical *T* ool *T* o *L* earn *E* asily) é uma ferramenta R gráfica para mineração de dados. O Rattle tem uma interface simples que facilita carregar, explorar e transformar os dados, compilar e avaliar os modelos. [Rattle: uma GUI da mineração de dados para o R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra os recursos do Rattle.
 
 Instale e inicie o Rattle com estes comandos:
 
@@ -346,22 +345,22 @@ Para explorar os dados:
 Você também pode usar a guia **Explorar** para gerar gráficos reveladores. Para criar gráficos com um histograma dos dados:
 
 1. Selecione **Distribuições**.
-1. Para **word_freq_remove** e **word_freq_you** , selecione **Histograma**.
+1. Para **word_freq_remove** e **word_freq_you**, selecione **Histograma**.
 1. Selecione **Executar**. Você deverá ver dois gráficos de densidade em uma janela de grafo, na qual fica claro que a palavra _você_ aparece com muito mais frequência nos emails que _remover_.
 
 Os gráficos de **correlação** também são interessantes. Para criar um gráfico:
 
-1. Em **Tipo** , selecione **Correlação**.
+1. Em **Tipo**, selecione **Correlação**.
 1. Selecione **Executar**.
 1. O Rattle avisa que ele recomenda um máximo de 40 variáveis. Selecione **Sim** para exibir a criação de gráficos.
 
-Há algumas correlações interessantes que surgem: _tecnologia_ é muito correlacionado a _HP_ e _laboratórios_ , por exemplo. Também está muito correlacionado a _650_ , porque o código de área dos doadores do conjunto de dados é 650.
+Há algumas correlações interessantes que surgem: _tecnologia_ é muito correlacionado a _HP_ e _laboratórios_, por exemplo. Também está muito correlacionado a _650_, porque o código de área dos doadores do conjunto de dados é 650.
 
 Os valores numéricos para as correlações entre as palavras estão disponíveis na janela **Explorar**. É interessante observar, por exemplo, que _tecnologia_ está negativamente correlacionado a _seu_ e _dinheiro_.
 
 O Rattle pode transformar o conjunto de dados para lidar com alguns problemas comuns. Por exemplo, ele pode redimensionar os recursos, atribuir os valores ausentes, lidar com os valores atípicos e remover as variáveis ou observações com dados faltando. O Rattle também pode identificar regras de associação entre as observações e variáveis. Essas guias não são abordadas neste passo a passos introdutório.
 
-O Rattle também pode executar análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados** , selecione **Ignorar** ao lado de cada uma das variáveis, exceto estes 10 itens:
+O Rattle também pode executar análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, selecione **Ignorar** ao lado de cada uma das variáveis, exceto estes 10 itens:
 
 * word_freq_hp
 * word_freq_technology
@@ -379,15 +378,15 @@ Retorne à guia **Cluster**. Selecione **KMeans** e, em seguida, defina o **Núm
 Para compilar um modelo de aprendizado de máquina da árvore de decisão básica:
 
 1. Selecione a guia **Modelo** ,
-1. Para o **Tipo** , selecione **Árvore**.
+1. Para o **Tipo**, selecione **Árvore**.
 1. Selecione **Executar** para exibir a árvore em formato de texto na janela de saída.
 1. Selecione o botão **Desenhar** para exibir uma versão gráfica. A árvore de decisão é semelhante à árvore obtida anteriormente usando rpart.
 
 Um dos recursos úteis do Rattle é sua capacidade de executar vários métodos de aprendizado de máquina e avaliá-los rapidamente. Estas são as etapas:
 
-1. Para **Tipo** , selecione **Todos**.
+1. Para **Tipo**, selecione **Todos**.
 1. Selecione **Executar**.
-1. Quando o Rattle terminar de ser executado, você poderá selecionar qualquer valor para **Tipo** , como **SVM** e exibir os resultados.
+1. Quando o Rattle terminar de ser executado, você poderá selecionar qualquer valor para **Tipo**, como **SVM** e exibir os resultados.
 1. Você também pode comparar o desempenho dos modelos no conjunto de validação usando a guia **Avaliar**. Por exemplo, a seleção **Matriz do Erro** mostra a matriz de confusão, erro geral e erro de classe média para cada modelo no conjunto de validação. Você também pode criar gráficos com as curvas ROC, executar a análise de sensibilidade e fazer outros tipos de avaliações do modelo.
 
 Ao terminar de compilar os modelos, selecione a guia **Log** para exibir o código do R que foi executado pelo Rattle durante a sessão. Você pode selecionar o botão **Exportar** para salvá-lo.
@@ -416,7 +415,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Altere a linha **conexões locais IPv4** para usar **md5** em vez de **ident** , para que possamos fazer logon usando um nome de usuário e senha:
+Altere a linha **conexões locais IPv4** para usar **md5** em vez de **ident**, para que possamos fazer logon usando um nome de usuário e senha:
 
 ```
 # IPv4 local connections:
@@ -462,30 +461,30 @@ CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all re
 
 Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQL, uma ferramenta gráfica usada para interagir com os bancos de dados por meio de um driver JDBC.
 
-Para começar, no menu **Aplicativos** , abra o SQuirreL SQL. Para configurar o driver:
+Para começar, no menu **Aplicativos**, abra o SQuirreL SQL. Para configurar o driver:
 
 1. Selecione **Windows** > **Exibir drivers**.
 1. Clique com o botão direito do mouse em **PostgreSQL** e selecione **Modificar driver**.
 1. Selecione **Caminho da classe extra** > **Adicionar**.
-1. Em **Nome do arquivo** , digite **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Em **Nome do arquivo**, digite **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Selecione **Abrir**.
-1. Selecione **Listar drivers**. Em **Nome da classe** , selecione **org.postgresql.Driver** e, em seguida, **OK**.
+1. Selecione **Listar drivers**. Em **Nome da classe**, selecione **org.postgresql.Driver** e, em seguida, **OK**.
 
 Para configurar a conexão com o servidor local:
 
 1. Selecione **Windows** > **Exibir aliases.**
 1. Selecione o botão **+** para criar um novo alias. No novo nome do alias, insira **Banco de dados de spam**. 
-1. Em **Driver** , selecione **PostgreSQL**.
+1. Em **Driver**, selecione **PostgreSQL**.
 1. Define a URL como **jdbc:postgresql://localhost/spam**.
 1. Insira seu nome de usuário e sua senha.
 1. Selecione **OK**.
-1. Para abrir a janela **Conexão** , clique duas vezes no alias do **Banco de dados de spam**.
+1. Para abrir a janela **Conexão**, clique duas vezes no alias do **Banco de dados de spam**.
 1. Selecione **Conectar**.
 
 Para executar algumas consultas:
 
 1. Selecione a guia **SQL** .
-1. Na caixa de consulta acima da guia **SQL** , insira uma consulta básica, como `SELECT * from data;`.
+1. Na caixa de consulta acima da guia **SQL**, insira uma consulta básica, como `SELECT * from data;`.
 1. Pressione Ctrl+Enter para executar a consulta. Por padrão, o SQuirreL SQL retorna as primeiras 100 linhas de sua consulta.
 
 Há muito mais consultas que podem ser executadas para explorar esses dados. Por exemplo, como a frequência da palavra *make* difere entre o spam e o ham?
@@ -494,7 +493,7 @@ Há muito mais consultas que podem ser executadas para explorar esses dados. Por
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-Ou, quais são as características de email que geralmente contêm *3º* ?
+Ou, quais são as características de email que geralmente contêm *3º*?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;

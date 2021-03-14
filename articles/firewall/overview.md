@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 5f12eae9345cbb1daa4097305bb85b8ceaf0b439
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681455"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547989"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -26,9 +26,17 @@ Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em n
 
 É possível criar, impor e registrar centralmente políticas de conectividade de rede e de aplicativo em assinaturas e redes virtuais. O Firewall do Azure usa um endereço IP público estático para seus recursos de rede virtual, permitindo que firewalls externos identifiquem o tráfego originário de sua rede virtual.  O serviço é totalmente integrado ao Azure Monitor para registro em log e análise.
 
-## <a name="features"></a>Recursos
-
 Para saber mais sobre os recursos do Firewall do Azure, confira [Recursos do Firewall do Azure](features.md).
+
+## <a name="azure-firewall-premium-preview"></a>Firewall do Azure Premium Versão Prévia
+
+O Firewall do Azure Premium Versão Prévia é um firewall de última geração com funcionalidades necessárias para ambientes altamente sensíveis e regulamentados. Essas funcionalidades incluem a inspeção de TLS, IDPS, filtragem de URL e categorias da Web.
+
+Para saber mais sobre os recursos do Firewall do Azure Premium Versão Prévia, confira [Firewall do Azure Premium Versão Prévia](premium-features.md).
+
+
+Para ver como o Firewall Premium Versão Prévia está configurado no portal do Azure, confira [Firewall do Azure Premium Versão Prévia no portal do Azure](premium-portal.md).
+
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 
@@ -65,10 +73,10 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |A métrica NetworkRuleHit não tem uma dimensão de protocolo|A métrica ApplicationRuleHit permite o protocolo baseado em filtragem, mas essa funcionalidade está ausente na métrica NetworkRuleHit correspondente.|Uma correção está sendo investigada.|
 |Não há suporte para regras NAT com portas entre 64000 e 65535|O Firewall do Azure permite qualquer porta no intervalo de 1 a 65535 nas regras de rede e de aplicativo, no entanto, as regras de NAT dão suporte apenas a portas no intervalo de 1 a 63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem levar cinco minutos em média|Uma atualização de configuração do Firewall do Azure pode levar de três a cinco minutos em média e não há suporte para atualizações paralelas.|Uma correção está sendo investigada.|
-|O Firewall do Azure usa cabeçalhos de TLS SNI para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou para servidores não for compatível com a extensão SNI (Indicação de Nome do Servidor), você não poderá se conectar por meio do Firewall do Azure.|Se o software do navegador ou para servidores não for compatível com a SNI, você poderá controlar a conexão usando uma regra de rede em vez de uma regra de aplicativo. Consulte [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conhecer software que seja compatível com a SNI.|
+|O Firewall do Azure usa cabeçalhos de TLS SNI para filtrar tráfego HTTPS e MSSQL|Se o navegador ou o software para servidores não der suporte à extensão SNI (Indicação de Nome do Servidor), você não poderá se conectar por meio do Firewall do Azure.|Se o navegador ou o software para servidores não der suporte à SNI, você poderá controlar a conexão usando uma regra de rede em vez de uma regra de aplicativo. Consulte [Indicação de Nome de Servidor](https://wikipedia.org/wiki/Server_Name_Indication) para conhecer software que seja compatível com a SNI.|
 |O DNS personalizado não funciona com túnel forçado|Se o túnel forçado estiver habilitado, o DNS personalizado não funcionará.|Uma correção está sendo investigada.|
 |Iniciar/Parar não funciona com um firewall configurado no modo de túnel forçado|Iniciar/Parar não funciona com um firewall do Azure configurado no modo de túnel forçado. A tentativa de iniciar o Firewall do Azure com o túnel forçado configurado resulta no seguinte erro:<br><br>*Set-AzFirewall: a configuração de IP de gerenciamento do AzureFirewall FW-xx não pode ser adicionada a um firewall existente. Reimplante com uma configuração de IP de gerenciamento se desejar usar o suporte de túnel forçado.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Sob Investigação.<br><br>Como alternativa, você pode excluir o firewall existente e criar outro com os mesmos parâmetros.|
-|Não é possível adicionar marcações de política de firewall usando o portal|A Política de Firewall do Azure tem uma limitação de suporte de patch que impede a adição de marcação usando o portal do Azure. O seguinte erro é gerado: *Não foi possível salvar as marcações para o recurso*.|Uma correção está sendo investigada. Como alternativa, você pode usar o cmdlet `Set-AzFirewallPolicy` do Azure PowerShell para atualizar as marcações.|
+|Não é possível adicionar marcações de política de firewall usando o portal|A Política de Firewall do Azure tem uma limitação de suporte de patch que impede a adição de marcação usando o portal do Azure. O seguinte erro é gerado: *Não foi possível salvar as marcações para o recurso*.|Uma correção está sendo investigada. Como alternativa, você pode usar o cmdlet `Set-AzFirewallPolicy` do Azure PowerShell para atualizar as marcas.|
 |IPv6 ainda não compatível|Se você adicionar um endereço IPv6 a uma regra, o firewall falhará.|Use somente endereços IPv4. O suporte a IPv6 está em investigação.|
 
 

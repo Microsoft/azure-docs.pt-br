@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000854"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184416"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
@@ -96,13 +96,13 @@ O Azure Load Balancer fornece conectividade de saída de uma rede virtual além 
 
 Como todas as regras do Load Balancer, regras de saída seguem a mesma sintaxe familiar que regras NAT de entrada e balanceamento de carga:
 
-***front-end IPS + parâmetros + pool de back-end** _
+***front-end IPs + parâmetros + pool de back-end***
 
 Uma regra de saída configura o NAT de saída para todas as máquinas virtuais identificadas pelo pool de back-end a serem convertidas no front-end. Os parâmetros fornecem controle refinado adicional sobre o algoritmo NAT de saída.
 
 Embora uma regra de saída possa ser usada com apenas um único endereço IP público, regras de saída aliviam a carga de configuração para o dimensionamento de NAT de saída. Você pode usar vários endereços IP para planejar cenários de grande escala e pode usar regras de saída para atenuar padrões propensos à exaustão de SNAT. Cada endereço IP adicional fornecido por um front-end fornece portas efêmeras de 64K para Load Balancer para usar como portas SNAT. 
 
-Ao usar um balanceador de carga de SKU _Standard * com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPs públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
+Ao usar um balanceador de carga SKU *padrão* com IPs públicos de saída gerenciados, que são criados por padrão, você pode dimensionar o número de IPS públicos de saída gerenciados usando o **`load-balancer-managed-ip-count`** parâmetro.
 
 Para atualizar um cluster existente, execute o comando a seguir. Esse parâmetro também pode ser definido no momento de criação do cluster para ter vários IPs públicos de saída gerenciados.
 
@@ -233,7 +233,7 @@ Para ir acima de 100 nós, você precisaria adicionar mais IPs.
 > [!IMPORTANT]
 > Você deve [calcular a cota necessária e verificar os requisitos][requirements] antes de personalizar o *allocatedOutboundPorts* para evitar problemas de conectividade ou de dimensionamento.
 
-Você também pode usar os **`load-balancer-outbound-ports`** parâmetros ao criar um cluster, mas também deve especificar qualquer um **`load-balancer-managed-outbound-ip-count`** deles **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  Por exemplo:
+Você também pode usar os **`load-balancer-outbound-ports`** parâmetros ao criar um cluster, mas também deve especificar qualquer um **`load-balancer-managed-outbound-ip-count`** deles **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  Por exemplo: 
 
 ```azurecli-interactive
 az aks create \
@@ -297,7 +297,7 @@ spec:
 ```
 
 > [!NOTE]
-> Entrada, o tráfego externo flui do balanceador de carga para a rede virtual para o cluster AKS. A rede virtual tem um NSG (grupo de segurança de rede) que permite todo o tráfego de entrada do balanceador de carga. Este NSG usa uma [marca de serviço][service-tags] do tipo Balancer para permitir o tráfego do balanceador de carga. *LoadBalancer*
+> Entrada, o tráfego externo flui do balanceador de carga para a rede virtual para o cluster AKS. A rede virtual tem um NSG (grupo de segurança de rede) que permite todo o tráfego de entrada do balanceador de carga. Este NSG usa uma [marca de serviço][service-tags] do tipo Balancer para permitir o tráfego do balanceador de carga. 
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Manter o IP do cliente em conexões de entrada
 
@@ -403,17 +403,17 @@ Saiba mais sobre como usar o Load Balancer interno para o tráfego de entrada na
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
-[az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-list
+[az-network-public-ip-show]: /cli/azure/network/public-ip#az-network-public-ip-show
+[az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md

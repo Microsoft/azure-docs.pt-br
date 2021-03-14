@@ -1,32 +1,30 @@
 ---
 title: Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados
 description: Saiba como associar sua ID de parceiro para receber o PEC (crédito ganho) do parceiro nos recursos do cliente que você gerencia por meio do Azure Lighthouse.
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985964"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372086"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados 
 
 Se você for membro da [Microsoft Partner Network](https://partner.microsoft.com/), poderá vincular sua ID de parceiro com as credenciais usadas para gerenciar recursos de cliente delegados, permitindo que a Microsoft identifique e reconheça os parceiros que impulsionam o sucesso do cliente do Azure. Esse link também permite que os parceiros [do CSP (provedor de soluções de nuvem)](/partner-center/csp-overview) recebam [crédito de contrato de serviço gerenciado (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started).
 
-Se você integrar [clientes com ofertas de serviço gerenciado no Azure Marketplace](publish-managed-services-offers.md), a vinculação ocorrerá automaticamente usando a ID de MPN associada à conta do Partner Center usada para publicar as ofertas. Nenhuma ação adicional é necessária para acompanhar o impacto desses clientes.
-
-Se você integrar [clientes usando modelos de gerenciamento de recursos do Azure](onboard-customer.md), será necessário tomar medidas para criar esse link. Isso é feito [vinculando sua ID do MPN](../../cost-management-billing/manage/link-partner-id.md) a pelo menos uma conta de usuário no seu locatário de gerenciamento que tem acesso a cada uma de suas assinaturas integradas.
+Para obter o reconhecimento das atividades do Azure Lighthouse, você precisará [vincular sua ID do MPN](../../cost-management-billing/manage/link-partner-id.md) a pelo menos uma conta de usuário no seu locatário de gerenciamento e garantir que a conta vinculada tenha acesso a cada uma de suas assinaturas integradas.
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associe sua ID de parceiro ao integrar novos clientes
 
-Ao integrar clientes por meio de modelos de Azure Resource Manager (modelos ARM), use o seguinte processo para vincular sua ID de parceiro (e habilitar crédito de parceiro obtido, se aplicável). Você precisará saber sua [ID de parceiro do MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) para concluir estas etapas. Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
+Use o processo a seguir para vincular sua ID de parceiro (e habilitar crédito de parceiro obtido, se aplicável). Você precisará saber sua [ID de parceiro do MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) para concluir estas etapas. Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
 
 Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário, vinculá-la à **ID do MPN associada** e, em seguida, conceder acesso a todos os clientes que você integrar com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
-1. [Crie uma conta de entidade de serviço](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) no seu locatário de gerenciamento. Para este exemplo, usaremos a *conta de automação do provedor* de nomes para essa entidade de serviço.
+1. [Crie uma conta de usuário de entidade de serviço](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) em seu locatário de gerenciamento. Para este exemplo, usaremos a *conta de automação do provedor* de nomes para essa conta de entidade de serviço.
 1. Usando essa conta de entidade de serviço, [vincule à sua ID de MPN associada](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) no seu locatário de gerenciamento. Você só precisa fazer isso uma vez.
-1. Ao integrar [um cliente usando modelos do ARM](onboard-customer.md), não se esqueça de incluir uma autorização que inclua a conta de automação do provedor como um usuário com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
+1. Quando você integra um cliente [usando modelos ARM](onboard-customer.md) ou [ofertas de serviço gerenciado](publish-managed-services-offers.md), certifique-se de incluir uma autorização que inclua a conta de automação do provedor como um usuário com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
 Seguindo essas etapas, todos os locatários de clientes que você gerenciar serão associados à sua ID de parceiro. A conta de automação do provedor não precisa autenticar ou executar nenhuma ação no locatário do cliente.
 

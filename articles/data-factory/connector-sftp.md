@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de e para o servidor SFTP
 description: Saiba como copiar dados de e para o servidor SFTP usando Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: c1f49fffae091dd0d069c48cea75c3da40def645
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346071"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393455"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
@@ -229,13 +224,13 @@ As propriedades a seguir têm suporte para SFTP sob as `storeSettings` configura
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpReadSettings*. | Sim                                           |
-| ***Localize os arquivos a serem copiados** _ |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de um. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `_`. |  |
+| ***Localize os arquivos a serem copiados*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de um. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
 | OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou um único caractere); use `^` para escapar se o nome real da pasta tiver um caractere curinga ou esse caractere de escape dentro. <br>Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no folderPath/wildcardFolderPath especificado para filtrar os arquivos de origem. <br>Curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou um único caractere); use `^` para escapar se o nome de arquivo real tiver curinga ou este caractere de escape dentro.  Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um conjunto de arquivos especificado. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de um).<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de um. Para obter mais exemplos, consulte [exemplos de lista de arquivos](#file-list-examples). |Não |
-| ***Configurações adicionais** _ |  | |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são _true * (padrão) e *false*.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
+| ***Configurações adicionais*** |  | |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são *true* (padrão) e *false*.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Esta propriedade só é válida no cenário de cópia de arquivos binários. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo *modificado pela última vez*. <br>Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |

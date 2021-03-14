@@ -1,20 +1,20 @@
 ---
-title: 'Início rápido: criar um serviço de vínculo privado do Azure usando o Azure PowerShell'
-description: Saiba como criar um serviço de vínculo privado do Azure usando o Azure PowerShell
+title: 'Início rápido: Criar um serviço de Link Privado do Azure usando o Azure PowerShell'
+description: Saiba como criar um serviço de Link Privado do Azure usando o Azure PowerShell
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: d48903a05a4e9b530dcd3e83e0c14c37dcc74797
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
-ms.translationtype: MT
+ms.openlocfilehash: 4780bc573796581438b8d331b1d1d9421a65414f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757518"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653237"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
+# <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de Link Privado usando o Azure PowerShell
 
 Introdução à criação de um serviço de Link Privado referente ao seu serviço.  Conceda acesso do Link Privado ao serviço ou recurso implantado por trás de um Standard Load Balancer do Azure.  Os usuários do seu serviço têm acesso privado da rede virtual deles.
 
@@ -137,9 +137,9 @@ New-AzLoadBalancer @loadbalancer
 
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Link Privado
 
-Nesta seção, crie um serviço de vínculo privado que usa o Azure Load Balancer padrão criado na etapa anterior.
+Nesta seção, crie um serviço de link privado que usa o Azure Standard Load Balancer criado na etapa anterior.
 
-* Crie a configuração de IP do serviço de vínculo privado com [New-AzPrivateLinkServiceIpConfig](/powershell/module/az.network/new-azprivatelinkserviceipconfig).
+* Crie a configuração de IP do serviço de link privado com [New-AzPrivateLinkServiceIpConfig](/powershell/module/az.network/new-azprivatelinkserviceipconfig).
 
 * Crie o serviço de link privado com [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice).
 
@@ -174,13 +174,13 @@ New-AzPrivateLinkService @privlinksettings
 
 ```
 
-Seu serviço de vínculo privado é criado e pode receber tráfego. Se você quiser ver os fluxos de tráfego, configure seu aplicativo por trás do balanceador de carga padrão.
+O seu serviço de link privado é criado e pode receber tráfego. Se você quiser ver os fluxos de tráfego, configure o seu aplicativo por trás do Standard Load Balancer.
 
 ## <a name="create-private-endpoint"></a>Criar um ponto de extremidade privado
 
-Nesta seção, você mapeará o serviço de vínculo privado para um ponto de extremidade privado. Uma rede virtual contém o ponto de extremidade privado para o serviço de vínculo privado. Essa rede virtual contém os recursos que acessarão o serviço de vínculo privado.
+Nesta seção, você mapeará o serviço de link privado para um ponto de extremidade privado. Uma rede virtual contém o ponto de extremidade privado do serviço de link privado. Essa rede virtual contém os recursos que acessarão o serviço de link privado.
 
-### <a name="create-private-endpoint-virtual-network"></a>Criar rede virtual de ponto de extremidade privado
+### <a name="create-private-endpoint-virtual-network"></a>Criar uma rede virtual do ponto de extremidade privado
 
 * Crie uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
@@ -205,7 +205,7 @@ $vnetpe = New-AzVirtualNetwork @net
 
 ```
 
-### <a name="create-endpoint-and-connection"></a>Criar ponto de extremidade e conexão
+### <a name="create-endpoint-and-connection"></a>Criar um ponto de extremidade e uma conexão
 
 * Use [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) para colocar a configuração do serviço de link privado criado no início em uma variável para uso posterior.
 
@@ -248,7 +248,7 @@ $par4 = @{
 New-AzPrivateEndpoint @par4 -ByManualRequest
 ```
 
-### <a name="approve-the-private-endpoint-connection"></a>Aprovar a conexão de ponto de extremidade particular
+### <a name="approve-the-private-endpoint-connection"></a>Aprovar a conexão de ponto de extremidade privado
 
 Nesta seção, você aprovará a conexão criada nas etapas anteriores.
 
@@ -274,7 +274,7 @@ Approve-AzPrivateEndpointConnection @par2
 
 ### <a name="ip-address-of-private-endpoint"></a>Endereço IP do ponto de extremidade privado
 
-Nesta seção, você encontrará o endereço IP do ponto de extremidade privado que corresponde ao balanceador de carga e ao serviço de vínculo privado.
+Nesta seção, você encontra o endereço IP do ponto de extremidade privado que corresponde ao balanceador de carga e ao serviço de link privado.
 
 * Use [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) para recuperar o endereço IP.
 
@@ -313,5 +313,5 @@ Neste início rápido, você:
 
 Para saber mais sobre o ponto de extremidade privado do Azure, acesse:
 > [!div class="nextstepaction"]
-> [Início rápido: criar um ponto de extremidade privado usando o Azure PowerShell](create-private-endpoint-powershell.md)
+> [Início Rápido: Criar um ponto de extremidade privado usando o Azure PowerShell](create-private-endpoint-powershell.md)
 

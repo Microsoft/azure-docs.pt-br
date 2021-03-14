@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ff805b758dce05a66764ab1ff08e53378c946362
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804925"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438175"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>VMs GPU para seu dispositivo Azure Stack Edge pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo fornece uma visão geral das VMs (máquinas virtuais) de GPU em seu dispositivo Azure Stack Edge pro. O artigo descreve como criar uma VM de GPU e, em seguida, instalar a extensão de driver de GPU para instalar os drivers de NVIDIA apropriados. Use os modelos de Azure Resource Manager para criar a VM de GPU e instalar a extensão de driver de GPU. 
 
@@ -39,8 +41,8 @@ Essa extensão dá suporte aos seguintes sistemas operacionais (OSs). Outras ver
 
 | Distribuição | Versão |
 |---|---|
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
+| Windows Server 2019 | Núcleo |
+| Windows Server 2016 | Núcleo |
 
 ### <a name="supported-os-for-gpu-extension-for-linux"></a>Sistema operacional com suporte para a extensão de GPU para Linux
 
@@ -110,8 +112,8 @@ Siga estas etapas ao implantar VMs de GPU em seu dispositivo:
 1. Depois que a VM for criada, implante a extensão de GPU usando o modelo de extensão. Para VMs do Linux, consulte [instalar extensão de GPU para Linux](#gpu-extension-for-linux) e para VMs do Windows, consulte [instalar extensão de GPU para Windows](#gpu-extension-for-windows).
 
 1. Para verificar a instalação da extensão da GPU, conecte-se à VM da GPU:
-    1. Se estiver usando uma VM do Windows, siga as etapas em [conectar-se a uma VM do Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Verifique a instalação](#verify-windows-driver-installation).
-    1. Se estiver usando uma VM do Linux, siga as etapas em [conectar-se a uma VM do Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Verifique a instalação](#verify-linux-driver-installation).
+    1. Se estiver usando uma VM do Windows, siga as etapas em [conectar-se a uma VM do Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verifique a instalação](#verify-windows-driver-installation).
+    1. Se estiver usando uma VM do Linux, siga as etapas em [conectar-se a uma VM do Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verifique a instalação](#verify-linux-driver-installation).
 
 1. Se necessário, você pode mudar a rede de computação de volta para tudo o que precisar. 
 
@@ -545,7 +547,7 @@ A saída de execução da extensão é registrada no seguinte arquivo: `/var/log
 
 Siga estas etapas para verificar a instalação do driver:
 
-1. Conecte-se à VM da GPU. Siga as instruções em [conectar-se a uma VM do Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Conecte-se à VM da GPU. Siga as instruções em [conectar-se a uma VM do Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Aqui está uma amostra de saída:
 

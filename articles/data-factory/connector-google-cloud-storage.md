@@ -1,21 +1,17 @@
 ---
 title: Copiar dados do Google Cloud Storage usando Azure Data Factory
 description: Saiba mais sobre como copiar dados do Google Cloud Storage para armazenamentos de dados de coletor com suporte por meio do Azure Data Factory.
-services: data-factory
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 258b4cbb187290c293caf10d14dbb624cb7d6b89
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 4d8ddb89055d318aaea9ada7f38f908223ff5a57
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347261"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388440"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copiar dados do Google Cloud Storage usando Azure Data Factory
 
@@ -71,7 +67,7 @@ As propriedades a seguir têm suporte para os serviços vinculados do Google Clo
 | serviceUrl | Especifique o ponto de extremidade GCS personalizado como `https://storage.googleapis.com` . | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```json
 {
@@ -147,14 +143,14 @@ As propriedades a seguir têm suporte para o armazenamento em nuvem do Google em
 | Propriedade                 | Descrição                                                  | Obrigatório                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | A propriedade **Type** em `storeSettings` deve ser definida como **GoogleCloudStorageReadSettings**. | Sim                                                         |
-| **_Localize os arquivos a serem copiados:_* _ |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho do bucket ou de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um Bucket ou pasta, especifique também `wildcardFileName` como `_` . |  |
+| ***Localize os arquivos a serem copiados:*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Copiar do caminho do bucket ou de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um Bucket ou pasta, especifique também `wildcardFileName` como `*` . |  |
 | OPÇÃO DOIS: Prefixo GCS<br>– prefix | Prefixo do nome da chave de GCS no Bucket especificado configurado no conjunto de dados para filtrar os arquivos de GCS de origem. As chaves de GCS cujos nomes começam com `bucket_in_dataset/this_prefix` são selecionadas. Ele utiliza o filtro do lado do serviço de GCS, que fornece melhor desempenho do que um filtro curinga. | Não |
 | OPÇÃO 3: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga no Bucket especificado configurado em um conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome da pasta tiver um curinga ou este caractere de escape dentro de. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 3: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no Bucket e caminho da pasta fornecidos (ou caminho da pasta curinga) para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome do arquivo tiver um curinga ou este caractere de escape dentro de.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Quando você estiver usando essa opção, não especifique o nome do arquivo no conjunto de conjuntos. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
-| ***Configurações adicionais:** _ |  | |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando _ *recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
+| ***Configurações adicionais:*** |  | |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando **recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Esta propriedade só é válida no cenário de cópia de arquivos binários. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo: última modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo**, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                                          |

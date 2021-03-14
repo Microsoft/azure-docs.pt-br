@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de ou para o Oracle usando Data Factory
 description: Saiba como copiar dados de ou para um Oracle Database local usando o Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084283"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387335"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
@@ -82,7 +77,7 @@ Você pode criar um pipeline com uma atividade de cópia. O pipeline move dados 
 
 A maneira mais fácil de criar um pipeline é usar o assistente de Cópia. Confira o [Tutorial: Criar um pipeline usando o assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para instruções passo a passo rápidas sobre como criar um pipeline usando o assistente Copiar Dados.
 
-Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net** ou a **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, conclua as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -150,7 +145,7 @@ As seções de um arquivo JSON do conjunto de dados, como estrutura, disponibili
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** do conjunto de um do tipo **oracletable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. |Não (se **oracleReaderQuery** ou **OracleSource** for especificado) |
 
@@ -179,7 +174,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**período**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não |
+| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**TimeSpan**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta da Atividade de Cópia a ser executada para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifica o nome da coluna para a atividade de cópia a ser preenchida com um identificador de fatia gerado automaticamente. O valor para **sliceIdentifierColumnName** é usado para limpar os dados de uma fatia específica quando executada novamente. |O nome da coluna de uma coluna que tem o tipo de dados **binary(32)**. |Não |

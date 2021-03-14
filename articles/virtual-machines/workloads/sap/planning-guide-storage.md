@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 329e09221467c2602355e091876c95f305db3578
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500990"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673741"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
 O Azure tem vários tipos de armazenamento que diferem amplamente em recursos, taxa de transferência, latência e preços. Alguns dos tipos de armazenamento não são, ou do uso limitado para cenários SAP. Enquanto que vários tipos de armazenamento do Azure são adequados ou otimizados para cenários de carga de trabalho SAP específicos. Especialmente para SAP HANA, alguns tipos de armazenamento do Azure receberam certificação para o uso com SAP HANA. Neste documento, vamos percorrer os diferentes tipos de armazenamento e descrever sua capacidade e usabilidade com cargas de trabalho do SAP e componentes SAP.
@@ -93,15 +92,15 @@ Características que você pode esperar da lista de diferentes tipos de armazena
 
 | Cenário de uso | HDD Standard | SSD Standard | Armazenamento Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA de taxa de transferência/IOPS | no | no | sim | sim | sim |
+| SLA de taxa de transferência/IOPS | não | não | sim | sim | sim |
 | Leituras de latência | high | médio a alto | low | submilissegundo | submilissegundo |
 | Gravações de latência | high | médio a alto  | baixo (sub-milissegundo<sup>1</sup>) | submilissegundo | submilissegundo |
-| Com suporte do HANA | no | no | Sim<sup>1</sup> | sim | sim |
-| Instantâneos de disco possíveis | sim | sim | sim | no | sim |
+| Com suporte do HANA | não | não | Sim<sup>1</sup> | sim | sim |
+| Instantâneos de disco possíveis | sim | sim | sim | não | sim |
 | Alocação de discos em diferentes clusters de armazenamento ao usar conjuntos de disponibilidade | por meio de discos gerenciados | por meio de discos gerenciados | por meio de discos gerenciados | tipo de disco sem suporte com VMs implantadas por meio de conjuntos de disponibilidade | Não<sup>3</sup> |
 | Alinhado com Zonas de Disponibilidade | sim | sim | sim | sim | precisa de envolvimento da Microsoft |
-| Redundância zonal | Não para discos gerenciados | Não para discos gerenciados | Não para discos gerenciados | no | no |
-| Redundância geográfica | Não para discos gerenciados | Não para discos gerenciados | no | no | no |
+| Redundância zonal | Não para discos gerenciados | Não para discos gerenciados | Não para discos gerenciados | não | não |
+| Redundância geográfica | Não para discos gerenciados | Não para discos gerenciados | não | não | não |
 
 
 <sup>1</sup> com uso de [acelerador de gravação do Azure](../../how-to-enable-write-accelerator.md) para famílias de VM M/Mv2 para volumes de log/restauração de log
@@ -145,7 +144,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Armazenamento de backup | apropriados | para armazenamento de curto prazo de backups |
 | Compartilhamentos/disco compartilhado | não disponível | Precisa de arquivos premium do Azure ou terceiros |
 | Resiliência | LRS | Nenhum GRS ou ZRS disponível para discos |
-| Latência | baixo para médio | - |
+| Latency | baixo para médio | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | semilineares entre colchetes  | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | IOPS máxima por disco | 20.000 [depende do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites da VM](../../sizes.md) |
@@ -203,7 +202,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Armazenamento de backup | apropriados | para armazenamento de curto prazo de backups |
 | Compartilhamentos/disco compartilhado | não disponível | Precisa de terceiros |
 | Resiliência | LRS | Nenhum GRS ou ZRS disponível para discos |
-| Latência | muito baixo | - |
+| Latency | muito baixo | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | semilineares entre colchetes  | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | IOPS máxima por disco | 1.200 a 160.000 | dependente da capacidade do disco |
@@ -258,7 +257,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Armazenamento de backup | apropriados | - |
 | Compartilhamentos/disco compartilhado | YES | SMB 3,0, NFS v3 e NFS v 4.1 |
 | Resiliência | LRS | Nenhum GRS ou ZRS disponível para discos |
-| Latência | muito baixo | - |
+| Latency | muito baixo | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | estritamente linear  | Dependente do [nível de serviço](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
 | SLA de produtividade | YES | - |
@@ -291,7 +290,7 @@ Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD s
 | Armazenamento de backup | apropriados | - |
 | Compartilhamentos/disco compartilhado | não disponível | Precisa de terceiros |
 | Resiliência | LRS, GRS | Nenhum ZRS disponível para discos |
-| Latência | high | muito alto para o diretório de transporte global do SAP ou sistemas de produção |
+| Latency | high | muito alto para o diretório de transporte global do SAP ou sistemas de produção |
 | SLA DE IOPS | Não | - |
 | IOPS máxima por disco | 500 | Independentemente do tamanho do disco |
 | SLA de produtividade | Não | - |
@@ -318,7 +317,7 @@ O armazenamento de HDD Standard do Azure era o único tipo de armazenamento quan
 | Armazenamento de backup | apropriados | - |
 | Compartilhamentos/disco compartilhado | não disponível | Precisa de arquivos do Azure ou de terceiros |
 | Resiliência | LRS, GRS | Nenhum ZRS disponível para discos |
-| Latência | high | muito alto para uso de DBMS, diretório de transporte global do SAP ou sapmnt/saploc |
+| Latency | high | muito alto para uso de DBMS, diretório de transporte global do SAP ou sapmnt/saploc |
 | SLA DE IOPS | Não | - |
 | IOPS máxima por disco | 500 | Independentemente do tamanho do disco |
 | SLA de produtividade | Não | - |

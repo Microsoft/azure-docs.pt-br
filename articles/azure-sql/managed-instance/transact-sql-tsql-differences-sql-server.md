@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 3/5/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626267"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212715"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -252,7 +252,7 @@ Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 As opções a seguir são definidas por padrão e não podem ser alteradas:
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 As seguintes opções não podem ser modificadas:
@@ -277,13 +277,14 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
-Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
 
 Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - No momento, a habilitação e a desabilitação do SQL Server Agent não é compatível com a Instância Gerenciada de SQL. O SQL Agent sempre está em execução.
+- Não há suporte para o gatilho de agenda de trabalho com base em uma CPU ociosa.
 - As configurações do SQL Server Agent são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte no SQL instância gerenciada. 
 - Trabalhos
   - As etapas de trabalho T-SQL têm suporte.
@@ -306,13 +307,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
   - Não há suporte para proxies.
 - Não há suporte para o EventLog.
 - O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, os usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
-
-Os seguintes recursos do SQL Agent atualmente não têm suporte:
-
-- Proxies
-- Agendamento de trabalhos em CPU ociosa
-- Habilitação ou desabilitação de um agente
-- Alertas
+- Não há suporte para o recurso de administração multisservidor para trabalhos mestre/de destino (MSX/TSX).
 
 Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -400,12 +395,12 @@ Não há suporte para [Pesquisa semântica](/sql/relational-databases/search/sem
 Os servidores vinculados no SQL Instância Gerenciada dão suporte a um número limitado de destinos:
 
 - Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, pools dedicados e sem SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) do Azure Synapse e instâncias de SQL Server. 
-- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). No entanto, não há suporte para MS DTC.
+- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](../database/elastic-transactions-overview.md). No entanto, não há suporte para MS DTC.
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` `OPENROWSET` o ou como uma alternativa para importação de arquivo ou carregue arquivos usando um [pool SQL sem servidor no Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
-- As transações de gravação [entre](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) instâncias são suportadas apenas para instância gerenciadas.
+- As transações de gravação [entre](../database/elastic-transactions-overview.md) instâncias são suportadas apenas para instância gerenciadas.
 - `sp_dropserver` é compatível com o descarte um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` têm suporte como provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -476,6 +471,10 @@ Não há suporte para agente de serviços entre instâncias:
 - `sys.routes`: Como pré-requisito, você deve selecionar o endereço de sys.routes. O endereço deve ser o LOCAL em cada rota. Confira [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
 - `CREATE ROUTE`: não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Confira [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE`: não é possível usar `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Confira [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+
+O Service Broker está habilitado por padrão e não pode ser desabilitado. Não há suporte para as seguintes opções ALTER bancos:
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos, funções, gatilhos armazenados
 

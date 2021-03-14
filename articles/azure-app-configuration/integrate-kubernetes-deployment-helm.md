@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426717"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979820"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrar com a Implantação do Kubernetes usando o Helm
 
@@ -33,7 +33,7 @@ Este tutorial pressupõe uma compreensão básica do gerenciamento de Kubernetes
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Instalar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.4.0 ou posterior)
+- Instalar a [CLI do Azure](/cli/azure/install-azure-cli) (versão 2.4.0 ou posterior)
 - Instalar o [Helm](https://helm.sh/docs/intro/install/) (versão 2.14.0 ou posterior)
 - Um cluster do Kubernetes.
 
@@ -57,10 +57,10 @@ Este tutorial pressupõe uma compreensão básica do gerenciamento de Kubernetes
 3. Selecione **Gerenciador de Configurações**.
 
 4. Clique em **+ Criar** > **Referência do Key Vault** e especifique os seguintes valores:
-    - **Chave** : Selecione **secrets.password**.
-    - **Rótulo** : deixe esse valor em branco.
-    - **Assinatura** , **Grupo de recursos** e **Cofre de chaves** : insira os valores correspondentes àqueles no cofre de chaves criado na etapa anterior.
-    - **Segredo** : selecione o segredo chamado **Password** criado na seção anterior.
+    - **Chave**: Selecione **secrets.password**.
+    - **Rótulo**: deixe esse valor em branco.
+    - **Assinatura**, **Grupo de recursos** e **Cofre de chaves**: insira os valores correspondentes àqueles no cofre de chaves criado na etapa anterior.
+    - **Segredo**: selecione o segredo chamado **Password** criado na seção anterior.
 
 ## <a name="create-helm-chart"></a>Criar gráfico do Helm ##
 Primeiro, crie um gráfico do Helm de exemplo com o comando a seguir
@@ -185,7 +185,7 @@ settings:
 Primeiro, baixe a configuração da Configuração de Aplicativos para um arquivo *myConfig.yaml*. Use um filtro de chave para baixar apenas as chaves que começam com **settings.** . Se, no seu caso, o filtro de chave não for suficiente para excluir chaves das referências do Key Vault, use o argumento **--skip-keyvault** para excluí-las. 
 
 > [!TIP]
-> Saiba mais sobre o [comando export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Saiba mais sobre o [comando export](/cli/azure/appconfig/kv#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -229,7 +229,7 @@ Verifique se as configurações e os segredos foram definidos com êxito acessan
 
 ![Inicialização local do aplicativo do Início Rápido](./media/kubernetes-dashboard-env-variables.png)
 
-Um segredo, **password** , armazenado como uma referência do Key Vault na Configuração de Aplicativos, também foi adicionado aos Segredos do Kubernetes. 
+Um segredo, **password**, armazenado como uma referência do Key Vault na Configuração de Aplicativos, também foi adicionado aos Segredos do Kubernetes. 
 
 ![Captura de tela que realça a senha na seção Dados.](./media/kubernetes-dashboard-secrets.png)
 
@@ -242,4 +242,4 @@ Um segredo, **password** , armazenado como uma referência do Key Vault na Confi
 Neste tutorial, você exportou os dados da Configuração de Aplicativos do Azure para uso em uma implantação do Kubernetes com o Helm. Para saber mais sobre como usar a Configuração de Aplicativo, continue para ver as amostras da CLI do Azure.
 
 > [!div class="nextstepaction"]
-> [CLI do Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI do Azure](/cli/azure/appconfig)

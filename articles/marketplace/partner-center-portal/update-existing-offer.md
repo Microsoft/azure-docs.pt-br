@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033350"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097239"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Atualizar ofertas existentes no Marketplace comercial
 
@@ -31,6 +31,10 @@ Use estas etapas para atualizar uma oferta que foi publicada com êxito no estad
     - **Alterações não publicadas**: a seção foi atualizada e está concluída. Todos os dados necessários foram fornecidos e não houve erros introduzidos nas atualizações.
     - **Incompleto**: as atualizações feitas na seção introduziram erros que precisam ser corrigidos ou exigem mais informações a serem fornecidas.
 2. Selecione **publicar** para enviar a oferta atualizada para publicação. Sua oferta passará pelas [etapas de validação e publicação](../review-publish-offer.md#validation-and-publishing-steps)padrão.
+
+## <a name="changing-offer-type"></a>Alterando tipo de oferta
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > Você deve revisar a versão prévia da oferta quando ela estiver disponível e selecionar **Go-Live** para publicar sua oferta atualizada em seu público-alvo (público ou privado).

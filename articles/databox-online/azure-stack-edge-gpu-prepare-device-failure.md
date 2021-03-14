@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b437ce7b6894ebefe38b32f27d370d9f8c4bfe80
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 60469dc834c28bd8dbc73a1883ea01b06797c01f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369014"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442971"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Preparar-se para uma falha de dispositivo do Azure Stack Edge pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo ajuda você a se preparar para uma falha de dispositivo, detalhando como salvar e fazer backup da configuração e dos dados do dispositivo em seu dispositivo Azure Stack Edge pro GPU. 
 
@@ -44,7 +46,7 @@ Durante a configuração inicial do dispositivo, é importante manter uma cópia
 
 Os dados do dispositivo podem ser de um dos seguintes tipos:
 
-- Dados em compartilhamentos de nuvem de borda
+- Dados em compartilhamentos de nuvem do Edge
 - Dados em compartilhamentos locais
 - Arquivos e pastas em VMs
 
@@ -66,7 +68,7 @@ As soluções de proteção de dados de terceiros a seguir podem fornecer uma so
 | Software de terceiros           | Referência à solução                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Para obter detalhes, entre em contato com Cohesity.          |
-| CommVault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> Para obter detalhes, contate o CommVault.          |
+| Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> Para obter detalhes, entre em contato com Commvault.          |
 | Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> Para obter detalhes, entre em contato com Veritas.   |
 | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> Para obter detalhes, entre em contato com Veeam. |
 
@@ -80,7 +82,7 @@ O Azure Stack Edge funciona com o backup do Azure e outras soluções de proteç
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente de Serviços de Recuperação do Microsoft Azure (MARS) para o backup do Azure | Windows        | [Sobre o agente do MARS](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Resumo da solução de Microsoft Azure integração, backup & recuperação](https://www.cohesity.com/solution/cloud/azure) <br>Para obter detalhes, entre em contato com Cohesity.                          |
-| CommVault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>Para obter detalhes, contate o CommVault.                          |
+| Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>Para obter detalhes, entre em contato com Commvault.                          |
 | Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> Para obter detalhes, entre em contato com Veritas.                    |
 | Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> Para obter detalhes, entre em contato com Veeam. |
 

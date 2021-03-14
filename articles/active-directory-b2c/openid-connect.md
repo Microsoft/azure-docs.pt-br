@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5095e077ad1f2259c227c37f789dbcaf1f6d1cd7
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509794"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611854"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -57,6 +57,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Não | O `redirect_uri` parâmetro do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos `redirect_uri` parâmetros que você registrou na portal do Azure, exceto que ele deve ser codificado por URL. |
 | response_mode | Não | O método usado para enviar o código de autorização resultante de volta para seu aplicativo. Ele pode ser `query`, `form_post` ou `fragment`.  O modo de resposta `form_post` é recomendado para maior segurança. |
 | state | Não | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente que normalmente é usado para impedir ataques de solicitação intersite forjada. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página em que eles estavam. |
+| login_hint | Não| Pode ser usado para preencher previamente o campo nome de entrada da página de entrada. Para obter mais informações, consulte [prepopular o nome de entrada](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | Não| Fornece uma dica para Azure AD B2C sobre o provedor de identidade social que deve ser usado para entrar. Se um valor válido for incluído, o usuário vai diretamente para a página de entrada do provedor de identidade.  Para obter mais informações, consulte [redirecionar entrada para um provedor social](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Parâmetros personalizados | Não| Parâmetros personalizados que podem ser usados com [políticas personalizadas](custom-policy-overview.md). Por exemplo, [URI de conteúdo de página personalizada dinâmica](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri)ou [resolvedores de declaração de valor de chave](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 Neste ponto, o usuário é solicitado a concluir o fluxo de trabalho. O usuário pode precisar inserir seu nome de usuário e senha, entrar com uma identidade social ou inscrever-se no diretório. Pode haver qualquer outro número de etapas, dependendo de como o fluxo do usuário é definido.
 
@@ -88,7 +91,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| error | Um código que pode ser usado para classificar os tipos de erros que ocorrem. |
+| erro | Um código que pode ser usado para classificar os tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específica que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os `state` valores na solicitação e na resposta são idênticos. |
 
@@ -188,7 +191,7 @@ As respostas de erro se parecem com:
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| error | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
+| erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="use-the-token"></a>Usar o token
@@ -257,7 +260,7 @@ As respostas de erro se parecem com:
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| error | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
+| erro | Um código que pode ser usado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem que pode ajudar a identificar a causa raiz de um erro de autenticação. |
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída

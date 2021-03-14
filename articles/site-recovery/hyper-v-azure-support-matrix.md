@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735515"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -30,7 +30,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as atualizações mais recentes <br/><br/> **Observação:** Também há suporte para a instalação do Server Core desses sistemas operacionais. | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
 Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Observação:** Também há suporte para a instalação do Server Core desses sistemas operacionais.  | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.
@@ -53,8 +53,8 @@ Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](.
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar o disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
-Adicionar disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 
@@ -94,7 +94,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -103,7 +103,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -143,7 +143,7 @@ Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
 Modificar a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não
-Opção de transferência segura | Sim
+Opção de transferência segura | Sim | Sim
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure
@@ -158,7 +158,7 @@ Discos gerenciados | Sim, para failover.<br/><br/> O failback de discos gerencia
 
 VMs locais que são replicados para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | O Site Recovery é compatível com todos os sistemas operacionais que têm [suporte do Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | A verificação de pré-requisitos falha quando não há suporte para ela.
 Arquitetura do sistema operacional convidado | 32 bits (Windows Server 2008)/64-bit | A verificação de pré-requisitos falha quando não há suporte para ela.

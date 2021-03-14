@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727253"
 ---
 # <a name="create-a-video-indexer-account"></a>Criar uma conta de Video Indexer
 
@@ -201,7 +201,7 @@ A automatização da criação da conta é um processo de duas etapas:
 
 ### <a name="prerequisites-for-connecting-to-azure-government"></a>Pré-requisitos para se conectar ao Azure governamental
 
--   Uma assinatura do Azure no [Azure governamental](https://docs.microsoft.com/azure/azure-government/).
+-   Uma assinatura do Azure no [Azure governamental](../../azure-government/index.yml).
 - Uma conta do Azure AD no Azure governamental.
 - Todos os pré-requisitos de permissões e recursos, conforme descrito acima, em pré-requisitos [para se conectar ao Azure](#prerequisites-for-connecting-to-azure).
 
@@ -222,7 +222,7 @@ Para criar uma conta paga por meio do portal de Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Criar nova conta por meio da API no Azure governamental
 
-Para criar uma conta paga no Azure governamental, siga as instruções em [Create-pagou-Account](/azure/media-services/video-indexer/connect-to-azure). Esse ponto de extremidade da API inclui apenas regiões de nuvem do governo.
+Para criar uma conta paga no Azure governamental, siga as instruções em [Create-pagou-Account](). Esse ponto de extremidade da API inclui apenas regiões de nuvem do governo.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitações de Video Indexer no Azure governamental
 

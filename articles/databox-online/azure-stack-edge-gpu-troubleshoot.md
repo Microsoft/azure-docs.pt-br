@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c56fcecbd850dd0add26e5d50093eea595e3d825
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 696faaecd2227c9b9ef74f20763e36661991ff67
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833415"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438976"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Solucionar problemas em seu dispositivo de GPU pro do Azure Stack Edge 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como solucionar problemas em seu dispositivo de GPU pro Azure Stack Edge. 
 

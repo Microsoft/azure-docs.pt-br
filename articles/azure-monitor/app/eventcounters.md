@@ -4,12 +4,12 @@ description: Monitore o sistema e os EventCounters do .NET/.NET Core personaliza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579537"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
 
@@ -88,14 +88,14 @@ Uma abordagem semelhante também pode ser usada para o SDK do WorkerService, mas
 
 ## <a name="event-counters-in-metric-explorer"></a>Contadores de eventos no Metric Explorer
 
-Para exibir as métricas do EventCounter no [Metric Explorer](../platform/metrics-charts.md), selecione o recurso Application Insights e escolha Métricas baseadas em log como namespace da métrica. Em seguida, as métricas EventCounter são exibidas em Categoria personalizada.
+Para exibir as métricas do EventCounter no [Metric Explorer](../essentials/metrics-charts.md), selecione o recurso Application Insights e escolha Métricas baseadas em log como namespace da métrica. Em seguida, as métricas EventCounter são exibidas em Categoria personalizada.
 
 > [!div class="mx-imgBorder"]
 > ![Contadores de eventos relatados no Gerenciador de métricas Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contadores de evento no Analytics
 
-Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics](../log-query/log-query-overview.md), na tabela **customMetrics**.
+Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics](../logs/log-query-overview.md), na tabela **customMetrics**.
 
 Por exemplo, execute a consulta a seguir para ver quais contadores são coletados e estão disponíveis para consulta:
 
@@ -121,7 +121,7 @@ customMetrics
 Como outras telemetrias, o **customMetrics** também tem uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor host no qual seu aplicativo está sendo executado. A consulta acima mostra o valor do contador por instância e pode ser usada para comparar o desempenho de diferentes instâncias de servidor.
 
 ## <a name="alerts"></a>Alertas
-Assim como ocorre com outras métricas, você pode [definir um alerta](../platform/alerts-log.md) para avisar se um contador de evento fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
+Assim como ocorre com outras métricas, você pode [definir um alerta](../alerts/alerts-log.md) para avisar se um contador de evento fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

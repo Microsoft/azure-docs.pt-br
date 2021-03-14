@@ -8,19 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220693"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736621"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+* A `2021-01-15` versão do modelo para o ponto de extremidade PII no [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) v 3.1-Preview. x, que fornece 
+  * Suporte expandido para 9 novos idiomas
+  * Qualidade de ia aprimorada de categorias de entidade nomeada para idiomas com suporte.
+* Os tipos de preço S0 a S4 estão sendo desativados em 8 de março de 2021. Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, deverá atualizá-lo para usar o [tipo de preço](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)Standard (S).
+* O [contêiner de detecção de idioma](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) já está disponível para o público geral.
+* a v 2.1 da API está sendo desativada. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -209,7 +218,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
     * Habilidade
 
 * Reconhecimento dos seguintes tipos de entidade de informações pessoais (somente em inglês):
-    * Person
+    * Pessoa
     * Organização
     * Idade como um subtipo em quantidade
     * Data como um subtipo em DateTime
@@ -229,7 +238,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número do telefone
+        * Número de telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
@@ -250,7 +259,7 @@ Ele dá suporte a Inglês ( `en` ), japonês (), `ja` chinês simplificado ( `zh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o API de Análise de Texto?](overview.md)  
+* [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Detecção de idioma](how-tos/text-analytics-how-to-language-detection.md)

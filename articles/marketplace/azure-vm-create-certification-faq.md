@@ -4,15 +4,15 @@ description: Solucionar problemas comuns relacionados ao teste e à certificaç�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600976"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721150"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -199,7 +199,7 @@ Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o ta
 
 |Tamanho do VHD|Tamanho real de ocupado|Solução|
 |---|---|---|
-|>500 tebibytes (TiB)|n/a|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|>500 tebibytes (TiB)|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |
 
@@ -252,7 +252,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -594,8 +594,37 @@ Em seguida, Republique a oferta.
 
 Para concluir o processo de publicação, consulte [revisar e publicar ofertas](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Imagens de VM com acesso limitado ou que exigem modelos personalizados
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Oferta bloqueada (ou) SSH desabilitada
+
+  Imagens que são publicadas com SSH desabilitado (para Linux) ou RDP desabilitadas (para Windows) são tratadas como VMs bloqueadas. Há cenários de negócios especiais devido a quais Publicadores só permitem acesso restrito a um ou alguns usuários. Durante as verificações de validação, as VMs bloqueadas podem não permitir a execução de determinados comandos de certificação.
+
+
+#### <a name="custom-templates"></a>Modelos personalizados
+
+   Em geral, todas as imagens publicadas em ofertas de VM única seguirão o modelo ARM padrão para implantação. No entanto, há cenários em que o Publisher pode exigir personalização durante a implantação de VMs (por exemplo, várias NICs a serem configuradas).
+    
+   Dependendo dos cenários abaixo (não exaustivos), os editores usarão modelos personalizados para implantar a VM:
+
+   * A VM requer sub-redes de rede adicionais.
+   * Metadados adicionais a serem inseridos no modelo ARM.
+   * Comandos que são pré-requisitos para a execução do modelo ARM.
+
+### <a name="vm-extensions"></a>Extensões de VM   
+
+   As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou executar um script dentro dela, uma extensão de VM poderá ser usada. 
+
+   As validações de extensão de VM do Linux exigem que o seguinte seja parte da imagem:
+* Agente Linux do Azure maior 2.2.41
+* Versão do Python acima de 2,8 
+
+
+Para obter mais informações, visite [extensão de VM](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas do Marketplace ativas](partner-center-portal/marketplace-rewards.md)
 - Se você tiver dúvidas ou comentários para aprimoramento, entre em contato com o [suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
+ 

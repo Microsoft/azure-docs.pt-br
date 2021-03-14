@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2021
-ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735232"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518038"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,14 +42,14 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |VCores mín. máx.|0.5-1|0.5-2|0,5-4|0,75 a 6|1.0-8|
 |Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
 |Atraso de pausa automática mín. máx. (minutos)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|
+|Suporte de columnstore|Sim*|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|1024|1024|1024|1536|
 |Tamanho máximo de log (GB)|154|307|307|307|461|
 |Tamanho máximo de dados de TempDB (GB)|32|64|128|192|256|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|320|640|1280|1920|2560|
+|IOPS de dados máximo \*\*|320|640|1280|1920|2560|
 |Taxa máxima de logs (MBps)|4.5|9|18|27|36|
 |Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
@@ -58,7 +58,8 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+\* Os objetivos de serviço com configurações mínimas máximas vcores podem ter memória insuficiente para criar e usar índices de repositório de coluna.  Se encontrar problemas de desempenho com o repositório de coluna, aumente a configuração de VCORE máxima para aumentar a memória máxima disponível.  
+\*\* O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Geração de computação Gen5 (parte 2)
 
@@ -212,7 +213,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo do log (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
-|IOPS máximo de SSD local *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|IOPS máximo de SSD local *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Taxa máxima de logs (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |Latência de E/S (aproximada)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
@@ -225,7 +226,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 
 \* Além da e/s SSD local, as cargas de trabalho usarão a es [do servidor de paginação](service-tier-hyperscale.md#page-server) remota. O IOPS efetivo dependerá da carga de trabalho. Para obter detalhes, consulte [governança de e](resource-limits-logical-server.md#resource-governance)/s de dados e [Io de dados nas estatísticas de utilização de recursos](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
-#### <a name="notes"></a>Observações
+#### <a name="notes"></a>Anotações
 
 **Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -256,7 +257,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Retenção de armazenamento de backup|7 dias|7 dias|7 dias|7 dias|
 |||
 
-### <a name="notes"></a>Observações
+### <a name="notes"></a>Anotações
 
 **Observação 1**: o hiperescala é uma arquitetura de várias camadas com componentes de armazenamento e computação separados: [arquitetura de camada de serviço de hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -607,8 +608,8 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo *|31.248|37.497|49.996|99.993|160.000|
 |Taxa máxima de logs (MBps)|120|144|192|264|264|
-|Máximo de trabalhos simultâneos (solicitações)|2.000|2.400|3\.200|6.400|12.800|
-|Máximo de logons simultâneos|2.000|2.400|3\.200|6.400|12.800|
+|Máximo de trabalhos simultâneos (solicitações)|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos|2\.000|2.400|3\.200|6.400|12.800|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
 |Multi-AZ|Não|Não|Não|Não|Não|

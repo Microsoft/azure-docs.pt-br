@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369269"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555947"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
@@ -37,7 +37,7 @@ Siga estas etapas para listar todas as funções no portal do Azure.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
 1. Clique na guia **Funções** para ver uma lista de todas as funções integradas e personalizadas.
 
@@ -344,7 +344,7 @@ Para listar definições de função, use as [definições de função-lista](/r
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as definições de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -429,7 +429,7 @@ Para listar os detalhes de uma função específica, use as [definições de fun
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar a definição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -479,4 +479,4 @@ O texto a seguir mostra um exemplo da saída:
 - [Funções internas do Azure](built-in-roles.md)
 - [Funções personalizadas do Azure](custom-roles.md)
 - [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806979"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724431"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Conecte suas soluções de proteção de identidade e defesa do Agari phishing ao Azure Sentinel
 
@@ -39,7 +39,7 @@ Os itens a seguir são necessários para conectar a defesa contra phishing e as 
 
 - Permissões de leitura e gravação no espaço de trabalho do Azure Sentinel.
 
-- Permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Permissões de leitura e gravação no Azure Functions para criar um Aplicativo de funções. [Saiba mais sobre Azure Functions](../azure-functions/index.yml).
 
@@ -96,7 +96,7 @@ As soluções Agari podem integrar e exportar logs diretamente para o Azure Sent
 
     1. Na tela **atribuições de função do Azure** , selecione **Adicionar atribuição de função**. Defina **escopo** como **assinatura**, selecione sua assinatura na lista suspensa **assinatura** e defina **função** como proprietário dos dados de **configuração do aplicativo**. 
 
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
 ## <a name="find-your-data"></a>Encontre seus dados
 

@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 761fc5e86acd6fa46f1d03f960a3987e540a925a
-  ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+  ms.openlocfilehash: 919d1b27c408c1fdb43333401560d7c84dd04f5d
+  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/01/2020
-  ms.locfileid: "96461136"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102051575"
 landingContent:
 - title: Sobre o Azure Security Benchmark
   linkLists:
@@ -56,6 +56,8 @@ landingContent:
       url: ../fundamentals/shared-responsibility.md
     - text: Central de Segurança do Azure
       url: ../../security-center/index.yml
+    - text: Amostra de blueprint do Azure Security Benchmark Foundation
+      url: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
 - title: IA + linhas de base de segurança de Machine Learning
   linkLists:
   - linkListType: overview

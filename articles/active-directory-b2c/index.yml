@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: 389cd8b9812048bd8156201926dbba007b2cc983
-  ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+  ms.openlocfilehash: acf02fcb0d827228bf6709fd871d1248e895f9fd
+  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/21/2021
-  ms.locfileid: "98660167"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100555091"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
     - text: Habilitar entrada por autoatendimento
       url: user-flow-overview.md
     - text: 'Adicionar identidades sociais e de trabalho: OIDC/OAuth2/SAML'
-      url: tutorial-add-identity-providers.md
+      url: add-identity-provider.md
     - text: Habilitar o logon único (SSO)
       url: session-behavior.md
     - text: Personalizar sua interface do usuário/experiência do usuário

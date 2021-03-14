@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856136"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555913"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Entender o escopo do RBAC do Azure
 
@@ -32,7 +32,7 @@ Os grupos de gerenciamento são um nível de escopo acima das assinaturas, mas o
 
 ## <a name="scope-format"></a>Formato do escopo
 
-Se você adicionar atribuições de função usando a linha de comando, precisará especificar o escopo. Para ferramentas de linha de comando, o escopo é uma cadeia de caracteres potencialmente longa que identifica o escopo exato da atribuição de função. No portal do Azure, esse escopo é normalmente listado como a *ID do recurso*.
+Se você atribuir funções usando a linha de comando, precisará especificar o escopo. Para ferramentas de linha de comando, o escopo é uma cadeia de caracteres potencialmente longa que identifica o escopo exato da atribuição de função. No portal do Azure, esse escopo é normalmente listado como a *ID do recurso*.
 
 O escopo consiste em uma série de identificadores separados pelo caractere de barra (/). Você pode considerar essa cadeia de caracteres como a hierarquia a seguir, em que o texto sem espaços reservados (`{}`) são identificadores fixos:
 
@@ -122,6 +122,6 @@ Os grupos de gerenciamento são um nível acima das assinaturas e têm o escopo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Etapas para adicionar uma atribuição de função](role-assignments-steps.md)
+- [Etapas para atribuir uma função do Azure](role-assignments-steps.md)
 - [Provedores de recursos para serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [O que são grupos de gerenciamento do Azure?](../governance/management-groups/overview.md)

@@ -6,15 +6,15 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 648227521e5e4e8feecd864d3e572a4758e551ca
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8b45fe07b4bd42059199197bc5b99f20f6b2a8cf
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633256"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608709"
 ---
 # <a name="how-to-configure-read-aloud"></a>Como configurar a leitura em voz alta
 

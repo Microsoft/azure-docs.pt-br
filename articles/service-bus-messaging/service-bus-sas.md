@@ -4,12 +4,12 @@ description: Visão geral da controle de acesso do Barramento de Serviço usando
 ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737810"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -130,9 +130,9 @@ Se você souber ou suspeitar de uma chave comprometida e se você precisar revog
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço
 
-Os cenários descritos a seguir incluem a configuração de regras de autorização, a geração de tokens SAS e a autorização de cliente.
+O cenário descrito a seguir inclui a configuração de regras de autorização, a geração de tokens SAS e a autorização do cliente.
 
-Para um exemplo funcional completo de um aplicativo do Barramento de Serviço que ilustre a configuração e use a autorização SAS, confira [Autenticação de Assinatura de Acesso Compartilhado com o Barramento de Serviço](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Há um exemplo relacionado que ilustra o uso de regras de autorização SAS configuradas em namespaces ou em tópicos para proteger assinaturas do Barramento de Serviço disponível aqui: [Usando a autenticação de Assinatura de Acesso Compartilhado (SAS) com as assinaturas do Barramento de Serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para obter um exemplo de um aplicativo do barramento de serviço que ilustra a configuração e usa a autorização de SAS, consulte [autenticação de assinatura de acesso compartilhado com o barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Acessar regras de Autorização de Acesso Compartilhado em uma entidade
 

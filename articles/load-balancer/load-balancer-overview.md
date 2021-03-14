@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: d5d2f83ddb4f37e1379bb7d60a76ddc70d61f99a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705493"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -44,7 +44,7 @@ Com o Standard Load Balancer, você pode dimensionar seus aplicativos e criar se
 
 Os principais cenários em que você pode usar o Standard Load Balancer incluem:
 
-- Balancear carga do tráfego **[interno](./quickstart-load-balancer-standard-internal-portal.md)** e **[externo](./tutorial-load-balancer-standard-manage-portal.md)** para máquinas virtuais do Azure.
+- Balancear carga do tráfego **[interno](./quickstart-load-balancer-standard-internal-portal.md)** e **[externo](./quickstart-load-balancer-standard-public-portal.md)** para máquinas virtuais do Azure.
 
 - Aumentar a disponibilidade distribuindo recursos **[dentro](./tutorial-load-balancer-standard-public-zonal-portal.md)** e **[entre](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** zonas.
 
@@ -56,7 +56,7 @@ Os principais cenários em que você pode usar o Standard Load Balancer incluem:
 
 - Habilitar o suporte para o **[balanceamento de carga](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** do **[IPv6](../virtual-network/ipv6-overview.md)** .
 
-- O Standard Load Balancer fornece métricas multidimensionais por meio do [Azure Monitor](../azure-monitor/overview.md).  Essas métricas podem ser filtradas, agrupadas e divididas para uma determinada dimensão.  Elas fornecem informações atuais e históricas de desempenho e integridade do seu serviço. [Insights para Azure Load Balancer] (https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) oferece um painel pré-configurado com visualizações úteis para essas métricas.  Também há suporte para a Integridade de Recursos. Leia **[Diagnóstico do Standard Load Balancer](load-balancer-standard-diagnostics.md)** para obter mais detalhes.
+- O Standard Load Balancer fornece métricas multidimensionais por meio do [Azure Monitor](../azure-monitor/overview.md).  Essas métricas podem ser filtradas, agrupadas e divididas para uma determinada dimensão.  Elas fornecem informações atuais e históricas de desempenho e integridade do seu serviço. Os [Insights para Azure Load Balancer](./load-balancer-insights.md) oferecem um painel pré-configurado com visualizações úteis para essas métricas.  Também há suporte para a Integridade de Recursos. Leia **[Diagnóstico do Standard Load Balancer](load-balancer-standard-diagnostics.md)** para obter mais detalhes.
 
 - Balancear carga de serviços em **[várias portas, vários endereços IP ou ambos](./load-balancer-multivip-overview.md)** .
 

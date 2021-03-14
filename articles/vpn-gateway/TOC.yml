@@ -14,7 +14,21 @@
 - name: Exemplos
   items:
     - name: Azure PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Scripts de exemplo
+          href: powershell-samples.md
+        - name: Criar um gateway de VPN
+          href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+        - name: Gateway de VPN + P2S RADIUS
+          href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+        - name: Gateway de VPN + autenticação de certificado P2S
+          href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+        - name: Gateway de VPN + Site a site
+          href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+        - name: VNet a VNet
+          href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+        - name: Baixar modelo de dispositivo VPN
+          href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Conceitos
   items:
     - name: Trabalhar remotamente
@@ -71,7 +85,7 @@
               href: create-routebased-vpn-gateway-cli.md
         - name: Verificar uma conexão de gateway de VPN
           href: vpn-gateway-verify-connection-resource-manager.md
-        - name: Redefinir um gateway de VPN
+        - name: Redefinir um gateway de VPN ou conexão
           href: reset-gateway.md
         - name: Excluir um gateway de VPN
           items:
@@ -101,8 +115,6 @@
           href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: VPN sobre emparelhamento privado
           href: site-to-site-vpn-private-peering.md
-    - name: Conexão site a site entre o Azure e a AWS
-      href: create-vpn-azure-aws-managed-solutions.md
     - name: Conexões de rede virtual a rede virtual
       items:
         - name: Configurar conexões de Rede Virtual a Rede Virtual
@@ -165,6 +177,10 @@
               href: about-vpn-profile-download.md
             - name: Intune – Implantar perfil de cliente VPN
               href: vpn-profile-intune.md
+        - name: Vários tipos de autenticação
+          items:
+            - name: Portal do Azure
+              href: howto-point-to-site-multi-auth.md
         - name: OpenVPN
           items:
             - name: Configurar o tipo de túnel OpenVPN
@@ -193,6 +209,8 @@
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: CLI do Azure
               href: bgp-how-to-cli.md
+        - name: Diagnóstico de BGP
+          href: bgp-diagnostics.md
         - name: Configurar o túnel forçado
           items:
             - name: Azure PowerShell

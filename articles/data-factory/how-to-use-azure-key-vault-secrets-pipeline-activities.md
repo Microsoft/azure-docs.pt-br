@@ -1,21 +1,17 @@
 ---
 title: Usar segredos de Azure Key Vault em atividades de pipeline
 description: Saiba como buscar credenciais armazenadas do Azure Key Vault e usá-las durante data factory execuções de pipeline.
-services: data-factory
 author: ChrisLound
-manager: anandsub
-editor: ''
+ms.author: chlound
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: chlound
-ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d7e1133b8f3880c4c1616ef5ca955ed014348935
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383952"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
@@ -51,7 +47,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     |Propriedade  |Valor  |
     |---------|---------|
-    |Saída segura     |True         |
+    |Saída segura     |Verdadeiro         |
     |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |

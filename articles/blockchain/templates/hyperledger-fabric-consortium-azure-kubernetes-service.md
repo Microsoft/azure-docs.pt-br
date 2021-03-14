@@ -1,15 +1,16 @@
 ---
 title: Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 description: Como implantar e configurar uma rede do consórcio de malha de multirazão no serviço kubernetes do Azure
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897251"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101096"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 
@@ -29,36 +30,8 @@ Antes de optar por usar um modelo de solução, Compare seu cenário com os caso
 Opção | Modelo de serviço | Caso de uso comum
 -------|---------------|-----------------
 Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use o [Microsoft Q&uma página](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
-[Serviço do Azure Blockchain](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
+[Azure Blockchain Service](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure que ajudam você a criar e implantar aplicativos Blockchain para compartilhar dados e processos de negócios com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito para um aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um contrato de nível de serviço. Use o [Microsoft Q&uma página](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do consórcio de malha de multirazãor
-
-Para criar uma rede de malha de hiperrazãos no Azure, você precisa implantar um serviço de pedidos e uma organização com nós pares. Usando o modelo de solução de serviço de infraestrutura do Microsoft Azure kubernetes, você pode criar nós de pedido ou nós de mesmo nível. Você precisa implantar o modelo para cada nó que deseja criar.
-
-Os componentes fundamentais criados como parte da implantação do modelo são:
-
-- **Nós do solicitante**: um nó responsável pela ordenação da transação no razão. Junto com outros nós, os nós ordenados formam o serviço de pedidos da rede de malha de terceiros.
-
-- **Nós de mesmo nível**: um nó que hospeda principalmente razões e contratos inteligentes, que são elementos fundamentais da rede.
-
-- **AC de malha**: a autoridade de certificação (CA) para a malha de hiperrazãor. A AC de malha permite que você inicialize e inicie um processo de servidor que hospede a autoridade de certificação. Ele permite que você gerencie identidades e certificados. Cada cluster AKS implantado como parte do modelo terá um pod de AC de malha por padrão.
-
-- **CouchDB ou LevelDB**: bancos de dados de estado mundial para os nós de par. LevelDB é o banco de dados de estado padrão inserido no nó par. Ele armazena dados chaincode como pares de chave/valor simples e oferece suporte apenas a consultas de chave, intervalo de chaves e chaves compostas. CouchDB é um banco de dados de estado alternativo opcional que dá suporte a consultas avançadas quando os valores de dados chaincode são modelados como JSON.
-
-O modelo na implantação gira vários recursos do Azure em sua assinatura. Os recursos do Azure implantados são:
-
-- **Cluster AKs**: cluster do serviço kubernetes do Azure configurado de acordo com os parâmetros de entrada fornecidos pelo cliente. O cluster AKS tem vários pods configurados para executar os componentes de rede da malha do limiar. Os pods criados são:
-
-  - **Ferramentas de malha**: ferramentas que são responsáveis por configurar os componentes de malha de hiperrazãos.
-  - Atestador **/peer pods**: os nós da rede de malha do limiar.
-  - **Proxy**: um pod de proxy NGNIX por meio do qual os aplicativos cliente podem se comunicar com o cluster AKs.
-  - **AC de malha**: o Pod que executa a AC de malha.
-- **PostgreSQL**: instância do banco de dados que mantém as identidades da AC da malha.
-
-- **Key Vault**: instância do serviço de Azure Key Vault que é implantado para salvar as credenciais de AC de malha e os certificados raiz fornecidos pelo cliente. O cofre é usado no caso de repetição de implantação de modelo para manipular a mecânica do modelo.
-- **Disco gerenciado**: instância do serviço de Managed disks do Azure que fornece um repositório persistente para o razão e para o banco de dados de estado mundial do nó par.
-- **IP público**: ponto de extremidade do cluster AKs implantado para comunicação com o cluster.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Implantar o solicitante e a organização de mesmo nível
 
@@ -85,10 +58,10 @@ Para começar a usar a implantação de componentes de rede do Fabric do multili
     - **Nome da organização**: Insira o nome da organização de malha do multirazão, que é necessária para várias operações do plano de dados. O nome da organização deve ser exclusivo por implantação.
     - **Componente de rede de malha**: escolha o **serviço de pedidos** ou **nós de mesmo nível**, com base no componente de rede blockchain que você deseja configurar.
     - **Número de nós**: os dois tipos de nós a seguir:
-        - **Serviço de pedidos**: selecione o número de nós para fornecer tolerância a falhas na rede. A contagem de nós de pedidos com suporte é 3, 5 e 7.
-        - **Nós pares**: você pode escolher entre 1 e 10 nós com base em seu requisito.
-    - **Banco de dados de estado mundial do nó par**: escolha entre LevelDB e CouchDB. Esse campo é exibido quando você escolhe **nós par** na lista suspensa **componente de rede de malha** .
-    - **Nome de usuário de AC de malha**: Insira o nome de usuário que é usado para autenticação de AC de malha.
+        - **Serviço de pedidos**: nós responsáveis pela ordenação de transações no razão. Selecione o número de nós para fornecer tolerância a falhas à rede. A contagem de nós de pedidos com suporte é 3, 5 e 7.
+        - **Nós pares**: nós que hospedam razões e contratos inteligentes. Você pode escolher de 1 a 10 nós com base em seu requisito.
+    - **Banco de dados de estado mundial do nó par**: bancos de dados de estado mundial para os nós pares. LevelDB é o banco de dados de estado padrão inserido no nó par. Ele armazena dados chaincode como pares de chave/valor simples e oferece suporte apenas a consultas de chave, intervalo de chaves e chaves compostas. CouchDB é um banco de dados de estado alternativo opcional que dá suporte a consultas avançadas quando os valores de dados chaincode são modelados como JSON. Esse campo é exibido quando você escolhe **nós par** na lista suspensa **componente de rede de malha** .
+    - **Nome de usuário de AC de malha**: a autoridade de certificação de malha permite inicializar e iniciar um processo de servidor que hospeda a autoridade de certificação. Ele permite que você gerencie identidades e certificados. Cada cluster AKS implantado como parte do modelo terá um pod de AC de malha por padrão. Insira o nome de usuário que é usado para autenticação de AC de malha.
     - **Senha da AC de malha**: Insira a senha para autenticação de AC de malha.
     - **Confirmar senha**: Confirme a senha da AC da malha.
     - **Certificados**: se você quiser usar seus próprios certificados raiz para inicializar a AC de malha, escolha a opção **carregar certificado raiz para AC de malha** . Caso contrário, a AC de malha cria certificados autoassinados por padrão.
@@ -96,11 +69,21 @@ Para começar a usar a implantação de componentes de rede do Fabric do multili
     - **Chave privada do certificado raiz**: carregue a chave privada do certificado raiz. Se você tiver um certificado. PEM, que tem uma chave pública e privada combinada, carregue-o aqui também.
 
 
-6. Selecione a guia **configurações de cluster do AKS** para definir a configuração de cluster do serviço kubernetes do Azure que é a infraestrutura subjacente na qual os componentes de rede da malha do hiperrazão serão configurados.
+6. Selecione a guia **configurações de cluster AKs** para definir a configuração de cluster do serviço kubernetes do Azure. O cluster AKS tem vários pods configurados para executar os componentes de rede da malha do limiar. Os recursos do Azure implantados são:
+
+    - **Ferramentas de malha**: ferramentas que são responsáveis por configurar os componentes de malha de hiperrazãos.
+    - Atestador **/peer pods**: os nós da rede de malha do limiar.
+    - **Proxy**: um pod de proxy NGNIX por meio do qual os aplicativos cliente podem se comunicar com o cluster AKs.
+    - **AC de malha**: o Pod que executa a AC de malha.
+    - **PostgreSQL**: instância do banco de dados que mantém as identidades da AC da malha.
+    - **Key Vault**: instância do serviço de Azure Key Vault que é implantado para salvar as credenciais de AC de malha e os certificados raiz fornecidos pelo cliente. O cofre é usado no caso de repetição de implantação de modelo para manipular a mecânica do modelo.
+    - **Disco gerenciado**: instância do serviço de Managed disks do Azure que fornece um repositório persistente para o razão e para o banco de dados de estado mundial do nó par.
+    - **IP público**: ponto de extremidade do cluster AKs implantado para comunicação com o cluster.
+
+    Insira os seguintes detalhes: 
 
     ![Captura de tela que mostra a guia Configurações de cluster K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Insira os seguintes detalhes:
     - **Nome do cluster kubernetes**: altere o nome do cluster AKs, se necessário. Esse campo é preenchido previamente com base no prefixo de recurso fornecido.
     - **Versão do kubernetes**: escolha a versão do kubernetes que será implantada no cluster. Com base na região que você selecionou na guia **noções básicas** , as versões disponíveis com suporte podem ser alteradas.
     - **Prefixo DNS**: Insira um prefixo de nome DNS (sistema de nomes de domínio) para o cluster AKs. Você usará o DNS para se conectar à API do kubernetes ao gerenciar contêineres depois de criar o cluster.
@@ -294,7 +277,7 @@ No cliente da organização par, execute o comando para definir os pares âncora
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo:
+`<anchorPeersList>` é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo: 
 
   - Defina `<anchorPeersList>` como `"peer1"` se você quiser definir apenas o nó ponto1 como um par âncora.
   - Defina `<anchorPeersList>` como `"peer1" "peer3"` se desejar definir os nós ponto1 e Ponto3 como pares âncora.
@@ -351,7 +334,7 @@ Passe o nome da função de instanciação e a lista de argumentos separados por
 
 Você também pode passar o arquivo JSON de configuração da coleção usando o `--collections-config` sinalizador. Ou defina os argumentos transitórios usando o `-t` sinalizador ao criar uma instância de chaincode usada para transações privadas.
 
-Por exemplo:
+Por exemplo: 
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509377"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676479"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Criando indexadores no Azure Pesquisa Cognitiva
 
@@ -85,7 +85,7 @@ Quando você estiver pronto para criar um indexador em um serviço de pesquisa r
 
 Todas as operações relacionadas a indexadores, incluindo solicitações GET para status ou definições, exigem uma [chave de API de administração](search-security-api-keys.md) na solicitação.
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 
 Todas as [camadas de serviço limitam](search-limits-quotas-capacity.md#indexer-limits) o número de objetos que você pode criar. Se você estiver experimentando a camada gratuita, só poderá ter três objetos de cada tipo e 2 minutos de processamento do indexador (não incluindo o processamento do Configurador de habilidades).
 
@@ -143,6 +143,20 @@ O processamento agendado geralmente coincide com a necessidade de indexação in
 + [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
+## <a name="change-detection-and-indexer-state"></a>Alterar estado de detecção e indexador
+
+Os indexadores podem detectar alterações nos dados subjacentes e processar apenas documentos novos ou atualizados em cada execução de indexador. Por exemplo, se o status do indexador indicar que uma execução foi bem-sucedida com `0/0` documentos processados, significa que o indexador não encontrou nenhuma linha ou BLOBs novos ou alterados na fonte de dados subjacente.
+
+Como um indexador dá suporte à detecção de alteração varia de acordo com a fonte de dados:
+
++ Armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure e Azure Data Lake Storage Gen2 carimbar cada BLOB ou atualização de linha com uma data e hora. Os vários indexadores usam essas informações para determinar quais documentos atualizar no índice. A detecção de alteração interna significa que um indexador pode reconhecer documentos novos e atualizados, sem a necessidade de configuração adicional de sua parte.
+
++ O Azure SQL e o Cosmos DB fornecem recursos de detecção de alterações em suas plataformas. Você pode especificar a política de detecção de alteração em sua definição de fonte de dados.
+
+Para grandes cargas de indexação, um indexador também controla o último documento processado por meio de uma "marca d' água alta" interna. O marcador nunca é exposto na API, mas, internamente, o indexador controla onde ele parou. Quando a indexação é retomada, por meio de uma execução agendada ou de uma invocação sob demanda, o indexador faz referência à marca d' água alta para que possa continuar de onde parou.
+
+Se você precisar limpar a marca d' água alta para reindexar novamente, você poderá usar [Redefinir indexador](/rest/api/searchservice/reset-indexer). Para fazer uma reindexação mais seletiva, use [Redefinir habilidades](/rest/api/searchservice/preview-api/reset-skills) ou [Redefinir documentos](/rest/api/searchservice/preview-api/reset-documents). Por meio das APIs de redefinição, você pode limpar o estado interno e também liberar o cache se tiver habilitado o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais informações e a comparação de cada opção de redefinição, consulte [executar ou redefinir indexadores, habilidades e documentos](search-howto-run-reset-indexers.md).
+
 ## <a name="know-your-data"></a>Conheça seus dados
 
 Os indexadores esperam um conjunto de linhas tabulares, onde cada linha se torna um documento de pesquisa completo ou parcial no índice. Muitas vezes, há uma correspondência um-para-um entre uma linha e o documento de pesquisa resultante, onde todos os campos na linha são preenchidos completamente em cada documento. Mas você pode usar indexadores para gerar apenas parte de um documento, por exemplo, se você estiver usando vários indexadores ou abordagens para criar o índice. 
@@ -151,7 +165,7 @@ Para mesclar dados relacionais em um conjunto de linhas, você deve criar um mod
 
 Além dos dados simplificados, é importante efetuar pull somente de dados pesquisáveis. Os dados pesquisáveis são alfanuméricos. Pesquisa Cognitiva não pode pesquisar em dados binários em nenhum formato, embora possa extrair e inferir descrições de texto de arquivos de imagem (consulte o [enriquecimento de ai](cognitive-search-concept-intro.md)) para criar conteúdo pesquisável. Da mesma forma, usando o enriquecimento de ia, o texto grande pode ser analisado por modelos de linguagem natural para localizar a estrutura ou informações relevantes, gerando novo conteúdo que você pode adicionar a um documento de pesquisa.
 
-Considerando que os indexadores não corrigem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para obter mais informações, consulte a documentação do produto do seu [produto de banco de dados do Azure](/azure/?product=databases).
+Considerando que os indexadores não corrigem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para obter mais informações, consulte a documentação do produto do seu [produto de banco de dados do Azure](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Saber seu índice
 

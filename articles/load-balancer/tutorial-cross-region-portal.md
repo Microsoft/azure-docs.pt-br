@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611195"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712497"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um Azure Load Balancer entre regiões usando o portal do Azure
 
@@ -41,28 +41,29 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 
-[Entre](https://portal.azure.com) na Versão Prévia do Portal do Azure.
+[Entre](https://preview.portal.azure.com) na Versão Prévia do Portal do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar um balanceador de carga entre regiões
 
 Nesta seção, você criará um balanceador de carga entre regiões e um endereço IP público.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Balanceador de Carga** ou pesquise **Balanceador de Carga** na caixa de pesquisa.
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, digite **Balanceador de carga**. Selecione **Balanceador de carga** nos resultados da pesquisa.
+3. Na página **Balanceador de carga**, clique em **Criar**.
+4. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
-
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e insira **CreateCRLBTutorial-rg** na caixa de texto.|
     | Name                   | Insira **myLoadBalancer-CR**                                   |
     | Região         | Selecione **Oeste dos EUA**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** |
+    | SKU           | Deixe o padrão de **Standard**. |
     | Camada           | Selecione **Global** |
     | Endereço IP público | Selecione **Criar novo**.|
     | Nome do endereço IP público | Digite **myPublicIP-CR** na caixa de texto.|
-    | Preferência de roteamento| Selecione **Rede da Microsoft** |
+    | Preferência de roteamento| Selecione **Rede da Microsoft**. </br> Para obter mais informações sobre preferências de roteamento, confira [O que é uma preferência de roteamento (versão prévia)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > O balanceador de carga entre regiões só pode ser implantado nas seguintes regiões de residência: **Leste dos EUA 2, Oeste dos EUA, Oeste da Europa, Sudeste da Ásia, EUA Central, Norte da Europa e Leste da Ásia**. Para obter mais informações, confira **https://aka.ms/homeregionforglb**.

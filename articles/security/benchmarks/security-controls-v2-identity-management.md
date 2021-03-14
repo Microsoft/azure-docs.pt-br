@@ -4,32 +4,34 @@ description: Azure Security benchmark v2 Identity Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33f5dff65fa7ad8274051f784f2e61dc8366d389
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 4a36bd69ff5ddbc79e358d6f8a2c5b4d640c6d5c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368844"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051439"
 ---
 # <a name="security-control-v2-identity-management"></a>Controle de segurança v2: gerenciamento de identidade
 
 O gerenciamento de identidades abrange controles para estabelecer uma identidade segura e controles de acesso usando Azure Active Directory. Isso inclui o uso de logon único, autenticações fortes, identidades gerenciadas (e princípios de serviço) para aplicativos, acesso condicional e monitoramento de anomalias de conta.
 
+Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: gerenciamento de identidade](../../governance/policy/samples/azure-security-benchmark.md#identity-management)
+
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: padronizar o Azure Active Directory como o sistema central de identidade e autenticação
 
 | ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
-| MENSAGENS INSTANTÂNEAS-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
+| IM-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
-O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e acesso padrão do Azure. Você deve padronizá-lo no Azure AD para controlar o gerenciamento de identidades e acesso da sua organização:
+O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e acesso padrão do Azure. Você deve padronizar no Azure AD para controlar a identidade e o gerenciamento de acesso de sua organização no:
 - Recursos de nuvem da Microsoft, como o portal do Azure, o Armazenamento do Azure, as Máquinas Virtuais do Azure (Linux e Windows), o Azure Key Vault e os aplicativos PaaS e SaaS.
 
 - Os recursos da sua organização, como os aplicativos no Azure ou os recursos de rede corporativa.
 
-A proteção do Azure AD deve ser uma prioridade alta na prática de segurança de nuvem da sua organização. O Azure AD fornece uma classificação de segurança de identidade para ajudar você a avaliar sua postura de segurança de identidade em relação às recomendações de melhores práticas da Microsoft. Use a classificação para medir o alinhamento da sua configuração com as recomendações de melhores práticas e fazer aprimoramentos na sua postura de segurança.
+Proteger o Azure AD deve ser uma prioridade alta na prática de segurança de nuvem de sua organização. O Azure AD fornece uma pontuação segura de identidade para ajudá-lo a avaliar sua postura de segurança de identidade em relação às recomendações de práticas recomendadas da Microsoft. Use a classificação para medir o alinhamento da sua configuração com as recomendações de melhores práticas e fazer aprimoramentos na sua postura de segurança.
 
 Observação: o Azure AD dá suporte a provedores de identidade externos, que permitem aos usuários sem uma conta Microsoft entrar nos respectivos aplicativos e recursos com a identidade externa.
 
@@ -37,7 +39,7 @@ Observação: o Azure AD dá suporte a provedores de identidade externos, que pe
 
 - [Como criar e configurar uma instância do Azure AD](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Definir locatários do Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
+- [Definir locatários do Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)
 
 - [Usar provedores de identidade externos para um aplicativo](../../active-directory/external-identities/identity-providers.md)
 
@@ -59,11 +61,11 @@ Observação: o Azure AD dá suporte a provedores de identidade externos, que pe
 
 | ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
-| MENSAGENS INSTANTÂNEAS-2 | N/D | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | N/D | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 Para contas não humanas, como serviços ou automação, use identidades gerenciadas do Azure, em vez de criar uma conta humana mais poderosa para acessar recursos ou executar código. As identidades gerenciadas do Azure podem ser autenticadas nos serviços e recursos do Azure que dão suporte à autenticação do Azure AD. A autenticação é habilitada por meio de regras de concessão de acesso predefinidas, evitando credenciais embutidas no código-fonte ou arquivos de configuração. 
 
-Para serviços que não dão suporte a identidades gerenciadas, use o Azure AD para criar uma entidade de serviço com permissões restritas no nível de recurso.  É recomendável configurar entidades de serviço com credenciais de certificado e fazer fallback para os segredos do cliente. Em ambos os casos, Azure Key Vault pode ser usado em conjunto com as identidades gerenciadas do Azure, para que o ambiente de tempo de execução (como uma função do Azure) possa recuperar a credencial do cofre de chaves.
+Para serviços que não dão suporte a identidades gerenciadas, use o Azure AD para criar uma entidade de serviço com permissões restritas no nível de recurso. É recomendável configurar entidades de serviço com credenciais de certificado e fazer fallback para os segredos do cliente. Em ambos os casos, Azure Key Vault pode ser usado em conjunto com as identidades gerenciadas do Azure, para que o ambiente de tempo de execução (como uma função do Azure) possa recuperar a credencial do cofre de chaves.
 
 - [Identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -109,18 +111,19 @@ Use o SSO (logon único) do Azure AD para gerenciar e proteger o acesso aos dado
 
 | ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
-| MENSAGENS INSTANTÂNEAS-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
+| IM-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
-O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.  
-- Autenticação multifator: habilite o Azure AD MFA e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure para sua configuração de MFA. A MFA pode ser imposta em todos os usuários, Selecionar usuários ou no nível por usuário com base nas condições de entrada e nos fatores de risco. 
+O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.
 
-- Autenticação com senha: três opções de autenticação com senha estão disponíveis: Windows Hello para empresas, Microsoft Authenticator app e métodos de autenticação locais, como cartões inteligentes. 
+- Autenticação multifator: habilite o Azure AD MFA e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure para sua configuração de MFA. A MFA pode ser imposta em todos os usuários, Selecionar usuários ou no nível por usuário com base nas condições de entrada e nos fatores de risco.
+
+- Autenticação com senha: três opções de autenticação com senha estão disponíveis: Windows Hello para empresas, Microsoft Authenticator app e métodos de autenticação locais, como cartões inteligentes.
 
 Para administradores e usuários privilegiados, verifique se o nível mais alto do método de autenticação forte é usado, seguido da distribuição da política de autenticação forte apropriada para outros usuários.
 
-Se a autenticação baseada em senha herdada ainda for usada para autenticação do Azure AD, lembre-se de que as contas somente em nuvem (contas de usuário criadas diretamente no Azure) têm uma política de senha de linha de base padrão. E contas híbridas (contas de usuário que vêm do Active Directory local) seguem as políticas de senha local. Ao usar a autenticação baseada em senha, o Azure AD fornece um recurso de proteção de senha que impede que os usuários definam senhas que são fáceis de adivinhar. A Microsoft fornece uma lista global de senhas banidas que são atualizadas com base na telemetria, e os clientes podem aumentar a lista com base em suas necessidades (por exemplo, identidade visual, referências culturais, etc.). Essa proteção por senha pode ser usada para contas híbridas e somente em nuvem. 
+Se a autenticação baseada em senha herdada ainda for usada para autenticação do Azure AD, lembre-se de que as contas somente em nuvem (contas de usuário criadas diretamente no Azure) têm uma política de senha de linha de base padrão. E contas híbridas (contas de usuário que vêm do Active Directory local) seguem as políticas de senha local. Ao usar a autenticação baseada em senha, o Azure AD fornece um recurso de proteção de senha que impede que os usuários definam senhas que são fáceis de adivinhar. A Microsoft fornece uma lista global de senhas banidas que são atualizadas com base na telemetria, e os clientes podem aumentar a lista com base em suas necessidades (como identidade visual, referências culturais, etc.). Essa proteção por senha pode ser usada para contas híbridas e somente em nuvem.
 
-Observação: a autenticação baseada em credenciais de senha sozinhas é suscetível a métodos de ataque populares. Para maior segurança, use autenticação forte, como MFA e uma política de senha forte. Para aplicativos de terceiros e serviços do Marketplace que podem ter senhas padrão, você deve alterá-los durante a configuração inicial do serviço. 
+Observação: a autenticação baseada em credenciais de senha sozinhas é suscetível a métodos de ataque populares. Para maior segurança, use autenticação forte, como MFA e uma política de senha forte. Para aplicativos de terceiros e serviços do Marketplace que podem ter senhas padrão, você deve alterá-los durante a configuração inicial do serviço.
 
 - [Como habilitar a MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -155,7 +158,7 @@ O Azure AD fornece as seguintes fontes de dados:
 
 -   Usuários sinalizados para riscos - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida.
 
-Essas fontes de dados podem ser integradas ao Azure Monitor, ao Azure Sentinel ou a sistemas SIEM de terceiros.
+Essas fontes de dados podem ser integradas com Azure Monitor, Sentinela do Azure ou sistemas SIEM de terceiros.
 
 A central de segurança do Azure também pode alertar sobre determinadas atividades suspeitas, como um número excessivo de tentativas de autenticação com falha e contas preteridas na assinatura. 
 
@@ -175,7 +178,7 @@ A ATP (proteção avançada contra ameaças) do Azure é uma solução de segura
 
 - [Conectar dados de Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
 
-- [Proteção Avançada contra Ameaças do Azure](/azure-advanced-threat-protection/what-is-atp)
+- [Microsoft Defender para Identidade](/azure-advanced-threat-protection/what-is-atp)
 
 **Responsabilidade**: Cliente
 
@@ -241,9 +244,9 @@ Para o GitHub, você pode usar o recurso de verificação de segredo nativo para
 
 Verifique se você tem controles de acesso modernos e monitoramento de sessão para aplicativos herdados e os dados que eles armazenam e processam. Embora as VPNs sejam comumente usadas para acessar aplicativos herdados, elas geralmente têm apenas controle de acesso básico e monitoramento de sessão limitado.
 
-O Azure Proxy de Aplicativo do AD permite que você publique aplicativos locais herdados para usuários remotos com SSO (logon único) ao validar explicitamente a confiabilidade de usuários e dispositivos remotos com acesso condicional do Azure AD. 
+O Azure Proxy de Aplicativo do AD permite que você publique aplicativos locais herdados para usuários remotos com SSO (logon único) ao validar explicitamente a confiabilidade de usuários e dispositivos remotos com acesso condicional do Azure AD.
 
-Como alternativa, Microsoft Cloud App Security é um serviço CASB (agente de segurança de acesso de nuvem) que pode fornecer controles para monitorar as sessões de aplicativo de um usuário e ações de bloqueio (tanto para aplicativos locais herdados quanto para aplicativos SaaS (software como serviço) de nuvem). 
+Como alternativa, Microsoft Cloud App Security é um serviço CASB (agente de segurança de acesso de nuvem) que pode fornecer controles para monitorar as sessões de aplicativo de um usuário e ações de bloqueio (tanto para aplicativos locais herdados quanto para aplicativos SaaS (software como serviço) de nuvem).
 
 - [Proxy de Aplicativo do AD do Azure](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 

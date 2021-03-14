@@ -3,7 +3,7 @@ title: Usando o castLabs para fornecer licenças Widevine aos Serviços de Mídi
 description: Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine.
 services: media-services
 documentationcenter: ''
-author: Mingfeiy
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: Juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: willzhan
-ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 576ac636f166e2daebbb9919d6666fea913a17be
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264480"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017045"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure
 
@@ -95,7 +95,7 @@ Para usar o aplicativo de console.
 4. Use um AssetId para nomear o ativo no sistema do castLabs (linha 44 no arquivo Program.cs).
    
    Você deve definir o AssetId para o **castLabs**; ele precisa ser uma sequência alfanumérica e exclusiva.
-5. Execute o programa.
+5. executar o programa.
 
 Para usar o aplicativo Web (STS):
 

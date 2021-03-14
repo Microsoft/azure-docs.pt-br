@@ -1,19 +1,20 @@
 ---
-title: Alterar um conjunto de disponibilidade de VMs
+title: Alterar um conjunto de disponibilidade de VMs usando Azure PowerShell
 description: Saiba como alterar o conjunto de disponibilidade para sua máquina virtual usando Azure PowerShell.
 ms.service: virtual-machines
 author: cynthn
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: 54f59a052132826897cfbc8dda59bc73fb6ad8d9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: mimckitt
+ms.openlocfilehash: 99985d0bb2294c538efa712e477cc6f8a2eb4938
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200559"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498465"
 ---
-# <a name="change-the-availability-set-for-a-vm"></a>Alterar a conjunto de disponibilidade para uma VM
+# <a name="change-the-availability-set-for-a-vm-using-azure-powershell"></a>Alterar o conjunto de disponibilidade para uma VM usando Azure PowerShell    
 As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma VM usando o Azure PowerShell. Uma VM só pode ser adicionada a um conjunto de disponibilidade quando ela é criada. Para alterar o conjunto de disponibilidade é necessário excluir e recriar a máquina virtual. 
 
 Este artigo se aplica a VMs do Linux e do Windows.
@@ -80,7 +81,7 @@ O script a seguir fornece um exemplo de como coletar as informações necessári
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {    
     if ($nic.Primary -eq "True")
     {

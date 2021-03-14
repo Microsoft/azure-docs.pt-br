@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806945"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418055"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -54,7 +54,7 @@ Endereços IP públicos de SKU padrão:
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - Seguro por padrão e fechado para tráfego de entrada. Permitir listar o tráfego de entrada com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga públicos padrão ou gateways de aplicativo. Para obter mais informações sobre o balanceador de carga padrão, consulte [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser com redundância de zona (desdivulgada de todas as 3 zonas), zonal (garantida em uma zona de disponibilidade pré-selecionada específica) ou sem zona (não associada a uma zona de disponibilidade pré-selecionada específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](../availability-zones/az-region.md) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
+- Pode ser com redundância de zona (anunciada de todas as 3 zonas), zonal (garantida em uma zona de disponibilidade pré-selecionada específica) ou sem zona (não associada a uma zona de disponibilidade pré-selecionada específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](../availability-zones/az-region.md) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
 - Pode ser usado como IPs de front-end anycast para [balanceadores de carga entre regiões](../load-balancer/cross-region-overview.md) (funcionalidade de visualização).
  
 > [!NOTE]
@@ -162,14 +162,17 @@ O [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=
 * Redes virtuais do Azure
 * Rede (s) local (is). 
 
-Um endereço IP público é atribuído ao gateway de VPN para habilitar a comunicação com a rede remota. Você pode atribuir apenas um endereço IP público básico *dinâmico* a um gateway de VPN.
+Um endereço IP público é atribuído ao gateway de VPN para habilitar a comunicação com a rede remota. 
+
+* Atribua um IP público **dinâmico** básico a uma configuração de front-end de SKU VPNGw 1-5.
+* Atribua um endereço IP público padrão **estático** a uma configuração de front-end de SKU VPNGwAZ 1-5.
 
 ## <a name="application-gateways"></a>Gateways de aplicativo
 
 Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. 
 
 * Atribua um IP público **dinâmico** básico a uma configuração de front-end do gateway de aplicativo v1. 
-* Atribua um endereço de SKU padrão **estático** a uma configuração de front-end v2.
+* Atribua um endereço IP público padrão **estático** a uma configuração de front-end v2.
 
 ## <a name="azure-firewall"></a>Firewall do Azure
 

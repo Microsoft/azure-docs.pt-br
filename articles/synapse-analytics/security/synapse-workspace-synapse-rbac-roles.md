@@ -1,19 +1,19 @@
 ---
 title: Funções RBAC do Synapse
 description: Este artigo descreve as funções de RBAC Synapse internas
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958a954d37ba1f808be4bf1806f1efd32f498a48
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 35f66732fa9cb48b94f80bab203534c9d04b7a7b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007186"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102114"
 ---
 # <a name="synapse-rbac-roles"></a>Funções RBAC Synapse
 

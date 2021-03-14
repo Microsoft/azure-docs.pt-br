@@ -1,22 +1,18 @@
 ---
 title: runtime de integração
 description: Saiba mais sobre o Integration Runtime no Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389936"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -24,10 +20,10 @@ ms.locfileid: "92636639"
 
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
 
-- **Fluxo de dados** : execute um [fluxo de dados](concepts-data-flow-overview.md) no ambiente de computação gerenciado do Azure.  
-- **Movimentação de dados** : copiar dados entre armazenamentos de dados em rede pública e armazenamentos de dados na rede privada (rede virtual privada ou local). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
-- **Expedição de atividade** : despache e monitore atividades de transformação em execução em uma variedade de serviços de computação, como Azure Databricks, Azure HDInsight, Azure Machine Learning, banco de dados SQL do azure, SQL Server e muito mais.
-- **Execução de pacote SSIS** : execute nativamente pacotes do SSIS (SQL Server Integration Services) em um ambiente de computação gerenciada do Azure.
+- **Fluxo de dados**: execute um [fluxo de dados](concepts-data-flow-overview.md) no ambiente de computação gerenciado do Azure.  
+- **Movimentação de dados**: copiar dados entre armazenamentos de dados em rede pública e armazenamentos de dados na rede privada (rede virtual privada ou local). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
+- **Expedição de atividade**: despache e monitore atividades de transformação em execução em uma variedade de serviços de computação, como Azure Databricks, Azure HDInsight, Azure Machine Learning, banco de dados SQL do azure, SQL Server e muito mais.
+- **Execução de pacote SSIS**: execute nativamente pacotes do SSIS (SQL Server Integration Services) em um ambiente de computação gerenciada do Azure.
 
 No Data Factory, uma atividade define a ação a ser realizada. Um serviço vinculado define um armazenamento de dados de destino ou um serviço de computação. Um Integration Runtime fornece a ponte entre a atividade e os serviços vinculados.  Ele é referenciado pelo serviço vinculado ou pela atividade e fornece o ambiente de computação no qual a atividade é executada ou expedida do. Desse modo, a atividade pode ser executada na região mais próxima possível do serviço de computação ou armazenamento de dados de destino, da maneira que proporciona o mais alto desempenho e atendendo às necessidades de segurança e de conformidade.
 
@@ -180,9 +176,9 @@ O diagrama a seguir mostra as configurações de localização de Data Factory e
 
 Para a atividade de cópia, ela requer que serviços vinculados de origem e de coletor definam a direção do fluxo de dados. A lógica a seguir é usada para determinar qual instância do Integration Runtime é usada para realizar a cópia: 
 
-- **Copiando entre duas fontes de dados de nuvem** : quando os serviços vinculados de origem e de coletor estiverem usando Azure ir, o ADF usará o Azure ir regional se você tiver especificado ou determinará automaticamente um local de Azure ir se escolher o ir de resolução automática (padrão), conforme descrito na seção [local do Integration Runtime](#integration-runtime-location) .
-- **Copiando entre uma fonte de dados de nuvem e uma fonte de dados na rede privada** : se o serviço vinculado de origem ou de coletor aponta para um IR auto-hospedado, a atividade de cópia é executada nesse Integration Runtime auto-hospedado.
-- **Copiando entre duas fontes de dados na rede privada** : o serviço vinculado de origem e de coletor deve apontar para a mesma instância do Integration Runtime e esse tempo de execução de integração é usado para executar a atividade de cópia.
+- **Copiando entre duas fontes de dados de nuvem**: quando os serviços vinculados de origem e de coletor estiverem usando Azure ir, o ADF usará o Azure ir regional se você tiver especificado ou determinará automaticamente um local de Azure ir se escolher o ir de resolução automática (padrão), conforme descrito na seção [local do Integration Runtime](#integration-runtime-location) .
+- **Copiando entre uma fonte de dados de nuvem e uma fonte de dados na rede privada**: se o serviço vinculado de origem ou de coletor aponta para um IR auto-hospedado, a atividade de cópia é executada nesse Integration Runtime auto-hospedado.
+- **Copiando entre duas fontes de dados na rede privada**: o serviço vinculado de origem e de coletor deve apontar para a mesma instância do Integration Runtime e esse tempo de execução de integração é usado para executar a atividade de cópia.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Atividade de pesquisa e GetMetadata
 
@@ -201,5 +197,5 @@ As atividades de fluxo de dados são executadas no tempo de execução de integr
 Veja os artigos a seguir:
 
 - [Criar tempo de execução de integração do Azure](create-azure-integration-runtime.md)
-- [Criar tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md)
+- [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Crie um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar o SQL Instância Gerenciada e ingressar o IR em uma rede virtual.

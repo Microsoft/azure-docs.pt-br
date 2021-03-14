@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76263754"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548243"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
 
@@ -36,7 +36,7 @@ Os hubs de notificação implementam um esquema de segurança em nível de entid
 Ao criar um Hub, duas regras são criadas automaticamente: uma com direitos de **escuta** (que o aplicativo cliente usa) e outra com **todos os** direitos (que o back-end do aplicativo usa):
 
 - **DefaultListenSharedAccessSignature**: concede somente a permissão **Listen** .
-- **DefaultFullSharedAccessSignature**: concede permissões de **escuta**, **Gerenciamento**e **envio** . Essa política deve ser usada somente no back-end do aplicativo. Não usá-lo em aplicativos cliente; Use uma política somente com acesso de **escuta** . Para criar uma nova política de acesso personalizada com um novo token SAS, consulte [tokens SAS para políticas de acesso](#sas-tokens-for-access-policies) mais adiante neste artigo.
+- **DefaultFullSharedAccessSignature**: concede permissões de **escuta**, **Gerenciamento** e **envio** . Essa política deve ser usada somente no back-end do aplicativo. Não usá-lo em aplicativos cliente; Use uma política somente com acesso de **escuta** . Para criar uma nova política de acesso personalizada com um novo token SAS, consulte [tokens SAS para políticas de acesso](#sas-tokens-for-access-policies) mais adiante neste artigo.
 
 Ao realizar o gerenciamento de registro dos aplicativos clientes, se as informações enviadas por meio de notificações não forem confidenciais (por exemplo, atualizações de clima), uma maneira comum de acessar um Hub de notificação é fornecer o valor da chave da regra de acesso de somente escuta para o aplicativo cliente e fornecer o valor de chave da regra de acesso completo para o back-end do aplicativo.
 
@@ -46,7 +46,7 @@ A chave com acesso de **escuta** permite que um aplicativo cliente se registre e
 
 ## <a name="security-claims"></a>Declarações de segurança
 
-Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **escutar**, **Enviar**e **gerenciar**.
+Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **escutar**, **Enviar** e **gerenciar**.
 
 | Declaração   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
@@ -71,7 +71,7 @@ Para criar uma nova declaração de segurança ou para exibir as chaves SAS exis
 5. Selecione **nova política** para criar uma nova declaração de segurança. Dê um nome à política e selecione as permissões que deseja conceder. Depois, selecione **OK**.
 6. A cadeia de conexão completa (incluindo a nova chave SAS) é exibida na janela políticas de acesso. Você pode copiar essa cadeia de caracteres para a área de transferência para uso posterior.
 
-Para extrair a chave SAS de uma política específica, selecione o botão **copiar** ao lado da política que contém a chave SAS desejada. Cole esse valor em um local temporário e copie a parte da chave SAS da cadeia de conexão. Este exemplo usa um namespace de hubs de notificação chamado **mytestnamespace1**e uma política chamada **policy2**. A chave SAS é o valor próximo ao final da cadeia de caracteres, especificado por **SharedAccessKey**:
+Para extrair a chave SAS de uma política específica, selecione o botão **copiar** ao lado da política que contém a chave SAS desejada. Cole esse valor em um local temporário e copie a parte da chave SAS da cadeia de conexão. Este exemplo usa um namespace de hubs de notificação chamado **mytestnamespace1** e uma política chamada **policy2**. A chave SAS é o valor próximo ao final da cadeia de caracteres, especificado por **SharedAccessKey**:
 
 ```shell
 Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=policy2;SharedAccessKey=<SAS key value here>

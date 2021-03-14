@@ -5,17 +5,19 @@ services: virtual-machines
 documentationcenter: ''
 author: mathapli
 manager: westonh
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 44d78d9a47f86520a3a4778806c4ddc0f96eec94
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 346d58dbe06a29a4ba114ae788dee16e80b8f9df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737890"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695474"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como Benefício Híbrido do Azure se aplica a máquinas virtuais Linux
 
@@ -175,7 +177,7 @@ Para obter mais informações sobre conformidade de assinatura do Red Hat, atual
 
 ### <a name="suse"></a>SUSE
 
-Para usar Benefício Híbrido do Azure para suas VMs SLES e obter informações sobre como migrar do SLES PAYG para o BYOS ou migrar do SLES BYOS para o PAYG, consulte [SuSE Linux Enterprise e benefício híbrido do Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
+Para usar Benefício Híbrido do Azure para suas VMs SLES e obter informações sobre como migrar do SLES PAYG para o BYOS ou migrar do SLES BYOS para o PAYG, consulte [SuSE Linux Enterprise e benefício híbrido do Azure](https://www.suse.com/support/kb/doc/?id=000019868). 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 *P: posso usar um tipo de licença `RHEL_BYOS` com uma imagem SLES ou vice-versa?*

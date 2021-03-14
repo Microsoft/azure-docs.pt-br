@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879268"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371933"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Como planejar uma oferta de serviço gerenciado para o Marketplace comercial da Microsoft
 
 Este artigo apresenta os requisitos para a publicação de uma oferta de serviço gerenciado no Microsoft Commercial Marketplace por meio do Partner Center.
 
-Os serviços gerenciados são ofertas do Azure Marketplace que habilitam o gerenciamento entre locatários e multilocatários com o Azure Lighthouse. Para saber mais, consulte [o que é o Azure Lighthouse?](../lighthouse/overview.md) Quando um cliente adquire uma oferta de serviço gerenciado, ele é capaz de delegar um ou mais assinatura ou grupo de recursos
+Os serviços gerenciados são ofertas do Azure Marketplace que habilitam o gerenciamento entre locatários e multilocatários com o Azure Lighthouse. Para saber mais, consulte [o que é o Azure Lighthouse?](../lighthouse/overview.md) Quando um cliente adquire uma oferta de serviço gerenciado, ele é capaz de delegar uma ou mais assinaturas ou grupo de recursos. Em seguida, você pode trabalhar com esses recursos usando os recursos de [Gerenciamento de recursos delegados](../lighthouse/concepts/azure-delegated-resource-management.md) do Azure do Azure Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Requisitos de qualificação
 
-Para publicar um serviço gerenciado, você deve ter conquistado uma competência Gold ou prata da Microsoft na plataforma de nuvem. Essa competência demonstra sua experiência com os clientes. Para obter mais informações, consulte [competências de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
+Para publicar uma oferta de serviço gerenciado, você deve ter conquistado uma competência Gold ou prata da Microsoft na plataforma de nuvem. Essa competência demonstra sua experiência com os clientes. Para obter mais informações, consulte [competências de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
 As ofertas devem atender a todas as [políticas de certificação do Marketplace comercial](/legal/marketplace/certification-policies) aplicáveis a serem publicadas no Azure Marketplace.
 

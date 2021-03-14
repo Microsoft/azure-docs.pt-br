@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d9e611ea3bd1243ef93bd5731199c549ed7e431
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 079ac273f7b2aa91b61ad2cdbcfe62cd989bb2f2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675265"
 ---
 # <a name="create-a-high-availability-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de vários SID do SAP NetWeaver de alta disponibilidade
 

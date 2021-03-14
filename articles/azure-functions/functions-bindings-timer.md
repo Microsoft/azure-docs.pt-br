@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874076"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210699"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
@@ -342,12 +342,12 @@ Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quand
 |--------------|----------------|
 | "01:00:00"   | a cada hora     |
 | "00:01:00"   | a cada minuto   |
-| "24:00:00"   | a cada 24 dias  |
+| "25:00:00"   | a cada 25 dias  |
 | "1,00:00:00" | Todos os dias      |
 
 ## <a name="scale-out"></a>Escalabilidade horizontal
 
-Se um aplicativo de funções se expandir para várias instâncias, apenas uma única instância de uma função disparada por temporizador será executada em todas as instâncias.
+Se um aplicativo de funções se expandir para várias instâncias, apenas uma única instância de uma função disparada por temporizador será executada em todas as instâncias. Ele não será disparado novamente se houver uma invocação pendente ainda em execução.
 
 ## <a name="function-apps-sharing-storage"></a>Armazenamento de compartilhamento de aplicativos de função
 

@@ -3,26 +3,26 @@ title: Gerenciar pacotes do Python 3 na automação do Azure
 description: Este artigo informa como gerenciar pacotes do Python 3 (versão prévia) na automação do Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f39f49ff47b935da7ffc777ee45bd219f5740b5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: fd4d8ee92b670bc2544619a0dce16a26d9342c13
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734294"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122027"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Gerenciar pacotes python 3 (versão prévia) na automação do Azure
 
-A automação do Azure permite que você execute runbooks do Python 3 (versão prévia) no Azure e em Hybrid runbook Workers do Linux. Para ajudar na simplificação de runbooks, é possível usar pacotes do Python para importar os módulos que forem necessários. Este artigo descreve como gerenciar e usar pacotes python 3 (versão prévia) na automação do Azure.
+A automação do Azure permite que você execute runbooks do Python 3 (versão prévia) no Azure e em Hybrid runbook Workers do Linux. Para ajudar na simplificação de runbooks, é possível usar pacotes do Python para importar os módulos que forem necessários. Para importar um único pacote, consulte [importar um pacote](#import-a-package). Para importar um pacote com vários pacotes, consulte [importar um pacote com dependências](#import-a-package-with-dependencies). Este artigo descreve como gerenciar e usar pacotes python 3 (versão prévia) na automação do Azure.
 
-## <a name="import-packages"></a>Importar pacotes
+## <a name="import-a-package"></a>Importar um pacote
 
 Em sua conta de automação, selecione **pacotes do Python** em **recursos compartilhados**. Selecione **+ Adicionar um pacote do Python**.
 
 :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="A captura de tela da página de pacotes do Python 3 mostra pacotes do Python 3 no menu à esquerda e adiciona um pacote do Python 2 realçado.":::
 
-Na página **Adicionar pacote do Python** , selecione Python 3 para a **versão** e selecione um pacote local para carregar. O pacote pode ser um arquivo **.whl** ou **.tar.gz**. Quando o pacote for selecionado, selecione **OK** para carregá-lo.
+Na página **Adicionar pacote do Python** , selecione **Python 3** para a **versão** e selecione um pacote local para carregar. O pacote pode ser um arquivo **.whl** ou **.tar.gz**. Quando o pacote for selecionado, selecione **OK** para carregá-lo.
 
 :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Captura de tela mostra a página Adicionar pacote Python 3 com um arquivo tar. gz carregado selecionado.":::
 
@@ -30,19 +30,35 @@ Depois que um pacote tiver sido importado, ele será listado na página pacotes 
 
 :::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="Captura de tela mostra a página de pacotes do Python 3 depois que um pacote é importado.":::
 
-## <a name="import-packages-with-dependencies"></a>Importar pacotes com dependências
+### <a name="import-a-package-with-dependencies"></a>Importar um pacote com dependências
 
-A automação do Azure não resolve dependências de pacotes do Python durante o processo de importação. No entanto, há uma maneira de importar um pacote com todas as suas dependências.
-
-### <a name="manually-download"></a>Baixar manualmente
-
-Em um computador com Windows de 64 bits com [Python 3,8](https://www.python.org/downloads/release/python-380/) e [Pip](https://pip.pypa.io/en/stable/) instalado, execute o seguinte comando para baixar um pacote e todas as suas dependências:
+Você pode importar um pacote Python 3 e suas dependências importando o seguinte script Python para um runbook do Python 3 e, em seguida, executando-o.
 
 ```cmd
-C:\Python38\Scripts\pip3.8.exe download -d <output dir> <package name>
+https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
-Depois que os pacotes forem baixados, você poderá importá-los para sua conta de automação.
+#### <a name="importing-the-script-into-a-runbook"></a>Importando o script para um runbook
+Para obter informações sobre como importar o runbook, consulte [importar um runbook do portal do Azure](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copie o arquivo do GitHub para o armazenamento que o portal pode acessar antes de executar a importação.
+
+A página **importar um runbook** usa como padrão o nome do runbook para corresponder ao nome do script. Se você tiver acesso ao campo, poderá alterar o nome. O **tipo de runbook** pode padrão para **Python 2**. Se tiver, certifique-se de alterá-lo para **Python 3**.
+
+:::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Captura de tela mostra a página de importação de runbook 3 do Python.":::
+
+#### <a name="executing-the-runbook-to-import-the-package-and-dependencies"></a>Executando o runbook para importar o pacote e as dependências
+
+Depois de criar e publicar o runbook, execute-o para importar o pacote. Consulte [Iniciar um runbook na automação do Azure](start-runbooks.md) para obter detalhes sobre como executar o runbook.
+
+O script ( `import_py3package_from_pypi.py` ) requer os seguintes parâmetros.
+
+| Parâmetro | Descrição |
+|---------------|-----------------|
+|subscription_id | ID da assinatura da conta de automação |
+| resource_group | Nome do grupo de recursos no qual a conta de automação está definida |
+| automation_account | Nome da conta de automação |
+| module_name | Nome do módulo do qual importar `pypi.org` |
+
+Para obter mais informações sobre como usar parâmetros com runbooks, consulte [trabalhar com parâmetros de runbook](start-runbooks.md#work-with-runbook-parameters).
 
 ## <a name="use-a-package-in-a-runbook"></a>Use um pacote em um runbook
 

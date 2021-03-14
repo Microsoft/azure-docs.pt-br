@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar pontos de extremidade privados
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916897"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425338"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).
@@ -26,7 +26,7 @@ Esta seção mostra como usar o portal do Azure para criar um ponto de extremida
 2. Alterne para a guia **rede** da página do tópico. Selecione **+ ponto de extremidade privado** na barra de ferramentas.
 
     ![Adicionar ponto de extremidade privado](./media/configure-private-endpoints/add-button.png)
-2. Uma das páginas **básicas** , siga estas etapas: 
+2. Na página **Básico**, siga estas etapas: 
     1. Selecione uma **assinatura do Azure** na qual você deseja criar o ponto de extremidade privado. 
     2. Selecione um **grupo de recursos do Azure** para o ponto de extremidade privado. 
     3. Insira um **nome** para o ponto de extremidade. 
@@ -196,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>Exemplo de script
 Aqui está um script de exemplo que cria os seguintes recursos do Azure:
 
-- Grupo de recursos
+- Resource group
 - Rede virtual
 - Sub-rede na rede virtual
 - Tópico da grade de eventos do Azure

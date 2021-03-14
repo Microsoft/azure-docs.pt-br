@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355103"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382337"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Criar e gerenciar registros em Common Data Service (Microsoft dataverso) usando aplicativos lógicos do Azure
 
 > [!NOTE]
 > Em novembro de 2020, Common Data Service foi renomeado para o Microsoft dataverso.
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector de Common Data Service](/connectors/commondataservice/), você pode criar fluxos de trabalho automatizados que gerenciam registros em seu Common Data Service, agora banco de dados [do Microsoft dataverso](/powerapps/maker/common-data-service/data-platform-intro) . Esses fluxos de trabalho podem criar registros, atualizar registros e executar outras operações. Você também pode obter informações de seu banco de dados Common Data Service e disponibilizar a saída para outras ações a serem usadas em seu aplicativo lógico. Por exemplo, quando um registro é atualizado no banco de dados do Common Data Service, você pode enviar um email usando o conector do Outlook para Office 365.
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector de Common Data Service](/connectors/commondataservice/), você pode criar fluxos de trabalho automatizados que gerenciam registros em seu Common Data Service, agora banco de dados [do Microsoft dataverso](/powerapps/maker/common-data-service/data-platform-intro) . Esses fluxos de trabalho podem criar registros, atualizar registros e executar outras operações. Você também pode obter informações do banco de dados do dataverso e disponibilizar a saída para outras ações a serem usadas em seu aplicativo lógico. Por exemplo, quando um registro é atualizado no banco de dados do dataverso, você pode enviar um email usando o conector do Outlook do Office 365.
 
 Este artigo mostra como você pode criar um aplicativo lógico que cria um registro de tarefa sempre que um novo registro de Lead é criado.
 
@@ -32,7 +32,7 @@ Este artigo mostra como você pode criar um aplicativo lógico que cria um regis
   * [Aprenda: introdução ao Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Plataforma de energia-visão geral dos ambientes](/power-platform/admin/environments-overview)
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) e o aplicativo lógico de onde você deseja acessar os registros em seu banco de dados Common Data Service. Para iniciar seu aplicativo lógico com um gatilho Common Data Service, você precisa de um aplicativo lógico em branco. Se você for novo no aplicativo lógico do Azure, examine [início rápido: criar seu primeiro fluxo de trabalho usando os aplicativos lógicos do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) e o aplicativo lógico de onde você deseja acessar os registros no banco de dados do dataverso. Para iniciar seu aplicativo lógico com um gatilho Common Data Service, você precisa de um aplicativo lógico em branco. Se você for novo no aplicativo lógico do Azure, examine [início rápido: criar seu primeiro fluxo de trabalho usando os aplicativos lógicos do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Adicionar Common Data Service gatilho
 
@@ -75,7 +75,7 @@ Agora, adicione uma ação Common Data Service que cria um registro de tarefa pa
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | Sim | O ambiente no qual você deseja criar o registro, que não precisa ser o mesmo ambiente em seu gatilho, mas é "produção de vendas da Fabrikam" neste exemplo |
+   | **Nome da Organização** | Sim | O ambiente no qual você deseja criar o registro, que não precisa ser o mesmo ambiente em seu gatilho, mas é "produção de vendas da Fabrikam" neste exemplo |
    | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
    | **Assunto** | Sim, com base na entidade selecionada neste exemplo | Uma breve descrição sobre o objetivo desta tarefa |
    ||||
@@ -170,6 +170,62 @@ Este exemplo mostra como a ação **criar um novo registro** cria um novo regist
 ## <a name="connector-reference"></a>Referência de conector
 
 Para obter informações técnicas com base na descrição do Swagger do conector, como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Solucionando problemas
+
+### <a name="calls-from-multiple-environments"></a>Chamadas de vários ambientes
+
+Ambos os conectores, Common Data Service e Common Data Service (ambiente atual), armazenam informações sobre os fluxos de trabalho do aplicativo lógico que precisam e recebem notificações sobre alterações de entidade usando a `callbackregistrations` entidade em seu Microsoft dataverso. Se você copiar uma organização do dataverso, qualquer webhook também será copiado. Se você copiar sua organização antes de desabilitar os fluxos de trabalho mapeados para sua organização, todos os WebHooks copiados também apontarão para os mesmos aplicativos lógicos, que, por sua vez, receberão notificações de várias organizações.
+
+Para interromper notificações indesejadas, exclua o registro de retorno de chamada da organização que envia essas notificações seguindo estas etapas:
+
+1. Identifique a organização do dataverso de onde você deseja remover as notificações e entre nessa organização.
+
+1. No navegador Chrome, localize o registro de retorno de chamada que você deseja excluir seguindo estas etapas:
+
+   1. Examine a lista genérica para todos os registros de retorno de chamada no seguinte URI do OData para que você possa exibir os dados dentro da `callbackregistrations` entidade:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Se nenhum valor for retornado, talvez você não tenha permissões para exibir esse tipo de entidade ou talvez não esteja conectado à organização correta.
+
+   1. Filtre o nome lógico da entidade disparando `entityname` e o evento de notificação que corresponde ao fluxo de trabalho do aplicativo lógico (mensagem). Cada tipo de evento é mapeado para o inteiro da mensagem da seguinte maneira:
+
+      | Tipo de evento | Número inteiro da mensagem |
+      |------------|-----------------|
+      | Criar | 1 |
+      | Excluir | 2 |
+      | Atualização | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Este exemplo mostra como você pode filtrar as `Create` notificações em uma entidade chamada `nov_validation` usando o seguinte URI de OData para uma organização de exemplo:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Captura de tela que mostra a janela do navegador e o URI do OData na barra de endereços.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Se existirem vários gatilhos para a mesma entidade ou evento, você poderá filtrar a lista usando filtros adicionais, como `createdon` os `_owninguser_value` atributos e. O nome do usuário proprietário aparece em `/api/data/v9.0/systemusers({id})` .
+
+   1. Depois de encontrar a ID para o registro de retorno de chamada que você deseja excluir, siga estas etapas:
+   
+      1. No navegador Chrome, abra o Chrome Ferramentas para Desenvolvedores (teclado: F12).
+
+      1. Na janela, na parte superior, selecione a guia **console** .
+
+      1. No prompt de linha de comando, digite este comando, que envia uma solicitação para excluir o registro de retorno de chamada especificado:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Certifique-se de fazer a solicitação de uma página de UCI (interface do cliente não unificada), por exemplo, da própria página de resposta do OData ou da API. Caso contrário, a lógica no arquivo de app.js pode interferir nessa operação.
+
+   1. Para confirmar que o registro de retorno de chamada não existe mais, verifique a lista de registros de retorno de chamada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

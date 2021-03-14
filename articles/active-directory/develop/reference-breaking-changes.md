@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348714"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647414"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação?
 
@@ -35,7 +35,28 @@ O sistema de autenticação altera e adiciona recursos em uma base contínua par
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 
-Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que estão chegando à produção.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>O acesso condicional só será disparado para escopos explicitamente solicitados
+
+**Data de efetivação**: março de 2021
+
+**Pontos de extremidade afetados**: v 2.0
+
+**Protocolo afetado**: todos os fluxos usando o [consentimento dinâmico](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+Atualmente, os aplicativos que usam o consentimento dinâmico recebem todas as permissões para as quais eles têm consentimento, mesmo que não tenham sido solicitados no `scope` parâmetro por nome.  Isso pode fazer com que um aplicativo solicite, por exemplo `user.read` , apenas, mas com consentimento para `files.read` , seja forçado a passar o acesso condicional atribuído para a `files.read` permissão. 
+
+Para reduzir o número de prompts de acesso condicional desnecessários, o Azure AD está alterando a forma como os escopos não solicitados são fornecidos aos aplicativos para que somente os escopos explicitamente solicitados disparem o acesso condicional. Essa alteração pode fazer com que os aplicativos dependem do comportamento anterior do Azure AD (ou seja, fornecendo todas as permissões mesmo quando não foram solicitados) a serem interrompidos, pois os tokens solicitados não terão permissões.
+
+Os aplicativos agora receberão tokens de acesso com uma combinação de permissões neste-aqueles solicitados, bem como aqueles que eles têm consentimento para isso não exigem prompts de acesso condicional.  Os escopos do token de acesso são refletidos no parâmetro da resposta do token `scope` . 
+
+**Exemplos**
+
+Um aplicativo tem consentimento para `user.read` , `files.readwrite` e `tasks.read` . `files.readwrite` tem políticas de acesso condicional aplicadas a ela, enquanto as outras duas não. Se um aplicativo fizer uma solicitação de token para `scope=user.read` o, e o usuário conectado no momento não tiver passado nenhuma política de acesso condicional, o token resultante será para `user.read` as `tasks.read` permissões e. `tasks.read` está incluído porque o aplicativo tem consentimento para ele e não requer uma política de acesso condicional a ser imposta. 
+
+Se o aplicativo solicitar `scope=files.readwrite` , o acesso condicional exigido pelo locatário será disparado, forçando o aplicativo a mostrar um prompt de autenticação interativa em que a política de acesso condicional pode ser satisfeita.  O token retornado terá todos os três escopos. 
+
+Se o aplicativo fizer uma última solicitação para qualquer um dos três escopos (digamos, `scope=tasks.read` ), o AD do Azure verá que o usuário já concluiu as políticas de acesso condicional necessárias para o `files.readwrite` e emitirá novamente um token com todas as três permissões nele. 
+
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -71,7 +92,7 @@ O erro nos logs de entrada será AADSTS 50052: InvalidPasswordExceedsMaxLength
 
 Mensagem: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Correção:
+Corre
 
 O usuário não pode fazer logon porque sua senha excede o comprimento máximo permitido. Eles devem contatar seu administrador para redefinir a senha. Se o SSPR estiver habilitado para seu locatário, ele poderá redefinir sua senha seguindo o link "esqueceu sua senha".
 

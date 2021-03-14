@@ -4,12 +4,12 @@ description: Use o Azure Resource Manager para mover recursos para um novo grupo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319547"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093630"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -37,7 +37,7 @@ Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao 
 
 1. Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfãa será removida automaticamente, mas é uma prática recomendada remover a atribuição de função antes de mover o recurso.
 
-    Para obter informações sobre como gerenciar atribuições de função, consulte [listar atribuições de função do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [Adicionar ou remover atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md).
+    Para obter informações sobre como gerenciar atribuições de função, consulte [listar atribuições de função do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [atribuir funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que tenha sido desabilitada [crie uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
 
@@ -178,11 +178,11 @@ Quando você exibe o grupo de recursos, a opção mover é desabilitada.
 
 Para habilitar a opção mover, selecione os recursos que você deseja mover. Para selecionar todos os recursos, marque a caixa de seleção na parte superior da lista. Ou selecione recursos individualmente. Depois de selecionar os recursos, a opção mover é habilitada.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opção de movimentação desabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
 
 Selecione o botão **mover** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opção de movimentação desabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opções de movimentação":::
 
 Esse botão oferece três opções:
 
@@ -194,17 +194,17 @@ Selecione se você está movendo os recursos para um novo grupo de recursos ou u
 
 Selecione o grupo de recursos de destino. Confirme que você precisa atualizar scripts para esses recursos e selecione **OK**. Se você optou por mover para uma nova assinatura, também deverá selecionar a assinatura de destino.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opção de movimentação desabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Selecionar destino":::
 
 Depois de validar que os recursos podem ser movidos, você verá uma notificação informando que a operação de movimentação está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opção de movimentação desabilitada":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Notification":::
 
 Quando for concluída, você será notificado sobre o resultado.
 
 Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
 
-## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
+## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
 
 Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando [Move-AzResource](/powershell/module/az.resources/move-azresource). O exemplo a seguir mostra como mover diversos recursos para um novo grupo de recursos.
 

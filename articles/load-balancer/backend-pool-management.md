@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0218bfef66e779a31d999c8d58bc1ce2691f46d4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429595"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179214"
 ---
 # <a name="backend-pool-management"></a>Gerenciamento de pools de back-end
 O pool de back-end é um componente crítico do balanceador de carga. O pool de back-end define o grupo de recursos que receberá o tráfego para determinada regra de balanceamento de carga.
@@ -181,9 +181,11 @@ Corpo da solicitação JSON:
           "subnet": {
             "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
           },
-          "loadBalancerBackendAddressPools": {
-                                    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
-          }
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
+            }
+          ]
         }
       }
     ]
@@ -255,8 +257,16 @@ Em cenários com pools de back-end previamente preenchidos, use o IP e a rede vi
 
 Todo o gerenciamento de pools de back-end é feito diretamente no objeto de pool de back-end, conforme realçado nos exemplos abaixo.
 
-  >[!IMPORTANT] 
-  >Esse recurso está atualmente na visualização. Confira a [seção de limitações](#limitations) para saber os limites atuais desse recurso.
+### <a name="limitations"></a>Limitações
+Um pool de back-end configurado pelo endereço IP tem as seguintes limitações:
+  * Só pode ser usado para balanceadores de carga Standard
+  * Limite de 100 endereços IP no pool de backend
+  * Os recursos de back-end precisam estar na mesma rede virtual do balanceador de carga
+  * Um Load Balancer com o pool de back-end baseado em IP não pode funcionar como um serviço de Link Privado
+  * Atualmente, não há suporte para esse recurso no portal do Azure
+  * Atualmente, não há suporte para contêineres ACI neste recurso
+  * Balanceadores de carga ou serviços administrados por balanceadores de carga não podem ser colocados no pool de backend do balanceador de carga
+  * As regras NAT de entrada não podem ser especificadas pelo endereço IP
 
 ### <a name="powershell"></a>PowerShell
 Criar um pool de back-end:
@@ -517,17 +527,6 @@ Corpo da solicitação JSON:
   }
 }
 ```
-
-## <a name="limitations"></a>Limitações
-Um pool de back-end configurado pelo endereço IP tem as seguintes limitações:
-  * Somente Standard Load Balancer
-  * Limite de 100 endereços IP no pool de backend
-  * Os recursos de back-end precisam estar na mesma rede virtual do balanceador de carga
-  * Um Load Balancer com o pool de back-end baseado em IP não pode funcionar como um serviço de Link Privado
-  * Atualmente, não há suporte para esse recurso no portal do Azure
-  * Atualmente, não há suporte para contêineres ACI neste recurso
-  * Balanceadores de carga ou serviços administrados por balanceadores de carga não podem ser colocados no pool de backend do balanceador de carga
-  * As regras NAT de entrada não podem ser especificadas pelo endereço IP
   
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu mais sobre o gerenciamento de pools de back-end do Azure Load Balancer e como configurar um pool de back-end por endereço IP e rede virtual.

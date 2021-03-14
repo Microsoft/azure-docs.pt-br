@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704162"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431050"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -27,7 +27,7 @@ Há uma exceção importante para essa restrição. Se um usuário tiver optado 
 Por padrão, é possível configurar [redes virtuais e firewalls do Key Vault](network-security.md) para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). É possível conceder acesso ao tráfego de redes virtuais específicas do Azure e intervalos de endereços IP públicos de Internet, permitindo criar um limite de rede seguro para os aplicativos.
 
 > [!NOTE]
-> As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras da rede virtual) não são afetadas por regras da rede virtual e firewalls.
+> As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault. Key Vault operações de plano de controle (como operações de criação, exclusão e modificação, definição de políticas de acesso, configuração de firewalls e regras de rede virtual e implantação de segredos ou chaves por meio de modelos de ARM) não são afetadas por firewalls e regras de rede virtual.
 
 Seguem alguns exemplos de como é possível usar pontos de extremidade de serviço:
 
@@ -43,7 +43,6 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 | --- | --- |
 |Serviço de implantação de Máquinas Virtuais do Microsoft Azure|[Implanta certificados para VMs a partir do Key Vault gerenciado pelo cliente](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Serviço de implantação de modelo do Azure Resource Manager|[Transmite valores seguros durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|SKU do Aplicativo Azure gateway v2|[Terminação TLS com os certificados do Key Vault](../../application-gateway/key-vault-certs.md)|
 |Serviço de criptografia de volume do Azure Disk Encryption|Permite acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da máquina virtual. Isso habilita o [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Serviço de Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../../backup/backup-overview.md).|
 |Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](/microsoft-365/compliance/customer-key-overview).|
@@ -52,6 +51,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Banco de Dados SQL do Azure|[Transparent Data Encryption com suporte de Bring your own Key para o banco de dados SQL do Azure e o Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
 |Armazenamento do Azure|[Criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
+|Azure Synapse Analytics|[Criptografia de dados usando chaves gerenciadas pelo cliente no Azure Key Vault](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Fábrica de dados do Azure|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

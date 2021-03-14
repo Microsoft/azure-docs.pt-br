@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501049"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526265"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Criptografia para espaços de trabalho do Azure Synapse Analytics
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Criptografia para workspaces do Azure Synapse Analytics
 
 Este artigo descreverá:
 * Criptografia de dados em repouso em espaços de trabalho do Synapse Analytics.
@@ -39,7 +39,7 @@ Os dados nos seguintes componentes do Synapse são criptografados com a chave ge
 * Pools de SQL
  * Pools de SQL dedicados
  * Pools SQL sem servidor
-* Pools de Apache Spark
+* Pools do Apache Spark
 * Azure Data Factory tempos de execução de integração, pipelines, conjuntos de valores.
 
 ## <a name="workspace-encryption-configuration"></a>Configuração de criptografia do espaço de trabalho
@@ -53,7 +53,7 @@ Os espaços de trabalho podem ser configurados para habilitar a criptografia dup
 
 ### <a name="key-access-and-workspace-activation"></a>Acesso à chave e ativação do espaço de trabalho
 
-O modelo de criptografia Synapse do Azure com chaves gerenciadas pelo cliente envolve o espaço de trabalho acessando as chaves em Azure Key Vault para criptografar e descriptografar conforme necessário. As chaves tornam-se acessíveis para o espaço de trabalho por meio de uma política de acesso ou acesso Azure Key Vault RBAC (versão[prévia](../../key-vault/general/rbac-guide.md)). Ao conceder permissões por meio de uma política de acesso de Azure Key Vault, escolha a opção ["somente aplicativo"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação da política (selecione a identidade gerenciada do espaço de trabalho e não a adicione como um aplicativo autorizado).
+O modelo de criptografia Synapse do Azure com chaves gerenciadas pelo cliente envolve o espaço de trabalho acessando as chaves em Azure Key Vault para criptografar e descriptografar conforme necessário. As chaves tornam-se acessíveis para o espaço de trabalho por meio de uma política de acesso ou [acesso Azure Key Vault RBAC](../../key-vault/general/rbac-guide.md). Ao conceder permissões por meio de uma política de acesso de Azure Key Vault, escolha a opção ["somente aplicativo"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação da política (selecione a identidade gerenciada do espaço de trabalho e não a adicione como um aplicativo autorizado).
 
  A identidade gerenciada do espaço de trabalho deve receber as permissões necessárias no cofre de chaves antes que o espaço de trabalho possa ser ativado. Essa abordagem em fases para a ativação do espaço de trabalho garante que os dados no espaço de trabalho sejam criptografados com a chave gerenciada pelo cliente. Observe que a criptografia pode ser habilitada ou desabilitada para pools dedicados do SQL – cada pool não está habilitado para criptografia por padrão.
 

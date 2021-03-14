@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548878"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102233"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure defender para IoT Baseline e verificações personalizadas
 
@@ -35,9 +35,13 @@ As verificações personalizadas de linha de base estabelecem uma lista personal
 ## <a name="setting-baseline-properties"></a>Definindo propriedades de linha de base
 
 1. No Hub IoT, localize e selecione o dispositivo que você deseja alterar.
+
 1. Clique no dispositivo e, em seguida, clique no módulo **azureiotsecurity** .
+
 1. Clique em **identidade do módulo**.
+
 1. Carregue o arquivo de **verificações personalizadas de linha de base** no dispositivo.
+
 1. Adicione Propriedades de linha de base ao módulo de segurança e clique em **salvar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemplo de arquivo de verificação personalizada de linha de base
@@ -62,7 +66,7 @@ Para configurar verificações personalizadas de linha de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
-| Nome| Status | Valores válidos| Valores padrão| Descrição |
+| Name| Status | Valores válidos| Valores padrão| Descrição |
 |------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|

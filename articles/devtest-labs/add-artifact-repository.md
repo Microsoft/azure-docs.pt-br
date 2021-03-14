@@ -3,12 +3,12 @@ title: Adicionar um repositório de artefatos ao seu laboratório no Azure DevTe
 description: Saiba como especificar seu próprio repositório de artefatos para seu laboratório em Azure DevTest Labs para armazenar ferramentas indisponíveis no repositório público de artefatos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512004"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502188"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefatos ao seu laboratório no DevTest Labs
 O DevTest Labs permite que você especifique um artefato a ser adicionado a uma VM no momento da criação da VM ou após a criação da VM. Esse artefato pode ser uma ferramenta ou um aplicativo que você deseja instalar na VM. Os artefatos são definidos em um arquivo JSON carregado de um repositório do GitHub ou Azure DevOps git.
@@ -71,7 +71,7 @@ Esta seção fornece etapas para adicionar um repositório de artefatos a um lab
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 
         ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="use-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os modelos de gerenciamento de recursos do Azure (Azure Resource Manager) são arquivos JSON que descrevem os recursos no Azure que você deseja criar. Para obter mais informações sobre esses modelos, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Depois que New-AzResourceGroupDeployment executado com êxito, o comando gera informações importantes como o estado de provisionamento (deve ser bem-sucedido) e todas as saídas para o modelo.
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Esta seção fornece um exemplo de script do PowerShell que pode ser usado para adicionar um repositório de artefatos a um laboratório. Se você não tiver Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obter instruções detalhadas para instalá-lo.
+Esta seção fornece um exemplo de script do PowerShell que pode ser usado para adicionar um repositório de artefatos a um laboratório. Se você não tiver Azure PowerShell, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter instruções detalhadas para instalá-lo.
 
 ### <a name="full-script"></a>Script completo
 Este é o script completo, incluindo algumas mensagens e comentários detalhados:

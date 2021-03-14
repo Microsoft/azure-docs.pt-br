@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint do PBMM Federal do Canadá
 description: Etapas de implantação da amostra de blueprint do PBMM Federal do Canadá, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: da83ec775b953f064444c0c97687a506d66de57f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ec7b0f4bd049b8cb2ead9301ac9ddb76ae727cca
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594777"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar as amostras de blueprint do PBMM Federal do Canadá
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usando a amostra como ponto de partida.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
@@ -33,8 +33,8 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
-   - **Nome do blueprint** : forneça um nome para a sua cópia do exemplo de blueprint.
-   - **Localização da definição** : Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
+   - **Nome do blueprint**: forneça um nome para a sua cópia do exemplo de blueprint.
+   - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
 1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
@@ -44,7 +44,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia da amostra de blueprint pode ser personalizada de acordo com seu ambiente e suas necessidades, mas essa modificação poderá desviá-lo do padrão.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
@@ -54,7 +54,7 @@ Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada
 
 Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poderá ser atribuído a uma assinatura do grupo de gerenciamento em que ele foi salvo. Esta é a etapa em que os parâmetros são fornecidos para tornar exclusiva cada implantação da cópia do exemplo de blueprint.
 
-1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política** , selecione **Blueprints**.
+1. Selecione **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Na página **Política**, selecione **Blueprints**.
 
 1. Selecione a página **Definições de Blueprint** à esquerda. Use os filtros para localizar a cópia da amostra de blueprint e, em seguida, selecione-a.
 
@@ -64,11 +64,11 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
    - Noções básicas
 
-     - **Assinaturas** : Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
-     - **Nome da atribuição** : O nome é pré-preenchido para você com base no nome do blueprint.
+     - **Assinaturas**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a cópia do exemplo de blueprint. Se você selecionar mais de uma assinatura, será criada uma atribuição para cada uma, usando os parâmetros inseridos.
+     - **Nome da atribuição**: O nome é pré-preenchido para você com base no nome do blueprint.
        Altere-o conforme necessário ou mantenha-o como está.
-     - **Localização** : Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição de blueprint** : Escolha uma versão **Publicada** da cópia da amostra de blueprint.
+     - **Localização**: Selecione uma região para a identidade gerenciada a ser criada. O Blueprint do Azure usa essa identidade gerenciada para implantar todos os artefatos no blueprint atribuído. Para saber mais, veja [identidades gerenciadas para recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição de blueprint**: Escolha uma versão **Publicada** da cópia da amostra de blueprint.
 
    - Bloquear atribuição
 
@@ -93,12 +93,12 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para VMs Linux |Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Workspace do Log Analytics para VMs Linux |Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: `[]` |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo |Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: `[]` |
-|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Workspace do Log Analytics para VMs do Windows |Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows |Atribuição de política |Workspace do Log Analytics para VMs do Windows |Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Versão Prévia\]: Auditar os controles PBMM Federais do Canadá e implantar Extensões específicas da VM para dar suporte aos requisitos de auditoria |Atribuição de política |ID do workspace do Log Analytics para a qual as VMs devem ser configuradas |Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas. |
-|\[Versão Prévia\]: Auditar os controles PBMM Federais do Canadá e implantar Extensões específicas da VM para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados |Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Versão Prévia\]: Auditar os controles PBMM Federais do Canadá e implantar Extensões específicas da VM para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados |Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Versão Prévia\]: Auditar os controles PBMM Federais do Canadá e implantar Extensões específicas da VM para dar suporte aos requisitos de auditoria |Atribuição de política |Grupo de administradores |Grupo. Exemplo: `Administrator; myUser1; myUser2` |
 |\[Versão Prévia\]: Auditar os controles PBMM Federais do Canadá e implantar Extensões específicas da VM para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows |Uma lista separada por ponto e vírgula de membros que devem ser incluídos no grupo local de Administradores. Exemplo: `Administrator; myUser1; myUser2` |
 |Implantar a Proteção Avançada contra Ameaças em Contas de Armazenamento |Atribuição de política |Efeito |As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md). |

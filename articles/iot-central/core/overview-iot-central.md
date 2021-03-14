@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: b5f4b6d42d67b69bd8b6be1ada6f5651d0cb8675
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029831"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833806"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -156,9 +156,6 @@ Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solu�
 
 Agora que você tem uma visão geral do IoT Central, estas são as próximas etapas sugeridas:
 
-- Entenda as [tecnologias e os serviços disponíveis do Azure para criar soluções de IoT](../../iot-fundamentals/iot-services-and-technologies.md) disponíveis.
 - Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device.md).
 - Familiarizar-se com a [interface do usuário do Azure IoT Central](overview-iot-central-tour.md).
 - Comece com a [criação de um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
-- Saiba como [Conectar um dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
-- Saiba mais sobre [as tecnologias e os serviços de IoT do Azure](../../iot-fundamentals/iot-services-and-technologies.md).

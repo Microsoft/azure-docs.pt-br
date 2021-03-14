@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 0b15d560e2678772cefdf3d87c047013b24ed467
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 477180a6576d52e3386e18b6e2ba12dd33e4d794
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010271"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integração do Active Directory do Azure com o Aplicativo LOB habilitado para Token SAML 1.1
 
-Neste tutorial, você aprenderá a integrar o LOB App habilitado para Token de SAML 1.1 com o Azure AD (Azure Active Directory).
-Integrando o SAML 1.1 O aplicativo LOB habilitado para token com o Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Aplicativo LOB habilitado para token SAML 1.1 ao Azure AD (Azure Active Directory). Ao integrar o Aplicativo LOB habilitado para token SAML 1.1 ao Azure AD, você poderá:
 
-* Você pode controlar no Azure AD quem tem acesso ao LOB do SAML 1.1 habilitado para token.
-* Você pode permitir que seus usuários façam logon automaticamente no Aplicativo LOB habilitado para Token SAML 1.1 (Logon Único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao Aplicativo LOB habilitado para token SAML 1.1.
+* Permitir que os usuários entrem automaticamente no Aplicativo LOB habilitado para token SAML 1.1 com as respectivas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para começar, você precisará dos seguintes itens:
 
-Para configurar a integração do Azure AD com o aplicativo LOB habilitado para Token SAML 1.1, você precisa dos seguintes itens:
-
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Uma assinatura do Aplicativo LOB habilitado para Token SAML 1.1 habilitada para logon único
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do Aplicativo LOB habilitado para token SAML 1.1 habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -43,63 +39,44 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 * O Aplicativo LOB habilitado para Token SAML 1.1 é compatível com o SSO iniciado por **SP**
 
-## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>Adicionando LOB SAML 1.1 ativado por token App da galeria
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
+
+## <a name="add-saml-11-token-enabled-lob-app-from-the-gallery"></a>Adicionar o Aplicativo LOB habilitado para token SAML 1.1 por meio da galeria
 
 Para configurar a integração do Aplicativo LOB habilitado para Token SAML 1.1 no Azure AD, você precisa adicionar o Aplicativo LOB habilitado para Token SAML 1.1 da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Aplicativo de LOB habilitado para Token SAML 1.1 da galeria, execute as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Aplicativo LOB habilitado para token SAML 1.1** na caixa de pesquisa.
+1. Selecione **Aplicativo LOB habilitado para token SAML 1.1** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-saml-11-token-enabled-lob-app"></a>Configurar e testar o SSO do Azure AD para o Aplicativo LOB habilitado para token SAML 1.1
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Aplicativo LOB habilitado para token SAML 1.1 usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Aplicativo LOB habilitado para token SAML 1.1.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Para configurar e testar o SSO do Azure AD com o Aplicativo LOB habilitado para token SAML 1.1, execute as seguintes etapas:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Aplicativo LOB habilitado para token SAML 1.1](#configure-saml-11-token-enabled-lob-app-sso)** : para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do Aplicativo LOB habilitado para token SAML 1.1](#create-saml-11-token-enabled-lob-app-test-user)** : para ter um equivalente de B.Fernandes no Aplicativo LOB habilitado para token SAML 1.1 que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **LOB App ativada por tokens do SAML 1.1**, selecione **App LOB do SAML 1.1 ativada por tokens** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
+1. No portal do Azure, na página de integração de aplicativos do **Aplicativo LOB habilitado para token SAML 1.1**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![SAML 1.1 Token habilitado App LOB na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Azure AD com o Aplicativo LOB habilitado para Token SAML 1.1 com base em um usuário de teste chamado **Brenda Fernandes**.
-Para o logon único funcionar, um relacionamento de vínculo entre um usuário do Azure AD e o usuário relacionado no Aplicativo LOB habilitado para Token SAML 1.1 precisa ser estabelecido.
-
-Para configurar e testar o logon único do Azure AD com o aplicativo LOB habilitado para Token SAML 1.1, é necessário concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do aplicativo LOB habilitado para Token SAML 1.1](#configure-saml-11-token-enabled-lob-app-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Aplicativo LOB habilitado para Token SAML 1.1](#create-saml-11-token-enabled-lob-app-test-user)** – para ter um equivalente de Brenda Fernandes no Aplicativo LOB habilitado para Token SAML 1.1 vinculado à representação do usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Aplicativo LOB habilitado para Token SAML 1.1, execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do **Aplicativo LOB habilitado para Token SAML 1.1**, clique em **Logon único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
-
-    ![SAML 1.1 Domínio de aplicativo de LOB habilitado para token e informações de logon único de URLs](common/sp-identifier.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://your-app-url`
 
@@ -108,7 +85,7 @@ Para configurar o logon único do Azure AD com o Aplicativo LOB habilitado para 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a equipe de suporte ao cliente do Aplicativo LOB habilitado para Token SAML 1.1 para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
@@ -116,81 +93,48 @@ Para configurar o logon único do Azure AD com o Aplicativo LOB habilitado para 
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
-
-### <a name="configure-saml-11-token-enabled-lob-app-single-sign-on"></a>Configurar o logon único do Aplicativo LOB habilitado para Token SAML 1.1
-
-Para configurar o logon único no lado do **Aplicativo LOB habilitado para Token SAML 1.1**, é necessário enviar as URLs copiadas apropriadas e o **Certificado (Base64)** que você baixou do portal do Azure para a equipe de suporte do Aplicativo LOB habilitado para Token SAML 1.1. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Aplicativo LOB habilitado para Token SAML 1.1.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Aplicativo LOB habilitado para token SAML 1.1.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Aplicativo LOB habilitado para Token SAML 1.1**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **LOB App ativado por token SAML 1.1**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+## <a name="configure-saml-11-token-enabled-lob-app-sso"></a>Configurar o SSO do Aplicativo LOB habilitado para token SAML 1.1
 
-2. Na lista de aplicativos, digite e selecione **Aplicativo LOB habilitado para Token SAML 1.1**.
-
-    ![O link do Aplicativo de LOB habilitado para Token SAML 1.1 na lista de Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+Para configurar o logon único no lado do **Aplicativo LOB habilitado para Token SAML 1.1**, é necessário enviar as URLs copiadas apropriadas e o **Certificado (Base64)** que você baixou do portal do Azure para a equipe de suporte do Aplicativo LOB habilitado para Token SAML 1.1. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-saml-11-token-enabled-lob-app-test-user"></a>Criar um usuário de teste do Aplicativo LOB habilitado para Token SAML 1.1
 
 Nesta seção, você cria um usuário chamado Brenda Fernandes no Aplicativo LOB habilitado para Token SAML 1.1. Trabalhe com a equipe de suporte do Aplicativo LOB habilitado para Token SAML 1.1 para adicionar os usuários na plataforma do Aplicativo LOB habilitado para Token SAML 1.1. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Quando clicar no bloco do Aplicativo LOB habilitado para Token SAML 1.1 no Painel de Acesso, você deverá entrar automaticamente no Aplicativo LOB habilitado para Token SAML 1.1 que configurou para SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Aplicativo LOB habilitado para token SAML 1.1, na qual você poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Aplicativo LOB habilitado para token SAML 1.1 e inicie o fluxo de logon nela.
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Aplicativo LOB habilitado para token SAML 1.1 em Meus Aplicativos, você será redirecionado para a URL de Logon do Aplicativo LOB habilitado para token SAML 1.1. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+Depois de configurar o Aplicativo LOB habilitado para token SAML 1.1, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

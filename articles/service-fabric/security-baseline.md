@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805471"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582642"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
 
@@ -178,9 +178,9 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados às implantações de Service Fabric do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -224,7 +224,7 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 * [Como implantar o agente de Log Analytics em seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Log Analytics pesquisas de log](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics pesquisas de log](../azure-monitor/logs/log-query-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -240,7 +240,7 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 * [Como implantar o agente de Log Analytics em seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/platform/manage-cost-storage.md)
+* [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -256,7 +256,7 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 * [Como implantar o agente de Log Analytics em seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/platform/manage-cost-storage.md)
+* [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -266,7 +266,7 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 **Diretrizes**: use consultas de espaço de trabalho do Azure log Analytics para consultar logs de Service Fabric do Azure.
 
-* [Log Analytics pesquisas de log](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics pesquisas de log](../azure-monitor/logs/log-query-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -278,7 +278,7 @@ Você pode usar Azure PowerShell ou CLI (interface de linha de comando) do Azure
 
 * [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -586,7 +586,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para os recursos críticos do Azure.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

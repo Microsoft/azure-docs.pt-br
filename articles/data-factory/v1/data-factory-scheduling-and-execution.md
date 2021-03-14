@@ -1,22 +1,18 @@
 ---
 title: Agendamento e execução com Data Factory
 description: Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 60410eb2a9a5f18abf2daf87646943ffdc944402
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bfdae688f7736149fe7ddf04cd3833d9adf30818
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495167"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382711"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 > [!NOTE]
@@ -182,7 +178,7 @@ Você já viu o uso da frequência e das propriedades de intervalo na seção de
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
 A tabela a seguir descreve as propriedades que podem ser usadas na seção **disponibilidade** :
 
-| Propriedade | Descrição | Obrigatório | Padrão |
+| Propriedade | Descrição | Necessária | Padrão |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |NA |
 | intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |NA |
@@ -230,7 +226,7 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender. A seguinte tabela descreve as propriedades que você pode usar na seção **política**:
 
-| Nome da política | Descrição | Aplicado a | Obrigatório | Padrão |
+| Nome da política | Descrição | Aplicado a | Necessária | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |NA |
 | minimumRows | Valida que os dados no banco de dados **SQL do Azure** ou na **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |NA |

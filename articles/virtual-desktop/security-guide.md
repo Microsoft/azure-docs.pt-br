@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562609"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014886"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -80,10 +80,10 @@ Habilitar o [Acesso Condicional](../active-directory/conditional-access/overview
 
 Habilitar a coleta de log de auditoria permite exibir a atividade de usuário e de administrador relacionada à Área de Trabalho Virtual do Windows. Alguns exemplos de logs de auditoria de chave são:
 
--   [Log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+-   [Log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 -   [Log de atividades do Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Hosts de sessão](../azure-monitor/platform/agent-windows.md)
+-   [Hosts de sessão](../azure-monitor/agents/agent-windows.md)
 -   [Log de diagnóstico da Área de Trabalho Virtual do Windows](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Logs do Key Vault](../key-vault/general/logging.md)
 
@@ -116,7 +116,6 @@ Para testar esse novo recurso:
 
 >[!NOTE]
 >Durante a visualização, somente as conexões de área de trabalho completas dos pontos de extremidade do Windows 10 dão suporte a esse recurso.
-
 
 ### <a name="enable-endpoint-protection"></a>Habilitar a proteção de ponto de extremidade
 
@@ -169,6 +168,52 @@ Ao restringir recursos do sistema operacional, você pode reforçar a segurança
 - Conceda permissões limitadas aos usuários quando eles acessarem sistemas de arquivos locais e remotos. Você pode restringir as permissões ao fazer com que seus sistemas de arquivos locais e remotos usem listas de controle de acesso com privilégios mínimos. Dessa forma, os usuários só podem acessar aquilo de que precisam, não podendo alterar ou excluir recursos críticos.
 
 - Impedir que um software indesejado seja executado em hosts de sessão. Você pode habilitar o Bloqueador de Aplicativo para segurança adicional em hosts de sessão, garantindo que apenas aplicativos permitidos possam ser executados no host.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Suporte de área de trabalho virtual do Windows para inicialização confiável
+
+A inicialização confiável é Gen2 VMs do Azure com recursos de segurança aprimorados destinados a proteger contra ameaças de "fim da pilha" por meio de vetores de ataque, como rootkits, kits de inicialização e malware em nível de kernel. A seguir estão os recursos de segurança aprimorados da inicialização confiável, todos com suporte na área de trabalho virtual do Windows. Para saber mais sobre o lançamento confiável, visite [inicialização confiável para máquinas virtuais do Azure (versão prévia)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Inicialização Segura
+
+A inicialização segura é um modo que o firmware de plataforma suporta para proteger seu firmware de rootkits baseados em malware e kits de inicialização. Esse modo permite apenas sistemas operacionais e drivers assinados para iniciar o computador. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Monitorar a integridade da inicialização usando o atestado remoto
+
+O atestado remoto é uma ótima maneira de verificar a integridade de suas VMs. O atestado remoto verifica se os registros de inicialização medidos estão presentes, são originais e se originam do Trusted Platform Module virtual (vTPM). Como uma verificação de integridade, ele fornece certeza de que uma plataforma foi iniciada corretamente. 
+
+### <a name="vtpm"></a>vTPM
+
+Um vTPM é uma versão virtualizada de um Trusted Platform Module de hardware (TPM), com uma instância virtual de um TPM por VM. o vTPM habilita o atestado remoto executando a medição de integridade de toda a cadeia de inicialização da VM (UEFI, so, sistema e drivers). 
+
+É recomendável habilitar o vTPM para usar o atestado remoto em suas VMs. Com o vTPM habilitado, você também pode habilitar a funcionalidade do BitLocker, que fornece criptografia de volume completo para proteger os dados em repouso. Todos os recursos que usam vTPM resultarão em segredos vinculados à VM específica. Quando os usuários se conectam ao serviço de área de trabalho virtual do Windows em um cenário em pool, os usuários podem ser redirecionados para qualquer VM no pool de hosts. Dependendo de como o recurso foi projetado, isso pode ter um impacto.
+
+>[!NOTE]
+>O BitLocker não deve ser usado para criptografar o disco específico em que você está armazenando os dados de perfil do FSLogix.
+
+### <a name="virtualization-based-security"></a>Segurança baseada em virtualização
+
+A proteção baseada em virtualização (VBS) usa o hipervisor para criar e isolar uma região segura de memória que está inacessível ao sistema operacional. A política HVAC (integridade de código de Hypervisor-Protected) e o Windows Defender Credential Guard usam VBS para fornecer maior proteção contra vulnerabilidades. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Integridade de código de Hypervisor-Protected
+
+O política HVAC é uma poderosa mitigação do sistema que usa VBS para proteger os processos do modo kernel do Windows contra injeção e execução de código mal-intencionado ou não verificado.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+O Windows Defender Credential Guard usa VBS para isolar e proteger segredos para que somente o software de sistema privilegiado possa acessá-los. Isso impede o acesso não autorizado a esses segredos e ataques de roubo de credenciais, como ataques de passagem de hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Implantar a inicialização confiável no seu ambiente de área de trabalho virtual do Windows
+
+A área de trabalho virtual do Windows não dá suporte à configuração automática de inicialização confiável durante o processo de instalação do pool de hosts. Para usar a inicialização confiável no seu ambiente de área de trabalho virtual do Windows, você precisará implantar o lançamento confiável normalmente e, em seguida, adicionar manualmente a máquina virtual ao pool de hosts desejado.
+
+## <a name="nested-virtualization"></a>Virtualização aninhada
+
+Os seguintes sistemas operacionais dão suporte à execução de virtualização aninhada na área de trabalho virtual do Windows:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise Multi-Session.
 
 ## <a name="next-steps"></a>Próximas etapas
 

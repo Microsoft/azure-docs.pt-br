@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ff67ac4be32142848a12185199d63db5a14e6c34
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889007"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501848"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-O exemplo a seguir habilita a política de reparos automáticos ao criar um novo conjunto de dimensionamento usando *[AZ vmss Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Primeiro, crie um grupo de recursos e, em seguida, crie um novo conjunto de dimensionamento com o período de carência da política de reparos automático definido como 30 minutos.
+O exemplo a seguir habilita a política de reparos automáticos ao criar um novo conjunto de dimensionamento usando *[AZ vmss Create](/cli/azure/vmss#az-vmss-create)*. Primeiro, crie um grupo de recursos e, em seguida, crie um novo conjunto de dimensionamento com o período de carência da política de reparos automático definido como 30 minutos.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-Veja a seguir um exemplo de atualização da política de reparos automáticos de instância de um conjunto de dimensionamento existente, usando *[AZ vmss Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Veja a seguir um exemplo de atualização da política de reparos automáticos de instância de um conjunto de dimensionamento existente, usando *[AZ vmss Update](/cli/azure/vmss#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -259,7 +259,7 @@ Use a API *setOrchestrationServiceState* com a versão de API 2019-12-01 ou supe
 
 ### <a name="azure-cli"></a>CLI do Azure 
 
-Use o cmdlet [Get-Instance-View](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) para exibir o *ServiceState* para reparos automáticos de instância. 
+Use o cmdlet [Get-Instance-View](/cli/azure/vmss#az-vmss-get-instance-view) para exibir o *ServiceState* para reparos automáticos de instância. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Use o cmdlet [set-Orchestration-Service-State](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento. 
+Use o cmdlet [set-Orchestration-Service-State](/cli/azure/vmss#az-vmss-set-orchestration-service-state) para atualizar o *ServiceState* para reparos automáticos de instância. Depois que o conjunto de dimensionamento for aceito no recurso de reparo automático, você poderá usar este cmdlet para suspender ou retomar os reparos automáticos para o conjunto de dimensionamento. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -278,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) com o parâmetro *InstanceView* para exibir o *ServiceState* para reparos automáticos de instância.
+Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) com o parâmetro *InstanceView* para exibir o *ServiceState* para reparos automáticos de instância.
 
 ```azurepowershell-interactive
 Get-AzVmss `

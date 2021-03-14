@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a7d1212d1106f0883d05a860b498b90e4e5f8e00
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600346"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517507"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implantar modelos treinados com o Azure Machine Learning em seus computadores locais 
 
@@ -31,7 +31,7 @@ Os cenários para a implantação local incluem:
 
 - Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 - Um modelo e um ambiente. Se você não tiver um modelo treinado, poderá usar os arquivos de modelo e de dependência fornecidos neste [tutorial](tutorial-train-models-with-aml.md).
-- O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 - Um Gerenciador de Conda, como Anaconda ou Miniconda, se você quiser espelhar Azure Machine Learning dependências de pacote.
 - Docker, se você quiser usar uma versão em contêiner do ambiente de Azure Machine Learning.
 
@@ -185,8 +185,8 @@ Usar o Docker para implantar seu modelo como um serviço Web é a opção mais c
 Você pode baixar o modelo:  
 
 - No portal, selecionando a guia **modelos** , selecionando o modelo desejado e, na página **detalhes** , selecionando **baixar**.
-- Na linha de comando, usando `az ml model download` . (Consulte [download do modelo.](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false))
-- Usando o método SDK do Python `Model.download()` . (Consulte [classe de modelo.](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false))
+- Na linha de comando, usando `az ml model download` . (Consulte [download do modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download))
+- Usando o método SDK do Python `Model.download()` . (Consulte [classe de modelo.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
 Um modelo do Azure é um ou mais objetos Python serializados, empacotados como um arquivo Python pickle (extensão. PKL). O conteúdo do arquivo pickle depende da biblioteca de aprendizado de máquina ou da técnica usada para treinar o modelo. Por exemplo, se você estiver usando o modelo do tutorial, você pode carregar o modelo com:
 

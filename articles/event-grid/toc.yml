@@ -54,8 +54,12 @@
       href: ensure-tags-exists-on-new-virtual-machines.md
     - name: Enviar email quando o dispositivo do Hub IoT for desconectado
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Responder a eventos do Barramento de Serviço
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Manipular eventos do Barramento de Serviço por meio da Grade de Eventos
+      items:
+        - name: Aplicativos Lógicos do Azure
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: Azure Functions
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Transmitir dados dos Hubs de Eventos
       href: event-grid-event-hubs-integration.md
     - name: Encaminhar eventos de Serviços de Mídia
@@ -208,6 +212,10 @@
           href: diagnostic-logs.md
         - name: Métricas
           href: metrics.md
+    - name: Casos de uso
+      items:
+        - name: Casos de uso para domínios
+          href: event-domains-use-cases.md
 - name: Guias de instruções
   items:
     - name: 'Criar, exibir e gerenciar tópicos do sistema'
@@ -262,14 +270,18 @@
       items:
         - name: Publicar eventos com segurança por meio de um link privado
           href: configure-private-endpoints.md
+        - name: Entregar eventos usando a identidade gerenciada
+          href: managed-service-identity.md
+        - name: Entregar eventos com segurança por meio de um link privado
+          href: consume-private-endpoints.md
         - name: Configurar firewall do IP
           href: configure-firewall.md
         - name: Webhook seguro com o Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: 'Entrega de eventos, identidade gerenciada e link privado'
-          href: managed-service-identity.md
     - name: Solucionar problemas
       items:
+        - name: Solucionar problemas de Grade de Eventos
+          href: troubleshoot-issues.md
         - name: Habilitar logs de diagnóstico
           href: enable-diagnostic-logs-topic.md
         - name: Solucionar problemas de erros

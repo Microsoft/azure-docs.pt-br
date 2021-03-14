@@ -1,19 +1,19 @@
 ---
 title: Entender as funções necessárias para executar tarefas comuns no Synapse
 description: Este artigo descreve quais funções do RBAC Synapse internas são necessárias para realizar tarefas específicas
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109786"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384445"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Entender as funções necessárias para executar tarefas comuns no Synapse
 
@@ -65,11 +65,11 @@ A tabela a seguir lista tarefas comuns e para cada tarefa, as funções RBAC Syn
 
 Tarefa (desejo...) |Função (preciso ser...)|Permissão/ação de RBAC Synapse
 --|--|--
-|Abrir o Synapse Studio em um espaço de trabalho|Usuário Synapse ou|leitura
+|Abrir o Synapse Studio em um espaço de trabalho|Usuário Synapse ou|ler
 | |Proprietário, colaborador ou leitor do Azure no espaço de trabalho|nenhum
-|Listar pools SQL, pools de Apache Spark, tempos de execução de integração e acessar seus detalhes de configuração|Usuário Synapse ou|leitura|
+|Listar pools SQL, pools de Apache Spark, tempos de execução de integração e acessar seus detalhes de configuração|Usuário Synapse ou|ler|
 ||Proprietário, colaborador ou leitor do Azure no espaço de trabalho|nenhum
-|Listar serviços vinculados, credenciais, pontos de extremidade privados gerenciados|Usuário Synapse|leitura
+|Listar serviços vinculados, credenciais, pontos de extremidade privados gerenciados|Usuário Synapse|ler
 POOLS DO SQL|
 Criar um pool SQL dedicado ou um pool SQL sem servidor|Proprietário ou colaborador do Azure no espaço de trabalho|nenhum
 Gerenciar (pausar, dimensionar ou excluir) um pool SQL dedicado|Proprietário ou colaborador do Azure no espaço de trabalho ou no pool SQL|nenhum
@@ -82,20 +82,20 @@ Confirmar alterações em um script SQL para o repositório git|Requer permissõ
 Atribuir Active Directory admin no espaço de trabalho (por meio de propriedades do espaço de trabalho no portal do Azure)|Proprietário ou colaborador do Azure no espaço de trabalho |
 POOLS DO APACHE SPARK|
 Criar um Pool do Apache Spark|Proprietário ou colaborador do Azure no espaço de trabalho|
-Monitorar Apache Spark aplicativos| Usuário Synapse|leitura
+Monitorar Apache Spark aplicativos| Usuário Synapse|ler
 Exibir os logs para execução de bloco de anotações e trabalho |Operador de computação Synapse|
 Cancelar qualquer trabalho de notebook ou Spark em execução em um pool de Apache Spark|Synapse o operador de computação no pool de Apache Spark.|bigDataPools/useCompute
-Criar um bloco de anotações ou uma definição de trabalho|Usuário Synapse ou </br>Proprietário, colaborador ou leitor do Azure no espaço de trabalho</br> *Permissões adicionais são necessárias para executar, publicar ou confirmar alterações*|leitura</br></br></br></br></br> 
+Criar um bloco de anotações ou uma definição de trabalho|Usuário Synapse ou </br>Proprietário, colaborador ou leitor do Azure no espaço de trabalho</br> *Permissões adicionais são necessárias para executar, publicar ou confirmar alterações*|ler</br></br></br></br></br> 
 Listar e abrir um bloco de anotações ou uma definição de trabalho publicados, incluindo revisão de saídas salvas|Usuário do artefato Synapse, Publicador de artefatos do Synapse, colaborador do Synapse no espaço de trabalho|artefatos/leitura
-Executar um bloco de anotações e examinar sua saída|Synapse Apache Spark administrador, Synapse Compute Operator no pool de Apache Spark selecionado|bigDataPools/useCompute 
+Executar um bloco de anotações e examinar sua saída ou enviar um trabalho do Spark|Synapse Apache Spark administrador, Synapse Compute Operator no pool de Apache Spark selecionado|bigDataPools/useCompute 
 Publicar ou excluir um bloco de anotações ou uma definição de trabalho (incluindo saída) para o serviço|Publicador de artefatos no espaço de trabalho, Synapse Apache Spark administrador|blocos de anotações/gravação, excluir
-Confirmar alterações em um bloco de anotações ou definição de trabalho para o repositório git|Permissões git|nenhum
+Confirmar alterações em um bloco de anotações ou definição de trabalho para o repositório git|Permissões do Git|nenhum
 PIPELINES, TEMPOS DE EXECUÇÃO DE INTEGRAÇÃO, FLUXOS DE DATA, CONJUNTOS DE & GATILHOS|
 Criar, atualizar ou excluir um tempo de execução de integração|Proprietário ou colaborador do Azure no espaço de trabalho|
 Monitorar o status do tempo de execução de integração|Usuário Synapse|ler, pipelines/viewOutputs
 Examinar execuções de pipeline|Editor de artefato do Synapse/colaborador do Synapse|ler, pipelines/viewOutputs 
-Criar um pipeline |Usuário Synapse</br>*Permissões adicionais de Synapse são necessárias para depurar, adicionar gatilhos, publicar ou confirmar alterações*|leitura
-Criar um Dataflow ou conjunto de um DataSet |Usuário Synapse</br>*Permissões adicionais de Synapse são necessárias para publicar ou confirmar alterações*|leitura
+Criar um pipeline |Usuário Synapse</br>*Permissões adicionais de Synapse são necessárias para depurar, adicionar gatilhos, publicar ou confirmar alterações*|ler
+Criar um Dataflow ou conjunto de um DataSet |Usuário Synapse</br>*Permissões adicionais de Synapse são necessárias para publicar ou confirmar alterações*|ler
 Listar e abrir um pipeline publicado |Usuário do artefato Synapse | artefatos/leitura
 Visualizar dados de DataSet|Usuário Synapse + Synapse de credencial de usuário no WorkspaceSystemIdentity| 
 Depurar um pipeline usando o tempo de execução de integração padrão|Usuário Synapse + Synapse de credencial de usuário na credencial WorkspaceSystemIdentity|leitura </br>credenciais/useSecret
@@ -104,15 +104,15 @@ Executar/executar um pipeline|Usuário Synapse + Synapse de credencial de usuár
 Copiar dados usando a ferramenta de Copiar Dados|Synapse usuário + Synapse usuário de credencial na identidade do sistema do espaço de trabalho|leitura, credenciais/useSecret/ação
 Ingerir dados (usando uma agenda)|Usuário de credencial Synapse Author + Synapse na identidade do sistema do espaço de trabalho|leitura, credenciais/useSecret/ação
 Publicar um pipeline novo, atualizado ou excluído, Dataflow ou gatilho para o serviço|Publicador de artefatos do Synapse no espaço de trabalho|pipelines/gravação, exclusão</br>fluxo de os/gravação, exclusão</br>gatilhos/gravação, exclusão
-Confirmar alterações em pipelines, fluxos de post, DataSets ou gatilhos para o repositório git |Permissões git|nenhum 
+Confirmar alterações em pipelines, fluxos de post, DataSets ou gatilhos para o repositório git |Permissões do Git|nenhum 
 SERVIÇOS VINCULADOS|
-Criar um serviço vinculado (inclui atribuir uma credencial)|Usuário Synapse</br>*Permissões adicionais são necessárias para usar um serviço vinculado com credenciais ou para publicar ou confirmar alterações*|leitura
+Criar um serviço vinculado (inclui atribuir uma credencial)|Usuário Synapse</br>*Permissões adicionais são necessárias para usar um serviço vinculado com credenciais ou para publicar ou confirmar alterações*|ler
 Listar e abrir um serviço vinculado publicado|Usuário do artefato Synapse|linkedservices/gravar, excluir  
 Testar a conexão em um serviço vinculado protegido por uma credencial|Usuário Synapse + usuário de credencial Synapse|credenciais/useSecret/ação|
 Publicar um serviço vinculado|Editor de artefatos Synapse, Synapse vinculados Gerenciador de Dados|linkedservices/gravar, excluir
-Confirmar definições de serviço vinculado para o repositório git|Permissões git|nenhum
+Confirmar definições de serviço vinculado para o repositório git|Permissões do Git|nenhum
 GERENCIAMENTO DE ACESSO|
-Examinar as atribuições de função RBAC Synapse em qualquer escopo|Usuário Synapse|leitura
+Examinar as atribuições de função RBAC Synapse em qualquer escopo|Usuário Synapse|ler
 Atribuir e remover atribuições de função RBAC Synapse para usuários, grupos e entidades de serviço| Synapse administrador no espaço de trabalho ou em um escopo de item de espaço de trabalho específico|roleAssignments/gravar, excluir 
 
 >[!Note]

@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936236"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526996"
 ---
-# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
+# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure
 
 > [!NOTE]
 > Key Vault provedor de recursos dá suporte a dois tipos de recursos: **cofres** e **HSMs gerenciados**. O controle de acesso descrito neste artigo se aplica somente a **cofres**. Para saber mais sobre o controle de acesso para HSM gerenciado, consulte [controle de acesso HSM gerenciado](../managed-hsm/access-control.md).
@@ -44,20 +44,20 @@ Mais sobre as diretrizes de gerenciamento de Azure Key Vault, consulte:
 - [Visão geral da segurança do Azure Key Vault](security-overview.md)
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
-## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Funções internas do Azure para Key Vault operações do plano de dados (versão prévia)
+## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Funções internas do Azure para Key Vault operações do plano de dados
 > [!NOTE]
 > `Key Vault Contributor` a função destina-se a operações do plano de gerenciamento para gerenciar cofres de chaves. Ele não permite acesso a chaves, segredos e certificados.
 
 | Função interna | Descrição | ID |
 | --- | --- | --- |
-| Key Vault administrador (versão prévia) | Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Key Vault o responsável por certificados (versão prévia) | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Key Vault de criptografia (versão prévia)| Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Criptografia do serviço de criptografia Key Vault (visualização) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Key Vault usuário de criptografia (visualização) | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Leitor de Key Vault (versão prévia)| Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Diretor de segredos Key Vault (versão prévia)| Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Usuário Key Vault segredos (visualização)| Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Administrador de Key Vault| Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Diretor de certificados Key Vault | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Key Vault o analista de criptografia | Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Key Vault usuário de criptografia do serviço de criptografia | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Key Vault usuário de criptografia  | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Leitor de Key Vault | Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Diretor de segredos Key Vault| Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Usuário de Key Vault segredos | Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Para obter mais informações sobre as definições de funções internas do Azure, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -74,8 +74,8 @@ Para adicionar as atribuições de função, você precisa ter:
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitar permissões do RBAC do Azure no Key Vault
 
-> [!IMPORTANT]
-> A configuração do modelo de permissão do RBAC do Azure invalida todas as permissões de políticas de acesso. Isso pode causar interrupções quando funções equivalentes do Azure não são atribuídas.
+> [!NOTE]
+> A alteração do modelo de permissão requer a permissão ' Microsoft. Authorization/roleAssignments/Write ', que faz parte do [proprietário](../../role-based-access-control/built-in-roles.md#owner) e das funções de [administrador de acesso do usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) . Não há suporte para funções de administrador de assinatura clássicas como ' administrador de serviços ' e ' coadministrador '.
 
 1.  Habilitar permissões do RBAC do Azure no novo cofre de chaves:
 
@@ -85,10 +85,13 @@ Para adicionar as atribuições de função, você precisa ter:
 
     ![Habilitar permissões do RBAC do Azure-cofre existente](../media/rbac/image-2.png)
 
+> [!IMPORTANT]
+> A configuração do modelo de permissão do RBAC do Azure invalida todas as permissões de políticas de acesso. Isso pode causar interrupções quando funções equivalentes do Azure não são atribuídas.
+
 ### <a name="assign-role"></a>Atribuir função
 
 > [!Note]
-> É recomendável usar a ID de função exclusiva em vez do nome da função em scripts. Portanto, se uma função for renomeada, seus scripts continuarão a funcionar. Durante a visualização, cada função teria o sufixo "(Preview)", que seria removido posteriormente. Neste documento, o nome da função é usado apenas para facilitar a leitura.
+> É recomendável usar a ID de função exclusiva em vez do nome da função em scripts. Portanto, se uma função for renomeada, seus scripts continuarão a funcionar. Neste documento, o nome da função é usado apenas para facilitar a leitura.
 
 CLI do Azure comando para criar uma atribuição de função:
 
@@ -107,13 +110,13 @@ No portal do Azure, a tela atribuições de função do Azure está disponível 
 
 2.  Clique em controle de acesso (IAM) adicionar \> atribuição de função \>
 
-3.  Criar Key Vault a função leitor "Key Vault Reader (visualização)" para o usuário atual
+3.  Criar Key Vault função de leitor "leitor de Key Vault" para o usuário atual
 
     ![Adicionar função-grupo de recursos](../media/rbac/image-5.png)
 
 CLI do Azure:
 ```azurecli
-az role assignment create --role "Key Vault Reader (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 
 A atribuição de função acima fornece a capacidade de listar objetos do cofre de chaves no Key Vault.
@@ -124,14 +127,14 @@ A atribuição de função acima fornece a capacidade de listar objetos do cofre
 
 2. Clique em Adicionar atribuição de função \> Adicionar
 
-3. Crie a função do diretor de segredos chave "Key Vault o responsável pela versão prévia (visualização)" para o usuário atual.
+3. Crie a função do diretor de segredos principais "Key Vault o diretor de segredos" para o usuário atual.
 
     ![Atribuição de função-cofre de chaves](../media/rbac/image-6.png)
 
  CLI do Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 Depois de criar a atribuição de função acima, você pode criar/atualizar/excluir segredos.
@@ -142,18 +145,18 @@ Depois de criar a atribuição de função acima, você pode criar/atualizar/exc
 
 ### <a name="secret-scope-role-assignment"></a>Atribuição de função de escopo secreto
 
-1. Abra um dos segredos criados anteriormente, observe a visão geral e o controle de acesso (IAM) (visualização)
+1. Abra um dos segredos criados anteriormente, observe a visão geral e o controle de acesso (IAM) 
 
-2. Clique na guia controle de acesso (IAM) (visualização)
+2. Clique na guia controle de acesso (IAM)
 
     ![Atribuição de função-segredo](../media/rbac/image-8.png)
 
-3. Crie a função do diretor de segredos chave "Key Vault o responsável (versão prévia)" para o usuário atual, assim como foi feito acima para o Key Vault.
+3. Crie a função do diretor de segredos-chave "Key Vault o diretor de segredos" para o usuário atual, assim como foi feito acima para o Key Vault.
 
 CLI do Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
 ### <a name="test-and-verify"></a>Testar e verificar
@@ -164,7 +167,7 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 1. Valide a adição de novo segredo sem a função "diretor de segredos Key Vault" no nível do cofre de chaves.
 
-Vá para a guia IAM (controle de acesso do Key Vault) e remova a atribuição de função "Key Vault do responsável por segredos (versão prévia)" para este recurso.
+Vá para a guia IAM (controle de acesso do cofre de chaves) e remova a atribuição de função "Key Vault diretor de segredos" para esse recurso.
 
 ![Remover atribuição-cofre de chaves](../media/rbac/image-9.png)
 
@@ -178,7 +181,7 @@ Criar novo segredo (segredos \> + gerar/importar) deve mostrar o erro abaixo:
 
 2.  Validar a edição de segredo sem a função "Key Vault Secret" no nível de segredo.
 
--   Vá para a guia IAM (controle de acesso secreto) criada anteriormente e remova a atribuição de função "Key Vault de segredos (versão prévia)" para esse recurso.
+-   Vá para a guia IAM (controle de acesso de segredo) criada e remova a atribuição de função "Key Vault diretor de segredos" para esse recurso.
 
 -   Navegue até o segredo criado anteriormente. Você pode ver as propriedades secretas.
 
@@ -186,7 +189,7 @@ Criar novo segredo (segredos \> + gerar/importar) deve mostrar o erro abaixo:
 
 3. Valide os segredos lidos sem a função de leitor no nível do cofre de chaves.
 
--   Acesse a guia IAM (controle de acesso do grupo de recursos do Key Vault) e remova a atribuição de função "leitor de Key Vault (versão prévia)".
+-   Vá para a guia IAM (controle de acesso do grupo de recursos do Key Vault) e remova a atribuição de função "leitor de Key Vault".
 
 -   Navegar para a guia segredos do Key Vault deve mostrar o erro abaixo:
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 727354593488cd5af77408eaa7c8d9e747a0b071
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735585"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210301"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Início Rápido: Criar e implantar aplicativos no Azure Spring Cloud
 
@@ -84,7 +84,7 @@ Se você estiver usando o Azure Cloud Shell até este ponto, alterne para um pro
    ```
 
    > [!TIP]
-   > O arquivo de projeto contém o seguinte XML para empacotar os binários em um arquivo *.zip* depois de gravá-los na pasta *./publish* :
+   > O arquivo de projeto contém o seguinte XML para empacotar os binários em um arquivo *.zip* depois de gravá-los na pasta *./publish*:
    >
    > ```xml
    > <Target Name="Publish-Zip" AfterTargets="Publish">
@@ -100,7 +100,7 @@ Se você estiver usando o Azure Cloud Shell até este ponto, alterne para um pro
    az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
-   A opção `--main-entry` especifica o caminho relativo da pasta raiz do arquivo *.zip* para o arquivo *.dll* que contém o ponto de entrada do aplicativo. Depois que o serviço carrega o arquivo *.zip* , ele extrai todos os arquivos e pastas e tenta executar o ponto de entrada no arquivo *.dll* especificado.
+   A opção `--main-entry` especifica o caminho relativo da pasta raiz do arquivo *.zip* para o arquivo *.dll* que contém o ponto de entrada do aplicativo. Depois que o serviço carrega o arquivo *.zip*, ele extrai todos os arquivos e pastas e tenta executar o ponto de entrada no arquivo *.dll* especificado.
 
    Este comando pode levar vários minutos para ser executado.
 
@@ -143,7 +143,7 @@ Para testar o aplicativo, envie uma solicitação HTTP GET para o aplicativo `so
 1. Para atribuir o ponto de extremidade, execute o comando a seguir.
 
    ```azurecli
-   az spring-cloud app update -n solar-system-weather --is-public true
+   az spring-cloud app update -n solar-system-weather --assign-endpoint true
    ```
 
 1. Para obter a URL do ponto de extremidade, execute o comando a seguir.
@@ -187,9 +187,9 @@ Antes da implantação com a CLI do Azure ou o Maven, conclua os exemplos que [p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar o JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Instalar o JDK 8](/java/azure/jdk/)
 * [Inscrever-se em uma assinatura do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
+* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](/cli/azure/install-azure-cli) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
 * (Opcional) [Instalar o Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [conectar-se](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="deployment-procedures"></a>Procedimentos de implantação
@@ -222,7 +222,7 @@ A compilação do projeto leva cerca de 5 minutos. Depois de concluída, você d
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Crie os microsserviços do Azure Spring Cloud usando os arquivos JAR criados na etapa anterior. Você criará três aplicativos: **gateway** , **auth-service** e **account-service** .
+1. Crie os microsserviços do Azure Spring Cloud usando os arquivos JAR criados na etapa anterior. Você criará três aplicativos: **gateway**, **auth-service** e **account-service**.
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -245,7 +245,7 @@ Precisamos de uma maneira de acessar o aplicativo por meio de um navegador da We
 1. Atribua o ponto de extremidade usando o seguinte comando:
 
     ```azurecli
-    az spring-cloud app update -n gateway --is-public true
+    az spring-cloud app update -n gateway --assign-endpoint true
     ```
 
 2. Consulte o aplicativo de **gateway** quanto ao IP público dele para você poder verificar se ele está em execução:
@@ -306,33 +306,33 @@ Precisamos de uma maneira de acessar o aplicativo por meio de um navegador da We
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Implantar o aplicativo de gateway no Azure Spring Cloud
 Para implantar no Azure, você precisa entrar com a sua conta do Azure com o Azure Toolkit for IntelliJ e escolher a sua assinatura. Para obter detalhes de entrada, confira [Instalação e entrada](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Clique com o botão direito do mouse no seu projeto no explorador de projeto do IntelliJ e selecione **Azure** -> **Implantar no Azure Spring Cloud** .
+1. Clique com o botão direito do mouse no seu projeto no explorador de projeto do IntelliJ e selecione **Azure** -> **Implantar no Azure Spring Cloud**.
 
     ![Implantar no Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. No campo **Nome** , acrescente *:gateway* ao **Nome** existente.
-1. Na caixa de texto **Artefato** , selecione *com.piggymetrics:gateway:1.0-SNAPSHOT* .
-1. Na caixa de texto **Assinatura** , verifique a sua assinatura.
-1. Na caixa de texto **Spring Cloud** , selecione a instância do Azure Spring Cloud criada em [Provisionar a instância do Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
-1. Defina **Ponto de Extremidade Público** como *Habilitar* .
+1. No campo **Nome**, acrescente *:gateway* ao **Nome** existente.
+1. Na caixa de texto **Artefato**, selecione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
+1. Na caixa de texto **Assinatura**, verifique a sua assinatura.
+1. Na caixa de texto **Spring Cloud**, selecione a instância do Azure Spring Cloud criada em [Provisionar a instância do Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
+1. Defina **Ponto de Extremidade Público** como *Habilitar*.
 1. Na caixa de texto **Aplicativo:** , selecione **Criar aplicativo...** .
-1. Insira *gateway* e clique em **OK** .
+1. Insira *gateway* e clique em **OK**.
 
     ![Implantar no Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. Na seção **Antes da inicialização** da caixa de diálogo, clique duas vezes em *Executar Meta do Maven* .
-1. Na caixa de texto **Diretório de trabalho** , navegue até a pasta *piggymetrics/gateway* .
-1. Na caixa de texto **Linha de comando** , insira *package -DskipTests* . Clique em **OK** .
-1. Inicie a implantação clicando no botão **Executar** na parte inferior da caixa de diálogo **Implantar aplicativo do Azure Spring Cloud** . O plug-in executará o comando `mvn package` no aplicativo `gateway` e implantará o JAR gerado pelo comando `package`.
+1. Na seção **Antes da inicialização** da caixa de diálogo, clique duas vezes em *Executar Meta do Maven*.
+1. Na caixa de texto **Diretório de trabalho**, navegue até a pasta *piggymetrics/gateway*.
+1. Na caixa de texto **Linha de comando**, insira *package -DskipTests*. Clique em **OK**.
+1. Inicie a implantação clicando no botão **Executar** na parte inferior da caixa de diálogo **Implantar aplicativo do Azure Spring Cloud**. O plug-in executará o comando `mvn package` no aplicativo `gateway` e implantará o JAR gerado pelo comando `package`.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Implantar o auth-service e o account-service no Azure Spring Cloud
 Você pode repetir as etapas acima para implantar `auth-service` e os aplicativos `account-service` no Azure Spring Cloud:
 
 1. Modifique o **Nome** e o **Artefato** para identificar o aplicativo `auth-service`.
 1. Na caixa de texto **Aplicativo:** , selecione **Criar aplicativo...** para criar aplicativos `auth-service`.
-1. Verifique se a opção **Ponto de Extremidade Público** está definida como *Desabilitado* .
-1. Na seção **Antes da inicialização** da caixa de diálogo, alterne o **Diretório de trabalho** para a pasta *piggymetrics/auth-service* .
-1. Inicie a implantação clicando no botão **Executar** na parte inferior da caixa de diálogo **Implantar aplicativo do Azure Spring Cloud** . 
+1. Verifique se a opção **Ponto de Extremidade Público** está definida como *Desabilitado*.
+1. Na seção **Antes da inicialização** da caixa de diálogo, alterne o **Diretório de trabalho** para a pasta *piggymetrics/auth-service*.
+1. Inicie a implantação clicando no botão **Executar** na parte inferior da caixa de diálogo **Implantar aplicativo do Azure Spring Cloud**. 
 1. Repita esses procedimentos para configurar e implantar o `account-service`.
 ---
 

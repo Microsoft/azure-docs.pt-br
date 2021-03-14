@@ -1,18 +1,18 @@
 ---
 title: Corrigir recursos sem conformidade
 description: Este guia o orienta pela correção de recursos que não estão em conformidade com as políticas no Azure Policy.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742221"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
-Recursos que não estão em conformidade com uma política de **deployIfNotExists** ou **modify** podem ser colocados em um estado de conformidade por meio de **Correção**. A correção é realizada instruindo Azure Policy a executar o efeito de **deployIfNotExists** ou as **operações de modificação** da política atribuída em seus recursos existentes, seja essa atribuição para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra as etapas necessárias para entender e realizar a correção com o Azure Policy.
+Recursos que não estão em conformidade com uma política de **deployIfNotExists** ou **modify** podem ser colocados em um estado de conformidade por meio de **Correção**. A correção é realizada instruindo Azure Policy a executar o efeito de **deployIfNotExists** ou as **operações de modificação** da política atribuída em seus recursos e assinaturas existentes, seja essa atribuição para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra as etapas necessárias para entender e realizar a correção com o Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 
@@ -123,17 +123,18 @@ Para adicionar uma função à identidade gerenciada da atribuição, siga estas
 
 ### <a name="create-a-remediation-task-through-portal"></a>Criação de uma tarefa de correção através do portal
 
-Durante a avaliação, a atribuição de política com os efeitos **deployIfNotExists** e **modify** determinará se há recursos sem conformidade. Quando forem encontrados recursos sem conformidade, os detalhes serão fornecidos na página **Correção**. Junto com a lista de políticas que têm recursos sem conformidade está a opção para disparar uma **tarefa de correção**. Essa opção é a que cria uma implantação usando o modelo **deployIfNotExists** ou as operações **modify**.
+Durante a avaliação, a atribuição de política com efeitos **deployIfNotExists** ou **Modify** determina se há recursos ou assinaturas sem conformidade. Quando são encontrados recursos não compatíveis ou assinaturas, os detalhes são fornecidos na página **correção** . Junto com a lista de políticas que têm recursos ou assinaturas sem conformidade é a opção de disparar uma **tarefa de correção**.
+Essa opção é a que cria uma implantação usando o modelo **deployIfNotExists** ou as operações **modify**.
 
 Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Inicie o serviço do Azure Policy no portal do Azure selecionando **Todos os serviços** e, em seguida, pesquisando e selecionando **Política**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de tela da pesquisa de Política em Todos os Serviços." border="false":::
 
 1. Selecione **Correção** no lado esquerdo da página do Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de tela do nó de correção na página de política." border="false":::
 
 1. Todas as atribuições de política **deployIfNotExists** e **modify** com recursos sem conformidade estão incluídas na tabela de dados e na guia **Políticas a corrigir**. Selecione em uma política com recursos que não estão em conformidade. A página **Nova tarefa de correção** é aberta.
 
@@ -142,17 +143,17 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Na página **Nova tarefa de correção**, filtre os recursos a serem corrigidos usando as reticências de **Escopo** para escolher os recursos filho nos quais a política está atribuída (incluindo até os objetos do recurso individuais). Além disso, use a lista suspensa **Locais** para filtrar ainda mais os recursos. Somente os recursos listados na tabela serão corrigidos.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de tela do nó de correção e a grade de recursos a serem corrigidos." border="false":::
 
 1. Inicie a tarefa de correção depois que os recursos tiverem sido filtrados selecionando **corrigir**. A página de conformidade de política abre na guia **Tarefas de correção** para mostrar o estado do progresso das tarefas. As implantações criadas pela tarefa de correção são iniciadas imediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de tela da guia tarefas de correção e progresso das tarefas de correção existentes." border="false":::
 
 1. Selecione na **tarefa de correção** da página de conformidade da política para obter detalhes sobre o progresso. A filtragem usada para a tarefa é mostrada junto com uma lista dos recursos que estão sendo corrigidos.
 
 1. Na página **tarefa de correção** , clique com o botão direito do mouse em um recurso para exibir a implantação da tarefa de correção ou o recurso. No final da linha, selecione **eventos relacionados** para ver detalhes como uma mensagem de erro.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de tela de uma política deployIfNotExists que não tem uma permissão definida na identidade gerenciada." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de tela do menu de contexto de um recurso na guia corrigir tarefa." border="false":::
 
 Os recursos implantados por meio de uma **tarefa de correção** são adicionados à guia **Recursos Implantados** na página de conformidade com a política.
 

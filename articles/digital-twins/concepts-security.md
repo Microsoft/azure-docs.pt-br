@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730500"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -51,16 +51,11 @@ O Azure fornece **duas funções internas do Azure** para autorizar o acesso às
 
 | Função interna | Descrição | ID | 
 | --- | --- | --- |
-| Proprietário de dados do gêmeos digital do Azure | Fornece acesso completo nos recursos de gêmeos digitais do Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Proprietário de Dados dos Gêmeos Digitais do Azure | Fornece acesso completo nos recursos de gêmeos digitais do Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Leitor de dados do Azure digital gêmeos | Fornece acesso somente leitura aos recursos de gêmeos digitais do Azure | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
->[!NOTE]
-> Essas funções foram renomeadas recentemente de seus nomes anteriores na versão prévia:
-> * O *Proprietário de Dados dos Gêmeos Digitais do Azure* anteriormente era o *Proprietário dos Gêmeos Digitais do Azure (Versão Prévia)* .
-> * O *leitor de dados do gêmeos digital do Azure* era anteriormente o *leitor de gêmeos digital do Azure (versão prévia)*.
-
 Você pode atribuir funções de duas maneiras:
-* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
+* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*atribuir funções do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
 Para obter etapas mais detalhadas sobre como fazer isso, experimente no tutorial do gêmeos digital do Azure [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
@@ -97,7 +92,7 @@ O Azure dá suporte a dois tipos de identidades gerenciadas: atribuído pelo sis
 
 Você pode usar uma identidade gerenciada atribuída pelo sistema para sua instância digital do Azure para autenticar em um [ponto de extremidade definido pelo personalizado](concepts-route-events.md#create-an-endpoint). O Azure digital gêmeos dá suporte à autenticação baseada em identidades atribuída pelo sistema para pontos de extremidade para os destinos do [Hub de eventos](../event-hubs/event-hubs-about.md) e do [barramento de serviço](../service-bus-messaging/service-bus-messaging-overview.md)   e para um ponto de extremidades do [contêiner de armazenamento do Azure](../storage/blobs/storage-blobs-introduction.md)   para [eventos de mensagens mortas](concepts-route-events.md#dead-letter-events). [Grade](../event-grid/overview.md)   de eventos Atualmente, não há suporte para pontos de extremidade para identidades gerenciadas.
 
-Para obter instruções sobre como habilitar uma identidade gerenciada pelo sistema para o gêmeos digital do Azure e usá-la para rotear eventos, consulte [*como: habilitar uma identidade gerenciada para eventos de roteamento (visualização)*](how-to-enable-managed-identities.md).
+Para obter instruções sobre como habilitar uma identidade gerenciada pelo sistema para o gêmeos digital do Azure e usá-la para rotear eventos, consulte [*como: habilitar uma identidade gerenciada para eventos de roteamento (visualização)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acesso à rede privada com o link privado do Azure (versão prévia)
 
@@ -111,7 +106,7 @@ O ponto de extremidade privado usa um endereço IP do seu espaço de endereço d
 
 Configurar um ponto de extremidade privado para sua instância do gêmeos digital do Azure permite proteger sua instância do gêmeos digital do Azure e eliminar a exposição pública, bem como evitar dados vazamento de sua VNet.
 
-Para obter instruções sobre como configurar o link privado para o Azure digital gêmeos, consulte [*como habilitar o acesso privado com o link privado (visualização)*](how-to-enable-private-link.md).
+Para obter instruções sobre como configurar o link privado para o Azure digital gêmeos, consulte [*como habilitar o acesso privado com o link privado (visualização)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Considerações sobre o design 
 

@@ -1,22 +1,18 @@
 ---
 title: Atividade de webhook no Azure Data Factory
 description: A atividade de webhook não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios especificados pelo usuário.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499400"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361478"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
 
@@ -53,11 +49,11 @@ Uma atividade de webhook pode controlar a execução de pipelines por meio de se
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessária
 -------- | ----------- | -------------- | --------
 **name** | O nome da atividade de webhook. | String | Sim |
-**tipo** | Deve ser definido como "webhook". | String | Sim |
-**forma** | O método da API REST para o ponto de extremidade de destino. | Cadeia. O tipo com suporte é "POST". | Sim |
+**type** | Deve ser definido como "webhook". | String | Sim |
+**forma** | O método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. O tipo com suporte é "POST". | Sim |
 **url** | O ponto de extremidade e o caminho de destino. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim |
 **conector** | Cabeçalhos que são enviados para a solicitação. Aqui está um exemplo que define o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
 **body** | Representa o conteúdo enviado para o ponto de extremidade. | JSON válido ou uma expressão com o valor de **ResultType** de JSON. Consulte [esquema de carga de solicitação](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga de solicitação. | Sim |

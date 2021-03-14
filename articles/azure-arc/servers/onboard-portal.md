@@ -3,12 +3,12 @@ title: Conectar computadores híbridos ao Azure por meio do portal do Azure
 description: Neste artigo, você aprende a instalar o agente e a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure da portal do Azure.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d7a89db7b8a42476a312a8f9a96c5ad230b140a2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398021"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183141"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 
@@ -22,31 +22,31 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Gerar o script de instalação no portal do Azure
 
-O script usado para automatizar o download e a instalação e para estabelecer a conexão com o Azure Arc está disponível no portal do Azure. Para concluir o processo, faça o seguinte:
+O script usado para automatizar o download e a instalação e para estabelecer a conexão com o Azure Arc está disponível no portal do Azure. Para concluir o processo, execute as seguintes etapas:
 
 1. No navegador, acesse o [portal do Azure](https://portal.azure.com).
 
-1. Na página **servidores – arco do Azure** , selecione **Adicionar** na parte superior esquerda.
+1. Na página **Servidores – Azure Arc**, selecione **Adicionar** no canto superior esquerdo.
 
-1. Na página **selecionar um método** , selecione o bloco **adicionar servidores usando o script interativo** e, em seguida, selecione **gerar script**.
+1. Na página **Selecionar um método**, escolha o bloco **Adicionar servidores usando o script interativo** e selecione **Gerar script**.
 
-1. Na página **Gerar script** , selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados. Essa localização pode ser a mesma ou uma diferente, assim como ocorre com a localização do grupo de recursos.
+1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados. Essa localização pode ser a mesma ou uma diferente, assim como ocorre com a localização do grupo de recursos.
 
-1. Na página **pré-requisitos** , examine as informações e selecione **Avançar: detalhes do recurso**.
+1. Na página **Pré-requisitos**, examine as informações e selecione **Avançar: Detalhes do recurso**.
 
-1. Na página **detalhes do recurso** , forneça o seguinte:
+1. Na página **Detalhes do recurso**, forneça o seguinte:
 
-    1. Na lista suspensa **grupo de recursos** , selecione o grupo de recursos do qual o computador será gerenciado.
-    1. Na lista suspensa **região** , selecione a região do Azure para armazenar os metadados dos servidores.
-    1. Na lista suspensa **sistema operacional** , selecione o sistema operacional no qual o script será configurado para execução.
-    1. Se a máquina estiver se comunicando por meio de um servidor proxy para se conectar à Internet, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
+    1. Na lista suspensa **Grupo de recursos**, selecione o grupo de recursos no qual o computador será gerenciado.
+    1. Na lista suspensa **Região**, selecione a região do Azure que armazenará os metadados dos servidores.
+    1. Na lista suspensa **sistema operacional** , selecione o sistema operacional no qual o script está configurado para execução.
+    1. Se o computador estiver se comunicando com a Internet por meio de um servidor proxy, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
     1. Selecione **Avançar: Marcas**.
 
-1. Na página **marcas** , examine as marcas de **local físico** padrão sugeridas e insira um valor ou especifique uma ou mais **marcas personalizadas** para dar suporte aos seus padrões.
+1. Na página **Marcas**, examine as **Marcas de localização física** padrão sugeridas e insira um valor ou especifique uma ou mais **Marcas personalizadas** a fim de dar suporte aos seus padrões.
 
-1. Selecione **Avançar: baixar e executar script**.
+1. Selecione **Avançar: Baixar e executar o script**.
 
-1. Na página **baixar e executar script** , examine as informações de resumo e, em seguida, selecione **baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
+1. Na página **Baixar e executar o script**, examine as informações de resumo e selecione **Baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalar e validar o agente no Windows
 
@@ -164,8 +164,8 @@ Depois de instalar o agente e configurá-lo para se conectar aos servidores habi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Informações de solução de problemas podem ser encontradas no [guia solucionar problemas do agente do computador conectado](troubleshoot-agent-onboard.md).
+- Informações de solução de problemas podem ser encontradas no [guia solucionar problemas do agente do computador conectado](troubleshoot-agent-onboard.md).
 
-* Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-policy.md) e muito mais.
+- Saiba como gerenciar seu computador usando [Azure Policy](../../governance/policy/overview.md), para itens como [configuração de convidado](../../governance/policy/concepts/guest-configuration.md)de VM, verifique se o computador está relatando para o espaço de trabalho esperado log Analytics, habilite o monitoramento com o [Azure monitor com VMs](../../azure-monitor/vm/vminsights-enable-policy.md)e muito mais.
 
-* Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja coletar dados de monitoramento do sistema operacional e da carga de trabalho, gerenciá-los usando runbooks de automação ou recursos como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-introduction.md).
+- Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja coletar dados de monitoramento de carga de trabalho e sistema operacional com o Azure Monitor para VMs, gerenciá-los usando runbooks de automação ou recursos como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-introduction.md).

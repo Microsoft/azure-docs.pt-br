@@ -4,12 +4,12 @@ description: Saiba como habilitar e configurar o ultra disks em um cluster do AK
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900031"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502562"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)
 
@@ -32,7 +32,7 @@ Registre o `EnableUltraSSD` sinalizador de recurso usando o comando [AZ Feature 
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Demora alguns minutos para o status exibir *Registrado* . Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
@@ -84,7 +84,7 @@ Se você quiser criar clusters sem suporte a ultra Disk, poderá fazer isso omit
 
 ## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Habilitar ultra discos em um cluster existente
 
-Você pode habilitar ultra discos em clusters existentes adicionando um novo pool de nós ao cluster que dá suporte a ultra discos. Configure um novo pool de nós para usar a criptografia baseada em host usando o `--aks-custom-headers` sinalizador.
+Você pode habilitar ultra discos em clusters existentes adicionando um novo pool de nós ao cluster que dá suporte a ultra discos. Configure um novo pool de nós para usar ultra discos usando o `--aks-custom-headers` sinalizador.
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
@@ -246,8 +246,8 @@ Events:
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

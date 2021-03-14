@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526459"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498856"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 
 
-Neste guia, vamos mostrar como definir várias configurações dos seus experimentos de machine learning automatizado com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
+Neste guia, vamos mostrar como definir várias configurações dos seus experimentos de machine learning automatizado com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
 
 Para exibir exemplos de experimentos de aprendizado de máquina automatizados, consulte [tutorial: treinar um modelo de classificação com aprendizado de máquina automatizado](tutorial-auto-train-models.md) ou [treinar modelos com o aprendizado de máquina automatizado na nuvem](how-to-auto-train-remote.md).
 
@@ -46,7 +46,7 @@ Para este artigo, você precisa,
     Para instalar o SDK, você pode, 
     * Crie uma instância de computação, que instala automaticamente o SDK e é pré-configurado para fluxos de trabalho de ML. Consulte [criar e gerenciar uma instância de computação Azure Machine Learning](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
-    * [Instale o `automl` pacote](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), que inclui a [instalação padrão](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) do SDK.
+    * [Instale o `automl` pacote](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), que inclui a [instalação padrão](/python/api/overview/azure/ml/install#default-install) do SDK.
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimento
 
@@ -69,7 +69,7 @@ Requisitos para dados de treinamento no Machine Learning:
 - Os dados devem estar em formato de tabela.
 - O valor que você quer prever, coluna de destino, deve estar presente nos dados.
 
-**Para experimentos remotos**, os dados de treinamento devem ser acessíveis a partir da computação remota. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em uma computação remota. 
+**Para experimentos remotos**, os dados de treinamento devem ser acessíveis a partir da computação remota. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset) ao trabalhar em uma computação remota. 
 
 Os conjuntos de dados do Azure Machine Learning expõem a funcionalidade para:
 
@@ -412,111 +412,6 @@ Para obter informações gerais sobre como as explicações de modelo e a import
 > [!NOTE]
 > O modelo ForecastTCN não tem suporte no momento pelo cliente de explicação. Esse modelo não retornará um painel de explicação se ele for retornado como o melhor modelo e não oferecer suporte a execuções de explicação sob demanda.
 
-## <a name="troubleshooting"></a>Solução de problemas
-
-* A **atualização recente de `AutoML` dependências para versões mais recentes irá perder a compatibilidade**: a partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que nós fixamos em nossos pacotes anteriores e as versões mais recentes que nós fixarmos agora. Você verá um erro como:
-  * Módulo não encontrado: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
-  * Erros de importação: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
-  * Erros de atributo: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
-  
-  Para contornar esse problema, execute uma das duas etapas a seguir, dependendo da sua `AutoML` versão de treinamento do SDK:
-    * Se sua `AutoML` versão de treinamento do SDK for maior que 1.13.0, você precisará de `pandas == 0.25.1` e `scikit-learn==0.22.1` . Se houver uma incompatibilidade de versão, atualize scikit-Learn e/ou pandas para corrigir a versão, conforme mostrado abaixo:
-      
-      ```bash
-         pip install --upgrade pandas==0.25.1
-         pip install --upgrade scikit-learn==0.22.1
-      ```
-      
-    * Se sua `AutoML` versão de treinamento do SDK for menor ou igual a 1.12.0, você precisará de `pandas == 0.23.4` e `sckit-learn==0.20.3` . Se houver uma incompatibilidade de versão, faça o downgrade de scikit-Learn e/ou pandas para corrigir a versão, conforme mostrado abaixo:
-  
-      ```bash
-        pip install --upgrade pandas==0.23.4
-        pip install --upgrade scikit-learn==0.20.3
-      ```
-
-* **Falha na implantação**: para versões <= 1.18.0 do SDK, a imagem base criada para implantação pode falhar com o seguinte erro: "ImportError: não é possível importar o nome `cached_property` de `werkzeug` ". 
-
-  As etapas a seguir podem contornar o problema:
-  1. Baixar o pacote de modelo
-  2. Descompactar o pacote
-  3. Implantar usando os ativos descompactados
-
-* A **previsão da Pontuação do R2 é sempre zero**: esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para um erro de quadrado médio de raiz normalizado.
- 
-* **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
- 
-   ```python
-   from azureml.core.runconfig import RunConfiguration
-   from azureml.core.conda_dependencies import CondaDependencies
-   run_config = RunConfiguration()
-   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
-  ```
-
-* **Gráficos de experimento**: os gráficos de classificação binária (recall de precisão, Roc, curva de lucro, etc.) mostrados em iterações de experimento de ml automatizadas não são renderizados corretamente na interface do usuário desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
-
-* **Databricks cancelar uma execução automatizada do Machine Learning**: quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
-
-* **Databricks >10 iterações para o aprendizado de máquina automatizado**: em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
-
-* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado**: o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
-
-    ```
-    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
-    ```
-* **automl_setup falha**: 
-    * No Windows, execute automl_setup de um prompt do Anaconda. Use este link para [instalar o Miniconda](https://docs.conda.io/en/latest/miniconda.html).
-    * Verifique se o Conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser `win-64` para Windows ou `osx-64` para Mac.
-    * Verifique se o Conda 4.4.10 ou posterior está instalado. Você pode verificar a versão com o comando `conda -V` . Se você tiver uma versão anterior instalada, poderá atualizá-la usando o comando: `conda update conda` .
-    * Linux `gcc: error trying to exec 'cc1plus'`
-      *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o princípios de Build usando o comando `sudo apt-get install build-essential` .
-      * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente Conda. Exibir ambientes Conda existentes usando `conda env list` e removê-los com o `conda env remove -n <environmentname>` .
-      
-* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
-  1. Verifique se as portas de saída 53 e 80 estão habilitadas. Em uma VM do Azure, você pode fazer isso na portal do Azure selecionando a VM e clicando em rede.
-  2. Execute o comando: `sudo apt-get update`
-  3. Execute o comando: `sudo apt-get install build-essential --fix-missing`
-  4. Executar `automl_setup_linux.sh` novamente
-
-* **Configuration. ipynb falha**:
-  * Para Conda locais, primeiro verifique se automl_setup foi executado com êxito.
-  * Verifique se o subscription_id está correto. Localize os subscription_id na portal do Azure selecionando todos os serviços e, em seguida, assinaturas. Os caracteres "<" e ">" não devem ser incluídos no valor de subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
-  * Verifique se o acesso de colaborador ou proprietário à assinatura.
-  * Verifique se a região é uma das regiões com suporte:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
-  * Verifique o acesso à região usando o portal do Azure.
-  
-* **`import AutoMLConfig` falha**: houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que exigem que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
-
-* **Workspace.from_config falha**: se as chamadas ws = Workspace.from_config () ' falharem-
-  1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
-  2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Workspace.from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
-  3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
-  4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create` não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
-  
-* **Falha no bloco de anotações de exemplo**: se um bloco de anotações de exemplo falhar com um erro que a propriedade, o método ou a biblioteca não existe:
-  * Verifique se o kernel correto foi selecionado na Jupyter Notebook. O kernel é exibido no canto superior direito da página do bloco de anotações. O padrão é azure_automl. O kernel é salvo como parte do bloco de anotações. Portanto, se você alternar para um novo ambiente Conda, terá que selecionar o novo kernel no bloco de anotações.
-      * Por Azure Notebooks, ele deve ser Python 3,6. 
-      * Para ambientes Conda locais, ele deve ser o nome do ambiente Conda que você especificou em automl_setup.
-  * Verifique se o notebook é para a versão do SDK que você está usando. Você pode verificar a versão do SDK executando `azureml.core.VERSION` em uma célula Jupyter notebook. Você pode baixar a versão anterior dos blocos de anotações de exemplo do GitHub clicando no `Branch` botão, selecionando a `Tags` guia e, em seguida, selecionando a versão.
-
-* **`import numpy` falha no Windows**: alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
-
-* **`import numpy` falha**: Verifique a versão do TensorFlow no ambiente Conda do ml automatizado. As versões com suporte são < 1,13. Desinstale o TensorFlow do ambiente se a versão for >= 1,13. Você pode verificar a versão do TensorFlow e desinstalar da seguinte maneira:
-  1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
-  2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
-  3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
-  
- * **A execução falha `jwt.exceptions.DecodeError` com**: mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
-
-    Para versões <= 1.17.0 do SDK, a instalação pode resultar em uma versão sem suporte do PyJWT. Verifique a versão do PyJWT no ambiente Conda do ml automatizado. As versões com suporte são < 2.0.0. Você pode verificar a versão do PyJWT da seguinte maneira:
-    1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
-    2. Insira `pip freeze` e procure `PyJWT` , se encontrado, a versão listada deve ser < 2.0.0
-
-    Se a versão listada não for uma versão com suporte:
-    1. Considere atualizar para a versão mais recente do SDK do AutoML: `pip install -U azureml-sdk[automl]` .
-    2. Se isso não for viável, desinstale o PyJWT do ambiente e instale a versão correta da seguinte maneira:
-        - `pip uninstall PyJWT` no Shell de comando e digite `y` para confirmação.
-        - Instale o usando o `pip install 'PyJWT<2.0.0'` .
-
 ## <a name="next-steps"></a>Próximas etapas
 
 + Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
@@ -524,3 +419,5 @@ Para obter informações gerais sobre como as explicações de modelo e a import
 + Saiba mais sobre [como treinar um modelo de regressão com o aprendizado de máquina automatizado](tutorial-auto-train-models.md) ou [como treinar usando o aprendizado de máquina automatizado em um recurso remoto](how-to-auto-train-remote.md).
 
 + Saiba como treinar vários modelos com o AutoML no [acelerador de solução de vários modelos](https://aka.ms/many-models).
+
++ [Solucionar testes de ml automatizados](how-to-troubleshoot-auto-ml.md). 

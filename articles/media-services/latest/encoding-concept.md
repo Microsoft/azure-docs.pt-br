@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897893"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617634"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificando vídeo e áudio com os serviços de mídia
 
@@ -95,20 +95,25 @@ Os serviços de mídia oferecem suporte às seguintes predefinições de codific
 
 O [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) é usado para definir uma predefinição interna para codificar o vídeo de entrada com o Codificador Standard.
 
-As predefinições a seguir são atualmente têm suporte:
+Atualmente, há suporte para as seguintes predefinições internas:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: produz um único arquivo MP4 contendo apenas áudio estéreo codificado a 192 kbps.
-- **EncoderNamedPreset. AdaptiveStreaming** (recomendado): para obter mais informações, consulte [gerando automaticamente uma escada de taxa de bits](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncoding**: expõe uma predefinição para codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md).
-
+- **EncoderNamedPreset. AdaptiveStreaming** (recomendado): isso oferece suporte à codificação de taxa de bits adaptável H. 264. Para obter mais informações, consulte [geração automática de uma escada de taxa de bits ](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset. H265AdaptiveStreaming** : semelhante à predefinição AdaptiveStreaming, mas usa o codec HEVC (H. 265). Produz um conjunto de arquivos MP4 alinhados a GOP com o vídeo H. 265 e áudio AAC estéreo. Gera automaticamente uma escada de taxa de bits com base na resolução de entrada, taxa de bits e taxas de quadros. A predefinição gerada automaticamente nunca excederá a resolução de entrada. Por exemplo, se a entrada for 720p, a saída permanecerá 720p na melhor das hipóteses.
+- **EncoderNamedPreset. ContentAwareEncoding**: expõe uma predefinição para a codificação H. 264 com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e as configurações apropriadas de taxa de bits e resolução para entrega por streaming adaptável. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md).
+- **EncoderNamedPreset. H265ContentAwareEncoding**: expõe uma predefinição para a codificação de reconhecimento de conteúdo HEVC (H. 265). Produz um conjunto de MP4s alinhado a GOP usando a codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada e usa os resultados para determinar o número ideal de camadas, taxa de bits apropriada e configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de complexidade baixa e média, em que os arquivos de saída estarão em taxas de bits menores, mas com uma qualidade que ainda oferece uma boa experiência aos visualizadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados.
   > [!NOTE]
-  > Certifique-se de usar **ContentAwareEncoding** não ContentAwareEncodingExperimental.
+  > Certifique-se de usar **ContentAwareEncoding** não ContentAwareEncodingExperimental que agora está preterido
+
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: produz um conjunto de oito arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 1080p e diminui para 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: produz um conjunto de seis arquivos MP4 alinhados a GOP, variando de 3400 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 720p e diminui para 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: produz um conjunto de cinco arquivos MP4 alinhados a GOP, variando de 1600 kbps a 400 Kbps e áudio AAC estéreo. A resolução inicia em 480p e diminui para 360p.
 - **EncoderNamedPreset. H264SingleBitrate1080p**: produz um arquivo MP4 em que o vídeo é codificado com o codec H. 264 a 6750 kbps e uma altura de imagem de 1080 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 64 Kbps.
 - **EncoderNamedPreset. H264SingleBitrate720p**: produz um arquivo MP4 em que o vídeo é codificado com o codec H. 264 a 4500 kbps e uma altura de imagem de 720 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 64 Kbps.
 - **EncoderNamedPreset. H264SingleBitrateSD**: produz um arquivo MP4 em que o vídeo é codificado com o codec H. 264 a 2200 kbps e uma altura de imagem de 480 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 64 Kbps.
+- **EncoderNamedPreset. H265SingleBitrate720P**: produz um arquivo MP4 em que o vídeo é codificado com o codec HEVC (H. 265) a 1800 kbps e uma altura de imagem de 720 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 128 kbps.
+- **EncoderNamedPreset. H265SingleBitrate1080p**: produz um arquivo MP4 em que o vídeo é codificado com o codec HEVC (H. 265) a 3500 kbps e uma altura de imagem de 1080 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 128 kbps.
+- **EncoderNamedPreset. H265SingleBitrate4K**: produz um arquivo MP4 em que o vídeo é codificado com o codec HEVC (H. 265) a 9500 kbps e uma altura de imagem de 2160 pixels, e o áudio estéreo é codificado com o codec AAC-LC em 128 kbps.
 
 Para ver a lista de predefinições mais atualizada, consulte [predefinições internas a serem usadas para codificar vídeos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,13 +140,15 @@ Os Serviços de Mídia oferece suporte completo para a personalização de todos
 - [Personalizar predefinições com a CLI](custom-preset-cli-howto.md)
 - [Personalizar predefinições com REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Esquema predefinido
 
-Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou em outra documentação de referência do SDK dos serviços de mídia v3).
+Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (ou em outra documentação de referência do SDK dos serviços de mídia v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Codificação de escala na v3
 
 Para dimensionar o processamento de mídia, consulte [dimensionar com a CLI](media-reserved-units-cli-how-to.md).
+Para contas criadas no com a versão **2020-05-01** da API ou por meio do portal do Azure, as unidades reservadas de dimensionamento e mídia não são mais necessárias. O dimensionamento será automático e manipulado pelo serviço internamente.
 
 ## <a name="billing"></a>Cobrança
 

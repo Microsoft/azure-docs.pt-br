@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574136"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitar auditorias de segurança para Azure Active Directory Domain Services
 
@@ -39,8 +39,8 @@ A tabela a seguir descreve os cenários para cada tipo de recurso de destino.
 | Recurso de destino | Cenário |
 |:---|:---|
 |Armazenamento do Azure| Esse destino deve ser usado quando a principal necessidade é armazenar eventos de auditoria de segurança para fins de arquivamento. Outros destinos podem ser usados para fins de arquivamento, no entanto, esses destinos fornecem recursos além da principal necessidade de arquivamento. <br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).|
-|Hubs de Eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM).<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)|
-|Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente.<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](../azure-monitor/learn/quick-create-workspace.md)|
+|Hubs de eventos do Azure| Esse destino deve ser usado quando a principal necessidade é compartilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gerenciamento de eventos (SIEM).<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)|
+|Espaço de trabalho Log Analytics do Azure| Esse destino deve ser usado quando a principal necessidade é analisar e revisar as auditorias seguras do portal do Azure diretamente.<br /><br />Antes de habilitar os eventos de auditoria de segurança do Azure AD DS, [crie um espaço de trabalho log Analytics no portal do Azure.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoria de segurança usando o portal do Azure
 
@@ -100,7 +100,7 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
         > [!IMPORTANT]
         > Verifique se você definiu a regra de autorização no namespace do hub de eventos e não no próprio Hub de eventos.
 
-    * **Espaços de trabalho**  -  de análise de logs do Azure [Crie um espaço de trabalho log Analytics com Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Espaços de trabalho**  -  de análise de logs do Azure [Crie um espaço de trabalho log Analytics com Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Obtenha a ID de recurso para seu domínio gerenciado AD DS do Azure usando o cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Crie uma variável chamada *$aadds. ResourceId* para manter o valor:
 
@@ -141,9 +141,9 @@ Para habilitar os eventos de auditoria de segurança do Azure AD DS usando o Azu
 Os espaços de trabalho de análise de log permitem exibir e analisar os eventos de auditoria de segurança usando Azure Monitor e a linguagem de consulta Kusto. Essa linguagem de consulta é projetada para uso somente leitura que apresenta recursos de análise de energia com uma sintaxe de fácil leitura. Para obter mais informações sobre como começar a usar as linguagens de consulta do Kusto, consulte os seguintes artigos:
 
 * [Documentação do Azure Monitor](../azure-monitor/index.yml)
-* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar e compartilhar painéis de dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Introdução às consultas de log no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Criar e compartilhar painéis de dados do Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 As consultas de exemplo a seguir podem ser usadas para iniciar a análise de eventos de auditoria de segurança do Azure AD DS.
 
@@ -220,7 +220,7 @@ As seguintes categorias de evento de auditoria estão disponíveis:
 | Nome da categoria de auditoria | Descrição |
 |:---|:---|
 | Logon da conta|As tentativas de auditoria de autenticar dados de conta em um controlador de domínio ou em um SAM (Gerenciador de contas de segurança) local.</p>As configurações e os eventos da política de logon e logoff do controlam as tentativas de acessar um computador específico. As configurações e os eventos nesta categoria se concentram no banco de dados da conta usado. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria da validação de credenciais](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Auditoria do serviço de autenticação Kerberos](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Auditoria das operações do tíquete de serviço Kerberos](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Auditoria de outros eventos de logon/logoff](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
-| Gerenciamento de Contas|Audita alterações em contas e grupos de usuários e computadores. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria do gerenciamento de grupo de aplicativos](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditoria do gerenciamento da conta de computador](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Auditoria do gerenciamento do grupo de distribuição](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditar o gerenciamento de contas](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditoria de gerenciamento do grupo de distribuição](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditoria de gerenciamento de conta de usuário](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
+| Gerenciamento de Conta|Audita alterações em contas e grupos de usuários e computadores. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria do gerenciamento de grupo de aplicativos](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditoria do gerenciamento da conta de computador](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Auditoria do gerenciamento do grupo de distribuição](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditar o gerenciamento de contas](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditoria de gerenciamento do grupo de distribuição](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditoria de gerenciamento de conta de usuário](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
 | Acompanhamento de detalhes|Audita atividades de aplicativos e usuários individuais nesse computador e para entender como um computador está sendo usado. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria da atividade DPAPI](/windows/security/threat-protection/auditing/audit-dpapi-activity)</li><li>[Auditar atividade de PNP](/windows/security/threat-protection/auditing/audit-pnp-activity)</li><li>[Auditoria do processo de criação](/windows/security/threat-protection/auditing/audit-process-creation)</li><li>[Auditoria do encerramento do processo](/windows/security/threat-protection/auditing/audit-process-termination)</li><li>[Auditoria de eventos de RPC](/windows/security/threat-protection/auditing/audit-rpc-events)</li></ul>|
 | Acesso aos serviços de diretório|As tentativas de auditoria para acessar e modificar objetos no Active Directory Domain Services (AD DS). Esses eventos de auditoria são registrados somente em controladores de domínio. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria de replicação detalhada do serviço de diretório](/windows/security/threat-protection/auditing/audit-detailed-directory-service-replication)</li><li>[Auditoria de acesso do serviço de diretório](/windows/security/threat-protection/auditing/audit-directory-service-access)</li><li>[Auditoria de mudanças do serviço de diretório](/windows/security/threat-protection/auditing/audit-directory-service-changes)</li><li>[Auditoria de replicação do serviço de diretório](/windows/security/threat-protection/auditing/audit-directory-service-replication)</li></ul>|
 | Logon-Logoff|As tentativas de auditoria para fazer logon em um computador interativamente ou em uma rede. Esses eventos são úteis para acompanhar a atividade do usuário e identificar possíveis ataques em recursos de rede. Essa categoria inclui as seguintes subcategorias:<ul><li>[Auditoria de bloqueio de conta](/windows/security/threat-protection/auditing/audit-account-lockout)</li><li>[Auditoria das declarações de dispositivo/usuário](/windows/security/threat-protection/auditing/audit-user-device-claims)</li><li>[Auditoria do modo IPsec estendido](/windows/security/threat-protection/auditing/audit-ipsec-extended-mode)</li><li>[Auditoria da associação a um grupo](/windows/security/threat-protection/auditing/audit-group-membership)</li><li>[Auditoria do modo IPsec principal](/windows/security/threat-protection/auditing/audit-ipsec-main-mode)</li><li>[Auditoria do modo IPsec rápido](/windows/security/threat-protection/auditing/audit-ipsec-quick-mode)</li><li>[Auditoria de logoff](/windows/security/threat-protection/auditing/audit-logoff)</li><li>[Auditoria de logon](/windows/security/threat-protection/auditing/audit-logon)</li><li>[Auditoria do Servidor de Políticas de Rede](/windows/security/threat-protection/auditing/audit-network-policy-server)</li><li>[Auditoria de outros eventos de logon/logoff](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li><li>[Auditoria de logon especial](/windows/security/threat-protection/auditing/audit-special-logon)</li></ul>|

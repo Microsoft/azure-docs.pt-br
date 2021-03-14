@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 83c149e92276265b5b5236ae56c475d7307c18e4
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 54bfd7c6e691efbd754e9ea2b804e16b3e07ebbe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093903"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670965"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalação do SAP HANA em máquinas virtuais do Azure
 ## <a name="introduction"></a>Introdução

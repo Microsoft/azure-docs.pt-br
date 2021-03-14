@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e6b520a32755379fce5326e25b90f135b0d67755
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98574292"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555248"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurar o provedor de identidade da conta local
 
@@ -101,7 +101,7 @@ Um fluxo de usuário só pode ser configurado para usar um dos provedores de ide
 1. Em **Gerenciar**, selecione **Provedores de identidade**.
 1. Na lista de provedores de identidade, selecione **Conta local**.
 1. Na página **Configurar IDP local** , selecione pelo menos um dos tipos de identidade permitidos que os consumidores podem usar para criar suas contas locais em seu locatário de Azure ad B2C.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="configure-your-user-flow"></a>Configurar seu fluxo de usuário
 
@@ -124,7 +124,7 @@ Se você escolher a opção **inscrição no telefone**, inscrição **por telef
 1. Ao lado de **habilitar solicitação de email de recuperação para inscrição de número de telefone e entrar (versão prévia)**, selecione:
    - **Em** para mostrar o prompt de email de recuperação durante a inscrição e a entrada.
    - **Desativado** para ocultar o prompt de email de recuperação.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ::: zone-end
 
@@ -150,5 +150,5 @@ Depois de baixar o pacote inicial.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar provedores de identidade externos](tutorial-add-identity-providers.md)
+- [Adicionar provedores de identidade externos](add-identity-provider.md)
 - [Criar um fluxo de usuário](tutorial-create-user-flows.md)

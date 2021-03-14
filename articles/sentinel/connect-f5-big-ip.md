@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e895640daeb3fbbba2f2708969ee4cf856bf1033
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 17c31bbe54326962c26ab53f702cbd28d1e36c6d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621174"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092784"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Conectar seu dispositivo de BIG-IP F5 
 

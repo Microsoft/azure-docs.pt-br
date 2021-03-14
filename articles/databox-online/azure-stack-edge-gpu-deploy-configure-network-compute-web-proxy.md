@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac64233467166ca6567f1601c3b90f80fdba3dcf
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954641"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594596"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: configure a rede para o Azure Stack Edge Pro com GPU
 
@@ -56,15 +56,13 @@ Siga estas etapas para configurar a rede para seu dispositivo.
     
     ![Página "Configurações de rede" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. Para alterar as configurações de rede, selecione uma porta e, no painel direito que aparecer, modifique o endereço IP, a sub-rede, o gateway, o DNS primário e o DNS secundário. 
 
     - Se você selecionar Porta 1, verá que ela é pré-configurada como estática. 
 
         !["Configurações de rede da Porta 1" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-3.png)
 
-    - Se você selecionar Porta 2, Porta 3, Porta 4 ou Porta 5, verá que essas portas são configuradas como DHCP por padrão.
+    - Se você selecionar a Porta 2, a Porta 3, a Porta 4 ou a Porta 5, verá que essas portas são configuradas como DHCP por padrão.
 
         !["Configurações de rede da Porta 3" da IU da Web local](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
 
@@ -73,7 +71,8 @@ Siga estas etapas para configurar a rede para seu dispositivo.
    * Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
    * Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
    * Você pode configurar sua interface de rede como IPv4.
-   * Nas interfaces de 25 Gbps, você pode definir o modo RDMA (Memória de Acesso Direto Remoto) como iWarp ou RoCE (RDMA por Ethernet Convergida). Quando as latências baixas são o requisito principal e a escalabilidade não é uma preocupação, use RoCE. Quando a latência é um requisito importante, mas a facilidade de uso e a escalabilidade também são alta prioridade, o iWARP é a melhor escolha.
+   * Nas interfaces de 25 Gbps, você pode definir o modo RDMA (Acesso Remoto Direto à Memória) como iWarp ou RoCE (RDMA por Ethernet Convergida). Quando as latências baixas são o requisito principal e a escalabilidade não é uma preocupação, use RoCE. Quando a latência é um requisito importante, mas a facilidade de uso e a escalabilidade também são alta prioridade, o iWARP é a melhor escolha.
+   * O agrupamento NIC (adaptador de rede) ou a agregação de link não tem suporte com o Azure Stack Edge. 
    * O número de série de qualquer porta corresponde ao número de série do nó.
 
     Quando a rede do dispositivo estiver configurada, a página será atualizada conforme mostrado abaixo.
@@ -81,12 +80,11 @@ Siga estas etapas para configurar a rede para seu dispositivo.
     ![Página "Configurações de rede" da IU da Web local 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * É recomendável que você não alterne o endereço IP local do adaptador de rede estático para DCHP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser ativado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
+     > [!NOTE]
+     > É recomendável que você não alterne o endereço IP local do adaptador de rede estático para DCHP, a menos que tenha outro endereço IP para se conectar ao dispositivo. Se estiver usando um adaptador de rede e alternar para DHCP, não haverá como determinar o endereço DHCP. Se você quiser alterar para um endereço DHCP, espere até o dispositivo ser ativado com o serviço e então altere. Posteriormente, você pode visualizar os IPs de todos os adaptadores em **Propriedades do dispositivo** no portal do Azure para seu serviço.
 
 
-    Depois de configurar e aplicar as configurações de rede, selecione Avançar: Computação para configurar a rede de computação.
+    Depois de configurar e aplicar as configurações de rede, selecione **Avançar: Computação** para configurar a rede de computação.
 
 ## <a name="enable-compute-network"></a>Habilitar a rede de computação
 

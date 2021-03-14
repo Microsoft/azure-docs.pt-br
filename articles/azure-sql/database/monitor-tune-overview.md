@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490560"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592692"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -99,11 +99,11 @@ Você define as configurações de diagnóstico para as categorias de fluxo de m
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics espaço de trabalho no Azure Monitor
 
-Você pode transmitir métricas e logs de recursos para um [espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Os dados transmitidos aqui podem ser consumidos pela [análise do SQL](../../azure-monitor/insights/azure-sql.md), que é uma solução de monitoramento somente na nuvem que fornece monitoramento inteligente de seus bancos de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitoramento coletados e também permitem que você aproveite outros recursos do Azure Monitor, como alertas e visualizações.
+Você pode transmitir métricas e logs de recursos para um [espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Os dados transmitidos aqui podem ser consumidos pela [análise do SQL](../../azure-monitor/insights/azure-sql.md), que é uma solução de monitoramento somente na nuvem que fornece monitoramento inteligente de seus bancos de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitoramento coletados e também permitem que você aproveite outros recursos do Azure Monitor, como alertas e visualizações.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
 
-Você pode transmitir métricas e logs de recursos para os [hubs de eventos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Streaming de telemetria de diagnóstico para hubs de eventos para fornecer a seguinte funcionalidade:
+Você pode transmitir métricas e logs de recursos para os [hubs de eventos do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Streaming de telemetria de diagnóstico para hubs de eventos para fornecer a seguinte funcionalidade:
 
 - **Transmitir logs para registros de terceiros e sistemas de telemetria**
 
@@ -117,7 +117,7 @@ Você pode transmitir métricas e logs de recursos para os [hubs de eventos do A
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-Transmita métricas e logs de recursos para o [armazenamento do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Use o armazenamento do Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
+Transmita métricas e logs de recursos para o [armazenamento do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Use o armazenamento do Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
 
 ## <a name="use-extended-events"></a>Usar eventos estendidos 
 

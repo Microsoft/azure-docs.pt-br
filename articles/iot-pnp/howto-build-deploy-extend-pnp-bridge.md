@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784890"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202477"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Criar e implantar a ponte de Plug and Play IoT
 
@@ -227,7 +227,7 @@ As etapas nesta seção pressupõem que você tenha o seguinte ambiente de desen
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- O [CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) instalado em seu ambiente WSL 2 para gerenciar os recursos do Azure.
+- O [CLI do Azure](/cli/azure/install-azure-cli-apt) instalado em seu ambiente WSL 2 para gerenciar os recursos do Azure.
 
   > [!TIP]
   > Se preferir, você pode executar os `az` comandos no [Azure cloud Shell](https://shell.azure.com/) em que a CLI é pré-instalada.

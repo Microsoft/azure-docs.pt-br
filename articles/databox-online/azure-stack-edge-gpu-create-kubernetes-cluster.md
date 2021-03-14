@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: bf73640c1a4014b61809f407e1873686c229273f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954624"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631941"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Conectar e gerenciar um cluster kubernetes por meio do kubectl em seu dispositivo Azure Stack Edge pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes for criado, você poderá se conectar e gerenciar o cluster localmente de um computador cliente por meio de uma ferramenta nativa, como *kubectl*.
 
@@ -103,7 +105,7 @@ Nessa abordagem, você cria um namespace e um usuário. Em seguida, associe o us
 
 4. O arquivo de configuração deve residir na `.kube` pasta do seu perfil de usuário no computador local. Copie o arquivo para essa pasta em seu perfil de usuário.
 
-    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Associe o namespace ao usuário que você criou. Tipo:
 
@@ -167,9 +169,9 @@ Agora você pode implantar seus aplicativos no namespace e, em seguida, exibir e
 
 Para remover o cluster kubernetes, será necessário remover a configuração de IoT Edge.
 
-Para obter instruções detalhadas, vá para [remover configuração de IOT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Para obter instruções detalhadas, vá para [gerenciar configuração de IOT Edge](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

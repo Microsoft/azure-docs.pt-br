@@ -1,17 +1,17 @@
 ---
 title: Definições de políticas internas para Provedores de Recursos Personalizados do Azure
 description: Lista as definições de políticas internas do Azure Policy para Provedores de Recursos Personalizados do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1e0089642817ba3a619e7a2bf5b57765b577ff1e
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 7004b1f1f7f9f0de01968f44da3d3880d1eda5e9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560905"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614387"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Definições internas do Azure Policy para os Provedores de Recursos Personalizados do Azure
 

@@ -1,19 +1,19 @@
 ---
-title: Planejamento de capacidade e dimensionamento para o Azure Service Fabric
+title: Planejamento de capacidade e dimensionamento do Azure Service Fabric
 description: Melhores práticas para planejamento e dimensionamento de clusters do Service Fabric e aplicativos.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784673"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595071"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento do Azure Service Fabric
 
 Antes de criar qualquer cluster de Service Fabric do Azure ou dimensionar recursos de computação que hospedam o cluster, é importante planejar a capacidade. Para obter mais informações sobre o planejamento de capacidade, confira [Planejamento de capacidade do cluster do Service Fabric](./service-fabric-cluster-capacity.md). Para obter mais diretrizes de práticas recomendadas para a escalabilidade do cluster, consulte [Service Fabric considerações sobre escalabilidade](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
@@ -26,7 +26,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 * Implantar modelos do Resource Manager com capacidade apropriada declarada não dá suporte a seu caso de uso.
      
-   Além do dimensionamento manual, você pode configurar um [pipeline de integração e entrega contínua no Azure DevOps Services usando projetos de implantação do grupo de recursos do Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Esse pipeline é geralmente disparado por um aplicativo lógico que usa métricas de desempenho de máquina virtual consultada a partir da [API REST do Azure monitor](../azure-monitor/platform/rest-api-walkthrough.md). O pipeline é efetivamente dimensionado de forma eficiente com base em quaisquer métricas que você desejar, ao mesmo tempo em que otimiza os modelos do Resource Manager.
+   Além do dimensionamento manual, você pode configurar um [pipeline de integração e entrega contínua no Azure DevOps Services usando projetos de implantação do grupo de recursos do Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Esse pipeline é geralmente disparado por um aplicativo lógico que usa métricas de desempenho de máquina virtual consultada a partir da [API REST do Azure monitor](../azure-monitor/essentials/rest-api-walkthrough.md). O pipeline é efetivamente dimensionado de forma eficiente com base em quaisquer métricas que você desejar, ao mesmo tempo em que otimiza os modelos do Resource Manager.
 * Você precisa dimensionar horizontalmente apenas um nó do conjunto de dimensionamento de máquinas virtuais por vez.
    
    Para escalar horizontalmente por três ou mais nós de uma vez, você deve [escalar horizontalmente um cluster Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](virtual-machine-scale-set-scale-node-type-scale-out.md). É mais seguro reduzir e escalar horizontalmente os conjuntos de dimensionamento de máquinas virtuais, um nó por vez.
@@ -42,7 +42,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
-[Dimensionamento vertical](./virtual-machine-scale-set-scale-node-type-scale-out.md) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo:
+[Dimensionamento vertical](./virtual-machine-scale-set-scale-node-type-scale-out.md) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
 
 * O cluster deve estar íntegro antes do dimensionamento. Caso contrário, você desestabilizará o cluster.
 * O nível de durabilidade prateada ou maior é necessário para todos os Service Fabric tipos de nó de cluster que hospedam serviços com estado.
@@ -117,7 +117,7 @@ Para dimensionar manualmente, atualize a capacidade na propriedade SKU do recurs
 }
 ```
 
-Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo:
+Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo: 
 
 ```csharp
 using (var client = new FabricClient())

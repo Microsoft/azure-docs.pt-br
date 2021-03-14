@@ -77,6 +77,8 @@ items:
                 href: manage-data-sources.md
               - name: Visão geral dos conectores do Purview
                 href: purview-connector-overview.md
+              - name: Azure Multiple Source
+                href: register-scan-azure-multiple-sources.md
               - name: Armazenamento do Blobs do Azure
                 href: register-scan-azure-blob-storage-source.md
                 displayName: Register and scan azure blob storage
@@ -102,15 +104,27 @@ items:
                 href: register-scan-azure-synapse-analytics.md
               - name: SQL Server local
                 href: register-scan-on-premises-sql-server.md
+              - name: Oracle
+                href: register-scan-oracle-source.md
               - name: Locatário do Power BI – Portal
                 href: register-scan-power-bi-tenant.md
+              - name: SAP ECC
+                href: register-scan-sapecc-source.md
+              - name: SAP S/4HANA
+                href: register-scan-saps4hana-source.md
+              - name: Teradata
+                href: register-scan-teradata-source.md
+              - name: Amazon S3
+                href: register-scan-amazon-s3.md
       - name: Glossário de negócios
         items:
           - name: 'Criar, importar e exportar termos do glossário'
             href: how-to-create-import-export-glossary.md
           - name: Gerenciar modelos de termo
             href: how-to-manage-term-templates.md
-          - name: Editar ativos em massa para atribuir termos do glossário
+      - name: Edição em massa
+        items:
+          - name: Editar ativos em massa para marcar anotações e contatos
             href: how-to-bulk-edit-assets.md
       - name: Classificar
         items:
@@ -152,7 +166,13 @@ items:
             href: sensitivity-insights.md
           - name: Exibir insights de extensão de arquivo
             href: file-extension-insights.md
+      - name: Segurança e Rede
+        items:
+          - name: Gerenciar pontos de extremidade privados
+            href: catalog-private-link.md
   - name: Referência
     items:
       - name: Classificações compatíveis
         href: supported-classifications.md
+      - name: Guia de implantação da função ABAP
+        href: abap-functions-deployment-guide.md

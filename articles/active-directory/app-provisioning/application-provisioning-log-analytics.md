@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256874"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561561"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra aos logs de Azure Monitor
 
@@ -24,7 +24,7 @@ O provisionamento se integra com Azure Monitor logs e Log Analytics. Com o monit
 
 ## <a name="enabling-provisioning-logs"></a>Habilitando logs de provisionamento
 
-Você já deve estar familiarizado com o monitoramento e Log Analytics do Azure. Caso contrário, pule para saber mais sobre eles e volte para saber mais sobre os logs de provisionamento de aplicativos. Para saber mais sobre o monitoramento do Azure, confira [Azure monitor visão geral](../../azure-monitor/overview.md). Para saber mais sobre os logs de Azure Monitor e Log Analytics, confira [visão geral das consultas de log no Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+Você já deve estar familiarizado com o monitoramento e Log Analytics do Azure. Caso contrário, pule para saber mais sobre eles e volte para saber mais sobre os logs de provisionamento de aplicativos. Para saber mais sobre o monitoramento do Azure, confira [Azure monitor visão geral](../../azure-monitor/overview.md). Para saber mais sobre os logs de Azure Monitor e Log Analytics, confira [visão geral das consultas de log no Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Depois de configurar o monitoramento do Azure, você pode habilitar logs para provisionamento de aplicativos. A opção está localizada na página **configurações de diagnóstico** .
 
@@ -45,9 +45,9 @@ O fluxo de dados subjacente que o provisionamento envia para os visualizadores d
 |activityDateTime |TimeGenerated |TimeGenerated |
 
 
-## <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
+## <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 
-Azure Monitor pastas de trabalho fornecem uma tela flexível para análise de dados. Eles também fornecem a criação de relatórios visuais avançados dentro do portal do Azure. Para saber mais, consulte [visão geral de Azure monitor pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md).
+Azure Monitor pastas de trabalho fornecem uma tela flexível para análise de dados. Eles também fornecem a criação de relatórios visuais avançados dentro do portal do Azure. Para saber mais, consulte [visão geral de Azure monitor pastas de trabalho](../../azure-monitor/visualize/workbooks-overview.md).
 
 O provisionamento de aplicativos vem com um conjunto de pastas de trabalho criadas previamente. Você pode encontrá-los na página pastas de trabalho. Para exibir os dados, você precisará garantir que todos os filtros (timerange, jobID, appName) sejam preenchidos. Você também precisará certificar-se de ter provisionado um aplicativo, caso contrário, não haverá nenhum dado nos logs.
 
@@ -57,7 +57,7 @@ O provisionamento de aplicativos vem com um conjunto de pastas de trabalho criad
 
 ## <a name="custom-queries"></a>Consultas personalizadas
 
-Você pode criar consultas personalizadas e mostrar os dados nos painéis do Azure. Para saber como, consulte [criar e compartilhar painéis de dados de log Analytics](../../azure-monitor/log-query/get-started-queries.md). Além disso, não deixe de conferir a [visão geral das consultas de log em Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+Você pode criar consultas personalizadas e mostrar os dados nos painéis do Azure. Para saber como, consulte [criar e compartilhar painéis de dados de log Analytics](../../azure-monitor/logs/get-started-queries.md). Além disso, não deixe de conferir a [visão geral das consultas de log em Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Aqui estão alguns exemplos para começar a usar o provisionamento de aplicativos.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor permite configurar alertas personalizados para que você possa ser notificado sobre os principais eventos relacionados ao provisionamento. Por exemplo, talvez você queira receber um alerta sobre picos de falhas. Ou talvez picos em desabilitações ou exclusões. Outro exemplo de onde você talvez queira ser alertado é a falta de qualquer provisionamento, o que indica que algo está errado.
 
-Para saber mais sobre alertas, confira [responder a eventos com Azure monitor alertas](../../azure-monitor/learn/tutorial-response.md).
+Para saber mais sobre alertas, confira [responder a eventos com Azure monitor alertas](../../azure-monitor/alerts/tutorial-response.md).
 
 Alertar quando houver um pico nas falhas. Substitua o jobID pelo jobID para seu aplicativo.
 
@@ -118,7 +118,7 @@ Estamos adotando uma abordagem de software livre e baseada na Comunidade para co
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Análise de log](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Introdução às consultas de log do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-- [Criar e gerenciar grupos de alertas no portal do Azure](../../azure-monitor/platform/action-groups.md)
+- [Introdução às consultas de log do Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+- [Criar e gerenciar grupos de alertas no portal do Azure](../../azure-monitor/alerts/action-groups.md)
 - [Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)
+- [API de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

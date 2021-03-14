@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 49e1e9efbd6f59bd037a8033f83836bf7fc71c43
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: ad641c2270f94b9d902a25e8d061fb1137a0cdb7
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630321"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518595"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 
@@ -30,13 +30,13 @@ Ao iniciar o treinamento é executado em um [destino de computação](concept-co
 
 Antes de poder iniciar um experimento em um destino de computação ou em seu computador local, você deve garantir que os arquivos necessários estejam disponíveis para esse destino de computação, como arquivos de dependência e arquivos de dados que seu código precisa executar.
 
-Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados usando um [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
+Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados usando um [datastore](/python/api/azureml-core/azureml.data).
 
 O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2.000 arquivos.
 
 Por esse motivo, recomendamos:
 
-* **Armazenando seus arquivos em um [repositório](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)de Azure Machine Learning de armazenamento.** Isso evita problemas de latência de experimento e tem as vantagens de acessar dados de um destino de computação remoto, o que significa que a autenticação e a montagem são gerenciadas pelo Azure Machine Learning. Saiba mais sobre como especificar um armazenamento de dados como seu diretório de origem e carregar arquivos em seu repositório de dados no artigo [Access Data from the datastores](how-to-access-data.md) .
+* **Armazenando seus arquivos em um [repositório](/python/api/azureml-core/azureml.data)de Azure Machine Learning de armazenamento.** Isso evita problemas de latência de experimento e tem as vantagens de acessar dados de um destino de computação remoto, o que significa que a autenticação e a montagem são gerenciadas pelo Azure Machine Learning. Saiba mais sobre como especificar um armazenamento de dados como seu diretório de origem e carregar arquivos em seu repositório de dados no artigo [Access Data from the datastores](how-to-access-data.md) .
 
 * **Se você precisar apenas de alguns arquivos de dados e scripts de dependência e não puder usar um datastore,** Coloque os arquivos no mesmo diretório de pasta que o script de treinamento. Especifique essa pasta como você está `source_directory` diretamente no seu script de treinamento ou no código que chama seu script de treinamento.
 
@@ -69,7 +69,7 @@ Ao escrever alterações, é recomendável gravar arquivos em um repositório de
 Se você não precisar de um repositório de armazenamento, grave arquivos na `./outputs` pasta e/ou `./logs` .
 
 >[!Important]
-> Duas pastas, *saídas* e *logs* , recebem tratamento especial por Azure Machine Learning. Durante o treinamento, quando você grava arquivos `./outputs` em `./logs` pastas e, os arquivos são carregados automaticamente no seu histórico de execução, para que você tenha acesso a eles quando a execução for concluída.
+> Duas pastas, *saídas* e *logs*, recebem tratamento especial por Azure Machine Learning. Durante o treinamento, quando você grava arquivos `./outputs` em `./logs` pastas e, os arquivos são carregados automaticamente no seu histórico de execução, para que você tenha acesso a eles quando a execução for concluída.
 
 * **Para saída, como mensagens de status ou resultados de pontuação,** grave arquivos na `./outputs` pasta, para que eles sejam persistidos como artefatos no histórico de execuções. Lembre-se do número e do tamanho dos arquivos gravados nessa pasta, uma vez que a latência pode ocorrer quando o conteúdo é carregado para o histórico de execução. Se a latência for uma preocupação, é recomendável gravar arquivos em um repositório de armazenamento.
 

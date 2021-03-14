@@ -19,7 +19,7 @@
     - name: Implantar um Serviço de Nuvem – SDK
       href: deploy-sdk.md
     - name: Implantar um Serviço de Nuvem – Visual Studio
-      href: 'https://docs.microsoft.com/visualstudio/azure/cloud-services-extended-support?context=/azure/cloud-services-extended-support/context/context'
+      href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Conceitos
   items:
@@ -82,13 +82,13 @@
     - name: Módulo Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Cmdlets do PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice'
+      href: /powershell/module/az.cloudservice/#cloudservice
     - name: Referência do modelo do ARM
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
+      href: /azure/templates/microsoft.compute/cloudservices
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+      href: /rest/api/compute/cloudservices
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview'
+      href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
     - name: .
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Recursos
@@ -98,7 +98,7 @@
     - name: Roteiro de aprendizagem
       href: /learn/paths/azure-fundamentals/
     - name: P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calculadora de preço

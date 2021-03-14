@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896622"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572605"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -34,9 +34,9 @@ Controle de Alterações e inventário fazem uso do [fim (monitoramento de integ
 
 Habilitar todos os recursos incluídos no Controle de Alterações e no inventário pode causar encargos adicionais. Antes de continuar, examine [preços de automação](https://azure.microsoft.com/pricing/details/automation/) e [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Controle de Alterações e o inventário encaminha os dados para Azure Monitor logs, e esses dados coletados são armazenados em um espaço de trabalho Log Analytics. O recurso de monitoramento de integridade de arquivo (FIM) está disponível somente quando o **Azure defender para servidores** está habilitado. Confira [preços](../../security-center/security-center-pricing.md) da central de segurança do Azure para saber mais. O FIM carrega dados no mesmo espaço de trabalho Log Analytics que aquele criado para armazenar dados de Controle de Alterações e inventário. Recomendamos que você monitore seu espaço de trabalho do Log Analytics vinculado para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/platform/manage-cost-storage.md).
+Controle de Alterações e o inventário encaminha os dados para Azure Monitor logs, e esses dados coletados são armazenados em um espaço de trabalho Log Analytics. O recurso de monitoramento de integridade de arquivo (FIM) está disponível somente quando o **Azure defender para servidores** está habilitado. Confira [preços](../../security-center/security-center-pricing.md) da central de segurança do Azure para saber mais. O FIM carrega dados no mesmo espaço de trabalho Log Analytics que aquele criado para armazenar dados de Controle de Alterações e inventário. Recomendamos que você monitore seu espaço de trabalho do Log Analytics vinculado para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/logs/manage-cost-storage.md).
 
-Computadores conectados ao espaço de trabalho de Log Analytics usam o [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para coletar dados sobre alterações em software instalado, serviços da Microsoft, registro e arquivos do Windows e daemons do Linux em servidores monitorados. Quando os dados estão disponíveis, o agente o envia para Azure Monitor logs para processamento. Os logs de Azure Monitor aplicam a lógica aos dados recebidos, os registram e disponibilizam para análise.
+Computadores conectados ao espaço de trabalho de Log Analytics usam o [agente de log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para coletar dados sobre alterações em software instalado, serviços da Microsoft, registro e arquivos do Windows e daemons do Linux em servidores monitorados. Quando os dados estão disponíveis, o agente o envia para Azure Monitor logs para processamento. Os logs de Azure Monitor aplicam a lógica aos dados recebidos, os registram e disponibilizam para análise.
 
 > [!NOTE]
 > Controle de Alterações e inventário exigem a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões compatíveis, confira [Mapeamentos de Workspace do Azure](../how-to/region-mappings.md). Os mapeamentos de região não afetam a capacidade de gerenciar VMs em uma região separada da sua conta de Automação.
@@ -48,7 +48,7 @@ O Controle de Alterações e o inventário não dão suporte ou tem as seguintes
 - Recursão para o rastreamento de registro do Windows
 - Sistemas de arquivos de rede
 - Métodos de instalação diferentes
-- *arquivos *_. exe_* armazenados no Windows
+- *arquivos **. exe** armazenados no Windows
 - Os valores e a coluna **Tamanho máximo de arquivo** não são utilizados na implementação atual.
 - Se você tentar coletar mais de 2500 arquivos em um ciclo de coleta de 30 minutos, o desempenho do Controle de Alterações e do inventário poderá ser degradado.
 - Se o tráfego de rede for alto, os registros de alteração poderão levar até seis horas para serem exibidos.
@@ -58,7 +58,7 @@ O Controle de Alterações e o inventário não dão suporte ou tem as seguintes
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. Consulte [sistemas operacionais com suporte](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte no momento pelo agente de log Analytics.
+O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. Consulte [sistemas operacionais com suporte](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte no momento pelo agente de log Analytics.
 
 Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -159,7 +159,7 @@ A tabela a seguir mostra os limites de item controlados por máquina para Contro
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados de serviço da Microsoft
 

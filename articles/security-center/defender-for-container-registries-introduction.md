@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132709"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100705"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -76,7 +76,7 @@ A Central de Segurança filtra e classifica as descobertas do verificador. Quand
 Sim. Os resultados ficam na [API REST de Subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o ARG (Azure Resource Graph), a API semelhante ao Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quais tipos de registro são verificados? Quais tipos são cobrados?
-Para obter uma lista dos tipos de registros de contêiner compatíveis com o Azure Defender para registros de contêiner, confira [Disponibilidade](defender-for-container-registries-usage.md#availability).
+Para obter uma lista dos tipos de registros de contêiner compatíveis com o Azure Defender para registros de contêiner, confira [Disponibilidade](#availability).
 
 Se você conectar registros sem suporte à sua assinatura do Azure, eles não serão verificados e você não será cobrado por eles.
 

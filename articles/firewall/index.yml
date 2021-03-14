@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 08/30/2019
-  ms.openlocfilehash: 05898a0e0cd0dc5d97edca483d89f45960c26071
-  ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+  ms.date: 02/24/2021
+  ms.openlocfilehash: dfc3513dd98a6dc1feecd1f66efe34bc61c6a5d5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98046293"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101741371"
 landingContent:
 - title: Saiba mais sobre o Firewall do Azure
   linkLists:
@@ -33,6 +33,20 @@ landingContent:
     links:
     - text: Novidades
       url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+- title: Saiba mais sobre a versão prévia do Firewall do Azure Premium
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Recursos de versão prévia do Firewall do Azure Premium
+      url: premium-features.md
+  - linkListType: concept
+    links:
+    - text: Certificados da versão prévia do Firewall do Azure Premium
+      url: premium-certificates.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implantar e configurar a versão prévia do Firewall do Azure Premium
+      url: premium-deploy.md
 - title: Implantar um Firewall do Azure
   linkLists:
   - linkListType: tutorial

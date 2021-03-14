@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6098497e89ad66fad7659aa64c9a7849380f8c43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95739988"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547485"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -33,10 +33,14 @@ Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável l
 
 Quando você habilita AD DS para compartilhamentos de arquivos do Azure via SMB, seus computadores ingressados AD DS podem montar compartilhamentos de arquivos do Azure usando suas credenciais de AD DS existentes. Esse recurso pode ser habilitado com um ambiente de AD DS hospedado em computadores locais ou hospedado no Azure.
 
-> [!NOTE]
-> Para ajudá-lo a configurar a autenticação do AD dos arquivos do Azure para alguns casos de uso comuns, publicamos dois vídeos com orientações passo a passo para os seguintes cenários:
-> - [Substituindo servidores de arquivos locais por arquivos do Azure (incluindo a instalação no link privado para arquivos e autenticação do AD)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Usando os arquivos do Azure como o contêiner de perfil para a área de trabalho virtual do Windows (incluindo a configuração na autenticação do AD e FsLogix)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## <a name="videos"></a>Vídeos
+
+Para ajudá-lo a configurar a autenticação do AD dos arquivos do Azure para alguns casos de uso comuns, publicamos dois vídeos com orientações passo a passo para os seguintes cenários:
+
+| Substituindo servidores de arquivos locais por arquivos do Azure (incluindo a instalação no link privado para arquivos e autenticação do AD) | Usando os arquivos do Azure como o contêiner de perfil para a área de trabalho virtual do Windows (incluindo a configuração na autenticação do AD e FsLogix)  |
+|-|-|
+| [![Screencast do vídeo substituindo servidores de arquivos locais-clique para reproduzir.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast do vídeo usando os arquivos do Azure como o contêiner de perfil-Clique para reproduzir.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 

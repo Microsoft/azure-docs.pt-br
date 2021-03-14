@@ -3,16 +3,16 @@ title: Série M-máquinas virtuais do Azure
 description: Especificações para as VMs da série M.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: a8f39b5a1994574fa3d1472a2b53a3b080f82952
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 91c29864367380a303a006d4aac823a22a966a2b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089234"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563085"
 ---
 # <a name="m-series"></a>Série M
 
@@ -28,7 +28,7 @@ O recurso da VM da série M tem a &reg; tecnologia Intel Hyper-Threading.
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Acelerador de gravação](./how-to-enable-write-accelerator.md): com suporte<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs|Largura de banda de rede esperada (Mbps) |

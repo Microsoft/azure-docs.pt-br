@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751284"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593934"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -145,7 +145,7 @@ Para alterar as notificações por email depois que a ação Iniciar/Parar VMs f
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
 
-    Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/platform/action-groups.md)
+    Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/alerts/action-groups.md)
 
 A seguir está um email de exemplo que é enviado quando o recurso desliga as máquinas virtuais.
 

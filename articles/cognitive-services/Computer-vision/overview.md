@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033282"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575933"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -32,7 +32,7 @@ Você pode criar aplicativos da Pesquisa Visual Computacional por meio de um [SD
 
 ## <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
-A Pesquisa Visual Computacional inclui funcionalidades de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md). Você pode usar a nova API de leitura para extrair texto impresso e manuscrito de imagens e documentos. Ela usa os modelos mais recentes e trabalha com texto em uma variedade de superfícies e telas de fundo. Eles incluem recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As duas APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
+A Pesquisa Visual Computacional inclui funcionalidades de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md). Você pode usar a nova API de leitura para extrair texto impresso e manuscrito de imagens e documentos. Ela usa os modelos baseados em aprendizado profundo e trabalha com texto em uma variedade de superfícies e telas de fundo. Eles incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para gerenciamento de ativo digital
 

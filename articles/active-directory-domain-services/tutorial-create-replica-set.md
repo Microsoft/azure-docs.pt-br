@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687491"
 ---
-# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar e usar conjuntos de réplicas para resiliência ou geolocalização no Azure Active Directory Domain Services (versão prévia)
+# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>Tutorial: Criar e usar conjuntos de réplicas para resiliência ou geolocalização no Azure Active Directory Domain Services
 
 Para melhorar a resiliência de um domínio gerenciado do Azure AD DS (Azure Active Directory Domain Services) ou implantar em locais geográficos adicionais próximos aos aplicativos, é possível usar *conjuntos de réplicas*. Cada namespace de domínio gerenciado do Azure AD DS, como *aaddscontoso.com*, contém um conjunto de réplicas inicial. A capacidade de criar conjuntos de réplicas adicionais em outras regiões do Azure fornece resiliência geográfica para um domínio gerenciado.
 
 Você pode adicionar um conjunto de réplicas a qualquer rede virtual emparelhada em qualquer região do Azure que dê suporte ao Azure AD DS.
-
-Os conjuntos de réplicas estão em uma versão prévia pública do recurso no Azure AD Domain Services. Esteja ciente das diferenças de suporte que existem para os recursos que ainda estão em versão prévia. Para obter mais informações sobre versões prévias, confira [SLA de Versão Prévia do Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Neste tutorial, você aprenderá como:
 
@@ -78,7 +76,7 @@ Para criar um conjunto de réplicas adicional, conclua as seguintes etapas:
 
 1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**.
 1. Escolha o domínio gerenciado, como *aaddscontoso.com*.
-1. No lado esquerdo, selecione **Conjuntos de réplicas (versão prévia)** . Cada domínio gerenciado inclui um conjunto de réplicas inicial na região selecionada, conforme mostrado na seguinte captura de tela de exemplo:
+1. No lado esquerdo, selecione **Conjuntos de réplicas**. Cada domínio gerenciado inclui um conjunto de réplicas inicial na região selecionada, conforme mostrado na seguinte captura de tela de exemplo:
 
     ![Captura de tela de exemplo para exibir e adicionar um conjunto de réplicas no portal do Azure](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -113,7 +111,7 @@ Para excluir um conjunto de réplicas, conclua as seguintes etapas:
 
 1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**.
 1. Escolha o domínio gerenciado, como *aaddscontoso.com*.
-1. No lado esquerdo, selecione **Conjuntos de réplicas (versão prévia)** . Na lista de conjuntos de réplicas, selecione o menu de contexto **...** ao lado do conjunto de réplicas que você deseja excluir.
+1. No lado esquerdo, selecione **Conjuntos de réplicas**. Na lista de conjuntos de réplicas, selecione o menu de contexto **...** ao lado do conjunto de réplicas que você deseja excluir.
 1. Selecione **Excluir** no menu de contexto e, em seguida, confirme que deseja excluir o conjunto de réplicas.
 
 > [!NOTE]

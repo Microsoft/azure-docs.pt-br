@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168501"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643823"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>O que é provisionamento entre diretórios?
 
@@ -33,7 +33,7 @@ Atualmente, o Azure AD dá suporte a três métodos para realizar o provisioname
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) – a ferramenta da Microsoft desenvolvida para atender à sua identidade híbrida e atingi-la, incluindo o provisionamento entre diretórios do Active Directory no Azure AD.
 
-- O [Provisionamento de Nuvem do Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) – um novo agente da Microsoft criado para atender às suas metas de identidade híbrida e atingi-las.  Ele fornece uma experiência de provisionamento entre diretórios leves entre o Active Directory e o Azure AD.
+- O [Provisionamento de Nuvem do Azure AD Connect](../cloud-sync/what-is-cloud-sync.md) – um novo agente da Microsoft criado para atender às suas metas de identidade híbrida e atingi-las.  Ele fornece uma experiência de provisionamento entre diretórios leves entre o Active Directory e o Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) – solução de gerenciamento de acesso e identidade local da Microsoft que ajuda a gerenciar usuários, credenciais, políticas e acesso em sua organização. Além disso, o MIM fornece provisionamento entre diretórios avançado para obter ambientes de identidade híbrida para o Active Directory, o Azure AD e outros diretórios.
 

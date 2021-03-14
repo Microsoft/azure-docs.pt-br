@@ -1,23 +1,18 @@
 ---
 title: Recursos de otimização de desempenho da atividade de cópia
 description: Saiba mais sobre os principais recursos que ajudam a otimizar o desempenho da atividade de cópia no Azure Data Factory Marketplace.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324324"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387794"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Recursos de otimização de desempenho da atividade de cópia
 
@@ -126,10 +121,10 @@ Quando você especificar um valor para a `parallelCopies` propriedade, faça com
 
 Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados de coletor, você pode optar por usar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2 como um armazenamento de preparo provisório. Esse preparo é especialmente útil nos seguintes casos:
 
-- **Você deseja ingerir dados de vários armazenamentos de dados para o Azure Synapse Analytics (anteriormente SQL Data Warehouse) por meio do polybase, copiar dados de/para floco de neve ou ingerir dados do Amazon redshift/HDFS forma definitiva.** Saiba mais detalhes em:
+- **Você deseja ingerir dados de vários armazenamentos de dados para o Azure Synapse Analytics por meio do polybase, copiar dados de/para floco de neve ou ingerir dados do Amazon redshift/HDFS forma definitiva.** Saiba mais detalhes em:
   - [Use o polybase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
   - [Conector floco de neve](connector-snowflake.md)
-  - [Conector do Amazon redshift](connector-amazon-redshift.md)
+  - [Conector do Amazon Redshift](connector-amazon-redshift.md)
   - [HDFS connector](connector-hdfs.md) (Conector de HDFS)
 - **Você não quer abrir portas que não sejam a porta 80 e a porta 443 em seu firewall devido a políticas corporativas de ti.** Por exemplo, ao copiar dados de um armazenamento de dados local para um banco de dado SQL do Azure ou para uma análise de Synapse do Azure, você precisa ativar a comunicação TCP de saída na porta 1433 para o Firewall do Windows e o firewall corporativo. Nesse cenário, a cópia em etapas pode aproveitar o tempo de execução de integração auto-hospedado para primeiro copiar dados para um armazenamento de preparo via HTTP ou HTTPS na porta 443 e, em seguida, carregar os dados de preparo no banco de dados SQL ou no Azure Synapse Analytics. Nesse fluxo, você não precisa habilitar a porta 1433.
 - **Às vezes, demora um pouco para executar uma movimentação de dados híbrido (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem) em uma conexão de rede lenta.** Para melhorar o desempenho, você pode usar cópia em etapas para compactar os dados locais, de modo que leve menos tempo para mover dados para o armazenamento de dados de preparo na nuvem. Em seguida, você pode descompactar os dados no armazenamento de preparo antes de carregar no armazenamento de dados de destino.
@@ -148,7 +143,7 @@ No momento, não é possível copiar dados entre dois armazenamentos de dados qu
 
 Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE` , especifique as propriedades adicionais listadas na tabela a seguir. 
 
-| Propriedade | Descrição | Valor padrão | Obrigatório |
+| Propriedade | Descrição | Valor padrão | Necessária |
 | --- | --- | --- | --- |
 | enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | linkedServiceName |Especifique o nome de um [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) serviço vinculado, que se refere à instância de armazenamento que você usa como um armazenamento de preparo provisório. |N/D |Sim, quando **enableStaging** está definido para TRUE |

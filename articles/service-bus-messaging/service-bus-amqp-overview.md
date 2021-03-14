@@ -2,13 +2,13 @@
 title: Visão geral do AMQP 1,0 no barramento de serviço do Azure
 description: Saiba como o barramento de serviço do Azure dá suporte a Advanced Message Queuing Protocol (AMQP), um protocolo padrão aberto.
 ms.topic: article
-ms.date: 11/20/2020
-ms.openlocfilehash: 58c2cc8e9d92fff31a286b6e9bd63b63bee26aee
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 02/17/2021
+ms.openlocfilehash: b2ca126312f5fc3da2a7ff6e20a9ade252f489f1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632877"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653876"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
 O serviço de nuvem do barramento de serviço do Azure usa o [protocolo de enfileiramento de mensagens avançado (AMQP) 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) como seus principais meios de comunicação. A Microsoft tem participado de parceiros em todo o setor, clientes e fornecedores de agentes de mensagens concorrentes, desenvolver e evoluir AMQP na última década, com novas extensões sendo desenvolvidas no [comitê técnico de AMQP da Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1,0 é um padrão ISO e IEC ([iso 19464:20149](https://www.iso.org/standard/64955.html)). 
@@ -84,9 +84,8 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 * [Usando o Barramento de Serviço do .NET com AMQP]
 * [Usando o Barramento de Serviço do Java com AMQP]
-* [Instalando o Apache QPID Proton-C em uma VM Linux do Azure]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
 [Usando o Barramento de Serviço do Java com AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
-[Instalando o Apache QPID Proton-C em uma VM Linux do Azure]::
+

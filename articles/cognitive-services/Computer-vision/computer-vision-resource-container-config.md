@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006858"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611888"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de Docker de OCR de leitura
 
@@ -31,14 +31,16 @@ Você configura o ambiente de tempo de execução do contêiner de OCR de Pesqui
 
 O contêiner também tem as seguintes definições de configuração específicas de contêiner:
 
-|Obrigatório|Configuração|Finalidade|
+|Necessária|Configuração|Finalidade|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
-|No|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
-|No|Fila: RabbitMQ|somente contêineres v 2.0. Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
-|No|Fila: Azure: QueueVisibilityTimeoutInMilliseconds | somente contêineres v3. x. A hora de uma mensagem ser invisível quando outro trabalhador a estiver processando. |
-|No|Armazenamento::D ocumentStore:: MongoDB|somente contêineres v 2.0. Habilita o MongoDB para armazenamento de resultado permanente. |
-|No|Armazenamento: ObjectStore: AzureBlob: ConnectionString| somente contêineres v3. x. Cadeia de conexão do armazenamento de BLOBs do Azure. |
+|Não|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
+|Não|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
+|Não|Fila: RabbitMQ|somente contêineres v 2.0. Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
+|Não|Fila: Azure: QueueVisibilityTimeoutInMilliseconds | somente contêineres v3. x. A hora de uma mensagem ser invisível quando outro trabalhador a estiver processando. |
+|Não|Armazenamento::D ocumentStore:: MongoDB|somente contêineres v 2.0. Habilita o MongoDB para armazenamento de resultado permanente. |
+|Não|Armazenamento: ObjectStore: AzureBlob: ConnectionString| somente contêineres v3. x. Cadeia de conexão do armazenamento de BLOBs do Azure. |
+|Não|Armazenamento: TimeToLiveInDays| somente contêineres v3. x. Período de expiração do resultado em dias. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. O padrão é 2 dias (48 horas), o que significa que qualquer resultado ao vivo por mais tempo do que esse período não tem garantia de ser recuperado com êxito. |
+|Não|Tarefa: MaxRunningTimeSpanInMinutes| somente contêineres v3. x. Tempo máximo de execução para uma única solicitação. O padrão é de 60 minutos. |
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
@@ -62,7 +64,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` Roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Obrigatório| Name | Tipo de dados | Descrição |
+|Necessária| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

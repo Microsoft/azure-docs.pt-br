@@ -4,17 +4,17 @@ description: Reidratar seus BLOBs do armazenamento de arquivo para que você pos
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165664"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225074"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados de blob da camada de arquivos
 
@@ -29,6 +29,10 @@ Enquanto um blob estiver na camada de acesso aos arquivos, ele será considerado
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Gerenciamento do ciclo de vida
+
+Reidratar um BLOB não muda de `Last-Modified` hora. Usar o recurso de [Gerenciamento de ciclo de vida](storage-lifecycle-management-concepts.md) pode criar um cenário em que um blob é alimentado, uma política de gerenciamento do ciclo de vida move o blob de volta para o arquivo morto, pois o `Last-Modified` tempo está além do limite definido para a política. Para evitar esse cenário, use *[copiar um blob Arquivado em um método de camada online](#copy-an-archived-blob-to-an-online-tier)* . O método Copy cria uma nova instância do blob com uma hora atualizada `Last-Modified` e não disparará a política de gerenciamento do ciclo de vida.
+
 ## <a name="monitor-rehydration-progress"></a>Monitorar o progresso do reidratação
 
 Durante a reidratação, use a operação obter propriedades de BLOB para verificar o atributo **status do arquivo** e confirmar quando a alteração da camada foi concluída. O status exibe "reidratação pendentes para camada quente" ou "reidratação pendente para camada fria" dependendo da camada de destino. Após a conclusão, a propriedade status do arquivo é removida e a propriedade BLOB da **camada de acesso** reflete a nova camada quente ou fria.
@@ -42,7 +46,7 @@ A cópia de um blob de arquivos pode levar horas para ser concluída, dependendo
 > [!IMPORTANT]
 > Não exclua o blob de origem até que a cópia seja concluída com êxito no destino. Caso o blob de origem seja excluído, é possível que o blob de destino não conclua a cópia e fique vazio. Você pode verificar o *x-ms-copy-status* para determinar o estado da operação de cópia.
 
-Só é possível copiar os blobs de arquivos nas camadas de destino online dentro da mesma conta de armazenamento. Não há suporte para a cópia de um blob de arquivos em outro blob de arquivos. A tabela a seguir indica os recursos do CopyBlob.
+Só é possível copiar os blobs de arquivos nas camadas de destino online dentro da mesma conta de armazenamento. Não há suporte para a cópia de um blob de arquivos em outro blob de arquivos. A tabela a seguir mostra os recursos de uma operação de **cópia de blob** .
 
 |                                           | **Origem da camada quente**   | **Origem da camada fria** | **Origem da camada de arquivos**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620028"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689055"
 ---
-# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>A réplica define conceitos e recursos para Azure Active Directory Domain Services (versão prévia)
+# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>A réplica define conceitos e recursos para Azure Active Directory Domain Services
 
 Ao criar um domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure), você define um namespace exclusivo. Esse namespace é o nome de domínio, por exemplo, *aaddscontoso.com*, e dois DCs (controladores de domínio) são implantados na região do Azure selecionada. Essa implantação de DCs é conhecida como conjunto de réplicas.
 
 Você pode expandir um domínio gerenciado para ter mais de um conjunto de réplicas por locatário do Azure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual emparelhada em qualquer região do Azure com suporte para o Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões do Azure fornecem recuperação de desastre geográfica para aplicativos herdados se uma região do Azure fica offline.
-
-Atualmente, os conjuntos de réplicas estão em versão prévia.
 
 > [!NOTE]
 > Os conjuntos de réplicas não permitem que você implante vários domínios gerenciados exclusivos em um único locatário do Azure. Cada conjunto de réplicas contém os mesmos dados.
@@ -56,15 +54,11 @@ O exemplo a seguir mostra um domínio gerenciado com três conjuntos de réplica
 
 O SKU padrão para um domínio gerenciado é o SKU *corporativo* , que dá suporte a vários conjuntos de réplicas. Para criar conjuntos de réplicas adicionais, se você tiver alterado para o SKU *Standard* , [atualize o domínio gerenciado](change-sku.md) para *Enterprise* ou *Premium*.
 
-O número máximo de conjuntos de réplicas com suporte durante a visualização é de quatro, incluindo a primeira réplica criada quando você criou o domínio gerenciado.
+O número máximo de conjuntos de réplicas com suporte é quatro, incluindo a primeira réplica criada quando você criou o domínio gerenciado.
 
 A cobrança de cada conjunto de réplicas baseia-se na SKU de configuração de domínio. Por exemplo, se você tiver um domínio gerenciado que usa o SKU *corporativo* e tiver três conjuntos de réplicas, sua assinatura será cobrada por hora para cada um dos três conjuntos de réplicas.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>Posso usar meu domínio gerenciado de produção com esta visualização?
-
-Os conjuntos de réplicas estão em uma versão prévia pública do recurso no Azure AD Domain Services. Você pode usar um domínio gerenciado de produção, mas esteja ciente das diferenças de suporte que existem para os recursos que ainda estão em visualização. Para obter mais informações sobre versões prévias, confira [SLA de Versão Prévia do Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>Posso criar um conjunto de réplicas na assinatura diferente do meu domínio gerenciado?
 
@@ -72,7 +66,7 @@ Não. Os conjuntos de réplicas devem estar na mesma assinatura que o domínio g
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Quantos conjuntos de réplica posso criar?
 
-A visualização é limitada a um máximo de quatro conjuntos de réplicas-o conjunto de réplicas inicial para o domínio gerenciado, além de três conjuntos de réplicas adicionais.
+Você pode criar no máximo quatro conjuntos de réplicas — o conjunto de réplicas inicial para o domínio gerenciado, além de três conjuntos de réplicas adicionais.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Como as informações de usuário e grupo são sincronizadas com os conjuntos de réplicas?
 

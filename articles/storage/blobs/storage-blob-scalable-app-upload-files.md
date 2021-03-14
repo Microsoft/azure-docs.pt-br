@@ -4,15 +4,15 @@ description: Saiba como usar a biblioteca de clientes do Armazenamento do Azure 
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: ed59903454725aca8ca5e73c2df6e4d6d6262ef6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ed7020a58f3f15403108934bcc3fab644bd1b627
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096265"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584458"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -62,7 +62,7 @@ Digite `dotnet run` para executar o aplicativo. Na primeira vez que você execut
 dotnet run
 ```
 
-O aplicativo cria cinco contêineres nomeados de maneira aleatória e começa a carregar os arquivos na pasta de preparação para a conta de armazenamento. O número mínimo e máximo de threads são definidos como 100 para garantir que um grande número de conexões simultâneas seja permitido.
+O aplicativo cria cinco contêineres nomeados de maneira aleatória e começa a carregar os arquivos na pasta de preparação para a conta de armazenamento.
 
 O método `UploadFilesAsync` é mostrado no seguinte exemplo:
 
@@ -71,6 +71,8 @@ O método `UploadFilesAsync` é mostrado no seguinte exemplo:
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+O número mínimo e máximo de threads são definidos como 100 para garantir que um grande número de conexões simultâneas seja permitido.
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -172,20 +174,19 @@ Além de definir as configurações de limite de thread e conexão, o [BlobReque
 O exemplo a seguir é uma saída truncada de aplicativo em execução em um sistema Windows.
 
 ```console
-Created container 9efa7ecb-2b24-49ff-8e5b-1d25e5481076
-Created container bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b
-Created container 9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
-Created container 47646f1a-c498-40cd-9dae-840f46072180
-Created container 38b2cdab-45fa-4cf9-94e7-d533837365aa
-Iterating in directory: D:\git\storage-dotnet-perf-scale-app\upload
-Found 50 file(s)
-Uploading D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt to container 9efa7ecb-2b24-49ff-8e5b-1d25e5481076
-Uploading D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt to container bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b
-Uploading D:\git\storage-dotnet-perf-scale-app\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.txt to container 9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
-Uploading D:\git\storage-dotnet-perf-scale-app\upload\45930d63-b0d0-425f-a766-cda27ff00d32.txt to container 47646f1a-c498-40cd-9dae-840f46072180
-Uploading D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.txt to container 38b2cdab-45fa-4cf9-94e7-d533837365aa
-...
-Upload has been completed in 142.0429536 seconds. Press any key to continue
+Created container 2dbb45f4-099e-49eb-880c-5b02ebac135e
+Created container 0d784365-3bdf-4ef2-b2b2-c17b6480792b
+Created container 42ac67f2-a316-49c9-8fdb-860fb32845d7
+Created container f0357772-cb04-45c3-b6ad-ff9b7a5ee467
+Created container 92480da9-f695-4a42-abe8-fb35e71eb887
+Iterating in directory: C:\git\myapp\upload
+Found 5 file(s)
+Uploading 1d596d16-f6de-4c4c-8058-50ebd8141e4d.pdf to container 2dbb45f4-099e-49eb-880c-5b02ebac135e
+Uploading 242ff392-78be-41fb-b9d4-aee8152a6279.pdf to container 0d784365-3bdf-4ef2-b2b2-c17b6480792b
+Uploading 38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.pdf to container 42ac67f2-a316-49c9-8fdb-860fb32845d7
+Uploading 45930d63-b0d0-425f-a766-cda27ff00d32.pdf to container f0357772-cb04-45c3-b6ad-ff9b7a5ee467
+Uploading 5129b385-5781-43be-8bac-e2fbb7d2bd82.pdf to container 92480da9-f695-4a42-abe8-fb35e71eb887
+Uploaded 5 files in 16.9552163 seconds
 ```
 
 ### <a name="validate-the-connections"></a>Validar as conexões

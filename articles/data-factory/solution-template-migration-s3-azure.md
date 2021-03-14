@@ -1,22 +1,18 @@
 ---
 title: Migrar dados do Amazon S3 para o Azure Data Lake Storage Gen2
 description: Saiba como usar um modelo de solução para migrar dados do Amazon S3 usando uma tabela de controle externo para armazenar uma lista de partições no AWS S3 com o Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398213"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361971"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrar dados do Amazon S3 para o Azure Data Lake Storage Gen2
 
@@ -119,7 +115,7 @@ O modelo contém dois parâmetros:
 
     ![Captura de tela que mostra os dois pipelines e três conjuntos de valores que foram criados usando o modelo.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+6. Vá para o pipeline "BulkCopyFromS3" e selecione **depurar**, insira os **parâmetros**. Em seguida, selecione **Concluir**.
 
     ![Captura de tela que mostra onde selecionar depurar e insira os parâmetros antes de selecionar concluir.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -182,7 +178,7 @@ O modelo contém dois parâmetros:
 
     ![Revisar o pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+6.  Acesse o pipeline "DeltaCopyFromS3" e selecione **depurar** e insira os **parâmetros**. Em seguida, selecione **Concluir**.
 
     ![Clique em **Depurar**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

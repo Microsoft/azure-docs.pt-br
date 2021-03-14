@@ -8,12 +8,16 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5be4cea7d8ddb00a4c8a22a696dbdce1c062765c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-arm-template-uiex
+ms.openlocfilehash: 8b048127c8a5581a34a62cfb67c19ba7aa50f2d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701579"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Início Rápido: Criar um aplicativo do Serviço de Aplicativo usando um modelo do ARM
 

@@ -1,14 +1,14 @@
 ---
 title: Exemplo de controles de blueprint do PBMM Federal do Canadá
 description: Mapeamento de controle das amostras de blueprint do PBMM Federal do Canadá. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 34c9b723b3c8a74b7a1f842e0144a826f55373ea
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 440b07db514d8af0cf7f4177a6bac497eead2b37
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420437"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627207"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PBMM Federal do Canadá
 

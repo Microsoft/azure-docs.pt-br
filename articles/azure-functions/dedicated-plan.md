@@ -3,12 +3,12 @@ title: Azure Functions hospedagem dedicada
 description: Saiba mais sobre os benefícios da execução de Azure Functions em um plano de hospedagem do serviço de aplicativo dedicado.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ebf83aa919d91f161b247539ae20873242a8ed8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704558"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Planos de hospedagem dedicados para Azure Functions
 
@@ -31,9 +31,9 @@ Se você executar em um plano do serviço de aplicativo, habilite a configuraç�
 
 Mesmo com Always On habilitado, o tempo limite de execução para funções individuais é controlado pela configuração `functionTimeout` no arquivo de projeto [host.json](functions-host-json.md#functiontimeout).
 
-## <a name="scaling"></a>Dimensionamento
+## <a name="scaling"></a>Escala
 
-Usando um plano do serviço de aplicativo, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM. Você também pode habilitar o dimensionamento automático, embora o dimensionamento automático seja mais lento do que a escala elástica do plano Premium. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/manage-scale-up.md). 
+Usando um plano do serviço de aplicativo, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM. Você também pode habilitar o dimensionamento automático, embora o dimensionamento automático seja mais lento do que a escala elástica do plano Premium. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/manage-scale-up.md). 
 
 > [!NOTE] 
 > Ao executar funções de JavaScript (Node.js) em um plano do serviço de aplicativo, você deve escolher um plano que tenha menos vCPUs. Para obter mais informações, consulte [escolher planos de serviço de aplicativo de núcleo único](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
@@ -41,7 +41,7 @@ Usando um plano do serviço de aplicativo, você pode escalar horizontalmente ma
 
 ## <a name="app-service-environments"></a>Ambientes de Serviço de Aplicativo
 
-A execução em um [ambiente do serviço de aplicativo](../app-service/environment/intro.md) (ase) permite isolar totalmente suas funções e tirar proveito de números mais altos de instâncias do que um plano do serviço de aplicativo. Para começar, consulte .
+A execução em um Ambiente do Serviço de Aplicativo (ASE) permite isolar totalmente suas funções e tirar proveito de números mais altos de instâncias do que um plano do serviço de aplicativo. Para começar, consulte [introdução aos ambientes do serviço de aplicativo](../app-service/environment/intro.md).
 
 Se você quiser apenas executar seu aplicativo de funções em uma rede virtual, poderá fazer isso usando o [plano Premium](functions-premium-plan.md). Para saber mais, confira [estabelecer Azure Functions acesso ao site privado](functions-create-private-site-access.md). 
 

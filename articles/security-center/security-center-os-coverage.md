@@ -1,24 +1,18 @@
 ---
 title: Plataformas compatíveis com a Central de Segurança do Azure | Microsoft Docs
 description: Este documento fornece uma lista de plataformas compatíveis com a Central de Segurança do Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852635"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438277"
 ---
 # <a name="supported-platforms"></a>Plataformas compatíveis 
 
@@ -37,10 +31,10 @@ Para um ambiente do Azure ativado em uma assinatura do Azure, a Central de Segur
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-A Central de Segurança depende do [Agente do Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Verifique se os computadores estão sendo executados um dos sistemas operacionais compatíveis com esse agente, conforme descrito nas seguintes páginas:
+A Central de Segurança depende do [agente do Log Analytics](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Verifique se os computadores estão sendo executados um dos sistemas operacionais compatíveis com esse agente, conforme descrito nas seguintes páginas:
 
-* [Agente do Log Analytics para sistemas operacionais compatíveis com o Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Agente do Log Analytics para sistemas operacionais compatíveis com o Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Verifique também se o Agente do Log Analytics está [corretamente configurado para enviar dados à Central de Segurança](security-center-enable-data-collection.md#manual-agent)
 

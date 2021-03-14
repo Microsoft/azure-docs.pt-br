@@ -4,12 +4,12 @@ description: Saiba como interagir com recursos do kubernetes para gerenciar um c
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 4f34535f74de562c0a1b65c31f28476ca02e540f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ce5dc74dc3625b2b1fed447c4e6480308267d32a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631849"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578685"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Acessar recursos do kubernetes da portal do Azure
 
@@ -99,5 +99,5 @@ Este artigo mostrou como acessar recursos do kubernetes para o cluster do AKS. C
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
-[enable-monitor]: ../azure-monitor/insights/container-insights-enable-existing-clusters.md
+[enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md
 [portal-cluster]: kubernetes-walkthrough-portal.md

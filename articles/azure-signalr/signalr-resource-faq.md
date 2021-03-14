@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579315"
 ---
 # <a name="azure-signalr-service-faq"></a>Perguntas frequentes sobre o Serviço do Azure SignalR
 
@@ -54,7 +54,7 @@ Você pode configurar os transportes do lado do cliente conforme documentado na 
 
 Você pode encontrar detalhes sobre como calculamos essas métricas em [Mensagens e conexões no Serviço do Azure SignalR](signalr-concept-messages-and-connections.md).
 
-No painel de visão geral dos recursos do Serviço do Azure SignalR, já escolhemos o tipo de agregação apropriado para você. Se você for até o painel de métricas, poderá usar o tipo de agregação de [Mensagens e conexões no Serviço do Azure SignalR](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) como uma referência.
+No painel de visão geral dos recursos do Serviço do Azure SignalR, já escolhemos o tipo de agregação apropriado para você. Se você for até o painel de métricas, poderá usar o tipo de agregação de [Mensagens e conexões no Serviço do Azure SignalR](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) como uma referência.
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Qual é o significado dos modos de serviço `Default`, `Serverless` e `Classic`? Como faço para escolher?
 

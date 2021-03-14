@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896355"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570849"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
 > [!NOTE]
 > Este tutorial aborda o Monitor da Conexão (clássico). Teste o novo e aprimorado [Monitor da Conexão](connection-monitor-overview.md) para experimentar um monitoramento avançado da conectividade
+
+> [!IMPORTANT]
+> A partir de 1º de julho de 2021, você não poderá adicionar monitores de conexão no Monitor da Conexão (clássico), mas poderá continuar usando os monitores de conexão existentes criados antes de 1º de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre do Monitor da Conexão (clássico) para o novo Monitor da Conexão](migrate-to-connection-monitor-from-connection-monitor-classic.md) no Observador de Rede do Azure antes de 29 de fevereiro de 2024.
 
 Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremidade como outra VM, pode ser importante para sua organização. Às vezes, as alterações de configuração são introduzidas o que pode interromper a comunicação. Neste tutorial, você aprenderá como:
 
@@ -134,7 +137,7 @@ Alertas são criados por regras de alerta no Azure Monitor e podem executar auto
 2. Clique em **Selecionar destino** e selecione os recursos aos quais você deseja direcionar. Selecione a **Assinatura** e defina o **Tipo de recurso** para filtrar pelo Monitor de Conexão que você deseja usar.
 
     ![tela de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
-1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
 
     ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
 1. Preencha os detalhes do alerta, como nome da regra de alerta, descrição e gravidade. Você também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.

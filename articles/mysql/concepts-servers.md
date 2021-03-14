@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5477aa0c4eb2a66af816b287a8b6d7da8a53952f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534884"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517970"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor no Banco de Dados do Azure para MySQL
 
@@ -46,7 +46,7 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 | **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor de banco de dados até que você especifique quais computadores têm permissão. Confira [Regras de firewall do Banco de Dados do Azure para servidor MySQL](./concepts-firewall-rules.md). |
 | **SSL** | O serviço oferece suporte à imposição de conexões SSL entre seus aplicativos e o servidor de banco de dados.  Confira [Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL](./howto-configure-ssl.md). |
 
-## <a name="stopstart-an-azure-database-for-mysql-preview"></a>Parar/iniciar um banco de dados do Azure para MySQL (visualização)
+## <a name="stopstart-an-azure-database-for-mysql"></a>Parar/iniciar um banco de dados do Azure para MySQL
 
 O banco de dados do Azure para MySQL oferece a capacidade de **parar** o servidor quando ele não estiver em uso e **Iniciar** o servidor quando você retomar a atividade. Isso é essencialmente feito para economizar custos nos servidores de banco de dados e pagar apenas pelo recurso quando estiver em uso. Isso se torna ainda mais importante para cargas de trabalho de desenvolvimento e teste e quando você está usando o servidor apenas para parte do dia. Quando você parar o servidor, todas as conexões ativas serão descartadas. Posteriormente, quando você quiser colocar o servidor online novamente, poderá usar o [portal do Azure](how-to-stop-start-server.md) ou a [CLI](how-to-stop-start-server.md).
 
@@ -67,5 +67,5 @@ Você pode gerenciar o Banco de Dados do Azure para servidores MySQL usando o Po
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados para MySQL](./overview.md)
-- Para obter informações sobre cotas e limitações de recursos específicas com base em seu **tipo de preço** , consulte [tipos de preço](./concepts-pricing-tiers.md)
+- Para obter informações sobre cotas e limitações de recursos específicas com base em seu **tipo de preço**, consulte [tipos de preço](./concepts-pricing-tiers.md)
 - Para saber mais sobre como se conectar ao serviço, confira [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](./concepts-connection-libraries.md).

@@ -6,14 +6,17 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a387261b392ea6718941f5eabe889e0c1a41fd5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438681"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750674"
 ---
 Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
+
+> [!NOTE]
+> Este documento usa a versão 1.0.0-beta.8 da biblioteca de clientes de chamada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,17 +31,15 @@ Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a b
 
 No Android Studio, selecione Iniciar um novo projeto do Android Studio.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.":::
 
-Selecione o modelo de projeto &quot;Atividade Vazia" em "Telefone e Tablet".
+Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto.":::
 
-Selecione o modelo de projeto &quot;Atividade Vazia" ou superior.
+Selecione a biblioteca de clientes Mínima de "API 26: Android 8.0 (Oreo)" ou superior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
-
-Selecione o modelo de projeto &quot;Atividade Vazia":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto 2.":::
 
 
 ### <a name="install-the-package"></a>Instalar o pacote
@@ -80,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -182,11 +183,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
@@ -266,6 +267,7 @@ As seguintes classes e as interfaces administram alguns dos principais recursos 
 | CallClient| O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
 | CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para criar uma instância do CallAgent.|
+| CommunicationIdentifier | O CommunicationIdentifier é usado como um tipo diferente de participante que poderia fazer parte de uma chamada.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Criar um agente do token de acesso do usuário
 
@@ -280,7 +282,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -305,7 +307,7 @@ private void startCall() {
 
     callAgent.call(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```
@@ -315,9 +317,7 @@ private void startCall() {
 
 Agora, o aplicativo pode ser iniciado usando o botão "Executar Aplicativo" na barra de ferramentas (Shift+F10). Chame `8:echo123` para verificar se você pode fazer chamadas. Uma mensagem previamente gravada será reproduzida e, em seguida, repetirá a sua mensagem de volta para você.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
-
-Selecione o modelo de projeto &quot;Atividade Vazia":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o aplicativo concluído.":::
 
 ## <a name="sample-code"></a>Exemplo de código
 

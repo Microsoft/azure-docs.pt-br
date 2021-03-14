@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9bdba36e2ff4721bd024369788c7dc04f066e9a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515630"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565573"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico da área de trabalho virtual do Windows (clássico)
 
@@ -38,8 +38,8 @@ Você precisa criar um registro de aplicativo Azure Active Directory e um espaç
 
 Você também precisa instalar esses dois módulos do PowerShell antes de começar:
 
-- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
-- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps)
+- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2)
 
 Verifique se sua ID de assinatura está pronta para quando você entrar.
 
@@ -116,7 +116,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
     -   Informações do processador ( \* ) \\ tempo do processador
     -   Atraso de entrada do usuário por sessão ( \* ) \\ atraso máximo de entrada
 
-Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Quaisquer contadores adicionais que você configurar não aparecerão na ferramenta de diagnóstico em si. Para que ele apareça na ferramenta de diagnóstico, você precisa configurar o arquivo de configuração da ferramenta. As instruções sobre como fazer isso com a administração avançada estarão disponíveis no GitHub em uma data posterior.
@@ -199,7 +199,7 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico para seus usuários, verifique se eles têm as seguintes permissões:
 
-- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](../../azure-monitor/platform/roles-permissions-security.md).
+- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](../../azure-monitor/roles-permissions-security.md).
 -  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop-2019.md).
 
 Você também precisa dar aos seus usuários as seguintes informações:

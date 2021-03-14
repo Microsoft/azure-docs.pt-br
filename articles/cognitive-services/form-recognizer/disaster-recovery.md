@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808242"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427157"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Fazer backup e recuperar seus modelos de reconhecedor de formulário
 
@@ -28,7 +28,7 @@ Se seu aplicativo ou negócio depende do uso de um modelo personalizado do recon
 
 ##  <a name="prerequisites"></a>Pré-requisitos
 
-1. Dois formulários reconhecedor recursos do Azure em diferentes regiões do Azure. Se você não os tiver, vá para a portal do Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso reconhecedor de formulário " target="_blank"> criar um novo recurso reconhecedor de formulário <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Dois formulários reconhecedor recursos do Azure em diferentes regiões do Azure. Se você não os tiver, vá para a portal do Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso reconhecedor de formulário " target="_blank"> criar um novo recurso reconhecedor de formulário </a> .
 1. A chave de assinatura, a URL de ponto de extremidade e a ID de assinatura do recurso de reconhecimento de formulário. Você pode encontrar esses valores na guia **visão geral** do recurso na portal do Azure.
 
 

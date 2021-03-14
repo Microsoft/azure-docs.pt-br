@@ -3,16 +3,16 @@ title: Como mover um dispositivo para o Azure IoT Central do Hub IoT
 description: Como mover o dispositivo para o Azure IoT Central do Hub IoT
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 12/20/2020
+ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7898f842529b81b80febff444c97b199fbebba3c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 543c3f1c72857098540cc2a77e8a0093b907b799
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146434"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210828"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Como transferir um dispositivo para o Azure IoT Central do Hub IoT
 
@@ -24,9 +24,9 @@ Primeiro, o dispositivo se conecta a um ponto de extremidade do DPS para recuper
 
 Um dispositivo pode ser conectado a um hub IoT diretamente usando uma cadeia de conexão ou usando o DPS. O [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../../iot-dps/about-iot-dps.md) é a rota para IOT central.
 
-## <a name="to-move-the-device"></a>Para mover o dispositivo
+## <a name="to-move-the-device-to-azure-iot-central"></a>Para mover o dispositivo para o Azure IoT Central
 
-Para conectar um dispositivo a IoT Central do Hub IOT, um dispositivo precisa ser atualizado com:
+Para conectar um dispositivo a IoT Central do Hub IoT, um dispositivo precisa ser atualizado com:
 
 * A [ID do escopo](../../iot-dps/concepts-service.md) do aplicativo IOT central.
 * Uma chave derivada da chave [SAS do grupo](concepts-get-connected.md) ou [do certificado X. 509](../../iot-hub/iot-hub-x509ca-overview.md)

@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/23/2020
-ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.date: 02/15/2021
+ms.openlocfilehash: 7dd58a7d4a94b832e52930f8ac6507cdd8f7a20e
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858647"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534814"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -244,6 +244,7 @@ derive(each(match(type=='string'), $$ = 'string'),
     each(match(type=='date'), $$ = 'date'),
     each(match(type=='timestamp'), $$ = 'timestamp'),
     each(match(type=='boolean'), $$ = 'boolean'),
+    each(match(type=='long'), $$ = 'long'),
     each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
 ```
 
@@ -257,6 +258,17 @@ DerivedColumn keyGenerate(output(sk as long),
 SurrogateKey window(over(dummy),
     asc(sk, true),
     Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
+```
+
+### <a name="moving-average"></a>Média móvel
+A média móvel pode ser implementada muito facilmente em fluxos de dados usando uma transformação do Windows. Este exemplo abaixo cria uma média de movimentação de 15 dias de preços de estoque para a Microsoft.
+
+```
+window(over(stocksymbol),
+    asc(Date, true),
+    startRowOffset: -7L,
+    endRowOffset: 7L,
+    FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e273b1c41a9c418bf0121e87e73ec59e65f2242e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015879"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102947"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -71,7 +71,7 @@ Se quiser baixar uma versão completa do aplicativo criado neste tutorial, você
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -155,7 +155,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-O único valor que você precisa modificar acima é o valor atribuído a `kClientID` para que ele seja a [ID do Aplicativo](./developer-glossary.md#application-id-client-id). Esse valor faz parte dos dados de Configuração da MSAL que você salvou durante a etapa no início deste tutorial para registrar o aplicativo no portal do Azure.
+O único valor que você precisa modificar acima é que o valor atribuído a `kClientID` seja a [ID do Aplicativo](./developer-glossary.md#application-id-client-id). Esse valor faz parte dos dados de Configuração da MSAL que você salvou durante a etapa no início deste tutorial para registrar o aplicativo no portal do Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Definir as configurações de projeto do Xcode
 

@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765c15897bd5d435503d3bef07e76a93b148971c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536245"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596850"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para mensagens B2B em aplicativos lógicos do Azure
 
-Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens usando protocolos como AS2, X12 e EDIFACT. Para verificar se essa comunicação funciona da maneira esperada, você pode configurar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para sua conta de integração. [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode registrar e armazenar dados sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Para mensagens, o log também coleta informações como:
+Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens usando protocolos como AS2, X12 e EDIFACT. Para verificar se essa comunicação funciona da maneira esperada, você pode configurar [os logs de Azure monitor](../azure-monitor/logs/data-platform-logs.md) para sua conta de integração. [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode registrar e armazenar dados sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Para mensagens, o log também coleta informações como:
 
 * Status e contagem de mensagens
 * Status de confirmações
 * Correlações entre mensagens e confirmações
 * Descrição de erro detalhada para falhas
 
-Azure Monitor permite que você crie [consultas de log](../azure-monitor/log-query/log-query-overview.md) para ajudá-lo a encontrar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
+Azure Monitor permite que você crie [consultas de log](../azure-monitor/logs/log-query-overview.md) para ajudá-lo a encontrar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
 
 Para configurar o registro em log para sua conta de integração, [Instale a solução aplicativos lógicos B2B](#install-b2b-solution) no portal do Azure. Essa solução fornece informações agregadas para eventos de mensagem B2B. Em seguida, para habilitar o registro em log e criar consultas para essas informações, configure [Azure monitor logs](#set-up-resource-logs).
 
@@ -32,7 +32,7 @@ Este artigo mostra como habilitar o log de Azure Monitor para sua conta de integ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Um espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, saiba[como criar um espaço de trabalho do Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Um aplicativo lógico que é configurado com Azure Monitor registro em log e envia essas informações para um espaço de trabalho do Log Analytics. Saiba [como configurar os logs de Azure monitor para seu aplicativo lógico](../logic-apps/monitor-logic-apps.md).
 
@@ -104,7 +104,7 @@ Você pode habilitar o log de Azure Monitor diretamente de sua conta de integra�
 
    1. Quando terminar, selecione **Salvar**.
 
-   Por exemplo: 
+   Por exemplo:  
 
    ![Configurar logs de Azure Monitor para coletar dados de diagnóstico](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -127,7 +127,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e o
 
    ![Alterar intervalo](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
-1. Após a exibição do painel de status de mensagens, você poderá exibir mais detalhes de um tipo de mensagem específico, que mostra dados com base em um único dia. Selecione o bloco para **AS2**, **X12**ou **EDIFACT**.
+1. Após a exibição do painel de status de mensagens, você poderá exibir mais detalhes de um tipo de mensagem específico, que mostra dados com base em um único dia. Selecione o bloco para **AS2**, **X12** ou **EDIFACT**.
 
    ![Exibir status de mensagens](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
@@ -163,7 +163,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e o
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->

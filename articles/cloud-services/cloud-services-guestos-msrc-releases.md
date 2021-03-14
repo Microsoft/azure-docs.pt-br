@@ -3,24 +3,81 @@ title: Lista de atualizações aplicadas ao SO convidado do Azure | Microsoft Do
 description: Este artigo lista as atualizações do Microsoft Security Response Center aplicadas a diferentes sistemas operacionais convidados do Azure. Veja se uma atualização se aplica ao sistema operacional convidado que você está usando.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2021
-ms.author: yohaddad
-ms.openlocfilehash: d5892d0b2ae2004f8604333294411e849dc8394b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 3/5/2021
+ms.author: gunnarc
+ms.openlocfilehash: 518de78d3adc847030c69ef24965d4250d5a4c02
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805877"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433192"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
+
+## <a name="february-2021-guest-os"></a>SO convidado de fevereiro de 2021
+
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 21-02 |  [4601345]  |  Atualização cumulativa mais recente (LCU) | [6,28] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4580325]  |  Atualização do flash | [3,94], [4,87], [5,52], [6,28] | 13 de outubro de 2020 |
+|  Rel 21-02 |  [4586768]  |  Atualizações cumulativas do IE | [2,107], [3,94], [4,87] | 10 de novembro de 2020 |
+|  Rel 21-02 |  [4601318]  |  Atualização cumulativa mais recente (LCU) | [5,52] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [2,107] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [2,107] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [4,87] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | [4,87] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | [3,94] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578954]  |  . ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework | [3,94] | 12 de janeiro de 2021 |
+|  Rel 21-02 |  [4578966]  |  . Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | [6,28] | 13 de outubro de 2020 |
+|  Rel 21-02 |  [4601347]  |  Rollup mensal | [2,107] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4601348]  |  Rollup mensal | [3,94] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4601384]  |  Rollup mensal | [4,87] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4566426]  |  Atualização da pilha de manutenção | [3,94] | 14 de julho de 2020 |
+|  Rel 21-02 |  [4566425]  |  Atualização da pilha de manutenção | [4,87] | 14 de julho de 2020 |
+|  OOB 21-02 rel |  [4578013]  |  Atualização de segurança autônoma | [4,87] | 19 de agosto de 2020 |
+|  Rel 21-02 |  [4601392]  |  Atualização da pilha de manutenção | [5,52] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4592510]  |  Atualização da pilha de manutenção | [2,107] | 8 de dezembro de 2020 |
+|  Rel 21-02 |  [4601393]  |  Atualização da pilha de manutenção | [6,28] | 9 de fevereiro de 2021 |
+|  Rel 21-02 |  [4494175]  |  Microcódigo | [5,52] | 1 de setembro de 2020 |
+|  Rel 21-02 |  [4494174]  |  Microcódigo | [6,28] | 1 de setembro de 2020 |
+
+[4601345]: https://support.microsoft.com/kb/4601345
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4601318]: https://support.microsoft.com/kb/4601318
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4601347]: https://support.microsoft.com/kb/4601347
+[4601348]: https://support.microsoft.com/kb/4601348
+[4601384]: https://support.microsoft.com/kb/4601384
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4601392]: https://support.microsoft.com/en-us/topic/february-9-2021-kb4601318-os-build-14393-4225-c5e3de6c-e3e6-ffb5-6197-48b9ce16446e
+[4592510]: https://support.microsoft.com/kb/4592510
+[4601393]: https://support.microsoft.com/kb/4601393
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2,107]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,94]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,87]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,52]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,28]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+
 
 ## <a name="january-2021-guest-os"></a>SO convidado de janeiro de 2021
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: 1f6abbf68d4f648aeee6c025800f24140c9459e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10fae563f80a4d77e3f4bb1d5ca809a4130b050a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219310"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558841"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
 
@@ -60,7 +60,7 @@ A fragmentação pode ser vista como uma operação negativa, mas o suporte à f
 
 Em geral, você pode criar uma rede mais eficiente aumentando a MTU. Cada pacote transmitido tem informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, há mais sobrecarga de cabeçalho e isso torna a rede menos eficiente.
 
-Veja um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
+Aqui está um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
 
 Tenha em mente que o aumento da MTU não criará, necessariamente, uma rede mais eficiente. Se um aplicativo enviar somente pacotes de 500 bytes, a mesma sobrecarga de cabeçalho existirá se o MTU for 1.500 bytes ou 9.000 bytes. A rede se tornará mais eficiente apenas se usar tamanhos de pacotes maiores que são afetados pela MTU.
 
@@ -210,7 +210,7 @@ Você pode usar o `Get-NetTCPSetting` comando do PowerShell para exibir os valor
 Get-NetTCPSetting
 ```
 
-Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte  [set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Você pode definir o tamanho inicial da janela TCP e o fator de dimensionamento TCP no Windows usando o `Set-NetTCPSetting` comando do PowerShell. Para obter mais informações, consulte  [set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting).
 
 ```powershell
 Set-NetTCPSetting

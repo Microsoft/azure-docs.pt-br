@@ -4,15 +4,15 @@ description: Saiba como criar, publicar e dimensionar aplicativos em um Ambiente
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594060"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -165,7 +165,7 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
-## <a name="logging"></a>Log
+## <a name="logging"></a>Registro em log
 
 Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para o armazenamento do Azure, hubs de eventos do Azure ou Log Analytics. Estes itens estão registrados hoje:
 
@@ -196,7 +196,7 @@ Se você se integrar com o Log Analytics, poderá ver os logs selecionando **log
 
 **Criando um alerta**
 
-Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/platform/alerts-log.md). Em resumo:
+Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/alerts/alerts-log.md). Em resumo:
 
 * Abra a página alertas em seu portal do ASE
 * Selecionar **nova regra de alerta**
@@ -303,4 +303,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

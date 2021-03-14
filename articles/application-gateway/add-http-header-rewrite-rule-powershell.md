@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711681"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescrever cabeçalhos de solicitação e resposta HTTP com Aplicativo Azure gateway-Azure PowerShell
 
@@ -31,23 +31,23 @@ Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas eta
 
 1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
 
-   - **RequestHeaderConfiguration** : usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor para os cabeçalhos.
+   - **RequestHeaderConfiguration**: usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **ResponseHeaderConfiguration** : usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor para os cabeçalhos.
+   - **ResponseHeaderConfiguration**: usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **Actionset** : contém as configurações dos cabeçalhos de solicitação e resposta especificados anteriormente.
+   - **Actionset**: contém as configurações dos cabeçalhos de solicitação e resposta especificados anteriormente.
 
-   - **Condição** : uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
+   - **Condição**: uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
 
      Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
 
-   - **RewriteRule** : contém várias combinações de condição de ação de regravação/regravação.
+   - **RewriteRule**: contém várias combinações de condição de ação de regravação/regravação.
 
-   - **RuleSequence** : uma configuração opcional que ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir o mesmo valor de sequência de regra a duas regras de reescrita, a ordem de execução será não determinística.
+   - **RuleSequence**: uma configuração opcional que ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir o mesmo valor de sequência de regra a duas regras de reescrita, a ordem de execução será não determinística.
 
      Se você não especificar o RuleSequence explicitamente, um valor padrão de 100 será definido.
 
-   - **RewriteRuleSet** : contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
+   - **RewriteRuleSet**: contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
 
 2. Anexe o RewriteRuleSet a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Especificar a configuração da regra de reescrita do cabeçalho HTTP
 
-Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho de local na resposta HTTP sempre que o cabeçalho Location contiver uma referência a azurewebsites.net. Para fazer isso, adicionaremos uma condição para avaliar se o cabeçalho Location na resposta contém azurewebsites.net. Usaremos o padrão `(https?):\/\/.*azurewebsites\.net(.*)$` . Vamos usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho. Esse valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de local.
+Neste exemplo, modificaremos uma URL de redirecionamento regravando o cabeçalho de local na resposta HTTP sempre que o cabeçalho Location contiver uma referência a azurewebsites.net. Para fazer isso, adicionaremos uma condição para avaliar se o cabeçalho Location na resposta contém azurewebsites.net. Usaremos o padrão `(https?)://.*azurewebsites.net(.*)$` . Vamos usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como o valor do cabeçalho. Esse valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de local.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

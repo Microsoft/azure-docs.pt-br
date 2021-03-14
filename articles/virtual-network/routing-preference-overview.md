@@ -11,22 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 7fdd23aea5e435c94493a0cbe86b6ffcdb0d2e10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
-ms.translationtype: MT
+ms.openlocfilehash: 56fd9898065dd55b9a56547a775f7f2aa4a56156
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539062"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693723"
 ---
-# <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
+# <a name="what-is-routing-preference"></a>O que é preferência de roteamento?
 
 A preferência de roteamento do Azure permite que você escolha as rotas de tráfego entre o Azure e a Internet. Você pode optar por rotear o tráfego por meio da rede da Microsoft ou por meio da rede do ISP (Internet pública). Essas opções também são conhecidas como *roteamento cold potato* e *roteamento hot potato*, respectivamente. O preço da transferência de dados de saída varia de acordo com a seleção de roteamento. Você pode escolher a opção de roteamento ao criar um endereço IP público. O endereço IP público pode ser associado aos recursos como máquina virtual, conjuntos de dimensionamento de máquinas virtuais, balanceador de carga voltado para a Internet etc. Defina também a preferência de roteamento para os recursos de armazenamento do Azure, como blobs, arquivos, Web e Azure Data Lake. Por padrão, o tráfego é roteado por meio da rede global da Microsoft para todos os serviços do Azure.
-
-> [!IMPORTANT]
-> Atualmente, a preferência de roteamento está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="routing-via-microsoft-global-network"></a>Roteamento por meio da rede global da Microsoft
 
@@ -70,13 +66,13 @@ Para o armazenamento, os pontos de extremidade primários sempre usam a **rede g
 * Azure Data Lake
 
 ## <a name="pricing"></a>Preços
-A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes. 
+A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes.
 
 ## <a name="limitations"></a>Limitações
 
-* A preferência de roteamento é compatível apenas com SKU padrão com redundância de zona de endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
+
+* A preferência de roteamento é compatível apenas com o SKU Standard com redundância de zona do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
 * Atualmente, a preferência de roteamento dá suporte apenas a endereços IP públicos IPv4. Não há suporte para endereços IP públicos IPv6.
-* As máquinas virtuais com várias NICs podem ter apenas um tipo de preferência de roteamento.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,17 +3,17 @@ title: Flexibilidade de tamanho de máquina virtual-instâncias de VM reservadas
 description: Saiba quais série de tamanho são um desconto de reserva que aplica quando por uma instância VM reservada.
 author: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030691"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas
 
@@ -48,7 +48,13 @@ O CSV abaixo tem os grupos de flexibilidade de tamanho de instância, ArmSkuName
 
 [Taxas de flexibilidade de tamanho de instância](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-Manteremos a URL do arquivo e o esquema fixo para que você possa consumir esse arquivo programaticamente. Os dados também estarão disponíveis por meio da API em breve.
+O Azure mantém o link e o esquema atualizados para que você possa usar o arquivo programaticamente.
+
+## <a name="view-vm-size-recommendations"></a>Exibir recomendações de tamanho de VM
+
+O Azure mostra as recomendações de tamanho de VM na experiência de compra. Para exibir as recomendações de menor tamanho, selecione **Agrupar por menor tamanho**.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Captura de tela mostrando as quantidades recomendadas." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>Próximas etapas
 

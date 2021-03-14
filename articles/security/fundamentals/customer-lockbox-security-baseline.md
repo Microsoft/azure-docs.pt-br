@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: fb0b976c8759eb77aa2240f95fadbd41e5d9596a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807913"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504909"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de base de segurança do Azure para Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -164,7 +164,7 @@ Integre os logs de atividade gerados por Sistema de Proteção de Dados do Clien
 
 **Diretrizes**: em Azure monitor, defina o período de retenção de log para log Analytics espaços de trabalho associados à sua sistema de proteção de dados do cliente de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como definir parâmetros de retenção de log](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -186,7 +186,7 @@ Integre os logs de atividade gerados por Sistema de Proteção de Dados do Clien
 
 * [Logs de auditoria no Sistema de Proteção de Dados do Cliente](./customer-lockbox-overview.md#auditing-logs)
 
-* [Como alertar sobre dados de log do log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Como alertar sobre dados de log do log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -461,9 +461,9 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 * [Como habilitar a auditoria no Sistema de Proteção de Dados do Cliente](./customer-lockbox-overview.md)
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -525,7 +525,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 * [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Entender o controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
 

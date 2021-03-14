@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180465"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580013"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
@@ -35,7 +35,7 @@ As exibições do Log Analytics do Azure Active Directory ajuda você a analisar
 
 Para usar as exibições do Log Analytics, você precisará de:
 
-* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Baixar as exibições do [Repositório do GitHub](https://aka.ms/AADLogAnalyticsviews) para seu computador local.
 
@@ -67,11 +67,11 @@ Para usar as exibições do Log Analytics, você precisará de:
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Saiba como [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md).
+6. Selecione o grupo de ações para alerta. Em geral, pode ser uma equipe que você deseja notificar por email ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicativos lógicos ou soluções ITSM externas. Saiba como [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/alerts/action-groups.md).
 
 7. Selecione **Criar regra de alerta** para criar o alerta. Agora você será alertado sempre que houver um erro de conexão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como analisar logs de atividade com os logs do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Introdução aos logs do Azure Monitor no portal do Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Introdução aos logs do Azure Monitor no portal do Azure](../../azure-monitor/logs/log-analytics-tutorial.md)

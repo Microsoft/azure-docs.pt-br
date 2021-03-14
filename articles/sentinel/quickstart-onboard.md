@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Integração no Azure Sentinel'
-description: Neste guia de início rápido, saiba como integrar o Azure Sentinel habilitando primeiro o Sentinel e conectando fontes de dados.
+description: Neste guia de início rápido, saiba como integrar o Azure Sentinel habilitando-o primeiro e conectando fontes de dados.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: a169b93b20df14e536d8764b5fb4c889d645a1fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248638"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570414"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -32,7 +32,7 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
 
 - Assinatura ativa do Azure, se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Workspace do Log Analytics. Saiba como [criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md). Para saber mais sobre workspaces do Log Analytics, confira [Criar sua implantação de logs do Azure Monitor](../azure-monitor/platform/design-logs-deployment.md).
+- Workspace do Log Analytics. Saiba como [criar um espaço de trabalho do Log Analytics](../azure-monitor/logs/quick-create-workspace.md). Para saber mais sobre workspaces do Log Analytics, confira [Criar sua implantação de logs do Azure Monitor](../azure-monitor/logs/design-logs-deployment.md).
 
 - Para habilitar o Azure Sentinel, você precisa de permissões de colaborador na assinatura na qual reside o workspace do Azure Sentinel. 
 - Para usar o Azure Sentinel, você precisa de permissões de colaborador ou leitor no grupo de recursos ao qual o workspace pertence.
@@ -41,13 +41,13 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
 
 ### <a name="geographical-availability-and-data-residency"></a>Disponibilidade de geográfica e residência de dados
 
-- O Azure Sentinel pode ser executado em workspaces na maioria das [regiões de GA do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China e Alemanha (soberanas). Às vezes, novas regiões do Log Analytics podem levar algum tempo para integrar o serviço Sentinel. 
+- O Azure Sentinel pode ser executado em workspaces na maioria das [regiões de GA do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China e Alemanha (soberanas). Às vezes, as novas regiões do Log Analytics podem levar algum tempo para se integrarem ao serviço Azure Sentinel. 
 
 - Os dados gerados pelo Azure Sentinel, como incidentes, indicadores e regras de análise, podem conter alguns dados do cliente provenientes dos workspaces do Log Analytics do cliente. Esses dados gerados pelo Azure Sentinel são salvos na geografia listada na seguinte tabela, de acordo com a geografia na qual o workspace está localizado:
 
     | Geografia do workspace | Geografia de dados gerada pelo Azure Sentinel |
     | --- | --- |
-    | Estados Unidos<br>Índia<br>Brasil<br>África<br>Coreia do Sul | Estados Unidos |
+    | Estados Unidos<br>Índia<br>Brasil<br>África<br>Coreia do Sul<br>Emirados Árabes Unidos | Estados Unidos |
     | Europa<br>França<br>Suíça | Europa |
     | Austrália | Austrália |
     | United Kingdom | United Kingdom |

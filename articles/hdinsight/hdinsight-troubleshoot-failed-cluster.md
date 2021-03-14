@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699310"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
 
-Se um aplicativo processando dados em um cluster HDInsight estiver sendo executado lentamente ou falhando com um código de erro, você terá várias opções de solução de problemas. Se os trabalhos estão demorando mais tempo do que o esperado ou se os tempos de resposta estão geralmente lentos, pode haver falhas de upstream do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum desses gargalos é dimensionamento insuficiente. Ao criar um novo cluster HDInsight, selecione os tamanhos de [máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)apropriados.
+Se um aplicativo processando dados em um cluster HDInsight estiver sendo executado lentamente ou falhando com um código de erro, você terá várias opções de solução de problemas. Se os trabalhos estão demorando mais tempo do que o esperado ou se os tempos de resposta estão geralmente lentos, pode haver falhas de upstream do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum desses gargalos é dimensionamento insuficiente. Ao criar um novo cluster HDInsight, selecione os tamanhos de [máquina virtual](hdinsight-supported-node-configuration.md)apropriados.
 
 Para diagnosticar um cluster lento ou falhando, colete informações sobre todos os aspectos do ambiente, como Serviços do Azure associados, configuração de cluster e informações de execução do trabalho. Um diagnóstico útil é tentar reproduzir o estado de erro em outro cluster.
 

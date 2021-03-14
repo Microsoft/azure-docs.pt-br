@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624751"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633794"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -28,11 +28,13 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 
 |Tabela de gráfico de recursos |`join`Outras tabelas podem ser? |Descrição |
 |---|---|---|
-|Recursos |Yes |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
-|ResourceContainers |Yes |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|Recursos |Sim |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
+|ResourceContainers |Sim |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
 |AlertsManagementResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
+|ExtendedLocationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
 |PatchAssessmentResources|Não |Inclui recursos _relacionados_ à avaliação de patch de máquinas virtuais do Azure. |
 |PatchInstallationResources|Não |Inclui recursos _relacionados_ à instalação de patch de máquinas virtuais do Azure. |
@@ -40,6 +42,7 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |RecoveryServicesResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.DataProtection` e ao `Microsoft.RecoveryServices` . |
 |SecurityResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
 |ServiceHealthResources |Não |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |Não |Inclui recursos _relacionados_ ao `Microsoft.WorkloadMonitor`. |
 
 Para obter uma lista completa, incluindo tipos de recursos, consulte [referência: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 

@@ -7,13 +7,13 @@ author: mjudeikis
 ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
-ms.service: container-service
-ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.service: azure-redhat-openshift
+ms.openlocfilehash: bf2cf5a0d41af15821035c615fe071c8580e125f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216922"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633097"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift
 
@@ -33,7 +33,7 @@ Quando uma solicitação de projeto é enviada, a API substitui os seguintes par
 
 | Parâmetro               | Descrição                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | O nome do projeto. Obrigatórios.             |
+| PROJECT_NAME            | O nome do projeto. Obrigatório.             |
 | PROJECT_DISPLAYNAME     | O nome de exibição do projeto. Pode ficar em branco. |
 | PROJECT_DESCRIPTION     | A descrição do projeto. Pode ficar em branco.  |
 | PROJECT_ADMIN_USER      | O nome do usuário administrador.       |

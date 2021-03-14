@@ -2,14 +2,14 @@
 title: Visão geral do processamento de transações no barramento de serviço do Azure
 description: Este artigo fornece uma visão geral do processamento de transações e do recurso enviar via no barramento de serviço do Azure.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684784"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183736"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações do Barramento de Serviço
 
@@ -43,9 +43,11 @@ Para habilitar a transferência transacional de dados de uma fila ou de um tópi
 
 O poder desse recurso transacional se torna aparente quando a fila de transferência ou o próprio tópico é a origem das mensagens de entrada do remetente. Em outras palavras, o barramento de serviço pode transferir a mensagem para a fila de destino ou tópico "por meio" da fila de transferência ou do tópico, enquanto executa uma operação completa (ou adiada ou inativa) na mensagem de entrada, tudo em uma operação atômica. 
 
+Se você precisar receber de uma assinatura de tópico e, em seguida, enviar para uma fila ou tópico na mesma transação, a entidade de transferência deverá ser um tópico. Nesse cenário, inicie o escopo da transação no tópico, receba da assinatura com no escopo da transação e envie por meio do tópico transferir para um destino de fila ou de tópico. 
+
 ### <a name="see-it-in-code"></a>Ver em código
 
-Para configurar essas transferências, você cria um remetente da mensagem que tem como alvo a fila de destino por meio da fila de transferência. Você também terá um receptor que fará o pull das mensagens dessa mesma fila. Por exemplo:
+Para configurar essas transferências, você cria um remetente da mensagem que tem como alvo a fila de destino por meio da fila de transferência. Você também terá um receptor que fará o pull das mensagens dessa mesma fila. Por exemplo: 
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

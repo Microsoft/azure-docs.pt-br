@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565765"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122146"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveitar o tipo de conteúdo para armazenar valores de chave JSON na configuração do aplicativo
 
@@ -25,9 +25,9 @@ Os dados são armazenados na configuração do aplicativo como valores de chave,
 ## <a name="overview"></a>Visão geral
 
 Em configuração de aplicativo, você pode usar o tipo de mídia JSON como o tipo de conteúdo de seus valores de chave para obter benefícios semelhantes, como:
-- **Gerenciamento de dados mais simples** : o gerenciamento de valores-chave, como matrizes, se tornará muito mais fácil na portal do Azure.
-- **Exportação de dados aprimorada** : tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
-- **Suporte nativo com o provedor de configuração de aplicativo** : valores de chave com tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas de provedor de configuração de aplicativo em seus aplicativos.
+- **Gerenciamento de dados mais simples**: o gerenciamento de valores-chave, como matrizes, se tornará muito mais fácil na portal do Azure.
+- **Exportação de dados aprimorada**: tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
+- **Suporte nativo com o provedor de configuração de aplicativo**: valores de chave com tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas de provedor de configuração de aplicativo em seus aplicativos.
 
 #### <a name="valid-json-content-type"></a>Tipo de conteúdo JSON válido
 
@@ -47,7 +47,7 @@ Alguns exemplos de valores JSON válidos são:
 - "John Doe"
 - 723
 - false
-- null
+- nulo
 - "2020-01-01T12:34:56.789 Z"
 - [1, 2, 3, 4]
 - {"Objectsetting": {"direcionamento": {"default": true, "Level": "Information"}}}
@@ -87,7 +87,7 @@ Navegue até o repositório de configuração do aplicativo e selecione **Config
 | Configurações: BackgroundColor | Amarela | aplicativo/json |
 | Configurações: FontSize | 24 | aplicativo/json |
 | Configurações: UseDefaultRouting | false | aplicativo/json |
-| Configurações: BlockedUsers | null | aplicativo/json |
+| Configurações: BlockedUsers | nulo | aplicativo/json |
 | Configurações: liberadas | "2020-08-04T12:34:56.789 Z" | aplicativo/json |
 | Configurações: RolloutPercentage | [25, 50, 75100] | aplicativo/json |
 | Configurações: registro em log | {"Test": {"Level": "debug"}, "Prod": {"nível": "Warning"}} | aplicativo/json |
@@ -175,12 +175,28 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Consumindo valores de chave JSON em aplicativos
 
-A maneira mais fácil de consumir valores de chave JSON em seu aplicativo é por meio de bibliotecas de provedor de configuração de aplicativo. Com as bibliotecas de provedor, você não precisa implementar o tratamento especial de valores de chave JSON em seu aplicativo. Eles são sempre desserializados para seu aplicativo da mesma maneira que outras bibliotecas de provedor de configuração JSON. 
+A maneira mais fácil de consumir valores de chave JSON em seu aplicativo é por meio de bibliotecas de provedor de configuração de aplicativo. Com as bibliotecas de provedor, você não precisa implementar o tratamento especial de valores de chave JSON em seu aplicativo. Eles serão analisados e convertidos para corresponder à configuração nativa do seu aplicativo.
+
+Por exemplo, se você tiver o seguinte valor de chave na configuração do aplicativo:
+
+| Chave | Valor | Tipo de conteúdo |
+|---|---|---|
+| Configurações | {"FontSize": 24, "UseDefaultRouting": false} | aplicativo/json |
+
+Sua configuração de aplicativo .NET terá os seguintes valores de chave:
+
+| Chave | Valor |
+|---|---|
+| Configurações: FontSize | 24 |
+| Configurações: UseDefaultRouting | false |
+
+Você pode acessar as novas chaves diretamente ou pode optar por [associar valores de configuração a instâncias de objetos .net](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > O suporte nativo para valores de chave JSON está disponível no provedor de configuração do .NET versão 4.0.0 (ou posterior). Consulte a seção [*próximas etapas*](#next-steps) para obter mais detalhes.
 
-Se você estiver usando o SDK ou a API REST para ler valores-chave da configuração do aplicativo, com base no tipo de conteúdo, seu aplicativo será responsável por desserializar o valor de uma chave JSON-valor usando qualquer desserializador JSON padrão.
+Se você estiver usando o SDK ou a API REST para ler valores-chave da configuração do aplicativo, com base no tipo de conteúdo, seu aplicativo será responsável por analisar o valor de um valor de chave JSON.
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

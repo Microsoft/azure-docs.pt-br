@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3215eef337ca1c9a84f2f4d917dbea8ea2e090f0
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 6ce2a28ff9b34373cc716ea397927ef160bd1097
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346682"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103013339"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como: obter uma instância do processador de mídia
 

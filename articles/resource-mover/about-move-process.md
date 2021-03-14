@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522933"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980551"
 ---
 # <a name="about-the-move-process"></a>Sobre o processo de movimentação
 
@@ -46,7 +46,7 @@ Cada recurso de movimentação passa pelas etapas resumidas.
 **Etapa 4: Iniciar movimentação** | Inicie o processo de movimentação. O método de movimentação depende do tipo de recurso:<br/><br/> - **Sem estado**: normalmente, para recursos sem estado, o processo de movimentação implanta um modelo importado na região de destino. O modelo é baseado nas configurações do recurso de origem e em todas as edições manuais feitas nas configurações de destino.<br/><br/> - **Com estado**: para recursos com estado, o processo de movimentação pode envolver a criação do recurso ou a habilitação de uma cópia na região de destino.<br/><br/>  Somente para recursos com estado, iniciar uma movimentação pode resultar em tempo de inatividade dos recursos de origem. Por exemplo, VMs e SQL. | O início da movimentação muda o estado para *Iniciar movimentação em andamento*.<br/><br/> Uma movimentação de início com êxito move o estado do recurso para *Confirmação de movimentação pendente* sem problemas. <br/><br/> Um processo de movimentação sem êxito move o estado para *Falha ao iniciar movimentação*.
 **Etapa 5, Opção 1: descartar movimentação** | Após a movimentação inicial, você poderá decidir se deseja prosseguir com uma movimentação completa. Caso não deseje, você poderá descartar a movimentação, e o Resource Mover excluirá os recursos criados no destino. O processo de replicação para recursos com estado continua após o processo de descarte. Essa opção é útil para teste. | O descarte de recursos move o estado para *Descarte em andamento*.<br/><br/> O descarte bem-sucedido move o estado para *Início da movimentação pendente* sem problemas.<br/><br/> Um descarte com falha move o estado para *Falha ao descartar movimentação*. 
 **Etapa 5, Opção 2: confirmar movimentação** | Após a movimentação inicial, se desejar dar prosseguimento a uma movimentação completa, verifique os recursos na região de destino e, quando estiver pronto, confirme a movimentação.<br/><br/> Somente para recursos com estado, a confirmação pode resultar na inacessibilidade de recursos de origem como VMs ou SQL. | Se você confirmar a movimentação, o estado do recurso será movido para *Confirmar movimentação em andamento**.<br/><br/> Após uma confirmação bem-sucedida, o estado do recurso mostra *Confirmar movimentação concluída* sem problemas.<br/><br/> Uma confirmação com falha move o estado para *Falha ao confirmar movimentação*.
-**Etapa 6: Excluir origem** | Após confirmar a movimentação e verificar os recursos na região de destino, você poderá excluir o recurso de origem. | Após confirmar a movimentação, o estado do recurso será movido para *Exclusão da origem pendente*.
+**Etapa 6: Excluir origem** | Após confirmar a movimentação e verificar os recursos na região de destino, você poderá excluir o recurso de origem. | Após a confirmação, o estado do recurso passará para *Exclusão da origem pendente*. Depois, você poderá selecionar o recurso de origem e excluí-lo.<br/><br/> – Somente os recursos no estado *Exclusão da origem pendente* podem ser excluídos. | Não há suporte para a exclusão de um grupo de recursos ou do SQL Server no portal do Resource Mover. Esses recursos só podem ser excluídos na página de propriedades do recurso.
 
 
 ## <a name="move-region-states"></a>Estados da região de movimentação

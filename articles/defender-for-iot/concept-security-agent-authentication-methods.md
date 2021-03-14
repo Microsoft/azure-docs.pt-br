@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: aa5a8a842a750e44d4beeb915008f86c6b5bbb70
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 85a5edc1485cb5a1eeb4428b201380ad9ca89422
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809245"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449162"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança
 
@@ -26,9 +26,8 @@ Este artigo explica os diferentes métodos de autenticação que você pode usar
 
 Para cada dispositivo integrado ao defender para IoT no Hub IoT, é necessário um módulo de segurança. Para autenticar o dispositivo, o defender para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente.
 
-> [!div class="checklist"]
-> * Opção SecurityModule
-> * Opção de dispositivo
+- Opção SecurityModule
+- Opção de dispositivo
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
@@ -102,7 +101,7 @@ Edite _LocalConfiguration.js_ com os seguintes parâmetros:
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar agente de segurança](how-to-deploy-agent.md)

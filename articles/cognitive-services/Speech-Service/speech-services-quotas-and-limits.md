@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754157"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449842"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Cotas e limites de serviços de fala
 
@@ -30,7 +30,9 @@ Nas tabelas abaixo, os parâmetros sem a linha "ajustável" **não** são ajust�
 
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Limite de solicitações simultâneas (modelos básicos e personalizados)** | 1 | 20 (valor padrão) |
+| **Limite de solicitação simultânea-modelo base** | 1 | 100 (valor padrão) |
+| Ajustá | Não<sup>2</sup> | Sim<sup>2</sup> |
+| **Limite de solicitação simultânea-modelo personalizado** | 1 | 20 (valor padrão) |
 | Ajustá | Não<sup>2</sup> | Sim<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transcrição em lote
@@ -104,7 +106,7 @@ Os limites de solicitações simultâneas para modelos **básicos** e **personal
 O valor existente do parâmetro de limite de solicitação simultânea **não** é visível por meio de portal do Azure, Command-Line ferramentas ou solicitações de API. Para verificar o valor existente, crie uma solicitação de suporte do Azure.
 
 >[!NOTE]
->Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados. No entanto, os contêineres de fala têm suas próprias limitações de capacidade que devem ser levadas em conta. Veja a pergunta *"você pode ajudar com planejamento de capacidade e estimativa de custo de contêineres de fala em texto local?"* nas [perguntas frequentes sobre os contêineres de fala](speech-container-faq.md).
+>Os [contêineres de fala](speech-container-howto.md) não exigem aumentos do limite de solicitações simultâneas, pois os contêineres são restritos apenas pelas CPUs do hardware em que estão hospedados. No entanto, os contêineres de fala têm suas próprias limitações de capacidade que devem ser levadas em conta. Veja a pergunta *"você pode ajudar com planejamento de capacidade e estimativa de custo de contêineres de fala em texto local?"* nas [perguntas frequentes sobre os contêineres de fala](./speech-container-howto.md).
 
 #### <a name="have-the-required-information-ready"></a>Ter as informações necessárias prontas:
 - Para o **modelo base**:
@@ -205,4 +207,3 @@ Inicie o aumento do limite de solicitações simultâneas para seu recurso ou, s
   - Informações de recursos do Azure [coletadas antes](#prepare-the-required-information) 
   - Conclua a inserção das informações necessárias e clique no botão *criar* na guia *revisar + criar*
   - Observe o número da solicitação de suporte em notificações de portal do Azure. Você será contatado em breve para processamento adicional
-

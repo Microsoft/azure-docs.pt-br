@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: f6b7000812f1adfe6ff7bd93711c9b8fe4ff9adc
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 3ea5168641f233f2e9580612a2f245fd8fef860f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699344"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -28,10 +28,10 @@ Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão
 
 ## <a name="new-features"></a>Novos recursos
 ### <a name="dav4-series-support"></a>Suporte da série Dav4
-O HDInsight acrescentou suporte à série Dav4 nesta versão. Saiba mais sobre [a série Dav4 aqui](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series).
+O HDInsight acrescentou suporte à série Dav4 nesta versão. Saiba mais sobre [a série Dav4 aqui](/azure/virtual-machines/dav4-dasv4-series).
 
 ### <a name="kafka-rest-proxy-ga"></a>GA do proxy REST do Kafka 
-O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma API REST por HTTPS. O proxy REST do Kafka está geral disponível a partir desta versão. Saiba mais sobre o [proxy REST do Kafka aqui](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy).
+O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma API REST por HTTPS. O proxy REST do Kafka está geral disponível a partir desta versão. Saiba mais sobre o [proxy REST do Kafka aqui](/azure/hdinsight/kafka/rest-proxy).
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrar para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 O HDInsight atualmente usa máquinas virtuais do Azure para provisionar o cluster. O serviço está migrando gradualmente para os [conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Depois que suas regiões e assinaturas forem migradas, os clusters HDInsight recém-criados serão executados em conjuntos de dimensionamento de máquinas virtuais sem ações do cliente. Nenhuma alteração significativa é esperada.
@@ -49,13 +49,14 @@ O HDInsight está migrando gradualmente para os conjuntos de dimensionamento de 
 
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Alteração significativa para .NET para Apache Spark 1.0.0
-O HDInsight apresenta a primeira grande versão oficial do .NET para Apache Spark na próxima versão. Ele fornece a integridade do dataframe API para o Spark 2.4. x e o Spark 3.0. x, juntamente com outros recursos. Haverá alterações significativas para essa versão principal, consulte [este guia de migração](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para entender as etapas necessárias para atualizar seu código e pipelines. Saiba mais [aqui](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+Com a versão mais recente, o HDInsight apresenta a primeira versão oficial v 1.0.0 da biblioteca [".NET for Apache Spark"](https://github.com/dotnet/spark) . Ele fornece a integridade do dataframe API para o Spark 2.4. x e o Spark 3.0. x, juntamente com um host de [outros recursos](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). Haverá alterações significativas para essa versão principal, consulte [o guia de migração do .net para Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para entender as etapas necessárias para atualizar seu código e pipelines. Para saber mais, consulte este [.net para Apache Spark v 1.0 no guia do Azure HDInsight](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 As alterações a seguir ocorrerão em versões futuras.
 
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>A versão de cluster padrão será alterada para 4,0
-A partir de fevereiro de 2021, a versão padrão do cluster HDInsight será alterada de 3,6 para 4,0. Para obter mais informações sobre as versões disponíveis, consulte [versões disponíveis](./hdinsight-component-versioning.md#available-versions). Saiba mais sobre o que há de novo no [HDInsight 4,0](./hdinsight-version-release.md).
+A partir de fevereiro de 2021, a versão padrão do cluster HDInsight será alterada de 3,6 para 4,0. Para obter mais informações sobre as versões disponíveis, consulte [versões disponíveis](./hdinsight-component-versioning.md). Saiba mais sobre o que há de novo no [HDInsight 4,0](./hdinsight-version-release.md).
 
 ### <a name="os-version-upgrade"></a>Atualização de versão do so
 O HDInsight está atualizando a versão do sistema operacional do Ubuntu 16, 4 para 18, 4. A atualização será concluída antes de abril de 2021.
@@ -68,4 +69,3 @@ O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cl
 
 ## <a name="component-version-change"></a>Alteração na versão do componente
 Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
-

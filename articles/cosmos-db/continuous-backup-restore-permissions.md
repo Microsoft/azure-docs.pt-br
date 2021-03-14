@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538664"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648596"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gerenciar permissões para restaurar uma conta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,7 +30,7 @@ Escopo é um conjunto de recursos que têm acesso para saber mais sobre escopos,
 
 ## <a name="assign-roles-for-restore-using-the-azure-portal"></a>Atribuir funções para restauração usando o portal do Azure
 
-Para executar uma restauração, um usuário ou uma entidade de segurança precisa da permissão para restaurar (que é a permissão "restauração/ação") e a permissão para provisionar uma nova conta (que é a permissão de "gravação").  Para conceder essas permissões, o proprietário pode atribuir as funções "CosmosRestoreOperator" e "operador de Cosmos DB" internas a uma entidade de segurança.
+Para executar uma restauração, um usuário ou uma entidade de segurança precisa da permissão para restaurar (que é a permissão de *restauração/ação* ) e a permissão para provisionar uma nova conta (que é a permissão de *gravação* ).  Para conceder essas permissões, o proprietário pode atribuir as `CosmosRestoreOperator` `Cosmos DB Operator` funções e internas a uma entidade de segurança.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
 
@@ -40,7 +40,7 @@ Para executar uma restauração, um usuário ou uma entidade de segurança preci
 
    :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Atribua funções de operador CosmosRestoreOperator e Cosmos DB." border="true":::
 
-1. Selecione **salvar** para conceder a "permissão de restauração/ação".
+1. Selecione **salvar** para conceder a permissão de *restauração/ação* .
 
 1. Repita a etapa 3 com Cosmos DB função de **operador** para conceder a permissão de gravação. Ao atribuir essa função da portal do Azure, ela concede a permissão de restauração para toda a assinatura.
 
@@ -49,10 +49,10 @@ Para executar uma restauração, um usuário ou uma entidade de segurança preci
 |Escopo  |Exemplo  |
 |---------|---------|
 |Subscription | /subscriptions/00000000-0000-0000-0000-000000000000 |
-|Grupo de recursos | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
+|Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |Recurso de conta restaurável CosmosDB | /subscriptions/00000000-0000-0000-0000-000000000000/Providers/Microsoft.DocumentDB/Locations/oeste dos EUA/restorableDatabaseAccounts/23e99a35-CD36-4df4-9614-f767a03b9995|
 
-O recurso de conta restaurável pode ser extraído da saída do `az cosmosdb restorable-database-account list --name <accountname>` comando na CLI ou `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` no cmdlet no PowerShell. O atributo Name na saída representa a "instanceID" da conta restaurável. Para saber mais, confira o artigo sobre o [PowerShell](continuous-backup-restore-powershell.md) ou a [CLI](continuous-backup-restore-command-line.md) .
+O recurso de conta restaurável pode ser extraído da saída do `az cosmosdb restorable-database-account list --name <accountname>` comando na CLI ou `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` no cmdlet no PowerShell. O atributo Name na saída representa o `instanceID` da conta restaurável. Para saber mais, confira o artigo sobre o [PowerShell](continuous-backup-restore-powershell.md) ou a [CLI](continuous-backup-restore-command-line.md) .
 
 ## <a name="permissions"></a>Permissões
 
@@ -60,11 +60,11 @@ As permissões a seguir são necessárias para executar as diferentes atividades
 
 |Permissão  |Impacto  |Escopo mínimo  |Escopo máximo  |
 |---------|---------|---------|---------|
-|Microsoft. Resources/Implantations/valida/Action, Microsoft. Resources/Implantations/Write | Essas permissões são necessárias para a implantação do modelo ARM para criar a conta restaurada. Consulte a permissão de exemplo [RestorableAction]() abaixo para saber como definir essa função. | Não aplicável | Não aplicável  |
-|Microsoft.DocumentDB/databaseAccounts/write | Essa permissão é necessária para restaurar uma conta em um grupo de recursos | Grupo de recursos sob o qual a conta restaurada é criada. | Assinatura sob a qual a conta restaurada é criada |
-|Microsoft.DocumentDB/Locations/restorableDatabaseAccounts/Restore/Action |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para permitir que as ações de restauração sejam executadas nela.  | O recurso "RestorableDatabaseAccount" pertencente à conta de origem que está sendo restaurada. Esse valor também é fornecido pela propriedade "ID" do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>` | A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
-|Microsoft.DocumentDB/Locations/restorableDatabaseAccounts/Read |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para listar as contas de banco de dados que podem ser restauradas.  | O recurso "RestorableDatabaseAccount" pertencente à conta de origem que está sendo restaurada. Esse valor também é fornecido pela propriedade "ID" do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>`| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
-|Microsoft.DocumentDB/Locations/restorableDatabaseAccounts/*/Read | Essa permissão é necessária no escopo da conta restaurável de origem para permitir a leitura de recursos restauráveis, como a lista de bancos de dados e contêineres para uma conta restaurável.  | O recurso "RestorableDatabaseAccount" pertencente à conta de origem que está sendo restaurada. Esse valor também é fornecido pela propriedade "ID" do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>`| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo. |
+|`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Essas permissões são necessárias para a implantação do modelo ARM para criar a conta restaurada. Consulte a permissão de exemplo [RestorableAction](#custom-restorable-action) abaixo para saber como definir essa função. | Não aplicável | Não aplicável  |
+|`Microsoft.DocumentDB/databaseAccounts/write` | Essa permissão é necessária para restaurar uma conta em um grupo de recursos | Grupo de recursos sob o qual a conta restaurada é criada. | Assinatura sob a qual a conta restaurada é criada |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para permitir que as ações de restauração sejam executadas nela.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>* | A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para listar as contas de banco de dados que podem ser restauradas.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Essa permissão é necessária no escopo da conta restaurável de origem para permitir a leitura de recursos restauráveis, como a lista de bancos de dados e contêineres para uma conta restaurável.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo. |
 
 ## <a name="azure-cli-role-assignment-scenarios-to-restore-at-different-scopes"></a>CLI do Azure cenários de atribuição de função para restaurar em escopos diferentes
 
@@ -82,7 +82,7 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 
 * Atribua uma ação de gravação do usuário no grupo de recursos específico. Essa ação é necessária para criar uma nova conta no grupo de recursos.
 
-* Atribua a função interna "CosmosRestoreOperator" à conta de banco de dados restaurável específica que precisa ser restaurada. No comando a seguir, o escopo para "RestorableDatabaseAccount" é recuperado da propriedade "ID" na saída de `az cosmosdb restorable-database-account` (se estiver usando a CLI) ou  `Get-AzCosmosDBRestorableDatabaseAccount` (se estiver usando o PowerShell).
+* Atribua a função interna *CosmosRestoreOperator* à conta de banco de dados restaurável específica que precisa ser restaurada. No comando a seguir, o escopo para o *RestorableDatabaseAccount* é recuperado da `ID` Propriedade na saída de `az cosmosdb restorable-database-account` (se estiver usando a CLI) ou  `Get-AzCosmosDBRestorableDatabaseAccount` (se estiver usando o PowerShell).
 
   ```azurecli-interactive
    az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
@@ -91,11 +91,11 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 ### <a name="assign-capability-to-restore-from-any-source-account-in-a-resource-group"></a>Atribuir capacidade de restauração de qualquer conta de origem em um grupo de recursos.
 Não há suporte para esta operação no momento.
 
-## <a name="custom-role-creation-for-restore-action-with-cli"></a>Criação de função personalizada para ação de restauração com a CLI
+## <a name="custom-role-creation-for-restore-action-with-cli"></a><a id="custom-restorable-action"></a>Criação de função personalizada para ação de restauração com a CLI
 
-O proprietário da assinatura pode fornecer a permissão para restaurar para qualquer outra identidade do Azure AD. A permissão Restore se baseia na ação: "Microsoft.DocumentDB/Locations/restorableDatabaseAccounts/Restore/Action", e ela deve ser incluída em sua permissão Restore. Há uma função interna chamada "CosmosRestoreOperator" que tem essa função incluída. Você pode atribuir a permissão usando essa função interna ou criar uma função personalizada.
+O proprietário da assinatura pode fornecer a permissão para restaurar para qualquer outra identidade do Azure AD. A permissão Restore baseia-se na ação: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` , e deve ser incluída em sua permissão Restore. Há uma função interna chamada *CosmosRestoreOperator* que tem essa função incluída. Você pode atribuir a permissão usando essa função interna ou criar uma função personalizada.
 
-O RestorableAction abaixo representa uma função personalizada. Você precisa criar essa função explicitamente. O modelo JSON a seguir cria uma função personalizada "RestorableAction" com a permissão Restore:
+O RestorableAction abaixo representa uma função personalizada. Você precisa criar essa função explicitamente. O modelo JSON a seguir cria uma função personalizada *RestorableAction* com a permissão Restore:
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715047"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para MySQL – servidor flexível (versão prévia)
 
@@ -27,7 +27,7 @@ A tabela a seguir ilustra os recursos que o servidor flexível oferece.
 | **Recuperação de & de backup** | O servidor flexível executa automaticamente backups diários de seus arquivos de banco de dados e faz backup contínuo dos logs de transações. Os backups podem ser retidos por qualquer período entre 1 e 35 dias. Você poderá restaurar o servidor de banco de dados para qualquer ponto no tempo dentro do período de retenção do backup. O tempo de recuperação dependerá do tamanho dos dados a serem restaurados + o tempo para executar a recuperação de log. Consulte [conceitos – backup e restauração](./concepts-backup-restore.md) para obter mais detalhes. |Os dados de backup permanecem dentro da região |
 | **Backup redundante local** | Os backups de servidor flexíveis são armazenados de forma automática e segura em um armazenamento redundante local dentro de uma região e na mesma zona de disponibilidade. Os backups com redundância local replicam os arquivos de dados de backup do servidor três vezes em um único local físico na região primária. O armazenamento de backup com redundância local fornece pelo menos 99,999999999% (11 noves) de durabilidade de objetos em um determinado ano. Consulte [conceitos – backup e restauração](./concepts-backup-restore.md) para obter mais detalhes.| Aplicável em todas as regiões |
 | **Alta disponibilidade com redundância de zona** | O servidor flexível pode ser implantado no modo de alta disponibilidade, que implanta servidores primários e em espera em duas zonas de disponibilidade diferentes em uma região. Isso protege contra falhas no nível de zona e também ajuda a reduzir o tempo de inatividade do aplicativo durante eventos de tempo de inatividade planejados e não planejados. Os dados do servidor primário são replicados de forma síncrona para a réplica em espera. Durante qualquer evento de tempo de inatividade, o servidor de banco de dados faz failover automaticamente para a réplica em espera. Consulte [conceitos – alta disponibilidade](./concepts-high-availability.md) para obter mais detalhes. | Com suporte nas camadas de computação de uso geral e otimizado para memória. Disponível somente em regiões em que várias zonas estão disponíveis.|
-| **Compartilhamentos de arquivos Premium** | Os arquivos de banco de dados são armazenados em compartilhamentos de arquivos do Azure Premium altamente duráveis e confiáveis que fornecem redundância de dados com três cópias de réplica armazenadas em uma zona de disponibilidade com recursos de recuperação automática de dados. Consulte [compartilhamentos de arquivos Premium](../../storage/files/storage-how-to-create-premium-fileshare.md) para obter mais detalhes. | Dados armazenados em uma zona de disponibilidade |
+| **Compartilhamentos de arquivos Premium** | Os arquivos de banco de dados são armazenados em compartilhamentos de arquivos do Azure Premium altamente duráveis e confiáveis que fornecem redundância de dados com três cópias de réplica armazenadas em uma zona de disponibilidade com recursos de recuperação automática de dados. Consulte [compartilhamentos de arquivos Premium](../../storage/files/storage-how-to-create-file-share.md) para obter mais detalhes. | Dados armazenados em uma zona de disponibilidade |
 
 > [!IMPORTANT]
 > Nenhum SLA de tempo de atividade, RTO e RPO é oferecido durante o período de versão prévia. Detalhes fornecidos nesta página apenas para fins de planejamento e informações.
@@ -42,7 +42,7 @@ Aqui estão alguns cenários de manutenção planejada que incorrem em tempo de 
 | **Nova implantação de software (Azure)** | Novos recursos de distribuição ou correções de bugs ocorrem automaticamente como parte da manutenção planejada do serviço, e você pode agendar quando essas atividades ocorrerem. Para obter mais informações, consulte a [documentação](https://aka.ms/servicehealthpm)e também Verifique seu [portal](https://aka.ms/servicehealthpm) |
 | **Atualizações de versão secundárias (Azure)** | O banco de dados do Azure para MySQL corrige automaticamente os servidores de banco de dados para a versão secundária determinada pelo Azure. Isso acontece como parte da manutenção planejada do serviço. Isso incorrerá em um breve tempo de inatividade em termos de segundos e o servidor de banco de dados será reiniciado automaticamente com a nova versão secundária. Para obter mais informações, consulte a [documentação](../concepts-monitoring.md#planned-maintenance-notification)do e também Verifique o [portal](https://aka.ms/servicehealthpm).|
 
-Quando o servidor flexível é configurado com **alta disponibilidade com redundância de zona** , o servidor flexível executa operações no servidor em espera primeiro e, em seguida, no servidor primário sem um failover. Consulte [conceitos – alta disponibilidade](./concepts-high-availability.md) para obter mais detalhes.
+Quando o servidor flexível é configurado com **alta disponibilidade com redundância de zona**, o servidor flexível executa operações no servidor em espera primeiro e, em seguida, no servidor primário sem um failover. Consulte [conceitos – alta disponibilidade](./concepts-high-availability.md) para obter mais detalhes.
 
 ## <a name="unplanned-downtime-mitigation"></a>Mitigação de tempo de inatividade não planejada
 

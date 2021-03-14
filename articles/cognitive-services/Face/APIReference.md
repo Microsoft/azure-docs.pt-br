@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: reference
-ms.date: 03/01/2018
+ms.date: 02/17/2021
 ms.author: sbowles
-ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 712b18b471b7595f5278c77ead9f845048d4783e
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76169924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100642307"
 ---
 # <a name="face-api-reference-list"></a>Lista de referência de API de Detecção Facial
 

@@ -1,23 +1,23 @@
 ---
-title: Introdução à análise espacial Pesquisa Visual Computacional
+title: Visão geral da análise espacial
 titleSuffix: Azure Cognitive Services
 description: Este documento explica os conceitos básicos e os recursos de um contêiner de análise espacial Pesquisa Visual Computacional.
 services: cognitive-services
-author: tchristiani
+author: nitinme
 manager: nitinme
-ms.author: terrychr
+ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: f90e4e5e187977f0ee77a565ff9143902ea3a10d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/01/2021
+ms.openlocfilehash: ad05dd59c925242baf5c2b0e36c1f51bc4fec5d4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736828"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575361"
 ---
-# <a name="introduction-to-computer-vision-spatial-analysis"></a>Introdução à análise espacial Pesquisa Visual Computacional
+# <a name="overview-of-computer-vision-spatial-analysis"></a>Visão geral de Pesquisa Visual Computacional análise espacial
 
 Pesquisa Visual Computacional análise espacial é um novo recurso dos serviços cognitivas do Azure Pesquisa Visual Computacional que ajuda as organizações a maximizar o valor de seus espaços físicos, compreendendo os movimentos e a presença das pessoas em uma determinada área. Ele permite que você ingerir vídeo de câmeras CCTVs ou de vigilância, executar operações de ia para extrair informações dos fluxos de vídeo e gerar eventos a serem usados por outros sistemas. Com a entrada de um fluxo de câmera, uma operação de ia pode fazer coisas como contar o número de pessoas que estão inserindo um espaço ou medir a conformidade com a máscara de face e as diretrizes de distancing social.
 
@@ -35,37 +35,9 @@ Atualmente, as principais operações de análise espacial são todas criadas em
 | Região de interesse | Essa é uma zona ou linha definida no vídeo de entrada como parte da configuração. Quando uma pessoa interage com a região do vídeo, o sistema gera um evento. Por exemplo, para a operação PersonCrossingLine, uma linha é definida no vídeo. Quando uma pessoa cruza essa linha, um evento é gerado. |
 | Evento | Um evento é a saída principal da análise espacial. Cada operação emite um evento específico periodicamente (por exemplo, uma vez por minuto) ou quando ocorre um gatilho específico. O evento inclui informações sobre o que ocorreu no vídeo de entrada, mas não inclui imagens ou vídeos. Por exemplo, a operação PeopleCount pode emitir um evento que contém a contagem atualizada toda vez que a contagem de pessoas altera (gatilho) ou uma vez a cada minuto (periodicamente). |
 
-## <a name="example-use-cases-for-spatial-analysis"></a>Casos de uso de exemplo para análise espacial
+## <a name="responsible-use-of-spatial-analysis-technology"></a>Uso responsável da tecnologia de análise espacial
 
-Veja a seguir os casos de uso de exemplo que tínhamos em mente à medida que projetamos e testamos a análise espacial.
-
-**Conformidade do Distancing social** – um espaço do Office tem várias câmeras que usam análise espacial para monitorar a conformidade do Distancing social medindo a distância entre as pessoas. O Gerenciador de instalações pode usar calor mostrando estatísticas agregadas de conformidade de distancing social ao longo do tempo para ajustar o espaço de trabalho e facilitar a distancing social.
-
-**Análise do comprador** – uma loja de supermercado usa câmeras apontadas em exibições de produto para medir o impacto das alterações de mercadorias no tráfego de armazenamento. O sistema permite que o Gerenciador de loja identifique quais novos produtos impulsionam a maioria das alterações no envolvimento.
-
-**Gerenciamento de fila** -as câmeras apontadas em filas de check-out fornecem alertas aos gerentes quando o tempo de espera fica muito longo, permitindo que eles abram mais linhas. Os dados históricos sobre o abandono da fila fornecem informações sobre o comportamento do consumidor.
-
-**Conformidade de máscara facial** – lojas de varejo podem usar câmeras que apontam para os Fronts da loja para verificar se os clientes que estão acompanhando a loja estão aproveitando máscaras de face para manter a conformidade com a segurança e analisar estatísticas agregadas para obter informações sobre tendências de uso de máscara. 
-
-**Criando análise de & de ocupação** – um edifício de escritório usa câmeras focadas em entrada para espaços-chave para medir o footfall e como as pessoas usam o local de trabalho. As informações permitem que o gerente de construção ajuste o serviço e o layout para melhor atender occupants.
-
-**Detecção mínima da equipe** -em uma data center, as câmeras monitoram a atividade em relação aos servidores. Quando os funcionários estão corrigindo fisicamente o equipamento confidencial, duas pessoas sempre precisam estar presentes durante o reparo por motivos de segurança. As câmeras são usadas para verificar se essa diretriz é seguida.
-
-**Otimização do local de trabalho** – em um restaurante casual rápido, as câmeras na cozinha são usadas para gerar informações agregadas sobre o fluxo de trabalho dos funcionários. Isso é usado por gerentes para melhorar processos e treinamento para a equipe.
-
-## <a name="considerations-when-choosing-a-use-case"></a>Considerações ao escolher um caso de uso
-
-**Evite alertas de segurança críticos** -a análise espacial não foi projetada para alertas críticos em tempo real de segurança. Ele não deve ser confiado em cenários quando são necessários alertas em tempo real para disparar a intervenção para evitar ferimentos, como desligar uma parte de máquinas pesadas quando uma pessoa está presente. Ele pode ser usado para redução de riscos usando estatísticas e intervenção para reduzir o comportamento arriscado, como pessoas que inserem uma área restrita/proibida.
-
-**Evite usar para decisões relacionadas a empregos** -a análise espacial fornece métricas de probabilística sobre o local e a movimentação de pessoas dentro de um espaço. Embora esses dados possam ser úteis para a melhoria do processo agregado, os dados não são um bom indicador de desempenho de trabalho individual e não devem ser usados para tomar decisões relacionadas a empregos.
-
-**Evite usar para decisões relacionadas à assistência médica** -a análise espacial fornece probabilística e dados parciais relacionados aos movimentos das pessoas. Os dados não são adequados para tomar decisões relacionadas à integridade.
-
-**Evite usar em espaços protegidos** – proteger a privacidade dos indivíduos, avaliando locais e posições da câmera, ajustando os ângulos e a região dos interesses para que eles não sobreusem áreas protegidas como banheiros.
-
-**Considere atentamente o uso em escolas ou em instalações idosas** – a análise espacial não foi altamente testada com dados que contêm menores sob a idade de 18 ou adultos em idade 65. Recomendamos que os clientes avaliem minuciosamente as taxas de erro para seu cenário em ambientes em que essas idades predominate.
-
-**Considere cuidadosamente usar em espaços públicos** – avaliar locais e posições da câmera, ajustar ângulos e região de interesses para minimizar a coleta de espaços públicos. A iluminação e o clima em espaços públicos como ruas e parques afetarão significativamente o desempenho do sistema de análise espacial e é extremamente difícil fornecer uma divulgação efetiva em espaços públicos.
+Para saber como usar a tecnologia de análise espacial com responsabilidade, consulte a [Nota de transparência](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). As notas de transparência da Microsoft têm a finalidade de ajudá-lo a entender como funciona nossa tecnologia ia, as escolhas que os proprietários do sistema podem fazer para influenciar o desempenho e o comportamento do sistema e a importância de pensar em todo o sistema, incluindo a tecnologia, as pessoas e o ambiente.
 
 ## <a name="spatial-analysis-gating-for-public-preview"></a>Análise espacial se retenção da visualização pública
 
@@ -76,4 +48,4 @@ O acesso à visualização pública de análise espacial está sujeito à exclus
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Características e limitações para análise espacial](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Introdução ao contêiner de análise espacial](spatial-analysis-container.md)

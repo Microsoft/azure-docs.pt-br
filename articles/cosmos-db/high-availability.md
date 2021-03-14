@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627358"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656543"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como o Azure Cosmos DB fornece alta disponibilidade
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 
 * Durante uma interrupção da região de leitura, as contas do Azure Cosmos usando qualquer nível de consistência ou consistência forte com três ou mais regiões de leitura permanecerão altamente disponíveis para leituras e gravações.
 
-* As contas do Azure Cosmos usando consistência forte com três ou menos regiões totais (uma gravação, duas leituras) perderão a disponibilidade de gravação durante uma interrupção da região de leitura. No entanto, os clientes com quatro ou mais regiões no total podem optar por usar quorums de leitura dinâmica enviando um tíquete de suporte. As contas que mantêm pelo menos duas regiões de leitura nessa configuração manterão a disponibilidade de gravação.
+* As contas do Azure Cosmos usando uma consistência forte com três regiões (uma gravação, duas lidas) manterão a disponibilidade de gravação durante uma interrupção da região de leitura. Para contas com duas regiões e failover automático habilitado, a conta deixará de aceitar gravações até que a região seja marcada como falha e failover automático ocorra.
 
 * A região afetada é desconectada automaticamente e será marcada como offline. Os [SDKs de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferenciais.
 
@@ -110,7 +110,7 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |SLA de leitura de disponibilidade  | 99,99% | 99,995% | 99,995% | 99,999% |
 |Falhas de zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados | Sem perda de dados |
 |Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
-|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](consistency-levels-tradeoffs.md) para obter mais informações. | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](consistency-levels-tradeoffs.md) para obter mais informações.
+|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](./consistency-levels.md) para obter mais informações. | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](./consistency-levels.md) para obter mais informações.
 |Interrupção regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Nenhuma perda de disponibilidade para a falha de região de leitura, temporária para falha de região de gravação | Sem perda de disponibilidade |
 |Preço (***1** _) | N/D | Taxa de RU/s 1,25 x provisionada | Taxa de RU/s x 1,25 provisionada (_ *_2_* *) | Taxa de gravação de várias regiões |
 

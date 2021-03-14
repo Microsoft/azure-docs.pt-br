@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eef8179567d83e3727c3ab949eef2706ce2a9b16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329995"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175797"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Componentes de IoT Plug and Play em modelos
 
@@ -64,7 +64,7 @@ A captura de tela a seguir mostra como o modelo é exibido na ferramenta do Azur
 
 A ID do modelo é armazenada em uma propriedade mydo dispositivo, como mostra a captura de tela a seguir:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Componente padrão no Azure IoT Explorer":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="ID do modelo na propriedade de propriedades digitais":::
 
 Um modelo de DTDL sem componentes é uma simplificação útil para um dispositivo ou IoT Edge módulo com um único conjunto de comandos, propriedades e telemetria. Um modelo que não usa componentes facilita a migração de um dispositivo ou módulo existente para ser um dispositivo IoT Plug and Play ou módulo-você cria um modelo DTDL que descreve seu dispositivo ou módulo real sem a necessidade de definir quaisquer componentes.
 
@@ -75,7 +75,7 @@ Um modelo de DTDL sem componentes é uma simplificação útil para um dispositi
 
 Os componentes permitem criar uma interface de modelo como um assembly de outras interfaces.
 
-Por exemplo, a interface [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) é definida como um modelo. Você pode incorporar essa interface como um ou mais componentes quando definir o modelo de [controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json). No exemplo a seguir, esses componentes são chamados `thermostat1` e `thermostat2` .
+Por exemplo, a interface [termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) é definida como um modelo. Você pode incorporar essa interface como um ou mais componentes ao definir o [modelo de controlador de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json). No exemplo a seguir, esses componentes são chamados `thermostat1` e `thermostat2` .
 
 Para um modelo DTDL com vários componentes, há duas ou mais seções de componente. Cada seção foi `@type` definida como `Component` e se refere explicitamente a um esquema, conforme mostrado no trecho a seguir:
 

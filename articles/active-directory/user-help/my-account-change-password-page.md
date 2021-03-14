@@ -9,21 +9,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1cfae18265dc00cda9fb66f7b9b5dbbdf6d64d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798186"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092376"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante na página Alterar senha
 
 A página **Alterar a senha** do portal **Minha conta** ajuda a atualizar uma senha existente para a conta corporativa ou de estudante, supondo que você se lembre da senha e que você não está bloqueado na conta. Se você não se lembrar da sua senha, se estiver bloqueado na sua conta ou se nunca recebeu uma senha da sua organização, pode usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando voltar a uma conta pessoal como Xbox, Hotmail ou Outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Redefinição de senha por autoatendimento](../authentication/tutorial-enable-sspr.md).
+>Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando voltar a uma conta pessoal como Xbox, Hotmail ou Outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Redefinição de senha por autoatendimento](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha na página Alterar senha
 
@@ -47,9 +52,9 @@ Depois de alterar sua senha, você pode:
 
 - Exibir ou gerenciar as [informações de segurança](./security-info-setup-signin.md).
 
-- Exibir ou gerenciar os [dispositivos](my-account-portal-devices-page.md) conectados.
+- Visualizar ou gerenciar os [dispositivos](my-account-portal-devices-page.md) conectados.
 
-- Exibir ou gerenciar as [organizações](my-account-portal-organizations-page.md).
+- Visualizar ou gerenciar as [organizações](my-account-portal-organizations-page.md).
 
 - Exibir sua [atividade de entrada](my-account-portal-sign-ins-page.md).
 

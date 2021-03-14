@@ -6,7 +6,7 @@
   items:
     - name: O que é uma DSVM (Máquina Virtual de Ciência de Dados)?
       href: overview.md
-    - name: Ferramentas incluídas na Máquina Virtual de Ciência de Dados
+    - name: Ferramentas na Máquina Virtual de Ciência de Dados
       href: tools-included.md
 - name: Inícios rápidos
   expanded: true

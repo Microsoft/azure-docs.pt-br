@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7dacec1521787e55ee4c7fd5f08b9e56d9dd4842
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196615"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735991"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Linha de base de segurança do Azure para o link privado do Azure
 
@@ -28,9 +28,9 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -50,7 +50,7 @@ Além disso, habilite e integre dados para o Azure Sentinel ou um SIEM de tercei
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Registro em log e monitoramento para link privado](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Além disso, habilite e integre dados para o Azure Sentinel ou um SIEM de tercei
 
 **Orientação**: Habilitar logs de atividades de Azure monitor, quais operações de log são executadas em recursos de link privado, como, quem iniciou a operação, quando a operação ocorreu, o status da operação e outras informações úteis de auditoria. 
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Registro em log e monitoramento para link privado](private-link-overview.md#logging-and-monitoring)
 
@@ -80,9 +80,9 @@ Além disso, habilite e integre dados para o Azure Sentinel ou um SIEM de tercei
 
 **Orientação**: para logs relacionados ao link privado, defina seu período de retenção de log Analytics espaço de trabalho de acordo com as regulamentações de conformidade de sua organização no Azure monitor. Use contas de armazenamento do Azure para qualquer armazenamento de longo prazo/arquivamento de logs.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -96,9 +96,9 @@ Outra opção é habilitar e integrar dados ao Azure Sentinel ou um SIEM de terc
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Compreender o workspace do Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -114,7 +114,7 @@ Habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiros com base em
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -192,7 +192,7 @@ Além disso, habilite o acesso just-in-time/apenas o suficiente usando Azure Act
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/platform/action-groups.md)
+- [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -318,7 +318,7 @@ Torne seu serviço particular para consumo de outras redes virtuais (somente per
 
 - [Log de diagnóstico para um grupo de segurança de rede](private-link-overview.md#logging-and-monitoring)
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

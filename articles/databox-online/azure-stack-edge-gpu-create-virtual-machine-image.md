@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ee0587063c0fac67068869c58471ada58354fab7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806675"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437665"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Criar imagens de VM personalizadas para o dispositivo Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Para implantar VMs no dispositivo Azure Stack Edge Pro, você precisará conseguir criar imagens de VM personalizadas que possam ser usadas para criar VMs. Este artigo descreve as etapas necessárias para criar imagens personalizadas de VM do Windows ou Linux que você pode usar para implantar VMs em seu dispositivo Azure Stack Edge pro.
 

@@ -5,16 +5,16 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435681"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377356"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
 
-Os consumidores do seu aplicativo gerenciado podem ser relutados para conceder a você acesso permanente ao grupo de recursos gerenciado. Como um editor de um aplicativo de gerente, você pode preferir que os consumidores saibam exatamente quando você precisar acessar os recursos gerenciados. Para fornecer aos consumidores maior controle sobre a concessão de acesso a recursos gerenciados, os aplicativos gerenciados do Azure fornecem um recurso chamado acesso JIT (just-in-time). Esse recurso está atualmente na visualização.
+Os consumidores do seu aplicativo gerenciado podem ser relutados para conceder a você acesso permanente ao grupo de recursos gerenciado. Como um editor de um aplicativo gerenciado, você pode preferir que os consumidores saibam exatamente quando você precisar acessar os recursos gerenciados. Para fornecer aos consumidores maior controle sobre a concessão de acesso a recursos gerenciados, os aplicativos gerenciados do Azure fornecem um recurso chamado acesso JIT (just-in-time). Esse recurso está atualmente na visualização.
 
 O acesso JIT permite que você solicite acesso elevado a recursos de um aplicativo gerenciado para solução de problemas ou manutenção. Você sempre tem acesso somente leitura aos recursos, mas, para um período de tempo específico, você pode ter mais acesso.
 

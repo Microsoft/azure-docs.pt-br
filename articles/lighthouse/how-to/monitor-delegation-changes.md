@@ -1,20 +1,20 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089403"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199052"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
 Como um provedor de serviços, talvez você queira estar atento quando os grupos de recursos ou assinaturas de clientes são delegados para seu locatário por meio [do Azure Lighthouse](../overview.md)ou quando os recursos previamente delegados são removidos.
 
-No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas de todos os locatários do cliente.
+No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas dos locatários do cliente.
 
 Este tópico explica as permissões necessárias para monitorar a atividade de delegação para seu locatário (em todos os seus clientes). Ele também inclui um script de exemplo que mostra um método para consultar e relatar esses dados.
 
@@ -104,7 +104,7 @@ Ao consultar esses dados, tenha em mente:
 - Se vários grupos de recursos forem delegados em uma única implantação, as entradas separadas serão retornadas para cada grupo de recursos.
 - As alterações feitas em uma delegação anterior (como atualizar a estrutura de permissão) serão registradas como uma delegação adicionada.
 - Como mencionado acima, uma conta deve ter a função interna do Azure leitor de monitoramento no escopo raiz (/) para acessar os dados no nível do locatário.
-- Você pode usar esses dados em seus próprios fluxos de trabalho e relatórios. Por exemplo, você pode usar a [API do coletor de dados http (visualização pública)](../../azure-monitor/platform/data-collector-api.md) para registrar dados em Azure monitor de um cliente de API REST e, em seguida, usar [grupos de ação](../../azure-monitor/platform/action-groups.md) para criar notificações ou alertas.
+- Você pode usar esses dados em seus próprios fluxos de trabalho e relatórios. Por exemplo, você pode usar a [API do coletor de dados http (visualização pública)](../../azure-monitor/logs/data-collector-api.md) para registrar dados em Azure monitor de um cliente de API REST e, em seguida, usar [grupos de ação](../../azure-monitor/alerts/action-groups.md) para criar notificações ou alertas.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como integrar clientes ao [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
-- Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml) e o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml) e o [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Examine a pasta de trabalho de exemplo [logs de atividades por domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para saber como exibir os logs de atividades do Azure entre assinaturas com uma opção para filtrá-los por nome de domínio.

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cf749f3aef10a0c67814722577f79906f447ffdb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b344e2a845a9da8333860599bd4ff9041108202f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532774"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588258"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -20,7 +20,7 @@ Log de auditoria de atividades de banco de dados no banco de dados do Azure para
 > [!IMPORTANT]
 > Banco de dados do Azure para PostgreSQL-o servidor flexível está em versão prévia
 
-Se você quiser logs no nível de recursos do Azure para operações como o dimensionamento de computação e armazenamento, consulte o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Se você quiser logs no nível de recursos do Azure para operações como o dimensionamento de computação e armazenamento, consulte o [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considerações sobre o uso
 Por padrão, as instruções de log pgAudit são emitidas junto com suas instruções de log regulares usando o recurso de log padrão do Postgres. No banco de dados do Azure para PostgreSQL – servidor flexível, você pode configurar todos os logs a serem enviados para Azure Monitor repositório de log para análise posterior no Log Analytics. Se você habilitar Azure Monitor log de recursos, seus logs serão enviados automaticamente (no formato JSON) para o armazenamento do Azure, hubs de eventos e/ou logs de Azure Monitor, dependendo de sua escolha.
@@ -57,9 +57,9 @@ Cada entrada de auditoria é indicada `AUDIT:` próximo ao início da linha de l
 Para começar rapidamente, defina `pgaudit.log` como `WRITE` e abra os logs do servidor para examinar a saída. 
 
 ## <a name="viewing-audit-logs"></a>Exibindo logs de auditoria
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
+Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/logs/log-query-overview.md) .
 
 Você pode usar essa consulta para começar. Você pode configurar alertas com base em consultas.
 

@@ -1,22 +1,17 @@
 ---
 title: Monitorar atividade de cópia
 description: Saiba mais sobre como monitorar a execução da atividade de cópia em Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440602"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388287"
 ---
 # <a name="monitor-copy-activity"></a>Monitorar atividade de cópia
 
@@ -48,7 +43,7 @@ Os **detalhes e as durações da execução** inferior descrevem as principais e
 
 ## <a name="monitor-programmatically"></a>Monitorar programaticamente
 
-Os detalhes de execução da atividade de cópia e as características de desempenho também são retornados na seção saída de **resultado da execução da atividade de cópia**  >  **Output** , que é usada para renderizar a exibição de monitoramento da interface do usuário. A seguir está uma lista completa de propriedades que podem ser retornadas. Você verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorar as execuções de atividade programaticamente em geral, consulte [monitorar programaticamente um data Factory do Azure](monitor-programmatically.md).
+Os detalhes de execução da atividade de cópia e as características de desempenho também são retornados na seção saída de **resultado da execução da atividade de cópia**  >   , que é usada para renderizar a exibição de monitoramento da interface do usuário. A seguir está uma lista completa de propriedades que podem ser retornadas. Você verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorar as execuções de atividade programaticamente em geral, consulte [monitorar programaticamente um data Factory do Azure](monitor-programmatically.md).
 
 | Nome da propriedade  | Descrição | Unidade na saída |
 |:--- |:--- |:--- |
@@ -67,9 +62,9 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | throughput | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
 | sinkPeakConnections| Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia.| Valor Int32 (nenhuma unidade) |
-| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para o Azure Synapse Analytics (anteriormente SQL Data Warehouse). | Booliano |
-| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Booliano |
-| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Booliano |
+| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para o Azure Synapse Analytics. | Boolean |
+| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Boolean |
+| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Boolean |
 | effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia de caracteres) |
 | usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32 |

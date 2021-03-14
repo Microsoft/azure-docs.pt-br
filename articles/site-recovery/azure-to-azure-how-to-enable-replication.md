@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 427b471158e89b2b3ae4ea6477133f1e69247078
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424793"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518837"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -53,8 +53,11 @@ Habilitar a replicação. Este procedimento pressupõe que a região do Azure pr
    - **Rede virtual de destino**: por padrão, site Recovery cria uma nova rede virtual na região de destino com um sufixo "ASR" no nome. Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](./azure-to-azure-network-mapping.md) sobre o mapeamento de rede.
    - **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)**: por padrão, site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
    - **Discos gerenciados por réplica (a VM de origem usa discos gerenciados)**: Site Recovery cria novos discos gerenciados por réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) que o disco gerenciado da VM de origem.
-   - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino. Essa conta de armazenamento deve ser padrão.
+   - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações que ocorrem nas VMs de origem são rastreadas e enviadas à conta de armazenamento em cache antes de serem replicadas para o local de destino. Essa conta de armazenamento deve ser padrão.
    - **Conjuntos de disponibilidade de destino**: por padrão, site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "ASR" no nome, para VMs que fazem parte de um conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
+     >[!NOTE]
+     >Ao configurar os conjuntos de disponibilidade de destino, configure diferentes conjuntos de disponibilidade para VMs de tamanho diferente. 
+     >
    - **Zonas de disponibilidade de destino**: por padrão, o Site Recovery atribui o mesmo número da zona que a região de origem na região de destino se a região de destino oferecer suporte a zonas de disponibilidade.
 
      Se a região de destino não oferecer suporte a zonas de disponibilidade, as VMs de destino são configuradas como instâncias isoladas por padrão. Se necessário, você pode configurar essas VMs como parte dos conjuntos de disponibilidade na região de destino, clicando em “Personalizar”.
@@ -80,7 +83,7 @@ Se você adicionar discos a uma VM do Azure para a qual a replicação está hab
 Para habilitar a replicação para um disco adicionado, faça o seguinte:
 
 1.  No cofre > **itens replicados**, clique na VM para a qual você adicionou o disco.
-2.  Clique em **discos**e selecione o disco de dados para o qual você deseja habilitar a replicação (esses discos têm um status **não protegido** ).
+2.  Clique em **discos** e selecione o disco de dados para o qual você deseja habilitar a replicação (esses discos têm um status **não protegido** ).
 3.  Em **detalhes do disco**, clique em **habilitar replicação**.
 
     ![Habilitar a replicação para disco adicionado](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)

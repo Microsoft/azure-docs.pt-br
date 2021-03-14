@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579023"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorar métricas no banco de dados do Azure para PostgreSQL-servidor flexível
 
@@ -21,35 +21,35 @@ ms.locfileid: "91707839"
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
 
 ## <a name="metrics"></a>Métricas
-O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](../../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). É possível configurar alertas nas métricas. Outras opções incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../../azure-monitor/platform/data-platform-metrics.md).
+O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). É possível configurar alertas nas métricas. Outras opções incluem a configuração de ações automatizadas, a execução de análises avançadas e o histórico de arquivamento. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 As métricas a seguir estão disponíveis para o servidor flexível do PostgreSQL:
 
 
-|Métrica|Nome de exibição da métrica|Unit|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Descrição|
 |---|---|---|---|
 | active_connections | Conexões ativas | Contagem | O número de conexões com o servidor. | 
 | backup_storage_used | Backup do Microsoft Azure | Bytes | Quantidade de armazenamento de backup usada. Essa métrica representa a soma do armazenamento consumido por todos os backups de banco de dados completos, backups diferenciais e backups de log retidos com base no período de retenção de backup definido para o servidor. A frequência dos backups é gerenciada pelo serviço. Para o armazenamento com redundância geográfica, o uso de armazenamento de backup é o dobro do armazenamento com redundância local. |
 | connections_failed | Conexões com falha | Contagem | Conexões com falha. |
-| connections_succeeded | Conexões com êxito | Count | Conexões com êxito. |
+| connections_succeeded | Conexões com êxito | Contagem | Conexões com êxito. |
 | cpu_credits_consumed | Créditos de CPU Consumidos | Contagem | Número de créditos usados pelo servidor flexível. Aplicável à camada expansível. |
 | cpu_credits_remaining | Créditos de CPU Restantes | Contagem | Número de créditos disponíveis para intermitência. Aplicável à camada expansível. |
 | cpu_percent | Porcentagem de CPU | Porcentagem | Percentual de CPU em uso. | 
-| disk_queue_depth | Profundidade da fila de disco | Count | Número de operações de e/s pendentes para o disco de dados. |
+| disk_queue_depth | Profundidade da fila de disco | Contagem | Número de operações de e/s pendentes para o disco de dados. |
 | iops | IOPS | Contagem | Número de operações de e/s em disco por segundo. |
-| maximum_used_transactionIDs | Máximo de IDs de transação usadas | Count | ID de transação máxima em uso. |
+| maximum_used_transactionIDs | Máximo de IDs de transação usadas | Contagem | ID de transação máxima em uso. |
 | memory_percent | Porcentagem de memória | Porcentagem | Percentual de memória em uso. |
 | network_bytes_egress | Saída da rede | Bytes | Quantidade de tráfego de rede de saída. |
 | network_bytes_ingress | Entrada na rede | Bytes | Quantidade de tráfego de rede de entrada. |
-| read_iops | IOPS de leitura | Count | Número de operações de leitura de e/s de disco de dados por segundo. |
+| read_iops | IOPS de leitura | Contagem | Número de operações de leitura de e/s de disco de dados por segundo. |
 | read_throughput | Taxa de transferência de leitura | Bytes | Bytes lidos por segundo do disco. |
 | storage_free | Armazenamento livre | Bytes | A quantidade de espaço de armazenamento disponível. |
-| storage_percent | Porcentagem de armazenamento | Percentual | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
+| storage_percent | Porcentagem de armazenamento | Porcentagem | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
 | storage_used | Armazenamento usado | Bytes | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor. |
 | txlogs_storage_used | Armazenamento de log de transações usado | Bytes | Quantidade de espaço de armazenamento usada pelos logs de transação. | 
 | write_throughput | Taxa de transferência de gravação | Bytes | Bytes gravados por segundo no disco. |
-| write_iops | IOPS de gravação | Count | Número de operações de gravação de e/s de disco de dados por segundo. |
+| write_iops | IOPS de gravação | Contagem | Número de operações de gravação de e/s de disco de dados por segundo. |
 
 ## <a name="server-logs"></a>Logs do servidor
 O banco de dados do Azure para PostgreSQL permite configurar e acessar os logs padrão do Postgres. Para saber mais sobre os logs, visite o [documento conceitos de registro em log](concepts-logging.md).

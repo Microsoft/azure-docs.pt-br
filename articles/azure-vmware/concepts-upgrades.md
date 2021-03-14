@@ -2,17 +2,17 @@
 title: Conceitos – atualizações de nuvem privada e atualizações
 description: Saiba mais sobre os principais processos e recursos de atualização da solução Azure VMware.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/16/2021
+ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006693"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634985"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e upgrades de nuvem privada da solução Azure VMware
 
-Um dos principais benefícios das nuvens privadas da solução Azure VMware é que a plataforma é mantida para você. A manutenção de plataforma inclui atualizações automatizadas para um pacote de software validado pela VMware, ajudando a garantir que você esteja usando a versão mais recente do software de nuvem privada da solução Azure VMware validada.
+Um benefício das nuvens privadas da solução Azure VMware é que a plataforma é mantida para você. A manutenção inclui atualizações automatizadas para um pacote de software validado pela VMware para ajudar a garantir que você esteja usando a versão mais recente do software de nuvem privada da solução Azure VMware.
 
 Especificamente, uma nuvem privada da solução Azure VMware inclui:
 
@@ -22,7 +22,7 @@ Especificamente, uma nuvem privada da solução Azure VMware inclui:
 - VMware vSAN datastore para VMs de carga de trabalho vSphere  
 - VMware HCX para mobilidade de carga de trabalho  
 
-Além desses componentes, uma nuvem privada da solução Azure VMware inclui recursos na underlay do Azure necessários para a conectividade e para operar a nuvem privada. A solução VMware do Azure monitora continuamente a integridade dos componentes do underlay e do VMware. Quando a solução Azure VMware detecta uma falha, ela executa uma ação para reparar os componentes com falha. 
+Uma nuvem privada da solução Azure VMware também inclui recursos na underlay do Azure necessários para a conectividade e para operar a nuvem privada. A solução VMware do Azure monitora continuamente a integridade dos componentes do underlay e do VMware. Quando a solução Azure VMware detecta uma falha, ela executa uma ação para reparar os componentes com falha. 
 
 ## <a name="what-components-get-updated"></a>Quais componentes são atualizados?   
 
@@ -46,12 +46,12 @@ Você será notificado antes e depois que os patches forem aplicados às suas nu
 
 ## <a name="vmware-appliance-backup"></a>Backup do dispositivo VMware 
 
-Além de fazer atualizações, a solução Azure VMware usa um backup de configuração desses componentes do VMware:
+A solução Azure VMware também usa um backup de configuração dos seguintes componentes do VMware:
 
 - vCenter Server 
 - Gerenciador de NSX-T 
 
-Em momentos de falha, a solução Azure VMware pode restaurá-las do backup de configuração. 
+Em momentos de falha, a solução Azure VMware pode restaurar esses componentes do backup de configuração. 
 
 Para obter mais informações sobre versões de software VMware, consulte o [artigo conceito de nuvens privadas e clusters](concepts-private-clouds-clusters.md) e as [perguntas frequentes](faq.yml).
 

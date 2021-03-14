@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 44ccf6b6d2459b87040fcac7d9cdcd336cc7b82f
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222625"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522029"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação de modelo na Azure Machine Learning (versão prévia)
 
 
-## <a name="overview-of-model-interpretability"></a>Visão geral da interpretação do modelo
+## <a name="model-interpretability-overview"></a>Visão geral da interpretação de modelo
 
-A interpretação é fundamental para cientistas de dados, auditores e tomadores de decisões de negócios para garantir a conformidade com as políticas da empresa, padrões do setor e regulamentos governamentais:
+A interpretação de modelo é fundamental para cientistas de dados, auditores e tomadores de decisões de negócios, para garantir a conformidade com as políticas da empresa, padrões do setor e regulamentos governamentais:
 
 + Os cientistas de dados precisam da capacidade de explicar seus modelos a executivos e participantes, para que possam entender o valor e a precisão de suas descobertas. Eles também exigem a interpretação para depurar seus modelos e tomar decisões informadas sobre como aprimorá-los. 
 
@@ -31,15 +31,15 @@ A interpretação é fundamental para cientistas de dados, auditores e tomadores
 
 + Os tomadores de decisões de negócios precisam de tranqüilidade ao ter a capacidade de fornecer transparência para os usuários finais. Isso permite que eles ganhem e mantenham confiança.
 
-
 A habilitação da capacidade de explicar um modelo de aprendizado de máquina é importante durante duas fases principais do desenvolvimento de modelos:
+
 + Durante a fase de treinamento, como designers de modelo e avaliadores podem usar a saída de interpretação de um modelo para verificar as mesmas e criar confiança com os participantes. Eles também usam as informações sobre o modelo para depuração, validando o comportamento do modelo corresponde aos seus objetivos e verificando a infração do modelo ou recursos insignificantes.
 
 + Durante a fase de inferência, como a transparência de modelos implantados permite que os executivos compreendam "quando implantados" como o modelo está funcionando e como suas decisões estão tratando e afetando as pessoas na vida real. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilidade com Azure Machine Learning
 
-As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+As classes de interpretação de modelo são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](/python/api/overview/azure/ml/install))
 
 * `azureml.interpret`, contém funcionalidades com suporte da Microsoft.
 
@@ -52,11 +52,7 @@ Usando as classes e os métodos no SDK, você pode:
 + Alcance a interpretação de modelo em conjuntos de valores do mundo real em escala, durante o treinamento e a inferência.
 + Use um painel de visualização interativa para descobrir padrões em dados e explicações no tempo de treinamento
 
-
 No aprendizado de máquina, os **recursos** são os campos de dados usados para prever um ponto de dados de destino. Por exemplo, para prever o risco de crédito, os campos de dados para idade, tamanho da conta e idade da conta podem ser usados. Nesse caso, a idade, o tamanho da conta e a idade da conta são **recursos**. A importância do recurso informa como cada campo de dados afetou as previsões do modelo. Por exemplo, a idade pode ser usada intensamente na previsão, enquanto o tamanho da conta e a idade não afetam significativamente os valores de previsão. Esse processo permite que os cientistas de dados expliquem previsões resultantes, para que os participantes tenham visibilidade sobre quais recursos são mais importantes no modelo.
-
-Saiba mais sobre técnicas de interpretação com suporte, modelos de aprendizado de máquina com suporte e ambientes de execução com suporte aqui.
-
 
 ## <a name="supported-interpretability-techniques"></a>Técnicas de interpretação com suporte
 
@@ -70,9 +66,6 @@ Saiba mais sobre técnicas de interpretação com suporte, modelos de aprendizad
 |Explicador de kernel SHAP| O explicador do kernel do SHAP usa uma regressão linear local especialmente ponderada para estimar valores de SHAP para **qualquer modelo**.|Independente de modelo|
 |Explicador de imitação (substituto global)| O explicador de imitação se baseia na ideia de treinar [modelos substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos Blackbox. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de **qualquer modelo de caixa preta** o mais precisamente possível. Os cientistas de dados podem interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LGBMExplainableModel), regressão linear (LinearExplainableModel), estocástico gradiente descendente de modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).|Independente de modelo|
 |Explicador de importância do recurso de permuta (PFI)| A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso. PFI pode explicar o comportamento geral de **qualquer modelo subjacente** , mas não explica previsões individuais. |Independente de modelo|
-
-
-
 
 Além das técnicas de interpretação descritas acima, damos suporte a outro explicador baseado em SHAP, chamado `TabularExplainer` . Dependendo do modelo, `TabularExplainer` o usa um dos explicadores de shap com suporte:
 

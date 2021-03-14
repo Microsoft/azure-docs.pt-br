@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221084"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364777"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -176,7 +176,7 @@ Ela também mostrará quais tabelas foram extraídas automaticamente. Clique no 
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
-Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo reconheça.
+Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo analise.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.
@@ -228,7 +228,7 @@ Siga as etapas acima para rotular pelo menos cinco de seus formulários.
 Opcionalmente, você pode definir o tipo de dados esperado para cada marca. Abra o menu de contexto à direita de uma determinada marca e selecione um tipo no menu. Esse recurso permite que o algoritmo de detecção faça determinadas suposições que melhorarão a precisão da detecção de texto. Ele também garante que os valores detectados serão retornados em um formato padronizado na saída JSON final. As informações de tipo de valor são salvas no arquivo *fields.json* no mesmo caminho que o dos arquivos de rótulo.
 
 > [!div class="mx-imgBorder"]
-> ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/formre-value-type.png)
+> ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/value-type.png)
 
 Os tipos de valor e as variações a seguir são compatíveis no momento:
 * `string`

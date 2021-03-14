@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702497"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -27,7 +27,7 @@ Para obter a exceção mais básica e o tratamento de erros, você pode usar uma
 
 Aqui estão os tipos de política de repetição:
 
-| Type | Descrição |
+| Tipo | Descrição |
 |------|-------------|
 | **Default** | Essa política envia até quatro novas tentativas em intervalos *exponencialmente crescentes*, que são dimensionados em 7,5 segundos, mas são limitados entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Essa política aguarda um intervalo aleatório selecionado de um intervalo em crescimento exponencial antes de enviar a próxima solicitação. |
@@ -69,7 +69,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Necessária*
 
-| Valor | Type | Descrição |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*Retry-tipo de política*> | String | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`, ou `exponential` |
 | <*intervalo de repetição*> | String | O intervalo de repetição em que o valor deve usar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo de padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +78,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Opcional*
 
-| Valor | Type | Descrição |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -263,13 +263,14 @@ Para limites nos escopos, consulte [Limites e configurações](../logic-apps/log
 
 ### <a name="get-context-and-results-for-failures"></a>Obter o contexto e os resultados de falhas
 
-Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam, além de quais erros ou códigos de status foram retornados.
+Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam, além de quais erros ou códigos de status foram retornados. A [ `result()` função](../logic-apps/workflow-definition-language-functions-reference.md#result) retorna os resultados das ações de nível superior em uma ação com escopo aceitando um único parâmetro, que é o nome do escopo, e retornando uma matriz que contém os resultados dessas ações de primeiro nível. Esses objetos de ação incluem os mesmos atributos que os retornados pela `actions()` função, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. 
 
-A [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) função fornece contexto sobre os resultados de todas as ações em um escopo. A `result()` função aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados de ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o `actions()` objeto, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma `@result()` expressão com a `runAfter` propriedade.
+> [!NOTE]
+> A `result()` função retorna os resultados *somente* de ações de primeiro nível e não de ações aninhadas mais profundas, como ações de alternância ou condição.
 
-Para executar uma ação para cada ação em um escopo que tenha um `Failed` resultado e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma `@result()` expressão com uma ação de [**matriz de filtro**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o `For_each` loop.
+Para obter o contexto sobre as ações que falharam em um escopo, você pode usar a `@result()` expressão com o nome do escopo e a `runAfter` propriedade. Para filtrar a matriz retornada para ações com `Failed` status, você pode adicionar a [ação **Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action). Para executar uma ação para uma ação retornada com falha, pegue a matriz filtrada retornada e use um [loop **for each**](../logic-apps/logic-apps-control-flow-loops.md).
 
-Aqui está um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para quaisquer ações que falharam no escopo "My_Scope":
+Aqui está um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para todas as ações que falharam na ação de escopo denominada "My_Scope":
 
 ```json
 "Filter_array": {
@@ -362,7 +363,7 @@ Para executar diferentes padrões de tratamento de exceções, você pode usar a
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurar os logs do Azure Monitor
 
-Os padrões anteriores são uma ótima maneira de identificar erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentemente da execução em si. O [Azure monitor](../azure-monitor/overview.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os status de execução e ação, para um [espaço de log Analytics](../azure-monitor/platform/data-platform-logs.md), uma conta de [armazenamento do Azure](../storage/blobs/storage-blobs-overview.md)ou [hubs de eventos do Azure](../event-hubs/event-hubs-about.md).
+Os padrões anteriores são uma ótima maneira de identificar erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentemente da execução em si. O [Azure monitor](../azure-monitor/overview.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os status de execução e ação, para um [espaço de log Analytics](../azure-monitor/logs/data-platform-logs.md), uma conta de [armazenamento do Azure](../storage/blobs/storage-blobs-overview.md)ou [hubs de eventos do Azure](../event-hubs/event-hubs-about.md).
 
 Para avaliar o status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção possível é transmitir todos os eventos através dos Hubs de Eventos para o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics é possível gravar consultas dinâmicas com base em quaisquer anomalias, médias ou falhas dos logs de diagnóstico. Você pode usar o Stream Analytics para enviar informações a outras fontes de dados, como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 

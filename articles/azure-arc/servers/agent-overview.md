@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 02/03/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626301"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651086"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -33,6 +33,30 @@ O pacote do agente do computador conectado do Azure contém vários componentes 
 
 * O agente de extensão gerencia extensões de VM, incluindo instalar, desinstalar e atualizar. As extensões são baixadas do Azure e copiadas para a `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows e para o Linux para o `/opt/GC_Ext/downloads` . No Windows, a extensão é instalada no caminho a seguir `%SystemDrive%\Packages\Plugins\<extension>` e, no Linux, a extensão é instalada no `/var/lib/waagent/<extension>` .
 
+## <a name="instance-metadata"></a>Metadados da instância
+
+As informações de metadados sobre o computador conectado são coletadas após o agente do computador conectado ser registrado em servidores habilitados para Arc. Especificamente:
+
+* Nome, tipo e versão do sistema operacional
+* Nome do computador
+* FQDN (nome de domínio totalmente qualificado) do computador
+* Versão do agente do Connected Machine
+* Active Directory e FQDN (nome de domínio totalmente qualificado) do DNS
+* UUID (ID DO BIOS)
+* Pulsação do agente da máquina conectada
+* Versão do agente do Connected Machine
+* Chave pública para identidade gerenciada
+* Detalhes e status de conformidade da política (se estiver usando Azure Policy políticas de configuração de convidado)
+
+As informações de metadados a seguir são solicitadas pelo agente do Azure:
+
+* Local do recurso (região)
+* ID da máquina virtual
+* Marcas
+* Azure Active Directory certificado de identidade gerenciado
+* Atribuições de política de configuração de convidado
+* Solicitações de extensão – instalar, atualizar e excluir.
+
 ## <a name="download-agents"></a>Baixar agentes
 
 Você pode baixar o pacote do agente do Azure Connected Machine para Windows e Linux dos locais listados abaixo.
@@ -44,6 +68,10 @@ Você pode baixar o pacote do agente do Azure Connected Machine para Wind
 O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades. Para saber mais, clique [aqui](manage-agent.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+### <a name="supported-environments"></a>Ambientes compatíveis
+
+Os servidores habilitados para Arc oferecem suporte à instalação do agente do computador conectado em qualquer servidor físico e máquina virtual hospedada *fora* do Azure. Isso inclui máquinas virtuais em execução em plataformas como VMware, Azure Stack HCI e em outros ambientes de nuvem. Os servidores habilitados para ARC não dão suporte à instalação do agente em máquinas virtuais em execução no Azure, ou máquinas virtuais em execução no Hub de Azure Stack ou Azure Stack Edge, pois já estão modeladas como VMs do Azure.
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -86,7 +114,7 @@ Para garantir a segurança de dados em trânsito para o Azure, incentivamos voc�
 O agente do Connected Machine para Linux e Windows comunica a saída com segurança ao Azure Arc pela porta TCP 443. Se o computador se conectar por meio de um firewall ou servidor proxy para se comunicar pela Internet, examine o seguinte para entender os requisitos de configuração de rede.
 
 > [!NOTE]
-> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) como proxy para o agente de computador conectado.
+> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/agents/gateway.md) como proxy para o agente de computador conectado.
 >
 
 Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy, verifique se as URLs listadas abaixo não estão bloqueadas. Quando você permite apenas os intervalos IP ou nomes de domínio necessários para que o agente se comunique com o serviço, é necessário permitir o acesso às seguintes marcas de serviço e URLs.

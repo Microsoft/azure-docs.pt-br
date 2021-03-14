@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f393c5df23b9552f598e05d25aaf09e529324abe
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201987"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668343"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Linha de base de segurança do Azure para Azure Pesquisa Cognitiva
 
@@ -171,7 +171,7 @@ Como alternativa, você pode habilitar e integrar esses dados ao Azure Sentinel 
 
 - [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -185,7 +185,7 @@ Como alternativa, você pode habilitar e integrar esses dados ao Azure Sentinel 
 
 - [Como coletar e analisar dados de log para o Azure Pesquisa Cognitiva](./search-monitor-logs.md)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -205,9 +205,9 @@ Como alternativa, você pode habilitar e integrar esses dados ao Azure Sentinel 
 
 Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para armazenamento de longo prazo e arquivamento. 
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -223,9 +223,9 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Saiba mais sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Saiba mais sobre o Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -239,7 +239,7 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -495,7 +495,7 @@ A Microsoft gerencia a plataforma subjacente e trata todo o conteúdo do cliente
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usar o RBAC do Azure para gerenciar o acesso aos recursos
 
 **Diretrizes**: para administração de serviços, use o Azure RBAC (controle de acesso baseado em função) para gerenciar o acesso a chaves e configurações. Para operações de conteúdo, como indexação e consultas, Pesquisa Cognitiva usa chaves em vez de um modelo de controle de acesso baseado em identidade. Use o RBAC do Azure para controlar o acesso às chaves.
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Como usar funções para acesso administrativo a Pesquisa Cognitiva](./search-security-rbac.md)
@@ -532,7 +532,7 @@ A Microsoft gerencia a infraestrutura subjacente para Pesquisa Cognitiva e imple
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem em instâncias de produção do pesquisa cognitiva e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Como criar alertas para atividades de Pesquisa Cognitiva](./search-monitor-logs.md)
 
@@ -732,7 +732,7 @@ Controle o acesso às chaves usadas para autenticar solicitações para todas as
 
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft. Search" para criar políticas personalizadas para auditar ou impor a configuração de seus recursos de pesquisa cognitiva do Azure. Você também pode usar definições de Azure Policy internas para serviços de Pesquisa Cognitiva, como:
 
-- Habilitar o log de auditoria para recursos do Azure
+- habilitar o registro em log de auditoria para recursos do Azure
 
 Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Object Notation (JSON), que deve ser revisado para garantir que as configurações atendam aos requisitos de segurança da sua organização. 
 

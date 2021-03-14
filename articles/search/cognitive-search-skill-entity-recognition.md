@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3300d68c6356cb7cdd56a9ad79eb0ac011942eb2
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542454"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547893"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
@@ -53,7 +53,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
-> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](../cognitive-services/text-analytics/language-support.md).  
+> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_ e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](../cognitive-services/text-analytics/language-support.md).  
 
 | Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
@@ -189,8 +189,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
 Observe que os deslocamentos retornados para entidades na saída dessa habilidade são retornados diretamente da [API de análise de texto](../cognitive-services/text-analytics/overview.md), o que significa que, se você estiver usando-os para indexar na cadeia de caracteres original, deverá usar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo) no .net para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## <a name="error-cases"></a>Casos de erro
-Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.
+## <a name="warning-cases"></a>Casos de aviso
+Se não houver suporte para o código de idioma do documento, um aviso será retornado e nenhuma entidade será extraída.
 
 ## <a name="see-also"></a>Confira também
 

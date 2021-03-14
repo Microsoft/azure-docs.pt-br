@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006999"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559351"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
-O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários.
+O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/alerts/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários.
 
 Esse recurso usa o cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar as VMs.
 
@@ -35,11 +35,14 @@ A seguir estão as limitações do recurso atual:
 - Ele gerencia VMs em qualquer região, mas só pode ser usado na mesma assinatura que sua conta da Automação do Azure.
 - Ela está disponível no Azure e no Azure Governamental para qualquer região que ofereça suporte a um workspace do Log Analytics, uma conta da Automação do Azure e alertas. As regiões do Azure Governamental não dão suporte à funcionalidade de email no momento.
 
+> [!NOTE]
+> Antes de instalar esta versão, gostaríamos de saber mais sobre a [próxima versão](https://github.com/microsoft/startstopv2-deployments), que está em visualização no momento.  Essa nova versão (v2) oferece a mesma funcionalidade que esta, mas foi projetada para tirar proveito da tecnologia mais recente no Azure. Ele adiciona alguns dos recursos mais solicitados dos clientes, como suporte a várias assinaturas de uma única instância de iniciar/parar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./automation-security-overview.md#run-as-accounts). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
-- Um [Azure monitor espaço de trabalho log Analytics](../azure-monitor/platform/design-logs-deployment.md) que armazena os logs de trabalho do runbook e os resultados do fluxo de trabalho em um espaço de trabalho para consultar e analisar. A conta de automação pode ser vinculada a um espaço de trabalho Log Analytics novo ou existente e os dois recursos precisam estar no mesmo grupo de recursos.
+- Um [Azure monitor espaço de trabalho log Analytics](../azure-monitor/logs/design-logs-deployment.md) que armazena os logs de trabalho do runbook e os resultados do fluxo de trabalho em um espaço de trabalho para consultar e analisar. A conta de automação pode ser vinculada a um espaço de trabalho Log Analytics novo ou existente e os dois recursos precisam estar no mesmo grupo de recursos.
 
 Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. Antes de importar os módulos atualizados para suas contas de automação de produção, recomendamos que você os importe em uma conta de automação de teste para verificar se não há nenhum problema de compatibilidade.
 

@@ -8,14 +8,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9248c9578d94b000c04c82b33eeeb089e55a26ef
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048025"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200306"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Após criar os módulos do IoT Edge com a lógica de negócios, você pretende implantá-los nos dispositivos para operar na borda. Se houver vários módulos trabalhando em conjunto para coletar e processar dados, será possível implantá-los todos de uma vez e declarar as regras de roteamento que conecta-os.
 
@@ -108,7 +110,7 @@ Você pode implantar rapidamente um módulo do Azure Marketplace em seu disposit
 1. No painel esquerdo, em **Gerenciamento de dispositivo automático**, selecione **IOT Edge**.
 1. Selecione o dispositivo IoT Edge que deve receber a implantação.
 1. Na barra superior, selecione **Definir Módulos**.
-1. Na seção **módulos IOT Edge** , clique em **Adicionar**e selecione **módulo do Marketplace** no menu suspenso.
+1. Na seção **módulos IOT Edge** , clique em **Adicionar** e selecione **módulo do Marketplace** no menu suspenso.
 
 ![Adicionar módulo no Hub IoT](./media/how-to-deploy-modules-portal/iothub-add-module.png)
 

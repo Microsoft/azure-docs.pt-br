@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 44ac0b06bb72d722797a20ed44ece14768c80997
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763741"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630479"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implantar VMs em seu dispositivo Azure Stack Edge pro GPU via script Azure PowerShell
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge pro usando um script Azure PowerShell.
 
@@ -41,7 +41,7 @@ Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge
 
     1. Inicie o **Bloco de notas** como administrador (é necessário ter privilégios de Administrador para salvar o arquivo) e abra o arquivo **hosts** localizado em `C:\Windows\System32\Drivers\etc`.
     
-        ![Arquivo hosts do Windows Explorer](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![Arquivo hosts do Windows Explorer](media/azure-stack-edge-gpu-connect-resource-manager/hosts-file.png)
     
     2. Adicione as seguintes entradas ao arquivo **hosts** substituindo-as por valores apropriados para seu dispositivo:
     
@@ -54,7 +54,7 @@ Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge
 
     3. Use a imagem a seguir para referência. Salve o arquivo **hosts**.
 
-        ![Arquivo hosts no Bloco de notas](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![Arquivo hosts no Bloco de notas](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Baixe o script do PowerShell](https://aka.ms/ase-vm-powershell) usado neste procedimento.
 

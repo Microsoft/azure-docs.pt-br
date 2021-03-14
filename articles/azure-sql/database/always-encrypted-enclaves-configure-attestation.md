@@ -1,7 +1,7 @@
 ---
 title: Configurar o atestado do Azure para seu servidor lógico do SQL Azure
 description: Configure o atestado do Azure para Always Encrypted com o Secure enclaves no banco de dados SQL do Azure.
-keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais, Always Encrypted, enclaves seguro, SGX, atestado
+keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais, Always Encrypted, enclaves seguros, SGX, atestado
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,19 +11,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733803"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122571"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurar o atestado do Azure para seu servidor lógico do SQL Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> O Always Encrypted com Secure enclaves para o banco de dados SQL do Azure está atualmente em **Visualização pública**.
+> Atualmente, o Always Encrypted com enclaves seguros para o Banco de Dados SQL do Azure está em **versão prévia pública**.
 
 [Microsoft Azure atestado](../../attestation/overview.md) é uma solução para atestar TEEs (ambientes de execução confiáveis), incluindo o ENCLAVES Intel SGX (Intel® software Guard Extensions). 
 
@@ -31,7 +31,7 @@ Para usar o atestado do Azure para atestado do Intel SGX enclaves usado para [Al
 
 1. Crie um [provedor de atestado](../../attestation/basic-concepts.md#attestation-provider) e configure-o com a política de atestado recomendada.
 
-2. Conceda acesso ao seu servidor lógico do Azure SQL ao seu provedor de atestado.
+2. Permita o acesso do provedor de atestado ao servidor lógico do SQL do Azure.
 
 > [!NOTE]
 > Configurar o atestado é responsabilidade do administrador de atestado. Consulte [funções e responsabilidades ao configurar o enclaves e o atestado de SGX](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
@@ -66,17 +66,21 @@ authorizationrules
 
 A política acima verifica:
 
-- O enclave dentro do banco de dados SQL do Azure não dá suporte à depuração (o que reduziria o nível de proteção que o enclave fornece).
-- A ID do produto da biblioteca dentro de enclave é a ID do produto atribuída a Always Encrypted com Secure enclaves (4639).
-- A ID da versão (SVN) da biblioteca é maior que 0.
+- O enclave dentro do banco de dados SQL do Azure não dá suporte à depuração. 
+  > Enclaves pode ser carregado com a depuração desabilitada ou habilitada. O suporte à depuração foi projetado para permitir que os desenvolvedores solucionem problemas de código em execução em um enclave. Em um sistema de produção, a depuração pode permitir que um administrador examine o conteúdo do enclave, o que reduziria o nível de proteção que o enclave fornece. A política recomendada desabilita a depuração para garantir que, se um administrador mal-intencionado tentar ativar o suporte à depuração assumindo o computador enclave, o atestado falhará. 
+- A ID do produto de enclave corresponde à ID do produto atribuída a Always Encrypted com Secure enclaves.
+  > Cada enclave tem uma ID de produto exclusiva que diferencia o enclave de outros enclaves. A ID do produto atribuída ao Always Encrypted enclave é 4639. 
+- O número de versão de segurança (SVN) da biblioteca é maior que 0.
+  > O SVN permite que a Microsoft responda a possíveis bugs de segurança identificados no código enclave. Caso um problema de segurança seja abordado e corrigido, a Microsoft implantará uma nova versão do enclave com um novo SVN (incrementado). A política recomendada acima será atualizada para refletir o novo SVN. Ao atualizar sua política para corresponder à política recomendada, você pode garantir que, se um administrador mal-intencionado tentar carregar um enclave mais antigo e inseguro, o atestado falhará.
 - A biblioteca no enclave foi assinada usando a chave de assinatura da Microsoft (o valor da declaração x-MS-SGX-mrsigner é o hash da chave de assinatura).
+  > Um dos principais objetivos do atestado é convencer os clientes que o binário em execução no enclave é o binário que deve ser executado. As políticas de atestado fornecem dois mecanismos para essa finalidade. Uma é a Declaração **mrenclave** que é o hash do binário que deve ser executado em um enclave. O problema com o **mrenclave** é que o hash binário é alterado mesmo com alterações triviais no código, o que torna difícil a revisão do código em execução no enclave. Portanto, recomendamos o uso do **mrsigner**, que é um hash de uma chave usada para assinar o binário enclave. Quando a Microsoft Revs o enclave, o **mrsigner** permanece o mesmo, desde que a chave de assinatura não mude. Dessa forma, torna-se viável implantar binários atualizados sem quebrar os aplicativos dos clientes. 
 
 > [!IMPORTANT]
 > Um provedor de atestado é criado com a política padrão para o Intel SGX enclaves, que não valida o código em execução dentro do enclave. A Microsoft recomenda enfaticamente que você defina a política recomendada acima e não use a política padrão, para Always Encrypted com o Secure enclaves.
 
 Para obter instruções sobre como criar um provedor de atestado e configurar com uma política de atestado usando:
 
-- [Início rápido: configurar o atestado do Azure com o portal do Azure](../../attestation/quickstart-portal.md)
+- [Início rápido: Configurar Atestado do Azure com o portal do Azure](../../attestation/quickstart-portal.md)
     > [!IMPORTANT]
     > Ao configurar sua política de atestado com portal do Azure, defina tipo de atestado como `SGX-IntelSDK` .
 - [Início Rápido: Configurar o Atestado do Azure com o Azure PowerShell](../../attestation/quickstart-powershell.md)
@@ -114,7 +118,7 @@ Durante o fluxo de trabalho de atestado, o servidor lógico do SQL do Azure que 
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Usar portal do Azure para atribuir permissão
 
-Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md). Quando você estiver no painel **Adicionar atribuição de função** :
+Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md). Quando você estiver no painel **Adicionar atribuição de função** :
 
 1. Na lista suspensa **função** , selecione a função **leitor de atestado** .
 1. No campo **selecionar** , insira o nome do seu servidor SQL do Azure para pesquisá-lo.
@@ -143,7 +147,7 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Para obter mais informações, consulte [atribuir funções do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 

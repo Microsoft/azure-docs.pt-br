@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 2f884a09e6b51b1c72034a62eaea601a4e69ecd2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f1408b2a8561dbec64e88d523660e24dd0b803de
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024280"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102193940"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -57,7 +57,7 @@ Crie um arquivo no diretório raiz do projeto chamado **client.js** para conter 
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -68,9 +68,9 @@ const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential('your-token-here');
+    const tokenCredential = new AzureCommunicationTokenCredential('<USER ACCESS TOKEN with PSTN scope>');
     callAgent = await callClient.createCallAgent(tokenCredential);
-  //  callButton.disabled = false;
+  //  callPhoneButton.disabled = false;
 }
 
 init();
@@ -90,7 +90,7 @@ Adicione um manipulador de eventos para iniciar uma chamada para o número de te
 callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
+  call = callAgent.startCall(
     [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
   // toggle button states
@@ -124,7 +124,7 @@ Use `webpack-dev-server` para criar e executar o seu aplicativo. Execute o segui
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Abra o navegador e navegue até `http://localhost:8080/`. Você deve ver o seguinte:

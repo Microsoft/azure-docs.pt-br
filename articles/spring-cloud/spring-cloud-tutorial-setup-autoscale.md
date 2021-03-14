@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: eaa4a219a1020639c930f8a07bfcaa1c45d0cef8
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533818"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219005"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>Configurar o dimensionamento automático para aplicativos de microsserviço
 
@@ -70,5 +70,5 @@ Se você estiver na camada básica e restringido por um ou mais desses limites, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do dimensionamento automático no Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
-* [Monitoramento do dimensionamento automático na CLI do Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)
+* [Visão geral do dimensionamento automático no Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md)
+* [Monitoramento do dimensionamento automático na CLI do Azure](/cli/azure/monitor/autoscale)

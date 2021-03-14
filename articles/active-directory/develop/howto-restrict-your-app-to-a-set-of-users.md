@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 71cfe08da42b8eec9ddbd0e4246ba1b72f895414
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178731"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199593"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -47,7 +47,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicativos empresariais (requer a função de administrador global)
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a> como um **administrador global**.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> como um **Administrador Global**.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **gerenciar**, selecione **aplicativos empresariais**  >  **todos os aplicativos**.
@@ -59,13 +59,13 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 
 ### <a name="app-registration"></a>Registro do aplicativo
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
 1. Crie ou selecione o aplicativo que você deseja gerenciar. Você precisa ser o **proprietário** deste aplicativo.
 1. Na página **visão geral** do aplicativo, selecione o link **aplicativo gerenciado no diretório local** na seção **Essentials** .
-1. Em **gerenciar**, selecione **Propriedades**.
+1. Em **Gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
 1. Selecione **Salvar**.
 
@@ -87,6 +87,6 @@ Após configurar seu aplicativo para habilitar a atribuição de usuários, pros
 
 - [Como: adicionar funções de aplicativo em seu aplicativo](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo do Azure Active Directory](./reference-app-manifest.md)

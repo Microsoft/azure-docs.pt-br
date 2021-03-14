@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250157"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652337"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Gatsby em Aplicativos Web Estáticos do Azure (versão prévia)
 
@@ -75,7 +75,7 @@ Você precisa ter um repositório no GitHub para criar um novo recurso do Aplica
 1. Envie por push seu repositório local para o GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Implantar o aplicativo Web
@@ -102,7 +102,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Para _SKU_, selecione **Gratuito**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Detalhes preenchidos":::
 
 1. Clique no botão **Entrar com o GitHub**.
 
@@ -110,9 +110,9 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Selecione **gatsby-static-web-app** como _Repositório_.
 
-1. Para _Branch_, selecione **master**.
+1. Para _Branch_, selecione **main**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
 
 ### <a name="build"></a>Build
 
@@ -126,7 +126,7 @@ Em seguida, adicione as definições de configuração que o processo de build u
 
    Não é necessário um valor para _Local da API_, pois você não está implantando uma API no momento.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Configurações do Build":::
 
 ### <a name="review-and-create"></a>Examinar e criar
 
@@ -138,7 +138,7 @@ Em seguida, adicione as definições de configuração que o processo de build u
 
 1. Na tela de recursos, clique no link _URL_ para abrir o aplicativo implantado. Talvez seja necessário aguardar um minuto ou dois para que a GitHub Action seja concluída.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Criar Aplicativos Web Estáticos (Versão Prévia) no portal":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Aplicativo implantado":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7df3934862efa9798735d0c163f7fb1bac98423
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d5fa4cba67e279f66c090c8cb30eadf099f3c998
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951036"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673551"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -310,7 +309,7 @@ Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, us
 
 Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > instância de cluster adicional do ASCS/SCS do **sistema de alta disponibilidade**  >  **ASCS/SCS instance**  >  **Additional cluster node**.
+**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > instância de cluster adicional do ASCS/SCS do **sistema de alta disponibilidade**  >    >  .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS

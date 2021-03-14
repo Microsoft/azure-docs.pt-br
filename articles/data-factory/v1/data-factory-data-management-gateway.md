@@ -1,23 +1,18 @@
 ---
 title: Gerenciamento de Dados gateway para Data Factory
 description: Use o Gateway de Gerenciamento de Dados no Azure Data Factory para mover os dados.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c1bed8d94f73bc7794037b307618f4c36c4518
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450614"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375197"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -253,7 +248,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
 Se optar por não abrir a porta 8050 no computador do gateway, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Confira a seção Definir credenciais e segurança para saber como as credenciais do armazenamento de dados podem ser definidas.
 
-## <a name="update"></a>Atualizar
+## <a name="update"></a>Atualização
 Por padrão, o Gateway de Gerenciamento de Dados é atualizado automaticamente quando uma versão mais recente do gateway está disponível. O gateway não é atualizado até que todas as tarefas agendadas sejam concluídas. Nenhuma tarefa adicional é processada pelo gateway até que a operação de atualização seja concluída. Se a atualização falhar, o gateway será revertido para a versão antiga.
 
 Você vê a hora de atualização agendada nos seguintes locais:
@@ -307,7 +302,7 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Gerenciador de Configurações
+## <a name="configuration-manager"></a>Configuration Manager
 Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração de Gateway de Gerenciamento de Dados de uma das seguintes maneiras:
 
 1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
@@ -380,7 +375,7 @@ Nessa página, você verá algumas configurações que fazem mais sentido quando
 ### <a name="gateway-status"></a>Status do gateway
 A tabela a seguir fornece os possíveis status de um **nó de gateway**:
 
-Status  | Comentários/Cenários
+Status    | Comentários/Cenários
 :------- | :------------------
 Online | Nó conectado ao serviço Data Factory.
 Offline | O nó está offline.
@@ -422,7 +417,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
     ![Configurar página](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Mantenha o **Gerenciador de Configuração de Gateway do Gerenciamento de Dados da Microsoft**
 
-    ![Gerenciador de Configurações](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na página **Configurar no portal**, clique em **Recriar chave** na barra de comandos e clique em **Sim** para a mensagem de aviso. Clique no **botão copiar** ao lado do texto da chave, que copia a chave para a área de transferência. O gateway no computador antigo deixa de funcionar assim que você recria a chave.
 
     ![Recriar a chave 2](./media/data-factory-data-management-gateway/RecreateKey.png)

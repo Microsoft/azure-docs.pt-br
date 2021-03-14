@@ -3,16 +3,16 @@ title: VMs de série DSv2 e Dv2 otimizadas para memória – máquinas virtuais 
 description: Especificações para as VMs da série Dv2 e DSv2.
 author: joelpelley
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b6f99f1f58faece3ab286b2bc3cb571cdcba87de
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f07e4542e380e4e8057d9011a6b613e9ad55a058
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088897"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560320"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 com otimização de memória e série Dsv2
 
@@ -28,7 +28,7 @@ Os tamanhos da série Dv2 são executados no Intel® Xeon® Platinum 8272CL (Cas
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br> 
 
@@ -53,7 +53,7 @@ Os tamanhos da série DSv2 são executados no Intel® Xeon® Platinum 8272CL (Ca
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br> 
 

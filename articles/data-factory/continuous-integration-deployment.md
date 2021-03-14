@@ -1,22 +1,18 @@
 ---
 title: Integração e entrega contínuas no Azure Data Factory
 description: Aprenda a usar integração e entrega contínuas para mover os pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: jroth
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.date: 03/11/2021
+ms.openlocfilehash: 4f03236176acea14bed2dfaac53b1a1e6cf7a1e2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680303"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197863"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -203,7 +199,7 @@ A equipe do data factory forneceu um [script pré e pós-implantação de exempl
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usar parâmetros personalizados com o modelo do Resource Manager
 
-Se o seu alocador de desenvolvimento tiver um repositório do git associado, você poderá substituir os parâmetros de modelo do Resource Manager padrão do modelo do Resource Manager gerado pela publicação ou exportação do modelo. Talvez seja interessante substituir o modelo de parametrização padrão nestes cenários:
+Se o seu alocador de desenvolvimento tiver um repositório do git associado, você poderá substituir os parâmetros de modelo do Resource Manager padrão do modelo do Resource Manager gerado pela publicação ou exportação do modelo. Talvez você queira substituir a configuração padrão do parâmetro do Resource Manager nesses cenários:
 
 * Você usa CI/CD automatizadas e deseja alterar algumas propriedades durante a implantação do Resource Manager, mas as propriedades não são parametrizadas por padrão.
 * Seu alocador é tão grande que o modelo padrão do Resource Manager é inválido porque ele tem mais do que os parâmetros máximos permitidos (256).
@@ -214,11 +210,14 @@ Se o seu alocador de desenvolvimento tiver um repositório do git associado, voc
     * Refatorar lógica no fluxo de os para reduzir parâmetros, por exemplo, todos os parâmetros de pipeline têm o mesmo valor, você pode usar apenas parâmetros globais em vez disso.
     * Divida um data factory em vários fluxos de dados.
 
-Para substituir o modelo de parametrização padrão, vá para o Hub de gerenciamento e selecione **modelo de parametrização** na seção controle do código-fonte. Selecione **Editar modelo** para abrir o editor de código de modelo de parametrização. 
+Para substituir a configuração padrão do parâmetro do Resource Manager, vá para o modelo **gerenciar** o Hub e selecione **ARM** na seção "controle do código-fonte". Na seção **configuração do parâmetro ARM** , clique no ícone **Editar** em "Editar configuração de parâmetros" para abrir o editor de código de configuração de parâmetros do Resource Manager.
 
 ![Gerenciar parâmetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
 
-A criação de um modelo de parametrização personalizado cria um arquivo chamado **arm-template-parameters-definition.js** no na pasta raiz do seu Branch git. Você deve usar esse nome de arquivo exato.
+> [!NOTE]
+> A **configuração do parâmetro ARM** só está habilitada no "modo git". Atualmente, ele está desabilitado no modo "modo dinâmico" ou "Data Factory".
+
+A criação de uma configuração de parâmetro do Gerenciador de recursos Personalizada cria um arquivo chamado **arm-template-parameters-definition.js** no na pasta raiz do seu Branch git. Você deve usar esse nome de arquivo exato.
 
 ![Arquivo de parâmetros personalizado](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -227,7 +226,7 @@ Ao publicar do branch de colaboração, o Data Factory lerá esse arquivo e usar
 Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qualquer Branch na qual você está trabalhando no momento, não a ramificação de colaboração. Você pode criar ou editar o arquivo de um branch privado, no qual você pode testar suas alterações selecionando **Exportar modelo do ARM** na interface do usuário. Em seguida, você pode mesclar o arquivo no branch de colaboração.
 
 > [!NOTE]
-> Um modelo de parametrização personalizado não altera o limite de parâmetro do modelo do ARM de 256. Ele permite que você escolha e diminua o número de propriedades parametrizadas.
+> Uma configuração de parâmetro do Gerenciador de recursos personalizada não altera o limite do parâmetro de modelo ARM de 256. Ele permite que você escolha e diminua o número de propriedades parametrizadas.
 
 ### <a name="custom-parameter-syntax"></a>Sintaxe do parâmetro personalizado
 
@@ -248,7 +247,7 @@ Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmet
  
 ### <a name="sample-parameterization-template"></a>Modelo de parametrização de exemplo
 
-Veja um exemplo de como seria um modelo de parametrização:
+Aqui está um exemplo de como seria a aparência de uma configuração de parâmetro do Resource Manager:
 
 ```json
 {
@@ -334,6 +333,10 @@ Esta é uma explicação de como o modelo anterior é construído, dividido por 
 #### <a name="datasets"></a>Conjunto de dados
 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de dados, você pode fornecer uma configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de conjunto de dados em `typeProperties` são parametrizadas.
+
+> [!NOTE]
+> Os **alertas e as matrizes do Azure** , se configurados para um pipeline, não têm suporte atualmente como parâmetros para implantações do ARM. Para reaplicar os alertas e as matrizes em um novo ambiente, siga [Data Factory monitoramento, alertas e matrizes.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -679,6 +682,8 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 -   Não é possível publicar de branches particulares.
 
 -   No momento, você não pode hospedar projetos no Bitbucket.
+
+-   Atualmente, não é possível exportar e importar alertas e matrizes como parâmetros. 
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Script pré e pós-implantação de exemplo
 

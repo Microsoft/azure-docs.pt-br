@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574424"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417664"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -22,7 +22,7 @@ Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de 
 
 ### <a name="cause-1-share-was-throttled"></a>Causa 1: o compartilhamento foi limitado
 
-As solicitações são limitadas quando os limites de IOPS (operações de e/s por segundo), de entrada ou de saída de um compartilhamento de arquivos são atingidos. Para entender os limites dos compartilhamentos de arquivos Standard e Premium, consulte [compartilhamento de arquivos e destinos de escala de arquivos](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+As solicitações são limitadas quando os limites de IOPS (operações de e/s por segundo), de entrada ou de saída de um compartilhamento de arquivos são atingidos. Para entender os limites dos compartilhamentos de arquivos Standard e Premium, consulte [compartilhamento de arquivos e destinos de escala de arquivos](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 Para confirmar se o compartilhamento está sendo limitado, você pode acessar e usar as métricas do Azure no Portal.
 
@@ -39,7 +39,8 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
     Para compartilhamentos de arquivos padrão, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para compartilhamentos de arquivos premium, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
 
@@ -50,7 +51,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Para saber mais sobre cada tipo de resposta, consulte [dimensões de métrica](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Para saber mais sobre cada tipo de resposta, consulte [dimensões de métrica](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Captura de tela das opções de métricas para compartilhamentos de arquivos premium, mostrando um filtro de propriedade "tipo de resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -244,7 +245,8 @@ Para confirmar, você pode usar as métricas do Azure no portal-
     Para compartilhamentos de arquivos padrão, selecione os seguintes tipos de resposta:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para compartilhamentos de arquivos premium, selecione os seguintes tipos de resposta:
 
@@ -258,13 +260,12 @@ Para confirmar, você pode usar as métricas do Azure no portal-
    > [!NOTE]
    > Se os tipos de resposta não estiverem listados na lista suspensa **valores de dimensão** , isso significa que o recurso não foi limitado. Para adicionar os valores de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira o tipo resposta (por exemplo, **SuccessWithThrottling**), selecione **OK** e repita essas etapas para adicionar todos os tipos de resposta aplicáveis ao compartilhamento de arquivos.
 
-8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
-9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
-
+8. Para **compartilhamentos de arquivos Premium**, clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**. Para **compartilhamentos de arquivos padrão**, pule para a **etapa #10**.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a dimensão de **compartilhamento de arquivos** não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
+9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 
     > [!TIP]

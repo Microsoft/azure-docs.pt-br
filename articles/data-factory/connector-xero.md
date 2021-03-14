@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Xero usando o Azure Data Factory
 description: Saiba como copiar dados do Xero para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.author: jingwang
-ms.openlocfilehash: 3f8c74f36c1c441e00b808954ce7f7710d3fbd52
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d795f8355943032751b911423b8aaa93b2df3206
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879958"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366901"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados do Xero usando o Azure Data Factory
 
@@ -52,10 +47,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do Xero:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Xero** | Sim |
 | connectionProperties | Um grupo de propriedades que define como se conectar ao Xero. | Sim |
-| **_Em `connectionProperties` :_* _ | | |
+| ***Em `connectionProperties` :*** | | |
 | host | O ponto de extremidade do servidor Xero (`api.xero.com`).  | Sim |
 | authenticationType | Os valores permitidos são `OAuth_2.0` e `OAuth_1.0` . | Sim |
-| consumerKey | Para o OAuth 2,0, especifique o _ *Client ID** para seu aplicativo Xero.<br>Para o OAuth 1,0, especifique a chave do consumidor associada ao aplicativo Xero.<br>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| consumerKey | Para o OAuth 2,0, especifique a **ID do cliente** para seu aplicativo Xero.<br>Para o OAuth 1,0, especifique a chave do consumidor associada ao aplicativo Xero.<br>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | privateKey | Para o OAuth 2,0, especifique o **segredo do cliente** para seu aplicativo Xero.<br>Para o OAuth 1,0, especifique a chave privada do arquivo. pem que foi gerado para seu aplicativo Xero particular, consulte [criar um par de chaves pública/privada](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Observação para **gerar o PrivateKey. pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512` , não há suporte para 1024. Inclua todo o texto do arquivo .pem, incluindo as terminações de linha Unix (\n), consulte o exemplo abaixo.<br/><br>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | tenantId | A ID do locatário associada ao aplicativo Xero. Aplicável para autenticação OAuth 2,0.<br>Saiba como obter a ID do locatário de [verificar os locatários que você está autorizado a acessar seção](https://developer.xero.com/documentation/oauth2/auth-flow). | Sim para autenticação OAuth 2,0 |
 | refreshToken | Aplicável para autenticação OAuth 2,0.<br/>O token de atualização do OAuth 2,0 está associado ao aplicativo Xero e usado para atualizar o token de acesso; o token de acesso expira após 30 minutos. Saiba mais sobre como funciona o fluxo de autorização do Xero e como obter o token de atualização deste [artigo](https://developer.xero.com/documentation/oauth2/auth-flow). Para obter um token de atualização, você deve solicitar o [escopo de offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Identificar limitação**: Observe que o Xero redefine o token de atualização depois de ser usado para a atualização do token de acesso. Para a carga de trabalho operacional, antes da execução de cada atividade de cópia, você precisa definir um token de atualização válido para o ADF usar.<br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2,0 |
@@ -215,7 +210,7 @@ As tabelas a seguir possuem a mesma informação no esquema Mínimo e Completo. 
 
 - Bank_Transactions
 - Contact_Groups 
-- Contacts 
+- Contatos 
 - Contacts_Sales_Tracking_Categories 
 - Contacts_Phones 
 - Contacts_Addresses 

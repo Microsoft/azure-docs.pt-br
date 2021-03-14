@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 5377a3ff7ef7033b57f8785baa615a717ef7fa0f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054882"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575871"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitar o Gerenciamento de Atualizações de um runbook
 
@@ -29,7 +29,7 @@ Esse método usa dois runbooks:
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automação](../automation-security-overview.md) para gerenciar máquinas.
-* [Espaço de Trabalho do Log Analytics](../../azure-monitor/platform/design-logs-deployment.md)
+* [Espaço de Trabalho do Log Analytics](../../azure-monitor/logs/design-logs-deployment.md)
 * Uma [máquina virtual](../../virtual-machines/windows/quick-create-portal.md).
 * Dois ativos de automação, que são usados pelo runbook **Enable-AutomationSolution** . Esse runbook, se ele ainda não existir na sua conta de automação, será importado automaticamente pelo runbook **Enable-MultipleSolution** durante sua primeira execução.
     * *LASolutionSubscriptionId*: ID da assinatura em que o espaço de trabalho do log Analytics está localizado.

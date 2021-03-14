@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4cf3709574e2055f40759fd2d7026c93ac9db098
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184533"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608012"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
 
@@ -39,14 +39,14 @@ Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informaç
 
 2. **Habilitar o log de recursos para o perfil do Gerenciador de tráfego:**
 
-    Habilite o log de recursos para o perfil do Gerenciador de tráfego usando a ID obtida na etapa anterior com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
+    Habilite o log de recursos para o perfil do Gerenciador de tráfego usando a ID obtida na etapa anterior com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verificar configurações de diagnóstico:**
 
-      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). O comando a seguir exibe as categorias registradas em log para um recurso.
+      Verifique as configurações de diagnóstico para o perfil do Gerenciador de Tráfego, usando [Get-AzDiagnosticSetting](/powershell/module/az.monitor/get-azdiagnosticsetting). O comando a seguir exibe as categorias registradas em log para um recurso.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
@@ -64,14 +64,14 @@ Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informaç
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de log do Gerenciador de Tráfego
 
-Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/platform/resource-logs-schema.md).
+Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 A tabela a seguir inclui o esquema de logs específico para o recurso de perfil do Gerenciador de Tráfego do Azure.
 
 |Nome do campo|Tipo de campo|Definição|Exemplo|
 |----|----|---|---|
-|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
+|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
 |||||
 
 ## <a name="next-steps"></a>Próximas etapas

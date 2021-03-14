@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762929"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031694"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação de objeto para BLOBs de blocos
 
@@ -45,7 +45,7 @@ Se você tiver acesso às contas de armazenamento de origem e de destino, poder�
 
 Antes de configurar a replicação de objeto no portal do Azure, crie os contêineres de origem e de destino nas respectivas contas de armazenamento se eles ainda não existirem. Além disso, habilite o controle de versão do blob e o feed de alterações na conta de origem e habilite o controle de versão do blob na conta de destino.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 O portal do Azure cria automaticamente a política na conta de origem depois de configurá-la para a conta de destino.
 
@@ -238,10 +238,10 @@ Tenha em mente que você deve receber a função de **colaborador** de Azure Res
 
 A tabela a seguir resume quais valores usar para a ID de política e IDs de regra no arquivo JSON em cada cenário.
 
-| Ao criar o arquivo JSON para esta conta... | Definir a ID da política e as IDs de regra para este valor... |
-|-|-|
-| Conta de destino | O valor da cadeia de caracteres *padrão*. O armazenamento do Azure criará a ID da política e as IDs de regra para você. |
-| Conta de origem | Os valores da ID da política e IDs de regra retornados quando você baixa a política definida na conta de destino como um arquivo JSON. |
+| Ao criar o arquivo JSON para esta conta... | Definir a ID da política para este valor | Definir IDs de regra para este valor |
+|-|-|-|
+| Conta de destino | O valor da cadeia de caracteres *padrão*. O armazenamento do Azure criará o valor da ID de política para você. | Uma cadeia de caracteres vazia. O armazenamento do Azure criará os valores de ID de regra para você. |
+| Conta de origem | O valor da ID da política retornado quando você baixa a política definida na conta de destino como um arquivo JSON. | Os valores das IDs de regra retornaram quando você baixa a política definida na conta de destino como um arquivo JSON. |
 
 O exemplo a seguir define uma política de replicação na conta de destino com uma única regra que corresponde ao prefixo *b* e define o tempo de criação mínimo para BLOBs que devem ser replicados. Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores:
 
@@ -253,7 +253,7 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -268,11 +268,11 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
 }
 ```
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para configurar a replicação de objeto na conta de destino com um arquivo JSON no portal do Azure, siga estas etapas:
 
-1. Crie um arquivo JSON local que define a política de replicação na conta de destino. Defina o campo **PolicyId** como **padrão** para que o armazenamento do Azure defina a ID da política.
+1. Crie um arquivo JSON local que define a política de replicação na conta de destino. Defina o campo **PolicyId** como *padrão* para que o armazenamento do Azure defina a ID da política.
 
     Uma maneira fácil de criar um arquivo JSON que define uma política de replicação é primeiro criar uma política de replicação de teste entre duas contas de armazenamento na portal do Azure. Em seguida, você pode baixar as regras de replicação e modificar o arquivo JSON conforme necessário.
 
@@ -349,7 +349,7 @@ az storage account or-policy create \
 
 Você pode verificar o status de replicação de um blob na conta de origem usando o portal do Azure, o PowerShell ou o CLI do Azure. As propriedades de replicação de objeto não são populadas até que a replicação seja concluída ou falhou.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para verificar o status de replicação de um blob na conta de origem no portal do Azure, siga estas etapas:
 

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677284"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572219"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato do log de auditoria do banco de dados SQL
 
@@ -42,11 +42,11 @@ Os eventos de auditoria são gravados no namespace e no Hub de eventos que foi d
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Os eventos de auditoria são gravados no espaço de trabalho Log Analytics definido durante a configuração de auditoria, para a `AzureDiagnostics` tabela com a categoria `SQLSecurityAuditEvents` . Para obter informações úteis adicionais sobre o idioma e os comandos de pesquisa do Log Analytics, consulte [Referência de pesquisa do Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Os eventos de auditoria são gravados no espaço de trabalho Log Analytics definido durante a configuração de auditoria, para a `AzureDiagnostics` tabela com a categoria `SQLSecurityAuditEvents` . Para obter informações úteis adicionais sobre o idioma e os comandos de pesquisa do Log Analytics, consulte [Referência de pesquisa do Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campos do log de auditoria
 
-| Nome (BLOB) | Nome (hubs de eventos/Log Analytics) | Descrição | Tipo de blob | Tipo de Log Analytics/hubs de eventos |
+| Nome (BLOB) | Nome (hubs de eventos/Log Analytics) | Description | Tipo de blob | Tipo de Log Analytics/hubs de eventos |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID da ação | varchar(4) | string |
 | action_name | action_name_s | Nome da ação | N/D | string |

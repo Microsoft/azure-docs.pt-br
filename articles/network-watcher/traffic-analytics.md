@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070906"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095354"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -46,8 +46,8 @@ As redes virtuais do Azure têm logs de fluxo do NSG, que fornecem informações
 
 - **NSG (Grupo de Segurança de Rede)** : Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos conectados a uma Rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Logs de fluxo do NSG (Grupo de Segurança de Rede)** : Permitem que você exiba informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Os logs de fluxo do NSG são gravados no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os logs de fluxo do NSG, consulte [logs de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Aplicativos de monitoramento, como o monitor de desempenho de rede e a análise de tráfego, são criados usando os logs do Azure Monitor como base. Para obter mais informações, consulte [Logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espaço de Trabalho do Log Analytics**: Uma instância de logs do Azure Monitor, onde os dados pertencentes a uma conta do Azure são armazenados. Para obter mais informações sobre workspaces do Log Analytics, consulte [Criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: Um serviço do Azure que coleta dados de monitoramento e armazena os dados em um repositório central. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação. Aplicativos de monitoramento, como o monitor de desempenho de rede e a análise de tráfego, são criados usando os logs do Azure Monitor como base. Para obter mais informações, consulte [Logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Espaço de Trabalho do Log Analytics**: Uma instância de logs do Azure Monitor, onde os dados pertencentes a uma conta do Azure são armazenados. Para obter mais informações sobre workspaces do Log Analytics, consulte [Criar um workspace do Log Analytics](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Observador de Rede**: Um serviço regional que permite monitorar e diagnosticar condições em um nível de cenário de rede no Azure. Você pode ativar e desativar os logs de fluxo do NSG com o Observador de Rede. Para obter mais informações, consulte [Observador de Rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a Análise de Tráfego
@@ -71,33 +71,34 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
       Centro dos EUA  
       Leste da China 2  
       Norte da China 2  
+      Leste da Ásia       
    :::column-end:::
    :::column span="":::
-      Leste da Ásia  
       Leste dos EUA  
       Leste dos EUA 2  
       Leste dos EUA 2 EUAP  
       França Central  
-      Leste do Japão  
+      Centro-oeste da Alemanha leste do Japão  
       Oeste do Japão  
       Coreia Central  
       Sul da Coreia  
       Centro-Norte dos EUA  
+      Norte da Europa    
    :::column-end:::
    :::column span="":::
-      Norte da Europa  
       Norte da África do Sul  
       Centro-Sul dos Estados Unidos  
       Sul da Índia  
       Sudeste Asiático  
       Norte da Suíça  
       Oeste da Suíça  
+      Norte dos EAU  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       Gov. EUA – Arizona  
+      Gov. EUA – Texas
    :::column-end:::
    :::column span="":::
-      Gov. EUA – Texas  
       Gov. EUA – Virgínia  
       Leste USNat  
       Oeste do USNat  
@@ -143,14 +144,15 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
       Norte da Suíça  
       Oeste da Suíça  
       EAU Central  
+      Norte dos EAU  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       Gov. EUA – Arizona  
       Gov. EUA – Virgínia  
-      Leste USNat  
-      Oeste do USNat  
+      Leste USNat   
    :::column-end:::
    :::column span="":::
+      Oeste do USNat   
       Leste USSec  
       Oeste do USSec  
       Centro-Oeste dos EUA  
@@ -232,7 +234,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 4. Defina a **Retenção** para o número de dias que você deseja armazenar os dados. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento. 
 5. Selecione *Ativado* para **Status de Análise de Tráfego**.
 6. Selecione intervalo de processamento. Com base na sua escolha, os logs de fluxo serão coletados da conta de armazenamento e processados pela Análise de Tráfego. Você pode escolher o intervalo de processamento a cada 1 hora ou a cada 10 minutos. 
-7. Selecione um workspace do Log Analytics (OMS) existente ou selecione **Criar novo workspace** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Selecione um workspace do Log Analytics (OMS) existente ou selecione **Criar novo workspace** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
 >O espaço de trabalho do Log Analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.

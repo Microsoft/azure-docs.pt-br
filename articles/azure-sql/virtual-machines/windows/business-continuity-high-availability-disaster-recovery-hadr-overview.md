@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736885"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508309"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -106,7 +106,7 @@ VMs do Azure, armazenamento e rede têm características operacionais diferentes
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nós de alta disponibilidade em um conjunto de disponibilidade
 Os conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em domínios de falha e domínios de atualização separados. A plataforma Azure atribui um domínio de atualização e um domínio de falha a cada máquina virtual em seu conjunto de disponibilidade. Essa configuração em um datacenter garante que, durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,95%. 
 
-Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para configurar uma configuração de alta disponibilidade, Coloque todas as máquinas virtuais SQL Serverdas no mesmo conjunto de disponibilidade para evitar a perda de aplicativos ou dados durante um evento de manutenção. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nós de alta disponibilidade em uma zona de disponibilidade
 As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. A separação física das zonas de disponibilidade em uma região ajuda a proteger aplicativos e dados de falhas do datacenter, garantindo que pelo menos uma máquina virtual esteja disponível e atenda ao SLA do Azure de 99,99%. 

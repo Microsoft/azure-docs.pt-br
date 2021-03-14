@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673834"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218597"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos de extremidade de rede da Sincronização de Arquivos do Azure
 Os Arquivos do Azure e a Sincronização de Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivo do Azure: 
@@ -34,7 +34,7 @@ Este artigo supõe que:
 
 Adicionalmente:
 - Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Criar os pontos de extremidade privados
 Quando você cria um ponto de extremidade privado para um recurso do Azure, os seguintes recursos são implantados:
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Criar o ponto de extremidade privado de sincronização de armazenamento
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Criar o ponto de extremidade privado do serviço de sincronização de armazenamento
 > [!Important]  
 > Para usar pontos de extremidade privados no recurso de serviço de sincronização de armazenamento, você deve usar o agente de Sincronização de Arquivos do Azure versão 10.1 ou superior. As versões do agente anteriores à 10.1 não dão suporte a pontos de extremidade privados no serviço de sincronização de armazenamento. Todas as versões anteriores de agentes dão suporte a pontos de extremidade privados no recurso da conta de armazenamento.
 
@@ -597,19 +597,44 @@ Para desabilitar o acesso ao ponto de extremidade público do Serviço de Sincro
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 CLI do Azure não dá suporte à definição da `incomingTrafficPolicy` propriedade no serviço de sincronização de armazenamento. Selecione a guia Azure PowerShell para obter instruções sobre como desabilitar o ponto de extremidade público do serviço de sincronização de armazenamento.
 
 ---
+
+## <a name="azure-policy"></a>Azure Policy
+Azure Policy ajuda a reforçar os padrões da organização e a avaliar a conformidade com esses padrões em escala. Os arquivos e Sincronização de Arquivos do Azure do Azure expõem várias políticas úteis de rede de auditoria e correção que ajudam a monitorar e automatizar sua implantação.
+
+As políticas auditam seu ambiente e alertam se suas contas de armazenamento ou serviços de sincronização de armazenamento divergem do comportamento definido. Por exemplo, se um ponto de extremidade público estiver habilitado quando sua política tiver sido definida para ter os pontos de extremidades públicos desabilitados. As políticas de modificação/implantação levam um passo além e modificam de forma proativa um recurso (como o serviço de sincronização de armazenamento) ou implantam recursos (como pontos de extremidade privados), para se alinharem com as políticas.
+
+As seguintes políticas predefinidas estão disponíveis para arquivos e Sincronização de Arquivos do Azure do Azure:
+
+| Ação | Serviço | Condição | Nome de política |
+|-|-|-|-|
+| Audit | Arquivos do Azure | O ponto de extremidade público da conta de armazenamento está habilitado. Consulte [desabilitar o acesso ao ponto de extremidade público da conta de armazenamento](#disable-access-to-the-storage-account-public-endpoint) para obter mais informações. | As contas de armazenamento devem restringir o acesso da rede |
+| Audit | Sincronização de Arquivos do Azure | O ponto de extremidade público do serviço de sincronização de armazenamento está habilitado. Consulte [desabilitar o acesso ao ponto de extremidade público do serviço de sincronização de armazenamento](#disable-access-to-the-storage-sync-service-public-endpoint) para obter mais informações. | O acesso à rede pública deve ser desabilitado para Sincronização de Arquivos do Azure |
+| Audit | Arquivos do Azure | A conta de armazenamento precisa de pelo menos um ponto de extremidade privado. Consulte [criar o ponto de extremidade privado da conta de armazenamento](#create-the-storage-account-private-endpoint) para obter mais informações. | A conta de armazenamento deve usar uma conexão de link privado |
+| Audit | Sincronização de Arquivos do Azure | O serviço de sincronização de armazenamento precisa de pelo menos um ponto de extremidade privado. Consulte [criar o ponto de extremidade privado do serviço de sincronização de armazenamento](#create-the-storage-sync-service-private-endpoint) para obter mais informações. | Sincronização de Arquivos do Azure deve usar o link privado |
+| Modificar | Sincronização de Arquivos do Azure | Desabilite o ponto de extremidade público do serviço de sincronização de armazenamento. | Modificar-Configurar Sincronização de Arquivos do Azure para desabilitar o acesso à rede pública |
+| Implantar | Sincronização de Arquivos do Azure | Implante um ponto de extremidade privado para o serviço de sincronização de armazenamento. | Configurar Sincronização de Arquivos do Azure com pontos de extremidade privados |
+| Implantar | Sincronização de Arquivos do Azure | Implante um registro a na zona DNS privatelink.afs.azure.net. | Configurar Sincronização de Arquivos do Azure para usar zonas DNS privadas |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Configurar uma política de implantação de ponto de extremidade particular
+Para configurar uma política de implantação de ponto de extremidade privada, vá para o [portal do Azure](https://portal.azure.com/)e procure **política**. O centro de Azure Policy deve ser um resultado superior. Navegue até   >  **definições** de criação no Sumário da central de políticas. O painel **definições** resultantes contém as políticas predefinidas em todos os serviços do Azure. Para localizar a política específica, selecione a categoria **armazenamento** no filtro categoria ou procure **Configurar sincronização de arquivos do Azure com pontos de extremidade privados**. Selecione **...** e **atribuir** para criar uma nova política a partir da definição.
+
+A folha **noções básicas** do assistente para **atribuir política** permite que você defina uma lista de exclusão de escopo, recurso ou grupo de recursos e dê um nome amigável à sua política para ajudá-lo a distingui-la. Você não precisa modificá-los para que a política funcione, mas você pode se desejar fazer modificações. Selecione **Avançar** para ir até a página de **parâmetros** . 
+
+Na folha **parâmetros** , selecione o **...** ao lado da lista suspensa **privateEndpointSubnetId** para selecionar a rede virtual e a sub-rede em que os pontos de extremidade privados para os recursos do serviço de sincronização de armazenamento devem ser implantados. O assistente resultante pode levar vários segundos para carregar as redes virtuais disponíveis em sua assinatura. Selecione a rede virtual/sub-rede apropriada para seu ambiente e clique em **selecionar**. Selecione **Avançar** para ir para a folha de **correção** .
+
+Para que o ponto de extremidade privado seja implantado quando um serviço de sincronização de armazenamento sem um ponto de extremidade privado for identificado, você deverá selecionar a **tarefa criar uma correção** na página **correção** . Por fim, selecione **revisar + criar** para examinar a atribuição de política e **criar** para criá-la.
+
+A atribuição de política resultante será executada periodicamente e poderá não ser executada imediatamente após ser criada.
 
 ## <a name="see-also"></a>Confira também
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

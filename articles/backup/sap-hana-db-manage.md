@@ -3,12 +3,12 @@ title: Gerenciar bancos de dados do SAP HANA com backup em VMs do Azure
 description: Neste artigo, aprenda tarefas comuns para gerenciar e monitorar bancos de dados SAP HANA que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703759"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerenciar e monitorar backup de bancos de dados do SAP HANA
 
@@ -149,8 +149,6 @@ Você pode alterar a política subjacente para um item de backup do SAP HANA.
 
 >[!NOTE]
 > Qualquer alteração no período de retenção será aplicada de forma retrospectiva a todos os pontos de recuperação mais antigos além dos novos.
->
-> As políticas de backup incremental não podem ser usadas para bancos de dados SAP HANA. Atualmente, o backup incremental não tem suporte para esses bancos de dados.
 
 ### <a name="modify-policy"></a>Modificar a política
 

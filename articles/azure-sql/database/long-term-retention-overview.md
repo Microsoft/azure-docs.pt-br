@@ -8,25 +8,28 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
+author: shkale
+ms.author: shkale
 ms.reviewer: mathoma, sstein
-ms.date: 05/18/2019
-ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/25/2021
+ms.openlocfilehash: b1ba3f98f39511bcebf94502ed749d7cba1fc71b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782613"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184042"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção de longo prazo-banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
-Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você retenha backups de banco de dados além dos 7-35 dias fornecidos pelo banco de dados SQL do Azure e pelo Azure SQL Instância Gerenciada [backups automáticos](automated-backups-overview.md). Usando o recurso de retenção de longo prazo (EPD), você pode armazenar o banco de dados SQL especificado e os backups completos do SQL Instância Gerenciada no armazenamento de BLOBs do Azure com [redundância configurada](automated-backups-overview.md#backup-storage-redundancy) por até 10 anos. É possível restaurar qualquer backup como um novo banco de dados.
+Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você retenha backups de banco de dados além dos 7-35 dias fornecidos pelo banco de dados SQL do Azure e pelo Azure SQL Instância Gerenciada [backups automáticos](automated-backups-overview.md). Usando o recurso de retenção de longo prazo (EPD), você pode armazenar o banco de dados SQL especificado e os backups completos do SQL Instância Gerenciada no armazenamento de BLOBs do Azure com [redundância configurada](automated-backups-overview.md#backup-storage-redundancy) por até 10 anos. Os backups EPD podem ser restaurados como um novo banco de dados.
 
-A retenção de tempo por extenso pode ser habilitada para o banco de dados SQL do Azure e está em uma visualização pública limitada para o Azure SQL Instância Gerenciada. Este artigo fornece uma visão geral conceitual da retenção de longo prazo. Para configurar a retenção de longo prazo, consulte [Configurar o banco de dados SQL do Azure EPD](long-term-backup-retention-configure.md) e [Configurar o Azure SQL instância gerenciada EPD](../managed-instance/long-term-backup-retention-configure.md). 
+A retenção de longo prazo pode ser habilitada para o banco de dados SQL do Azure e está disponível em visualização pública para o Azure SQL Instância Gerenciada. Este artigo fornece uma visão geral conceitual da retenção de longo prazo. Para configurar a retenção de longo prazo, consulte [Configurar o banco de dados SQL do Azure EPD](long-term-backup-retention-configure.md) e [Configurar o Azure SQL instância gerenciada EPD](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > Você pode usar trabalhos do SQL Agent para agendar [backups somente cópia de banco de dados](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR alem de 35 dias.
+
+> [!IMPORTANT]
+> A retenção de longo prazo no Instância Gerenciada está disponível atualmente somente na visualização pública nas regiões públicas do Azure. 
 
 
 ## <a name="how-long-term-retention-works"></a>Como a retenção de longo prazo funciona
@@ -77,25 +80,20 @@ Se você estiver usando grupos de failover ou replicação geográfica ativa com
 > [!NOTE]
 > Quando o banco de dados primário original se recuperar da indisponibilidade que causou o failover, ele se tornará um novo secundário. Portanto, a criação de backup não será retomada e a política de LTR existente não terá efeito até que torne-se primário novamente. 
 
-## <a name="sql-managed-instance-support"></a>Suporte à Instância Gerenciada de SQL
-
-O uso da retenção de backup de longo prazo com o Azure SQL Instância Gerenciada tem as seguintes limitações:
-
-- **Visualização pública limitada** - Essa visualização só está disponível para assinaturas EA e CSP e está sujeita à disponibilidade limitada.  
-- [**Somente PowerShell**](../managed-instance/long-term-backup-retention-configure.md) – atualmente, não há suporte para Portal do Azure. No entanto, o LTR pode ser habilitado com o PowerShell. 
-
-Para solicitar a inscrição, crie um [tíquete de Suporte do Azure](https://azure.microsoft.com/support/create-ticket/). Para tipo de problema, selecione problema técnico, para serviço escolha SQL Instância Gerenciada e, para o tipo de problema, selecione **backup, restauração e continuidade de negócios/retenção de backup de longo prazo** . Em sua solicitação, informe que você deseja ser registrado em visualização pública limitada de EPD para SQL Instância Gerenciada.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar retenção de backup de longo prazo
 
-Você pode configurar a retenção de backup de longo prazo usando o portal do Azure e o PowerShell para o banco de dados SQL do Azure e o PowerShell para o SQL Instância Gerenciada do Azure. Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora. O banco de dados pode ser restaurado para qualquer servidor ou instância gerenciada existente na mesma assinatura do banco de dados original.
+Você pode configurar a retenção de backup de longo prazo usando o portal do Azure e o PowerShell para o banco de dados SQL do Azure e o SQL Instância Gerenciada do Azure. Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora. O banco de dados pode ser restaurado para qualquer servidor ou instância gerenciada existente na mesma assinatura do banco de dados original.
 
-Para saber como configurar a retenção de longo prazo ou restaurar um banco de dados do backup para o banco de dados SQL usando o portal do Azure ou o PowerShell, consulte [gerenciar retenção de backup de longo prazo do banco de dados SQL do Azure](long-term-backup-retention-configure.md)
+Para saber como configurar a retenção de longo prazo ou restaurar um banco de dados do backup para o banco de dados SQL usando o portal do Azure ou o PowerShell, consulte [gerenciar retenção de backup de longo prazo do banco de dados SQL do Azure](long-term-backup-retention-configure.md).
 
 Para saber como configurar a retenção de longo prazo ou restaurar um banco de dados do backup para o SQL Instância Gerenciada usando o PowerShell, consulte [gerenciar o SQL Azure instância gerenciada retenção de backup de longo prazo](../managed-instance/long-term-backup-retention-configure.md).
 
-Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora. O banco de dados pode ser restaurado para qualquer servidor existente sob a mesma assinatura do banco de dados original. Para saber como restaurar seu banco de dados a partir de um backup de LTR, usando o portal do Azure ou o PowerShell, consulte [Gerenciar a retenção de longo prazo de backup do Banco de Dados SQL do Azure](long-term-backup-retention-configure.md). Em sua solicitação, informe que você gostaria de estar registrado na visualização pública limitada de EPD para SQL Instância Gerenciada.
+Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora. O banco de dados pode ser restaurado para qualquer servidor existente sob a mesma assinatura do banco de dados original. Para saber como restaurar seu banco de dados a partir de um backup de LTR, usando o portal do Azure ou o PowerShell, consulte [Gerenciar a retenção de longo prazo de backup do Banco de Dados SQL do Azure](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Como os backups de banco de dados protegem os dados de danos ou exclusão acidental, eles são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL, consulte [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+Como os backups de banco de dados protegem os dados de danos ou exclusão acidental, eles são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios. 
+
+- Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL, consulte [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- Para saber mais sobre backups automáticos gerados pelo serviço, veja [backups automáticos](../database/automated-backups-overview.md)

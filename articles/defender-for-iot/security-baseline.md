@@ -1,5 +1,5 @@
 ---
-title: Linha de base de segurança do Azure para Azure defender para IoT
+title: Linha de base de segurança do Azure para Azure Defender para IoT
 description: A linha de base do Azure defender para IoT Security fornece diretrizes de procedimento e recursos para implementar as recomendações de segurança especificadas no benchmark de segurança do Azure.
 author: msmbaldwin
 ms.service: defender-for-iot
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6fbd70c1de99818e2baf73d15ed365db3a54e43d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: adb9cb234e76da5dab4503c59eb19ba6645e56c8
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246716"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092659"
 ---
-# <a name="azure-security-baseline-for-azure-defender-for-iot"></a>Linha de base de segurança do Azure para Azure defender para IoT
+# <a name="azure-security-baseline-for-azure-defender-for-iot"></a>Linha de base de segurança do Azure para Azure Defender para IoT
 
 Essa linha de base de segurança aplica diretrizes da [versão 2,0 do benchmark de segurança do Azure](../security/benchmarks/overview.md) para Microsoft Azure defender para IOT. O Azure Security Benchmark fornece recomendações sobre como você pode proteger suas soluções de nuvem no Azure. O conteúdo é agrupado pelos **controles de segurança** definidos pelo benchmark de segurança do Azure e pelas diretrizes relacionadas aplicáveis ao Azure defender para IOT. Os **controles** não aplicáveis ao Azure defender para IOT foram excluídos.
 
@@ -167,7 +167,7 @@ Use funções internas para alocar a permissão e somente crie uma função pers
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) 
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 

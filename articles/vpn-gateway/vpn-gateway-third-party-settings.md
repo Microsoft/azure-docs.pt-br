@@ -6,14 +6,14 @@ author: chadmath
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 02/10/2021
 ms.author: delhan
-ms.openlocfilehash: 7e9544fb73c8599b219ef7a566032adfe5e33d08
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0448cb5442746e5e8fced13be13dbebfc0fe32fd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658495"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389307"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure
 

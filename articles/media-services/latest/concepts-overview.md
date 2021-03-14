@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b425cd9268b336a8926e4fad9cb1f288f4fe3e87
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2a1c0c0685ab5a908a89f4a43073f9f773cd58c3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897910"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631992"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Conceitos e terminologia dos serviços de mídia
 
@@ -26,10 +26,6 @@ ms.locfileid: "98897910"
 Este tópico fornece uma breve visão geral da terminologia e dos conceitos dos serviços de mídia do Azure. O artigo também fornece links para artigos com uma explicação detalhada dos conceitos e da funcionalidade dos serviços de mídia v3.
 
 Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes de iniciar o desenvolvimento.
-
-> [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar [eventos ao vivo](live-events-outputs-concept.md)do Media Services V3, exibir (não gerenciar) v3 [ativos](assets-concept.md)e [obter informações sobre como acessar APIs](./access-api-howto.md).
-> Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/accountfilters), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

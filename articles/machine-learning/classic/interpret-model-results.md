@@ -3,27 +3,27 @@ title: 'ML Studio (clássico): interpretar resultados do modelo-Azure'
 description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: 74210475cc8c0efd274d6e80c3f1c89b5206a97d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516117"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
 
-**aplica-se a:** ![ Essa é uma marca de seleção, o que significa que este artigo se aplica a Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ é um X, o que significa que este artigo se aplica a Azure Machine Learning ](../../../includes/media/aml-applies-to-skus/no.png)[ . Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:**  ![Essa é uma marca de seleção, o que significa que este artigo se aplica ao Machine Learning Studio (clássico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
 Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning Studio (clássico):
 
-* classificação
+* Classificação
 * Clustering
 * Regressão
 * Sistemas de recomendação
@@ -40,7 +40,7 @@ Para saber como avaliar seus modelos, consulte [como avaliar o desempenho do mod
 
 Se você for novo no ML Studio (clássico), [saiba como criar um experimento simples](create-experiment.md).
 
-## <a name="classification"></a>classificação
+## <a name="classification"></a>Classificação
 Há duas subcategorias de problemas de classificação:
 
 * Problemas com apenas duas classes (classificação de duas classes ou binária)

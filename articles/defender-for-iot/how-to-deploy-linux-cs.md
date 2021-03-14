@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 48737831440a1402b6974955b4da61a4216b011f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec26cd0b66b6d08d8bd686d8f3e5ad8011df10b1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933279"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449757"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implantar o defender para IoT C# com base no agente de segurança para Linux
 
@@ -27,11 +27,10 @@ Este guia explica como instalar e implantar o agente de segurança baseado em C#
 
 Neste guia, você aprenderá a:
 
-> [!div class="checklist"]
-> * Instalar
-> * Verificar implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar a implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

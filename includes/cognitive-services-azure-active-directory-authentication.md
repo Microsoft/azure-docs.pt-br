@@ -4,17 +4,17 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 1085daca153431a28fdcc2583d0e31308214bf91
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555464"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510658"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
 > [!IMPORTANT]
-> 1. Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto, leitor de imersão, reconhecedor de formulário, detector de anomalias e todos os serviços do Bing, exceto pesquisa personalizada do Bing dar suporte à autenticação usando o Azure Active Directory (AAD).
+> 1. Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto, leitor de imersão, reconhecedor de formulário, detector de anomalias, QnA Maker e todos os serviços do Bing, exceto pesquisa personalizada do Bing dar suporte à autenticação usando o Azure Active Directory (AAD).
 > 2. A autenticação do AAD precisa ser sempre usada junto com o nome de subdomínio personalizado do recurso do Azure. Os [pontos de extremidade regionais](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) não dão suporte à autenticação do AAD.
 
 Nas seções anteriores, mostramos como se autenticar nos serviços cognitivas do Azure usando uma chave de assinatura de serviço único ou de vários serviços. Embora essas chaves forneçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam curtas em cenários mais complexos que exigem o controle de acesso baseado em função do Azure (RBAC do Azure). Vamos dar uma olhada no que é necessário para autenticar usando o Azure Active Directory (AAD).
@@ -25,13 +25,13 @@ Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do 
 
 A primeira etapa é criar um subdomínio personalizado. Se você quiser usar um recurso de serviços cognitivas existente que não tem um nome de subdomínio personalizado, siga as instruções em [subdomínios personalizados de serviços cognitivas](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) para habilitar o subdomínio personalizado para seu recurso.
 
-1. Comece abrindo a Azure Cloud Shell. Em seguida, [Selecione uma assinatura](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
+1. Comece abrindo a Azure Cloud Shell. Em seguida, [Selecione uma assinatura](/powershell/module/az.accounts/set-azcontext):
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Em seguida, [crie um recurso de serviços cognitivas](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado. O nome do subdomínio precisa ser globalmente exclusivo e não pode incluir caracteres especiais, como: ".", "!", ",".
+2. Em seguida, [crie um recurso de serviços cognitivas](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) com um subdomínio personalizado. O nome do subdomínio precisa ser globalmente exclusivo e não pode incluir caracteres especiais, como: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
 > [!NOTE]
 > Tenha em mente que as atribuições de função do Azure podem levar até cinco minutos para serem propagadas.
 
-1. Primeiro, vamos registrar um [aplicativo do AAD](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. Primeiro, vamos registrar um [aplicativo do AAD](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
 
    Você precisará do **ApplicationId** na próxima etapa.
 
-2. Em seguida, você precisa [criar uma entidade de serviço](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para o aplicativo do AAD.
+2. Em seguida, você precisa [criar uma entidade de serviço](/powershell/module/az.resources/new-azadserviceprincipal) para o aplicativo do AAD.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
    >[!NOTE]
    > Se você registrar um aplicativo no portal do Azure, essa etapa será concluída para você.
 
-3. A última etapa é [atribuir a função "usuário de serviços cognitivas"](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) à entidade de serviço (com escopo para o recurso). Ao atribuir uma função, você está concedendo acesso de entidade de serviço a esse recurso. Você pode conceder o mesmo acesso de entidade de serviço a vários recursos em sua assinatura.
+3. A última etapa é [atribuir a função "usuário de serviços cognitivas"](/powershell/module/az.Resources/New-azRoleAssignment) à entidade de serviço (com escopo para o recurso). Ao atribuir uma função, você está concedendo acesso de entidade de serviço a esse recurso. Você pode conceder o mesmo acesso de entidade de serviço a vários recursos em sua assinatura.
    >[!NOTE]
    > O ObjectId da entidade de serviço é usado, não o ObjectId do aplicativo.
    > O ACCOUNT_ID será a ID de recurso do Azure da conta de serviços cognitivas que você criou. Você pode encontrar a ID de recurso do Azure de "Propriedades" do recurso em portal do Azure.

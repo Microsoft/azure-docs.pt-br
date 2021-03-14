@@ -8,46 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 02/23/2021
 ms.author: aahi
-ms.openlocfilehash: af7c3f85a75cfb425003b0da2af268fbba1d1d10
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f6a109c10491ad2eabb12069157e9e6f394bc1f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736603"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte à linguagem API de Análise de Texto v3 
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment-analysis)
 
-| Linguagem              | Código de idioma | suporte a v2 | suporte v3 | Iniciando a versão do modelo V3: |              Anotações |
-|:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chinês simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também é aceito |
-| Chinês tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
-| Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
-| Holandês                 |     `nl`      |     ✓      |            |                            |                    |
-| Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Finlandês               |     `fi`      |     ✓      |            |                            |                    |
-| Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Grego                 |     `el`      |     ✓      |            |                            |                    |
-| Híndi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
-| Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Japonês              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
-| Polonês                |     `pl`      |     ✓      |            |                            |                    |
-| Português (Brasil)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` também é aceito |
-| Russo               |     `ru`      |     ✓      |            |                            |                    |
-| Espanhol               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Sueco               |     `sv`      |     ✓      |            |                            |                    |
-| Turco               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
+| Linguagem              | Código de idioma | suporte v3 | Iniciando a versão do modelo V3: |              Observações |
+|:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
+| Chinês simplificado    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` também é aceito |
+| Chinês tradicional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Inglês               |     `en`      |     ✓      |         2019-10-01         |                    |
+| Francês                |     `fr`      |     ✓      |         2019-10-01         |                    |
+| Alemão                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Italiano               |     `it`      |     ✓      |         2019-10-01         |                    |
+| Japonês              |     `ja`      |     ✓      |         2019-10-01         |                    |
+| Coreano                |     `ko`      |    ✓      |         2019-10-01         |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` também é aceito |
+| Espanhol               |     `es`      |     ✓      |         2019-10-01         |                    |
+| Turco               |     `tr`      |     ✓       |         2020-07-01        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (v 3.1-somente visualização)
 
-| Linguagem              | Código de idioma | Iniciando com a versão do modelo V3: |              Anotações |
+| Linguagem              | Código de idioma | Iniciando com a versão do modelo V3: |              Observações |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
@@ -57,7 +49,7 @@ ms.locfileid: "99092577"
 > [!NOTE]
 > * Somente as entidades "Person", "Location" e "Organization" são retornadas para os idiomas marcados com *.
 
-| Linguagem               | Código de idioma | suporte v3 | Iniciando com a versão do modelo V3: |       Anotações        |
+| Linguagem               | Código de idioma | suporte v3 | Iniciando com a versão do modelo V3: |       Observações        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Chinês simplificado     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` também é aceito |
@@ -85,31 +77,46 @@ ms.locfileid: "99092577"
 
 #### <a name="key-phrase-extraction"></a>[Extração de frases-chave](#tab/key-phrase-extraction)
 
-| Linguagem              | Código de idioma | suporte a v2 | suporte v3 | Disponível a partir da versão do modelo V3: |       Anotações        |
-|:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Dinamarquês                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
-| Holandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Francês                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Alemão                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Italiano               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Japonês              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |                2020-07-01                 | `nb` também é aceito |
-| Polonês                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Português (Brasil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também é aceito |
-| Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Espanhol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Sueco               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Linguagem              | Código de idioma |  suporte v3 | Disponível a partir da versão do modelo V3: |       Observações        |
+|:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
+| Dinamarquês                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Holandês                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
+| Inglês               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Finlandês               |     `fi`      |     ✓      |                2019-10-01                 |                    |
+| Francês                |     `fr`      |     ✓      |                2019-10-01                 |                    |
+| Alemão                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Italiano               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Japonês              |     `ja`      |     ✓      |                2019-10-01                 |                    |
+| Coreano                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` também é aceito |
+| Polonês                |     `pl`      |    ✓      |                2019-10-01                 |                    |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
+| Português (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` também é aceito |
+| Russo               |     `ru`      |     ✓      |                2019-10-01                 |                    |
+| Espanhol               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Sueco               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 
 #### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
 
-| Linguagem | Código de idioma | suporte a v2 | suporte v3 | Disponível a partir da versão do modelo V3: | Anotações |
-|:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
-| Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Linguagem | Código de idioma |  suporte v3 | Disponível a partir da versão do modelo V3: | Observações |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Inglês  |     `en`      |     ✓      |                2019-10-01                 |       |
+| Espanhol  |     `es`      |    ✓      |                2019-10-01                 |       |
+
+#### <a name="personally-identifiable-information-pii"></a>[PII (Informações de Identificação Pessoal)](#tab/pii)
+
+| Linguagem               | Código de idioma | suporte v3 | Iniciando com a versão do modelo V3: |       Observações        |
+|:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
+| Chinês simplificado     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` também é aceito |
+| Inglês                |     `en`      |     ✓      |               2020-07-01        |                    |
+| Francês                 |     `fr`      |     ✓      |               2021-01-15        |                    |
+| Alemão                 |     `de`      |     ✓      |               2021-01-15        |                    |
+| Italiano               |     `it`      |     ✓       |               2021-01-15        |                    |
+| Japonês              |     `ja`      |     ✓       |               2021-01-15        |                    |
+| Coreano                |     `ko`      |     ✓       |               2021-01-15        |                    |
+| Português (Brasil)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` também é aceito |
+| Espanhol               |     `es`      |     ✓       |               2020-04-01        |                    |
 
 #### <a name="language-detection"></a>[Detecção de Idioma](#tab/language-detection)
 
@@ -222,6 +229,7 @@ Se você tiver um conteúdo expresso em um idioma usado com menos frequência, e
 |Tibetano|`bo`|✓|2021-01-05|
 |Tigrinya|`ti`|✓|2021-01-05|
 |Tongan|`to`|✓|2020-09-01|
+|Turco|`tr`|✓|2021-01-05|
 |Turcomeno|`tk`|✓|2021-01-05|
 |Xhosa|`xh`|✓|2021-01-05|
 |Ioruba|`yo`|✓|2021-01-05|

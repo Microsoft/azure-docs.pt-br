@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 14ced0c66b42b6f18c946d0c75091be1af5598f5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548861"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197785"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Para solucionar problemas de maneira mais eficaz, pode ser útil criar logs mais
 
 Para o Visual Studio, defina a variável de ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` como 1. Certifique-se de reiniciar o Visual Studio para que a variável de ambiente tenha efeito. Uma vez habilitado, os logs detalhados são gravados no seu diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Na CLI, você pode gerar mais informações durante a execução do comando usando o switch `--verbose`. Também é possível pesquisar logs mais detalhados em `%TEMP%\Azure Dev Spaces`. Em um Mac, o diretório *TEMP* pode ser encontrado executando `echo $TMPDIR` em uma janela de terminal. Em um computador Linux, o diretório *TEMP* é geralmente `/tmp`. Além disso, verifique se o registro em log está ativado no seu [arquivo de configuração da CLI do Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+Na CLI, você pode gerar mais informações durante a execução do comando usando o switch `--verbose`. Também é possível pesquisar logs mais detalhados em `%TEMP%\Azure Dev Spaces`. Em um Mac, o diretório *TEMP* pode ser encontrado executando `echo $TMPDIR` em uma janela de terminal. Em um computador Linux, o diretório *TEMP* é geralmente `/tmp`. Além disso, verifique se o registro em log está ativado no seu [arquivo de configuração da CLI do Azure](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 O Azure Dev Spaces também funciona melhor ao depurar uma única instância ou pod. O arquivo `azds.yaml` contém uma configuração, *replicaCount*, que indica o número de pods que o Kubernetes executa para seu serviço. Se você alterar o *replicaCount* para configurar seu aplicativo para executar vários pods para um determinado serviço, o depurador será anexado ao primeiro pod, quando listados em ordem alfabética. O depurador será anexado a um pod diferente quando o pod original for reciclado, provavelmente causando um comportamento inesperado.
 
@@ -91,7 +91,7 @@ azure-cli                         2.0.60 *
 
 Apesar da mensagem de erro ao executar `az aks use-dev-spaces` com uma versão da CLI do Azure anterior à 2.0.63, a instalação é realizada com sucesso. Você pode continuar a usar `azds` sem problemas.
 
-Para corrigir esse problema, atualize sua instalação da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para 2.0.63 ou posterior. Esta atualização resolverá a mensagem de erro que você recebe ao executar `az aks use-dev-spaces`. Como alternativa, você pode continuar a usar sua versão atual da CLI do Azure e da CLI do Azure Dev Spaces.
+Para corrigir esse problema, atualize sua instalação da [CLI do Azure](/cli/azure/install-azure-cli) para 2.0.63 ou posterior. Esta atualização resolverá a mensagem de erro que você recebe ao executar `az aks use-dev-spaces`. Como alternativa, você pode continuar a usar sua versão atual da CLI do Azure e da CLI do Azure Dev Spaces.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Erro "Não é possível alcançar kube-apiserver"
 

@@ -1,23 +1,18 @@
 ---
 title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495694"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380365"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -193,7 +188,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -238,7 +233,7 @@ Você pode mudar para outra janela de atividades clicando nela na exibição de 
 
 Você pode usar os botões da barra de ferramentas no painel inferior para executar novamente a janela de atividades ou para atualizar os detalhes no painel.
 
-### <a name="script"></a>script
+### <a name="script"></a>Script
 Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados ou pipeline).
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)

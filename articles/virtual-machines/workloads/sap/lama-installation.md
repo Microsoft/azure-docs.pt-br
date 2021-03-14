@@ -8,19 +8,18 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959145"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668700"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector SAP LaMa para o Azure
 
@@ -94,7 +93,7 @@ O conector do Azure pode usar uma entidade de serviço para autorizar contra Mic
 
 A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder as permissões da entidade de serviço para acessá-los.
 
-1. Acesse https://portal.azure.com
+1. Ir para https://portal.azure.com
 1. Abra a folha Grupos de recursos
 1. Selecione o grupo de recursos que você quer usar
 1. Clique em Controle de acesso (IAM)
@@ -110,7 +109,7 @@ Para poder usar uma identidade gerenciada, sua instância do SAP LaMa deve ser e
 
 A identidade gerenciada não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder a ele permissões para acessá-los.
 
-1. Acesse https://portal.azure.com
+1. Ir para https://portal.azure.com
 1. Abra a folha Grupos de recursos
 1. Selecione o grupo de recursos que você quer usar
 1. Clique em Controle de acesso (IAM)

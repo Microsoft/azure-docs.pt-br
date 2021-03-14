@@ -1,24 +1,26 @@
 ---
-title: Redefinir um gateway de VPN do Azure para restabelecer o túnel IPsec
-description: Redefina o gateway de VPN do Azure para restabelecer túneis IPsec para gateways de VPN nos modelos de implantação clássico e do Resource Manager.
-services: vpn-gateway
+title: Redefinir o gateway de VPN ou a conexão para restabelecer o túnel IPsec
+titleSuffix: Azure VPN Gateway
+description: Redefina uma conexão ou um gateway de VPN para restabelecer túneis IPsec.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: adc2ffd63d73baaddce00324787df61061ea69dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646467"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726625"
 ---
-# <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
+# <a name="reset-a-vpn-gateway-or-a-connection"></a>Redefinir um gateway de VPN ou uma conexão
 
-Redefinir um gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Este artigo ajuda-o a redefinir o gateway de VPN.
+Redefinir uma conexão de gateway de VPN do Azure ou gateway será útil se você perder a conectividade VPN entre locais em um ou mais túneis de VPN site a site. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. Este artigo ajuda você a redefinir um gateway de VPN ou conexão de gateway.
 
-### <a name="what-happens-during-a-reset"></a>O que acontece durante uma redefinição?
+## <a name="what-happens-during-a-reset"></a>O que acontece durante uma redefinição
+
+### <a name="gateway-reset"></a>Redefinição de gateway
 
 Um gateway de VPN é composto de duas instâncias de VM em execução em uma configuração de modo em espera ativo. Quando você redefine o gateway, ele reinicializa o gateway e aplica novamente as configurações entre instalações a ele. O gateway mantém o endereço IP público que já tem. Isso significa que você não precisa atualizar a configuração do roteador VPN com um novo endereço IP público do gateway de VPN do Azure.
 
@@ -28,7 +30,21 @@ Se a conexão não é restaurada após a primeira reinicialização, execute o m
 
 Após duas reinicializações, se você ainda estiver tendo problemas de conectividade entre instalações, abra uma solicitação de suporte no portal do Azure.
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+### <a name="connection-reset"></a>Redefinição de conexão
+
+Quando você seleciona para redefinir uma conexão, o gateway não é reinicializado. Somente a conexão selecionada é redefinida e restaurada.
+
+## <a name="reset-a-connection"></a>Redefinir uma conexão
+
+Você pode redefinir uma conexão facilmente usando o portal do Azure.
+
+1. Navegue até a **conexão** que você deseja redefinir. Você pode encontrar o recurso de conexão localizando-o em **todos os recursos** ou navegando até o **' nome do Gateway '-> conexões-> ' nome da conexão '**
+1. Na página **conexão** , selecione **Redefinir** no menu à esquerda.
+1. Na página **Redefinir** , clique em **Redefinir** para redefinir a conexão.
+
+   :::image type="content" source="./media/reset-gateway/reset-connection.png" alt-text="Captura de tela mostrando redefinição.":::
+
+## <a name="reset-a-vpn-gateway"></a>Redefinir um gateway de VPN
 
 Antes de redefinir o gateway, verifique os principais itens listados abaixo para cada túnel VPN Site a Site (S2S) de IPsec. Qualquer incompatibilidade nos itens resultará na desconexão de túneis VPN S2S. Verificar e corrigir as configurações para seus gateways de VPN do Azure e locais faz com que você evite reinicializações desnecessárias e interrupções para as outras conexões de trabalho nos gateways.
 
@@ -38,17 +54,15 @@ Verifique os itens a seguir antes de redefinir seu gateway:
 * A chave pré-compartilhada deve ser a mesma em ambos o gateway de VPN do Azure e o gateway de VPN local.
 * Se você aplicar a configuração de IPsec/IKE específica, como criptografia, algoritmos de hash e PFS (Perfect Forward Secrecy), verifique se que o gateway de VPN do Azure e o gateway de VPN local têm as mesmas configurações.
 
-## <a name="azure-portal"></a><a name="portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a name="portal"></a>Portal do Azure
 
 Você pode redefinir um gateway de VPN do Resource Manager usando o Portal do Azure. Se você quiser redefinir um gateway clássico, consulte as etapas do PowerShell para o [modelo de implantação clássico](#resetclassic).
 
-### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
-
 [!INCLUDE [portal steps](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-## <a name="powershell"></a><a name="ps"></a>PowerShell
+### <a name="powershell"></a><a name="ps"></a>PowerShell
 
-### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
+#### <a name="resource-manager-deployment-model"></a>Modelo de implantação do Gerenciador de Recursos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +77,7 @@ Resultado:
 
 Ao receber um resultado de retorno, você poderá assumir que a redefinição do gateway foi bem-sucedida. No entanto, não há nada no resultado de retorno que indica explicitamente que a redefinição foi bem-sucedida. Caso queira analisar detalhadamente o histórico para visualizar exatamente quando ocorreu a redefinição do gateway, é possível visualizar essas informações no [Portal do Azure](https://portal.azure.com). No portal, navegue até **'GatewayName' -> Resource Health**.
 
-### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modelo de implantação clássica
+#### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modelo de implantação clássica
 
 O cmdlet para redefinição de um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para o gerenciamento de serviços devem ser instalados localmente na sua área de trabalho. Você não pode usar Azure Cloud Shell. Antes de realizar uma redefinição, certifique-se de que possui a última versão dos [cmdlets do PowerShell do Gerenciamento de Serviços (SM) ](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). Ao usar esse comando, verifique se você está usando o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Você pode exibir o nome longo usando ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '.
 
@@ -84,7 +98,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a><a name="cli"></a>Azure CLI
+### <a name="azure-cli"></a><a name="cli"></a>Azure CLI
 
 Para redefinir o gateway, utilize o comando [az network vnet-gateway reset](/cli/azure/network/vnet-gateway). O exemplo a seguir redefine um gateway de rede virtual nomeado VNet5GW no grupo de recursos TestRG5:
 

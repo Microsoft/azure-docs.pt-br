@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: d894ce71e0ffa5a0894a1f6b0035efe66271ded8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986913"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591467"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de armazenamento do Azure para outra região
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 > * Mover dados para a nova conta de armazenamento.
 > * Exclua os recursos na região de origem.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
 
@@ -224,7 +224,7 @@ A tabela a seguir lista esses recursos junto com as diretrizes para adicioná-lo
 | **Políticas de gerenciamento do ciclo de vida** | [Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](../blobs/storage-lifecycle-management-concepts.md) |
 | **Sites estáticos** | [Hospedar site estático no Armazenamento do Azure](../blobs/storage-blob-static-website-how-to.md) |
 | **Assinaturas de evento** | [Reagindo a eventos de Armazenamento de Blobs](../blobs/storage-blob-event-overview.md) |
-| **Alertas** | [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Alertas** | [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **CDN (Rede de Distribuição de Conteúdo)** | [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 

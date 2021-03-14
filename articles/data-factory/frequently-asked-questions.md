@@ -1,20 +1,17 @@
 ---
 title: 'Azure Data Factory: perguntas frequentes '
 description: Obtenha resposta a perguntas frequentes sobre o Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c5214c5ea9856212ef788c14e3a3705e2b664689
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805598"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739327"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 
@@ -51,7 +48,7 @@ O Data Factory fornece liberdade para modelar qualquer estilo de fluxo que seja 
     - Contêineres de loop:
         * A atividade ForEach será iterada em uma coleção especificada de atividades em um loop. 
 - Fluxos baseados em gatilho:
-    - Os pipelines podem ser acionados sob demanda ou por hora.
+    - Os pipelines podem ser disparados sob demanda, por hora do relógio de parede ou em resposta aos tópicos orientados por grade de eventos
 - Fluxos delta:
     - Os parâmetros podem ser usados para definir sua marca de água alta para cópia Delta ao mover tabelas de dimensão ou referência de um relational store, localmente ou na nuvem, para carregar os dados no Lake.
 
@@ -291,15 +288,15 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * NCHAR
 * varchar
 * NVARCHAR
-* Número inteiro
+* inteiro
 * INT
 * bit
-* boolean
+* booleano
 * SMALLINT
 * TINYINT
 * BIGINT
 * long
-* texto
+* text
 * date
 * DATETIME
 * datetime2

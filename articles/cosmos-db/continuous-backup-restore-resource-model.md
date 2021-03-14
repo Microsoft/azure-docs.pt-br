@@ -1,18 +1,18 @@
 ---
 title: Modelo de recurso para a Azure Cosmos DB recurso de restauração pontual.
-description: Este artigo explica o modelo de recurso para a Azure Cosmos DB recurso de restauração pontual. Ele explica os parâmetros que dão suporte ao backup contínuo e aos recursos que podem ser restaurados na API Azure Cosmos DB para contas do SQL e do MongoDB.
+description: Este artigo explica o modelo de recurso para o recurso de restauração pontual do Azure Cosmos DB. Ele explica os parâmetros que permitem backup contínuo e aos recursos que podem ser restaurados na API do Azure Cosmos DB para contas SQL e MongoDB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538487"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097220"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recurso para a Azure Cosmos DB recurso de restauração pontual (versão prévia)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "99538487"
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo explica o modelo de recurso para a Azure Cosmos DB recurso de restauração pontual (versão prévia). Ele explica os parâmetros que dão suporte ao backup contínuo e aos recursos que podem ser restaurados na API Azure Cosmos DB para contas do SQL e do MongoDB.
+Este artigo explica o modelo de recurso para a Azure Cosmos DB recurso de restauração pontual (versão prévia). Ele explica os parâmetros que permitem backup contínuo e aos recursos que podem ser restaurados na API do Azure Cosmos DB para contas SQL e MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Modelo de recurso da conta do banco de dados
 
@@ -30,14 +30,14 @@ O modelo de recurso da conta do banco de dados é atualizado com algumas proprie
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-Uma nova propriedade na política de backup no nível da conta denominada "Type" no parâmetro "backuppolicy" habilita o backup contínuo e as funcionalidades de restauração pontual. Esse modo é chamado de **backup contínuo**. Na visualização pública, você só pode definir esse modo ao criar a conta. Depois de habilitado, todos os contêineres e bancos de dados criados nessa conta terão o backup contínuo e as funcionalidades de restauração pontual habilitadas por padrão.
+Uma nova propriedade na política de backup no nível da conta nomeada `Type` em `backuppolicy` parâmetro habilita o backup contínuo e as funcionalidades de restauração pontual. Esse modo é chamado de **backup contínuo**. Na visualização pública, você só pode definir esse modo ao criar a conta. Depois de habilitado, todos os contêineres e bancos de dados criados nessa conta terão o backup contínuo e as funcionalidades de restauração pontual habilitadas por padrão.
 
 > [!NOTE]
 > Atualmente, o recurso de restauração pontual está em visualização pública e está disponível para Azure Cosmos DB API para MongoDB e contas do SQL. Depois de criar uma conta com o modo contínuo, você não pode alterná-la para um modo periódico.
 
 ### <a name="createmode"></a>CreateMode
 
-Essa propriedade indica como a conta foi criada. Os valores possíveis são "default" e "Restore". Para executar uma restauração, defina esse valor como "Restore" e forneça os valores apropriados na `RestoreParameters` propriedade.
+Essa propriedade indica como a conta foi criada. Os valores possíveis são *Default* e *Restore*. Para executar uma restauração, defina esse valor como *restaurar* e forneça os valores apropriados na `RestoreParameters` propriedade.
 
 ### <a name="restoreparameters"></a>Restoreparameters
 
@@ -45,7 +45,7 @@ O `RestoreParameters` recurso contém os detalhes da operação de restauração
 
 |Nome da propriedade |Descrição  |
 |---------|---------|
-|restaurarmode  | O modo de restauração deve ser "PointInTime" |
+|restaurarmode  | O modo de restauração deve ser *PointInTime* |
 |repositório   |  A instanceId da conta de origem da qual a restauração será iniciada.       |
 |restoreTimestampInUtc  | Ponto no tempo em UTC para o qual a conta deve ser restaurada. |
 |databasesToRestore   | Lista de `DatabaseRestoreSource` objetos para especificar quais bancos de dados e contêineres devem ser restaurados. Se esse valor estiver vazio, a conta inteira será restaurada.   |
@@ -128,7 +128,7 @@ Esse recurso contém uma instância de conta de banco de dados que pode ser rest
 | restorableLocations: CreationTime | A hora em UTC em que a conta regional foi criada.|
 | restorableLocations: excluitime | A hora em UTC em que a conta regional foi excluída. Esse valor estará vazio se a conta regional estiver ativa.|
 
-Para obter uma lista de todas as contas restauráveis, consulte [contas de banco de dados restauráveis-lista](restorable-database-accounts-list.md) ou [contas de banco de dados restauráveis – listar por](restorable-database-accounts-list-by-location.md) artigos de localização.
+Para obter uma lista de todas as contas restauráveis, consulte [contas de banco de dados restauráveis-lista](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) ou [contas de banco de dados restauráveis – listar por](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) artigos de localização.
 
 ### <a name="restorable-sql-database"></a>Banco de dados SQL restaurável
 
@@ -142,7 +142,7 @@ Cada recurso contém informações de um evento de mutação, como criação e e
 | operationType | O tipo de operação deste evento de banco de dados. Estes são os valores possíveis:<br/><ul><li>Criar: evento de criação de banco de dados</li><li>Excluir: evento de exclusão de banco de dados</li><li>Substituir: evento de modificação do banco de dados</li><li>SystemOperation: evento de modificação do banco de dados disparado pelo sistema. Este evento não é iniciado pelo usuário</li></ul> |
 | Banco de Dados |As propriedades do banco de dados SQL no momento do evento|
 
-Para obter uma lista de todas as mutações de banco de dados, consulte o artigo de [lista de bancos SQL restauráveis-List](restorable-sql-databases-list.md) .
+Para obter uma lista de todas as mutações de banco de dados, consulte o artigo de [lista de bancos SQL restauráveis-List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) .
 
 ### <a name="restorable-sql-container"></a>Contêiner SQL restaurável
 
@@ -156,7 +156,7 @@ Cada recurso contém informações de um evento de mutação, como criação e e
 | operationType | O tipo de operação deste evento de contêiner. Estes são os valores possíveis: <br/><ul><li>Criar: evento de criação de contêiner</li><li>Excluir: evento de exclusão de contêiner</li><li>Replace: evento de modificação do contêiner</li><li>SystemOperation: evento de modificação de contêiner disparado pelo sistema. Este evento não é iniciado pelo usuário</li></ul> |
 | contêiner | As propriedades do contêiner SQL no momento do evento.|
 
-Para obter uma lista de todas as mutações de contêiner no mesmo banco de dados, consulte o artigo [contêineres SQL restauráveis-lista](restorable-sql-containers-list.md) .
+Para obter uma lista de todas as mutações de contêiner no mesmo banco de dados, consulte o artigo [contêineres SQL restauráveis-lista](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) .
 
 ### <a name="restorable-sql-resources"></a>Recursos SQL restauráveis
 
@@ -167,7 +167,7 @@ Cada recurso representa um banco de dados individual e todos os contêineres nes
 | databaseName  | O nome do banco de dados SQL.
 | coleções de   | A lista de contêineres SQL neste banco de dados.|
 
-Para obter uma lista de combinação de banco de dados SQL e contêiner existentes na conta no carimbo de data e hora e no local fornecidos, consulte o artigo [recursos SQL restauráveis – lista](restorable-sql-resources-list.md) .
+Para obter uma lista de combinação de banco de dados SQL e contêiner existentes na conta no carimbo de data e hora e no local fornecidos, consulte o artigo [recursos SQL restauráveis – lista](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) .
 
 ### <a name="restorable-mongodb-database"></a>Banco de dados MongoDB restaurável
 
@@ -180,7 +180,7 @@ Cada recurso contém informações de um evento de mutação, como criação e e
 | ownerResourceId   | A ID de recurso do banco de dados MongoDB. |
 | operationType |   O tipo de operação deste evento de banco de dados. Estes são os valores possíveis:<br/><ul><li> Criar: evento de criação de banco de dados</li><li> Excluir: evento de exclusão de banco de dados</li><li> Substituir: evento de modificação do banco de dados</li><li> SystemOperation: evento de modificação do banco de dados disparado pelo sistema. Este evento não é iniciado pelo usuário </li></ul> |
 
-Para obter uma lista de todas as mutações de banco de dados, consulte o artigo de [lista de bancos do MongoDB restauráveis-List](restorable-mongodb-databases-list.md) .
+Para obter uma lista de todas as mutações de banco de dados, consulte o artigo de [lista de bancos do MongoDB restauráveis-List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) .
 
 ### <a name="restorable-mongodb-collection"></a>Coleção restaurável do MongoDB
 
@@ -193,7 +193,7 @@ Cada recurso contém informações de um evento de mutação, como criação e e
 | ownerResourceId   | A ID de recurso da coleção do MongoDB. |
 | operationType |O tipo de operação deste evento de coleta. Estes são os valores possíveis:<br/><ul><li>Criar: evento de criação de coleção</li><li>Excluir: evento de exclusão de coleção</li><li>Substituir: evento de modificação da coleção</li><li>SystemOperation: evento de modificação de coleção disparado pelo sistema. Este evento não é iniciado pelo usuário</li></ul> |
 
-Para obter uma lista de todas as mutações de contêiner no mesmo banco de dados, consulte o artigo [coleções de MongoDB restauráveis-List](restorable-mongodb-collections-list.md) .
+Para obter uma lista de todas as mutações de contêiner no mesmo banco de dados, consulte o artigo [coleções de MongoDB restauráveis-List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) .
 
 ### <a name="restorable-mongodb-resources"></a>Recursos restauráveis do MongoDB
 
@@ -204,7 +204,7 @@ Cada recurso representa um banco de dados individual e todas as coleções nesse
 | databaseName  |O nome do banco de dados MongoDB. |
 | coleções de | A lista de coleções do MongoDB neste banco de dados. |
 
-Para obter uma lista de todas as combinações de banco de dados e coleção do MongoDB existentes na conta no carimbo de data e hora e no local fornecidos, consulte o artigo [recursos do MongoDB restauráveis – lista](restorable-mongodb-resources-list.md) .
+Para obter uma lista de todas as combinações de banco de dados e coleção do MongoDB existentes na conta no carimbo de data e hora e no local fornecidos, consulte o artigo [recursos do MongoDB restauráveis – lista](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,18 +3,18 @@ title: Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos
 description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas de Azure Cosmos DB ao usar o SDK do .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831239"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442189"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,14 +91,49 @@ Se seu aplicativo for implantado em [máquinas virtuais do Azure sem um endereç
 * Atribua um [IP público à sua VM do Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Alta latência de rede
-Alta latência de rede pode ser identificada usando a [cadeia de caracteres de diagnóstico](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) no SDK v2 ou [diagnóstico](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) no SDK v3.
+Alta latência de rede pode ser identificada usando a [cadeia de caracteres de diagnóstico](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no SDK v2 ou [diagnóstico](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) no SDK v3.
 
-Se nenhum [tempo limite](troubleshoot-dot-net-sdk-request-timeout.md) estiver presente e o diagnóstico mostrar solicitações únicas em que a alta latência é evidente na diferença entre `ResponseTime` e `RequestStartTime` , assim como (>300 milissegundos neste exemplo):
+Se nenhum [tempo limite](troubleshoot-dot-net-sdk-request-timeout.md) estiver presente e o diagnóstico mostrar solicitações únicas em que a alta latência é evidente.
+
+# <a name="v3-sdk"></a>[SDK DO V3](#tab/diagnostics-v3)
+
+O diagnóstico pode ser obtido de qualquer `ResponseMessage` , `ItemResponse` , `FeedResponse` ou `CosmosException` pela `Diagnostics` Propriedade:
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+As interações de rede no diagnóstico serão, por exemplo:
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+Onde o `duration in milliseconds` mostraria a latência.
+
+# <a name="v2-sdk"></a>[V2 SDK](#tab/diagnostics-v2)
+
+Os diagnósticos estão disponíveis quando o cliente é configurado no [modo direto](sql-sdk-connection-modes.md), por meio da `RequestDiagnosticsString` Propriedade:
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+E a latência seria sobre a diferença entre `ResponseTime` e `RequestStartTime` :
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 Essa latência pode ter várias causas:
 

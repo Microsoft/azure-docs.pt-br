@@ -1,18 +1,18 @@
 ---
-title: Tutorial – Implantar o Cluster de vSphere no Azure
-description: Saiba como implantar um Cluster de vSphere no Azure usando a Solução VMware no Azure
+title: Tutorial – Criar e implantar uma nuvem privada da Solução VMware no Azure
+description: Saiba como criar e implantar uma nuvem privada da Solução VMware no Azure
 ms.topic: tutorial
-ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/22/2021
+ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725385"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implantar uma nuvem privada da Solução VMware no Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Tutorial: Criar uma nuvem privada da Solução VMware no Azure
 
-A Solução VMware no Azure permite implantar um cluster de vSphere no Azure. A implantação inicial mínima é de três hosts. Mais hosts podem ser adicionados, um de cada vez, até atingir um máximo de 16 hosts por cluster. 
+Neste tutorial, você aprenderá a criar e implantar uma nuvem privada da Solução VMware no Azure. A implantação inicial mínima de hosts é três. Mais hosts podem ser adicionados, um de cada vez, até atingir um máximo de 16 hosts por cluster. 
 
 Como a Solução VMware no Azure não permite que você gerencie a nuvem privada com o vCenter local na inicialização, é necessária uma configuração adicional. Esses procedimentos e os pré-requisitos relacionados são abordados neste tutorial.
 
@@ -25,13 +25,10 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Direitos administrativos apropriados e permissão para criar uma nuvem privada.
+- Direitos administrativos apropriados e permissão para criar uma nuvem privada. Você precisa ter, no mínimo, o nível de colaborador na assinatura.
+- Siga as informações coletadas no artigo sobre [planejamento](production-ready-deployment-steps.md) para implantar a Solução VMware no Azure.
 - Verifique se você tem a rede adequada configurada, conforme descrito no [Tutorial: Lista de verificação de rede](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- Os hosts foram provisionados e o provedor de recursos Microsoft.AVS registrado, conforme descrito em [Solicitar hosts e habilitar o provedor de recursos Microsoft.AVS](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Criar uma nuvem privada
 
@@ -74,25 +71,6 @@ Forneça um nome para o grupo de recursos e para a nuvem privada, uma localizaç
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Excluir uma nuvem privada da Solução VMware no Azure
-
-Se tiver uma nuvem privada da Solução VMware no Azure que não é mais necessária, você poderá excluí-la. Uma nuvem privada da Solução VMware no Azure inclui um domínio de rede isolado, um ou mais clusters do vSphere provisionados em hosts de servidor dedicados e várias máquinas virtuais. Quando uma nuvem privada é excluída, todas as máquinas virtuais, os dados delas e os clusters são excluídos. Os hosts bare-metal dedicados são apagados com segurança e retornados ao pool gratuito. O domínio de rede provisionado o cliente é excluído.  
-
-> [!CAUTION]
-> A exclusão da nuvem privada é uma operação irreversível. Após a nuvem privada ser excluída, os dados não poderão ser recuperados, pois todos os componentes e as cargas de trabalho em execução serão terminados e todos os dados e configurações da nuvem privada serão destruídos, incluindo os endereços IP públicos.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Depois que uma nuvem privada for excluída, não será possível recuperar as máquinas virtuais e os dados delas. Se os dados da máquina virtual forem necessários mais tarde, o administrador precisará primeiro fazer backup de todos os dados antes de excluir a nuvem privada.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Etapas para excluir uma nuvem privada da Solução VMware no Azure
-
-1. Acesse a página Soluções VMware no Azure no portal do Azure.
-
-2. Selecione a nuvem privada a ser excluída.
- 
-3. Insira o nome da nuvem privada e selecione **Sim**. Em algumas horas, o processo de exclusão é concluído.  
 
 ## <a name="azure-vmware-commands"></a>Comandos da VMware no Azure
 

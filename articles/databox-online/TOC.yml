@@ -102,7 +102,7 @@
     - name: Visão geral
       items:
         - name: O que é o Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
+          href: azure-stack-edge-mini-r-overview.md
     - name: Conceitos
       items:
         - name: Segurança pronta
@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Implantar o aplicativo sem estado por meio do GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Implantar o Controlador de Dados do Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurar o Azure Resource Manager (versão prévia)
           items:
             - name: Conectar-se por meio do Azure PowerShell
@@ -237,13 +239,13 @@
         - name: Gerenciar certificados
           items:
             - name: Requisitos
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Traga seu próprio
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Criar por meio da ferramenta Verificador de Preparação do Azure Stack
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Solucionar erros de certificado
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gerenciar a computação de borda
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gerenciar o Registro de contêiner do Edge
@@ -270,6 +272,8 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Aplicar atualizações
               href: azure-stack-edge-gpu-install-update.md
+            - name: 'Redefinir, reativar dispositivo'
+              href: azure-stack-edge-reset-reactivate-device.md
             - name: Devolução do dispositivo
               href: azure-stack-edge-return-device.md
             - name: Substituir dispositivo
@@ -303,17 +307,17 @@
         - name: 2101 – Atual
           href: azure-stack-edge-gpu-2101-release-notes.md
         - name: 2010
-          href: azure-stack-edge-gpu-2009-release-notes.md
+          href: azure-stack-edge-gpu-2010-release-notes.md
         - name: 2008
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Referência compartilhada
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: API REST
           href: /rest/api/databoxedgegateway
         - name: SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 - name: Azure Stack Edge Pro – FPGA
   items:
     - name: Visão geral
@@ -383,6 +387,8 @@
           href: azure-stack-edge-return-device.md
         - name: Substituir dispositivo
           href: azure-stack-edge-replace-device.md
+        - name: Migrar para o dispositivo GPU
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Notas de versão
       items:
         - name: 2101 – Atual
@@ -400,11 +406,11 @@
     - name: Referência
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: API REST
           href: /rest/api/databoxedgegateway
         - name: SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 - name: Segurança
   items:
     - name: Linha de base de segurança

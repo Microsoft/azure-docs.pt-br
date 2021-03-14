@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 0190e295c2ab206242ab8a44a09ffb42746d75bd
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 85a0ce20f1d8e5a7e943efc088c19a8ad1912fc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706020"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 

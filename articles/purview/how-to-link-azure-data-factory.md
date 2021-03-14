@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807641"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449604"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -73,7 +73,7 @@ Siga as etapas abaixo para conectar uma conta de Data Factory existente ao catá
 
 Quando um usuário alcance registra um Data Factory ao qual eles têm acesso, acontece o seguinte no back-end:
 
-1. A **Data Factory MSI** é adicionada à função RBAC alcance: **curador de dados alcance**.
+1. A **Data Factory identidade gerenciada** é adicionada à função RBAC alcance: **curador de dados alcance**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Captura de tela mostrando Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,92 @@ Para remover uma conexão data factory, faça o seguinte:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Captura de tela mostrando como selecionar fábricas de dados para remover a conexão." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurar um IR auto-hospedado para coletar a linhagem do SQL local
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Configurar um Integration Runtime auto-hospedado para coletar a linhagem
 
-A linhagem para a Data Factory atividade de cópia está disponível para bancos de dados SQL locais. Se você estiver executando o tempo de execução de integração auto-hospedado para a movimentação de dados com Azure Data Factory e quiser capturar a linhagem no Azure alcance, verifique se a versão é 4.8.7418.1 ou posterior. Para obter mais informações sobre o Integration Runtime de hospedagem interna, consulte [criar e configurar um tempo de execução de integração auto-hospedado](../data-factory/create-self-hosted-integration-runtime.md).
+A linhagem para a Data Factory atividade de cópia está disponível para armazenamentos de dados locais como bancos de dado SQL. Se você estiver executando o tempo de execução de integração auto-hospedado para a movimentação de dados com Azure Data Factory e quiser capturar a linhagem no Azure alcance, verifique se a versão é 5,0 ou posterior. Para obter mais informações sobre o Integration Runtime de hospedagem interna, consulte [criar e configurar um tempo de execução de integração auto-hospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <a name="supported-azure-data-factory-activities"></a>Atividades de Azure Data Factory com suporte
 
 O Azure alcance captura a linhagem de tempo de execução das seguintes atividades de Azure Data Factory:
 
-- Copiar Dados
-- Fluxo de Dados
-- Executar o pacote SSIS
+- [Copiar Dados](../data-factory/copy-activity-overview.md)
+- [Fluxo de Dados](../data-factory/concepts-data-flow-overview.md)
+- [Executar o pacote SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > O Azure alcance remove a linhagem se a origem ou o destino usa um sistema de armazenamento de dados sem suporte.
 
 A integração entre Data Factory e alcance dá suporte apenas a um subconjunto dos sistemas de dados aos quais Data Factory dá suporte, conforme descrito nas seções a seguir.
 
-### <a name="data-factory-copy-data-support"></a>Suporte ao Data Factory Copiar Dados
+### <a name="data-factory-copy-activity-support"></a>Data Factory suporte à atividade de cópia
 
-| Sistema de armazenamento de dados | Tem suporte como origem | 
+| Armazenamento de dados | Com suporte | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sim | 
-| ADLS Gen2 | Sim | 
-| Blob do Azure | Sim |
-| Azure Cosmos DB (API do SQL) | Sim | 
-| Azure Cosmos DB (API Mongo) | Sim |
-| Azure Cognitive Search | Sim | 
-| Azure Data Explorer | Sim | 
+| Armazenamento do Blobs do Azure | Sim |
+| Pesquisa Cognitiva do Azure | Sim | 
+| Azure Cosmos DB (API do SQL) \* | Sim | 
+| API do Azure Cosmos DB para MongoDB \* | Sim |
+| Data Explorer do Azure \* | Sim | 
+| Azure Data Lake Storage Gen1 | Sim | 
+| Azure Data Lake Storage Gen2 | Sim | 
 | Banco de dados do Azure para Maria DB \* | Sim | 
-| Banco de dados do Azure para MYSQL \* | Sim | 
+| Banco de dados do Azure para MySQL \* | Sim | 
 | Banco de dados do Azure para PostgreSQL \* | Sim |
 | Armazenamento de Arquivos do Azure | Sim | 
-| Armazenamento de Tabelas do Azure | Sim |
 | Banco de dados SQL do Azure \* | Sim | 
-| MI SQL do Azure \* | Sim | 
-| Azure Synapse Analytics (antigo SQL DW) \* | Sim | 
-| SQL Server local  \* | Sim | 
+| Instância Gerenciada do SQL do Azure \* | Sim | 
+| Análise de Synapse do Azure \* | Sim | 
+| Armazenamento de Tabelas do Azure | Sim |
 | Amazon S3 | Sim | 
-| Teradata | Sim | 
-| Conector de tabela SAP | Sim |
-| SAP ECC | Sim | 
-| Hive | Sim | 
+| Sessão \* | Sim | 
+| SAP ECC \* | Sim |
+| Tabela SAP | Sim |
+| SQL Server \* | Sim | 
+| Teradata \* | Sim |
+
+*\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 
 > [!Note]
 > O recurso de linhagem tem determinada sobrecarga de desempenho na Data Factory atividade de cópia. Para aqueles que configuram data factory conexões no alcance, você pode observar que alguns trabalhos de cópia demoram mais para serem concluídos. Na maioria das vezes, o impacto é nenhum para insignificante. Entre em contato com o suporte com a comparação de tempo se os trabalhos de cópia demorarem significativamente mais para concluir do que o normal.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitações conhecidas na linhagem da atividade de cópia
+
+Atualmente, se você usar os seguintes recursos de atividade de cópia, ainda não haverá suporte para a linhagem:
+
+- Copie dados em Azure Data Lake Storage Gen1 usando o formato binário.
+- Copie dados para a análise de Synapse do Azure usando o polybase ou a instrução de cópia.
+- Configuração de compactação para arquivos binários, de texto delimitado, Excel, JSON e XML.
+- Opções de partição de origem para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada, Azure Synapse Analytics, SQL Server e tabela SAP.
+- Opção de descoberta de partição de origem para repositórios baseados em arquivo.
+- Copiar dados para o coletor baseado em arquivo com a configuração de máximo de linhas por arquivo.
+- Adicione colunas adicionais durante a cópia.
+
 ### <a name="data-factory-data-flow-support"></a>Suporte a Data Factory de fluxo de dados
 
-| Sistema de armazenamento de dados | Com suporte |
+| Armazenamento de dados | Com suporte |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Sim |
-| ADLS Gen2 | Sim |
-| Blob do Azure | Sim |
+| Armazenamento do Blobs do Azure | Sim |
+| Azure Data Lake Storage Gen1 | Sim |
+| Azure Data Lake Storage Gen2 | Sim |
 | Banco de dados SQL do Azure \* | Sim |
-| Azure Synapse Analytics (antigo SQL DW) \* | Sim |
+| Análise de Synapse do Azure \* | Sim |
+
+*\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory executar suporte a pacotes SSIS
 
-| Sistema de armazenamento de dados | Com suporte |
+| Armazenamento de dados | Com suporte |
 | ------------------- | ------------------- |
-| Blob do Azure | Sim |
-| ADLS Gen1 | Sim |
-| ADLS Gen2 | Sim |
-| Banco de dados SQL do Azure \* | Sim |
-| MI SQL do Azure \*| Sim |
-| Azure Synapse Analytics (antigo SQL DW) \* | Sim |
-| SQL Server local \* | Sim |
+| Armazenamento do Blobs do Azure | Sim |
+| Azure Data Lake Storage Gen1 | Sim |
+| Azure Data Lake Storage Gen2 | Sim |
 | Armazenamento de Arquivos do Azure | Sim |
+| Banco de dados SQL do Azure \* | Sim |
+| Instância Gerenciada do SQL do Azure \*| Sim |
+| Análise de Synapse do Azure \* | Sim |
+| SQL Server \* | Sim |
 
-*\* Para cenários do SQL (Azure e local), o Azure alcance não dá suporte a procedimentos armazenados ou scripts para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
+*\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 
 > [!Note]
 > O Azure Data Lake Storage Gen2 já se encontra disponível ao público em geral. É recomendável que você comece a usá-lo hoje mesmo. Para saber mais, consulte a [página do produto](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -172,7 +188,7 @@ Algumas maneiras adicionais de localizar informações no modo de exibição de 
 
 - Na guia **linhagem** , focalize as formas para visualizar informações adicionais sobre o ativo na dica de ferramenta.
 - Selecione o nó ou a borda para ver o tipo de ativo que ele pertence ou para alternar ativos.
-- As colunas de um conjunto de um DataSet são exibidas no lado esquerdo da guia **linhagem** . Para obter mais informações sobre a linhagem em nível de coluna, consulte [linhagem em nível de coluna](catalog-lineage-user-guide.md#column-level-lineage).
+- As colunas de um conjunto de um DataSet são exibidas no lado esquerdo da guia **linhagem** . Para obter mais informações sobre a linhagem em nível de coluna, consulte [linhagem de coluna de conjunto](catalog-lineage-user-guide.md#dataset-column-lineage)de dados.
 
 ### <a name="data-lineage-for-11-operations"></a>Linhagem de dados para operações de 1:1
 

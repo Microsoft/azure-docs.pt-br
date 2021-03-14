@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534969"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595941"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consultas lentas no Banco de Dados do Azure para MySQL
 No Banco de Dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -25,11 +25,11 @@ Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, de
 
 Outros parâmetros que você pode ajustar incluem:
 
-- **long_query_time** : se uma consulta demorar mais do que long_query_time (em segundos), essa consulta será registrada. O padrão é 10 segundos.
-- **log_slow_admin_statements** : se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
-- **log_queries_not_using_indexes** : determina se as consultas que não usam índices são ou não registradas para o slow_query_log
-- **log_throttle_queries_not_using_indexes** : este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
-- **log_output** : se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se for "None", o log de consultas lentas só será gravado em logs de diagnóstico do Azure Monitor. 
+- **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos), essa consulta será registrada. O padrão é 10 segundos.
+- **log_slow_admin_statements**: se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são ou não registradas para o slow_query_log
+- **log_throttle_queries_not_using_indexes**: este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
+- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se for "None", o log de consultas lentas só será gravado em logs de diagnóstico do Azure Monitor. 
 
 > [!IMPORTANT]
 > Se as tabelas não estiverem indexadas, definir `log_queries_not_using_indexes` os `log_throttle_queries_not_using_indexes` parâmetros e como on pode afetar o desempenho do MySQL, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.<br><br>
@@ -40,7 +40,7 @@ Consulte a [documentação de log de consulta lenta](https://dev.mysql.com/doc/r
 ## <a name="access-slow-query-logs"></a>Acessar logs de consulta lentos
 Há duas opções para acessar logs de consulta lentos no banco de dados do Azure para MySQL: armazenamento do servidor local ou logs de diagnóstico do Azure Monitor. Isso é definido usando o `log_output` parâmetro.
 
-Para o armazenamento do servidor local, você pode listar e baixar logs de consulta lentos usando o portal do Azure ou o CLI do Azure. Na portal do Azure, navegue até o servidor na portal do Azure. Sob o título **Monitoramento** , selecione a página **Logs do Servidor**. Para obter mais informações sobre CLI do Azure, consulte [configurar e acessar logs de consulta lentos usando CLI do Azure](howto-configure-server-logs-in-cli.md). 
+Para o armazenamento do servidor local, você pode listar e baixar logs de consulta lentos usando o portal do Azure ou o CLI do Azure. Na portal do Azure, navegue até o servidor na portal do Azure. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**. Para obter mais informações sobre CLI do Azure, consulte [configurar e acessar logs de consulta lentos usando CLI do Azure](howto-configure-server-logs-in-cli.md). 
 
 Azure Monitor logs de diagnóstico permite canalizar logs de consulta lentos para Azure Monitor logs (Log Analytics), armazenamento do Azure ou hubs de eventos. Consulte [abaixo](concepts-server-logs.md#diagnostic-logs) para obter mais informações.
 
@@ -53,7 +53,7 @@ Logs são reciclados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
 > A retenção de log acima não se aplica a logs que são canalizados usando Azure Monitor logs de diagnóstico. Você pode alterar o período de retenção dos coletores de dados que estão sendo emitidos para (ex. Armazenamento do Azure).
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-O Banco de Dados do Azure para MySQL é integrado aos Logs de Diagnóstico do Monitor do Azure. Depois de habilitar os logs de consulta lentos em seu servidor MySQL, você pode optar por que eles sejam emitidos para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
+O Banco de Dados do Azure para MySQL é integrado aos Logs de Diagnóstico do Monitor do Azure. Depois de habilitar os logs de consulta lentos em seu servidor MySQL, você pode optar por que eles sejam emitidos para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md).
 
 A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
@@ -75,7 +75,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `start_time_t` HORÁRIO | Horário em que a consulta começou |
 | `query_time_s` | Tempo total em segundos que a consulta levou para ser executada |
 | `lock_time_s` | Tempo total em segundos em que a consulta foi bloqueada |
-| `user_host_s` | Nome de Usuário |
+| `user_host_s` | Nome de usuário |
 | `rows_sent_s` | Número de linhas enviadas |
 | `rows_examined_s` | Número de linhas verificadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |

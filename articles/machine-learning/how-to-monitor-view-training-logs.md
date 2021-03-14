@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756051"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518731"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -39,7 +39,7 @@ Para obter informações gerais sobre como gerenciar seus experimentos, consulte
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitorar execuções usando o widget Jupyter Notebook
 
-Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
+Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
 
 Exiba o widget do Jupyter enquanto aguarda a execução ser concluída.
     
@@ -78,9 +78,23 @@ Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_
 
 <a id="queryrunmetrics"></a>
 
-## <a name="query-run-metrics"></a>Métricas de execução de consulta
+## <a name="view-run-metrics"></a>Exibir métricas de execução
 
-Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Por exemplo, você pode usar isso com o exemplo acima para determinar o melhor modelo procurando o modelo com o valor do MSE (erro de quadrado médio) mais baixo.
+## <a name="via-the-sdk"></a>Por meio do SDK
+Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Veja o exemplo abaixo. 
+
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
+
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
+
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -95,18 +109,6 @@ Para a exibição de experimento individual, selecione a guia **todos os experim
 Você também pode editar a tabela de lista de execução para selecionar várias execuções e exibir o valor registrado por último, mínimo ou máximo para suas execuções. Personalize seus gráficos para comparar os valores de métricas registrados e as agregações entre várias execuções. 
 
 ![Detalhes da execução no estúdio do Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Formatar gráficos 
-
-Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas.
-
-|Valor conectado|Código de exemplo| Formato no portal|
-|----|----|----|
-|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável único|
-|Registre um único valor numérico com o mesmo nome de métrica usado repetidamente (como em um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável-único|
-|Faça uma linha com colunas numéricas 2 repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
-|Tabela de log com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
-
 
 ### <a name="view-log-files-for-a-run"></a>Exibir arquivos de log para uma execução 
 

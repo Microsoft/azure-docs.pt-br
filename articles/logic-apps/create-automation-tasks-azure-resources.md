@@ -3,15 +3,15 @@ title: Criar tarefas de automação para gerenciar e monitorar recursos do Azure
 description: Configure tarefas automatizadas que ajudam a gerenciar recursos do Azure e monitorar custos criando fluxos de trabalho que são executados em aplicativos lógicos do Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201113"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719042"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gerenciar recursos do Azure e monitorar custos Criando tarefas de automação (versão prévia)
 
@@ -71,13 +71,15 @@ Por comparação, a automação do Azure é um serviço de configuração e auto
 
    ![Captura de tela que mostra o painel "tarefas" da conta de armazenamento em que a barra de ferramentas tem "Adicionar" selecionado](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. No painel **Adicionar uma tarefa** , em **selecionar um modelo**, selecione o modelo para a tarefa que você deseja criar e selecione **Avançar: autenticação**.
+1. No painel **Adicionar uma tarefa** , em **selecionar um modelo**, selecione o modelo para a tarefa que você deseja criar. Se a próxima página não for exibida, selecione **Avançar: autenticação**.
 
    Este exemplo continua selecionando o modelo de tarefa **Enviar custo mensal para o recurso** .
 
    ![Captura de tela que mostra as seleções, "enviar custo mensal para o recurso" e "Avançar: autenticação"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Em **autenticação**, na seção **conexões** , selecione **criar** para cada conexão para que você possa fornecer credenciais de autenticação para essa conexão. Os tipos de conexões em cada tarefa variam de acordo com a tarefa.
+1. Em **autenticação**, na seção **conexões** , selecione **criar** para cada conexão que aparece na tarefa para que você possa fornecer credenciais de autenticação para todas as conexões. Os tipos de conexões em cada tarefa variam de acordo com a tarefa.
+
+   Este exemplo mostra apenas uma das conexões exigidas por essa tarefa.
 
    ![Captura de tela que mostra a opção "criar" selecionada para a conexão Azure Resource Manager](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,7 +91,7 @@ Por comparação, a automação do Azure é um serviço de configuração e auto
 
    ![Captura de tela que mostra a conexão criada com êxito](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Depois de autenticar todas as conexões necessárias, selecione **Avançar: configuração**.
+1. Depois de autenticar todas as conexões, selecione **Avançar: configuração** se a próxima página não for exibida.
 
 1. Em **configuração**, forneça um nome para a tarefa e qualquer outra informação necessária para a tarefa. Quando terminar, selecione **Criar**.
 
@@ -136,7 +138,7 @@ Para exibir o histórico de uma tarefa de execuções junto com seus status, ent
    | Status | Descrição |
    |--------|-------------|
    | **Cancelar** | A tarefa foi cancelada durante a execução. |
-   | **Com falha** | A tarefa tem pelo menos uma ação com falha, mas não existiam ações subsequentes para lidar com a falha. |
+   | **Falha** | A tarefa tem pelo menos uma ação com falha, mas não existiam ações subsequentes para lidar com a falha. |
    | **Executando** | A tarefa está em execução no momento. |
    | **Êxito** | Todas as ações foram bem sucedidas. Uma tarefa ainda pode ser concluída com êxito se uma ação falhou, mas uma ação subsequente existia para lidar com a falha. |
    | **Aguardando** | A execução ainda não foi iniciada e está em pausa porque uma instância anterior da tarefa ainda está em execução. |
@@ -148,7 +150,7 @@ Para exibir o histórico de uma tarefa de execuções junto com seus status, ent
 
    O painel **execução do aplicativo lógico** é aberto e mostra o fluxo de trabalho subjacente que foi executado.
 
-   * Um fluxo de trabalho sempre começa com um [*gatilho*](../connectors/apis-list.md#triggers-actions). Para essa tarefa, o fluxo de trabalho começa com o gatilho de [ **recorrência** ](../connectors/connectors-native-recurrence.md).
+   * Um fluxo de trabalho sempre começa com um [*gatilho*](../connectors/apis-list.md#triggers-actions). Para essa tarefa, o fluxo de trabalho começa com o gatilho de [ **recorrência**](../connectors/connectors-native-recurrence.md).
 
    * Cada etapa mostra o status e a duração da execução. As etapas que têm duração de 0 segundo levaram menos de 1 segundo para serem executadas.
 
@@ -265,7 +267,7 @@ Quando você altera o fluxo de trabalho subjacente de uma tarefa de automação,
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 
-Gostaríamos de ouvi-lo! Para relatar bugs, fornecer comentários ou fazer perguntas sobre esse recurso de visualização, [entre em contato com a equipe de aplicativos lógicos do Azure](mailto:logicapps@microsoft.com).
+Gostaríamos de ouvi-lo! Para relatar bugs, fornecer comentários ou fazer perguntas sobre esse recurso de visualização, [entre em contato com a equipe de aplicativos lógicos do Azure](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Próximas etapas
 

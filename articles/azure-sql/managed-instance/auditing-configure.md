@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505658"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575473"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introdução à auditoria do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,11 +79,11 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
         - Configure a SAS da seguinte forma:
 
-          - **Serviços permitidos** : Blob
+          - **Serviços permitidos**: Blob
 
-          - **Data de início** : para evitar problemas relacionados a fuso horário, use a data de ontem
+          - **Data de início**: para evitar problemas relacionados a fuso horário, use a data de ontem
 
-          - **Data de término** : escolha a data em que esse token SAS expira
+          - **Data de término**: escolha a data em que esse token SAS expira
 
             > [!NOTE]
             > Renove o token após o vencimento para evitar falhas de auditoria.
@@ -126,11 +126,11 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
      1. Expanda a observação raiz do pesquisador de objetos.
 
-     1. Expanda o nó **segurança** , clique com o botão direito do mouse no nó **auditorias** e clique em **nova auditoria** :
+     1. Expanda o nó **segurança** , clique com o botão direito do mouse no nó **auditorias** e clique em **nova auditoria**:
 
         ![Expandir os nós de segurança e auditoria](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. Verifique se a **URL** está selecionada em **destino de auditoria** e clique em **procurar** :
+     1. Verifique se a **URL** está selecionada em **destino de auditoria** e clique em **procurar**:
 
         ![Procurar no Armazenamento do Azure](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,7 +138,7 @@ A seção a seguir descreve a configuração da auditoria na instância gerencia
 
         ![Entrar no Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de BLOBs nos menus suspensos ou crie seu próprio contêiner clicando em **criar**. Depois de concluir, clique em **OK** :
+     1. Selecione uma assinatura, uma conta de armazenamento e um contêiner de BLOBs nos menus suspensos ou crie seu próprio contêiner clicando em **criar**. Depois de concluir, clique em **OK**:
 
         ![Selecionar assinatura, conta de armazenamento e contêiner de blobs do Azure](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -223,7 +223,7 @@ Para consumir dados de logs de auditoria dos hubs de eventos, você precisará c
 
 Se os logs de auditoria forem gravados nos logs do Azure Monitor, eles estarão disponíveis no workspace do Log Analytics, onde você poderá executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue até o espaço de trabalho Log Analytics. Na seção **geral** , clique em **logs** e insira uma consulta simples, como: `search "SQLSecurityAuditEvents"` para exibir os logs de auditoria.  
 
-Os logs do Azure Monitor fornecem insights operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para ver informações úteis adicionais sobre o idioma e os comandos da pesquisa de logs do Azure Monitor, consulte [Referência de pesquisa dos logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Os logs do Azure Monitor fornecem insights operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para ver informações úteis adicionais sobre o idioma e os comandos da pesquisa de logs do Azure Monitor, consulte [Referência de pesquisa dos logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

@@ -3,24 +3,25 @@ title: Visão geral dos hosts dedicados do Azure para máquinas virtuais
 description: Saiba mais sobre como os hosts dedicados do Azure podem ser usados para implantar máquinas virtuais.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007884"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667342"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
 O Host Dedicado do Azure é um serviço que fornece servidores físicos - que podem hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, uma zona de disponibilidade e em um domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
 
-## <a name="benefits"></a>Vantagens 
+## <a name="benefits"></a>Benefícios 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -167,7 +168,7 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais *service healed* serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais  serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
 | Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 
 

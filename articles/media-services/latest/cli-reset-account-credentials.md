@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6fe958c9300d6a6feeb6926f84dbecf565dfafc1
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cc605a08147da1d076b302e515a4ebe8d411a782
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954337"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091849"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Exemplo da CLI do Azure: Redefinir as credenciais da conta
 
@@ -31,8 +31,6 @@ O script da CLI do Azure neste artigo mostra como redefinir as credenciais da su
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

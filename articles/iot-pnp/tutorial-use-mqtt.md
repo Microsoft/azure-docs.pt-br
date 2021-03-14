@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421372"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831256"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tutorial: usar o MQTT para desenvolver um cliente de dispositivo do IoT Plug and Play
 
@@ -137,15 +137,14 @@ As definições a seguir são para os tópicos do MQTT que o dispositivo usa par
 * O `DEVICE_TELEMETRY_MESSAGE` define o tópico que o dispositivo usa para enviar telemetria ao Hub IoT.
 
 Para obter mais informações sobre o MQTT, visite o repositório do GitHub [Exemplos do MQTT para IoT do Azure](https://github.com/Azure-Samples/IoTMQTTSample/).
-  
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a modificar um cliente de dispositivo MQTT para seguir as convenções de IoT Plug and Play. Para saber mais sobre o IoT Plug and Play, confira:
-
-> [!div class="nextstepaction"]
-> [Arquitetura](concepts-architecture.md)
-
-Para saber mais sobre o suporte do Hub IoT ao protocolo MQTT, confira:
+Neste tutorial, você aprendeu a modificar um cliente de dispositivo MQTT para seguir as convenções de IoT Plug and Play. Para saber mais sobre o suporte do Hub IoT ao protocolo MQTT, confira:
 
 > [!div class="nextstepaction"]
 > [Comunicar com o Hub IoT usando o protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md)

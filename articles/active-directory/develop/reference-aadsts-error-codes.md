@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b82d3963ed12e0d5dc6acd75555a3a7e8f20eeb0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428024"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175338"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -95,7 +95,7 @@ Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquis
 | AADSTS50000 | TokenIssuanceError - há um problema com o serviço de logon. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver esse problema. |
 | AADSTS50001 | InvalidResource - O recurso está desabilitado ou não existe. Verifique o código do seu aplicativo para garantir que você especificou o URL exato do recurso que você está tentando acessar.  |
 | AADSTS50002 | NotAllowedTenant - O login falhou devido a um acesso de proxy restrito no locatário. Se essa for a própria política de locatário, você poderá alterar suas configurações de locatário restrito para corrigir esse problema. |
-| AADSTS500021 | Acesso negado ao locatário ' {Tenant} '. AADSTS500021 indica que o recurso de restrição de locatário está configurado e que o usuário está tentando acessar um locatário que não está na lista de locatários permitidos especificados no cabeçalho `Restrict-Access-To-Tenant` . Para obter mais informações, consulte [usar restrições de locatário para gerenciar o acesso a aplicativos de nuvem SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | Acesso negado ao locatário ' {Tenant} '. AADSTS500021 indica que o recurso de restrição de locatário está configurado e que o usuário está tentando acessar um locatário que não está na lista de locatários permitidos especificados no cabeçalho `Restrict-Access-To-Tenant` . Para obter mais informações, consulte [usar restrições de locatário para gerenciar o acesso a aplicativos de nuvem SaaS](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey - O logon falhou devido a uma chave de assinatura ou certificado ausente. Isso pode ter ocorrido porque não havia uma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [.. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # certificado-ou-chave não configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou com um administrador do aplicativo. |
 | AADSTS50005 | DevicePolicyError-o usuário tentou fazer logon em um dispositivo de uma plataforma que atualmente não tem suporte por meio da política de acesso condicional. |
 | AADSTS50006 | InvalidSignature - Falha na verificação da assinatura devido a uma assinatura inválida. |
@@ -168,6 +168,7 @@ Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquis
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired - O cliente é capaz de obter um token SSO por meio da extensão de contas do Windows 10, mas o token não foi encontrado na solicitação ou o token fornecido expirou. |
 | AADSTS50169 | InvalidRequestBadRealm - O território não é um território configurado do namespace de serviço atual. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping - O mapeamento de controles externos está ausente. |
+| AADSTS50173 | FreshTokenNeeded-a concessão fornecida expirou porque ela está sendo revogada e um novo token de autenticação é necessário. Um administrador ou um usuário revogou os tokens para esse usuário, fazendo com que as atualizações de token subsequentes falhem e requeiram a reautenticação. Faça com que o usuário entre novamente. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers - O desafio externo não é suportado para usuários passantes. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - O controle de sessão não é suportado para usuários de passagem. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - É necessária uma autenticação integrada do Windows. Habilite o locatário para um SSO contínuo. |
@@ -186,6 +187,7 @@ Por exemplo, se você recebeu o código de erro "AADSTS50058", faça uma pesquis
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp-o aplicativo usado não é um aplicativo aprovado para acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para usar a fim de obter acesso. |
 | AADSTS53003 | BlockedByConditionalAccess-o acesso foi bloqueado pelas políticas de acesso condicional. A política de acesso não permite a emissão de token. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator. |
+| AADSTS53011 | Usuário bloqueado devido ao risco no locatário inicial. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - O usuário ou administrador não consentiu em usar o aplicativo com o ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. |
 | AADSTS65004 | UserDeclinedConsent - O usuário recusou o consentimento para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|

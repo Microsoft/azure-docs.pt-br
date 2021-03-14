@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090461"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048124"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,6 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | [Capgemini](https://www.capgemini.com/) | Varejo (inventário), IoT, análise operacional (Spark), desenvolvimento de aplicativos | EUA, França, Reino Unido, Holanda, Finlândia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos |EUA, Canadá, Reino Unido, Dinamarca, Países Baixos, Suíça, Austrália, Japão |
 |[Infosys](https://www.infosys.com/)     | Desenvolvimento de aplicativos      |    EUA    |  
-| [Sistemas Lagash](https://www.devex.com/organizations/lagash-systems-131346) | IoT, arquitetura sem servidor, desenvolvimento de aplicativos | Argentina, Chile, Colômbia, México|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de varejo, desenvolvimento de aplicativos | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos  |    EUA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migração do NoSQL      |   EUA      |

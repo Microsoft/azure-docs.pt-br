@@ -6,20 +6,19 @@ documentationcenter: ''
 author: bentrin
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25eae9f9ba0e28a5aa069972c8c7d5eb2877545f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd1cfb0cc8e1868e78b4d284d1b1f4e7e85aa318
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967679"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677039"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA na migração de instância grande do Azure para máquinas virtuais do Azure
 Este artigo descreve possíveis cenários de implantação de instância grande do Azure e oferece abordagem de planejamento e migração com tempo de inatividade de transição minimizado
@@ -50,21 +49,21 @@ Os modelos de implantação comuns com clientes do HLI são resumidos na tabela 
 
 | ID do cenário | Cenário de HLI | Migrar para a VM idêntica? | Comentário |
 | --- | --- | --- | --- |
-| 1 | [Único nó com um SID](./hana-supported-scenario.md#single-node-with-one-sid) | Yes | - |
-| 2 | [Nó único com MCOS](./hana-supported-scenario.md#single-node-mcos) | Yes | - |
-| 3 | [Nó único com DR usando replicação de armazenamento](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | A replicação de armazenamento não está disponível com a plataforma virtual do Azure, altere a solução de DR atual para HSR ou backup/restauração |
-| 4 | [Nó único com DR (multipropósito) usando replicação de armazenamento](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | A replicação de armazenamento não está disponível com a plataforma virtual do Azure, altere a solução de DR atual para HSR ou backup/restauração |
-| 5 | [HSR com STONITH para alta disponibilidade](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | Yes | Nenhum SBD pré-configurado para VMs de destino.  Selecione e implante uma solução STONITH.  Opções possíveis: agente de isolamento do Azure (com suporte para [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), SBD |
-| 6 | [HA com HSR, DR com replicação de armazenamento](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | Substitua a replicação de armazenamento para necessidades de DR com HSR ou backup/restauração |
-| 7 | [Failover Automático do Host (1 + 1)](./hana-supported-scenario.md#host-auto-failover-11) | Yes | Usar o seja para armazenamento compartilhado com VMs do Azure |
-| 8 | [Expansão com espera](./hana-supported-scenario.md#scale-out-with-standby) | Yes | BW/4HANA com M128s, M416s, VMs M416ms usando seja para armazenamento somente |
-| 9 | [Expansão sem espera](./hana-supported-scenario.md#scale-out-without-standby) | Yes | BW/4HANA com M128s, M416s, VMs M416ms (com ou sem usar seja para armazenamento) |
-| 10 | [Escalar horizontalmente com recuperação de desastre usando replicação de armazenamento](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | No | Substitua a replicação de armazenamento para necessidades de DR com HSR ou backup/restauração |
-| 11 | [Nó único com DR usando HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | Yes | - |
+| 1 | [Único nó com um SID](./hana-supported-scenario.md#single-node-with-one-sid) | Sim | - |
+| 2 | [Nó único com MCOS](./hana-supported-scenario.md#single-node-mcos) | Sim | - |
+| 3 | [Nó único com DR usando replicação de armazenamento](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | Não | A replicação de armazenamento não está disponível com a plataforma virtual do Azure, altere a solução de DR atual para HSR ou backup/restauração |
+| 4 | [Nó único com DR (multipropósito) usando replicação de armazenamento](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | Não | A replicação de armazenamento não está disponível com a plataforma virtual do Azure, altere a solução de DR atual para HSR ou backup/restauração |
+| 5 | [HSR com STONITH para alta disponibilidade](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | Sim | Nenhum SBD pré-configurado para VMs de destino.  Selecione e implante uma solução STONITH.  Opções possíveis: agente de isolamento do Azure (com suporte para [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), SBD |
+| 6 | [HA com HSR, DR com replicação de armazenamento](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | Não | Substitua a replicação de armazenamento para necessidades de DR com HSR ou backup/restauração |
+| 7 | [Failover Automático do Host (1 + 1)](./hana-supported-scenario.md#host-auto-failover-11) | Sim | Usar o seja para armazenamento compartilhado com VMs do Azure |
+| 8 | [Expansão com espera](./hana-supported-scenario.md#scale-out-with-standby) | Sim | BW/4HANA com M128s, M416s, VMs M416ms usando seja para armazenamento somente |
+| 9 | [Expansão sem espera](./hana-supported-scenario.md#scale-out-without-standby) | Sim | BW/4HANA com M128s, M416s, VMs M416ms (com ou sem usar seja para armazenamento) |
+| 10 | [Escalar horizontalmente com recuperação de desastre usando replicação de armazenamento](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | Não | Substitua a replicação de armazenamento para necessidades de DR com HSR ou backup/restauração |
+| 11 | [Nó único com DR usando HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | Sim | - |
 | 12 | [HSR de nó único para DR (com otimização de custo)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | Sim | - |
-| 13 | [HA e DR com HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Yes | - |
-| 14 | [HA e DR com HSR (com otimização de custo)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Yes | - |
-| 15 | [Escale horizontalmente com DR usando HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Yes | BW/4HANA com M128s. M416s, VMs M416ms (com ou sem o uso de seja para armazenamento) |
+| 13 | [HA e DR com HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Sim | - |
+| 14 | [HA e DR com HSR (com otimização de custo)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Sim | - |
+| 15 | [Escale horizontalmente com DR usando HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Sim | BW/4HANA com M128s. M416s, VMs M416ms (com ou sem o uso de seja para armazenamento) |
 
 
 ## <a name="source-hli-planning"></a>Planejamento de origem (HLI)

@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: ceb30cee194994e5b31db312f191194932c937b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551470"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200739"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Linhagem de dados no cliente do catálogo de dados alcance do Azure
 
-Este artigo fornece uma visão geral da linhagem de dados no catálogo de dados alcance do Azure. Ele também detalha como os sistemas de dados podem se integrar ao catálogo para capturar a linhagem de dados. O alcance pode capturar a linhagem de dados em diferentes partes do espaço de dados de sua organização e em diferentes níveis de preparação, incluindo:
+Este artigo fornece uma visão geral da linhagem de dados no catálogo de dados alcance do Azure. Ele também detalha como os sistemas de dados podem se integrar ao catálogo para capturar a linhagem de dados. O alcance pode capturar a linhagem de dados em diferentes partes do espaço de dados da sua organização e em diferentes níveis de preparação, incluindo:
 
 - Dados totalmente brutos preparados de várias plataformas
 - Dados transformados e preparados
@@ -65,6 +65,6 @@ A linhagem é um recurso crítico do catálogo de dados alcance para dar suporte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início rápido: criar uma conta do Azure alcance no portal do Azure](create-catalog-portal.md)
-* [Início rápido: criar uma conta do Azure alcance usando Azure PowerShell/CLI do Azure](create-catalog-powershell.md)
+* [Início Rápido: Criar uma conta do Azure Purview no portal do Azure](create-catalog-portal.md)
+* [Início Rápido: Criar uma conta do Azure Purview usando o Azure PowerShell/a CLI do Azure](create-catalog-powershell.md)
 * [Início rápido: usar o alcance Studio](use-purview-studio.md)

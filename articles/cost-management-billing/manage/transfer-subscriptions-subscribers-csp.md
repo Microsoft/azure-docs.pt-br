@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962103"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363042"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
@@ -36,6 +36,7 @@ Quando a solicitação é aprovada, o CSP pode fornecer uma fatura combinada par
 
 Para transferir qualquer outra assinatura do Azure para um parceiro CSP, o assinante precisa mover recursos das assinaturas de origem para as assinaturas do CSP. Use as diretrizes a seguir para mover recursos entre assinaturas.
 
+1. Estabelecer um [relacionamento de revendedor](/partner-center/request-a-relationship-with-a-customer) com o cliente. Examine a [Visão Geral da Autorização Regional do CSP](/partner-center/regional-authorization-overview) para verificar se o cliente e o locatário do Parceiro estão dentro das mesmas regiões autorizadas.
 1. Trabalhe com seu parceiro CSP para criar assinaturas do CSP do Azure de destino.
 1. Verifique se as assinaturas de origem e destino do CSP estão no mesmo locatário do Azure AD (Active Directory).  
     Não é possível alterar o locatário do Azure AD para uma assinatura do CSP do Azure. Em vez disso, você precisa adicionar ou associar a assinatura de origem ao locatário do CSP do Azure AD. Para obter mais informações, confira [Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

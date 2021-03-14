@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 55fa3ab4e5bd4472f7dae9692ae3ac9bcfa8e2b6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a31c9c4747ccc72f0552ebe2f8daf85ef5fba8a3
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743161"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015294"
 ---
 # <a name="sizes-for-cloud-services-classic"></a>Tamanhos para serviços de nuvem (clássico)
 
@@ -63,7 +63,7 @@ Criamos o conceito da ACU (Unidade de Computação do Azure) para fornecer uma m
 | [A8-A11](#a-series) |225* |
 | [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
-| [D v2](#dv2-series) |160 - 190* |
+| [D v2](#dv2-series) |210 - 250* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
 | [G](#g-series) |180 - 240* |
@@ -83,7 +83,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
-| Pequeno           | 1         | 1,75         | 225                  | 1 / moderada |
+| Small           | 1         | 1,75         | 225                  | 1 / moderada |
 | Médio          | 2         | 3,5          | 490                  | 1 / moderada |
 | Grande           | 4         | 7            | 1000                 | 2 / alta |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |

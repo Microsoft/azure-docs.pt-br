@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711409"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solucionando problemas de falha de carregamento do SDK para aplicativos Web JavaScript
 
@@ -30,7 +30,7 @@ A exceção de falha de carregamento do SDK é criada e relatada pelo trecho de 
 
 Os detalhes da pilha incluem as informações básicas com as URLs que estão sendo usadas pelo usuário final.
 
-| Nome                      | Descrição                                                                                                  |
+| Name                      | Descrição                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;&nbsp;Ponto de extremidade CDN&gt; | A URL que foi usada (e falhou) para baixar o SDK.                                                      |
 | &lt;Link de ajuda &nbsp;&gt;    | Uma URL que vincula à documentação de solução de problemas (esta página).                                              |
@@ -68,7 +68,7 @@ Para minimizar a falha de conectividade de rede intermitente, implementamos Cach
  
 ## <a name="application-insights-cdn-outage"></a>Interrupção Application Insights CDN
 
-Você pode confirmar se há uma interrupção Application Insights CDN ao tentar acessar o ponto de extremidade da CDN diretamente do navegador (por exemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) de um local diferente do que os seus usuários finais provavelmente do seu próprio computador de desenvolvimento (supondo que sua organização não bloqueou esse domínio).
+Você pode confirmar se há uma interrupção Application Insights CDN ao tentar acessar o ponto de extremidade da CDN diretamente do navegador (por exemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ou https://js.monitor.azure.com/scripts/b/ai.2.min.js) de um local diferente dos seus usuários finais, provavelmente do seu próprio computador de desenvolvimento (pressupondo que sua organização não bloqueou esse domínio).
 
 Se você confirmar que há uma interrupção, poderá [criar um novo tíquete de suporte](https://azure.microsoft.com/support/create-ticket/) ou tentar alterar a URL usada para baixar o SDK.
 
@@ -106,7 +106,7 @@ Se houver exceções sendo relatadas no script do SDK (por exemplo ai.2.min.js),
 
 Para verificar a configuração com falha, altere a configuração passada para o trecho de código (se ainda não estiver) para que ela inclua apenas sua chave de instrumentação como um valor de cadeia de caracteres.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -134,7 +134,7 @@ Se ainda não for possível inicializar, tente habilitar a ```enableDebug``` def
 > [!WARNING]
 > Essa é uma configuração somente para desenvolvedores e nunca deve ser habilitada em um ambiente de produção completo, pois você perderá a telemetria.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: true<br />

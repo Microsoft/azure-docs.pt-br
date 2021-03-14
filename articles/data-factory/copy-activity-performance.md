@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: a6e89883ec0e1e493bad9572876af86f4a0d3853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324424"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616070"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
 
@@ -53,8 +53,8 @@ O ADF oferece uma arquitetura sem servidor que permite paralelismo em diferentes
 
 Essa arquitetura permite que você desenvolva pipelines que maximizam a taxa de transferência de movimentação de dados para seu ambiente. Esses pipelines utilizam totalmente os seguintes recursos:
 
-* Largura de banda da rede
-* Operações de entrada/saída de armazenamento por segundo (IOPS) e largura de banda
+* Largura de banda de rede entre os armazenamentos de dados de origem e de destino
+* Operações de entrada/saída de armazenamento de dados de origem ou destino por segundo (IOPS) e largura de banda
 
 Essa utilização completa significa que você pode estimar a taxa de transferência geral medindo a taxa de transferência mínima disponível com os seguintes recursos:
 
@@ -62,7 +62,7 @@ Essa utilização completa significa que você pode estimar a taxa de transferê
 * Armazenamento de dados de destino
 * Largura de banda de rede entre os armazenamentos de dados de origem e de destino
 
-A tabela a seguir calcula a duração da cópia. A duração é baseada no tamanho dos dados e no limite de largura de banda do seu ambiente.
+A tabela a seguir calcula a duração da cópia. A duração é baseada no tamanho dos dados e no limite de largura de banda do armazenamento de dados/rede para seu ambiente.
 
 &nbsp;
 

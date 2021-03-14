@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: f1f2caa194972bb870dc58cfa0bd6ccb2f8db053
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539737"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099907"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
@@ -193,7 +193,7 @@ A saída de **Qwinsta** listará o **RDP-SxS** na saída se a pilha lado a lado 
 > [!div class="mx-imgBorder"]
 > ![Pilha lado a lado instalada ou habilitada com Qwinsta listado como RDP-SxS na saída.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
+Examine as entradas de registro listadas abaixo e confirme se seus valores correspondem. Se as chaves do registro estiverem ausentes ou se os valores forem incompatíveis, verifique se você está executando [um sistema operacional com suporte](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). Se você estiver, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) sobre como reinstalar a pilha lado a lado.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal

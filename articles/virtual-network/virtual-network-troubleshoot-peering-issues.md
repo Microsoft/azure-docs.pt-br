@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096382"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200521"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solucionar problemas de emparelhamento de rede virtual
 
@@ -44,7 +44,7 @@ Para configurar o emparelhamento de rede virtual das redes virtuais que estão n
 >
 > * VMs (máquinas virtuais) por trás do SKU ILB (balanceador de carga interno) básico
 > * Cache Redis (usa o SKU ILB básico)
-> * Gateway de Aplicativo (usa o SKU ILB básico)
+> * Application Gateway V1 (usa o SKU básico do ILB)
 > * Conjuntos de dimensionamento de máquinas virtuais (usa o SKU ILB básico)
 > * Clusters do Azure Service Fabric (usa o SKU ILB básico)
 > * SQL Server Always On (usa o SKU ILB básico)
@@ -233,7 +233,7 @@ Para resolver esse problema, exclua o emparelhamento das duas redes virtuais e c
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falha ao emparelhar uma rede virtual do Databricks
 
-Para resolver o problema, configure o emparelhamento de rede virtual em **Azure Databricks** e especifique a rede virtual de destino usando **ID de recurso**. Para obter mais informações, confira [Emparelhar uma rede virtual do Databricks com uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Para resolver o problema, configure o emparelhamento de rede virtual em **Azure Databricks** e especifique a rede virtual de destino usando **ID de recurso**. Para obter mais informações, confira [Emparelhar uma rede virtual do Databricks com uma rede virtual remota](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota não tem um gateway
 

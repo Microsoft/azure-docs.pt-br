@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702191"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs VMware para o Azure (sem agente)
 
@@ -57,7 +57,7 @@ Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Mig
 
 Depois de configurar o dispositivo e concluir a descoberta, você pode começar a replicação de VMs VMware no Azure. 
 
-- Você pode executar até 300 replicações simultaneamente.
+- Você pode executar até 500 replicações simultaneamente.
 - No portal, é possível selecionar até dez VMs simultaneamente para migração. Para migrar mais computadores, adicione-os a grupos em lotes de dez.
 
 Habilite a replicação da seguinte maneira:
@@ -88,9 +88,10 @@ Habilite a replicação da seguinte maneira:
 9. Em **Tipo de criptografia de disco**, selecione:
     - Criptografia em repouso com chave de criptografia gerenciada pela plataforma
     - Criptografia em repouso com a chave gerenciada pelo cliente
+    - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
 
    > [!NOTE]
-   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
+   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](https://go.microsoft.com/fwlink/?linkid=2151800) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
   
 10. Em **Benefício Híbrido do Azure**:
 

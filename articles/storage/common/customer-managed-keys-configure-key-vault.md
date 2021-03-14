@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843376"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558181"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar a criptografia com as chaves gerenciadas pelo cliente armazenadas no Azure Key Vault
 
@@ -175,10 +175,11 @@ O armazenamento do Azure pode atualizar automaticamente a chave gerenciada pelo 
 Para configurar chaves gerenciadas pelo cliente com a atualização automática da versão de chave no portal do Azure, siga estas etapas:
 
 1. Navegue para sua conta de armazenamento.
-1. Na folha **Configurações** da conta de armazenamento, clique em **Criptografia**. Selecione a opção **chaves gerenciadas pelo cliente** , conforme mostrado na imagem a seguir.
+1. Na folha **Configurações** da conta de armazenamento, clique em **Criptografia**. Por padrão, o gerenciamento de chaves é definido como **chaves gerenciadas da Microsoft**, conforme mostrado na imagem a seguir.
 
     ![Captura de tela do portal mostrando a opção de criptografia](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. Selecione a opção **chaves gerenciadas pelo cliente** .
 1. Escolha a opção **Selecionar do Cofre de chaves**.
 1. Selecione **selecionar um cofre de chaves e uma chave**.
 1. Selecione o cofre de chaves que contém a chave que você deseja usar.

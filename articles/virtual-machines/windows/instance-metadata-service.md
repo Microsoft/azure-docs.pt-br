@@ -6,16 +6,19 @@ author: KumariSupriya
 manager: paulmey
 ms.service: virtual-machines
 ms.subservice: monitoring
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/04/2021
+ms.date: 02/21/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: f78cb18f8edb58c41e62abb69504ec4916382262
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9de52c8a41db7ecdbf4e6d76700c9a06e3264430
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963939"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564366"
 ---
+# <a name="azure-instance-metadata-service-windows"></a>Serviço de metadados de instância do Azure (Windows)
+
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

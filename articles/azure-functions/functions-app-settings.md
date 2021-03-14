@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881916"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425695"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -19,7 +19,7 @@ As configurações de aplicativo em um aplicativo de funções contém opções 
 Há outras opções de configuração global no arquivo [host.json](functions-host-json.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
 
 > [!NOTE]  
-> Você pode usar as configurações do aplicativo para substituir host.jsem valores de configuração sem precisar alterar o host.jsno próprio arquivo. Isso é útil para cenários em que você precisa configurar ou modificar host.jsespecíficas em configurações para um ambiente específico. Isso também permite que você altere host.jsem configurações sem precisar republicar o projeto. Para saber mais, consulte o [host.jsno artigo de referência](functions-host-json.md#override-hostjson-values).  
+> Você pode usar as configurações do aplicativo para substituir host.jsem valores de configuração sem precisar alterar o host.jsno próprio arquivo. Isso é útil para cenários em que você precisa configurar ou modificar host.jsespecíficas em configurações para um ambiente específico. Isso também permite que você altere host.jsem configurações sem precisar republicar o projeto. Para saber mais, consulte o [host.jsno artigo de referência](functions-host-json.md#override-hostjson-values). As alterações nas configurações do aplicativo de funções exigem que o seu aplicativo de funções seja reiniciado.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -80,7 +80,7 @@ Quando `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` é definido como `true`
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como padrão `Development` um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
+Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é lido durante a inicialização e pode ser definido como qualquer valor. Somente os valores de `Development` , `Staging` e `Production` são respeitados pelo tempo de execução. Quando essa configuração de aplicativo não estiver presente durante a execução no Azure, o ambiente será considerado `Production` . Use essa configuração em vez de `ASPNETCORE_ENVIRONMENT` se você precisar alterar o ambiente de tempo de execução no Azure para algo diferente de `Production` . O Azure Functions Core Tools definido `AZURE_FUNCTIONS_ENVIRONMENT` como `Development` quando executado em um computador local, e isso não pode ser substituído na local.settings.jsno arquivo. Para saber mais, confira [classe e métodos de inicialização baseados em ambiente](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
@@ -159,11 +159,11 @@ Determina se a edição no portal do Azure está habilitada. Os valores válidos
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-A versão do runtime do Functions para usar nesse aplicativo de funções. Um til com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~2"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo a uma versão específica, use o número de versão completo (por exemplo, "2.0.12345"). O padrão é "~ 2". Um valor de pinos `~1` seu aplicativo para a versão 1.x do runtime.
+A versão do tempo de execução do Functions que hospeda seu aplicativo de funções. Um til ( `~` ) com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~ 3"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo em uma versão específica, use o número de versão completo (por exemplo, "3.0.12345"). O padrão é "~ 3". Um valor de pinos `~1` seu aplicativo para a versão 1.x do runtime. Para obter mais informações, consulte [Visão geral de versões do Azure Functions runtime](functions-versions.md).
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~2|
+|FUNCTIONS\_EXTENSION\_VERSION|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>Modo de compatibilidade do Functions \_ v2 \_ \_
 
@@ -213,7 +213,7 @@ O valor dessa configuração indica uma URL de índice de pacote personalizado p
 
 Para saber mais, confira [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor do Python.
 
-## <a name="scale_controller_logging_enable"></a>\_habilitar o \_ log do controlador de escala \_
+## <a name="scale_controller_logging_enabled"></a>registro em log do controlador de escala \_ \_ \_ habilitado
 
 _No momento, essa configuração está na versão prévia._  
 
@@ -221,7 +221,7 @@ Essa configuração controla o registro em log do controlador de escala de Azure
 
 |Chave|Valor de exemplo|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: detalhado|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: detalhado|
 
 O valor dessa chave é fornecido no formato `<DESTINATION>:<VERBOSITY>` , que é definido da seguinte maneira:
 
@@ -235,7 +235,7 @@ Cadeia de conexão para a conta de armazenamento em que o código e a configura�
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-Usado somente ao implantar em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Usado somente ao implantar em um plano Premium ou em um plano de consumo em execução no Windows. Sem suporte para planos de consumos que executam o Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
 
@@ -253,7 +253,7 @@ O caminho do arquivo para o código do aplicativo de funções e a configuraçã
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Usado somente por aplicativos de funções em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Usado somente ao implantar em um plano Premium ou em um plano de consumo em execução no Windows. Sem suporte para planos de consumos que executam o Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 

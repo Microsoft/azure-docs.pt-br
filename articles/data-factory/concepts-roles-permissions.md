@@ -4,18 +4,14 @@ description: Descreve as funções e permissões necessárias para criar Data Fa
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053764"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364470"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -54,14 +50,13 @@ A função **Colaborador do Data Factory**, no nível do grupo de recursos ou ac
 
 As permissões no Azure Repos e no GitHub são independentes das permissões do Data Factory. Como resultado, um usuário com permissões de repo que é apenas um membro da função Leitor pode editar os recursos filhos do Data Factory e confirmar alterações no repo, mas não pode publicar essas alterações.
 
+
 > [!IMPORTANT]
 > A implantação de modelo do Resource Manager com a função **Colaborador do Data Factory** não eleva as permissões. Por exemplo, se você implantar um modelo que cria uma máquina virtual do Azure e você não tiver permissão para criar máquinas virtuais, a implantação falhará com um erro de autorização.
 
-> [!IMPORTANT]
-> A permissão **Microsoft. datafactory/fábricas/Write** é necessária em ambos os modos dentro do contexto de publicação.
-
+   No contexto de publicação, a permissão **Microsoft. datafactory/factories/Write** se aplica aos modos a seguir.
 - Essa permissão só é necessária no modo dinâmico quando o cliente modifica os parâmetros globais.
-- Essa permissão sempre é necessária no modo git, pois toda vez que o cliente é publicado, porque o objeto de fábrica com a última ID de confirmação é atualizado.
+- Essa permissão sempre é necessária no modo git, uma vez que sempre que o cliente é publicado, o objeto de fábrica com a última ID de confirmação precisa ser atualizado.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
@@ -95,6 +90,7 @@ Aqui estão alguns exemplos que demonstram o que você pode obter com as funçõ
 - Permitir que um usuário atualize um data factory usando o PowerShell ou o SDK, mas não o portal do Azure.
 
   Atribuir a função interna **Colaborador** no recurso do data factory ao usuário. Essa função permite que o usuário veja os recursos no portal do Azure, mas não permite que ele acesse os botões **Publicar** e **Publicar Tudo**.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

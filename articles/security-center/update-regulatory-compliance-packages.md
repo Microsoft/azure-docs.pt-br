@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381725"
 ---
-# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões em seu painel de conformidade regulatória
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulatória
 
 A Central de Segurança do Azure compara continuamente a configuração de seus recursos com os requisitos de padrões, regulamentos e parâmetros de comparação do setor. O **painel de conformidade regulatória** fornece informações sobre sua postura de conformidade com base em como você está atendendo aos requisitos de conformidade específicos.
 
@@ -92,7 +92,7 @@ As etapas a seguir explicam como adicionar um pacote para monitorar sua conformi
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulatória" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## <a name="removing-a-standard-from-your-dashboard"></a>Removendo um padrão do seu painel
+## <a name="remove-a-standard-from-your-dashboard"></a>Remover um padrão do seu painel
 
 Se qualquer um dos padrões regulatórios fornecidos não for relevante para sua organização, será um processo simples para removê-los da interface do usuário. Isso permite personalizar ainda mais o painel de conformidade regulatória e se concentrar apenas nos padrões que se aplicam a você.
 
@@ -113,7 +113,7 @@ Para remover um padrão:
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirme que você realmente deseja remover o padrão normativo selecionado":::
 
-1. Selecione **Sim** na barra superior. O padrão será removido. 
+1. Selecione **Sim**. O padrão será removido. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

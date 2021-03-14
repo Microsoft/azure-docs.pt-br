@@ -13,20 +13,20 @@ metadata:
   author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: 44f260d5e336433c7366dcbe7ce6f1bb79f92c3c
-  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+  ms.openlocfilehash: f2cf2622ab4fedbe501eca3053d749694f831390
+  ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98683973"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102520397"
 landingContent:
 - title: 'Introdução: Code First'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Tutorial de introdução (Python)
+    - text: Introdução aos scripts do Python
       url: tutorial-1st-experiment-sdk-setup-local.md
-    - text: Tutorial de uso do Jupyter Notebooks
+    - text: Introdução aos Jupyter Notebooks (Python)
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Inferência de lote com pipelines de ML (Python)
       url: tutorial-pipeline-batch-scoring-classification.md
@@ -71,11 +71,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: SDK do Python
-      url: /python/api/overview/azure/ml/?view=azure-ml-py
+      url: /python/api/overview/azure/ml/
     - text: API REST
       url: /rest/api/azureml/
     - text: CLI do aprendizado de máquina
-      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+      url: /cli/azure/ext/azure-cli-ml/ml
 - title: Procurar pelo Studio (clássico)
   linkLists:
   - linkListType: overview

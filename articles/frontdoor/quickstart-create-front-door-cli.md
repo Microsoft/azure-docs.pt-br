@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: e01b56f88270348167ef1eef9d913e65074d9247
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0b82c11dcd615dfbdcfd70f5f90edd7ba41b4562
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327229"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201610"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Início Rápido: criar um Front Door para um aplicativo Web global altamente disponível usando a CLI do Azure
 
@@ -46,7 +46,7 @@ No Azure, você pode alocar recursos relacionados a um grupo de recursos. Você 
 
 Para este início rápido, você precisa de dois grupos de recursos. Uma na região *EUA Central* e o segundo na região *Centro-Sul dos EUA*.
 
-Crie um grupo de recursos com [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true):
+Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Se você ainda não tiver um aplicativo Web, use o script a seguir para configur
 
 Para criar os aplicativos Web, você precisará de dois planos do Serviço de Aplicativo: um na região *EUA Central* e o segundo na região *Centro-Sul dos EUA*.
 
-Crie planos do Serviço de Aplicativo com o [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
+Crie planos do Serviço de Aplicativo com o [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 A execução dos comandos a seguir criará um aplicativo Web em cada um dos planos do Serviço de Aplicativo na etapa anterior. Os nomes dos aplicativos Web devem ser globalmente exclusivos.
 
-Criar aplicativo Web com o [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
+Criar aplicativo Web com o [az webapp create](/cli/azure/webapp#az_webapp_create&preserve-view=true):
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Anote o nome de host padrão de cada aplicativo Web para que você possa definir
 
 Crie um Front Door básico com as configurações padrão de balanceamento de carga, investigação de integridade e regras de roteamento executando o seguinte:
 
-Crie Front Door com o [az network front-door create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
+Crie Front Door com o [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ Abra um navegador da Web e insira o nome do host obtido por meio dos comandos. O
 
 Quando você não precisar mais dos recursos criados com o Front Door, exclua ambos os grupos de recursos. Ao excluir o grupo de recursos, você exclui também o Front Door e todos os recursos relacionados. 
 
-Para excluir o grupo de recursos, use [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Para excluir o grupo de recursos, use [az group delete](/cli/azure/group#az_group_delete&preserve-view=true):
 
 ```azurecli-interactive
 az group delete \

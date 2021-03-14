@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732672"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653628"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pools elásticos ajudam a gerenciar e dimensionar vários bancos de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ Para camadas de serviço e limites de recursos em cada modelo de compra, consult
 As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
-
-Para modelos de compra baseados em DTU:
-
-MAX (<*número total de banco de bancos* X *utilização média de dtu por bd*>, <*número de bancos de los de pico simultâneos* x *utilização de DTU de pico por BD*>)
-
-Para o modelo de compra baseado em vCore:
-
-MAX (<*número total de bancos de* *BD X utilização média de VCORE por banco* de>, <*número de bancos de los de pico simultâneos* x utilização de *vcore de pico por BD*>)
-
+   - Para o modelo de compra baseado em DTU:
+     - Max (<*número total de máximo de bancos de> de* &times; *utilização de DTU por BD* , <*número de bancos de os de pico simultâneos* , &times; *pico de utilização de DTU por BD*>)
+   - Para o modelo de compra baseado em vCore:
+     - Max (<*número total de máximo de bancos de> de* &times; *utilização de VCORE por BD* , <*número de bancos de los de pico simultâneo de pico de* &times; *utilização do VCORE por BD*>)
 2. Estime o espaço de armazenamento total necessário para o pool adicionando o tamanho de dados necessário para todos os bancos de dado no pool. Para o modelo de compra de DTU, determine o tamanho do pool de eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
 4. Consulte a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor tamanho de pool que seja maior que a estimativa da Etapa 3.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
-ms.openlocfilehash: b15238a4308fe055f914d1a684b79b38a2c64870
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121954"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556844"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Atribuir a um usuário a função de administrador de uma assinatura do Azure
 
@@ -89,6 +89,6 @@ A função de [proprietário](built-in-roles.md#owner) concede acesso completo p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)

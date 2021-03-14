@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624584"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523950"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerenciar sensores do console de gerenciamento
 
@@ -64,7 +64,7 @@ Para aplicar as configurações do sistema:
 
 6. Na árvore do sensor, selecione os itens aos quais você deseja aplicar a configuração.
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ## <a name="update-versions"></a>Versões de atualização
 
@@ -235,7 +235,7 @@ Para fazer backup de sensores:
 
    - Para fazer backup em um servidor externo, habilite a alternância de **caminho personalizado** e insira um local. Há suporte para os seguintes números e caracteres: `/, a-z, A-Z, 0-9, and, _` . 
 
-7. Clique em **Salvar**. 
+7. Selecione **Salvar**. 
 
 Para fazer backup imediatamente: 
 
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que você possa salvar um backup de sensor 
 
 9. Defina `Backup.shared_location` como `<backup_folder_name_on_cyberx_server>`.
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar sensores individuais](how-to-manage-individual-sensors.md)

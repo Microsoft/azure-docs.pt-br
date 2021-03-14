@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008580"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432546"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -41,7 +41,7 @@ O contêiner de OCR Read 3,2-Preview fornece:
 * Pontuações de confiança.
 * Suporte para documentos com texto impresso e manuscrito.
 * Capacidade de extrair texto apenas das páginas selecionadas em um documento.
-* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural.
+* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural somente para idiomas latinos.
 * Classificação de linha de texto como estilo manuscrito ou não somente para idiomas latinos.
 
 Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de migração](read-container-migration-guide.md) para saber mais sobre as alterações nas novas versões.
@@ -418,7 +418,7 @@ Quando a imagem é lida em sua totalidade, e somente em seguida, a API retorna u
 
 O objeto de resposta JSON tem o mesmo grafo de objeto que a versão assíncrona. Se você for um usuário de JavaScript e quiser a segurança de tipo, considere usar TypeScript para converter a resposta JSON.
 
-Para obter um exemplo de caso de uso, consulte a <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">área <span class="docon docon-navigate-external x-hidden-focus"></span> restrita do TypeScript aqui</a> e selecione **executar** para visualizar sua facilidade de uso.
+Para obter um exemplo de caso de uso, consulte a <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">área restrita do TypeScript aqui</a> e selecione **executar** para visualizar sua facilidade de uso.
 
 ## <a name="stop-the-container"></a>Parar o contêiner
 
@@ -436,7 +436,7 @@ Os contêineres de serviços cognitivas enviam informações de cobrança para o
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./computer-vision-resource-container-config.md).
+Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./computer-vision-resource-container-config.md). 
 
 ## <a name="summary"></a>Resumo
 

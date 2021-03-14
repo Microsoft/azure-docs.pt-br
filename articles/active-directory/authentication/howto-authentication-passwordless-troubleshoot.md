@@ -1,24 +1,24 @@
 ---
 title: Problemas conhecidos e solução de problemas para chaves de segurança FIDO2 híbridas-Azure Active Directory
-description: Saiba mais sobre alguns problemas conhecidos e maneiras de solucionar problemas de entrada de chave de segurança FIDO2 híbrido sem senha usando o Azure Active Directory (versão prévia)
+description: Saiba mais sobre alguns problemas conhecidos e maneiras de solucionar problemas de entrada de chave de segurança FIDO2 híbrido sem senha usando o Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648763"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Solução de problemas para implantações híbridas de chaves de segurança do FIDO2 no Azure AD (versão prévia)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Solução de problemas para implantações híbridas de chaves de segurança do FIDO2 no Azure AD 
 
 Este artigo aborda as perguntas frequentes para dispositivos ingressados no Azure AD híbrido e entrada sem senha em recursos locais. Com esse recurso sem senha, você pode habilitar a autenticação do Azure AD em dispositivos Windows 10 para dispositivos ingressados no Azure AD híbrido usando chaves de segurança FIDO2. Os usuários podem entrar no Windows em seus dispositivos com credenciais modernas, como chaves FIDO2, e acessar recursos baseados em AD DS (Active Directory Domain Services tradicional) com uma experiência de SSO (logon único) contínuo para seus recursos locais.
 
@@ -29,12 +29,9 @@ Há suporte para os seguintes cenários para usuários em um ambiente híbrido:
 
 Para começar a usar as chaves de segurança do FIDO2 e o acesso híbrido a recursos locais, consulte os seguintes artigos:
 
-* [Chaves de segurança com senha](howto-authentication-passwordless-security-key.md)
+* [Chaves de segurança sem senha](howto-authentication-passwordless-security-key.md)
 * [Windows 10 sem senha](howto-authentication-passwordless-security-key-windows.md)
-* [Com senha local](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* [Locais sem senha](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -145,7 +142,7 @@ O primeiro conjunto de propriedades é dos objetos no ambiente de AD DS local. A
 
 | Propriedade           | Descrição  |
 |--------------------|--------------|
-| Id                 | A *ID* exclusiva do objeto do controlador de domínio AD DS. |
+| ID                 | A *ID* exclusiva do objeto do controlador de domínio AD DS. |
 | DomainDnsName      | O nome de domínio DNS do domínio de AD DS. |
 | ComputerAccount    | O objeto de conta de computador do objeto de servidor Kerberos do Azure AD (o DC). |
 | UserAccount        | O objeto de conta de usuário desabilitado que contém a chave de criptografia de TGT do servidor Kerberos do Azure AD. O DN dessa conta é *CN = krbtgt_AzureAD, cn = users <Domain-DN>* |

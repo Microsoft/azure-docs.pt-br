@@ -9,17 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
+ms.openlocfilehash: 4c2e0ab3170779234c1a1d0b2676632022b9dfcd
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665354"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489679"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Início Rápido: Adicionar o chat ao seu aplicativo
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Comece a usar os Serviços de Comunicação do Azure com a biblioteca de clientes do Chat dos Serviços de Comunicação para adicionar chat em tempo real ao seu aplicativo. Neste guia de início rápido, usaremos a biblioteca de clientes do Chat para criar conversas de chat que permitem que os usuários tenham conversas entre si. Para saber mais sobre os conceitos do Chat, acesse a [documentação conceitual do chat](../../concepts/chat/concepts.md).
 
@@ -35,8 +36,16 @@ Comece a usar os Serviços de Comunicação do Azure com a biblioteca de cliente
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

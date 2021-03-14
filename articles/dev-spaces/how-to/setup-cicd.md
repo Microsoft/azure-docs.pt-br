@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Saiba como configurar a integração contínua/implantação contínua usando o Azure DevOps com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 142f01a04066b919a81e1ad1ea95efa31f51f6ca
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017773"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548726"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
@@ -28,7 +28,7 @@ Embora este artigo oriente você com o Azure DevOps, os mesmos conceitos se apli
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster do Serviço de Kubernetes do Azure (AKS) com o Azure Dev Spaces habilitado
 * [CLI do Azure Dev Spaces instalado](upgrade-tools.md)
-* [Organização do Azure DevOps com um projeto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Organização do Azure DevOps com um projeto](/azure/devops/user-guide/sign-up-invite-teammates)
 * [Registro de Contêiner do Azure (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Detalhes disponíveis da [conta do administrador](../../container-registry/container-registry-authentication.md#admin-account) do Registro de Contêiner do Azure
 * [Autorizar o cluster do AKS para efetuar pull de seu Registro de Contêiner do Azure](../../aks/cluster-container-registry-integration.md)
@@ -70,7 +70,7 @@ A opção para desabilitar:
 > [!Note]
 > A versão prévia do recurso do Azure DevOps _Nova experiência de criação de pipeline YAML_ entra em conflito com a criação de pipelines de build pré-definidos no momento. É preciso desabilitá-lo por enquanto para implantar nosso pipeline de build predefinido.
 
-No branch _azds_updates_, incluímos um simples [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define as etapas de compilação necessárias para *mywebapi* e *webfrontend*.
+No branch _azds_updates_, incluímos um simples [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?tabs=schema) que define as etapas de compilação necessárias para *mywebapi* e *webfrontend*.
 
 Dependendo da linguagem escolhida, o pipeline YAML foi registrado em um caminho semelhante a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 

@@ -3,14 +3,14 @@ title: Administrar seu espaço de backup usando o Centro de Backup
 description: Saiba como controlar seu ambiente do Azure para garantir que todos os seus recursos estejam em conformidade de uma perspectiva de backup com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893839"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506184"
 ---
-# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Controlar seu patrimônio de backup usando o centro de backup (versão prévia)
+# <a name="govern-your-backup-estate-using-backup-center"></a>Administrar seu espaço de backup usando o Centro de Backup
 
 O centro de backup ajuda você a governar seu ambiente do Azure para garantir que todos os seus recursos estejam em conformidade a partir de uma perspectiva de backup. Abaixo estão alguns dos recursos de governança do centro de backup:
 

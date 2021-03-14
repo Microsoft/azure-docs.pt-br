@@ -1,21 +1,17 @@
 ---
 title: Ambientes de computação com suporte do Azure Data Factory
 description: Ambientes de computação que podem ser usados com Azure Data Factory pipelines (como o Azure HDInsight) para transformar ou processar dados.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 2b5c053847852cc6090ee94858a5be52275d62fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725332"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -130,8 +126,8 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 | connectVia                   | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado do HDInsight. Em relação ao serviço vinculado do HDInsight sob demanda, há suporte apenas para o Integration Runtime do Azure. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não       |
 | clusterUserName                   | O nome de usuário para acessar o cluster. | Não       |
 | clusterPassword                   | A senha no tipo de cadeia de caracteres segura para acessar o cluster. | Não       |
-| clusterSshUserName         | O nome de usuário SSH para conectar-se remotamente ao nó do cluster (para Linux). | Não       |
-| clusterSshPassword         | A senha no tipo de cadeia de caracteres segura para SSH conectar-se remotamente o nó do cluster (para Linux). | Não       |
+| clusterSshUserName         | O nome de usuário para SSH conecta-se remotamente ao nó do cluster (para Linux). | Não       |
+| clusterSshPassword         | A senha no tipo de cadeia de caracteres segura para o SSH conectar remotamente o nó do cluster (para Linux). | Não       |
 | scriptActions | Especifique o script para [personalizações de cluster do HDInsight](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) durante a criação do cluster sob demanda. <br />Atualmente, a ferramenta de criação de interface do usuário do Azure Data Factory dá suporte à especificação de apenas uma ação de script, mas você pode superar essa limitação no JSON (especificar várias ações de script no JSON). | Não |
 
 
@@ -327,6 +323,9 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 * cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para criar uma conta do Lote do Azure (ou) o [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Lote do Azure usando o portal do Azure. Consulte o artigo [Usando o PowerShell para gerenciar a conta do Lote do Azure](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) para obter instruções detalhadas sobre como usar este cmdlet.
 * Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar um pool do Lote do Azure.
 
+> [!IMPORTANT]
+> Ao criar um novo pool do lote do Azure, ' VirtualMachineConfiguration ' deve ser usado e não ' CloudServiceConfiguration '. Para obter mais detalhes, consulte as [diretrizes de migração do pool do lote do Azure](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+
 ### <a name="example"></a>Exemplo
 
 ```json
@@ -397,7 +396,7 @@ Você cria um serviço vinculado de Azure Machine Learning Studio (clássico) pa
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | A propriedade de tipo deve ser configurada como: **AzureML**. | Sim                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | Sim                                      |
-| apiKey                 | A API do modelo de workspace publicada.     | Sim                                      |
+| apiKey                 | A API do modelo do espaço de trabalho publicado.     | Sim                                      |
 | updateResourceEndpoint | A URL de recurso de atualização para um ponto de extremidade de serviço Web Azure Machine Learning Studio (clássico) usado para atualizar o serviço Web de previsão com arquivo de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Necessária se a updateResourceEndpoint for especificada |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Necessária se a updateResourceEndpoint for especificada |
@@ -547,12 +546,12 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | name                 | Nome do serviço vinculado               | Sim   |
 | type                 | A propriedade de tipo deve ser configurada como: **Azure Databricks**. | Sim                                      |
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
-| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | No                                       |
-| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | No                                       |
+| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | Não                                       |
+| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | Não                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do Databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele cria um cluster de trabalho no Databricks. | Não  |
-| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Uma cadeia de caracteres formatada Int32, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
+| newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Um Int32 formatado por cadeia de caracteres, como "1" significa que numOfWorker é 1 ou "1:10" significa dimensionamento automático de 1 como mínimo e 10 como máximo.  | Não                |
 | newClusterNodeType   | Esse campo codifica, por meio de um único valor, os recursos disponíveis para cada um dos nós do Spark neste cluster. Por exemplo, os nós do Spark podem ser provisionados e otimizados para cargas de trabalho intensivas de computação e memória. Esse campo é necessário para um novo cluster                | Não               |
 | newClusterSparkConf  | um conjunto opcional de pares chave-valor de configuração do Spark especificado pelo usuário. Os usuários também podem passar de uma cadeia de caracteres de opções adicionais da JVM para o driver e os executores via spark.driver.extraJavaOptions e spark.executor.extraJavaOptions respectivamente. | Não  |
 | newClusterInitScripts| um conjunto de scripts de inicialização opcionais, definidos pelo usuário, para o novo cluster. Especificação do caminho DBFS para os scripts de inicialização. | Não  |

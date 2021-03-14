@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: bfbd93cc3d4e67c8a96a1413221fdd7190c4f0b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060153"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572633"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>O aplicativo de nó está consumindo muita CPU
 
-Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso da CPU no [painel de portal do Azure](../azure-monitor/platform/metrics-charts.md), verifique os valores máximos da CPU para que você não perca os valores de pico.
+Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso da CPU no [painel de portal do Azure](../azure-monitor/essentials/metrics-charts.md), verifique os valores máximos da CPU para que você não perca os valores de pico.
 Se você achar que o aplicativo está consumindo muita CPU e não consegue determinar o motivo, você poderá analisar o aplicativo de nó para descobrir.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Criar o perfil do aplicativo de nó no Serviço de Aplicativo do Azure com o V8-Profiler
@@ -213,7 +213,7 @@ Você verá que 95% do tempo foi consumido pela função WriteConsoleLog. A saí
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Meu aplicativo de nó está consumindo muita memória
 
-Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso de memória no [painel portal do Azure](../azure-monitor/platform/metrics-charts.md), certifique-se de verificar os valores máximos de memória para que você não perca os valores de pico.
+Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso de memória no [painel portal do Azure](../azure-monitor/essentials/metrics-charts.md), certifique-se de verificar os valores máximos de memória para que você não perca os valores de pico.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detecção de vazamento e Comparação de Heap para node.js
 

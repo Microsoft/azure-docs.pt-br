@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 3b97f09c2b6f4c5f5352bbaa081e0bcae900ebd5
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808102"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716288"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Como um desconto de reserva é aplicado a Azure Data Factory fluxos de dados
 
@@ -32,7 +32,7 @@ Os exemplos a seguir mostram como o desconto de capacidade reservada do fluxo de
 - Cenário 1: você compra uma reserva de fluxo de dados do ADF por 1 hora de 80 núcleos de computação com otimização de memória inserindo 80 como a quantidade para o tipo de computação com otimização de memória. Você executa um fluxo de dados com um tempo de execução de integração do Azure definido como 144 núcleos de memória otimizada por uma hora. Você é cobrado pelo preço pré-pago de 64 núcleos de uso de fluxo de dados por uma hora. Você Obtém o desconto de reserva por uma hora de 80 núcleos de uso com otimização de memória.
 - Cenário 2: você compra uma reserva de fluxo de dados do ADF por 1 hora de 32 núcleos de computação de uso geral inserindo 32 como a quantidade para o tipo de computação de uso geral. Você depura seus fluxos de dados por uma hora usando 32 núcleos de computação geral do tempo de execução de integração do Azure. Você Obtém o desconto de reserva para a hora de uso inteira.
 
-Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
@@ -42,4 +42,4 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
 
 Para saber mais sobre as reservas do Azure, consulte o seguinte artigo:
 
-- [O que são Reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [O que são Reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)

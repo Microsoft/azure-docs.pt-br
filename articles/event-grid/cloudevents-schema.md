@@ -4,12 +4,12 @@ description: Descreve como usar o esquema de CloudEvents para eventos na Grade d
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901395"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737895"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema CloudEvents v1.0 com a Grade de Eventos
 Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [ligação ao protocolo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
@@ -60,11 +60,11 @@ Você pode usar a grade de eventos para entrada e saída de eventos no esquema C
 
  Recurso de grade de eventos | Esquema de entrada       | Esquema de entrega
 |---------------------|-------------------|---------------------
-| Tópicos do sistema       | Esquema da Grade de Eventos | Esquema de grade de eventos ou esquema CloudEvent
-| Tópicos/domínios do usuário | Esquema da Grade de Eventos | Esquema da Grade de Eventos
-| Tópicos/domínios do usuário | Esquema de CloudEvent | Esquema de CloudEvent
-| Tópicos/domínios do usuário | Esquema personalizado     | Esquema personalizado, esquema de grade de eventos ou esquema CloudEvent
-| PartnerTopics       | Esquema de CloudEvent | Esquema de CloudEvent
+| Tópicos do sistema       | Esquema da Grade de Eventos | Esquema de grade de eventos ou esquema CloudEvents
+| Tópicos/domínios do usuário | Esquema da Grade de Eventos | Esquema de grade de eventos ou esquema CloudEvents
+| Tópicos/domínios do usuário | Esquema CloudEvents | Esquema CloudEvents
+| Tópicos/domínios do usuário | Esquema personalizado     | Esquema personalizado, esquema de grade de eventos ou esquema CloudEvents
+| PartnerTopics       | Esquema CloudEvents | Esquema CloudEvents
 
 Para todos os esquemas de evento, a grade de eventos requer validação quando você está publicando em um tópico de grade de eventos e quando você está criando uma assinatura de evento.
 

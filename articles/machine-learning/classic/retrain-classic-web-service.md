@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): treinar novamente o serviço Web clássico-Azure'
 description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325790"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517562"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
 
-**aplica-se a:** ![ Marca de seleção verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ X indicando não. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**aplica-se a:** ![ Marca de seleção verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ X indicando não.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
@@ -62,7 +62,7 @@ Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 1. Clique no serviço Web de pontuação com o qual você está trabalhando (se você não tiver modificado o nome padrão do serviço Web, ele terminará em "[Pontuação Exp.]").
 1. Clique em **+ novo**.
 1. Depois do ponto de extremidade ser adicionado, clique no nome dele.
-1. No URL do **Patch** , clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
+1. No URL do **Patch**, clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
 
 > [!NOTE]
 > Se você adicionou o ponto de extremidade ao serviço Web de treinamento em vez do serviço Web de previsão, receberá o seguinte erro ao clicar no link **Atualizar recurso** : "Desculpe, mas esse recurso não tem suporte ou está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
@@ -76,7 +76,7 @@ A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece
 
 Agora você pode usar o modelo treinado para atualizar o ponto de extremidade de pontuação criado anteriormente.
 
-O código de exemplo a seguir mostra como usar *BaseLocation* , *RelativeLocation* , *SasBlobToken* e a URL do PATCH para atualizar o ponto de extremidade.
+O código de exemplo a seguir mostra como usar *BaseLocation*, *RelativeLocation*, *SasBlobToken* e a URL do PATCH para atualizar o ponto de extremidade.
 
 ```csharp
 private async Task OverwriteModel()

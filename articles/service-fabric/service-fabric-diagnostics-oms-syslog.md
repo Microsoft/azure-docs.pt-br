@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570219"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster no Service Fabric do Linux no Syslog
 
@@ -26,7 +26,7 @@ Cada evento de Syslog tem 4 componentes
 * Recurso
 * Identidade
 * Mensagem
-* Severity
+* Severidade
 
 O SyslogConsumer grava todos os eventos de plataforma usando o Recurso `Local0`. Você pode atualizar para qualquer recurso válido alterando a configuração config. A identidade usada é `ServiceFabric` . O campo de Mensagem contém o evento inteiro serializado em JSON para que possa ser consultado e consumido por uma variedade de ferramentas. 
 
@@ -87,7 +87,7 @@ Aqui estão as alterações para ressaltar
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integração de logs de Azure Monitor
-Você pode ler esses eventos de syslog em uma ferramenta de monitoramento, como logs de Azure Monitor. Você pode criar um espaço de trabalho do Log Analytics usando o Azure Marketplace usando essas [instruções].(.. / azure-monitor/learn/quick-create-workspace.md) você também precisará adicionar o agente do Log Analytics ao seu cluster para coletar e enviar esses dados para o espaço de trabalho. Isso é o mesmo agente usado para coletar contadores de desempenho. 
+Você pode ler esses eventos de syslog em uma ferramenta de monitoramento, como logs de Azure Monitor. Você pode criar um espaço de trabalho Log Analytics usando o Azure Marketplace usando estas [instruções]. (.. /Azure-monitor/logs/Quick-Create-Workspace.MD) você também precisa adicionar o agente de Log Analytics ao seu cluster para coletar e enviar esses dados para o espaço de trabalho. Isso é o mesmo agente usado para coletar contadores de desempenho. 
 
 1. Navegue até a `Advanced Settings` folha
 
@@ -113,6 +113,6 @@ O exemplo acima é de um evento NodeDown. Você pode exibir a lista completa de 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar o Agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para os nós para coletar os contadores de desempenho e coletar logs e estatísticas do docker para seus contêineres
-* Familiarize-se com os recursos de [pesquisa e consulta de logs](../azure-monitor/log-query/log-query-overview.md) oferecidos como parte dos logs do Azure Monitor
-* [Usar o designer de exibição para criar exibições personalizadas em logs de Azure Monitor](../azure-monitor/platform/view-designer.md)
-* Referência sobre como [Azure monitor a integração de logs com o syslog](../azure-monitor/platform/data-sources-syslog.md).
+* Familiarize-se com os recursos de [pesquisa e consulta de logs](../azure-monitor/logs/log-query-overview.md) oferecidos como parte dos logs do Azure Monitor
+* [Usar o designer de exibição para criar exibições personalizadas em logs de Azure Monitor](../azure-monitor/visualize/view-designer.md)
+* Referência sobre como [Azure monitor a integração de logs com o syslog](../azure-monitor/agents/data-sources-syslog.md).

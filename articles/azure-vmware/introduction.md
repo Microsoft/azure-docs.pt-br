@@ -3,12 +3,12 @@ title: Introdução
 description: Conheça os recursos e os benefícios da Solução VMware no Azure para implantar e gerenciar cargas de trabalho baseadas no VMware no Azure.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534646"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579298"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é a Solução VMware no Azure?
 
@@ -48,12 +48,12 @@ Os [logs do Azure Monitor](../azure-monitor/overview.md) são gerados automatica
 
 Na sua nuvem privada, você pode:
 - Coletar logs em cada uma das suas VMs.
-- [Baixar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) em VMs do Linux e do Windows.
-- Habilitar a [extensão de diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-overview.md).
-- [Criar e executar novas consultas](../azure-monitor/platform/data-platform-logs.md#log-queries).
+- [Baixar e instalar o agente MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options) em VMs do Linux e do Windows.
+- Habilitar a [extensão de diagnóstico do Azure](../azure-monitor/agents/diagnostics-extension-overview.md).
+- [Criar e executar novas consultas](../azure-monitor/logs/data-platform-logs.md#log-queries).
 - Executar as mesmas consultas que você costuma executar nas suas VMs.
 
-Os padrões de monitoramento da Solução VMware no Azure são semelhantes às VMs do Azure na plataforma IaaS. Para obter mais informações e instruções, confira [Como monitorar VMs do Azure com o Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Os padrões de monitoramento da Solução VMware no Azure são semelhantes às VMs do Azure na plataforma IaaS. Para obter mais informações e instruções, confira [Como monitorar VMs do Azure com o Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

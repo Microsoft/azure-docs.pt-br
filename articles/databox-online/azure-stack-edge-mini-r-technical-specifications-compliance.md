@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e6dff06e92126e2fc4538273e229dcb0904e3101
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465994"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727474"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Especificações técnicas do Azure Stack Edge mini R
 
@@ -59,8 +59,8 @@ O dispositivo mini R do Azure Stack Edge tem as seguintes especificações para 
 
 |Especificação  |Valor  |
 |---------|---------|
-|Adaptadores de rede    |2 x 10 GbE SFP + <br> Mostrado como a porta 3 e a porta 4 na interface do usuário local           |
-|Adaptadores de rede    |2 x 1 GbE RJ45 <br> Mostrado como a porta 1 e a porta 2 na interface do usuário local          |
+|Interfaces de rede    |2 x 10 GbE SFP + <br> Mostrado como a porta 3 e a porta 4 na interface do usuário local           |
+|Interfaces de rede    |2 x 1 GbE RJ45 <br> Mostrado como a porta 1 e a porta 2 na interface do usuário local          |
 |Wi-Fi   |802.11ac         |
 
 
@@ -80,9 +80,9 @@ A tabela a seguir mostra as especificações da unidade de fonte de alimentaçã
 
 ## <a name="included-battery"></a>Bateria incluída
 
-O dispositivo mini R do Azure Stack Edge também inclui uma bateria integrada que é cobrada pela fonte de alimentação. 
+O dispositivo mini R do Azure Stack Edge também inclui uma bateria integrada que é cobrada pela fonte de alimentação.
 
-Um tipo adicional de bateria 2590 pode ser usado em conjunto com a bateria integrada para estender o uso do dispositivo entre os encargos. Essa bateria deve estar em conformidade com todas as regulamentações de segurança, transporte e ambientais aplicáveis no país de uso.
+Um tipo adicional de [bateria 2590](https://www.bren-tronics.com/bt-70791ck.html) pode ser usado em conjunto com a bateria integrada para estender o uso do dispositivo entre os encargos. Essa bateria deve estar em conformidade com todas as regulamentações de segurança, transporte e ambientais aplicáveis no país de uso.
 
 
 | Especificação           | Valor                      |

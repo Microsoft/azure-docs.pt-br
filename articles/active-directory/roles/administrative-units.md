@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740322"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558008"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas no Azure Active Directory
 
@@ -47,8 +47,8 @@ Para usar unidades administrativas, é necessária uma licença do Azure Active 
 Você pode gerenciar unidades administrativas usando o portal do Azure, os cmdlets e scripts do PowerShell ou o Microsoft Graph. Para obter mais informações, consulte:
 
 - [Criar, remover, popular e adicionar funções a unidades administrativas](admin-units-manage.md): inclui procedimentos detalhados completos.
-- [Trabalhar com unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): aborda como trabalhar com unidades administrativas usando o PowerShell.
-- [Suporte ao Graph da unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): fornece uma documentação detalhada no Microsoft Graph para unidades administrativas.
+- [Trabalhar com unidades administrativas](/powershell/azure/active-directory/working-with-administrative-units): aborda como trabalhar com unidades administrativas usando o PowerShell.
+- [Suporte ao Graph da unidade administrativa](/graph/api/resources/administrativeunit): fornece uma documentação detalhada no Microsoft Graph para unidades administrativas.
 
 ### <a name="plan-your-administrative-units"></a>Planejar suas unidades administrativas
 
@@ -81,26 +81,26 @@ As seções a seguir descrevem o suporte atual para cenários de unidades admini
 
 | Permissões |   Grafo/PowerShell   | Portal do Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
-| Criar e excluir unidades administrativas   |    Com suporte    |   Com suporte   |    Sem suporte |
-| Adicionar e remover membros de unidades administrativas individualmente    |   Com suporte    |   Com suporte   |    Sem suporte |
+| Criar e excluir unidades administrativas   |    Com suporte    |   Suportado   |    Sem suporte |
+| Adicionar e remover membros de unidades administrativas individualmente    |   Com suporte    |   Suportado   |    Sem suporte |
 | Adicionar e remover membros de unidades administrativas em massa usando arquivos CSV   |    Sem suporte     |  Com suporte   |    Nenhum plano para dar suporte |
-| Atribuir administradores no escopo da unidade administrativa  |     Com suporte    |   Com suporte    |   Sem suporte |
+| Atribuir administradores no escopo da unidade administrativa  |     Com suporte    |   Suportado    |   Sem suporte |
 | Adicionar e remover membros da unidade administrativa dinamicamente com base em atributos | Sem suporte | Sem suporte | Sem suporte
 
 ### <a name="user-management"></a>Gerenciamento de Usuários
 
 | Permissões |   Grafo/PowerShell   | Portal do Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
-| Gerenciamento de propriedades do usuário, senhas e licenças no escopo da unidade administrativa   |    Com suporte     |  Com suporte   |   Com suporte |
-| Bloqueio e desbloqueio de entradas de usuário no escopo da unidade administrativa    |   Com suporte   |    Com suporte   |    Com suporte |
-| Gerenciamento de credenciais de autenticação multifator do usuário no escopo da unidade administrativa   |    Com suporte   |   Com suporte   |   Sem suporte |
+| Gerenciamento de propriedades do usuário, senhas e licenças no escopo da unidade administrativa   |    Com suporte     |  Suportado   |   Com suporte |
+| Bloqueio e desbloqueio de entradas de usuário no escopo da unidade administrativa    |   Com suporte   |    Suportado   |    Com suporte |
+| Gerenciamento de credenciais de autenticação multifator do usuário no escopo da unidade administrativa   |    Com suporte   |   Suportado   |   Sem suporte |
 
 ### <a name="group-management"></a>Gerenciamento de grupos
 
 | Permissões |   Grafo/PowerShell   | Portal do Azure AD | Centro de administração do Microsoft 365 |
 | --- | --- | --- | --- |
-| Gerenciamento de membros e propriedades do grupo no escopo da unidade administrativa     |  Com suporte   |    Com suporte    |  Sem suporte |
-| Gerenciamento de licenciamento de grupo no escopo da unidade administrativa   |    Com suporte  |    Com suporte   |   Sem suporte |
+| Gerenciamento de membros e propriedades do grupo no escopo da unidade administrativa     |  Com suporte   |    Suportado    |  Sem suporte |
+| Gerenciamento de licenciamento de grupo no escopo da unidade administrativa   |    Com suporte  |    Suportado   |   Sem suporte |
 
 As unidades administrativas aplicam o escopo somente às permissões de gerenciamento. Elas não impedem os membros ou administradores de usar as [permissões de usuário padrão](../fundamentals/users-default-permissions.md) para procurar outros usuários, grupos ou recursos fora da unidade administrativa. No centro de administração do Microsoft 365, os usuários fora de uma unidade administrativa do administrador com escopo são filtrados. Mas você pode procurar outros usuários no portal do Azure AD, no PowerShell e em outros serviços da Microsoft.
 

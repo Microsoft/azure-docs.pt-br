@@ -1,17 +1,16 @@
 ---
 title: Otimizar seu ambiente do Active Directory com o Azure Monitor | Microsoft Docs
 description: É possível usar a solução Verificação de Integridade do Active Directory para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bff61ec9dfcb985ea0111ca58bfd58273e1fe432
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318089"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723241"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
 
@@ -46,9 +45,9 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 Para executar a verificação de integridade nos controladores de domínio membros do domínio que será avaliado, cada controlador de domínio nesse domínio precisa de um agente e de conectividade com o Azure Monitor usando um dos seguintes métodos com suporte:
 
-1. Instale o [agente do Log Analytics para Windows](../platform/agent-windows.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Instale o [agente do Log Analytics para Windows](../agents/agent-windows.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou com o Operations Manager 2012 R2 e o grupo de gerenciamento não for integrado com o Azure Monitor, o controlador de domínio poderá ter hospedagem múltipla com o Azure Monitor para coletar dados, encaminhar para o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu workspace.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu workspace.  
 
 O agente em seu controlador de domínio que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o Azure Monitor.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -215,5 +214,5 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use as [Consultas de log do Azure Monitor](../log-query/log-query-overview.md) para saber como analisar dados detalhados da Verificação de Integridade do AD, bem como as recomendações.
+Use as [Consultas de log do Azure Monitor](../logs/log-query-overview.md) para saber como analisar dados detalhados da Verificação de Integridade do AD, bem como as recomendações.
 

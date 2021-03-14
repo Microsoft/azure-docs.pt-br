@@ -3,18 +3,18 @@ title: Gerenciar e localizar dados de blob do Azure com marcas de índice de BLO
 description: Saiba como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523273"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431747"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)
 
@@ -29,6 +29,9 @@ As marcas de índice de blob permitem que você:
 
 Considere um cenário em que você tenha milhões de BLOBs em sua conta de armazenamento, acessados por vários aplicativos diferentes. Você deseja localizar todos os dados relacionados de um único projeto. Você não tem certeza do que está no escopo, pois os dados podem ser distribuídos em vários contêineres com diferentes convenções de nomenclatura. No entanto, seus aplicativos carregam todos os dados com marcas com base em seu projeto. Em vez de Pesquisar por milhões de BLOBs e comparar nomes e propriedades, você pode usar `Project = Contoso` como seus critérios de descoberta. O índice de blob filtrará todos os contêineres em toda a conta de armazenamento para localizar e retornar rapidamente apenas o conjunto de blobs de 50 de `Project = Contoso` .
 
+> [!IMPORTANT]
+> Marcas de índice de blob estão atualmente em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+
 Para começar com exemplos de como usar o índice de BLOB, consulte [usar marcas de índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
 
 ## <a name="blob-index-tags-and-data-management"></a>Rótulos de índice de BLOB e gerenciamento de dados
@@ -42,7 +45,6 @@ Considere os cinco BLOBs a seguir em sua conta de armazenamento:
 - *fotos/bannerphoto.png*
 - *arquivos mortos/concluídos/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 Esses BLOBs são separados usando um prefixo de *contêiner/pasta virtual/nome do blob*. Você pode definir um atributo de marca de índice de `Project = Contoso` nesses cinco BLOBs para categorizá-los ao mesmo tempo em que mantém sua organização de prefixo atual. A adição de marcas de índice elimina a necessidade de mover dados expondo a capacidade de filtrar e localizar dados usando o índice.
 
@@ -142,7 +144,7 @@ A tabela abaixo mostra os operadores válidos para operações condicionais:
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
-|     =      |     Igual a     | `"Status" = 'In Progress'` |
+|     =      |     Igual     | `"Status" = 'In Progress'` |
 |     <>     |   Diferente   | `"Status" <> 'Done'` |
 |     >      |  Maior que | `"Date" > '2018-06-18'` |
 |     >=     |  Maior ou igual | `"Priority" >= '5'` |
@@ -269,7 +271,7 @@ A tabela a seguir resume as diferenças entre as marcas de índice de BLOB e met
 |--------------|--------------|--------------------|
 | **Limites**      | Nenhum limite numérico, total de 8 KB, não diferencia maiúsculas de minúsculas | 10 marcas por blob máx, 768 bytes por marca, diferencia maiúsculas de minúsculas |
 | **Atualizações**    | Não permitido na camada de arquivo, `Set Blob Metadata` substitui todos os metadados existentes, `Set Blob Metadata` altera a hora da última modificação do blob | Permitido para todas as camadas de acesso, `Set Blob Tags` substitui todas as marcas existentes, `Set Blob Tags` não altera a hora da última modificação do blob |
-| **Armazenamento**     | Armazenados com os dados do blob | Subrecurso dos dados do blob |
+| **Storage**     | Armazenados com os dados do blob | Subrecurso dos dados do blob |
 | **Indexação & consulta** | Deve usar um serviço separado, como Azure Search | Recursos de indexação e consulta incorporados ao armazenamento de BLOBs |
 | **Criptografia** | Criptografado em repouso com a mesma chave de criptografia usada para dados de BLOB | Criptografado em repouso com uma chave de criptografia gerenciada pela Microsoft |
 | **Preços** | O tamanho dos metadados está incluído nos custos de armazenamento de um blob | Custo fixo por marca de índice |

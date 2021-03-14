@@ -3,17 +3,16 @@ title: O que há de novo na Máquina Virtual de Ciência de Dados
 titleSuffix: Azure Data Science Virtual Machine
 description: Notas de versão para o Máquina Virtual de Ciência de Dados do Azure
 author: lobrien
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.author: laobri
 ms.date: 02/24/2020
 ms.topic: reference
-ms.openlocfilehash: d607e2a45c3a13cdb1b6e107158b04f9f10ae83a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a5675ce0358092610766d1441e433ff5d96bae4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77582595"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655693"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notas de versão do Azure Máquina Virtual de Ciência de Dados
 

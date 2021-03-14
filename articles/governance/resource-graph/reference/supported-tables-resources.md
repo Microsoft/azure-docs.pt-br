@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos de Azure Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos de Azure Resource Manager com suporte pelo grafo de recursos do Azure e pelo histórico de alterações.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594326"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633760"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela e referência de tipo de recursos do Azure Resource Graph
 
@@ -26,9 +26,18 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 
 - microsoft.alertsmanagement/alerts
 
+## <a name="extendedlocationresources"></a>extendedlocationresources
+
+- Microsoft. extendedlocation/customlocations/enabledresourcetypes
+
 ## <a name="guestconfigurationresources"></a>guestconfigurationresources
 
 - Microsoft. guestconfiguration/guestconfigurationassignments
+
+## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
+
+- Microsoft. kubernetesconfiguration/Extensions
+- Microsoft. kubernetesconfiguration/sourcecontrolconfigurations
 
 ## <a name="maintenanceresources"></a>maintenanceresources
 
@@ -118,6 +127,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. AzureArcData/postgresInstances (banco de dados do Azure para grupos de servidores PostgreSQL – Arc do Azure)
 - Microsoft. AzureArcData/sqlManagedInstances (instâncias gerenciadas do SQL-Arc do Azure)
 - Microsoft. AzureArcData/sqlServerInstances (SQL Server – arco do Azure)
+- Microsoft. azurecis/autopilotenvironments
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -132,6 +142,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. AzureStackHCI/clusters (Azure Stack HCI)
 - Microsoft. azurestackhci/galleryimages
 - Microsoft. azurestackhci/NetworkInterfaces
+- Microsoft. AzureStackHCI/VirtualMachines (Azure Stack máquina virtual do HCI-Azure ARC)
 - Microsoft. azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft. BareMetal/crayServers (servidores Cray)
@@ -151,12 +162,13 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. BotService/botServices (serviços de bot)
 - Microsoft. cache/Redis (cache do Azure para Redis)
 - Microsoft. cache/RedisEnterprise (Redis Enterprise)
+- Microsoft. Cascade/sites
 - Microsoft. CDN/CdnWebApplicationFirewallPolicies (políticas de firewall do aplicativo Web (WAF))
-- Microsoft. CDN/Profiles (perfis CDN)
+- Microsoft. CDN/Profiles (front Doors Standard/Premium (visualização))
 - Microsoft. CDN/Profiles/afdendpoints
 - Microsoft. CDN/perfis/pontos de extremidade (pontos de extremidade)
 - Microsoft. CertificateRegistration/certificateOrders (certificados do serviço de aplicativo)
-- Microsoft. caos/chaosexperiments
+- Microsoft. caos/chaosexperiments (experimentos de caos)
 - Microsoft. classicCompute/nome_do_domínio (serviços de nuvem (clássico))
 - Microsoft. ClassicCompute/VirtualMachines (máquinas virtuais (clássicas))
 - Microsoft. ClassicNetwork/networkSecurityGroups (grupos de segurança de rede (clássico))
@@ -169,6 +181,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. CloudTest/hostedpools (pools hospedados do 1ES)
 - Microsoft. CloudTest/images (imagens do CloudTest)
 - Microsoft. CloudTest/pools (pools de CloudTest)
+- Microsoft. ClusterStor/Nodes (ClusterStors)
 - Microsoft. codespaces/Plans
 - Microsoft. cognição/syntheticsAccounts (contas sintéticas)
 - Microsoft. Cognitivaservices/contas (serviços cognitivas)
@@ -204,6 +217,11 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. confluente/organizações (organizações confluentes)
 - Microsoft. ConnectedCache/cacheNodes (recursos de cache conectados)
 - Microsoft. connectedvehicle/platformaccounts
+- Microsoft. connectedvmwarevsphere/ResourcePools
+- Microsoft. connectedvmwarevsphere/vcenters
+- Microsoft. connectedvmwarevsphere/VirtualMachines
+- Microsoft. connectedvmwarevsphere/virtualmachinetemplates
+- Microsoft. connectedvmwarevsphere/virtualnetworks
 - Microsoft. ContainerInstance/containerGroups (instâncias de contêiner)
 - Microsoft. ContainerRegistry/registros (registros de contêiner)
 - microsoft.containerregistry/registries/agentpools
@@ -226,7 +244,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. databricks/espaços de trabalho (serviços Azure Databrickss)
 - Microsoft. datacatalog/catálogos (catálogo de dados)
 - microsoft.datacatalog/datacatalogs
-- Microsoft. datacollaboration/Workspaces (colaborações de dados)
+- Microsoft. datacollaboration/Workspaces (CI do projeto)
 - Microsoft. Datadog/monitores (Datadog)
 - Microsoft. datafactory/datafactorings (fábricas de dados)
 - Microsoft. datafactory/fábricas (data Factories (v2))
@@ -244,6 +262,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. DBforMySQL/servidores (banco de dados do Azure para servidores MySQL)
 - Microsoft. DBforPostgreSQL/flexibleServers (banco de dados do Azure para PostgreSQL servidores flexíveis)
 - Microsoft. DBforPostgreSQL/serverGroups (banco de dados do Azure para grupos de servidores PostgreSQL)
+- Microsoft. dbforpostgresql/servergroupsv2
 - Microsoft. DBforPostgreSQL/servidores (banco de dados do Azure para servidores PostgreSQL)
 - Microsoft. DBforPostgreSQL/serversv2 (banco de dados do Azure para servidores PostgreSQL v2)
 - microsoft.dbforpostgresql/singleservers
@@ -258,7 +277,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - microsoft.deploymentmanager/steps
 - Microsoft. DesktopVirtualization/ApplicationGroups (grupos de aplicativos)
 - Microsoft. DesktopVirtualization/HostPools (pools de hosts)
-- Microsoft. desktopvirtualization/scalingplans
+- Microsoft. DesktopVirtualization/ScalingPlans (planos de dimensionamento)
 - Microsoft. DesktopVirtualization/Workspaces (espaços de trabalho)
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
@@ -274,9 +293,13 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. DevTestLab/Labs/virtualMachines (máquinas virtuais)
 - microsoft.devtestlab/schedules
 - Microsoft. DigitalTwins/digitalTwinsInstances (Azure digital gêmeos)
+- Microsoft.DocumentDB/cassandraClusters (Azure Instância Gerenciada para Apache Cassandra)
 - Microsoft.DocumentDb/databaseAccounts (contas de Azure Cosmos DB)
 - Microsoft. DomainRegistration/Domains (domínios do serviço de aplicativo)
-- Microsoft. elástico/monitores (elástico)
+- Microsoft. edgeorder/endereços
+- Microsoft. edgeorder/ordercollections
+- Microsoft. edgeorder/Orders
+- Microsoft. elástico/monitores (Elasticsearch)
 - microsoft.enterpriseknowledgegraph/services
 - Microsoft. EventGrid/Domains (domínios de grade de eventos)
 - Microsoft. EventGrid/partnerNamespaces (namespaces de parceiro de grade de eventos)
@@ -306,8 +329,8 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - microsoft.hybridcompute/machines/extensions
 - Microsoft. HybridCompute/privateLinkScopes (escopos de link privado do arco do Azure)
 - Microsoft. HybridData/datamanagers (Gerenciador de dados do StorSimple)
-- Microsoft. HybridNetwork/dispositivos (Gerenciador de funções de rede do Azure – dispositivos)
-- Microsoft. HybridNetwork/networkFunctions (Azure Network function Manager – funções de rede)
+- Microsoft. HybridNetwork/dispositivos (Gerenciador de funções de rede do Azure – dispositivos (visualização))
+- Microsoft. HybridNetwork/networkFunctions (Gerenciador de funções de rede do Azure – funções de rede (visualização))
 - Microsoft. hybridnetwork/virtualnetworkfunctions
 - Microsoft. ImportExport/Jobs (trabalhos de importação/exportação)
 - Microsoft. industrydatalifecycle/basemodels
@@ -333,10 +356,10 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. insights/pastas de trabalho (pastas de trabalho do Azure)
 - Microsoft. insights/workbooktemplates (modelos de pasta de trabalho do Azure)
 - Microsoft. IntelligentITDigitalTwin/digitalTwins (minervas)
-- Microsoft. intelligentitdigitaltwin/digitaltwins/ativos
-- Microsoft. intelligentitdigitaltwin/digitaltwins/executionplans
-- Microsoft. intelligentitdigitaltwin/digitaltwins/TestPlans
-- Microsoft. intelligentitdigitaltwin/digitaltwins/Tests
+- Microsoft. IntelligentITDigitalTwin/digitalTwins/ativos (ativos)
+- Microsoft. IntelligentITDigitalTwin/digitalTwins/executionPlans (implantações)
+- Microsoft. IntelligentITDigitalTwin/digitalTwins/testPlans (Suites)
+- Microsoft. IntelligentITDigitalTwin/digitalTwins/Tests (scripts)
 - Microsoft. IoTCentral/IoTApps (aplicativos IoT Central)
 - Microsoft. IoTSpaces/Graph (digital gêmeos (preterido))
 - microsoft.keyvault/hsmpools
@@ -352,14 +375,15 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Logic/integrationServiceEnvironments/managedApis (conector gerenciado)
 - Microsoft. Logic/workflows (aplicativos lógicos)
 - Microsoft. LOGZ/Monitors (conta principal do LOGZ)
-- Microsoft. LOGZ/monitores/contas (subconta do LOGZ)
+- Microsoft. LOGZ/monitores/contas (subconta LOGZ)
 - Planos de serviço Web Microsoft. MachineLearning/commitmentPlans (Machine Learning Studio (clássico))
 - Microsoft. MachineLearning/WebServices (Machine Learning Studio (clássico) serviços Web)
 - Espaços de trabalho Microsoft. MachineLearning/Workspaces (Machine Learning Studio (clássico))
 - microsoft.machinelearningcompute/operationalizationclusters
 - Microsoft. machinelearningservices/modelinventories
 - Microsoft. machinelearningservices/modelinventory
-- Microsoft. MachineLearningServices/Workspaces (Machine Learning)
+- Microsoft. machinelearningservices/virtualclusters
+- Microsoft. MachineLearningServices/Workspaces (aprendizado de máquina)
 - Microsoft. machinelearningservices/Workspaces/batchendpoints
 - Microsoft. machinelearningservices/Workspaces/batchendpoints/implantações
 - Microsoft. machinelearningservices/Workspaces/inferenceendpoints
@@ -383,16 +407,22 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Media/mediaservices/liveevents (eventos ao vivo)
 - Microsoft. Media/mediaservices/streamingEndpoints (pontos de extremidade de streaming)
 - microsoft.media/mediaservices/transforms
+- Microsoft. Media/videoanalyzers
 - microsoft.microservices4spring/appclusters
 - microsoft.migrate/assessmentprojects
 - microsoft.migrate/migrateprojects
 - microsoft.migrate/movecollections
 - Microsoft. migrar/Projects (projetos de migração)
 - Microsoft. MixedReality/holographicsBroadcastAccounts (contas de difusão holographics)
+- Microsoft. MixedReality/objectAnchorsAccounts (contas de âncoras de objeto)
 - Microsoft. MixedReality/objectUnderstandingAccounts (contas de compreensão de objeto)
 - Microsoft. MixedReality/remoteRenderingAccounts (contas de renderização remota)
 - Microsoft. MixedReality/spatialAnchorsAccounts (contas de âncoras espaciais)
 - microsoft.mixedreality/surfacereconstructionaccounts
+- Microsoft. mobilenetwork/Networks
+- Microsoft. mobilenetwork/redes/sites
+- Microsoft. mobilenetwork/Sims
+- Microsoft. mobilenetwork/Sims/simprofiles
 - Microsoft. NetApp/netAppAccounts (contas do NetApp)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft. NetApp/netAppAccounts/capacityPools (pools de capacidade)
@@ -485,6 +515,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. powerbi/privatelinkservicesforpowerbi
 - Microsoft. powerbi/locatários
 - microsoft.powerbi/workspacecollections
+- Microsoft. powerbidedicated/autoscalevcores
 - Microsoft. PowerBIDedicated/capacidades (Power BI Embedded)
 - Microsoft. ProjectBabylon/accounts (contas do Babylon)
 - Microsoft. alcance/accounts (contas do alcance)
@@ -494,13 +525,13 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Relay/namespaces (retransmissões)
 - microsoft.remoteapp/collections
 - Microsoft. resiliência/chaosexperiments
-- Microsoft. resourceconnector/appliances
+- Microsoft. ResourceConnector/Appliances (dispositivos)
 - Microsoft. resourcegraph/Queries (consultas de grafo de recursos)
 - Microsoft. Resources/deploymentScripts (scripts de implantação)
 - Microsoft. Resources/templateSpecs (especificações do modelo)
 - microsoft.resources/templatespecs/versions
 - Microsoft. SaaS/Applications (software como serviço (clássico))
-- Microsoft. SaaS/Resources (CPX-PlaceHolder)
+- Microsoft. SaaS/Resources (SaaS)
 - Microsoft. Scheduler/gratuitas (coleções de trabalhos do Agendador)
 - Microsoft. SCVMM/nuvens
 - Microsoft. SCVMM/virtualMachines (máquina virtual do SCVMM – arco do Azure)
@@ -514,7 +545,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. ServiceBus/namespaces (namespaces do barramento de serviço)
 - Microsoft. infabric/clusters (clusters de Service Fabric)
 - microsoft.servicefabric/containergroupsets
-- Microsoft. infabric/managedclusters (clusters de Service Fabric gerenciados)
+- Microsoft. infabric/managedclusters (Service Fabric clusters gerenciados)
 - Microsoft. ServiceFabricMesh/Applications (aplicativos de malha)
 - microsoft.servicefabricmesh/gateways
 - microsoft.servicefabricmesh/networks
@@ -542,6 +573,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. SqlVirtualMachine/SqlVirtualMachines (máquinas virtuais do SQL)
 - microsoft.sqlvm/dwvm
 - Microsoft. Storage/StorageAccounts (contas de armazenamento)
+- Microsoft. storagecache/amlfilesystems
 - Microsoft. StorageCache/caches (caches HPC)
 - Microsoft. storagepool/diskpools
 - Microsoft. StorageSync/storageSyncServices (serviços de sincronização de armazenamento)
@@ -558,12 +590,13 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Synapse/Workspaces/sqldatabases
 - Microsoft. Synapse/espaços de trabalho/sqlpools (pools SQL dedicados)
 - microsoft.terraformoss/providerregistrations
+- Microsoft. testararquitetura/testbases
 - Microsoft. TimeSeriesInsights/ambientes (ambientes de Time Series Insights)
 - Microsoft. TimeSeriesInsights/ambientes/EventSources (Time Series Insights fontes de eventos)
 - Microsoft. TimeSeriesInsights/Environments/referenceDataSets (Time Series Insights conjuntos de dados de referência)
 - microsoft.token/stores
 - microsoft.tokenvault/vaults
-- microsoft.virtualmachineimages/imagetemplates
+- Microsoft. VirtualMachineImages/imageTemplates (modelos de imagem)
 - Microsoft. VisualStudio/Account (organizações do Azure DevOps)
 - microsoft.visualstudio/account/extension
 - Microsoft. VisualStudio/Account/Project (iniciante DevOps)
@@ -628,7 +661,8 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
-- Microsoft. Security/Locations/Alerts (alertas de segurança (versão prévia))
+- Microsoft. Security/iotalerts
+- Microsoft. Security/Locations/Alerts (alertas de segurança)
 - microsoft.security/pricings
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
@@ -639,6 +673,10 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 ## <a name="servicehealthresources"></a>servicehealthresources
 
 - microsoft.resourcehealth/events
+
+## <a name="workloadmonitorresources"></a>workloadmonitorresources
+
+- Microsoft. workloadmonitor/monitores
 
 ## <a name="next-steps"></a>Próximas etapas
 

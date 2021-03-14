@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: ae6b4f38772cd6c6755ece78fb5c47834a616204
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807862"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211627"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -35,7 +35,7 @@ Linha de base do tráfego de rede com o modo de detecção do WAF. Depois de det
 
 Acompanhe as recomendações de severidade alta da central de segurança para todos os recursos habilitados para Web que não são protegidos pelo WAF.  
 
-- [Regras e grupos de regras CRS do firewall do aplicativo Web](ag/application-gateway-crs-rulegroups-rules.md) 
+- [Regras e grupos de regras CRS do Firewall de Aplicativo Web](ag/application-gateway-crs-rulegroups-rules.md) 
 
 - [Modos de WAF no gateway de aplicativo](ag/ag-overview.md#waf-modes)
 
@@ -81,9 +81,9 @@ Configure o WAF do Azure para ser executado no modo de prevenção após a linha
 
 Aplique regras e grupos de regras às políticas do WAF (firewall do aplicativo Web) do Azure com base nos metadados de marca aplicados.
 
-- [Política de WAF no gateway de aplicativo](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [Política de WAF no gateway de aplicativo](/cli/azure/network/application-gateway/waf-policy) 
 
-- [Política de WAF na porta frontal](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [Política de WAF na porta frontal](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -111,9 +111,9 @@ Escolha Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em r
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de configurações de rede e recursos relacionados às implantações do WAF (firewall do aplicativo Web) do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em configurações de rede ou recursos críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -153,9 +153,9 @@ O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma
 
 - [Visão geral do log](ag/ag-overview.md#logging)
 
-- [Visão geral da consulta de log de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Visão geral da consulta de log de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Visão geral dos logs da plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -164,7 +164,7 @@ O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento do log de segurança
 
 **Diretrizes**: envie os logs do WAF (firewall do aplicativo Web) do Azure para uma conta de armazenamento personalizada e defina a política de retenção. Use Azure Monitor para definir seu período de retenção de espaço de trabalho de Log Analytics com base nos requisitos de conformidade de sua organização.
-- [Configurar o monitoramento para uma conta de armazenamento](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configurar o monitoramento para uma conta de armazenamento](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -192,9 +192,9 @@ O Azure Sentinel tem uma pasta de trabalho interna de eventos WAF-firewall, que 
 
 **Orientação**: habilitar as configurações de diagnóstico do log de atividades do Azure, bem como as configurações de diagnóstico para o WAF do Azure, e enviar os logs para um espaço de trabalho log Analytics. Faça consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados coletados. Crie alertas para atividade anômala com base em métricas de WAF. Por exemplo, se o número bloqueado de solicitações exceder ' X ', faça ' Y '.
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como criar alertas no Azure](../azure-monitor/learn/tutorial-response.md)
+- [Como criar alertas no Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

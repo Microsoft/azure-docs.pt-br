@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573323"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500801"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
 
@@ -95,6 +95,7 @@ Como primeira etapa do planejamento, você deve revisar seu ambiente e determina
 Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no Azure ad](overview.md#getting-devices-in-azure-ad) para seu locatário, isso poderá levar a um estado duplo de ingressado no Azure ad híbrido e ao dispositivo registrado do Azure AD. É recomendável atualizar para o Windows 10 1803 (com o KB4489894 aplicado) ou superior para resolver esse cenário automaticamente. Em versões anteriores a 1803, você precisará remover manualmente o estado registrado do Azure AD antes de habilitar a junção híbrida do Azure AD. Nas versões 1803 e acima, as seguintes alterações foram feitas para evitar esse estado duplo:
 
 - Qualquer estado registrado do Azure AD existente para um usuário seria removido automaticamente <i>depois que o dispositivo for ingressado no Azure ad híbrido e o mesmo usuário fizer logon</i>. Por exemplo, se o usuário A tiver um estado registrado do Azure AD no dispositivo, o estado duplo para o usuário A será limpo somente quando o usuário A fizer logon no dispositivo. Se houver vários usuários no mesmo dispositivo, o estado duplo será limpo individualmente quando esses usuários fizerem logon. Além de remover o estado registrado do Azure AD, o Windows 10 também cancelará o registro do dispositivo do Intune ou de outro MDM, se o registro tiver ocorrido como parte do registro do Azure AD por meio do registro automático.
+- O estado registrado do Azure AD em qualquer conta local no dispositivo não é afetado por essa alteração. Ele só é aplicável a contas de domínio. Portanto, o estado registrado do Azure AD em contas locais não é removido automaticamente mesmo após o logon do usuário, já que o usuário não é um usuário de domínio. 
 - Você pode impedir que o dispositivo ingressado no domínio seja registrado no Azure AD adicionando o seguinte valor de registro a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - No Windows 10 1803, se você tiver o Windows Hello para empresas configurado, o usuário precisará reinstalar o Windows Hello para empresas após a limpeza do estado duplo. Esse problema foi resolvido com o KB4512509
 
@@ -170,7 +171,7 @@ A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no i
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Roteável | Gerenciados | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
+| Roteável | Gerenciados | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows. O UPN local deve ser sincronizado com o     `onPremisesUserPrincipalName` atributo no Azure AD |
 | Não roteável | Gerenciados | Sem suporte | |
 
 ## <a name="next-steps"></a>Próximas etapas

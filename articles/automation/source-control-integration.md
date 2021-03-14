@@ -3,14 +3,14 @@ title: Usar a integração do controle do código-fonte na Automação do Azure
 description: Este artigo informa como sincronizar o controle do código-fonte da Automação do Azure com outros repositórios.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/12/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050763"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631737"
 ---
 # <a name="use-source-control-integration"></a>Usar a integração de controle do código-fonte
 
@@ -30,7 +30,7 @@ A Automação do Azure é compatível com três tipos de controle do código-fon
 
 * Um repositório de controle do código-fonte (GitHub ou Azure Repos)
 * Uma [conta Executar como](automation-security-overview.md#run-as-accounts)
-* Os [módulos mais recentes do Azure](automation-update-azure-modules.md) na sua conta de Automação do Azure, incluindo o módulo `Az.Accounts` (módulo Az equivalente do `AzureRM.Profile`)
+* O [ `AzureRM.Profile` módulo](/powershell/module/azurerm.profile/) deve ser importado para sua conta de automação. Observe que o módulo AZ equivalente ( `Az.Accounts` ) não funcionará com o controle do código-fonte de automação.
 
 > [!NOTE]
 > Os trabalhos de sincronização de controle do código-fonte são executados na conta de Automação do usuário e são cobrados seguindo mesma taxa que os outros trabalhos de Automação do Azure.

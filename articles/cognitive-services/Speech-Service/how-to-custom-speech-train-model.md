@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968459"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373361"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Treinar e implantar um modelo de Fala Personalizada
 
@@ -40,8 +40,20 @@ A primeira etapa para treinar um modelo é carregar dados de treinamento. Consul
 3. Selecione **treinar modelo**.
 4. Dê um **nome** e uma **Descrição** ao seu treinamento.
 5. Na lista **modelo de cenário e linha de base** , selecione o cenário que melhor se adapta ao seu domínio. Se você não tiver certeza de qual cenário escolher, selecione **geral**. O modelo de linha de base é o ponto de partida para treinamento. O modelo mais recente geralmente é a melhor opção.
-6. Na página **selecionar dados de treinamento** , escolha um ou mais conjuntos de valores de texto relacionados ou áudio + conjuntos de dados de transcrição rotulados por pessoas que você deseja usar para treinamento. Ao treinar um novo modelo, comece com o texto relacionado; o treinamento com áudio + transcrição com rótulo humano pode levar muito mais tempo (até [vários dias](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
-7. Após a conclusão do treinamento, você pode fazer testes de precisão no modelo treinado recentemente. Esta etapa é opcional.
+6. Na página **selecionar dados de treinamento** , escolha um ou mais conjuntos de valores de texto relacionados ou áudio + conjuntos de dados de transcrição rotulados por pessoas que você deseja usar para treinamento.
+
+> [!NOTE]
+> Ao treinar um novo modelo, comece com o texto relacionado; o treinamento com áudio + transcrição com rótulo humano pode levar muito mais tempo **(até [vários dias](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
+
+> [!NOTE]
+> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
+
+> [!NOTE]
+> Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+
+7. Após a conclusão do treinamento, você pode fazer testes de precisão no modelo treinado recentemente. Essa etapa é opcional.
 8. Selecione **criar** para criar seu modelo personalizado.
 
 A tabela de **treinamento** exibe uma nova entrada que corresponde ao novo modelo. A tabela também exibe o status: **processamento**, com **êxito** ou **falha**.

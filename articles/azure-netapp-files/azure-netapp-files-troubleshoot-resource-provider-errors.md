@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483458"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374874"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solucionar problemas de erros do Provedor de Recursos do Azure NetApp Files 
 
 Este artigo descreve os erros comuns do provedor de recursos Azure NetApp Files, suas causas, soluções e soluções alternativas (se disponíveis).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Erros comuns do provedor de recursos de Azure NetApp Files
+
+***A criação de `netAppAccounts` foi restrita nessa região.***
+
+Essa situação ocorre quando a assinatura está em espera por Azure NetApp Files e o usuário tenta criar uma conta do NetApp.
+
+* Causa:   
+O provedor de recursos do Azure para Azure NetApp Files não foi registrado com êxito. 
+ 
+* Solução:   
+Conclua todas as etapas descritas no [registro do provedor de recursos do Azure NetApp](azure-netapp-files-register.md#resource-provider) depois que sua assinatura for a espera.
 
 ***BareMetalTenantId não pode ser alterado.***  
 

@@ -8,16 +8,16 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 5b4ab207462955be3876dc1a25fae491e48a9cd2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
-ms.translationtype: MT
+ms.openlocfilehash: 4590396b0e867a3e545577767581dd1a951bfc50
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621703"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447377"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Bem-vindo ao Azure defender para IoT
 
@@ -81,6 +81,6 @@ Detecte ameaças como botnets, tentativas de força bruta, criptografia minerado
 
 O Azure defender para IoT micro Agent inclui o código-fonte, para que você possa incorporar o micro Agent ao firmware ou personalizá-lo para incluir apenas o que você precisa. Ele também está disponível como um pacote binário ou integrado diretamente a outras soluções de IoT do Azure. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [Arquitetura do Azure defender para IoT](architecture.md)

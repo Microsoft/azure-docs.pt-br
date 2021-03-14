@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 06/30/2020
 ms.topic: include
-ms.openlocfilehash: 051cd8646718c17c288b06a535d35e1eed5e9259
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c09057f606423dc92b3364e502e632a385bf83f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95553447"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007798"
 ---
 A Central de Segurança fornece proteção contra ameaças em tempo real para seus ambientes em contêineres e gera alertas sobre atividades suspeitas. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
 
@@ -17,8 +17,10 @@ A Central de Segurança fornece proteção contra ameaças em diferentes níveis
 
 * **Nível de host (fornecido pelo Azure Defender para Servidores)** – Usando o mesmo agente do Log Analytics que a Central de Segurança usa em outras VMs, o Azure Defender monitora seus nós AKS do Linux em busca de atividades suspeitas, como detecção de Shell da Web e conexão com endereços IP suspeitos conhecidos. O agente também monitora a análise específica de contêiner, como a criação de contêineres privilegiados, acessos suspeitos a servidores de API e servidores SSH (Secure Shell) em execução dentro de um contêiner do Docker.
 
+    Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
+
     >[!IMPORTANT]
-    > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
+    > Atualmente, não há suporte para a instalação do agente do Log Analytics nos clusters do Serviço de Kubernetes do Azure que estão em execução em conjuntos de dimensionamento de máquinas virtuais.
 
     Para obter uma lista dos alertas no nível do host do AKS, confira a [Tabela de referência de alertas](../articles/security-center/alerts-reference.md#alerts-containerhost).
 

@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707210"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
 
@@ -58,7 +58,7 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - No momento (durante a versão prévia), o uso do PowerShell e do CLI do Azure para configurar o backup e a restauração de discos não é suportado.
 
-- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
+- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
 
 - Para operações de backup e restauração bem-sucedidas, as atribuições de função são exigidas pela identidade gerenciada do cofre de backup. Use apenas as definições de função fornecidas na documentação do. O uso de outras funções, como Owner, Contributor e assim por diante, não tem suporte. Você pode enfrentar problemas de permissão se começar a configurar operações de backup ou restauração logo após atribuir funções. Isso ocorre porque as atribuições de função levam alguns minutos para entrar em vigor.
 

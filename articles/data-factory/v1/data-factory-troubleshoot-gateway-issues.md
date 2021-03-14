@@ -1,22 +1,18 @@
 ---
 title: Solucionar problemas de Gerenciamento de Dados gateway
 description: Fornece dicas para solucionar problemas relacionados ao Gateway de Gerenciamento de Dados.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896558"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388338"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solucionar problemas usando o Gateway de Gerenciamento de Dados
 Este artigo fornece informações sobre como solucionar problemas com o uso do Gateway de Gerenciamento de Dados.
@@ -99,7 +95,7 @@ Se a configuração for a atual/mais recente e o gateway ainda existir no Portal
 ### <a name="6-problem"></a>6. problema
 A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![A chave do gateway é inválida ou está vazia](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -107,9 +103,9 @@ A seguinte mensagem de erro poderá ser exibida ao registrar um gateway.
 Esse erro pode ocorrer porque o gateway foi excluído ou a chave do gateway associada foi regenerada.
 
 #### <a name="resolution"></a>Resolução
-Se o gateway foi excluído, recrie o gateway no portal, clique em **Registrar** , copie a chave do portal, cole-a e tente registrar o gateway.
+Se o gateway foi excluído, recrie o gateway no portal, clique em **Registrar**, copie a chave do portal, cole-a e tente registrar o gateway.
 
-Se o gateway ainda existir, mas a chave tiver sido regenerada, use a nova chave para registrar o gateway. Se você não tiver a chave, regenere-a novamente no portal.
+Se o gateway ainda existir, mas a chave tiver sido regenerada, use a nova chave para registrar o gateway. Se você não tiver a chave, regenere a chave novamente no Portal.
 
 ### <a name="7-problem"></a>7. problema
 Ao registrar um gateway, talvez seja necessário inserir o caminho e a senha de um certificado.
@@ -233,7 +229,7 @@ Caso visualize erros relacionados ao driver ou à conexão com o repositório de
 
 1. Inicie o Gerenciador de Configurações do Gateway de Gerenciamento de Dados no computador do gateway.
 2. Alterne para a guia **diagnóstico** .
-3. Em **Teste a conexão** , adicione os valores de grupo de gateway.
+3. Em **Teste a conexão**, adicione os valores de grupo de gateway.
 4. Clique em **Testar** para verificar se você pode se conectar à fonte de dados local do computador do gateway usando as informações e credenciais de conexão. Se a conexão de teste continuar falhando depois que você instalar um driver, reinicie o gateway para que ele assimile a alteração mais recente.
 
 ![Testar a conexão na guia Diagnóstico](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -256,7 +252,7 @@ Ao contatar o Suporte da Microsoft para obter ajuda com soluções de problemas 
 6. Quando a operação for concluída, você verá uma caixa de diálogo como mostrado na imagem a seguir.
 
     ![Gateway de Gerenciamento de Dados – status de Enviar logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Anote a **ID do relatório** e compartilhe-a com o Suporte da Microsoft. A ID do relatório é usada para localizar os logs de gateway carregados para a solução de problemas.  A ID do relatório também será salva no visualizador de eventos.  Você pode encontrá-la ao observar a ID do evento "25" e verificar a data e a hora.
+7. Anote a **ID do relatório** e compartilhe-a com o Suporte da Microsoft. A ID do relatório é usada para localizar os logs de gateway carregados para a solução de problemas.  A ID do relatório também será salva no visualizador de eventos.  Você pode encontrá-lo examinando a ID do evento "25" e verificar a data e a hora.
 
     ![Gateway de Gerenciamento de Dados – ID de relatório de Enviar logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

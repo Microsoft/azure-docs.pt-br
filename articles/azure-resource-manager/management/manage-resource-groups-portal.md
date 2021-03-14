@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371245"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093690"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure
 
@@ -27,7 +27,7 @@ Outros artigos sobre como gerenciar grupos de recursos:
 
 Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Em geral, adicione recursos que compartilham o mesmo ciclo de vida no mesmo grupo de recursos, para que você possa implantar, atualizar e excluí-los como um grupo facilmente.
 
-O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, você precisa fazer com que os dados sejam armazenados em determinada região.
+O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, talvez você precise garantir que os dados sejam armazenados em determinada região.
 
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
@@ -62,7 +62,7 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 ## <a name="open-resource-groups"></a>Abrir grupos de recursos
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **grupos de recursos**.
+2. Selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos que você deseja abrir.
 
 ## <a name="delete-resource-groups"></a>Excluir grupos de recursos
@@ -89,11 +89,11 @@ O bloqueio impede que outros usuários em sua organização excluam ou modifique
 1. Abra o grupo de recursos que você deseja bloquear.  Consulte [abrir grupos de recursos](#open-resource-groups).
 2. No painel esquerdo, selecione **bloqueios**.
 3. Para adicionar um bloqueio ao grupo de recursos, selecione **Adicionar**.
-4. Insira o **nome do bloqueio**, o tipo de **bloqueio**e as **observações**. Os tipos de bloqueio incluem **somente leitura**e **excluir**.
+4. Insira o **nome do bloqueio**, o tipo de **bloqueio** e as **observações**. Os tipos de bloqueio incluem **somente leitura** e **excluir**.
 
     ![bloquear grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-Para obter mais informações, consulte [Bloquear recursos para evitar alterações inesperadas](lock-resources.md).
+Para obter mais informações, confira [Bloquear recursos para impedir alterações inesperadas](lock-resources.md).
 
 ## <a name="tag-resource-groups"></a>Marcar grupos de recursos
 
@@ -105,7 +105,7 @@ Para obter informações sobre como exportar modelos, consulte [exportação ún
 
 ## <a name="manage-access-to-resource-groups"></a>Gerenciar o acesso a grupos de recursos
 
-O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure é a maneira como você gerencia o acesso a recursos no Azure. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure é a maneira como você gerencia o acesso a recursos no Azure. Para obter mais informações, consulte [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,18 +2,19 @@
 title: Desanexar um disco de dados de uma VM Linux – Azure
 description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando a CLI do Azure ou o portal do Azure.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 29a2cbbf2c390b81aa62b064a7cf93decbaa7457
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897132"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565981"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -108,13 +109,10 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
 1. Na folha da máquina virtual, selecione **Discos**.
-1. Na parte superior da folha **Discos**, selecione **Editar**.
-1. Na folha **Discos**, mais à direita do disco de dados que você deseja desanexar, clique no botão Desanexar ![Imagem do botão Desanexar](./media/detach-disk/detach.png).
-1. Depois que o disco for removido, clique em **Salvar** na parte superior da folha.
+1. Na folha **discos** , na extrema direita do disco de dados que você deseja desanexar, selecione o botão **X** para desanexar o disco.
+1. Depois que o disco tiver sido removido, selecione **salvar** na parte superior da folha.
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
-
-
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual. O disco não é excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se deseja reutilizar o disco de dados, basta [anexá-lo a outra VM](add-disk.md).

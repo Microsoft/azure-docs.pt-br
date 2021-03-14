@@ -1,24 +1,18 @@
 ---
 title: Data Factory o assistente de cópia do Azure
 description: Saiba mais sobre como usar o Assistente de Cópia do Azure Data Factory para copiar dados de fontes de dados com suporte para coletores.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462210"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393370"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 
@@ -115,7 +109,7 @@ Esta seção explora métodos comuns de solução de problemas do assistente de 
         8.  Feche o navegador e reinicie.
     - Se você estiver usando o navegador Firefox, siga as instruções abaixo para adicionar a exceção de cookies.
         1. No menu Firefox, vá para **ferramentas**  >  **Opções**.
-        2. Em **Privacy**  >  **histórico** de privacidade, seu pode ver que a configuração atual é **usar configurações personalizadas para o histórico**.
+        2. Em   >  **histórico** de privacidade, seu pode ver que a configuração atual é **usar configurações personalizadas para o histórico**.
         3. Em **aceitar cookies de terceiros**, sua configuração atual pode **nunca** ser, em seguida, clique em **exceções** à direita para adicionar os sites a seguir.
             - https://login.microsoftonline.com
             - https://login.windows.net

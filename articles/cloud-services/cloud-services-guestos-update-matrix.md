@@ -3,21 +3,21 @@ title: Saiba mais sobre as versões mais recentes de SO convidado do Azure | Mic
 description: As últimas notícias de versão e a compatibilidade do SDK para o SO convidado dos serviços de nuvem do Azure.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2021
-ms.author: yohaddad
-ms.openlocfilehash: 2f7670dfeb83611fe6168f9ed06e7f3e754eed60
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 2/19/2021
+ms.author: gunnarc
+ms.openlocfilehash: f60df0c18368af46c5f2946b5668ac404c1fae90
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807692"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124543"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -41,6 +41,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="february-19-2021"></a>**19 de fevereiro de 2021**
+O SO convidado de fevereiro foi lançado. 
 
 ###### <a name="february-5-2021"></a>**5 de fevereiro de 2021**
 O SO convidado de janeiro foi lançado. 
@@ -132,7 +135,7 @@ O SO convidado de outubro foi lançado.
 ###### <a name="october-12-2018"></a>**12 de outubro de 2018**
 O SO convidado de setembro foi lançado.
 
-## <a name="releases"></a>Versões
+## <a name="releases"></a>Lançamentos
 
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
 **Windows Server 2019**
@@ -155,8 +158,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.28 _202102-01 |  19 de fevereiro de 2021  |  Post 6,30  |  
 |  WA-GUEST-OS-6.27 _202101-01 |  5 de fevereiro de 2021  |  Post 6,29  |  
-|  WA-GUEST-OS-6.26 _202012-01 |  15 de janeiro de 2021  |  Post 6,28  |  
+|~~WA-GUEST-OS-6.26 _202012-01~~|  15 de janeiro de 2021  |  19 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-6,25 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-6.24 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-6.23 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
@@ -195,8 +199,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.52 _202102-01  |  19 de fevereiro de 2021  |  Post 5,54  | 
 |  WA-GUEST-OS-5.51 _202101-01  |  5 de fevereiro de 2021  |  Post 5,53  | 
-|  WA-GUEST-OS-5.50 _202012-01  |  15 de janeiro de 2021  |  Post 5,52  | 
+|~~WA-GUEST-OS-5.50 _202012-01~~|  15 de janeiro de 2021  |  19 de fevereiro de 2021  | 
 |~~WA-GUEST-OS-5.49 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  | 
 |~~WA-GUEST-OS-5.48 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
 |~~WA-GUEST-OS-5.47 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
@@ -232,8 +237,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.87 _202102-01  |  19 de fevereiro de 2021  |  Post 4,89  | 
 |  WA-GUEST-OS-4.86 _202101-01  |  5 de fevereiro de 2021  |  Post 4,88  | 
-|  WA-GUEST-OS-4.85 _202012-01  |  15 de janeiro de 2021  |  Post 4,87  | 
+|~~WA-GUEST-OS-4.85 _202012-01~~|  15 de janeiro de 2021  |  19 de fevereiro de 2021  | 
 |~~WA-GUEST-OS-4.84 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  | 
 |~~WA-GUEST-OS-4.83 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  | 
 |~~WA-GUEST-OS-4.82 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  | 
@@ -269,8 +275,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.94 _202102-01  |  19 de fevereiro de 2021  |  Post 3,96  |
 |  WA-GUEST-OS-3.93 _202101-01  |  5 de fevereiro de 2021  |  Post 3,95  |
-|  WA-GUEST-OS-3.92 _202012-01  |  15 de janeiro de 2021  |  Post 3,94  |  
+|~~WA-GUEST-OS-3.92 _202012-01~~|  15 de janeiro de 2021  |  19 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-3.91 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-3.90 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-3.89 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  
@@ -306,8 +313,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.107 _202102-01  |  19 de fevereiro de 2021  |  Post 2,109  |  
 |  WA-GUEST-OS-2.106 _202101-01  |  5 de fevereiro de 2021  |  Post 2,108  |  
-|  WA-GUEST-OS-2.105 _202012-01  |  15 de janeiro de 2021  |  Post 2,107  |  
+|~~WA-GUEST-OS-2.105 _202012-01~~|  15 de janeiro de 2021  |  19 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-2.104 _202011-01~~|  19 de dezembro de 2020  |  5 de fevereiro de 2021  |  
 |~~WA-GUEST-OS-2.103 _202010-02~~|  17 de novembro de 2020  |  15 de janeiro de 2021  |  
 |~~WA-GUEST-OS-2.102 _202009-01~~|  10 de outubro de 2020  |  19 de dezembro de 2020  |  

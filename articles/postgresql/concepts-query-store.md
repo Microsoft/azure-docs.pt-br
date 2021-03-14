@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657015"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581560"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
@@ -162,8 +162,8 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 | user_id | oid | pg_authid.oid | OID do usuário que executou a instrução |
 | db_id | oid | pg_database.oid | OID do banco de dados no qual a instrução foi executada |
 | query_id | BIGINT |  | Código hash interno, computado da árvore de análise da instrução |
-| event_type | texto |  | O tipo de evento pelo qual o back-end está esperando |
-| event | texto |  | O nome do evento de espera se o back-end estiver esperando no momento |
+| event_type | text |  | O tipo de evento pelo qual o back-end está esperando |
+| event | text |  | O nome do evento de espera se o back-end estiver esperando no momento |
 | chamadas | Integer |  | Número do mesmo evento capturado |
 
 ### <a name="functions"></a>Funções
@@ -178,7 +178,7 @@ Query_store.staging_data_reset() retorna void
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-O banco de dados do Azure para PostgreSQL é integrado com [Azure monitor configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md). As configurações de diagnóstico permitem que você envie os logs do postgres no formato JSON para [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento.
+O banco de dados do Azure para PostgreSQL é integrado com [Azure monitor configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md). As configurações de diagnóstico permitem que você envie os logs do postgres no formato JSON para [Azure monitor logs](../azure-monitor/logs/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento.
 
 >[!IMPORTANT]
 > Este recurso de diagnóstico do está disponível somente nos tipos de preço Uso Geral e com otimização de memória.
@@ -195,7 +195,7 @@ Para habilitar os logs de recursos usando o portal do Azure:
 5. Selecione os tipos de log **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**.
 6. Salve sua configuração.
 
-Para habilitar essa configuração usando o PowerShell, a CLI ou a API REST, visite o [artigo configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
+Para habilitar essa configuração usando o PowerShell, a CLI ou a API REST, visite o [artigo configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="json-log-format"></a>Formato de log JSON
 As tabelas a seguir descrevem os campos para os dois tipos de log. Dependendo do ponto de extremidade de saída escolhido, os campos incluídos e a ordem em que aparecem podem variar.

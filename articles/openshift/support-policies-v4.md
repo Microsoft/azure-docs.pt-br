@@ -3,15 +3,15 @@ title: Política de suporte do cluster do Red Hat OpenShift no Azure 4
 description: Entender os requisitos da política de suporte para o Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 30579536b8051e9a045c217751871287636a3976
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521131"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454271"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Red Hat OpenShift no Azure
 
@@ -23,9 +23,10 @@ Determinadas configurações dos clusters do Red Hat OpenShift no Azure 4 podem 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
 * Todos os operadores do cluster do OpenShift devem permanecer em um estado gerenciado. A lista de operadores do cluster pode ser retornada executando `oc get clusteroperators`.
-* O cluster deve ter um mínimo de dois nós de trabalho. Não dimensione os trabalhadores do cluster para zero ou tente um desligamento normal do cluster.
+* O cluster deve ter um mínimo de três nós de trabalho e três nós de Gerenciador. Não tenha os seus que impeçam que os componentes OpenShift sejam agendados. Não dimensione os trabalhadores do cluster para zero ou tente um desligamento normal do cluster.
 * Não remova nem modifique os serviços Prometheus e Alertmanager do cluster.
 * Não remova as regras de Alertmanager do serviço.
+* Não remova nem modifique grupos de segurança de rede.
 * Não remova nem modifique o registro em log do serviço do Red Hat OpenShift no Azure (pods mdsd).
 * Não remova nem modifique o segredo de pull do cluster “arosvc.azurecr.io”.
 * Todas as máquinas virtuais do cluster devem ter acesso direto à Internet de saída, pelo menos para os pontos de extremidade do Azure Resource Manager (ARM) e do registro em log do serviço (Geneva).  Não há suporte para nenhuma forma de proxy HTTPS.

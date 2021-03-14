@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 8953f9ca174414c55e6e06774167d3951d0bbd41
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090231"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645884"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Como remover um aplicativo registrado na plataforma de identidade da Microsoft
 
@@ -37,11 +37,15 @@ Nas seções seguintes, você aprenderá a:
 
 Os aplicativos que você ou sua organização registraram são representados por um objeto de aplicativo e pelo objeto de entidade de serviço em seu locatário. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](./app-objects-and-service-principals.md).
 
+> [!NOTE]
+> Excluir um aplicativo também excluirá seu objeto de entidade de serviço no diretório base do aplicativo. Para aplicativos multilocatários, os objetos de entidade de serviço em outros diretórios não serão excluídos.
+
 Para excluir um aplicativo, você precisa estar listado como proprietário do aplicativo ou ter privilégios de administrador.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> usando uma conta corporativa ou de estudante ou uma conta Microsoft pessoal.
-1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e selecione **Registros de aplicativo**. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** do aplicativo.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual deseja registrar o aplicativo.
+1. Pesquise e selecione o **Azure Active Directory**. 
+1. Em **Gerenciar**, selecione **Registros de aplicativo** e escolha o aplicativo que deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** do aplicativo.
 1. Na página **Visão Geral**, selecione **Excluir**.
 1. Selecione **Sim** para confirmar que você deseja excluir o aplicativo.
 

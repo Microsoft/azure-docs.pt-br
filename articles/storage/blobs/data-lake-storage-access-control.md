@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185896"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015207"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -28,18 +28,20 @@ Você pode associar uma [entidade de segurança](../../role-based-access-control
 > [!NOTE]
 > As ACLs se aplicam somente a entidades de segurança no mesmo locatário e não se aplicam a usuários que usam a autenticação de token de chave compartilhada ou de assinatura de acesso compartilhado (SAS). Isso porque nenhuma identidade está associada ao chamador e, portanto, a autorização baseada em permissão de entidade de segurança não pode ser executada.  
 
+<a id="set-access-control-lists"></a>
+
 ## <a name="how-to-set-acls"></a>Como definir ACLs
 
 Para definir permissões de nível de arquivo e diretório, consulte qualquer um dos seguintes artigos:
 
 | Ambiente | Artigo |
 |--------|-----------|
-|Gerenciador de Armazenamento do Azure |[Use o Gerenciador de Armazenamento do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Use o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Use o PowerShell para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|CLI do Azure|[Usar a CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Gerenciador de Armazenamento do Azure |[Use Gerenciador de Armazenamento do Azure para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Use o .NET para definir ACLs no Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Use Java para definir ACLs no Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Usar o Python para definir ACLs no Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|PowerShell|[Usar o PowerShell para definir ACLs no Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|CLI do Azure|[Use CLI do Azure para definir ACLs em Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |API REST |[Caminho-atualizar](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -273,7 +275,7 @@ Para saber como o sistema avalia o RBAC e as ACLs do Azure juntos para tomar dec
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quais são os limites para as atribuições de função do Azure e as entradas de ACL?
 
-A tabela a seguir fornece uma exibição resumida dos limites a serem considerados ao usar o RBAC do Azure para gerenciar permissões "de alta granularidade" (permissões que se aplicam a contêineres ou contas de armazenamento) e usando ACLs para gerenciar permissões "refinadas" (permissões que se aplicam a arquivos e diretórios). Use grupos de segurança para atribuições de ACL. Usando grupos, você tem menor probabilidade de exceder o número máximo de atribuições de função por assinatura e o número máximo de entradas de ACl por arquivo ou diretório. 
+A tabela a seguir fornece uma exibição resumida dos limites a serem considerados ao usar o RBAC do Azure para gerenciar permissões "de alta granularidade" (permissões que se aplicam a contêineres ou contas de armazenamento) e usando ACLs para gerenciar permissões "refinadas" (permissões que se aplicam a arquivos e diretórios). Use grupos de segurança para atribuições de ACL. Usando grupos, você tem menor probabilidade de exceder o número máximo de atribuições de função por assinatura e o número máximo de entradas de ACL por arquivo ou diretório. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -283,7 +285,7 @@ As atribuições de função do Azure herdam. As atribuições fluem de assinatu
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Azure Data Lake Storage Gen2 dá suporte à herança de ACLs?
 
-As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](recursive-access-control-lists.md). 
+As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter diretrizes, consulte a seção [como definir ACLs](#set-access-control-lists) deste artigo. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente um diretório e seu conteúdo?
 
@@ -344,6 +346,6 @@ A API REST do armazenamento do Azure contém uma operação denominada [set cont
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Modelo de controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670691"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usar o servidor de histórico de Apache Spark estendido para depurar e diagnosticar Apache Spark aplicativos
 
@@ -22,7 +22,7 @@ Este artigo fornece orientação sobre como usar o servidor de histórico de Apa
 
 A extensão inclui uma guia dados, guia gráfico e guia diagnóstico. Use a guia **dados** para verificar os dados de entrada e saída do trabalho do Spark. A guia **grafo** mostra o fluxo de dados e a reprodução do grafo de trabalho. A guia **diagnóstico** mostra a  **distorção de dados**, a **distorção de tempo** e a análise de uso de **executor**.
 
-## <a name="access-the-apache-spark-history-server"></a>Acessar o servidor de histórico de Apache Spark
+## <a name="access-the-apache-spark-history-server"></a>Acesse o servidor de histórico do Apache Spark
 
 Apache Spark servidor de histórico é a interface do usuário da Web para aplicativos Spark concluídos e em execução. Você pode abrir a interface da Web do servidor de histórico de Apache Spark da análise de Synapse do Azure.
 
@@ -120,12 +120,12 @@ O nó do grafo exibe as cores mostradas na legenda calor.
 
 Para reproduzir o trabalho, selecione **reprodução**. Você pode selecionar **parar** a qualquer momento para parar. As cores da tarefa mostram status diferentes ao executar novamente:
 
-|Color|Significado|
+|Cor|Significado|
 |-|-|
 |Verde|Êxito: o trabalho foi concluído com êxito.|
 |Laranja|Repetidas: instâncias de tarefas que falharam, mas não afetam o resultado final do trabalho. Essas tarefas tiveram instâncias duplicadas ou repetidas que poderão ser bem-sucedidas mais tarde.|
 |Azul|Em execução: a tarefa está em execução.|
-|Branco|Aguardando ou ignorado: a tarefa está aguardando para ser executada ou o estágio foi ignorado.|
+|Branca|Aguardando ou ignorado: a tarefa está aguardando para ser executada ou o estágio foi ignorado.|
 |Vermelho|Falha: a tarefa falhou.|
 
 A imagem a seguir mostra as cores de status verde, laranja e azul.
@@ -239,5 +239,5 @@ Os dados de entrada/saída usando conjuntos de dados distribuídos resilientes (
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentação do .NET para Apache Spark](/dotnet/spark)
 

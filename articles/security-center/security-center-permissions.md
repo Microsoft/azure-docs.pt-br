@@ -1,24 +1,18 @@
 ---
 title: Permissões na Central de Segurança do Azure | Microsoft Docs
 description: Este artigo explica como a Central de Segurança do Azure usa o controle de acesso baseado em função para atribuir permissões aos usuários e identifica as ações permitidas para cada função.
-services: security-center
-cloud: na
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: 668fe1436feeb0888f7d871144da6cb6b8e3864e
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922604"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443753"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -39,15 +33,15 @@ Além dessas funções, há duas funções específicas da Central de Segurança
 
 A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança.
 
-|Ação|Leitor de Segurança/ <br> Leitor |Administrador de Segurança  |Colaborador do Grupo de Recursos/ <br> Proprietário do Grupo de Recursos  |Colaborador da assinatura  |Proprietário da assinatura  |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-|Editar política de segurança|-|✔|-|-|✔|
-|Adicionar/atribuir iniciativas (incluindo padrões de conformidade regulatória)|-|-|-|-|✔|
-|Habilitar/desabilitar o Azure Defender|-|✔|-|-|✔|
-|Habilitar/desabilitar o provisionamento automático|-|✔|-|✔|✔|
-|Aplicar as recomendações de segurança a um recurso</br> (e usar a [Correção Rápida](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
-|Ignorar alertas|-|✔|-|✔|✔|
-|Exibir alertas e recomendações|✔|✔|✔|✔|✔|
+| Ação                                                                                                                                        | Leitor de Segurança/ <br> Leitor | Administrador de Segurança | Colaborador do Grupo de Recursos/ <br> Proprietário do Grupo de Recursos | Colaborador da assinatura | Proprietário da assinatura |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| Editar política de segurança                                                                                                                          | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Adicionar/atribuir iniciativas (incluindo padrões de conformidade regulatória)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
+| Habilitar/desabilitar o Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Habilitar/desabilitar o provisionamento automático                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Aplicar as recomendações de segurança a um recurso</br> (e usar a [Correção Rápida](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Ignorar alertas                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
+| Exibir alertas e recomendações                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, atribua a função Leitor aos usuários que precisam apenas exibir informações sobre a integridade da segurança de um recurso, mas que não precisam executar nenhuma ação, como aplicar recomendações ou editar políticas.
@@ -59,6 +53,5 @@ Este artigo explicou como a Central de Segurança usa o Azure RBAC para atribuir
 
 - [Definir políticas de segurança na Central de Segurança](tutorial-security-policy.md)
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
-- [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) (Monitorando soluções de parceiros com a Central de Segurança do Azure)

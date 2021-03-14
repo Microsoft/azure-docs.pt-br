@@ -3,16 +3,17 @@ title: Usar chaves SSH para se conectar a VMs Linux
 description: Saiba como gerar e usar chaves SSH de um computador Windows para se conectar a uma máquina virtual Linux no Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 167ce63931155f5142ed34b41f857505699bc0a6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147140"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552772"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
@@ -23,9 +24,9 @@ Para usar chaves SSH de um cliente Linux ou macOS, consulte as [etapas rápidas]
 
 ## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e das chaves
 
-O [SSH](https://www.ssh.com/ssh/) é um protocolo de conexão criptografado que permite entradas seguras em conexões não seguras. SSH é o protocolo de conexão padrão para as VMs Linux hospedadas no Azure. Embora o SSH em si forneça uma conexão criptografada, o uso de senhas com o SSH ainda deixa a VM vulnerável a ataques de força bruta. É recomendável conectar-se a uma VM por SSH usando um par de chaves pública-privada, também conhecido como *chaves SSH* . 
+O [SSH](https://www.ssh.com/ssh/) é um protocolo de conexão criptografado que permite entradas seguras em conexões não seguras. SSH é o protocolo de conexão padrão para as VMs Linux hospedadas no Azure. Embora o SSH em si forneça uma conexão criptografada, usar senhas com SSH ainda deixa a VM vulnerável a ataques de força bruta. É recomendável conectar-se a uma VM por SSH usando um par de chaves pública-privada, também conhecido como *chaves SSH*. 
 
-O par de chaves pública-privada é como o bloqueio na sua porta de frente. O bloqueio é exposto ao **público** , qualquer pessoa com a chave correta pode abrir a porta. A chave é **privada** e só é fornecida às pessoas confiáveis, pois podem ser usadas para desbloquear a porta. 
+O par de chaves pública-privada é como o bloqueio na sua porta de frente. O bloqueio é exposto ao **público**, qualquer pessoa com a chave correta pode abrir a porta. A chave é **privada** e só é fornecida às pessoas confiáveis, pois podem ser usadas para desbloquear a porta. 
 
 - A *chave pública* é colocada em sua VM Linux quando você cria a VM. 
 

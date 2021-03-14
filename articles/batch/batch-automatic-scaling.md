@@ -4,12 +4,12 @@ description: Habilite o dimensionamento automático em um pool de nuvem para aju
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737285"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381419"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático de nós de computação em um pool do Lote
 
@@ -128,6 +128,7 @@ Você pode obter o valor dessas variáveis definidas pelo serviço para fazer aj
 | $PendingTasks |A soma de $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |O número de tarefas que foram concluídas com êxito. |
 | $FailedTasks |O número de tarefas que falharam. |
+| $TaskSlotsPerNode |O número de Slots de tarefas que podem ser usados para executar tarefas simultâneas em um único nó de computação no pool. |
 | $CurrentDedicatedNodes |O número atual de nós de computação dedicados. |
 | $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo nós que tenham sofrido preempção. |
 | $PreemptedNodeCount | O número de nós no pool que estão em estado de prevenção. |
@@ -229,7 +230,7 @@ Você pode usar as métricas do recurso e da tarefa quando estiver definindo uma
 
 <table>
   <tr>
-    <th>Metric</th>
+    <th>Métrica</th>
     <th>Descrição</th>
   </tr>
   <tr>

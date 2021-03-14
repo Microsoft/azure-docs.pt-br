@@ -36,6 +36,8 @@
           items:
             - name: Avaliar VMs do VMware para migração para VMs do Azure
               href: tutorial-assess-vmware-azure-vm.md
+            - name: Avaliar instâncias SQL para migração para o SQL do Azure
+              href: tutorial-assess-sql.md
             - name: Avaliar VMs do VMware para migração para a AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Avaliar VMs do Hyper-V para migração para o Azure
@@ -68,6 +70,12 @@
           href: tutorial-migrate-aws-virtual-machines.md
         - name: Migrar instâncias do GCP
           href: tutorial-migrate-gcp-virtual-machines.md
+    - name: Colocar aplicativos em contêiner
+      items:
+        - name: Colocar aplicativos ASP.NET em contêiner e migrar para o AKS
+          href: tutorial-containerize-aspnet-kubernetes.md
+        - name: Colocar aplicativos Web Java em contêiner e migrar para o AKS
+          href: tutorial-containerize-java-kubernetes.md
 - name: Conceitos
   items:
     - name: Geral
@@ -96,6 +104,8 @@
       items:
         - name: Visão geral da avaliação (migrar para VMs do Azure)
           href: concepts-assessment-calculation.md
+        - name: Visão geral da avaliação (migrar para SQL do Azure)
+          href: concepts-azure-sql-assessment-calculation.md
         - name: Visão geral de avaliações (migrar para a AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: Melhores práticas de avaliação
@@ -138,8 +148,12 @@
               href: deploy-appliance-script-government.md
         - name: Limitar o escopo da descoberta para VMs VMware
           href: set-discovery-scope.md
+        - name: Como adicionar credenciais do servidor
+          href: add-server-credentials.md
         - name: Descobrir aplicativos/funções/recursos
           href: how-to-discover-applications.md
+        - name: Descobrir instâncias SQL em um projeto existente
+          href: how-to-discover-sql-existing-project.md
         - name: Analisar dependências do computador (baseadas em agente)
           href: how-to-create-group-machine-dependencies.md
         - name: Analisar dependências do computador (sem agente)
@@ -152,6 +166,8 @@
           href: how-to-create-a-group.md
         - name: Criar uma avaliação de VM do Azure
           href: how-to-create-assessment.md
+        - name: Criar uma avaliação do SQL do Azure
+          href: how-to-create-azure-sql-assessment.md
         - name: Criar uma avaliação da AVS
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: Acessar um banco de dados do SQL Server
@@ -170,6 +186,8 @@
       items:
         - name: Adicionar ferramentas de migração
           href: how-to-migrate.md
+        - name: Replicar usando o ExpressRoute
+          href: replicate-using-expressroute.md
         - name: Preparar computadores para a migração
           href: prepare-for-migration.md
         - name: Preparar servidores Windows 2003 para migração
@@ -180,6 +198,8 @@
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
         - name: Escalar migração
           items:
+            - name: Como migrar máquinas virtuais VMware em escala usando o método de replicação sem agente
+              href: how-to-scale-out-for-migration.md
             - name: Automatizar a migração de um grande número de VMs
               href: how-to-migrate-at-scale.md
             - name: Como automatizar a migração do VMware

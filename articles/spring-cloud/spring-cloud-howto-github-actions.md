@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 95a97d3f5104891ef5e23a03ffe1477f9b6ad036
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561606"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210403"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD do Azure Spring Cloud com ações do GitHub
 
 As ações do GitHub dão suporte a um fluxo de trabalho de desenvolvimento de software automatizado. Com as ações do GitHub para o Azure Spring Cloud, você pode criar fluxos de trabalho em seu repositório para compilar, testar, empacotar, liberar e implantar no Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este exemplo requer o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+Este exemplo requer o [CLI do Azure](/cli/azure/install-azure-cli).
 
 ::: zone pivot="programming-language-csharp"
 ## <a name="set-up-github-repository-and-authenticate"></a>Configurar repositório do GitHub e autenticar
@@ -340,5 +340,5 @@ Se a ação for executada com erro, por exemplo, se você não tiver definido a 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Key Vault para ações do GitHub do Spring Cloud](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory entidades de serviço](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
+* [Azure Active Directory entidades de serviço](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions para Azure](https://github.com/Azure/actions/)

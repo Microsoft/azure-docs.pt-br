@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413370"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378699"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Mapas
 
 O Controle de Mapeamento biblioteca JavaScript do lado do cliente permite renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
+
+Esta documentação usa o SDK da Web do Azure Maps, no entanto, os serviços do Azure Maps podem ser usados com qualquer controle de mapa. [Aqui](open-source-projects.md#third-part-map-control-plugins) estão alguns controles populares de mapa de código-fonte aberto para os quais a equipe do Azure Maps criou plug-ins.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -200,7 +202,7 @@ Você pode inserir um mapa em uma página da Web usando o Controle de Mapeamento
 
 ## <a name="localizing-the-map"></a>Como localizar o mapa
 
-O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibição regional para o mapa renderizado. A primeira opção é adicionar essas informações ao `atlas` namespace global, o que resultará em todas as instâncias de controle de mapa em seu aplicativo padronizando essas configurações. O seguinte define o idioma como francês ("fr-FR") e a exibição regional como "auto":
+O mapas do Azure fornece duas maneiras diferentes de definir o idioma e a exibição regional para o mapa renderizado. A primeira opção é adicionar essas informações ao `atlas` namespace global, o que resultará em todas as instâncias de controle de mapa em seu aplicativo padronizando essas configurações. O seguinte define o idioma como francês ("fr-FR") e a exibição regional como "Automática":
 
 ```javascript
 atlas.setLanguage('fr-FR');

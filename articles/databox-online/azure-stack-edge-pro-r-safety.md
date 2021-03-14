@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981333"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363059"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instruções de segurança do Azure Stack Edge pro R
 
@@ -134,6 +134,7 @@ Os seguintes ícones de risco devem ser observados ao configurar e executar o di
 
 * Para sistemas sem uma fonte de alimentação ininterrupta (UPS), desconecte todos os cabos de alimentação CA para remover completamente a energia AC do equipamento.
 * Para sistemas com UPS, desconecte todos os cabos de alimentação CA e use o interruptor de energia UPS para desenergizar o sistema. O UPS contém tensões perigosas de AC e DC.
+* Se um sistema incluir um no-break, o UPS foi fornecido com um cabo de alimentação de entrada blindado. Você deve usar o cabo de alimentação de entrada blindado, não substitua ou modifique o cabo.
 
 ![Ícone de aviso ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
  ![ ícone de choque elétrico ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **AVISO:**
@@ -210,21 +211,22 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![Ícone de aviso-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; alterações ou modificações feitas no equipamento não expressamente aprovado pela Microsoft podem anular a autoridade do usuário para operar o equipamento.
 
-CANADÁ e EUA:
+#### <a name="canada-and-usa"></a>CANADÁ e EUA:
 
-Aviso: este equipamento foi testado e foi encontrado para estar em conformidade com os limites de um dispositivo digital de classe a, de acordo com a parte 15 das regras de FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será solicitado a corrigir a interferência por sua própria despesa.
+> ![Ícone de aviso-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; este equipamento foi testado e foi encontrado para estar em conformidade com os limites de um dispositivo digital de classe a, de acordo com a parte 15 das regras de FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será solicitado a corrigir a interferência por sua própria despesa.
 
 O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeita a estas duas condições: (1) o dispositivo não pode causar interferência prejudicial e (2) o dispositivo deve aceitar todas as interferências recebidas, inclusive interferências que possam causar uma operação indesejada do dispositivo.
 
 ![Aviso de informações regulatórias 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
 
-PODE ICES-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EUA.
-Estados Unidos: (800) 426-9400 Canadá: (800) 933-4750
+PODE ICES-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EUA Estados Unidos: (800) 426-9400 Canada: (800) 933-4750
 
-União Europeia: solicite uma cópia da declaração de conformidade da UE. 
+#### <a name="european-union"></a>UNIÃO EUROPEIA:
 
-![Ícone de Aviso](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Solicite uma cópia da declaração de conformidade da UE. Envie um email para [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Aviso de ícone de aviso ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **!**
 
 É um produto classe A. Em um ambiente doméstico, o produto pode causar interferências de rádio. Nesse caso, o usuário talvez tenha que tomar as devidas medidas.
 
@@ -237,7 +239,6 @@ Este símbolo no produto, nas baterias ou embalagem significa que o produto e as
 Este produto contém baterias em forma de moeda.
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL número de telefone: + 353 1 295 3826 número de fax: + 353 1 706 4110
-
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742923"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380297"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -43,7 +43,7 @@ Ler todas as configurações | Administrador de aplicativos |
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios do Azure AD B2C | Todos os usuários não convidados ([consulte a documentação](../fundamentals/users-default-permissions.md)) | 
-Criar aplicativos B2C | Administrador global | 
+Criar aplicativos B2C | Administrador Global | 
 Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
 Criar, ler, atualizar e excluir políticas de B2C | Administrador de Política do IEF B2C | 
 Criar, ler, atualizar e excluir provedores de identidade | Administrador do Provedor de Identidade Externa | 
@@ -63,22 +63,22 @@ Ler os logs de auditoria do B2C | Leitor global ([consulte a documentação](../
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar identidade visual da empresa | Administrador global | 
+Configurar identidade visual da empresa | Administrador Global | 
 Ler todas as configurações | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](../fundamentals/users-default-permissions.md))
 
 ## <a name="company-properties"></a>Propriedades da empresa
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar propriedades da empresa | Administrador global | 
+Configurar propriedades da empresa | Administrador Global | 
 
 ## <a name="connect"></a>Conectar
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Autenticação de passagem | Administrador global  | 
-Ler todas as configurações | Leitor global | Administrador global  |
-Logon único contínuo | Administrador global  | 
+Autenticação de passagem | Administrador Global  | 
+Ler todas as configurações | Leitor global | Administrador Global  |
+Logon único contínuo | Administrador Global  | 
 
 ## <a name="cloud-provisioning"></a>Provisionamento de nuvem
 
@@ -109,14 +109,14 @@ Exibir métricas e alertas do serviço de sincronização | Leitor ([consulte a 
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Gerenciar domínios | Administrador global | 
+Gerenciar domínios | Administrador de nome de domínio | 
 Ler todas as configurações | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Serviços de Domínio
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Criar instância do Azure AD Domain Services | Administrador global | 
+Criar instância do Azure AD Domain Services | Administrador Global | 
 Executar todas as tarefas do Azure Active Directory Domain Services | Grupo Administradores do Azure AD DC ([consulte a documentação](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Ler todas as configurações | Leitor na assinatura do Azure que contém o serviço AD DS | 
 
@@ -139,7 +139,7 @@ Consentimento para permissões de aplicativo para Microsoft Graph | Administrado
 Consentimento para aplicativos acessando dados próprios | Função de usuário padrão ([consulte a documentação](../fundamentals/users-default-permissions.md)) | 
 Criar aplicativos empresariais | Administrador de aplicativos de nuvem | Administrador de aplicativos
 Gerenciar proxy de aplicativo | Administrador de aplicativos | 
-Gerenciar configurações de usuário | Administrador global | 
+Gerenciar configurações de usuário | Administrador Global | 
 Revisão de acesso de leitura de um grupo ou de um aplicativo | Leitor de segurança | Administrador de segurança, Administrador de usuários
 Ler todas as configurações | Função de usuário padrão ([consulte a documentação](../fundamentals/users-default-permissions.md)) | 
 Atualizar atribuições de aplicativos empresariais | Proprietário de aplicativo empresarial ([consulte a documentação](../fundamentals/users-default-permissions.md)) | Administrador do aplicativo de nuvem, Administrador de aplicativos
@@ -215,10 +215,10 @@ Ler logs de entrada | Leitor de relatórios | Leitor de segurança, Administrado
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Excluir todas as senhas de aplicativos existentes geradas pelos usuários selecionados | Administrador global | 
-Desabilitar MFA | Administrador global | 
-Habilitar MFA | Administrador global | 
-Gerenciar configurações do serviço de MFA | Administrador global | 
+Excluir todas as senhas de aplicativos existentes geradas pelos usuários selecionados | Administrador Global | 
+Desabilitar MFA | Administrador de autenticação (por meio do PowerShell) | Administrador de autenticação privilegiada (por meio do PowerShell)
+Habilitar MFA | Administrador de autenticação (por meio do PowerShell) | Administrador de autenticação privilegiada (por meio do PowerShell) 
+Gerenciar configurações do serviço de MFA | Administrador da política de autenticação | 
 Exigir que os usuários selecionados forneçam métodos de contato novamente | Administrador de Autenticação | 
 Restaurar a autenticação multifator em todos os dispositivos lembrados  | Administrador de Autenticação | 
 
@@ -226,15 +226,15 @@ Restaurar a autenticação multifator em todos os dispositivos lembrados  | Admi
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Bloquear/desbloquear usuários | Administrador global | 
-Configurar bloqueio de conta | Administrador global | 
-Configurar regras de cache | Administrador global | 
-Configurar alerta de fraude | Administrador global
-Configurar notificações | Administrador global | 
-Configurar bypass avulso | Administrador global | 
-Definir configurações de chamada telefônica | Administrador global | 
-Configurar provedores | Administrador global | 
-Definir configurações do servidor | Administrador global | 
+Bloquear/desbloquear usuários | Administrador da política de autenticação | 
+Configurar bloqueio de conta | Administrador da política de autenticação | 
+Configurar regras de cache | Administrador da política de autenticação | 
+Configurar alerta de fraude | Administrador da política de autenticação
+Configurar notificações | Administrador da política de autenticação | 
+Configurar bypass avulso | Administrador da política de autenticação | 
+Definir configurações de chamada telefônica | Administrador da política de autenticação | 
+Configurar provedores | Administrador da política de autenticação | 
+Definir configurações do servidor | Administrador da política de autenticação | 
 Ler relatório de atividades | Leitor global | 
 Ler todas as configurações | Leitor global | 
 Ler o status do servidor | Leitor global |  
@@ -244,20 +244,20 @@ Ler o status do servidor | Leitor global |
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Gerenciar provedores de identidade | Administrador do Provedor de Identidade Externa | 
-Gerenciar configurações | Administrador global | 
-Gerenciar termos de uso | Administrador global | 
+Gerenciar configurações | Administrador Global | 
+Gerenciar termos de uso | Administrador Global | 
 Ler todas as configurações | Leitor global | 
 
 ## <a name="password-reset"></a>Redefinição de senha
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar métodos de autenticação | Administrador global |
-Configurar personalização | Administrador global |
-Configurar notificação | Administrador global |
-Configurar integração local | Administrador global |
-Configurar propriedades de redefinição de senha | Administrador de usuários | Administrador global
-Configurar registro | Administrador global |
+Configurar métodos de autenticação | Administrador Global |
+Configurar personalização | Administrador Global |
+Configurar notificação | Administrador Global |
+Configurar integração local | Administrador Global |
+Configurar propriedades de redefinição de senha | Administrador de usuários | Administrador Global
+Configurar registro | Administrador Global |
 Ler todas as configurações | Administrador de Segurança | Administrador de usuários |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
@@ -281,7 +281,7 @@ Ler todas as configurações | Função de usuário padrão ([consulte a documen
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar métodos de autenticação | Administrador global | 
+Configurar métodos de autenticação | Administrador Global | 
 Configurar a proteção de senha | Administrador de segurança
 Configurar o bloqueio inteligente | Administrador de segurança
 Ler todas as configurações | Leitor global | 
@@ -349,8 +349,8 @@ Redefinir senha de administradores com privilégios | Administrador de Autentica
 Revogar licença | Administrador de licenças | Administrador de usuários
 Atualizar todas as propriedades, exceto Nome UPN | Administrador de usuários | 
 Atualizar nome UPN para administradores limitados (consulte a documentação) | Administrador de usuários | 
-Atualizar a propriedade do nome UPN em administradores com privilégios (consulte a documentação) | Administrador global | 
-Atualizar configurações do usuário | Administrador global | 
+Atualizar a propriedade do nome UPN em administradores com privilégios (consulte a documentação) | Administrador Global | 
+Atualizar configurações do usuário | Administrador Global | 
 Atualizar métodos de autenticação | Administrador de Autenticação | Administrador de autenticação privilegiada, administrador global
 
 

@@ -4,12 +4,12 @@ description: Saiba como configurar um alerta de novas recomendações do Assiste
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629889"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590053"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Início Rápido: Criar alertas do Assistente do Azure sobre novas recomendações usando o modelo do ARM
 
@@ -17,7 +17,7 @@ Este artigo mostra como configurar um alerta de novas recomendações do Assiste
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Sempre que o Assistente do Azure detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Você pode configurar alertas para esses eventos no Assistente do Azure usando uma experiência de criação de alertas específica para recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos nos quais deseja receber alertas.
+Sempre que o Assistente do Azure detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [log de atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md). Você pode configurar alertas para esses eventos no Assistente do Azure usando uma experiência de criação de alertas específica para recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos nos quais deseja receber alertas.
 
 Você também pode determinar os tipos de recomendações usando essas propriedades:
 
@@ -30,7 +30,7 @@ Você também pode configurar a ação que ocorrerá quando um alerta for dispar
 - Selecionando um grupo de ações existente
 - Como criar um grupo de ações
 
-Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Atualmente, os alertas do Assistente estão disponíveis apenas para recomendações de Alta Disponibilidade, Desempenho e Custo. Não há suporte para recomendações de segurança.
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Obtenha uma [visão geral dos alertas do log de atividades](../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.
-- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).
+- Obtenha uma [visão geral dos alertas do log de atividades](../azure-monitor/alerts/alerts-overview.md) e saiba como receber alertas.
+- Saiba mais sobre [grupos de ação](../azure-monitor/alerts/action-groups.md).

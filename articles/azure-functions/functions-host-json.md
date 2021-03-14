@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654805"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608811"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -39,6 +39,7 @@ O exemplo a seguir *host.jsno* arquivo para a versão 2. x + tem todas as opçõ
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -153,13 +154,13 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 
 | Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | n/a | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Somente para uso interno. |
-| httpAutoCollectionOptions | N/D | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | n/a | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | n/a | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
@@ -216,6 +217,10 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
 | uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
+## <a name="blobs"></a>blobs
+
+As definições de configuração podem ser encontradas em [gatilhos e associações de blob de armazenamento](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 A definição de configuração pode ser encontrada em [Associações e gatilhos do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -237,9 +242,9 @@ Definições de configuração para um manipulador personalizado. Para obter mai
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- |
-| defaultExecutablePath | N/D | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
+| defaultExecutablePath | n/a | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
 | workingDirectory | *raiz do aplicativo de funções* | O diretório de trabalho no qual iniciar o processo de manipulador personalizado. É uma configuração opcional e seu valor é relativo à raiz do aplicativo de funções. |
-| argumentos | N/D | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
+| argumentos | n/a | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
 | enableForwardingHttpRequest | false | Se definido, todas as funções que consistem apenas em um gatilho HTTP e saída HTTP serão encaminhadas a solicitação HTTP original em vez da [carga de solicitação](functions-custom-handlers.md#request-payload)do manipulador personalizado. |
 
 ## <a name="durabletask"></a>durableTask
@@ -248,7 +253,7 @@ A definição de configuração pode ser encontrada em [Associações para Durab
 
 ## <a name="eventhub"></a>eventHub
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs-trigger.md#host-json). 
+As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 
@@ -340,9 +345,9 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
-|console|N/D| A configuração de log do [console](#console). |
-|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|n/a|Objeto que define a filtragem da categoria de log para funções no aplicativo. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels). |
+|console|n/a| A configuração de log do [console](#console). |
+|applicationInsights|n/a| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -378,7 +383,7 @@ A dependência gerenciada é um recurso que atualmente só tem suporte com funç
 
 ## <a name="queues"></a>filas
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
+As definições de configuração podem ser encontradas em [Associações e gatilhos da fila de armazenamento](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>tentar novamente
 
@@ -432,7 +437,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 

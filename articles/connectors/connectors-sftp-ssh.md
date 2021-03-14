@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016755"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449621"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -31,7 +31,7 @@ Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibil
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 * O conector SFTP-SSH atualmente não dá suporte a estes servidores SFTP:
 
@@ -103,10 +103,10 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
   >
   > * **Impressão digital**: MD5
   >
-  > Depois de adicionar o gatilho SFTP-SSH ou a ação que você deseja ao seu aplicativo lógico, você precisa fornecer informações de conexão para seu servidor SFTP. Ao fornecer sua chave privada SSH para essa conexão, **_não insira manualmente ou edite a chave_* _, o que pode causar falha na conexão. Em vez disso, certifique-se de _*_copiar a chave_*_ de seu arquivo de chave privada SSH e _*_Cole_*_ essa chave nos detalhes da conexão. 
+  > Depois de adicionar o gatilho SFTP-SSH ou a ação que você deseja ao seu aplicativo lógico, você precisa fornecer informações de conexão para seu servidor SFTP. Ao fornecer sua chave privada SSH para essa conexão, ***não insira ou edite manualmente a chave***, o que pode causar falha na conexão. Em vez disso, certifique-se de ***copiar a chave*** de seu arquivo de chave privada SSH e ***Cole*** essa chave nos detalhes da conexão. 
   > Para obter mais informações, consulte a seção [conectar-se ao SFTP com SSH](#connect) posteriormente neste artigo.
 
-_ Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * O aplicativo lógico no qual você deseja acessar a conta SFTP. Para começar com um acionador SFTP-SSH, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação SFTP-SSH, inicie seu aplicativo lógico com outro acionador, por exemplo, o acionador **Recorrência**.
 
@@ -170,7 +170,15 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
 ## <a name="considerations"></a>Considerações
 
-Esta seção descreve as considerações para examinar os gatilhos e as ações desse conector.
+Esta seção descreve as considerações a serem examinadas quando você usa os gatilhos e as ações desse conector.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Usar pastas SFTP diferentes para carregamento e processamento de arquivos
+
+Em seu servidor SFTP, certifique-se de usar pastas separadas para o local em que você armazena arquivos carregados e onde o gatilho monitora esses arquivos para processamento, o que significa que você precisa de uma maneira de mover arquivos entre essas pastas. Caso contrário, o gatilho não será acionado e não se comformará de modo imprevisível, por exemplo, ignorando um número aleatório de arquivos que o gatilho processa.
+
+Se esse problema ocorrer, remova os arquivos da pasta que o gatilho monitora e use uma pasta diferente para armazenar os arquivos carregados.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
    1. Selecione **Editar**  >  **cópia**.
 
-   1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH**, que suporta várias linhas.  **_Certifique-se de colar_* _ a chave. _*_Não insira ou edite manualmente a chave_*_.
+   1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH**, que suporta várias linhas.  **_Certifique-se_*de colar _ a chave. _*_não insira manualmente ou edite a chave_**.
 
-1. Depois de terminar de inserir os detalhes da conexão, selecione _ * criar * *.
+1. Depois de terminar de inserir os detalhes da conexão, selecione **criar**.
 
 1. Agora, forneça os detalhes necessários para o acionador ou a ação selecionada e continue criando o fluxo de trabalho do seu aplicativo lógico.
 

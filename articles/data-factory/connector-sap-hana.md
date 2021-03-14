@@ -1,22 +1,18 @@
 ---
 title: Copiar dados de SAP HANA
 description: Saiba como copiar dados do SAP HANA para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce3c1e22dd030c0730bf4d9859591c00860908a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382269"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -271,28 +267,28 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 
 | Tipo de dados do SAP HANA | Tipo de dados provisório do Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Cadeia de caracteres                         |
+| ALPHANUM           | String                         |
 | bigint             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | Cadeia de caracteres                         |
+| Bintext            | String                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Cadeia de caracteres                         |
+| CLOB               | String                         |
 | DATE               | Datetime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Cadeia de caracteres                         |
-| NVARCHAR           | Cadeia de caracteres                         |
-| real               | Single                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
+| real               | Único                         |
 | SECONDDATE         | Datetime                       |
-| SHORTTEXT          | Cadeia de caracteres                         |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | Ponto de extremidade        | Byte[]                         |
-| TEXT               | Cadeia de caracteres                         |
+| TEXT               | String                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |

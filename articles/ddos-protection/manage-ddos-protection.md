@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819836"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535222"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Início rápido: criar e configurar a proteção contra DDoS do Azure Standard
 
@@ -47,7 +47,7 @@ Neste guia de início rápido, você criará um plano de proteção contra DDoS 
     |Nome           | Insira _MyDdosProtectionPlan_.                     |
     |Subscription   | Selecione sua assinatura.                         |
     |Resource group | Selecione **criar novo** e insira _MyResource_.|
-    |Location       | Insira _leste dos EUA_.                                  |
+    |Localização       | Insira _leste dos EUA_.                                  |
 
 ## <a name="enable-ddos-protection-for-a-virtual-network"></a>Habilitar a proteção contra DDoS para uma rede virtual
 
@@ -62,7 +62,7 @@ Neste guia de início rápido, você criará um plano de proteção contra DDoS 
     | Nome            | Insira _MyVnet_.                                 |
     | Subscription    | Selecione sua assinatura.                                    |
     | Resource group  | Selecione **usar existente** e, em seguida, selecione **MyResource** |
-    | Location        | Insira _leste dos EUA_                                                    |
+    | Localização        | Insira _leste dos EUA_                                                    |
     | Proteção contra DDoS Standard | Selecione **Habilitar**. O plano selecionado pode estar na mesma assinatura ou em assinatura diferente que a rede virtual, mas ambas as assinaturas devem estar associadas ao mesmo locatário do Azure Active Directory.|
 
 Você não pode mover uma rede virtual para outro grupo de recursos ou assinatura quando o DDoS padrão está habilitado para a rede virtual. Se você precisar mover uma rede virtual com um padrão de DDoS habilitado, desabilite o padrão de DDoS primeiro, mova a rede virtual e, em seguida, habilite padrão de DDoS. Após a movimentação, os limites da política ajustados automaticamente para todos os endereços IP públicos protegidos na rede virtual são redefinidos.
@@ -88,6 +88,11 @@ Primeiro, verifique os detalhes do seu plano de proteção contra DDoS:
 3. Selecione o plano de proteção contra DDoS na lista.
 
 A rede virtual _MyVnet_ deve ser listada. 
+
+### <a name="view-protected-resources"></a>Exibir recursos protegidos
+Em **recursos protegidos**, você pode exibir suas redes virtuais e endereços IP públicos protegidos ou adicionar mais redes virtuais ao seu plano de proteção contra DDoS:
+
+![Exibir recursos protegidos](./media/manage-ddos-protection/ddos-protected-resources.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

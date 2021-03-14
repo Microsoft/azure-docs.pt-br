@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 66faa2b3e6d24c264e2fe26ab42eeaffd48384f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567521"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732829"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -60,7 +60,7 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente armaz
 Veja a seguir os requisitos para configurar o Key Vault:
 
 * O Key Vault e o servidor único do Banco de Dados do Azure para PostgreSQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. A movimentação do recurso de Key Vault depois requer que você reconfigure a criptografia de dados.
-* O Key Vault deve ser definido com 90 dias para ' dias para manter os cofres excluídos '. Se o cofre de chaves existente tiver sido configurado com um número mais baixo, você precisará criar um novo cofre de chaves, pois ele não pode ser modificado após a criação.
+* O cofre de chaves deve ser definido com 90 dias para ' dias para manter os cofres excluídos '. Se o cofre de chaves existente tiver sido configurado com um número mais baixo, você precisará criar um novo cofre de chaves, pois ele não pode ser modificado após a criação.
 * Habilite o recurso de exclusão reversível no cofre de chaves para proteger contra perda de dados em caso de exclusão acidental da chave (ou do cofre de chaves). Os recursos excluídos com a exclusão reversível são retidos por 90 dias, a menos que o usuário os recupere ou limpe pelo. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure). 
 * Habilitar a proteção de limpeza para impor um período de retenção obrigatório para cofres e objetos de cofre excluídos
 * Conceda o acesso de servidor único do Banco de Dados do Azure para PostgreSQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva do ' serviço ' é criada automaticamente quando a criptografia de dados é habilitada no servidor único PostgreSQL. Confira [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) (Criptografia de dados para servidor único do Banco de Dados do Azure para PostgreSQL usando o portal do Azure) para obter instruções detalhadas passo a passo quando você estiver usando o portal do Azure.
@@ -117,7 +117,7 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 * [Azure Resource Health](../service-health/resource-health-overview.md): um banco de dados inacessível que perdeu o acesso à chave do cliente aparecerá como "Inacessível" após a negação da primeira conexão com o banco de dados.
 * [Log de atividades](../service-health/alerts-activity-log-service-notifications-portal.md): quando o acesso à chave do cliente falha no Key Vault gerenciado pelo cliente, as entradas são adicionadas ao log de atividades. Você poderá restabelecer o acesso assim que possível se criar alertas para esses eventos.
 
-* [Grupos de ação](../azure-monitor/platform/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
+* [Grupos de ação](../azure-monitor/alerts/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurar e replicar com uma chave gerenciada do cliente no Key Vault
 

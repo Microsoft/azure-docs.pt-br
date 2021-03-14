@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f48935edd5746b0f3f3440e249024cbe2901317b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134221"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374364"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,7 +43,7 @@ As seguintes versões de drivers Cassandra são compatíveis com a API do Cassan
 
 A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de dados do CQL:
 
-|Comando  |Com suporte |
+|Tipo  |Com suporte |
 |---------|---------|
 | ascii  | Sim |
 | BIGINT  | Sim |
@@ -82,13 +82,14 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 |Comando  |Com suporte |
 |---------|---------|
 | Token * | Sim |
-| ttl | Sim |
-| writetime | Sim |
+| ttl *** | Sim |
+| writetime *** | Sim |
 | cast ** | Sim |
 
 > [!NOTE] 
 > \* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, há suporte para `WHERE token(pk) > 1024`, mas **não** para `WHERE token(pk) > token(100)`.  
-> \*\* A função `cast()` não pode ser aninhada na API do Cassandra. Por exemplo, há suporte para `SELECT cast(count as double) FROM myTable`, mas **não** para `SELECT avg(cast(count as double)) FROM myTable`.
+> \*\* A função `cast()` não pode ser aninhada na API do Cassandra. Por exemplo, há suporte para `SELECT cast(count as double) FROM myTable`, mas **não** para `SELECT avg(cast(count as double)) FROM myTable`.    
+> \*\*\* Os carimbos de data/hora personalizados e o TTL especificado com a opção `USING` são aplicados em um nível de linha (e não por célula).
 
 
 
@@ -159,7 +160,6 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 | CREATE ROLE | Não |
 | CREATE USER (preterido no Apache Cassandra nativo) | Não |
 | Delete (excluir) | Sim |
-| DELETE (transações leves com IF CONDITION)| Sim |
 | DISTINTO | Não |
 | DROP AGGREGATE | Não |
 | .DROP FUNCTION | Não |
@@ -173,17 +173,25 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 | DROP USER (preterido no Apache Cassandra nativo) | Não |
 | GRANT | Não |
 | INSERT | Sim |
-| INSERT (transações leves com IF CONDITION)| Sim |
 | LIST PERMISSIONS | Não |
 | LIST ROLES | Não |
 | LIST USERS (preterido no Apache Cassandra nativo) | Não |
 | REVOKE | Não |
 | SELECT | Sim |
-| SELECT (transações leves com IF CONDITION)| Não |
 | UPDATE | Sim |
-| UPDATE (transações leves com IF CONDITION)| Não |
 | TRUNCATE | Não |
 | USE | Sim |
+
+## <a name="lightweight-transactions-lwt"></a>Transações leves (LWT)
+
+| Componente  |Com suporte |
+|---------|---------|
+| DELETE IF EXISTS | Sim |
+| Condições de DELETE | Não |
+| INSERT IF NOT EXISTS | Sim |
+| UPDATE IF EXISTS | Sim |
+| UPDATE IF NOT EXISTS | Sim |
+| Condições de UPDATE | Não |
 
 ## <a name="cql-shell-commands"></a>Comandos do Shell CQL
 
@@ -230,7 +238,7 @@ A API do Cassandra do Azure Cosmos DB é uma plataforma de serviço gerenciado. 
 
 ## <a name="hosted-cql-shell-preview"></a>Shell CQL hospedado (versão prévia)
 
-Abra um shell nativo hospedado do Cassandra (CQLSH v5.0.1) diretamente por meio do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Marque a nota destacada em [Habilitar notebooks para as contas Azure Cosmos DB](enable-notebooks.md) para as Regiões do Azure.
+Abra um shell nativo hospedado do Cassandra (CQLSH v5.0.1) diretamente por meio do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Confira o artigo [Habilitar notebooks para as contas do Azure Cosmos DB](enable-notebooks.md#supported-regions) para as regiões do Azure com suporte.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH":::
 

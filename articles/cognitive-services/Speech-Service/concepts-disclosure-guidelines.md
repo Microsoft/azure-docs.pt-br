@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 472d55f79033d60c4f40e60b55e0f7fc2ea4517e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537248"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716645"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
 Saiba como criar e manter a confiança com os clientes ao ser transparente sobre a natureza sintética da sua experiência de voz.
@@ -77,5 +77,5 @@ Use o diagrama a seguir para determinar se sua experiência de voz sintética re
 ## <a name="see-also"></a>Confira também
 
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)
-* [Divulgação para talento de voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)

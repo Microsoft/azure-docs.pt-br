@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349949"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650670"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -234,7 +234,7 @@ Em seguida, adicione as configurações específicas do aplicativo.
 1. Clique no botão **Entrar com o GitHub** e autentique-se com o GitHub.
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-vanilla-api** do menu suspenso do _Repositório_
-1. Selecione **mestre** na lista suspensa _Branch_
+1. Selecione **principal** na lista suspensa _Ramificação_
 1. Selecione a estrutura de sua escolha para a configuração de Build na lista suspensa _criar predefinições de compilação_
 
  > Esses campos refletirão a estrutura de projeto padrão do tipo de aplicativo. Altere os valores para se adequar ao seu aplicativo.

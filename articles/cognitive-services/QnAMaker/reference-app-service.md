@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896453"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209352"
 ---
 # <a name="service-configuration"></a>Configuração de serviço
 
@@ -26,7 +26,7 @@ Essas configurações estão disponíveis no portal do Azure, para o serviço de
 
 Você pode definir uma configuração individual por meio da lista de configurações do aplicativo ou modificar várias configurações selecionando **edição avançada**.
 
-|Resource|Configuração|
+|Recurso|Configuração|
 |--|--|
 |AzureSearchAdminKey|Pesquisa Cognitiva-usado para o armazenamento e o classificador do QnA Pair #1|
 |AzureSearchName|Pesquisa Cognitiva-usado para o armazenamento e o classificador do QnA Pair #1|
@@ -52,7 +52,7 @@ Saiba [como adicionar colaboradores](./reference-role-based-access-control.md) a
 
 ## <a name="change-azure-cognitive-search"></a>Alterar Pesquisa Cognitiva do Azure
 
-Saiba [como alterar o serviço de pesquisa cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) vinculado ao serviço de QnA Maker.
+Saiba [como alterar o serviço de pesquisa cognitiva](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) vinculado ao serviço de QnA Maker.
 
 ## <a name="change-default-answer"></a>Alterar a resposta padrão
 

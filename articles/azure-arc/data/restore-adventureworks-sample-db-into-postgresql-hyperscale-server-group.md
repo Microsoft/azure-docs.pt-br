@@ -1,5 +1,5 @@
 ---
-title: Restaurar o banco de dados de exemplo AdventureWorks para a hiperescala PostgreSQL habilitada para Arc do Azure
+title: Importar o banco de dados de exemplo AdventureWorks para a hiperescala PostgreSQL habilitada para Arc do Azure
 description: Restaurar o banco de dados de exemplo AdventureWorks para a hiperescala PostgreSQL habilitada para Arc do Azure
 services: azure-arc
 ms.service: azure-arc
@@ -9,14 +9,14 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b1ee779be118fcafd0efa2bd2718ece1c34c50d1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: a9efa17fb782d5a913493907b66973272e4e0356
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954321"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441781"
 ---
-# <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Restaurar o banco de dados de exemplo AdventureWorks para a hiperescala PostgreSQL habilitada para Arc do Azure
+# <a name="import-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Importar o banco de dados de exemplo AdventureWorks para a hiperescala PostgreSQL habilitada para Arc do Azure
 
 O [AdventureWorks](/sql/samples/adventureworks-install-configure) é um banco de dados de exemplo que contém um banco de dados OLTP usado em tutoriais e exemplos. Ele é fornecido e mantido pela Microsoft como parte do [repositório GitHub de exemplos de SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
@@ -24,7 +24,7 @@ Um projeto de código-fonte aberto converteu o banco de dados AdventureWorks par
 - [Projeto original](https://github.com/lorint/AdventureWorks-for-Postgres)
 - [Siga no projeto que converte previamente os arquivos CSV para serem compatíveis com o PostgreSQL](https://github.com/NorfolkDataSci/adventure-works-postgres)
 
-Este documento descreve um processo simples para obter o banco de dados de exemplo AdventureWorks restaurado em seu grupo de servidores de hiperescala do PostgreSQL.
+Este documento descreve um processo simples para obter o banco de dados de exemplo AdventureWorks importado para seu grupo de servidores de hiperescala do PostgreSQL.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -38,7 +38,7 @@ Execute um comando como este para baixar os arquivos substitua o valor do nome d
 >  Seu contêiner precisará ter conectividade com a Internet em 443 para baixar o arquivo do GitHub.
 
 > [!NOTE]
->  Use o nome do Pod do nó de coordenador do grupo de servidores de hiperescala Postgres. Seu nome é <server group name> -0.  Se você não tiver certeza do nome do pod, execute o comando `kubectl get pod`
+>  Use o nome do Pod do nó de coordenador do grupo de servidores de hiperescala Postgres. Seu nome é <server group name> c-0 (por exemplo, postgres01c-0, em que c significa nó de coordenador).  Se você não tiver certeza do nome do pod, execute o comando `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
@@ -47,7 +47,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash
 #kubectl exec postgres02-0 -n arc -c postgres -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 ```
 
-## <a name="step-2-restore-the-adventureworks-database"></a>Etapa 2: restaurar o banco de dados AdventureWorks
+## <a name="step-2-import-the-adventureworks-database"></a>Etapa 2: importar o banco de dados AdventureWorks
 
 Da mesma forma, você pode executar um comando kubectl exec para usar a ferramenta CLI do psql que está incluída nos contêineres do grupo de servidores de hiperescala do PostgreSQL para criar e carregar o banco de dados.
 
@@ -60,7 +60,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 #kubectl exec postgres02-0 -n arc -c postgres -- psql --username postgres -c 'CREATE DATABASE "adventureworks";'
 ```
 
-Em seguida, execute um comando como este para restaurar o banco de dados, substituindo o valor do nome do pod e o nome do namespace antes de executá-lo.
+Em seguida, execute um comando como este para importar o banco de dados, substituindo o valor do nome do pod e o nome do namespace antes de executá-lo.
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --username postgres -d adventureworks -f /tmp/AdventureWorks.sql

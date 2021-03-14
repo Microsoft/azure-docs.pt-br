@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705986"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solucionar problemas de orquestração e gatilhos de pipeline no Azure Data Factory
 
@@ -78,13 +78,32 @@ Azure Data Factory avalia o resultado de todas as atividades de nível folha. Os
 1. Implemente verificações de nível de atividade seguindo [como lidar com falhas e erros de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 1. Use os aplicativos lógicos do Azure para monitorar pipelines em intervalos regulares seguindo [a consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory).
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorar falhas de pipeline em intervalos regulares
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Como monitorar falhas de pipeline em intervalos regulares
 
 Talvez seja necessário monitorar pipelines de Data Factory com falha em intervalos, digamos 5 minutos. Você pode consultar e filtrar as execuções de pipeline de um data factory usando o ponto de extremidade. 
 
-Configure um aplicativo lógico do Azure para consultar todos os pipelines com falha a cada 5 minutos, conforme descrito em [consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory). Em seguida, você pode relatar incidentes para nosso sistema de emissão de tíquetes.
+**Resolução** Você pode configurar um aplicativo lógico do Azure para consultar todos os pipelines com falha a cada 5 minutos, conforme descrito em [consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory). Em seguida, você pode relatar incidentes para seu sistema de tíquetes.
 
 Para obter mais informações, acesse [enviar notificações de data Factory, parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>O grau de aumento de paralelismo não resulta em maior taxa de transferência
+
+**Causa** 
+
+O grau de paralelismo em *foreach* é, na verdade, o grau máximo de paralelismo. Não podemos garantir que um número específico de execuções ocorressem ao mesmo tempo, mas esse parâmetro garantirá que nunca vamos além do valor definido. Você deve ver isso como um limite para ser aproveitado ao controlar o acesso simultâneo às suas fontes e coletores.
+
+Fatos conhecidos sobre *foreach*
+ * Foreach tem uma propriedade chamada contagem de lotes (n) em que o valor padrão é 20 e o máximo é 50.
+ * A contagem de lotes, n, é usada para construir n filas. Posteriormente, discutiremos alguns detalhes sobre como essas filas são construídas.
+ * Cada fila é executada sequencialmente, mas você pode ter várias filas em execução em paralelo.
+ * As filas são criadas previamente. Isso significa que não há nenhum rebalanceamento das filas durante o tempo de execução.
+ * A qualquer momento, você tem no máximo um item sendo processado por fila. Isso significa no máximo n itens sendo processados em um determinado momento.
+ * O tempo total de processamento foreach é igual ao tempo de processamento da fila mais longa. Isso significa que a atividade foreach depende de como as filas são construídas.
+ 
+**Resolução**
+
+ * Você não deve usar a atividade *Setvariant* dentro *para cada* que é executado em paralelo.
+ * Levando em consideração a maneira como as filas são construídas, o cliente pode melhorar o desempenho de foreach definindo vários *foreachs* , em que cada foreach terá itens com tempo de processamento semelhante. Isso garantirá que as execuções longas sejam processadas em paralelo em sequência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

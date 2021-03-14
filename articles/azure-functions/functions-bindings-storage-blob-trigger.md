@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6735b3377650c900a7b7d18933180991a6a2c9fd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1d83a828829d27d85749b3fa7b283cad9683bffc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930881"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455901"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -241,7 +241,7 @@ Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguint
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Veja um exemplo:
+  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Aqui está um exemplo:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -323,7 +323,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#usage). |
 |**name** | n/d | O nome da variável que representa o blob no código de função. |
 |**path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) a ser monitorado.  Pode ser um [padrão de nome de blob](#blob-name-patterns). |
-|**connection** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Se você estiver usando [a versão 5. x ou superior da extensão](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), em vez de uma cadeia de conexão, você pode fornecer uma referência a uma seção de configuração que define a conexão. Consulte [conexões](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -351,7 +351,7 @@ Acesse os dados de blob por meio de um parâmetro que corresponde ao nome design
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Consulte o [exemplo de gatilho](#example) para obter detalhes.
+Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream). Consulte o [exemplo de gatilho](#example) para obter detalhes.
 
 ---
 
@@ -463,9 +463,16 @@ Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem p
 
 O gatilho de blob usa uma fila internamente, portanto, o número máximo de invocações de função concorrente é controlado pela [configuração de filas em host.json](functions-host-json.md#queues). As configurações padrão limitam a concorrência a 24 invocações. Esse limite aplica-se separadamente a cada função que usa um gatilho de blob.
 
+> [!NOTE]
+> Para aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](functions-bindings-storage-blob.md#storage-extension-5x-and-higher), a configuração de filas no host.jssomente se aplica a gatilhos de fila. Em vez disso, a simultaneidade do gatilho de blob é controlada pela [configuração de BLOBs no host.jsem](functions-host-json.md#blobs).
+
 [O plano de consumo](event-driven-scaling.md) limita um aplicativo de funções em uma VM (máquina virtual) a 1,5 GB de memória. A memória é usada por cada instância de execução de execução simultânea e pelo próprio runtime de Funções. Se uma função disparada por blob carregar todo o blob na memória, a memória máxima usada por essa função apenas para blobs será tamanho máximo de blob 24 *. Por exemplo, um aplicativo de funções com três funções disparadas por blob e as configurações padrão teriam uma concorrência máxima por VM de 3*24 = 72 invocações de função.
 
 As funções JavaScript e Java carregam todo o blob na memória, e as funções C# fazem isso se você associar a `string` , ou `Byte[]` .
+
+## <a name="hostjson-properties"></a>Propriedades de host.json
+
+O [host.jsno](functions-host-json.md#blobs) arquivo contém configurações que controlam o comportamento do gatilho de BLOB. Consulte a [host.jsna seção Configurações](functions-bindings-storage-blob.md#hostjson-settings) para obter detalhes sobre as configurações disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

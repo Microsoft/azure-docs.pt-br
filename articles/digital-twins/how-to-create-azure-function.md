@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701146"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630241"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -54,31 +54,16 @@ Depois que seu aplicativo de funções for criado, o Visual Studio gerará um ex
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Escrever uma função com um gatilho de grade de eventos
 
-Você pode escrever uma função adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+Você pode escrever uma função adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
 
-Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando o `dotnet` em uma ferramenta de linha de comando. Siga as etapas abaixo para o seu método preferido.
+Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando o `dotnet` em uma ferramenta de linha de comando.
 
-**Opção 1. Adicionar pacotes usando o Gerenciador de pacotes do Visual Studio:**
-    
-Selecione o projeto com o botão direito do mouse e selecione _gerenciar pacotes NuGet_ na lista. Em seguida, na janela que é aberta, selecione a guia _procurar_ e procure os pacotes a seguir. Selecione _instalar_ e _aceite_ o contrato de licença para instalar os pacotes.
+* [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure. Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure. Core](https://www.nuget.org/packages/Azure.Core/)
 
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity`
-* `System.Net.Http`
-* `Azure.Core`
-
-**Opção 2. Adicionar pacotes usando `dotnet` a ferramenta de linha de comando:**
-
-Como alternativa, você pode usar os seguintes `dotnet add` comandos em uma ferramenta de linha de comando:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core
-dotnet add package Azure.Identity
-dotnet add package System.Net.Http
-dotnet add package Azure.Core
-```
-
-Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _function1.cs_ em que você tem um código de exemplo e adicione as instruções a seguir `using` à sua função. 
+Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _function1.cs_ em que você tem um código de exemplo e adicione as seguintes `using` instruções para esses pacotes à sua função.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -86,7 +71,7 @@ Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _funct
 
 Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo _function1.cs_ .
 
-* Código para ler a URL do serviço gêmeos do Azure digital como uma variável de ambiente. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função.
+* Código para ler a URL do serviço gêmeos do Azure digital como uma **variável de ambiente**. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função. Você definirá o valor dessa variável de ambiente [posteriormente neste artigo](#set-up-security-access-for-the-function-app). Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -112,114 +97,136 @@ Agora que seu aplicativo foi escrito, você pode publicá-lo no Azure usando as 
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
+### <a name="verify-function-publish"></a>Verificar a publicação da função
+
+1. Entre com suas credenciais no [portal do Azure](https://portal.azure.com/).
+2. Na barra de pesquisa na parte superior da janela, procure o nome do **aplicativo de funções**.
+
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Pesquise seu aplicativo de funções com seu nome na portal do Azure." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+
+3. Na página do *aplicativo de funções* que é aberta, escolha *funções* nas opções de menu à esquerda. Se sua função for publicada com êxito, você verá o nome da função na lista.
+Observe que talvez seja necessário aguardar alguns minutos ou atualizar a página duas vezes antes de poder ver sua função listada na lista de funções publicadas.
+
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Exiba funções publicadas no portal do Azure." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+
+Para que seu aplicativo de funções possa acessar o Azure digital gêmeos, ele precisará ter uma identidade gerenciada pelo sistema com permissões para acessar sua instância do gêmeos digital do Azure. Você vai configurar tudo isso a seguir.
+
 ## <a name="set-up-security-access-for-the-function-app"></a>Configurar o acesso de segurança para o aplicativo de funções
 
 Você pode configurar o acesso de segurança para o aplicativo de funções usando o CLI do Azure ou o portal do Azure. Siga as etapas para sua opção preferida abaixo.
 
-### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>Opção 1: configurar o acesso de segurança para o aplicativo de funções usando a CLI
+# <a name="cli"></a>[CLI](#tab/cli)
 
-O esqueleto de função dos exemplos anteriores requer que um token de portador seja passado para ele, a fim de ser capaz de autenticar com o gêmeos digital do Azure. Para garantir que esse token de portador seja passado, você precisará configurar [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para o aplicativo de funções. Isso só precisa ser feito uma vez para cada aplicativo de funções.
+Você pode executar esses comandos no [Azure cloud Shell](https://shell.azure.com) ou em uma [instalação local do CLI do Azure](/cli/azure/install-azure-cli).
 
-Você pode criar uma identidade gerenciada pelo sistema e atribuir a identidade do aplicativo de funções à função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
+### <a name="assign-access-role"></a>Atribuir função de acesso
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+O esqueleto de função dos exemplos anteriores requer que um token de portador seja passado para ele, a fim de ser capaz de autenticar com o gêmeos digital do Azure. Para garantir que esse token de portador seja passado, você precisará configurar as permissões de [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para que o aplicativo de funções acesse o Azure digital gêmeos. Isso só precisa ser feito uma vez para cada aplicativo de funções.
 
-Use [Azure cloud Shell](https://shell.azure.com) para executar os comandos.
+Você pode usar a identidade gerenciada pelo sistema do aplicativo de funções para dar a ela a função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
 
-Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo _principalId_ na saída.
+1. Use o comando a seguir para ver os detalhes da identidade gerenciada pelo sistema para a função. Anote o campo _principalId_ na saída.
 
-```azurecli-interactive 
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
-```
-Use o valor de _principalId_ no comando a seguir para atribuir a identidade do aplicativo de funções à função de _Proprietário de Dados dos Gêmeos Digitais do Azure_ para sua instância dos Gêmeos Digitais do Azure.
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
 
-```azurecli-interactive 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre como definir variáveis de ambiente, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). 
+    >[!NOTE]
+    > Se o resultado estiver vazio em vez de mostrar detalhes de uma identidade, crie uma nova identidade gerenciada pelo sistema para a função usando este comando:
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > A saída exibirá detalhes da identidade, incluindo o valor _PrincipalId_ necessário para a próxima etapa. 
+
+1. Use o valor de _principalId_ no comando a seguir para atribuir a identidade do aplicativo de funções à função de _Proprietário de Dados dos Gêmeos Digitais do Azure_ para sua instância dos Gêmeos Digitais do Azure.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+### <a name="configure-application-settings"></a>Definir as configurações do aplicativo
+
+Por fim, torne a URL da sua instância do gêmeos digital do Azure acessível para sua função definindo uma **variável de ambiente** para ela. Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host* da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome do host* da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
-### <a name="option-2-set-up-security-access-for-the-function-app-using-azure-portal"></a>Opção 2: configurar o acesso de segurança para o aplicativo de funções usando portal do Azure
 
-Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azure se autentiquem nos serviços de nuvem (por exemplo, Azure Key Vault) sem armazenar credenciais no código. Uma vez habilitada, todas as permissões necessárias podem ser concedidas por meio do controle de acesso baseado em função do Azure. O ciclo de vida desse tipo de identidade gerenciada está vinculado ao ciclo de vida deste recurso. Além disso, cada recurso (por exemplo, máquina virtual) pode ter apenas uma identidade gerenciada atribuída pelo sistema.
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Na [portal do Azure](https://portal.azure.com/), pesquise por _aplicativo de funções_ na barra de pesquisa com o nome do aplicativo de funções que você criou anteriormente. Selecione o *aplicativo de funções* na lista. 
+Conclua as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
+### <a name="assign-access-role"></a>Atribuir função de acesso
 
-Na janela do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para habilitar a identidade gerenciada.
-Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_.
-Selecione o botão _Sim_ . 
+Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azure se autentiquem nos serviços de nuvem (por exemplo, Azure Key Vault) sem armazenar credenciais no código. Uma vez habilitada, todas as permissões necessárias podem ser concedidas por meio do controle de acesso baseado em função do Azure. O ciclo de vida desse tipo de identidade gerenciada está vinculado ao ciclo de vida deste recurso. Além disso, cada recurso pode ter apenas uma identidade gerenciada atribuída ao sistema.
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Captura de tela da portal do Azure: na página identidade do aplicativo de funções, a opção para habilitar a identidade gerenciada atribuída pelo sistema está sendo definida como Sim. A opção status é definida como on.":::
+1. Na [portal do Azure](https://portal.azure.com/), pesquise seu aplicativo de funções digitando seu nome na barra de pesquisa. Selecione seu aplicativo nos resultados. 
 
-Você pode verificar nas notificações de que sua função foi registrada com êxito com Azure Active Directory.
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Captura de tela da portal do Azure: a lista de notificações selecionando o ícone em forma de sino na barra superior do Portal. Há uma notificação de que o usuário habilitou a identidade gerenciada atribuída pelo sistema.":::
+1. Na página do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para trabalhar com uma identidade gerenciada para a função. Na página _atribuído pelo sistema_ , verifique se o _status_ está definido como **ativado** (se não estiver, defina-o agora e *salve* a alteração).
 
-Observe também a **ID de objeto** mostrada na página _identidade_ , pois ela será usada na próxima seção.
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Captura de tela da portal do Azure: na página identidade do aplicativo de funções, a opção status é definida como on." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Captura de tela da portal do Azure: um realce ao contrário do campo ID do objeto da página identidade do Azure functions.":::
+1. Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* .
 
-### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando portal do Azure
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Captura de tela da portal do Azure: um realce ao contrário do botão atribuições de função do Azure em permissões na página de identidade da função do Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
+    Selecione _+ Adicionar atribuição de função (versão prévia)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Captura de tela da portal do Azure: um realce ao contrário do botão atribuições de função do Azure em permissões na página de identidade da função do Azure.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Captura de tela da portal do Azure: um realce sobre + adicionar atribuição de função (versão prévia) na página atribuições de função do Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione:
+1. Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione os seguintes valores:
 
-* _Escopo_: grupo de recursos
-* _Assinatura_: selecione sua assinatura do Azure
-* _Grupo de recursos_: selecione o grupo de recursos na lista suspensa
-* _Função_: selecione _Azure digital gêmeos proprietário dos dados_ no menu suspenso
+    * **Escopo**: grupo de recursos
+    * **Assinatura**: selecione sua assinatura do Azure
+    * **Grupo de recursos**: selecione o grupo de recursos na lista suspensa
+    * **Função**: selecione _Azure digital gêmeos proprietário dos dados_ no menu suspenso
 
-Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
+    Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Captura de tela da caixa de diálogo portal do Azure: para adicionar uma nova atribuição de função (versão prévia). Há campos para o escopo, a assinatura, o grupo de recursos e a função.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Captura de tela da caixa de diálogo portal do Azure: para adicionar uma nova atribuição de função (versão prévia). Há campos para o escopo, a assinatura, o grupo de recursos e a função.":::
 
-### <a name="configure-application-settings-using-azure-portal"></a>Definir configurações de aplicativo usando portal do Azure
+### <a name="configure-application-settings"></a>Definir as configurações do aplicativo
 
-Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre isso, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). As configurações do aplicativo são expostas como variáveis de ambiente para acessar a instância digital gêmeos. 
+Para tornar a URL da sua instância do gêmeos digital do Azure acessível para sua função, você pode definir uma **variável de ambiente** para ela. Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). As configurações do aplicativo são expostas como variáveis de ambiente para acessar a instância do gêmeos digital do Azure. 
 
 Para definir uma variável de ambiente com a URL de sua instância, primeiro obtenha a URL encontrando o nome de host da instância do gêmeos digital do Azure. Pesquise sua instância na barra de pesquisa [portal do Azure](https://portal.azure.com) . Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Captura de tela da portal do Azure: na página Visão geral da instância do gêmeos digital do Azure, o valor nome do host é realçado.":::
+:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Captura de tela da portal do Azure: na página Visão geral da instância do gêmeos digital do Azure, o valor nome do host é realçado.":::
 
-Agora você pode criar uma configuração de aplicativo seguindo as etapas abaixo:
+Agora você pode criar uma configuração de aplicativo com estas etapas:
 
-1. Pesquise seu aplicativo de funções na barra de pesquisa do portal e selecione-o nos resultados
-1. Selecione _configuração_ na barra de navegação à esquerda para criar uma nova configuração de aplicativo
-1. Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_
+1. Pesquise seu aplicativo de funções na barra de pesquisa do portal e selecione-o nos resultados.
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Captura de tela da portal do Azure: na página de configuração do aplicativo de funções, o botão para criar uma nova configuração de aplicativo é realçado.":::
+1. Selecione _configuração_ na barra de navegação à esquerda. Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_.
 
-Na janela que é aberta, use o valor nome de host copiado acima para criar uma configuração de aplicativo.
-* **Nome**: ADT_SERVICE_URL
-* **Valor**: https://{Your-Azure-digital-gêmeos-Host-Name}
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Captura de tela da portal do Azure: na página de configuração do aplicativo de funções, o botão para criar uma nova configuração de aplicativo é realçado.":::
 
-Selecione _OK_ para criar uma configuração de aplicativo.
+1. Na janela que é aberta, use o valor nome de host copiado acima para criar uma configuração de aplicativo.
+    * **Nome**: ADT_SERVICE_URL
+    * **Valor**: https://{Your-Azure-digital-gêmeos-Host-Name}
+    
+    Selecione _OK_ para criar uma configuração de aplicativo.
+    
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Captura de tela da portal do Azure: o botão OK é realçado depois de preencher os campos de nome e valor na página Adicionar/Editar configuração de aplicativo.":::
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Captura de tela da portal do Azure: o botão OK é realçado depois de preencher os campos de nome e valor na página Adicionar/Editar configuração de aplicativo.":::
+1. Depois de criar a configuração, você deverá vê-la aparecer de volta na guia _configurações do aplicativo_ . Verifique se *ADT_SERVICE_URL* aparece na lista e, em seguida, salve a nova configuração de aplicativo selecionando o botão _salvar_ .
 
-Você pode exibir as configurações do aplicativo com o nome do aplicativo no campo _nome_ . Em seguida, salve as configurações do aplicativo selecionando o botão _salvar_ .
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de tela da portal do Azure: a página Configurações do aplicativo, com a nova configuração de ADT_SERVICE_URL realçada. O botão salvar também é realçado.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de tela da portal do Azure: a página Configurações do aplicativo, com a nova configuração de ADT_SERVICE_URL realçada. O botão salvar também é realçado.":::
+1. As alterações nas configurações do aplicativo exigem a reinicialização do aplicativo para entrar em vigor, portanto, selecione _continuar_ para reiniciar o aplicativo quando solicitado.
 
-As alterações nas configurações do aplicativo exigirão que a reinicialização do aplicativo entre em vigor. Selecione _continuar_ para reiniciar o aplicativo.
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de tela da portal do Azure: há um aviso de que há alterações nas configurações do aplicativo com a reinicialização do aplicativo. O botão continuar é realçado.":::
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de tela da portal do Azure: há um aviso de que há alterações nas configurações do aplicativo com a reinicialização do aplicativo. O botão continuar é realçado.":::
-
-Você pode exibir que as configurações do aplicativo são atualizadas selecionando o ícone de _notificações_ . Se a configuração do aplicativo não for criada, você poderá repetir a adição de uma configuração de aplicativo seguindo o processo acima.
-
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Captura de tela da portal do Azure: a lista de notificações selecionando o ícone em forma de sino na barra superior do Portal. Há uma notificação de que as configurações do aplicativo Web foram atualizadas com êxito.":::
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

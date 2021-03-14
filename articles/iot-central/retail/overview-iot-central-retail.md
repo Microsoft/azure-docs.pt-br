@@ -1,5 +1,5 @@
 ---
-title: Como criar soluções de varejo com o Azure IoT Central | Microsoft Docs
+title: O que são as soluções de varejo do Azure IoT Central | Microsoft Docs
 description: Aprenda sobre o uso de modelos de aplicativo do Azure IoT Central para criar logística conectada, centro de distribuição digital, monitoramento de condição de análise no repositório, finalização de compra, gerenciamento de estoque inteligente e soluções de varejo.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124955"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832276"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>O que são as soluções de varejo do Azure IoT Central?
 
 O Azure IoT Central é uma plataforma de aplicativo IoT que reduz a carga e o custo associado ao desenvolvimento, ao gerenciamento e à manutenção de soluções de IoT de nível empresarial. Optar por criar com o Azure IoT Central oferece a oportunidade de concentrar seu tempo, dinheiro e energia na transformação de seus negócios com os dados de IoT, em vez de apenas manter e atualizar uma infraestrutura de IoT complexa e continuamente em evolução.
 
@@ -41,9 +41,9 @@ Os benefícios de uma solução de logística conectada incluem:
 
 As capturas de tela a seguir mostram o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Captura de tela que mostra a metade superior do painel de operações de logística conectada.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Captura de tela que mostra a metade inferior do painel de operações de logística conectada.":::
 
 Para saber mais, confira o tutorial [Implantar e usar um modelo de aplicativo de logística conectado](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ Os benefícios de um centro de distribuição digital incluem:
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Dashboard do Centro de Distribuição Digital":::
 
 Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da central de distribuição digital](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ O modelo de aplicativo é fornecido com um conjunto de modelos de dispositivo e 
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitoramento de condição de análise na loja":::
 
 Para saber mais, confira o tutorial [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ O modelo de aplicativo é fornecido com um conjunto de modelos de dispositivo e 
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Finalização de compra de análise na loja":::
 
 Para saber mais, confira o tutorial [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Esse modelo de aplicativo se concentra na conectividade do dispositivo e na conf
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Painel de Gerenciamento de Estoque Inteligente":::
 
 Para saber mais, confira o tutorial [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ O modelo de aplicativo permite que você:
 
 A captura de tela a seguir mostra o painel integrado no modelo de aplicativo. O painel é totalmente personalizável para atender aos seus requisitos de solução específicos:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Microcentral de atendimento":::
 
 Para saber mais, confira o tutorial [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center.md).
 
@@ -165,7 +165,7 @@ O modelo de aplicativo inclui quatro painéis de aplicativo:
 * O **(Exemplo) Gerenciamento de Câmeras Reais** usa câmeras simuladas para mostrar como você pode gerenciar suas câmeras no aplicativo.
 * O **(Exemplo) Monitor de Câmeras Reais** usa câmeras simuladas para mostrar como você pode monitorar suas câmeras no aplicativo.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Visão geral de varejo do Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo – detecção de objetos e de movimento":::
 
 Para saber mais sobre a arquitetura da solução, confira [Arquitetura de aplicativo de análise de vídeo](architecture-video-analytics.md).
 
@@ -180,9 +180,5 @@ A [Análise Dinâmica de Vídeo](https://github.com/Azure/live-video-analytics) 
 Para começar a criar uma solução de varejo:
 
 * Introdução ao tutorial [Criar um aplicativo de análise na loja no Azure IoT Central](./tutorial-in-store-analytics-create-app.md), que explica passo a passo como criar uma solução usando um dos modelos de aplicativo de análise na loja.
-* [Implantar e usar um modelo de aplicativo de logística conectada](./tutorial-iot-central-connected-logistics.md).
-* [Implantar e usar um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center.md).
-* [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management.md).
-* [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center.md).
 * [Implantar e seguir o passo a passo do modelo de aplicativo de análise de vídeo](./tutorial-video-analytics-deploy.md).
-* Saiba mais sobre o IoT Central na [Visão geral do IoT Central](../core/overview-iot-central.md).
+* [Implantar e usar um modelo de aplicativo de logística conectada](./tutorial-iot-central-connected-logistics.md).

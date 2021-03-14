@@ -9,20 +9,21 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 27f444c6889767e0333384a779883805d1e8f348
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886066"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485903"
 ---
 # <a name="client-and-server-architecture"></a>Arquitetura de cliente e servidor
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,11 +57,11 @@ Muitos cenários são mais bem atendidos com aplicativos nativos. Os serviços d
 A comunicação por meio do sistema telefônico pode aumentar consideravelmente o alcance do seu aplicativo. Para dar suporte a cenários de voz e SMS PSTN, os serviços de comunicação do Azure ajudam a [adquirir números de telefone](../quickstarts/telephony-sms/get-phone-number.md) diretamente do portal do Azure ou usando bibliotecas de cliente e APIs REST. Depois que os números de telefone são adquiridos, eles podem ser usados para alcançar clientes usando a chamada PSTN e o SMS nos cenários de entrada e de saída. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
 
 > [!Note]
-> Durante a visualização pública, o provisionamento de números de telefone dos EUA está disponível para clientes com endereços de cobrança localizados dentro dos EUA e do Canadá. 
+> Durante a visualização pública, o provisionamento de números de telefone dos EUA está disponível para clientes com endereços de cobrança localizados dentro dos EUA e do Canadá.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagrama mostrando a arquitetura PSTN dos serviços de comunicação.":::
 
-Para obter mais informações sobre as soluções PSTN e SMS, consulte [planejar sua solução PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
+Para obter mais informações sobre números de telefone PSTN, consulte [tipos de número de telefone](../concepts/telephony-sms/plan-solution.md)
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Pessoas se comunicando com bots e outros serviços
 
@@ -83,7 +84,7 @@ Talvez você queira trocar dados arbitrários entre os usuários, por exemplo, p
 Para obter mais informações, consulte os seguintes artigos:
 
 - Saiba mais sobre a [autenticação](../concepts/authentication.md)
-- Saiba mais sobre as [soluções PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
+- Saiba mais sobre os [tipos de número de telefone](../concepts/telephony-sms/plan-solution.md)
 
 - [Adicionar o chat ao seu aplicativo](../quickstarts/chat/get-started.md)
 - [Adicionar chamada de voz ao aplicativo](../quickstarts/voice-video-calling/getting-started-with-calling.md)

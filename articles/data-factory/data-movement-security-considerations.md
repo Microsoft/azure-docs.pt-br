@@ -1,22 +1,18 @@
 ---
 title: Considerações de segurança
 description: Descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 08a20349d012652fb15dc1818d0201d93175aed8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371321"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 
@@ -186,7 +182,7 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 
 A tabela a seguir fornece os requisitos de porta de entrada do Firewall do Windows:
 
-| Portas de entrada | Description                              |
+| Portas de entrada | Descrição                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Exigido pelo cmdlet de criptografia do PowerShell conforme descrito em [Criptografar credenciais para armazenamentos de dados locais no Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), e pelo aplicativo gerenciador de credenciais para definir credenciais com segurança para armazenamentos de dados locais no runtime de integração auto-hospedada. |
 

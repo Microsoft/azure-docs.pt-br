@@ -1,23 +1,18 @@
 ---
 title: Mover dados do Amazon redshift usando Azure Data Factory
 description: Saiba como mover dados do Amazon Redshift usando a atividade de cópia do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463077"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377543"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -61,12 +56,12 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Yes |
-| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Yes |
+| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
+| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
-| **database** |O nome do banco de dados do Amazon Redshift. |Yes |
-| **username** |O nome de usuário que tem acesso ao banco de dados. |Yes |
-| **password** |A senha para a conta de usuário. |Yes |
+| **database** |O nome do banco de dados do Amazon Redshift. |Sim |
+| **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
+| **password** |A senha para a conta de usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -74,7 +69,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -84,16 +79,16 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | No |
+| **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
 | **s3LinkedServiceName** | O Amazon S3 para usar como um repositório provisório. O serviço vinculado é especificado usando um nome do Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 | **bucketName** | Indica o bucket do Amazon S3 a ser usado para armazenar os dados provisórios. Se essa propriedade não for fornecida, a atividade de cópia gerará um bucket automaticamente. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | **consulta** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -334,7 +329,7 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | bigint |Int64 |
 | DECIMAL |Decimal |
 | real |Único |
-| DOUBLE PRECISION |Duplo |
+| DOUBLE PRECISION |Double |
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |

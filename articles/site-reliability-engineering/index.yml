@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: 5fed24b0c6557fc0f54bf78ac756f2b278863217
-  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+  ms.openlocfilehash: 73f722bb38bb750cf840a2b96b570a74dcfe3270
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94660586"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101738762"
 highlightedContent:
   items:
   - title: 'Introdução à SRE:  o que é a SRE? (1/3)'
@@ -113,10 +113,10 @@ conceptualContent:
     - url: ../azure-monitor/overview.md
       itemType: get-started
       text: Visão geral do Azure Monitor
-    - url: ../azure-monitor/platform/data-platform-metrics.md
+    - url: ../azure-monitor/essentials/data-platform-metrics.md
       itemType: get-started
       text: Métricas com o Azure Monitor
-    - url: ../azure-monitor/platform/data-platform-logs.md
+    - url: ../azure-monitor/logs/data-platform-logs.md
       itemType: get-started
       text: Logs com o Azure Monitor
     - url: ../azure-monitor/azure-monitor-app-hub.yml
@@ -144,7 +144,7 @@ conceptualContent:
       text: Azure Pipelines
   - title: Scaling
     links:
-    - url: ../azure-monitor/platform/autoscale-overview.md
+    - url: ../azure-monitor/autoscale/autoscale-overview.md
       itemType: get-started
       text: Visão geral do dimensionamento automático
     - url: /azure/architecture/best-practices/auto-scaling

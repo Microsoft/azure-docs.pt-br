@@ -1,26 +1,27 @@
 ---
 title: Expandir a unidade do sistema operacional de uma VM Windows em um Azure
 description: Expanda o tamanho da unidade do sistema operacional de uma máquina virtual usando Azure PowerShell no modelo de implantação do Gerenciador de recursos.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: kirpasingh
 manager: roshar
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: af57bc396349286c3edcaefc8385ddbaec066226
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393822"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199443"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
 
@@ -39,30 +40,30 @@ Quando você cria uma nova VM (máquina virtual) em um grupo de recursos implant
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Redimensionar um disco gerenciado no portal do Azure
 
 1. Na [portal do Azure](https://portal.azure.com), vá para a máquina virtual na qual você deseja expandir o disco. Selecione **parar** para desalocar a VM.
-2. Quando a VM for interrompida, no menu à esquerda em **configurações** , selecione **discos**.
+2. Quando a VM for interrompida, no menu à esquerda em **configurações**, selecione **discos**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Captura de tela que mostra a opção discos selecionada na seção Configurações do menu.":::
 
  
-3. Em **nome do disco** , selecione o disco que você deseja redimensionar.
+3. Em **nome do disco**, selecione o disco que você deseja redimensionar.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de tela que mostra o painel discos com um nome de disco selecionado.":::
 
-4. No menu à esquerda em **configurações** , selecione **configuração**.
+4. No menu à esquerda em **configurações**, selecione **tamanho + desempenho**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de tela que mostra a opção de configuração selecionada na seção Configurações do menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de tela que mostra a opção de tamanho e desempenho selecionada na seção Configurações do menu.":::
 
-5. Em **tamanho (GIB)** , selecione o tamanho do disco desejado.
+5. Em **tamanho + desempenho**, selecione o tamanho do disco desejado.
    
    > [!WARNING]
    > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2.048 GB para discos do sistema operacional. (É possível expandir o blob VHD para além desse tamanho, mas o sistema operacional funciona apenas com os primeiros 2.048 GB de espaço.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de tela que mostra o painel de configuração com o tamanho do disco selecionado.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de tela que mostra o tamanho e o painel de desempenho com o tamanho do disco selecionado.":::
 
-6. Selecione **Salvar**.
+6. Selecione **redimensionar** na parte inferior da página.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de tela que mostra o painel de configuração com o botão salvar selecionado.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de tela que mostra o painel de tamanho e desempenho com o botão redimensionar selecionado.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Redimensionar um disco gerenciado usando o PowerShell
@@ -237,11 +238,11 @@ Quando você tiver expandido o disco para a VM, precisará entrar no sistema ope
 
 2. Abra um prompt de comando e digite **diskpart**.
 
-3. No prompt **DISKPART** , digite `list volume`. Anote o volume que você deseja estender.
+3. No prompt **DISKPART**, digite `list volume`. Anote o volume que você deseja estender.
 
-4. No prompt **DISKPART** , digite `select volume <volumenumber>`. Isso seleciona o volume *volumenumber* que você deseja estender no espaço vazio contíguo no mesmo disco.
+4. No prompt **DISKPART**, digite `select volume <volumenumber>`. Isso seleciona o volume *volumenumber* que você deseja estender no espaço vazio contíguo no mesmo disco.
 
-5. No prompt **DISKPART** , digite `extend [size=<size>]`. Isso estende o volume selecionado pelo *tamanho* em megabytes (MB).
+5. No prompt **DISKPART**, digite `extend [size=<size>]`. Isso estende o volume selecionado pelo *tamanho* em megabytes (MB).
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,15 +3,15 @@ title: Configuração de cluster no AKS (Serviços de Kubernetes do Azure)
 description: Saiba como configurar um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201103"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572778"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -19,13 +19,19 @@ Como parte da criação de um cluster do AKS, talvez seja necessário personaliz
 
 ## <a name="os-configuration"></a>Configuração do SO
 
-O AKS agora dá suporte ao Ubuntu 18, 4 como o sistema operacional do nó (SO) em disponibilidade geral para clusters em versões do kubernetes superiores a 1.18.8. Para as versões abaixo de 18E. x, o AKS Ubuntu 16, 4 ainda é a imagem base padrão. Do kubernetes v 18E. x e em diante, a base padrão é AKS Ubuntu 18, 4.
+O AKS agora dá suporte ao Ubuntu 18, 4 como o sistema operacional de nó padrão (SO) em disponibilidade geral (GA) para clusters em versões do kubernetes superiores a 1,18 para as versões abaixo de 1,18, AKS Ubuntu 16, 4 ainda é a imagem base padrão. Do kubernetes v 18e e superior, a base padrão é AKS Ubuntu 18, 4.
 
-### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>Usar o AKS Ubuntu 18, 4 geralmente disponível em novos clusters
+> [!IMPORTANT]
+> Pools de nós criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Pools de nós em uma versão de kubernetes com suporte inferior a 1,18 recebem `AKS Ubuntu 16.04` como a imagem de nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do pool de nós kubernetes for atualizada para v 18E ou superior.
+> 
+> É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior.
+
+
+### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Usar o AKS Ubuntu 18, 4 (GA) em novos clusters
 
 Clusters criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão do kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem do nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do cluster ou do pool de nós kubernetes for atualizada para o v 18E ou superior.
 
-É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior. Leia sobre como [testar pools de nós do Ubuntu 18, 4](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior.
 
 Para criar um cluster usando a `AKS Ubuntu 18.04` imagem do nó, basta criar um cluster executando o kubernetes v 18E ou superior, conforme mostrado abaixo
 
@@ -33,11 +39,11 @@ Para criar um cluster usando a `AKS Ubuntu 18.04` imagem do nó, basta criar um 
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Usar o AKS Ubuntu 18, 4 geralmente disponível em clusters existentes
+### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Usar o AKS Ubuntu 18, 4 (GA) em clusters existentes
 
 Clusters criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão do kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem do nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do cluster ou do pool de nós kubernetes for atualizada para o v 18E ou superior.
 
-É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior. Leia sobre como [testar pools de nós do Ubuntu 18, 4](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior.
 
 Se os clusters ou pools de nós estiverem prontos para a `AKS Ubuntu 18.04` imagem de nó, você poderá simplesmente atualizá-los para um v 18E ou superior, como mostrado abaixo.
 
@@ -51,7 +57,7 @@ Se você apenas deseja atualizar apenas um pool de nós:
 az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Testar AKS Ubuntu 18, 4 geralmente disponível em clusters existentes
+### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Testar AKS Ubuntu 18, 4 (GA) em clusters existentes
 
 Pools de nós criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão de kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem de nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do pool de nós kubernetes for atualizada para o v 18E ou superior.
 
@@ -65,58 +71,6 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Usar o AKS Ubuntu 18, 4 em novos clusters (versão prévia)
-
-A seção a seguir explicará como usar e testar o AKS Ubuntu 18, 4 em clusters que ainda não estão usando uma versão kubernetes 18E. x ou superior, ou foram criados antes que esse recurso fique disponível para o público em geral, usando a visualização de configuração do so.
-
-Você deve ter os seguintes recursos instalados:
-
-- [O CLI do Azure][azure-cli-install], versão 2.2.0 ou posterior
-- A extensão da versão prévia do AKS 0.4.35
-
-Para instalar a extensão da versão prévia do AKS 0.4.35 ou posterior, use os seguintes comandos da CLI do Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Registrar o recurso `UseCustomizedUbuntuPreview`:
-
-```azurecli
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-list):
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider#az-provider-register):
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-Configure o cluster para usar o Ubuntu 18.04 quando o cluster for criado. Use o sinalizador `--aks-custom-headers` para definir o Ubuntu 18.04 como o SO padrão.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-Se você quiser criar clusters com a imagem do AKS Ubuntu 16, 4, poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
-
-### <a name="use-aks-ubuntu-1804-existing-clusters-preview"></a>Usar clusters existentes do AKS Ubuntu 18, 4 (versão prévia)
-
-Configure um novo pool de nós para usar o Ubuntu 18.04. Use o sinalizador `--aks-custom-headers` para definir o Ubuntu 18.04 como o SO padrão para esse pool de nós.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
-```
-
-Se você quiser criar pools de nós com a imagem do AKS Ubuntu 16, 4, poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
 
 ## <a name="container-runtime-configuration"></a>Configuração de tempo de execução de contêiner
 
@@ -139,69 +93,6 @@ Usando `containerd` o para nós AKs, a latência de inicialização de Pod melho
 > 
 > É altamente recomendável testar suas cargas de trabalho em pools de nós AKS com `containerD` antes de usar clusters em 1,19 ou superior.
 
-A seção a seguir explicará como você pode usar e testar o AKS com `containerD` clusters que ainda não estão usando uma versão 1,19 ou superior do kubernetes, ou foram criados antes que esse recurso fique disponível para o público em geral, usando a visualização de configuração de tempo de execução do contêiner.
-
-### <a name="use-containerd-as-your-container-runtime-preview"></a>Usar `containerd` como seu tempo de execução de contêiner (versão prévia)
-
-Você deve ter os seguintes pré-requisitos:
-
-- [O CLI do Azure][azure-cli-install], versão 2.8.0 ou posterior instalado
-- A extensão AKs-Preview versão 0.4.53 ou posterior
-- O `UseCustomizedContainerRuntime` sinalizador de recurso registrado
-- O `UseCustomizedUbuntuPreview` sinalizador de recurso registrado
-
-Para instalar a extensão AKs-preview 0.4.53 ou posterior, use os seguintes comandos de CLI do Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Registre os `UseCustomizedContainerRuntime` `UseCustomizedUbuntuPreview` recursos e:
-
-```azurecli
-az feature register --name UseCustomizedContainerRuntime --namespace Microsoft.ContainerService
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-
-```
-
-Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-list):
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider#az-provider-register):
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
-
-### <a name="use-containerd-on-new-clusters-preview"></a>Usar `containerd` em novos clusters (versão prévia)
-
-Configure o cluster a ser usado `containerd` quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para definir `containerd` como o tempo de execução do contêiner.
-
-> [!NOTE]
-> O `containerd` tempo de execução só tem suporte em nós e pools de nós usando a imagem do AKS Ubuntu 18, 4.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
-Se você quiser criar clusters com o tempo de execução Moby (Docker), poderá fazer isso omitindo a marca personalizada `--aks-custom-headers` .
-
-### <a name="use-containerd-on-existing-clusters-preview"></a>Usar `containerd` em clusters existentes (visualização)
-
-Configure um novo pool de nós a ser usado `containerd` . Use o `--aks-custom-headers` sinalizador para definir `containerd` como o tempo de execução para esse pool de nós.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
-Se você quiser criar pools de nós com o tempo de execução Moby (Docker), poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
-
-
 ### <a name="containerd-limitationsdifferences"></a>`Containerd` limitações/diferenças
 
 * Para usar `containerd` como o tempo de execução do contêiner, você deve usar o AKs Ubuntu 18, 4 como sua imagem do sistema operacional base.
@@ -209,13 +100,13 @@ Se você quiser criar pools de nós com o tempo de execução Moby (Docker), pod
 * Para `containerd` o, é recomendável usar [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como uma CLI de substituição em vez da CLI do Docker para **solucionar problemas** de pods, contêineres e imagens de contêiner em nós kubernetes (por exemplo, `crictl ps` ). 
    * Ele não fornece a funcionalidade completa da CLI do Docker. Ele destina-se apenas à solução de problemas.
    * `crictl` oferece uma visão mais kubernetes dos contêineres, com conceitos como pods, etc. sendo presentes.
-* `Containerd` configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* `Containerd` configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * Você não pode mais acessar o mecanismo do Docker, `/var/run/docker.sock` ou usar o Docker-in-Docker (DinD).
-  * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
+  * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/containers/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
   * Mesmo ao usar o Moby/Docker, a criação de imagens e o aproveitamento direto do mecanismo do Docker por meio dos métodos acima é fortemente desencorajada. O kubernetes não está totalmente ciente desses recursos consumidos, e essas abordagens apresentam vários problemas detalhados [aqui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e [aqui](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por exemplo.
-* Criando imagens – você pode continuar a usar o fluxo de trabalho de Build do Docker atual, a menos que esteja criando imagages dentro do cluster AKS. Nesse caso, considere a possibilidade de alternar para a abordagem recomendada para criar imagens usando [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md)ou uma opção mais segura no cluster, como [Docker buildx](https://github.com/docker/buildx).
+* Criando imagens – você pode continuar a usar o fluxo de trabalho de Build do Docker atual normalmente, a menos que esteja criando imagens dentro do cluster AKS. Nesse caso, considere a possibilidade de alternar para a abordagem recomendada para criar imagens usando [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md)ou uma opção mais segura no cluster, como [Docker buildx](https://github.com/docker/buildx).
 
-## <a name="generation-2-virtual-machines-preview"></a>Máquinas virtuais de geração 2 (versão prévia)
+## <a name="generation-2-virtual-machines"></a>Máquinas virtuais de 2ª geração
 
 O Azure dá suporte a [VMS (máquinas virtuais) de geração 2 (Gen2)](../virtual-machines/generation-2.md). As VMs de geração 2 oferecem suporte a recursos principais que não têm suporte em VMs de geração 1 (GEN1). Esses recursos incluem memória aumentada, Intel com Software Guard Extensions (Intel SGX) e memória persistente virtualizada (vPMEM).
 
@@ -223,59 +114,6 @@ As VMs de geração 2 usam a nova arquitetura de inicialização baseada em UEFI
 Somente SKUs e tamanhos específicos dão suporte a VMs Gen2. Verifique a [lista de tamanhos com suporte](../virtual-machines/generation-2.md#generation-2-vm-sizes)para ver se sua SKU dá suporte ou requer Gen2.
 
 Além disso, nem todas as imagens de VM dão suporte a Gen2, em AKS Gen2 VMs usarão a nova [imagem AKs Ubuntu 18, 4](#os-configuration). Esta imagem dá suporte a todos os tamanhos e SKUs de Gen2.
-
-Para usar VMs Gen2 durante a visualização, você precisará de:
-- A `aks-preview` extensão da CLI instalada.
-- O `Gen2VMPreview` sinalizador de recurso registrado.
-
-Registrar o recurso `Gen2VMPreview`:
-
-```azurecli
-az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-list):
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider#az-provider-register):
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-Para instalar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Para atualizar a extensão aks-preview da CLI, use os seguintes comandos da CLI do Azure:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-gen2-vms-on-new-clusters-preview"></a>Usar VMs Gen2 em novos clusters (visualização)
-Configure o cluster para usar VMs Gen2 para a SKU selecionada quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para definir Gen2 como a geração de VM em um novo cluster.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-Se você quiser criar um cluster regular usando VMs de geração 1 (GEN1), poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada. Você também pode optar por adicionar mais VMs Gen1 ou Gen2, conforme mostrado abaixo.
-
-### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Usar VMs Gen2 em clusters existentes (visualização)
-Configure um novo pool de nós para usar VMs Gen2. Use o `--aks-custom-headers` sinalizador para definir Gen2 como a geração de VM para esse pool de nós.
-
-```azurecli
-az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-Se você quiser criar pools de nós Gen1 regulares, poderá fazer isso omitindo a marca personalizada `--aks-custom-headers` .
-
 
 ## <a name="ephemeral-os"></a>Sistema operacional efêmero
 

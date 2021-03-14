@@ -3,12 +3,12 @@ title: Solucionar problemas de extensão de VM dos servidores habilitados para A
 description: Este artigo informa como solucionar problemas e resolver questões com extensões de VM do Azure que surgem com os servidores habilitados para Arc do Azure.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ffd7db5ff7da3d7f60762117f80d7b9b5af6f646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341220"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584667"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Solucionar problemas de extensão de VM dos servidores habilitados para Arc
 
@@ -38,7 +38,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 - A versão do agente de Log Analytics 1.13.9 (versão de extensão correspondente é 1.13.15) não está marcando corretamente os dados carregados com a ID de recurso do servidor habilitado para Arc do Azure. Embora os logs estejam sendo enviados para o serviço, quando você tenta exibir os dados do servidor habilitado selecionado depois de selecionar **logs** ou **insights**, nenhum dado é retornado. Você pode exibir seus dados executando consultas de logs de Azure Monitor ou de Azure Monitor para VMs, que têm como escopo o espaço de trabalho.
 
-- No momento, não há suporte para algumas distribuições no agente de Log Analytics para Linux. O agente requer dependências adicionais a serem instaladas, incluindo o Python 2. Examine a matriz de suporte e os pré-requisitos [aqui](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
+- No momento, não há suporte para algumas distribuições no agente de Log Analytics para Linux. O agente requer dependências adicionais a serem instaladas, incluindo o Python 2. Examine a matriz de suporte e os pré-requisitos [aqui](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
 - O código de erro 52 na mensagem de status indica uma dependência ausente. Verifique a saída e os logs para obter mais informações sobre qual dependência está faltando.
 

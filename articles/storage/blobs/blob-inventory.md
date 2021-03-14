@@ -4,18 +4,18 @@ description: O inventário de armazenamento do Azure é uma ferramenta para ajud
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257804"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631465"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usar o inventário de blob do armazenamento do Azure para gerenciar dados de BLOB (versão prévia)
 
@@ -24,6 +24,9 @@ O recurso de inventário de blob de armazenamento do Azure fornece uma visão ge
 ## <a name="availability"></a>Disponibilidade
 
 O inventário de BLOBs tem suporte para contas de armazenamento de blob de blocos versão 2 (GPv2) e Premium de uso geral. Esse recurso tem suporte com ou sem o recurso de [namespace hierárquico](data-lake-storage-namespace.md) habilitado.
+
+> [!IMPORTANT]
+> No momento, o inventário de Bob está em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 ### <a name="preview-regions"></a>Regiões de visualização
 
@@ -89,8 +92,8 @@ Exiba o JSON para uma política de inventário selecionando a guia **exibição 
 
 | Nome do parâmetro | Tipo de parâmetro        | Observações | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | Cadeia de caracteres                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Sim |
-| Habilitado        | Booliano               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Sim |
+| destino    | String                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Sim |
+| Habilitado        | Boolean               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Sim |
 | regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Há suporte para até 10 regras. | Sim |
 
 ## <a name="inventory-rules"></a>Regras de inventário
@@ -102,7 +105,7 @@ Cada regra na política tem vários parâmetros:
 | Nome do parâmetro | Tipo de parâmetro                 | Observações | Necessário? |
 |----------------|--------------------------------|-------|-----------|
 | name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos que diferenciam maiúsculas de minúsculas. O nome deve ser exclusivo dentro de uma política. | Sim |
-| Habilitado        | Booliano                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Sim |
+| Habilitado        | Boolean                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Sim |
 | definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtros de regra. | Sim |
 
 O sinalizador **habilitado de inventário de blob** global tem precedência sobre o parâmetro *habilitado* em uma regra.
@@ -115,8 +118,8 @@ Vários filtros estão disponíveis para personalizar um relatório de inventár
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | Matriz de valores de enumeração predefinidos | Os valores válidos são `blockBlob` e `appendBlob` para contas habilitadas para namespace hierárquico, e `blockBlob` , `appendBlob` e `pageBlob` para outras contas. | Sim |
 | prefixMatch         | Matriz de até 10 cadeias de caracteres para que os prefixos sejam correspondidos. Um prefixo deve começar com um nome de contêiner, por exemplo, "Container1/foo" | Se você não definir *prefixMatch* ou fornecer um prefixo vazio, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
-| includeSnapshots    | Booliano                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | Não |
-| includeBlobVersions | Booliano                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | Não |
+| includeSnapshots    | Boolean                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | Não |
+| includeBlobVersions | Boolean                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | Não |
 
 Exiba o JSON para regras de inventário selecionando a guia **exibição de código** na seção **inventário de blob** do portal do Azure. Os filtros são especificados dentro de uma definição de regra.
 
@@ -202,4 +205,5 @@ Evento de exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)
+- [Calcular a contagem e o tamanho total de BLOBs por contêiner](calculate-blob-count-size.md)
+- [Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)

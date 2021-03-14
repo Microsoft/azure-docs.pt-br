@@ -3,17 +3,19 @@ title: Configuração de driver de GPU AMD da série N do Azure para Windows
 description: Como configurar drivers de GPU AMD para VMs da série N executando Windows Server ou Windows no Azure
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: b62095a3dc48480d8b1d33328d2d0dc25470d763
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461083"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557413"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalação de drivers de GPU AMD em VMs da série N executando Windows
 
@@ -31,7 +33,13 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 | Sistema operacional | Driver |
 | -------- |------------- |
-| Windows 10 Enterprise Multi-Session-compilação 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.17](https://download.microsoft.com/download/d/e/f/def0fb44-15ab-4b83-959a-8094eb9d0dfe/AMD-Azure-NVv4-Driver-20Q1-Hotfix3.exe) (. exe) |
+| Windows 10 Enterprise Multi-Session-compilação 1909 <br/><br/>Windows 10-Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (. exe) |
+
+ > [!NOTE]
+   >  Se você usar o Build 1903/1909, talvez seja necessário atualizar a seguinte política de grupo para obter um desempenho ideal. Essas alterações não são necessárias para qualquer outra compilação do Windows.
+   >  
+   >  [Configuração do computador-políticas de >->configurações do Windows->Modelos Administrativos->componentes do Windows->Serviços de Área de Trabalho Remota->Host da Sessão da Área de Trabalho Remota->ambiente de sessão remota], defina a política [usar driver de exibição de gráficos do WDDM para conexões Área de Trabalho Remota] como desabilitado.
+   >  
 
 
 ## <a name="driver-installation"></a>Instalação do driver

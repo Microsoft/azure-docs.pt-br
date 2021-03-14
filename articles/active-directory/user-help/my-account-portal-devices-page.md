@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798203"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096201"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página Dispositivos
 
@@ -27,7 +27,12 @@ A página **Dispositivos** do portal **Minha conta** ajuda a gerenciar os dispos
 - Desabilitar todos os dispositivos que você não possui mais, que foram perdidos ou que foram roubados.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações dos dispositivos conectados a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de dispositivos para seus funcionários ou outros usos, consulte a [documentação Identidades de Dispositivo](../devices/index.yml).
+>Este artigo destina-se a usuários que tentam atualizar as informações dos dispositivos conectados a uma conta corporativa ou de estudante. Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se você for um administrador procurando informações sobre gerenciamento de dispositivos para seus funcionários ou outros usos, consulte a [documentação Identidades de Dispositivo](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 

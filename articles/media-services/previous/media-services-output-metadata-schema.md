@@ -1,7 +1,7 @@
 ---
 title: Esquema de metadados de saída dos Serviços de Mídia do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral do esquema de metadados de saída dos serviços de mídia do Azure.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261301"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008262"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -48,7 +48,7 @@ Coleção de entradas AssetFile do trabalho de codificação.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |O nome de arquivo de ativo de mídia. |
 | **Tamanho**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:long** |Tamanho do arquivo de ativo em bytes. |
@@ -77,7 +77,7 @@ Um arquivo de entrada/origem usado ao gerar esse ativo.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |Nome do arquivo de fonte de entrada. |
 
@@ -97,14 +97,14 @@ Uma faixa de vídeo específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice de base zero desta faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente a TrackID como usada em um arquivo MP4. |
 | **FourCC**<br/><br/> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
 | **Perfil** |**xs:string** |Perfil H264 (aplicável somente ao codec H264). |
 | **Level** |**xs:string** |Nível H264 (aplicável somente ao codec H264). |
 | **Largura**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Largura do vídeo codificado em pixels. |
-| **Tamanho**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Altura do vídeo codificado em pixels. |
+| **Altura**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Altura do vídeo codificado em pixels. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:double** |Numerador de taxa de proporção de exibição do vídeo. |
 | **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:double** |Denominador de taxa de proporção de exibição do vídeo. |
 | **Quadros**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:decimal** |Medida de taxa de quadros de vídeo em formato .3f. |
@@ -129,7 +129,7 @@ Uma faixa de áudio específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4. |
 | **Codec** |**xs:string** |Cadeia de caracteres de codec de faixa de áudio. |
@@ -150,7 +150,7 @@ Parâmetros de resultado de medição de intensidade.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versão do kit de desenvolvimento de medição de intensidade profissional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obrigatório |**xs:int** |DialogNormalization gerado através de DPLM, necessário quando LoudnessMetering é definido |

@@ -3,12 +3,12 @@ title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078027"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579965"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
@@ -68,7 +68,7 @@ Para fornecer redundância para seu aplicativo, recomendamos que você agrupe du
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Garantir tolerância a falhas de conjunto de disponibilidade (temporariamente desabilitado)
 
-Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele.Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure.Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
+Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele. Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure. Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Usar discos gerenciados para melhorar a confiabilidade dos dados (temporariamente desabilitados)
 
@@ -76,7 +76,7 @@ As máquinas virtuais que estão em um conjunto de disponibilidade com discos qu
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de log inválidas
 
-O Azure Advisor detecta as regras de alerta de log que têm consultas inválidas especificadas na seção de condição. Azure Monitor regras de alerta de log executam consultas na frequência especificada e acionam alertas com base nos resultados. As consultas podem se tornar inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda correções para consultas de alerta para impedir que as regras sejam automaticamente desabilitadas e garantir a cobertura de monitoramento. Para obter mais informações, consulte [Solucionando problemas de regras de alerta](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+O Azure Advisor detecta as regras de alerta de log que têm consultas inválidas especificadas na seção de condição. Azure Monitor regras de alerta de log executam consultas na frequência especificada e acionam alertas com base nos resultados. As consultas podem se tornar inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda correções para consultas de alerta para impedir que as regras sejam automaticamente desabilitadas e garantir a cobertura de monitoramento. Para obter mais informações, consulte [Solucionando problemas de regras de alerta](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurar o modo de indexação consistente na sua coleção de Azure Cosmos DB
 

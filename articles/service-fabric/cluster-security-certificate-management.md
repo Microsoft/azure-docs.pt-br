@@ -4,12 +4,12 @@ description: Saiba mais sobre como gerenciar certificados em um Cluster Service 
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901259"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099499"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gerenciamento de certificados em clusters Service Fabric
 
@@ -427,6 +427,7 @@ A extensão KVVM, como um agente de provisionamento, é executada continuamente 
 Talvez você tenha notado o sinalizador ' linkOnRenewal ' da extensão KVVM e o fato de que ele está definido como false. Estamos abordando aqui detalhadamente o comportamento controlado por esse sinalizador e suas implicações no funcionamento de um cluster. Observe que esse comportamento é específico do Windows.
 
 De acordo com sua [definição](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -456,7 +457,7 @@ Como surgiu dos trechos de JSON acima, um sequenciamento específico das operaç
 
 Para descartar a criação de uma identidade gerenciada ou atribuí-la a outro recurso, o operador de implantação deve ter a função necessária (ManagedIdentityOperator) na assinatura ou no grupo de recursos, além das funções necessárias para gerenciar os outros recursos referenciados no modelo. 
 
-Do ponto de vista da segurança, lembre-se de que a máquina virtual (conjunto de dimensionamento) é considerada um limite de segurança com relação à sua identidade do Azure. Isso significa que qualquer aplicativo hospedado na VM poderia, em princípio, obter um token de acesso que represente os tokens de acesso de identidade gerenciado por VM são obtidos do ponto de extremidade IMDS não autenticado. Se você considerar que a VM é um ambiente compartilhado ou de vários locatários, talvez esse método de recuperação de certificados de cluster não seja indicado. No entanto, é o único mecanismo de provisionamento adequado para autosubstituição de certificado.
+Do ponto de vista da segurança, lembre-se de que a máquina virtual (conjunto de dimensionamento) é considerada um limite de segurança em relação à sua identidade do Azure. Isso significa que qualquer aplicativo hospedado na VM poderia, em princípio, obter um token de acesso que represente os tokens de acesso de identidade gerenciado por VM são obtidos do ponto de extremidade IMDS não autenticado. Se você considerar que a VM é um ambiente compartilhado ou de vários locatários, talvez esse método de recuperação de certificados de cluster não seja indicado. No entanto, é o único mecanismo de provisionamento adequado para autosubstituição de certificado.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Solução de problemas e perguntas frequentes
 

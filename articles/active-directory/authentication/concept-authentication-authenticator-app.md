@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744356"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212902"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no aplicativo Azure Active Directory Microsoft Authenticator
 
 O aplicativo Microsoft Authenticator fornece um nível adicional de segurança à sua conta corporativa ou de estudante do Azure AD ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [Ios](https://go.microsoft.com/fwlink/?linkid=866594). Com o aplicativo Microsoft Authenticator, os usuários podem autenticar de forma sem senha durante a entrada ou como uma opção de verificação adicional durante os eventos de redefinição de senha de autoatendimento (SSPR) ou autenticação multifator do Azure AD.
 
-Os usuários podem receber uma notificação por meio do aplicativo móvel para que eles aprovem ou neguem a entrada ou podem usar o aplicativo Authenticator para gerar um código de verificação OATH que pode ser inserido em uma interface de entrada. Se você habilitar um código de notificação e verificação, os usuários que registrarem o aplicativo Authenticator poderão usar qualquer um dos métodos para confirmar a identidade.
+Os usuários podem receber uma notificação por meio do aplicativo móvel para que eles aprovem ou neguem ou usem o aplicativo autenticador para gerar um código de verificação OAUTH que pode ser inserido em uma interface de entrada. Se você habilitar um código de notificação e verificação, os usuários que registrarem o aplicativo Authenticator poderão usar qualquer um dos métodos para confirmar a identidade.
 
-Para usar o aplicativo Authenticator em um prompt de entrada em vez de uma combinação de nome de usuário e senha, confira [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)](howto-authentication-passwordless-phone.md).
+Para usar o aplicativo autenticador em um prompt de entrada em vez de uma combinação de nome de usuário e senha, consulte [habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Os usuários não têm a opção de registrar o aplicativo móvel quando habilitam a SSPR. Em vez disso, eles podem fazer esse registro em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou como parte do registro combinado de informações de segurança em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -34,7 +34,7 @@ Em vez de ver um prompt para uma senha após inserir um nome de usuário, um usu
 
 ![Exemplo de uma entrada de navegador solicitando que o usuário aprove a entrada](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Esse método de autenticação fornece um alto nível de segurança e elimina a necessidade de o usuário fornecer uma senha ao entrar. Entrada sem senha usando o aplicativo Microsoft Authenticator está atualmente em versão prévia.
+Esse método de autenticação fornece um alto nível de segurança e elimina a necessidade de o usuário fornecer uma senha ao entrar. 
 
 Para começar a usar a entrada sem senha, consulte [habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

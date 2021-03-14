@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916500"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711834"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de compartilhamento de arquivos do Azure
 
@@ -26,16 +26,17 @@ Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compar
 |Protocolos de acesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operacional recomendado     |Kernel do Linux versão 4.3 +         |Windows 2008 R2 +, kernel do Linux versão 4.11 +         |
 |[Camadas disponíveis](storage-files-planning.md#storage-tiers)     |Armazenamento Premium         |Armazenamento Premium, otimizado para transação, quente, frio         |
+|Modelo de cobrança         |[Pagar por capacidade provisionada](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Pagar pela capacidade provisionada para camada Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), pré- [pago para a camada Standard](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
 |[Redundância](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Autenticação     |Somente autenticação baseada em host        |Autenticação baseada em identidade, autenticação baseada no usuário         |
 |Permissões     |Permissões de estilo UNIX         |Permissões de estilo NTFS         |
 |Semântica do sistema de arquivos     |Compatível com POSIX         |Não compatível com POSIX         |
 |Diferenciar maiúsculas de minúsculas     |Diferencia maiúsculas de minúsculas         |Não diferencia maiúsculas de minúsculas         |
-|Suporte a links físicos     |Suportado         |Sem suporte         |
-|Suporte a links simbólicos     |Suportado         |Sem suporte         |
-|Excluindo ou modificando arquivos abertos     |Suportado         |Sem suporte         |
-|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Suportado         |
-|Listagem segura de IP público | Sem suporte | Suportado|
+|Suporte a links físicos     |Com suporte         |Sem suporte         |
+|Suporte a links simbólicos     |Com suporte         |Sem suporte         |
+|Excluindo ou modificando arquivos abertos     |Com suporte         |Sem suporte         |
+|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Com suporte         |
+|Listagem segura de IP público | Sem suporte | Com suporte|
 |Interoperabilidade de protocolo| Sem suporte | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Compartilhamentos NFS (visualização)

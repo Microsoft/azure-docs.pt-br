@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 664a43dee635fa202f69927569fc1a5297bd1997
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-python-uiex
+ms.openlocfilehash: 1b6805434f8c697c1ea13925ee681fdc7b5f1a29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880803"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704745"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Início Rápido: criar uma função Python no Azure da linha de comando
 

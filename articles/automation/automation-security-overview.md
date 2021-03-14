@@ -4,14 +4,14 @@ description: Este artigo mostra uma visão geral da autenticação de conta da A
 keywords: segurança de automação, automação segura; autenticação de automação
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254992"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708893"
 ---
 # <a name="automation-account-authentication-overview"></a>Visão geral da autenticação da conta de automação
 
@@ -44,6 +44,8 @@ Para saber mais sobre os modelos de implantação Azure Resource Manager e clás
 >As assinaturas do CSP (Provedor de Soluções de Nuvem) do Azure são compatíveis apenas com o modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando você estiver usando uma assinatura do CSP, a conta Executar como Clássica do Azure não será criada, mas a conta Executar como do Azure será criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 Quando você cria uma conta de automação, a conta Executar como é criada por padrão ao mesmo tempo. Se você optou por não criá-lo junto com a conta de automação, ele poderá ser criado individualmente em um momento posterior. Uma conta Executar como clássica do Azure é opcional e é criada separadamente se você precisar gerenciar recursos clássicos.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>Conta Executar como
 

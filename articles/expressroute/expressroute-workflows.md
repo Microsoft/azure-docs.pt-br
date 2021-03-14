@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721728"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 
@@ -77,8 +77,12 @@ Configure os domínios de roteamento. Se seu provedor de conectividade gerencia 
 
 Habilite o emparelhamento privado para se conectar a VMs e serviços de nuvem implantados na rede virtual do Azure.
 
-* Sub-rede de emparelhamento para o caminho 1 (/30)
-* Sub-rede de emparelhamento para o caminho 2 (/30)
+* Sub-redes IPv4:
+    * Sub-rede de emparelhamento para o caminho 1 (/30)
+    * Sub-rede de emparelhamento para o caminho 2 (/30)
+* Sub-redes IPv6 (opcional):
+    * Sub-rede de emparelhamento para o caminho 1 (/126)
+    * Sub-rede de emparelhamento para o caminho 2 (/126)
 * ID de VLAN para emparelhamento
 * ASN para emparelhamento
 * ExpressRoute ASN = 12076
@@ -88,8 +92,12 @@ Habilite o emparelhamento privado para se conectar a VMs e serviços de nuvem im
 
 Habilite isso para acessar o Microsoft serviços online, como Microsoft 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do emparelhamento da Microsoft. Você deve garantir que use um proxy/borda separado para se conectar à Microsoft do que o que você usa para a Internet. Usar a mesma borda para o ExpressRoute e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
 
-* Sub-rede de emparelhamento para o caminho 1 (/30)-deve ser o IP público
-* A sub-rede de emparelhamento para o caminho 2 (/30)-deve ser o IP público
+* Sub-redes IPv4:
+    * Sub-rede de emparelhamento para o caminho 1 (/30)-deve ser o IP público
+    * A sub-rede de emparelhamento para o caminho 2 (/30)-deve ser o IP público
+* Sub-redes IPv6 (opcional):
+    * Sub-rede de emparelhamento para o caminho 1 (/126)-deve ser um IP público
+    * A sub-rede de emparelhamento para o caminho 2 (/126)-deve ser um IP público
 * ID de VLAN para emparelhamento
 * ASN para emparelhamento
 * Prefixos anunciados-devem ser prefixos IP públicos

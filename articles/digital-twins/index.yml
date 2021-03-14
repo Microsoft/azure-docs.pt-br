@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186398"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007747"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: O que são Gêmeos Digitais do Azure?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modelos personalizados
+      url: concepts-models.md
+    - text: Gêmeos digitais e o grafo de gêmeos
+      url: concepts-twins-graph.md
+    - text: Idioma de consulta
+      url: concepts-query-language.md
 - title: Comece com o guia de início rápido
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: Conectar uma solução de ponta a ponta
       url: tutorial-end-to-end.md
-- title: Saiba mais
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modelos personalizados
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Gêmeos digitais e o grafo de gêmeos
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Idioma de consulta
-      url: concepts-query-language.md
 - title: Desenvolver
   linkLists:
   - linkListType: how-to-guide
@@ -115,3 +109,19 @@ landingContent:
     links:
     - text: Swaggers personalizados para o conector de Aplicativos Lógicos
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Aprendizado baseado em cenários usando o Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Roteiro de aprendizagem: Desenvolver com os Gêmeos Digitais do Azure'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: 'Módulo do Learn: Introdução aos Gêmeos Digitais do Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: 'Módulo do Learn: Criar um grafo dos Gêmeos Digitais do Azure para a linha de produção de uma fábrica de chocolate'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: 'Módulo do Learn: Ingerir dados nos Gêmeos Digitais do Azure'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: 'Módulo do Learn: Saída dos Gêmeos Digitais do Azure para serviços de downstream'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

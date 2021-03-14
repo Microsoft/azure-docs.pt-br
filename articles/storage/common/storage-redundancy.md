@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726829"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -87,10 +87,11 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 
 O Armazenamento do Azure oferece duas opções para copiar seus dados para uma região secundária:
 
-- O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
-- O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
+- O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária. Na região secundária, seus dados são copiados de forma síncrona três vezes usando LRS.
+- O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária. Na região secundária, seus dados são copiados de forma síncrona três vezes usando LRS.
 
-A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. Na região secundária, os dados são sempre replicados três vezes de forma síncrona, usando LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
+> [!NOTE]
+> A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. Na região secundária, os dados são sempre replicados três vezes de forma síncrona, usando LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
 
 Com GRS ou GZRS, os dados na região secundária não estão disponíveis para acesso de leitura ou gravação, a menos que haja um failover para a região secundária. Para acesso de leitura para a região secundária, configure sua conta de armazenamento para usar o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de acesso de leitura (RA-GZRS). Para saber mais, confira [Acesso de leitura aos dados na região secundária](#read-access-to-data-in-the-secondary-region).
 
@@ -186,13 +187,21 @@ A tabela a seguir indica se os dados são duráveis e se estão disponíveis em 
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de gravação se a região primária ficar indisponível. Para saber mais, confira [Recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
 
+### <a name="supported-azure-storage-services"></a>Serviços de armazenamento do Azure com suporte
+
+A tabela a seguir mostra quais opções de redundância têm suporte em cada serviço de armazenamento do Azure.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br />Managed disks do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> |
+
 ### <a name="supported-storage-account-types"></a>Tipos de conta de armazenamento suportados
 
 A tabela a seguir mostra quais opções de redundância têm suporte em cada tipo de conta de armazenamento. Para obter informações sobre os tipos de conta de armazenamento, confira [Visão geral da conta de armazenamento](storage-account-overview.md).
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blobs de blocos<br /> Armazenamento de blob<br /> Armazenamento de arquivos | Uso geral v2<br /> Armazenamento de blobs de blocos<br /> Armazenamento de arquivos | Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blob | Uso geral v2 |
+| Uso geral v2<br /> Uso geral v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Uso geral v2<br /> BlockBlobStorage<br /> FileStorage | Uso geral v2<br /> Uso geral v1<br /> BlobStorage | Uso geral v2 |
 
 Todos os dados de todas as contas de armazenamento são copiados de acordo com a opção de redundância para a conta de armazenamento. Os objetos, incluindo blobs de blocos, blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos são copiados. Os dados em todas as camadas, incluindo a camada de arquivamento, são copiados. Para saber mais sobre as camadas de blobs, confira [Armazenamento de Blobs do Azure: camadas de acesso quente, frio e de arquivamento](../blobs/storage-blob-storage-tiers.md).
 

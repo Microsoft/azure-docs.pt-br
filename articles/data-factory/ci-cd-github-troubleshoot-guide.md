@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.date: 03/12/2021
+ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556300"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418089"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
 
@@ -78,14 +77,14 @@ Falha no pipeline de liberação de CI/CD com o seguinte erro:
 
 #### <a name="cause"></a>Causa
 
-Isso ocorre devido a um Integration Runtime com o mesmo nome na fábrica de destino, mas com um tipo diferente. Integration Runtime precisa ser do mesmo tipo durante a implantação.
+Isso ocorre devido a um tempo de execução de integração com o mesmo nome na fábrica de destino, mas com um tipo diferente. Integration Runtime precisa ser do mesmo tipo durante a implantação.
 
 #### <a name="recommendation"></a>Recomendação
 
 - Consulte estas práticas recomendadas para CI/CD abaixo:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Os tempos de execução de integração não são alterados com frequência e são semelhantes em todos os estágios em seu CI/CD, portanto Data Factory espera que você tenha o mesmo nome e tipo de tempo de execução de integração em todos os estágios de CI/CD. Se o nome e os tipos & propriedades forem diferentes, certifique-se de corresponder à configuração de IR de origem e de destino e, em seguida, implantar o pipeline de liberação.
+- Os tempos de execução de integração não são alterados com frequência e são semelhantes em todos os estágios em seu CI/CD, portanto Data Factory espera que você tenha o mesmo nome e tipo de tempo de execução de integração em todos os estágios de CI/CD. Se o nome e os tipos & propriedades forem diferentes, certifique-se de corresponder a configuração de tempo de execução de integração de origem e destino e, em seguida, implante o pipeline de liberação.
 - Se desejar compartilhar runtimes de integração em todas as fases, considere usar um alocador ternário apenas para conter os runtimes de integração compartilhados. Você pode usar esse alocador compartilhado em todos os seus ambientes como um tipo de runtime de integração vinculado.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Falha na criação ou atualização do documento devido à referência inválida
@@ -133,7 +132,7 @@ Não é possível mover Data Factory de um grupo de recursos para outro, falhand
 
 #### <a name="resolution"></a>Resolução
 
-Você precisa excluir o SSIS-IR e o IRs compartilhado para permitir a operação de movimentação. Se você não quiser excluir o IRs, a melhor maneira é seguir o documento copiar e clonar para fazer a cópia e, depois disso, excluir o data Factory antigo.
+Você precisa excluir o SSIS-IR e o IRs compartilhado para permitir a operação de movimentação. Se você não quiser excluir os tempos de execução de integração, a melhor maneira é seguir o documento copiar e clonar para fazer a cópia e, depois disso, excluir o Data Factory antigo.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>Não é possível exportar e importar o modelo ARM
 
@@ -150,6 +149,75 @@ Você criou uma função de cliente como o usuário e ela não tinha a permissã
 #### <a name="resolution"></a>Resolução
 
 Para resolver o problema, você precisa adicionar a seguinte permissão à sua função: *Microsoft. datafactory/factories/queryFeaturesValue/Action*. Essa permissão deve ser incluída por padrão na função "colaborador de Data Factory".
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicação automática para CI/CD sem clicar no botão publicar  
+
+#### <a name="issue"></a>Problema
+
+A publicação manual com clique no botão no portal do ADF não habilita a operação de CI/CD automática.
+
+#### <a name="cause"></a>Causa
+
+Até recentemente, apenas a maneira de publicar o pipeline do ADF para implantações estava usando o botão do portal do ADF. Agora, você pode tornar o processo automático. 
+
+#### <a name="resolution"></a>Resolução
+
+O processo de CI/CD foi aprimorado. O recurso de **publicação automatizada** pega, valida e exporta todos os recursos de modelo do Azure Resource Manager (ARM) da UX do ADF. Ele torna a lógica consumível por meio de um pacote NPM publicamente disponível [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Isso permite que você acione programaticamente essas ações em vez de ter que ir para a interface do usuário do ADF e fazer um clique de botão. Isso dá aos pipelines de CI/CD uma experiência de integração contínua **verdadeira** . Siga as [melhorias de publicação de CI/CD do ADF](./continuous-integration-deployment-improvements.md) para obter detalhes. 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Não é possível publicar devido a um limite de modelo de 4 MB  
+
+#### <a name="issue"></a>Problema
+
+Não é possível implantar porque você atingiu Azure Resource Manager limite de tamanho total do modelo de 4 MB. Você precisa de uma solução para implantar depois de cruzar o limite. 
+
+#### <a name="cause"></a>Causa
+
+Azure Resource Manager restringe o tamanho do modelo a ser 4 MB. Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros. Mas, você ultrapassou o limite. 
+
+#### <a name="resolution"></a>Resolução
+
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você detalhe a solução em componentes de destino. Siga a prática recomendada em [usando modelos vinculados e aninhados](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### <a name="cannot-connect-to-git-enterprise-cloud"></a>Não é possível se conectar ao GIT Enterprise Cloud 
+
+##### <a name="issue"></a>Problema
+
+Não é possível se conectar ao GIT Enterprise Cloud devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
+
+#### <a name="cause"></a>Causa
+
+* Você está usando o Git Enterprise no servidor local. 
+* Você não configurou o OAuth para ADF. 
+* A URL está configurada incorretamente.
+
+##### <a name="resolution"></a>Resolução
+
+Você concede acesso OAuth ao ADF primeiro. Em seguida, você precisa usar a URL correta para se conectar ao GIT Enterprise. A configuração deve ser definida para as organizações do cliente. Por exemplo, o ADF tentará *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ..* . primeiro e falhará. Em seguida, ele tentará *https://hostname/api/v3/orgs/ <org> / <repo> ...* e terá sucesso. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de um data factory excluído
+
+#### <a name="issue"></a>Problema
+O cliente excluiu o data Factory ou o grupo de recursos que contém o Data Factory. Ele gostaria de saber como restaurar um data factory excluído.
+
+#### <a name="cause"></a>Causa
+
+É possível recuperar o Data Factory somente se o cliente tiver o controle do código-fonte configurado (DevOps ou git). Isso trará todos os recursos publicados mais recentes e **não** restaurará o pipeline não publicado, o conjunto de informações e o serviço vinculado.
+
+Se não houver nenhum controle do código-fonte, a recuperação de um Data Factory excluído do back-end não será possível porque, uma vez que o serviço recebe o comando excluído, a instância é excluída e nenhum backup foi armazenado.
+
+#### <a name="resolution"></a>Resolução
+
+Para recuperar o Data Factory excluído que tem o controle do código-fonte, consulte as etapas abaixo:
+
+ * Crie um novo Azure Data Factory.
+
+ * Reconfigure o Git com as mesmas configurações, mas certifique-se de importar recursos de Data Factory existentes para o repositório selecionado e escolha novo Branch.
+
+ * Crie uma solicitação de pull para mesclar as alterações para a ramificação de colaboração e publicar.
+
+ * Se o cliente tivesse um Integration Runtime autohospedado no ADF excluído, ele precisará criar uma nova instância no ADF novo, além de desinstalar e reinstalar a instância em sua máquina/VM local com a nova chave obtida. Depois que a configuração do IR for concluída, o cliente precisará alterar o serviço vinculado para apontar para o novo IR e testar a conexão, ou ele falhará com a referência de erro **inválida.**
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Habilitar identidade gerenciada no grupo de contêineres
 description: Saiba como habilitar uma identidade gerenciada em instâncias de contêiner do Azure que podem ser autenticadas com outros serviços do Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558939"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198312"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com Instâncias de Contêiner do Azure
 
@@ -53,13 +53,13 @@ Para usar uma identidade gerenciada, a identidade deve receber acesso a um ou ma
 
 Os exemplos neste artigo usam uma identidade gerenciada em instâncias de contêiner do Azure para acessar um segredo do Azure Key Vault. 
 
-Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *eastus* com o seguinte comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create):
+Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *eastus* com o seguinte comando [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Use o comando [AZ keyvault Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) para criar um cofre de chaves. Certifique-se de especificar um nome exclusivo do cofre de chaves. 
+Use o comando [AZ keyvault Create](/cli/azure/keyvault#az-keyvault-create) para criar um cofre de chaves. Certifique-se de especificar um nome exclusivo do cofre de chaves. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Armazene um segredo de exemplo no cofre de chaves usando o comando [AZ keyvault segredo Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) :
+Armazene um segredo de exemplo no cofre de chaves usando o comando [AZ keyvault segredo Set](/cli/azure/keyvault/secret#az-keyvault-secret-set) :
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Continue com os exemplos a seguir para acessar o cofre de chaves usando uma iden
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
-Primeiro, crie uma identidade em sua assinatura usando o comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). Você pode usar o mesmo grupo de recursos usado para criar o cofre de chaves ou usar um diferente.
+Primeiro, crie uma identidade em sua assinatura usando o comando [az identity create](/cli/azure/identity#az-identity-create). Você pode usar o mesmo grupo de recursos usado para criar o cofre de chaves ou usar um diferente.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Para usar a identidade nas etapas a seguir, use o comando [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) para armazenar a ID da entidade de serviço da identidade e a ID de recurso em variáveis.
+Para usar a identidade nas etapas a seguir, use o comando [az identity show](/cli/azure/identity#az-identity-show) para armazenar a ID da entidade de serviço da identidade e a ID de recurso em variáveis.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -109,7 +109,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Conceder acesso de identidade atribuído pelo usuário ao cofre de chaves
 
-Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade atribuída pelo usuário obtenha segredos do cofre de chaves:
+Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade atribuída pelo usuário obtenha segredos do cofre de chaves:
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -121,7 +121,7 @@ Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azu
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Habilitar identidade atribuída pelo usuário em um grupo de contêineres
 
-Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base na imagem da Microsoft `azure-cli` . Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. Nesta seção, apenas o sistema operacional base é usado. Para obter um exemplo de como usar o CLI do Azure no contêiner, consulte [habilitar a identidade atribuída pelo sistema em um grupo de contêineres](#enable-system-assigned-identity-on-a-container-group). 
+Execute o comando [AZ container Create](/cli/azure/container#az-container-create) a seguir para criar uma instância de contêiner com base na imagem da Microsoft `azure-cli` . Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. Nesta seção, apenas o sistema operacional base é usado. Para obter um exemplo de como usar o CLI do Azure no contêiner, consulte [habilitar a identidade atribuída pelo sistema em um grupo de contêineres](#enable-system-assigned-identity-on-a-container-group). 
 
 O parâmetro `--assign-identity` passa sua identidade atribuída pelo usuário gerenciado para o grupo. O comando de execução demorada mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, mas você pode especificar um diferente.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [AZ container show](/cli/azure/container?view=azure-cli-latest#az-container-show) .
+Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [AZ container show](/cli/azure/container#az-container-show) .
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ A resposta se assemelha à seguinte, mostrando o segredo. No código, analise es
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Habilitar a identidade atribuída pelo sistema em um grupo de contêineres
 
-Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base na imagem da Microsoft `azure-cli` . Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. 
+Execute o comando [AZ container Create](/cli/azure/container#az-container-create) a seguir para criar uma instância de contêiner com base na imagem da Microsoft `azure-cli` . Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. 
 
 O parâmetro `--assign-identity` sem valor adicional permite uma identidade gerenciada atribuída pelo sistema no grupo. A identidade tem como escopo o grupo de recursos do grupo de contêineres. O comando de execução demorada mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, que está no escopo da identidade.
 
@@ -255,7 +255,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Conceder acesso ao grupo de contêineres para o cofre de chaves
 
-Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade gerenciada pelo sistema obtenha segredos do cofre de chaves:
+Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade gerenciada pelo sistema obtenha segredos do cofre de chaves:
 
 ```azurecli-interactive
  az keyvault set-policy \

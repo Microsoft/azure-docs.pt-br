@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: d988fca2c5eb56484e21b20e088b4331c51bd23b
-  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+  ms.openlocfilehash: e7582856bc986b09d4f21b2c94562a2d7eec83dc
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98028940"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102502664"
 landingContent:
 - title: Certificados
   linkLists:
@@ -57,13 +57,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca de clientes do .NET
-      url: /dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+      url: /dotnet/api/azure.security.keyvault.certificates
     - text: Biblioteca de clientes Python
-      url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+      url: /python/api/overview/azure/keyvault-certificates-readme
     - text: Biblioteca de clientes Java
       url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
     - text: Biblioteca de clientes Node.js
-      url: /javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
+      url: /javascript/api/@azure/keyvault-certificates/
 - title: Mais sobre o Key Vault
   linkLists:
   - linkListType: overview

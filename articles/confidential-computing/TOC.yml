@@ -38,7 +38,7 @@
     - name: Computação em contêineres
       expanded: true
       items:
-        - name: Contêineres confidenciais (lift-and-shift)
+        - name: Contêineres confidenciais
           items:
             - name: Introdução
               href: confidential-containers.md

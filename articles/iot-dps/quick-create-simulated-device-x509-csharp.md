@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 06f1d34e7d8da9a3ece206fc1ff804accf9454ff
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493847"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705536"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: Criar e provisionar um dispositivo X.509 usando o SDK do dispositivo C# para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -22,7 +22,9 @@ ms.locfileid: "99493847"
 
 Estas etapas mostram como usar o código do dispositivo dos [Exemplos de IoT do Azure para C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) para provisionar um dispositivo X.509. Neste artigo, você executará o código de exemplo do dispositivo no computador de desenvolvimento para se conectar a um Hub IoT usando o Serviço de Provisionamento de Dispositivos.
 
-Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](about-iot-dps.md#provisioning-process). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](about-iot-dps.md#provisioning-process). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar.
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
 - [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
@@ -48,8 +50,6 @@ Este artigo irá demonstrar registros individuais.
     ```bash
     dotnet --info
     ```
-
-
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Criar um certificado de dispositivo X.509 autoassinado
 

@@ -1,17 +1,17 @@
 ---
 title: Detecção de anomalias no Azure Stream Analytics
 description: Este artigo descreve como usar o Azure Stream Analytics e o Azure Machine Learning em conjunto para detectar anomalias.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jseb225
+ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: c7cb8e40bc9a8f6664d8286ad368e2613495878b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ec37ea6cbb1c1c6693aab1f6855948d32b85e95b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020291"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441186"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
@@ -29,7 +29,7 @@ O vídeo a seguir demonstra como detectar uma anomalia em tempo real usando fun�
 
 ## <a name="model-behavior"></a>Comportamento do modelo
 
-De modo geral, a precisão do modelo melhora com mais dados na janela deslizante. Os dados na janela deslizante especificada são tratados como parte de seu intervalo de valores normal para o período. O modelo considera o histórico de eventos ao longo da janela deslizante apenas para verificar se o evento atual é anormal. Conforme a janela deslizante se move, os valores antigos são removidos do treinamento do modelo.
+De modo geral, a precisão do modelo melhora com mais dados na janela deslizante. Os dados na janela deslizante especificada são tratados como parte de seu intervalo de valores normal para o período. O modelo considera o histórico de eventos ao longo da janela deslizante apenas para verificar se o evento atual é anormal. À medida que a janela deslizante é movida, os valores antigos são removidos do treinamento do modelo.
 
 As funções operam estabelecendo um determinado valor normal com base no que foi observado até então. As exceções são identificadas pela comparação em relação ao normal estabelecido, no nível de confiança. O tamanho da janela deve se basear nos eventos mínimos necessários para treinar o modelo para comportamento normal, de modo que ele esteja apto a reconhecê-la quando uma anomalia ocorrer.
 
@@ -128,7 +128,7 @@ Ao particionar a função por DeviceID, adicione "PARTITION BY DeviceID" à cham
 ### <a name="observations"></a>Amo
 A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso não particionado:
 
-| Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo |
+| Tamanho do histórico (eventos)    | Duração da janela (MS) | Total de eventos de entrada por segundo |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2.200 |
 | 600 | 728 | 1.650 |

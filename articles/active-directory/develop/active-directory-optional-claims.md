@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756032"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104273"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -138,7 +138,7 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 
 Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
-1. Vá para a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
+1. Vá para o <a href="https://portal.azure.com/" target="_blank">Portal do Azure</a>. 
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
@@ -246,7 +246,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurar declarações opcionais de grupos por meio da interface do usuário:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
@@ -259,7 +259,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurando declarações opcionais de grupos por meio do manifesto do aplicativo:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
@@ -388,7 +388,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração da interface do usuário:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 
 1. Pesquise **Azure Active Directory** e selecione-o.
@@ -411,7 +411,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração do manifesto:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e selecione-o.

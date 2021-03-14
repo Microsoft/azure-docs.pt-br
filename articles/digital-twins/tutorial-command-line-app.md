@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d54207de9d74944e5b44e9970c1c5b896a56a373
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576237"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560763"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -118,7 +118,7 @@ CreateModels Room
 ```
 
 Como os modelos não podem ser substituídos, um erro de serviço será retornado.
-Para obter detalhes sobre como excluir os modelos existentes, confira [*Como gerenciar modelos personalizados*](how-to-manage-model.md).
+Para obter detalhes sobre como excluir os modelos existentes, confira [*Como Gerenciar modelos de DTDL*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

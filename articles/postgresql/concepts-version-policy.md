@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331814"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518412"
 ---
-# <a name="azure-database-for-postgresql-versioning-policy"></a>Política de controle de versão do banco de dados do Azure para PostgreSQL
+# <a name="azure-database-for-postgresql-versioning-policy"></a>Política de versão do Banco de Dados do Azure para PostgreSQL
 
 Esta página descreve a política de versão do banco de dados do Azure para PostgreSQL e é aplicável aos modos de implantação banco de dados do Azure para PostgreSQL-servidor único e banco de dados do Azure para PostgreSQL – servidor flexível (visualização).
 
@@ -28,7 +28,7 @@ O banco de dados do Azure para PostgreSQL dá suporte às seguintes versões de 
 | PostgreSQL 11 | X | X |
 | PostgreSQL 10 | X |  |
 | PostgreSQL 9,6 | X |  |
-| PostgreSQL 9,5 | X |  |
+| *PostgreSQL 9,5 (desativado)* | X |  |
 
 ## <a name="major-version-support"></a>Suporte de versão principal
 Cada versão principal do PostgreSQL terá suporte do banco de dados do Azure para PostgreSQL a partir da data em que o Azure começa a dar suporte à versão até que a versão seja desativada pela Comunidade PostgreSQL, conforme fornecido na [política de controle de versão da Comunidade PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -41,7 +41,7 @@ A tabela a seguir fornece os detalhes de desativação para as versões principa
 
 | Versão | What's New | Data de início do suporte do Azure | Data de baixa|
 | ----- | ----- | ------ | ----- |
-| PostgreSQL 9,5| [Recursos](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 de abril de 2018    | 11 de fevereiro de 2021
+| [PostgreSQL 9,5 (desativado)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [Recursos](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 de abril de 2018   | 11 de fevereiro de 2021
 | [PostgreSQL 9,6](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Recursos](https://wiki.postgresql.org/wiki/NewIn96) | 18 de abril de 2018  | 11 de novembro de 2021
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Recursos](https://wiki.postgresql.org/wiki/New_in_postgres_10) | 4 de junho de 2018  | 10 de novembro de 2022
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Recursos](https://www.postgresql.org/docs/11/release-11.html) | 24 de julho de 2019  | 9 de novembro de 2023
@@ -49,7 +49,7 @@ A tabela a seguir fornece os detalhes de desativação para as versões principa
 
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versões do mecanismo PostgreSQL desativadas sem suporte no banco de dados do Azure para PostgreSQL
 
-Após a data de desativação para cada versão do banco de dados PostgreSQL, se você continuar executando a versão retirada, observe as seguintes restrições:
+Você pode continuar a executar a versão desativada no banco de dados do Azure para PostgreSQL. No entanto, observe as seguintes restrições após a data de desativação para cada versão do banco de dados PostgreSQL:
 - Como a Comunidade não lançará correções de bugs ou correções de segurança adicionais, o banco de dados do Azure para PostgreSQL não corrigirá o mecanismo de banco de dados desativado em busca de bugs ou problemas de segurança ou, de outra forma, tomar medidas de segurança em relação ao mecanismo de banco de dados desativado. Você pode enfrentar vulnerabilidades de segurança ou outros problemas como resultado. No entanto, o Azure continuará executando a manutenção periódica e aplicação de patch para o host, o sistema operacional, OS contêineres e quaisquer outros componentes relacionados ao serviço.
 - Se qualquer problema de suporte que você possa enfrentar estiver relacionado ao banco de dados PostgreSQL, talvez não seja possível fornecer suporte. Nesses casos, você precisará atualizar seu banco de dados para que possamos fornecer qualquer suporte.
 - Você não poderá criar novos servidores de banco de dados para a versão desativada. No entanto, você poderá executar recuperações pontuais e criar réplicas de leitura para seus servidores existentes.

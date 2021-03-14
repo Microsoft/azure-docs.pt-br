@@ -5,35 +5,29 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630023"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563329"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra como configurar o Serviço de Aplicativo do Azure ou o Azure Functions para usar o Azure Active Directory (Azure AD) como um provedor de autenticação.
-
-> [!NOTE]
-> O fluxo de configurações expressas configura um registro de aplicativo do AAD V1. Se você quiser usar o [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (incluindo [MSAL](../active-directory/develop/msal-overview.md)), siga as [instruções de configuração avançada](#advanced).
-
-Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticação:
-
-- Dê a cada aplicativo do Serviço de Aplicativo suas próprias permissões e consentimento.
-- Configure cada aplicativo do Serviço de Aplicativo com seu próprio registro.
-- Evite o compartilhamento de permissão entre ambientes usando registros de aplicativo separados para slots de implantação separados. Essa prática pode ajudar a evitar problemas que afetam o aplicativo de produção durante o teste do novo código.
-
-> [!NOTE]
-> No momento, este recurso não está disponível no plano de Consumo em Linux para Azure Functions
+Este artigo mostra como configurar a autenticação para Azure App serviço ou Azure Functions para que seu aplicativo Conecte os usuários com Azure Active Directory (Azure AD) como o provedor de autenticação.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurar com configurações expressas
 
+A opção **expressa** foi projetada para habilitar a autenticação simples e requer apenas alguns cliques.
+
+As configurações expressas criarão automaticamente um registro de aplicativo que usa o ponto de extremidade Azure Active Directory v1. Para usar [Azure Active Directory v 2.0](../active-directory/develop/v2-overview.md) (incluindo [MSAL](../active-directory/develop/msal-overview.md)), siga as [instruções de configuração avançadas](#advanced).
+
 > [!NOTE]
 > A opção **Expressa** não está disponível para nuvens governamentais.
+
+Para habilitar a autenticação usando a opção **Express** , siga estas etapas:
 
 1. No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo.
 2. No painel de navegação à esquerda, selecione **Autenticação / Autorização** > **Ativada**.
@@ -58,27 +52,24 @@ Para obter um exemplo de como configurar o logon do Azure AD para um aplicativo 
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configurar com configurações avançadas
 
-Você pode definir as configurações do aplicativo manualmente se quiser usar um registro de aplicativo de um locatário do Azure AD diferente. Para concluir esta configuração personalizada:
-
-1. Criar um registro no Azure AD.
-2. Forneça alguns dos detalhes de registro para o Serviço de Aplicativo.
+Para que o Azure AD atue como o provedor de autenticação para seu aplicativo, você deve registrar seu aplicativo com ele. A opção expressa faz isso para você automaticamente. A opção avançado permite registrar manualmente seu aplicativo, personalizando o registro e inserindo manualmente os detalhes de registro de volta para o serviço de aplicativo. Isso é útil, por exemplo, se você quiser usar um registro de aplicativo de um locatário do Azure AD diferente daquele em que o serviço de aplicativo está.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Criar um registro de aplicativo no Azure AD para seu aplicativo do Serviço de Aplicativo
 
-Você precisará das seguintes informações quando configurar seu aplicativo do Serviço de Aplicativo:
+Primeiro, você criará o registro do aplicativo. Como você faz isso, colete as seguintes informações que serão necessárias mais tarde, quando você configurar a autenticação no aplicativo do serviço de aplicativo:
 
 - ID do Cliente
 - ID do locatário
 - Segredo do cliente (opcional)
 - URI da ID de Aplicativo
 
-Execute as seguintes etapas:
+Para registrar o aplicativo, execute as seguintes etapas:
 
 1. Entre no [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. Anote a **URL** do seu aplicativo. Você a usará para configurar o registro do aplicativo do Azure Active Directory.
-1. Selecione **Azure Active Directory** > **Registros do aplicativo** > **Novo registro**.
+1. No menu do portal, selecione **Azure Active Directory**, em seguida, vá para a guia **registros de aplicativo** e selecione **novo registro**.
 1. Na página **Registrar um aplicativo**, insira um **Nome** para o registro do seu aplicativo.
 1. Em **URI de redirecionamento**, selecione **Web** e digite `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Selecione **REGISTRAR**.
+1. Selecione **Registrar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do Directory (locatário)** para mais tarde.
 1. Selecione **Autenticação**. Em **Concessão implícita**, habilite **Tokens de ID** para permitir as entradas de usuário do OpenID Connect a partir do Serviço de Aplicativo.
 1. (Opcional) Selecione **Identidade visual**. Em **URL da página inicial**, insira a URL do seu aplicativo do Serviço de Aplicativo e selecione **Salvar**.
@@ -113,9 +104,13 @@ Execute as seguintes etapas:
 
 Agora você está pronto para usar o Azure Active Directory para autenticação no aplicativo do Serviço de Aplicativo.
 
-## <a name="configure-a-native-client-application"></a>Configurar um aplicativo de cliente nativo
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configurar aplicativos cliente para acessar seu serviço de aplicativo
 
-Você pode registrar clientes nativos para permitir a autenticação para a API da Web hospedada em seu aplicativo usando uma biblioteca de cliente, como a **Biblioteca de Autenticação do Active Directory**.
+Na seção anterior, você registrou seu serviço de aplicativo ou Azure function para autenticar usuários. Esta seção explica como registrar aplicativos nativos de cliente ou daemon para que eles possam solicitar acesso a APIs expostas por seu serviço de aplicativo em nome de usuários ou por conta própria. A conclusão das etapas nesta seção não será necessária se você quiser autenticar os usuários.
+
+### <a name="native-client-application"></a>Aplicativo cliente nativo
+
+Você pode registrar clientes nativos para solicitar acesso às APIs do aplicativo do serviço de aplicativo em nome de um usuário conectado.
 
 1. No [Azure portal], selecione **Active Directory** > **Registros de aplicativo** > **Novo registro**.
 1. Na página **Registrar um aplicativo**, insira um **Nome** para o registro do seu aplicativo.
@@ -129,9 +124,9 @@ Você pode registrar clientes nativos para permitir a autenticação para a API 
 1. Selecione o registro de aplicativo que você criou anteriormente para seu aplicativo do Serviço de Aplicativo. Se você não vir o registro do aplicativo, certifique-se de ter adicionado o escopo **user_impersonation** em [Criar um registro de aplicativo no Azure AD para o aplicativo do Serviço de Aplicativo](#register).
 1. Em **Permissões delegadas**, selecione **user_impersonation** e, em seguida, **Adicionar permissões**.
 
-Você já configurou um aplicativo de cliente nativo que pode acessar seu aplicativo do Serviço de Aplicativo em nome de um usuário.
+Agora você configurou um aplicativo cliente nativo que pode solicitar acesso ao aplicativo do serviço de aplicativo em nome de um usuário.
 
-## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configurar um aplicativo cliente daemon para chamadas de serviço a serviço
+### <a name="daemon-client-application-service-to-service-calls"></a>Aplicativo de cliente daemon (chamadas de serviço a serviço)
 
 Seu aplicativo pode adquirir um token para chamar uma API Web hospedada no Serviço de Aplicativo ou no aplicativo de Funções em seu nome (não em nome de um usuário). Esse cenário é útil para aplicativos daemon não interativos que executam tarefas sem um usuário conectado. Ele usa a concessão das [credenciais de cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) padrão do OAuth 2.0.
 
@@ -155,6 +150,14 @@ No momento, isso permite que _qualquer_ aplicativo cliente no seu locatário do 
 1. No Serviço de Aplicativo de destino ou no código do aplicativo de Funções, agora você pode confirmar que as funções esperadas estão presentes no token (isso não é executado pela autenticação/autorização do Serviço de Aplicativo). Para mais informações, consulte [Acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims).
 
 Você já configurou um aplicativo cliente daemon que pode acessar seu aplicativo do Serviço de Aplicativo usando uma identidade própria.
+
+## <a name="best-practices"></a>Práticas recomendadas
+
+Independentemente da configuração usada para configurar a autenticação, as seguintes práticas recomendadas manterão seu locatário e seus aplicativos mais seguros:
+
+- Dê a cada aplicativo do Serviço de Aplicativo suas próprias permissões e consentimento.
+- Configure cada aplicativo do Serviço de Aplicativo com seu próprio registro.
+- Evite o compartilhamento de permissão entre ambientes usando registros de aplicativo separados para slots de implantação separados. Essa prática pode ajudar a evitar problemas que afetam o aplicativo de produção durante o teste do novo código.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Próximas etapas
 

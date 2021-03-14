@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/22/2021
+ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493399"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658547"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Alterar a camada de serviço ou o tamanho da computação envolve principalmente
 > [!IMPORTANT]
 > Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho. Verifique se você implementou alguma [lógica de repetição](troubleshoot-common-connectivity-issues.md) nos aplicativos e componentes que estão usando o banco de dados SQL do Azure enquanto a camada de serviço é alterada.
 
-## <a name="latency"></a>Latência
+## <a name="latency"></a>Latency
 
 A latência estimada para alterar a camada de serviço, dimensionar o tamanho de computação de um único banco de dados ou pool elástico, mover um banco de dados para dentro/para fora de um pool elástico ou mover um banco de dados entre pools elásticos é parametrizada da seguinte maneira:
 
@@ -112,6 +112,7 @@ else {
 - Ao fazer downgrade de um banco de dados com [replicação geográfica](active-geo-replication-configure-portal.md) habilitada, faça downgrade dos seus bancos de dados primários para a camada de serviço e o tamanho da computação desejados antes de atualizar o banco de dados secundário (orientação geral para o melhor desempenho). Ao fazer downgrade para uma edição diferente, é um requisito de que o banco de dados primário seja rebaixado primeiro.
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se você estiver fazendo downgrade para a camada **básica** , haverá um período de retenção de backup menor. Consulte [Backups de Banco de Dados SQL do Azure](automated-backups-overview.md).
 - As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
+- Quando a cópia de dados é necessária para dimensionar um banco de dado (consulte [latência](#latency)) ao alterar a camada de serviço, a alta utilização de recursos simultâneas para a operação de dimensionamento pode causar tempos de dimensionamento mais longos. Com a [ADR (recuperação de banco de dados acelerada)](/sql/relational-databases/accelerated-database-recovery-concepts.md), a reversão de transações de longa execução não é uma fonte de atraso significativa, mas o alto uso simultâneo de recursos pode deixar menos recursos de computação, armazenamento e largura de banda de rede para dimensionamento, especialmente para tamanhos de computação menores.
 
 ## <a name="billing"></a>Cobrança
 

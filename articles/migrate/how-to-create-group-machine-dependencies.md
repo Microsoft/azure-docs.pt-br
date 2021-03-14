@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: d4bf635c57bcef41cd0f3285d8a91bae4b3e0415
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 772602a11878276da3b81b84e7f4016997375077
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752015"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183056"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
@@ -22,19 +22,19 @@ Este artigo descreve como configurar a análise de dependência baseada em agent
 - Examine os requisitos de suporte e implantação para a análise de dependência baseada em agente para:
     - [VMs VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [VMs do Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [VMs Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Verifique se você:
     - Ter um projeto de migrações para Azure. Se você não fizer isso, [crie](./create-manage-projects.md) um agora.
     - Verifique se você [adicionou](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment ao projeto.
     - Configure um [dispositivo de migrações para Azure](migrate-appliance.md) para descobrir computadores locais. O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. Configurar um dispositivo para:
-        - [VMware](how-to-set-up-appliance-vmware.md) VMs.
-        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
-        - [Servidores físicos](how-to-set-up-appliance-physical.md).
-- Para usar a visualização de dependência, você associa um [espaço de trabalho log Analytics](../azure-monitor/platform/manage-access.md) a um projeto de migrações para Azure:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMs
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs
+        - [Servidores físicos](how-to-set-up-appliance-physical.md)
+- Para usar a visualização de dependência, você associa um [espaço de trabalho log Analytics](../azure-monitor/logs/manage-access.md) a um projeto de migrações para Azure:
     - Você pode anexar um espaço de trabalho somente após a configuração do dispositivo de migrações para Azure e a descoberta de máquinas no projeto de migrações para Azure.
     - Verifique se você tem um espaço de trabalho na assinatura que contém o projeto de migrações para Azure.
     - O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste da Ásia ou oeste da Europa. Os espaços de trabalho em outras regiões não podem ser associados a um projeto.
-    - O espaço de trabalho deve estar em uma região em que o [Mapa do Serviço é compatível](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    - O espaço de trabalho deve estar em uma região em que o [Mapa do Serviço é compatível](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
     - Você pode associar um espaço de trabalho Log Analytics novo ou existente a um projeto de migrações para Azure.
     - Você anexa o espaço de trabalho na primeira vez em que configura a visualização de dependência para um computador. Não é possível modificar o espaço de trabalho de um projeto de Migrações para Azure depois que ele foi adicionado.
     - No Log Analytics, o espaço de trabalho associado às Migrações para Azure é marcado com a chave do Projeto de Migração e o nome do projeto.
@@ -60,7 +60,7 @@ Este artigo descreve como configurar a análise de dependência baseada em agent
 Em cada computador que você deseja analisar, instale os agentes.
 
 > [!NOTE]
-> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. [Siga](../azure-monitor/insights/service-map-scom.md#prerequisites) as diretrizes de integração.
+> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. [Siga](../azure-monitor/vm/service-map-scom.md#prerequisites) as diretrizes de integração.
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Para cada computador que você deseja analisar com a visualização de dependência, na coluna **dependências** , clique em **requer instalação do agente**.
@@ -85,9 +85,9 @@ Para instalar o agente em uma máquina com Windows:
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
 Você pode instalar o agente da linha de comando ou usando um método automatizado, como Configuration Manager ou [Intigua](https://www.intigua.com/intigua-for-azure-migration).
-- [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-options) sobre como usar esses métodos para instalar o agente do MMA.
+- [Saiba mais](../azure-monitor/agents/log-analytics-agent.md#installation-options) sobre como usar esses métodos para instalar o agente do MMA.
 - O agente MMA também pode ser instalado usando esse [script](https://github.com/brianbar-MSFT/Install-MMA).
-- [Saiba mais](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre os sistemas operacionais Windows com suporte do MMA.
+- [Saiba mais](../azure-monitor/agents/agents-overview.md#supported-operating-systems) sobre os sistemas operacionais Windows com suporte do MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instalar o MMA em um computador Linux
 
@@ -98,7 +98,7 @@ Para instalar o MMA em um computador Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Saiba mais](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA. 
+[Saiba mais](../azure-monitor/agents/agents-overview.md#supported-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Instalar o Agente de dependência
 
@@ -107,8 +107,8 @@ Para instalar o MMA em um computador Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sobre como você pode usar scripts para instalar o Dependency agent.
-- [Saiba mais](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) sobre os sistemas operacionais com suporte do Dependency Agent.
+- [Saiba mais](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) sobre como você pode usar scripts para instalar o Dependency agent.
+- [Saiba mais](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) sobre os sistemas operacionais com suporte do Dependency Agent.
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>Criar um grupo usando a visualização de dependência
@@ -149,8 +149,8 @@ Depois de criar o grupo, recomendamos que você instale agentes em todos os comp
 
 Você pode consultar dados de dependência capturados por Mapa do Serviço no espaço de trabalho Log Analytics associado ao projeto de migrações para Azure. Log Analytics é usado para gravar e executar Azure Monitor consultas de log.
 
-- [Saiba como](../azure-monitor/insights/service-map.md#log-analytics-records) procurar mapa do serviço dados no log Analytics.
-- [Obtenha uma visão geral](../azure-monitor/log-query/get-started-queries.md)  da gravação de consultas de log no [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- [Saiba como](../azure-monitor/vm/service-map.md#log-analytics-records) procurar mapa do serviço dados no log Analytics.
+- [Obtenha uma visão geral](../azure-monitor/logs/get-started-queries.md)  da gravação de consultas de log no [log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Execute uma consulta para dados de dependência da seguinte maneira:
 
@@ -165,8 +165,8 @@ Execute uma consulta para dados de dependência da seguinte maneira:
 Aqui estão algumas consultas de exemplo que você pode usar para extrair dados de dependência.
 
 - Você pode modificar as consultas para extrair seus pontos de dados preferenciais.
-- [Examine](../azure-monitor/insights/service-map.md#log-analytics-records) uma lista completa de registros de dados de dependência.
-- [Examine](../azure-monitor/insights/service-map.md#sample-log-searches) as consultas de exemplo adicionais.
+- [Examine](../azure-monitor/vm/service-map.md#log-analytics-records) uma lista completa de registros de dados de dependência.
+- [Examine](../azure-monitor/vm/service-map.md#sample-log-searches) as consultas de exemplo adicionais.
 
 #### <a name="sample-review-inbound-connections"></a>Exemplo: revisar conexões de entrada
 
@@ -174,7 +174,7 @@ Examine as conexões de entrada para um conjunto de VMs.
 
 - Os registros na tabela para métricas de conexão (VMConnection) não representam conexões de rede física individuais.
 - Várias conexões de rede física são agrupadas em uma conexão lógica.
-- [Saiba mais](../azure-monitor/insights/service-map.md#connections) sobre como os dados de conexão de rede física são agregados no VMConnection.
+- [Saiba mais](../azure-monitor/vm/service-map.md#connections) sobre como os dados de conexão de rede física são agregados no VMConnection.
 
 ```
 // the machines of interest

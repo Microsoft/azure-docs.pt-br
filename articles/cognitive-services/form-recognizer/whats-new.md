@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581254"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703381"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -91,7 +91,7 @@ o **v 2.0** inclui a seguinte atualização:
 * **Suporte a moeda** – detecção e extração de símbolos de moeda global.
 * O reconhecimento de formulários **do Azure gov** agora também está disponível no Azure gov.
 * **Recursos de segurança aprimorados**: 
-   * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente, também conhecidas como BYOK (traga sua própria chave)](./form-recognizer-encryption-of-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
+   * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente, também conhecidas como BYOK (traga sua própria chave)](./encrypt-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
    * **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado.](../../private-link/private-link-overview.md)
 
 
@@ -123,7 +123,7 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="security-improvements"></a>Aprimoramentos de segurança
 
-* Customer-Managed chaves agora estão disponíveis para FormRecognizer. Para obter mais informações, consulte [criptografia de dados em repouso para o reconhecedor de formulário](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed chaves agora estão disponíveis para FormRecognizer. Para obter mais informações, consulte [criptografia de dados em repouso para o reconhecedor de formulário](./encrypt-data-at-rest.md).
 * Use identidades gerenciadas para acessar recursos do Azure com Azure Active Directory. Para obter mais informações, consulte [autorizar o acesso a identidades gerenciadas](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Março de 2020 
@@ -148,7 +148,7 @@ o **v 2.0** inclui a seguinte atualização:
   A imagem a seguir é um exemplo de como as tabelas são reconhecidas e extraídas:
 
   > [!div class="mx-imgBorder"]
-  > ![Visualização de tabela usando a ferramenta de rótulo de exemplo](./media/whats-new/formre-table-viz.png)
+  > ![Visualização de tabela usando a ferramenta de rótulo de exemplo](./media/whats-new/table-viz.png)
 
     As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"` .
 
@@ -209,7 +209,7 @@ As respostas JSON para todas as chamadas de API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um guia de [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o reconhecedor de formulário na linguagem de desenvolvimento de sua escolha.
+Conclua um [guia de início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários na linguagem de desenvolvimento de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 

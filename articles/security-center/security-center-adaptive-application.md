@@ -1,24 +1,18 @@
 ---
 title: Controles de aplicativo adaptáveis na Central de Segurança do Azure
 description: Este documento ajuda você a usar o controle de aplicativo adaptável na central de segurança do Azure para permitir que aplicativos de lista em execução em computadores do Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: de5c5fbb6673d022517bba2486ed4aa1f739d19b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834384"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439571"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -193,6 +187,12 @@ Para corrigir os problemas:
 
 1. Para obter mais detalhes e a lista de computadores afetados, selecione um alerta.
 
+    A página alertas mostra mais detalhes dos alertas e fornece um link **executar ação** com recomendações de como mitigar a ameaça.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="A hora de início dos alertas de controles de aplicativo adaptáveis é a ":::
+
+    > [!NOTE]
+    > Os controles de aplicativo adaptáveis calculam eventos uma vez a cada doze horas. A "hora de início da atividade" mostrada na página alertas é a hora em que os controles de aplicativo adaptáveis criaram o alerta, **não** a hora em que o processo suspeito estava ativo.
 
 
 ## <a name="move-a-machine-from-one-group-to-another"></a>Mover um computador de um grupo para outro
@@ -219,7 +219,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 Para gerenciar seus controles de aplicativo adaptáveis de forma programática, use nossa API REST. 
 
-A documentação completa da API está [aqui](/rest/api/securitycenter/adaptiveapplicationcontrols).
+A documentação de API relevante está disponível na [seção controles de aplicativo adaptáveis dos documentos de API da central de segurança](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Algumas das funções que estão disponíveis na API REST:
 

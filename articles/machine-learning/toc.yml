@@ -174,6 +174,8 @@
           href: security-baseline.md
         - name: Controles de segurança do Azure Policy
           href: ./security-controls-policy.md
+        - name: Criptografia de dados
+          href: concept-data-encryption.md
     - name: ML responsável
       items:
         - name: Visão geral do ML responsável
@@ -256,6 +258,8 @@
         - name: Usar modelo do Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Vincular ao workspace do Azure Synapse Analytics
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Criar e gerenciar recursos de computação
       items:
         - name: Instância de computação
@@ -278,8 +282,16 @@
         - name: Configurar ambientes de desenvolvimento
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Executar Jupyter Notebooks
-          href: how-to-run-jupyter-notebooks.md
+        - name: Configurar um ambiente de estúdio
+          items:
+            - name: Criar e gerenciar arquivos
+              href: how-to-manage-files.md
+              displayName: 'Jupyter, notebooks, clone, samples'
+            - name: Executar Jupyter Notebooks
+              href: how-to-run-jupyter-notebooks.md
+            - name: Usar um terminal
+              href: how-to-access-terminal.md
+              displayName: 'git, github, clone, kernel, package'
         - name: Configurar ambientes de software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
@@ -311,11 +323,14 @@
             - name: Criar conjuntos de dados com rótulos
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Obter dados
+        - name: Obter e preparar dados
           items:
             - name: Ingestão de dados com o Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Preparação de dados com o Azure Synapse
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps para ingestão de dados
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -327,6 +342,9 @@
             - name: Conectar ao armazenamento do Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: Acesso ao armazenamento com dados baseados em identidade
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: Obter dados de um armazenamento de dados (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -375,8 +393,8 @@
             - name: Habilitar logs
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Exibir logs
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: Exibir logs e métricas de execuções
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Visualizar execuções com o TensorBoard
               displayName: 'log, monitor, metrics'
@@ -438,6 +456,8 @@
           href: how-to-understand-automated-ml.md
         - name: Usar o modelo ONNX no aplicativo .NET
           href: how-to-use-automl-onnx-model-dotnet.md
+        - name: Solucionar problemas de ML automatizado
+          href: how-to-troubleshoot-auto-ml.md
     - name: Implantar e fornecer modelos
       items:
         - name: Onde e como implantar
@@ -521,6 +541,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implantar pipelines de ML (Python)
           href: how-to-deploy-pipelines.md
+        - name: Usar pools do Apache Spark do Azure Synapse em um pipeline de Machine Learning (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Disparar um pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (arrastar e soltar)
@@ -572,7 +594,7 @@
   items:
     - name: SDK do Python
       displayName: 'api, core, package, python, class'
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: SDK do R
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'

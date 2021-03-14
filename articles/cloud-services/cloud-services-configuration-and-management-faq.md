@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 31659f4e8e4f9e25a997be54223b8856edfa8abe
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742583"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612976"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento dos serviços de nuvem do Azure (clássico): perguntas frequentes (FAQs)
 
@@ -124,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true), você pode definir o valor de cada local.
+Capacidade de escolher o blob ou local para o seu csdef e de carregar localização de cscfg em breve. Usando [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment), você pode definir o valor de cada local.
 
 Capacidade de monitorar as métricas no nível de instância. Recursos de monitoramentos adicionais estão disponíveis em [como monitorar Serviços De Nuvem](cloud-services-how-to-monitor.md).
 
@@ -229,7 +229,7 @@ Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador ass
 1. Clique com o botão direito no arquivo RDP que você fez download e, em seguida, selecione **Editar**.
 2. Adicione "&#92;" como prefixo antes do nome de usuário. Por exemplo, use **.\nome de usuário** em vez de **nome de usuário**.
 
-## <a name="scaling"></a>Dimensionamento
+## <a name="scaling"></a>Scaling
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Não consigo dimensionar além de X instâncias
 Sua Assinatura do Azure tem um limite no número de núcleos que você pode usar. O dimensionamento não funcionará se você tiver usado todos os núcleos disponíveis. Por exemplo, se você tiver um limite de 100 núcleos, isso significa você poderia ter 100 instâncias de máquina virtual A1 dimensionadas para seu serviço de nuvem ou 50 instâncias de máquina virtual A2.
@@ -240,9 +240,9 @@ Atualmente, não há suporte para dimensionamento automático com base nas métr
 
 Para contornar esse problema, você pode usar o Application Insights. O dimensionamento automático oferece suporte ao Application Insights como uma fonte de métricas e pode dimensionar a contagem de instâncias de função com base na métrica de convidado como "Memória".  Você precisa configurar o Application Insights no seu arquivo de pacote do projeto de serviço de nuvem (*.cspkg) e habilitar a extensão de Diagnóstico do Microsoft Azure no serviço para implementar essa tarefa.
 
-Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático em serviços de nuvem, consulte [Introdução ao dimensionamento automático por uma métrica personalizada no Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático em serviços de nuvem, consulte [Introdução ao dimensionamento automático por uma métrica personalizada no Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](../azure-monitor/app/cloudservices.md)
 
@@ -293,7 +293,7 @@ As definições do diário são não configuráveis, assim, não é possível de
 É possível habilitar a extensão Antimalware usando o script do PowerShell na Tarefa de Inicialização. Siga as etapas nestes artigos para implementá-la: 
  
 - [Criar uma tarefa de inicialização do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension)
 
 Para obter mais informações sobre cenários de implantação do Antimalware e como habilitá-lo no portal, consulte [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios) (Cenários de implantação de Antimalware).
 

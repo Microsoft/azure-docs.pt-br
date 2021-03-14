@@ -3,14 +3,16 @@ title: Solucionar problemas do Hybrid Runbook Worker da Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem com os Hybrid Runbook Workers da Automação do Azure.
 services: automation
 ms.subservice: ''
-ms.date: 11/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055324"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580992"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -26,9 +28,7 @@ O operador de Runbook híbrido depende de um agente para se comunicar com sua co
 
 A execução do runbook falha e você recebe a seguinte mensagem de erro:
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 Seu runbook será suspenso logo depois de tentar executar três vezes. Existem condições que podem interromper a conclusão do runbook. A mensagem de erro relacionada pode não incluir nenhuma informação adicional.
 
@@ -56,13 +56,12 @@ Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondent
 
 O Hybrid Runbook Worker recebe o evento 15011, indicando que um resultado da consulta não é válido. O erro a seguir é exibido quando o trabalho tenta abrir uma conexão com o [servidor SignalR](/aspnet/core/signalr/introduction).
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>Causa
 
@@ -96,14 +95,13 @@ Inicie o computador de trabalho e, em seguida, registre-o novamente com a Automa
 
 Um runbook em execução em um Hybrid Runbook Worker falha com a seguinte mensagem de erro:
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>Causa
 
 Esse erro ocorre quando você tenta usar uma [conta Executar como](../automation-security-overview.md#run-as-accounts) em um runbook que é executado em um Hybrid Runbook Worker, em que o certificado da conta Executar como não está presente. Os Hybrid Runbook Workers não têm o ativo de certificado localmente por padrão. A conta Executar como requer que este ativo funcione corretamente.
@@ -118,9 +116,7 @@ Se seu Hybrid Runbook Worker for uma VM do Azure, você poderá usar a [autentic
 
 A fase de registro inicial do trabalho falha e você recebe o seguinte erro (403):
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>Causa
 
@@ -132,7 +128,7 @@ Os problemas a seguir são as possíveis causas:
 #### <a name="resolution"></a>Resolução
 
 ##### <a name="mistyped-workspace-id-or-key"></a>ID ou chave do workspace digitada incorretamente
-Para verificar se a ID do workspace do agente ou a chave do workspace foi digitada incorretamente, consulte [Adicionar ou remover um workspace – agente do Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) para o agente do Windows ou [Adicionar ou remover um espaço de trabalho – agente do Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para o agente do Linux. Certifique-se de selecionar a cadeia de caracteres completa do portal do Azure, em seguida, copie e cole-a com cuidado.
+Para verificar se a ID do workspace do agente ou a chave do workspace foi digitada incorretamente, consulte [Adicionar ou remover um workspace – agente do Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) para o agente do Windows ou [Adicionar ou remover um espaço de trabalho – agente do Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) para o agente do Linux. Certifique-se de selecionar a cadeia de caracteres completa do portal do Azure, em seguida, copie e cole-a com cuidado.
 
 ##### <a name="configuration-not-downloaded"></a>Configuração não baixada
 
@@ -140,9 +136,40 @@ Seu espaço de trabalho do Log Analytics e a conta de Automação devem estar em
 
 Você também poderá precisar atualizar a data ou o fuso horário do seu computador. Se você selecionar um intervalo de tempo personalizado, verifique se ele está em UTC, o que pode ser diferente do seu fuso horário local.
 
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Cenário: o Set-AzStorageBlobContent falha em um Hybrid Runbook Worker 
+
+#### <a name="issue"></a>Problema
+
+O runbook falha quando tenta executar `Set-AzStorageBlobContent` , e você recebe a seguinte mensagem de erro:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>Causa
+
+ Esse erro é causado pelo comportamento de nome de arquivo longo de chamadas às `[System.IO.Path]::GetFullPath()` quais o adiciona caminhos UNC.
+
+#### <a name="resolution"></a>Resolução
+
+Como alternativa, você pode criar um arquivo de configuração chamado `OrchestratorSandbox.exe.config` com o seguinte conteúdo:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Coloque esse arquivo na mesma pasta que o arquivo executável `OrchestratorSandbox.exe` . Por exemplo,
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> Se você atualizar o agente, esse arquivo de configuração será excluído e precisará ser recriado.
+
 ## <a name="linux"></a>Linux
 
-O Hybrid Runbook Worker do Linux depende do [Agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) para se comunicar com sua conta de Automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro.
+O Hybrid Runbook Worker do Linux depende do [Agente do Log Analytics para Linux](../../azure-monitor/agents/log-analytics-agent.md) para se comunicar com sua conta de Automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro.
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Cenário: O Linux Hybrid Runbook Worker recebe uma solicitação de senha ao assinar um runbook
 
@@ -192,13 +219,13 @@ Se o agente não estiver em execução, execute o comando a seguir para iniciar 
 
 Se você vir a mensagem de erro `The specified class does not exist..` em **/var/opt/Microsoft/omsconfig/omsconfig.log**, o agente do Log Analytics para Linux precisará ser atualizado. Execute o comando a seguir para reinstalar o agente.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
 ## <a name="windows"></a>Windows
 
-O Hybrid Runbook Worker do Windows depende do [Agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) para se comunicar com sua conta de Automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalho falhar, esta seção incluirá alguns motivos possíveis.
+O Hybrid Runbook Worker do Windows depende do [Agente do Log Analytics para Windows](../../azure-monitor/agents/log-analytics-agent.md) para se comunicar com sua conta de Automação para registrar o trabalho, receber trabalhos de runbook e relatar o status. Se o registro do trabalho falhar, esta seção incluirá alguns motivos possíveis.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Cenário: O agente do Log Analytics para Windows não está em execução
 
@@ -226,7 +253,7 @@ Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueand
 
 #### <a name="resolution"></a>Resolução
 
-Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Você pode verificar se há algum evento de aviso ou de erro nos logs de eventos **Application and Services Logs\Microsoft-SMA\Operations** e **Application and Services logs Manager**. Esses logs indicam uma conectividade ou outro tipo de problema que afeta a habilitação da função para a Automação do Azure ou um problema encontrado em operações normais. Para obter ajuda adicional sobre como solucionar problemas com o agente do Log Analytics, consulte [Solucionar problemas com o agente Windows do Log Analytics](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Você pode verificar se há algum evento de aviso ou de erro nos logs de eventos **Application and Services Logs\Microsoft-SMA\Operations** e **Application and Services logs Manager**. Esses logs indicam uma conectividade ou outro tipo de problema que afeta a habilitação da função para a Automação do Azure ou um problema encontrado em operações normais. Para obter ajuda adicional sobre como solucionar problemas com o agente do Log Analytics, consulte [Solucionar problemas com o agente Windows do Log Analytics](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Os Hybrid Workers enviam [saída de runbook e mensagens](../automation-runbook-output-and-messages.md) para a Automação do Azure da mesma forma que os trabalhos de runbook em execução na nuvem enviam a saída e as mensagens. Você pode habilitar os fluxos Detalhado e de Progresso da mesma forma como faz para os runbooks.
 
@@ -267,8 +294,7 @@ Seu computador do Hybrid Runbook Worker está em execução, mas você não ver�
 
 A consulta de exemplo a seguir mostra as máquinas em um workspace e sua última pulsação:
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -295,9 +321,7 @@ Start-Service -Name HealthService
 
 Você recebe a seguinte mensagem ao tentar adicionar um Hybrid Runbook Worker usando o cmdlet `Add-HybridRunbookWorker`:
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>Causa
 
@@ -315,15 +339,11 @@ Para resolver esse problema, remova a seguinte chave do registro, reinicie `Heal
 
 Você recebe a seguinte mensagem ao tentar adicionar um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script Python:
 
-```error
-Unable to register, an existing worker was found. Please deregister any existing worker and try again.
-```
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
 Além disso, tentar cancelar o registro de um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
 
-```error
-Failed to deregister worker. [response_status=404]
-```
+`Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>Causa
 

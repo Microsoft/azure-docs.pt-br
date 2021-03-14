@@ -1,5 +1,5 @@
 ---
-title: Fontes de dados e tipos de arquivo com suporte
+title: Fontes de dados e tipos de arquivo compatíveis
 description: Este artigo fornece detalhes conceituais sobre as fontes de dados e tipos de arquivo com suporte no alcance.
 author: viseshag
 ms.author: viseshag
@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576665"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677927"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Fontes de dados e tipos de arquivo com suporte no Azure alcance
 
@@ -42,9 +43,12 @@ O Azure alcance dá suporte às seguintes fontes:
 
 Os seguintes tipos de arquivo têm suporte para verificação, para extração de esquema e classificação, quando aplicável:
 
-- Formatos de arquivo estruturados com suporte pela extensão: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Formatos de arquivo estruturados com suporte pela extensão: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Formatos de arquivo de documento com suporte pela extensão: DOC, DOCM, DOCX, ponto, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - O alcance também dá suporte a extensões de arquivo personalizadas e analisadores personalizados.
+ 
+> [!Note]
+> Todo arquivo gzip deve ser mapeado para um único arquivo CSV no. Os arquivos gzip estão sujeitos às regras de classificação personalizada e do sistema. No momento, não há suporte para a verificação de um arquivo gzip mapeado para vários arquivos no ou qualquer tipo de arquivo diferente de CSV. 
 
 ## <a name="sampling-within-a-file"></a>Amostragem dentro de um arquivo
 
@@ -71,7 +75,29 @@ Amostragem de arquivo para conjuntos de recursos por tipos de arquivo:
 - **Objetos SQL e entidades CosmosDB** -cada arquivo é examinado em L3.
 - **Tipos de arquivo de documento** -cada arquivo é examinado em L3. Padrões de conjunto de recursos não se aplicam a esses tipos de arquivo.
 
-## <a name="classification"></a>classificação
+## <a name="scan-regions"></a>Verificar regiões
+A seguir está uma lista de todas as regiões da fonte de dados do Azure (data center) em que o scanner alcance é executado. Se sua fonte de dados do Azure estiver em uma região fora dessa lista, o verificador será executado na região de sua instância do alcance.
+ 
+### <a name="purview-scanner-regions"></a>Regiões do scanner alcance
+
+- Leste dos EUA
+- EastUs2 
+- SouthCentralUS
+- Oeste dos EUA
+- WestUs2
+- SoutheastAsia
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- Canadá Central
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
+
+## <a name="classification"></a>Classificação
 
 Todas as regras de classificação do sistema 105 se aplicam a formatos de arquivo estruturados. Somente as regras de classificação do MCE se aplicam aos tipos de arquivo de documento (não os padrões de Regex nativos de verificação de dados, a detecção baseada em filtro de flor). Para obter mais informações sobre as classificações com suporte, consulte [classificações com suporte no Azure alcance](supported-classifications.md).
 

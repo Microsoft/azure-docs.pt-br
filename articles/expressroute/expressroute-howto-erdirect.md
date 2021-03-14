@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 964af92006aad7b5ce8bdf25a332cbcf9c7ef144
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f54c22a0c2f7bf89d790dbd33f748446a871d224
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014511"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099940"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -20,12 +20,21 @@ O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede gl
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se registrar, faça o seguinte por meio de Azure PowerShell:
+1.  Entre no Azure e selecione a assinatura que você deseja registrar.
 
-* Cenários que você pretende para realizar com o **ExpressRoute Direct**
-* Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
-* Linha do tempo para implementação
-* Tem mais perguntas?
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registre sua assinatura para visualização pública usando o seguinte comando:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Depois de registrado, verifique se o provedor de recursos **Microsoft. Network** está registrado em sua assinatura. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 

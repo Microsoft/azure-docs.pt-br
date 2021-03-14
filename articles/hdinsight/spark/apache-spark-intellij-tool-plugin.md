@@ -4,13 +4,13 @@ description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolve
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/13/2020
-ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 04/14/2020
+ms.openlocfilehash: ced066623d23c6894745374ace812454c52f3109
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931043"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420010"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight
 

@@ -3,17 +3,18 @@ title: Azure Disk Encryption com o Azure AD para VMs do Windows (versão anterio
 description: Este artigo fornece instruções sobre como habilitar as VMs da IaaS do Microsoft Azure Disk Encryption para Windows.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742427"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102555270"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption com o Azure AD para VMs do Windows (versão anterior)
 
@@ -31,7 +32,7 @@ Você pode habilitar muitos cenários de criptografia de disco, e as etapas pode
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Habilitar criptografia em novas VMs da IaaS criadas a partir do Marketplace
 É possível habilitar criptografia de disco na nova VM do Windows da IaaS a partir do Marketplace no Azure usando um modelo do Resource Manager. O modelo cria uma nova VM criptografada do Windows usando a imagem da galeria do Windows Server 2012.
 
-1. No [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image), cliquem em **Implantar no Azure** .
+1. No [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image), cliquem em **Implantar no Azure**.
 
 2. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, os parâmetros, os termos legais e o contrato. Clique em **Comprar** para implantar uma nova VM da IaaS onde a criptografia está habilitada.
 
@@ -48,7 +49,7 @@ Você pode habilitar muitos cenários de criptografia de disco, e as etapas pode
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  Selecione a VM e, em seguida, clique em **Discos** sob o cabeçalho **Configurações** para verificar o status da criptografia no portal. No gráfico em **Criptografia** , você verá se ela está habilitada. 
+     -  Selecione a VM e, em seguida, clique em **Discos** sob o cabeçalho **Configurações** para verificar o status da criptografia no portal. No gráfico em **Criptografia**, você verá se ela está habilitada. 
            ![Criptografia de disco portal do Azure habilitada](../media/disk-encryption/disk-encryption-fig2.png)
 
 A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos para novas VMs do cenário do Marketplace usando a ID de cliente do Azure AD:
@@ -156,7 +157,7 @@ Use o comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryptio
 É possível habilitar a criptografia de disco em VMs do Windows da IaaS em execução ou existentes no Azure usando o [modelo do Resource Manager para criptografar uma VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
-1. No modelo de início rápido do Azure, clique em **Implantar no Azure** .
+1. No modelo de início rápido do Azure, clique em **Implantar no Azure**.
 
 2. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, os parâmetros, os termos legais e o contrato. Clique em **Comprar** para habilitar a criptografia na VM da IaaS em execução ou existente.
 
@@ -167,8 +168,8 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos exis
 | AADClientID | ID do cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre de chaves. |
 | AADClientSecret | Segredo do cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre de chaves. |
 | keyVaultName | Nome do cofre de chaves no qual a chave do BitLocker deve ser carregada. É possível obtê-lo, usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando `az keyvault list --resource-group "MySecureGroup"` da CLI do Azure|
-|  keyEncryptionKeyURL | URL da chave de criptografia de chaves que é usada para criptografar a chave gerada do BitLocker. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_ . |
-| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_ , _Data_ e _All_ . |
+|  keyEncryptionKeyURL | URL da chave de criptografia de chaves que é usada para criptografar a chave gerada do BitLocker. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_. |
+| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_, _Data_ e _All_. |
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão sempre que uma operação de criptografia de disco for executada na mesma VM. |
 | vmName | Nome da VM em que a operação de criptografia deve ser executada. |
 

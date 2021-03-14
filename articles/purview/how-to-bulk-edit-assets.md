@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372072"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049468"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Como editar ativos em massa para marcar os termos do glossário
 
@@ -63,11 +63,15 @@ Este artigo descreve como marcar vários termos de glossário em uma lista de at
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Captura de tela dos termos de remoção.":::
 
-7. Depois de concluir, feche a folha de edição em massa selecionando **fechar** ou **remover tudo e fechar**. Fechar não removerá os ativos selecionados, enquanto remover tudo e fechar removerá todos os ativos selecionados.
+7. Repita o procedimento acima para classificações, proprietários e especialistas.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Captura de tela das classificações e dos contatos.":::
+
+8. Depois de concluir, feche a folha de edição em massa selecionando **fechar** ou **remover tudo e fechar**. Fechar não removerá os ativos selecionados, enquanto remover tudo e fechar removerá todos os ativos selecionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Captura de tela do fechamento.":::
 
    > [!Important]
-   > O número recomendado de ativos para edição em massa é 15. A seleção de mais de 15 pode causar problemas de desempenho.
+   > O número recomendado de ativos para edição em massa é 25. A seleção de mais de 25 pode causar problemas de desempenho.
    > A caixa **Exibir selecionado** ficará visível somente se houver pelo menos um ativo selecionado.
 
 

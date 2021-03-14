@@ -4,13 +4,13 @@ description: Este artigo descreve a integração com parceiros de sensor.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: v-ummehabiba
+ms.openlocfilehash: 8d1b8203fa50609daf59431c2cfecba68eba52b1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001585"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179741"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
@@ -131,7 +131,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, seja analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
 - /**Sensor**: Sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
 
-  DeviceModel | Description |
+  DeviceModel | Descrição |
   --- | ---
   Tipo (nó, gateway)  | Tipo de dispositivo: nó ou gateway |
   Fabricante  | Nome do fabricante |

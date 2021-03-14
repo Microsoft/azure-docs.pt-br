@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953692"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705391"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Mudanças de terminologia e de entidade entre os serviços de mídia V2 e v3
 
@@ -73,7 +73,7 @@ Examine as convenções de nomenclatura que são aplicadas aos recursos dos serv
 | **Codificação** <!--new row --> |||
 | Taxas de bits de codificação <!--new row --> | taxas de bits medidas em Kbps, por exemplo: 128 (Kbps)| bits por segundo ex: 128000 (bits/segundo)|
 | Codificando FairPlay DRM <!--new row --> | Nos serviços de mídia v2, o vetor de inicialização (IV) pode ser especificado. | Nos serviços de mídia v3, o FairPlay IV não pode ser especificado.|
-| Codificador Premium <!--new row --> | Codificador Premium e indexador herdado| O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) e os [processadores de análise de mídia](https://docs.microsoft.com/azure/media-services/previous/legacy-components) herdados (visualização do indexador do Azure Media Services 2, edição facial etc.) não estão acessíveis por meio de v3. Adicionamos suporte para o mapeamento de canal de áudio para o codificador Standard.  Consulte [áudio na documentação do Swagger de codificação dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consulte os tópicos de codificação na [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Codificador Premium <!--new row --> | Codificador Premium e indexador herdado| O [codificador Premium](../previous/media-services-encode-asset.md) e os [processadores de análise de mídia](../previous/legacy-components.md) herdados (visualização do indexador do Azure Media Services 2, edição facial etc.) não estão acessíveis por meio de v3. Adicionamos suporte para o mapeamento de canal de áudio para o codificador Standard.  Consulte [áudio na documentação do Swagger de codificação dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consulte os tópicos de codificação na [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transformações e trabalhos** <!--new row -->|||
 | HTTPS de processamento baseado em trabalho <!--new row --> |<!-- empty -->| Para o processamento de trabalho baseado em arquivo, você pode usar uma URL HTTPS como entrada. Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar ativos. |
 | Modelos de ARM para trabalhos <!--new row --> | Os modelos de ARM não existiam na v2. | Uma transformação pode ser usada para compilar configurações reutilizáveis, criar Azure Resource Manager modelos e isolar configurações de processamento entre vários clientes ou locatários. |

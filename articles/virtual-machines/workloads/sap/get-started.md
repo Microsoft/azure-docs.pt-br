@@ -1,7 +1,8 @@
 ---
 title: Introdução às VMs SAP no Azure | Microsoft Docs
 description: Aprenda mais sobre soluções SAP que são executadas em VMs (máquinas virtuais) no Microsoft Azure
-services: virtual-machines-linux
+services: virtual-machines-sap
+ms.service: virtual-machines-sap
 documentationcenter: ''
 author: msjuergent
 manager: bburns
@@ -9,20 +10,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
-ms.service: virtual-machines-linux
-ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.date: 03/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549381"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038621"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -84,6 +83,8 @@ Nesta seção, você encontrará documentos sobre a integração do Microsoft Po
 
 ## <a name="change-log"></a>Log de Alterações
 
+- 03/03/2021: alteração no [Guia de ha para SAP ASCS/SCS com WSFC e Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para adicionar uma instrução preventiva que privilégios elevados são necessários para o usuário que está executando o SWPM, durante a instalação do sistema SAP
+- 02/11/2021: alterações na [alta disponibilidade do IBM DB2 LUW em VMs do Azure no Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) para corrigir comandos de cluster pacemaker para RHEL 8. x
 - 02/03/2021: alteração na [configuração de pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para atualizar pcmk_host_map no comando stonith Create
 - 02/03/2021: alteração na [configuração de pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) para adicionar pcmk_host_map no comando stonith Create 
 - 02/03/2021: mais detalhes sobre as configurações do Agendador de e/s para o SUSE no artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md)

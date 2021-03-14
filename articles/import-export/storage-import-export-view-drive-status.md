@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706169"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176120"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
 
 Este artigo fornece informações sobre como exibir o status da unidade e do trabalho para trabalhos de Importação/Exportação do Azure. O serviço de importação/exportação do Azure é usado para transferir grandes quantidades de dados com segurança para Blobs do Azure e Arquivos do Azure. O serviço também é usado para exportar dados de armazenamento de Blobs do Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Exibir o status do trabalho e da unidade
-Você pode acompanhar o status de seus trabalhos de importação ou exportação do portal do Azure selecionando a guia **importar/exportar** . Uma lista de seus trabalhos é exibida na página.
+Você pode acompanhar o status de seus trabalhos de importação ou exportação na guia **importação/exportação** do portal do Azure.
+1. Faça logon em https://portal.azure.com/.
+2. Pesquise **trabalhos de importação/exportação**.
 
-![Exibir o estado do trabalho](./media/storage-import-export-service/jobstate.png)
+    ![Pesquisar em trabalhos de importação/exportação](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. Uma lista de seus trabalhos de importação/exportação aparece na página.
+
+    ![Exibir o estado do trabalho](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Selecione e clique em um trabalho para exibir os detalhes do trabalho.
+
+   ![Exibir status detalhado do trabalho](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Exibir status do trabalho
 
 Você verá um dos seguintes status de trabalho, dependendo de onde a unidade está no processo.
@@ -36,7 +47,7 @@ Você verá um dos seguintes status de trabalho, dependendo de onde a unidade es
 | Transferindo | Após pelo menos uma unidade começar o processamento, o estado do trabalho será definido como **Transferindo**. Para obter mais informações, consulte [Estados de unidade](#view-drive-status). |
 | Empacotamento | Depois que todas as unidades tiverem concluído o processamento, o trabalho será colocado no estado **Empacotamento** até que as unidades sejam enviadas de volta para você. |
 | Concluído | Depois que todas as unidades forem enviadas de volta para você, se o trabalho tiver sido concluído sem erros, ele será definido como **Concluído**. O trabalho será excluído automaticamente após 90 dias no estado **Concluído**. |
-| Fechadas | Depois que todas as unidades forem enviadas de volta para você, se houver erros durante o processamento do trabalho, o trabalho será definido como **fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
+| Fechado | Depois que todas as unidades forem enviadas de volta para você, se houver erros durante o processamento do trabalho, o trabalho será definido como **fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
 
 ## <a name="view-drive-status"></a>Exibir status da unidade
 
@@ -56,7 +67,7 @@ A tabela a seguir descreve cada estado pelo qual cada unidade em um trabalho pod
 
 Essa imagem no Portal do Azure exibe o estado da unidade de um trabalho de exemplo:
 
-![Exibir estado da unidade](./media/storage-import-export-service/drivestate.png)
+![Exibir estado da unidade](./media/storage-import-export-view-drive-status/drive-state.png)
 
 A tabela a seguir descreve os estados de falha de unidade e as ações executadas para cada estado.
 

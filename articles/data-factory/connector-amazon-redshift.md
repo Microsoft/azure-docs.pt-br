@@ -1,21 +1,17 @@
 ---
 title: Copiar dados do Amazon redshift
 description: Saiba mais sobre como copiar dados do Amazon Redshift para armazenamentos de dados de coletor com suporte por meio do Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008309"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364249"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -221,14 +217,14 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | bigint |Int64 |
 | BOOLEAN |String |
 | CHAR |String |
-| DATE |DateTime |
+| DATE |Datetime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
-| real |Single |
+| real |Único |
 | SMALLINT |Int16 |
 | TEXT |String |
-| timestamp |DateTime |
+| timestamp |Datetime |
 | VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade

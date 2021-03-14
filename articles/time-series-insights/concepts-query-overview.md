@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736744"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374126"
 ---
-# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultando dados do Azure Time Series Insights Gen2
+# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultando dados de Azure Time Series Insights Gen2
 
 Azure Time Series Insights Gen2 permite consultar dados em eventos e metadados armazenados no ambiente por meio de APIs de superfície pública. Essas APIs também são usadas pelo [Azure Time Series insights Explorer TSI](./concepts-ux-panels.md).
 
@@ -54,13 +54,12 @@ A maioria dessas APIs dá suporte à operação de execução em lote para habil
 
 ## <a name="time-series-query-tsq-apis"></a>APIs TSQ (consulta de série temporal)
 
-Essas APIs estão disponíveis em ambas as lojas (passivas e frias) em nossa solução de armazenamento em várias camadas. Os parâmetros de URL de consulta são usados para especificar o [tipo de repositório](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) em que a consulta deve ser executada:
+Essas APIs estão disponíveis em ambas as lojas (passivas e frias) em nossa solução de armazenamento em várias camadas. 
 
 * [API de obtenção de eventos](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): habilita a consulta e a recuperação de eventos brutos e os carimbos de data/hora do evento associado, pois eles são registrados em Azure Time Series insights Gen2 do provedor de origem. Essa API permite a recuperação de eventos brutos para uma determinada ID de série temporal e intervalo de pesquisa. Essa API dá suporte à paginação para recuperar o conjunto de dados de resposta completo para a entrada selecionada.
 
   > [!IMPORTANT]
-
-  > * Como parte das [alterações futuras nas regras de saída e mesclagem JSON](./ingestion-rules-update.md), as matrizes serão armazenadas como um tipo **dinâmico** . As propriedades de carga armazenadas como esse tipo **só podem ser acessadas por meio da API Get Events**.
+  > Como parte das [alterações futuras nas regras de saída e mesclagem JSON](./ingestion-rules-update.md), as matrizes serão armazenadas como um tipo **dinâmico** . As propriedades de carga armazenadas como esse tipo **só podem ser acessadas por meio da API Get Events**.
 
 * [Obter a API da série](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): habilita a consulta e a recuperação de valores computados e os carimbos de data/hora do evento associado aplicando cálculos definidos por variáveis em eventos brutos. Essas variáveis podem ser definidas no modelo de série temporal ou fornecidas embutidas na consulta. Essa API dá suporte à paginação para recuperar o conjunto de dados de resposta completo para a entrada selecionada.
 
@@ -69,6 +68,16 @@ Essas APIs estão disponíveis em ambas as lojas (passivas e frias) em nossa sol
   Para um intervalo de pesquisa e intervalos especificados, essa API retorna uma resposta agregada por intervalo por variável para uma ID de série temporal. O número de intervalos no conjunto de dado de resposta é calculado por meio da contagem de tiques de época (o número de milissegundos decorridos desde a época do UNIX – 1º de janeiro de 1970) e a divisão dos tiques pelo tamanho de span de intervalo especificado na consulta.
 
   Os carimbos de data/hora retornados no conjunto de respostas são dos limites do intervalo esquerdo, não dos eventos de amostra do intervalo.
+
+
+### <a name="selecting-store-type"></a>Selecionando o tipo de repositório
+
+As APIs acima só podem ser executadas em um dos dois tipos de armazenamento (frio ou quente) em uma única chamada. Os parâmetros de URL de consulta são usados para especificar o [tipo de repositório](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) no qual a consulta deve ser executada. 
+
+Se nenhum parâmetro for especificado, a consulta será executada no Cold Store, por padrão. Se uma consulta abranger um intervalo de tempo sobrepondo uma loja fria e passiva, é recomendável rotear a consulta para o armazenamento frio para obter a melhor experiência, uma vez que a loja a quente conterá apenas dados parciais. 
+
+O [Azure Time Series insights Explorer](./concepts-ux-panels.md) e o [conector do Power bi](./how-to-connect-power-bi.md) fazem chamadas para as APIs acima e selecionarão automaticamente o parâmetro storetype correto, quando relevante. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

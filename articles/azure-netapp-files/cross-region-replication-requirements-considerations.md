@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579346"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para usar a replicação entre regiões 
 
@@ -29,7 +29,7 @@ Observe os seguintes requisitos e considerações sobre [o uso da funcionalidade
 
 * O recurso de replicação entre regiões está atualmente em visualização pública. Você precisa enviar uma solicitação Waitlist para acessar o recurso por meio da [página de envio de espera de replicação entre regiões Azure NetApp files](https://aka.ms/anfcrrpreviewsignup). Aguarde um email de confirmação oficial da equipe de Azure NetApp Files antes de usar o recurso de replicação entre regiões.
 * Azure NetApp Files replicação só está disponível em determinados pares de regiões fixas. Consulte [pares de regiões com suporte](cross-region-replication-introduction.md#supported-region-pairs). 
-* Os volumes SMB têm suporte junto com volumes NFS. A replicação de volumes SMB requer uma conexão Active Directory nas contas do NetApp de origem e de destino. A conexão do AD de destino deve ter acesso aos servidores DNS ou ao adicionar controladores de domínio que podem ser acessados da sub-rede delegada na região de destino. Para obter mais informações, consulte [Requirements for Active Directory Connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Os volumes SMB têm suporte junto com volumes NFS. A replicação de volumes SMB requer uma conexão Active Directory nas contas do NetApp de origem e de destino. A conexão do AD de destino deve ter acesso aos servidores DNS ou ao adicionar controladores de domínio que podem ser acessados da sub-rede delegada na região de destino. Para obter mais informações, consulte [Requirements for Active Directory Connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * A conta de destino deve estar em uma região diferente da região do volume de origem. Você também pode selecionar uma conta existente do NetApp em uma região diferente.  
 * O volume de destino de replicação é somente leitura até que você faça [failover para a região de destino](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) para habilitar o volume de destino para leitura e gravação. 
 * Atualmente, a replicação do Azure NetApp Files não dá suporte a várias assinaturas; todas as replicações devem ser executadas em uma única assinatura.

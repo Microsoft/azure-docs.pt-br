@@ -1,0 +1,47 @@
+- name: Documentação do Servidor de Rota
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Servidor de Rota do Azure (versão prévia)?
+      href: overview.md
+- name: Inícios rápidos
+  items:
+    - name: Configurar um Servidor de Rota – Portal
+      href: quickstart-configure-route-server-portal.md
+    - name: Configurar um Servidor de Rota – PowerShell
+      href: quickstart-configure-route-server-powershell.md
+    - name: Configurar um Servidor de Rota – CLI
+      href: quickstart-configure-route-server-cli.md
+  expanded: true
+- name: Conceitos
+  items:
+    - name: Perguntas frequentes do Servidor de Rota
+      href: route-server-faq.md
+    - name: Suporte a VPN do Azure e ExpressRoute
+      href: expressroute-vpn-support.md
+- name: Guias de instruções
+  items:
+    - name: Solucionar problemas do Servidor de Rota
+      href: troubleshoot-route-server.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/#route
+    - name: CLI do Azure
+      href: /cli/azure/network/routeserver
+    - name: REST
+      href: /rest/api/virtualwan/virtualhubipconfiguration
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de Rede
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=routeserver'
+    - name: Contrato de Nível de Serviço
+      href: 'https://azure.microsoft.com/support/legal/sla/'

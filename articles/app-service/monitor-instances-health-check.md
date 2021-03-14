@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575221"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714469"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorar instâncias do serviço de aplicativo usando a verificação de integridade
 
 ![Falha na verificação de integridade][2]
 
-Este artigo usa a verificação de integridade no portal do Azure para monitorar instâncias do serviço de aplicativo. A verificação de integridade aumenta a disponibilidade do seu aplicativo removendo instâncias não íntegras. O [plano do serviço de aplicativo](/azure/app-service/overview-hosting-plans) deve ser dimensionado para duas ou mais instâncias para usar a verificação de integridade. O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
+Este artigo usa a verificação de integridade no portal do Azure para monitorar instâncias do serviço de aplicativo. A verificação de integridade aumenta a disponibilidade do seu aplicativo removendo instâncias não íntegras. O [plano do serviço de aplicativo](./overview-hosting-plans.md) deve ser dimensionado para duas ou mais instâncias para usar a verificação de integridade. O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
 
 ## <a name="what-app-service-does-with-health-checks"></a>O que o serviço de aplicativo faz com verificações de integridade
 
@@ -38,7 +38,7 @@ Este artigo usa a verificação de integridade no portal do Azure para monitorar
 - Para habilitar a verificação de integridade, navegue até a portal do Azure e selecione seu aplicativo do serviço de aplicativo.
 - Em **monitoramento**, selecione **verificação de integridade**.
 - Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` .
-- Clique em **Salvar**.
+- Clique em **Save** (Salvar).
 
 > [!CAUTION]
 > Alterações de configuração da verificação de integridade reinicie seu aplicativo. Para minimizar o impacto nos aplicativos de produção, é recomendável [Configurar slots de preparo](deploy-staging-slots.md) e alternar para produção.

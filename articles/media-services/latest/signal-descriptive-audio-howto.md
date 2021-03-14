@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954505"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630853"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Você pode adicionar uma faixa de narração ao seu vídeo para ajudar clientes com deficiência visual a seguir a gravação do vídeo ouvindo a narração. Nos serviços de mídia v3, você sinaliza faixas de áudio descritivas anotando a faixa de áudio no arquivo de manifesto.
+Você pode adicionar uma faixa de narração ao seu vídeo para ajudar os clientes com deficiência visual a seguirem a gravação de vídeo ouvindo a narração. Nos serviços de mídia v3, você sinaliza faixas de áudio descritivas anotando a faixa de áudio no arquivo de manifesto.
 
 Este artigo mostra como codificar um vídeo, carregar um arquivo MP4 somente de áudio (codec AAC) que contém áudio descritivo no ativo de saída e editar o arquivo. ISM para incluir o áudio descritivo.
 

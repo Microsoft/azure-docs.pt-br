@@ -3,16 +3,16 @@ title: Série Mv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Mv2.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b15fdc3826a72e9cfb039b6b2994179ab9565404
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427627"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102562513"
 ---
 # <a name="mv2-series"></a>Série Mv2
 

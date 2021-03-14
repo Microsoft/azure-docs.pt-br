@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053900"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586042"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -85,18 +85,18 @@ Um runbook requer [credenciais](shared-resources/credentials.md) apropriadas par
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-A automação do Azure usa [Azure monitor](../azure-monitor/overview.md) para monitorar suas operações de máquina. As operações exigem um espaço de trabalho Log Analytics e um [agente log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+A automação do Azure usa [Azure monitor](../azure-monitor/overview.md) para monitorar suas operações de máquina. As operações exigem um espaço de trabalho Log Analytics e um [agente log Analytics](../azure-monitor/agents/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente do Log Analytics para Windows
 
-O [agente do Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local.
+O [agente do Log Analytics para Windows](../azure-monitor/agents/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local.
 
 >[!NOTE]
 >O agente do Log Analytics para Windows era conhecido anteriormente como MMA (Microsoft Monitoring Agent).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente do Log Analytics para Linux
 
-O [agente do Log Analytics para Linux](../azure-monitor/platform/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário do **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
+O [agente do Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário do **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
 
 A conta de **nxautomation** com as permissões sudo correspondentes deve estar presente durante a [instalação de um Hybrid Runbook Worker do Linux](automation-linux-hrw-install.md). Se você tentar instalar o trabalho e a conta não estiver presente ou não tiver as permissões apropriadas, a instalação falhará.
 

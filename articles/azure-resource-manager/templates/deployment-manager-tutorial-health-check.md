@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058020"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626620"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure (versão prévia pública)
 
@@ -19,7 +19,7 @@ Saiba como integrar a verificação de integridade ao [Gerenciador de Implantaç
 No modelo de distribuição usado em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md), você usou uma etapa de espera. Neste tutorial, você substituirá a etapa de espera por uma etapa de verificação de integridade.
 
 > [!IMPORTANT]
-> Caso sua assinatura esteja marcada como Canário para testar novos recursos do Azure, você só poderá usar o Gerenciador de Implantação do Azure para implantação nas regiões do Canário. 
+> Caso sua assinatura esteja marcada como Canário para testar novos recursos do Azure, você só poderá usar o Gerenciador de Implantação do Azure para implantação nas regiões do Canário.
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -35,26 +35,23 @@ Este tutorial cobre as seguintes tarefas:
 
 Recursos adicionais:
 
-* A [referência à API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
+* a [referência da API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
 * [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
-
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisa do seguinte:
+Para concluir este tutorial, você precisará:
 
+* Assinatura do Azure. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Conclua [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
 ## <a name="install-the-artifacts"></a>Instalar os artefatos
 
-Baixe [os modelos e os artefatos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e descompacte-os localmente, se ainda não tiver feito isso. Em seguida, execute o script do PowerShell encontrado em [Preparar os artefatos](./deployment-manager-tutorial.md#prepare-the-artifacts). O script cria um grupo de recursos, cria um contêiner de armazenamento, cria um contêiner de blobs, faz upload dos arquivos baixados e, em seguida, cria um token SAS.
+Se você ainda não tiver baixado os exemplos usados no tutorial de pré-requisitos, poderá baixar [os modelos e os artefatos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) e descompactá-los localmente. Em seguida, execute o script do PowerShell na seção do tutorial de pré-requisitos [Preparar os artefatos](./deployment-manager-tutorial.md#prepare-the-artifacts). O script cria um grupo de recursos, cria um contêiner de armazenamento, cria um contêiner de blobs, faz upload dos arquivos baixados e cria um token SAS.
 
-Faça uma cópia da URL com o token SAS. Essa URL é necessária para preencher um campo em dois arquivos de parâmetro, arquivo de parâmetros da topologia e arquivo de parâmetros de distribuição.
-
-Abra CreateADMServiceTopology.Parameters.json e atualize os valores de **projectName** e **artifactSourceSASLocation**.
-
-Abra CreateADMRollout.Parameters.json e atualize os valores de **projectName** e **artifactSourceSASLocation**.
+* Faça uma cópia da URL com o token SAS. Essa URL é necessária para preencher um campo nos dois arquivos de parâmetro: o arquivo de parâmetros de topologia e o arquivo de parâmetros de distribuição.
+* Abra _CreateADMServiceTopology.Parameters.json_ e atualize os valores de `projectName` e de `artifactSourceSASLocation`.
+* Abra _CreateADMRollout.Parameters.json_ e atualize os valores de `projectName` e de `artifactSourceSASLocation`.
 
 ## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de integridade
 
@@ -65,29 +62,29 @@ Os dois seguintes arquivos são usados para implantar a Função do Azure. Você
 * Um modelo do Resource Manager localizado em [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Você implantará esse modelo para criar uma Função do Azure.
 * Um arquivo zip do código-fonte da Função do Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Esse zip chamado é chamado pelo modelo do Resource Manager.
 
-Para implantar a função do Azure, selecione **Experimentar** para abrir o Azure Cloud Shell e, em seguida, cole o script a seguir na janela do shell.  Para colar o código, clique com o botão direito do mouse na janela do shell e, em seguida, selecione **Colar**.
+Para implantar a função do Azure, selecione **Experimentar** para abrir o Azure Cloud Shell e cole o script a seguir na janela do shell. Para colar o código, clique com o botão direito do mouse na janela do shell e, em seguida, selecione **Colar**.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Para verificar e testar a função do Azure:
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
-1. Abra o grupo de recursos.  O nome padrão é o nome do projeto com **rg** acrescentado.
-1. Selecione o serviço de aplicativo no grupo de recursos.  O nome padrão do serviço de aplicativo é o nome do projeto com **webapp** acrescentado.
+1. Abra o [portal do Azure](https://portal.azure.com).
+1. Abra o grupo de recursos. O nome padrão é o nome do projeto com **rg** acrescentado.
+1. Selecione o serviço de aplicativo no grupo de recursos. O nome padrão do serviço de aplicativo é o nome do projeto com **webapp** acrescentado.
 1. Expanda **Funções** e, em seguida, selecione **HttpTrigger1**.
 
     ![Função do Azure na verificação de integridade do Gerenciador de Implantação do Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
 1. Selecione **&lt;/> Obter URL da função**.
-1. Selecione **Copiar** para copiar a URL para a área de transferência.  A URL é semelhante a:
+1. Selecione **Copiar** para copiar a URL para a área de transferência. A URL é semelhante a:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Substitua `{healthStatus}` na URL por um código de status. Neste tutorial, use **não íntegro** para testar o cenário não íntegro e **íntegro** ou **aviso** para testar o cenário íntegro. Crie duas URLs, uma com o status não íntegro e a outra com o status íntegro. Por exemplo:
+    Substitua `{healthStatus}` na URL por um código de status. Neste tutorial, use *não íntegro* para testar o cenário não íntegro e *íntegro* ou *aviso* para testar o cenário íntegro. Crie duas URLs, uma com o status *não íntegro* e a outra com o status *íntegro*. Por exemplo:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -96,9 +93,9 @@ Para verificar e testar a função do Azure:
 
     Você precisará de ambas as URLs para concluir este tutorial.
 
-1. Para testar o simulador de monitoramento de integridade, abra as URLs que você criou na última etapa.  Os resultados para o status não íntegro deverão ser semelhantes a:
+1. Para testar o simulador de monitoramento de integridade, abra as URLs que você criou na etapa anterior. Os resultados do status não íntegro deverão ser semelhantes a:
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -106,7 +103,7 @@ Para verificar e testar a função do Azure:
 
 O objetivo desta seção é mostrar como incluir uma etapa de verificação de integridade no modelo de distribuição.
 
-1. Abra **CreateADMRollout.json** que você criou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md). Esse arquivo JSON é uma parte do download.  Consulte [Pré-requisitos](#prerequisites).
+1. Abra _CreateADMRollout.json_ que você criou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md). Esse arquivo JSON é uma parte do download.  Consulte [Pré-requisitos](#prerequisites).
 1. Adicione mais dois parâmetros:
 
     ```json
@@ -175,7 +172,7 @@ O objetivo desta seção é mostrar como incluir uma etapa de verificação de i
 
     Com base na definição, a distribuição prossegue se o status da integridade é *íntegro* ou *aviso*.
 
-1. Atualize o **dependsON** da definição de distribuição para incluir a etapa de verificação de integridade recém-definida:
+1. Atualize o `dependsOn` da definição de distribuição para incluir a etapa de verificação de integridade recém-definida:
 
     ```json
     "dependsOn": [
@@ -184,7 +181,7 @@ O objetivo desta seção é mostrar como incluir uma etapa de verificação de i
     ],
     ```
 
-1. Atualize **stepGroups** para incluir a etapa de verificação de integridade. A **healthCheckStep** é chamada em **postDeploymentSteps** do **stepGroup2**. **stepGroup3** e **stepGroup4** são implantadas somente se o status íntegro é *íntegro* ou *aviso*.
+1. Atualize `stepGroups` para incluir a etapa de verificação de integridade. O `healthCheckStep` é chamado em `postDeploymentSteps` de `stepGroup2`. O `stepGroup3` e o `stepGroup4` serão implantados somente se o status íntegro for *íntegro* ou *aviso*.
 
     ```json
     "stepGroups": [
@@ -222,7 +219,7 @@ O objetivo desta seção é mostrar como incluir uma etapa de verificação de i
     ]
     ```
 
-    Se você comparar a seção **stepGroup3** antes e depois da revisão, essa seção agora dependerá de **stepGroup2**.  Isso é necessário quando **stepGroup3** e os grupos de etapas seguintes dependem dos resultados do monitoramento de integridade.
+    Se você comparar a seção `stepGroup3` antes e depois da revisão, essa seção agora dependerá de `stepGroup2`. Isso é necessário quando `stepGroup3` e os grupos de etapas seguintes dependem dos resultados do monitoramento de integridade.
 
     A seguinte captura de tela ilustra as áreas modificadas e como a etapa de verificação de integridade é usada:
 
@@ -230,7 +227,7 @@ O objetivo desta seção é mostrar como incluir uma etapa de verificação de i
 
 ## <a name="deploy-the-topology"></a>Implantar a topologia
 
-Execute o seguinte script do PowerShell para implantar a topologia. Você precisa dos mesmos **CreateADMServiceTopology.json** e **CreateADMServiceTopology.Parameters.json** que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Execute o seguinte script do PowerShell para implantar a topologia. Você precisa dos mesmos _CreateADMServiceTopology.json_ e _CreateADMServiceTopology.Parameters.json_ que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +245,7 @@ Verifique se a topologia de serviço e os recursos de sublinhado foram criados c
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implantar a distribuição com o status não íntegro
 
-Use a URL de status não íntegro que você criou em [Criar um simulador de serviço de verificação de integridade](#create-a-health-check-service-simulator). Você precisa do **CreateADMServiceTopology.json** revisado e do mesmo **CreateADMServiceTopology.Parameters.json** que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Use a URL de status não íntegro que você criou em [Criar um simulador de serviço de verificação de integridade](#create-a-health-check-service-simulator). Você precisa do _CreateADMServiceTopology.json_ revisado e do mesmo _CreateADMServiceTopology.Parameters.json_ que você usou em [Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -267,7 +264,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > `New-AzResourceGroupDeployment` é uma chamada assíncrona. A mensagem de êxito apenas significa que a implantação foi iniciada com êxito. Para verificar a implantação, use `Get-AZDeploymentManagerRollout`.  Confira o próximo procedimento.
 
-Para verificar o progresso da distribuição usando o seguinte script do PowerShell:
+Para verificar o progresso da distribuição use o seguinte script do PowerShell:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -283,7 +280,7 @@ Get-AzDeploymentManagerRollout `
 
 A seguinte saída de exemplo mostra que a implantação falhou devido ao status não íntegro:
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -340,32 +337,32 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-Após a conclusão da distribuição, você deverá ver um grupo de recursos adicional criado para o Oeste dos EUA.
+Após a conclusão da distribuição, você verá um grupo de recursos adicional criado para o Oeste dos EUA.
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>Implantar a distribuição com o status íntegro
 
-Repita esta seção para reimplantar a distribuição com a URL do status íntegro.  Após a conclusão da distribuição, você deverá ver mais um grupo de recursos criado para o Leste dos EUA.
+Repita esta seção para reimplantar a distribuição com a URL do status íntegro. Após a conclusão da distribuição, você verá mais um grupo de recursos criado para o Leste dos EUA.
 
 ## <a name="verify-the-deployment"></a>Verificar a implantação
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Navegue até os aplicativos Web criados recentemente nos novos grupos de recursos criados pela implantação de distribuição.
-3. Abra o aplicativo Web em um navegador da Web. Verifique o local e a versão no arquivo index.html.
+1. Navegue até os novos aplicativos Web nos novos grupos de recursos criados pela implantação de distribuição.
+1. Abra o aplicativo Web em um navegador da Web. Verifique a localização e a versão no arquivo _index.html_.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, escolha **Grupos de recursos** do menu à esquerda.
-2. Use o campo **Filtrar por nome** para restringir os grupos de recursos criados neste tutorial. Deve haver 3 a 4:
+1. Use o campo **Filtrar por nome** para restringir os grupos de recursos criados neste tutorial.
 
     * **&lt;projectName>rg**: contém os recursos do Gerenciador de Implantação.
     * **&lt;projectName>ServiceWUSrg**: contém os recursos definidos pelo ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**: contém os recursos definidos pelo ServiceEUS.
     * O grupo de recursos para a identidade gerenciada definida pelo usuário.
-3. Selecione o nome do grupo de recursos.
-4. Escolha **Excluir grupo de recursos** no menu superior.
-5. Repita as duas últimas etapas para excluir outros grupos de recursos criados neste tutorial.
+1. Selecione o nome do grupo de recursos.
+1. Escolha **Excluir grupo de recursos** no menu superior.
+1. Repita as duas últimas etapas para excluir outros grupos de recursos criados neste tutorial.
 
 ## <a name="next-steps"></a>Próximas etapas
 

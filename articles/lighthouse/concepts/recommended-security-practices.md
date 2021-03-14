@@ -1,14 +1,14 @@
 ---
 title: Práticas de segurança recomendadas
 description: Ao usar o Azure Lighthouse, é importante considerar a segurança e o controle de acesso.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843716"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419296"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -17,11 +17,11 @@ Ao usar o [Azure Lighthouse](../overview.md), é importante considerar a seguran
 > [!TIP]
 > Essas recomendações também se aplicam a [empresas que gerenciam vários locatários](enterprise.md) com o Azure Lighthouse.
 
-## <a name="require-azure-ad-multi-factor-authentication"></a>Exigir autenticação multifator do Azure AD
+## <a name="require-azure-ad-multi-factor-authentication"></a>Exigir a Autenticação Multifator do Azure AD
 
 A [autenticação multifator do Azure ad](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que invasores obtenham acesso a uma conta exigindo várias etapas de autenticação. Você deve exigir a autenticação multifator para todos os usuários em seu locatário de gerenciamento, incluindo usuários que terão acesso a recursos de cliente delegados.
 
-Sugerimos que você faça com que seus clientes implementem a autenticação multifator do Azure AD em seus locatários também.
+Recomendamos que você solicite aos clientes que implementem a autenticação multifator do Azure AD em seus locatários também.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos usando o princípio de menor privilégio
 
@@ -34,7 +34,7 @@ Ao criar a estrutura de permissões, siga o princípio de privilégios mínimos 
 
 Por exemplo, convém usar uma estrutura como esta:
 
-|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
 |Arquitetos     |Grupo de usuários         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de usuários         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
@@ -47,5 +47,6 @@ Tenha em mente que, quando você [integrar clientes por meio de uma oferta públ
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Examine as [informações de linha de base de segurança](../security-baseline.md) para entender como as diretrizes do benchmark de segurança do Azure se aplicam ao Azure Lighthouse.
 - [Implante a autenticação multifator do Azure ad](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

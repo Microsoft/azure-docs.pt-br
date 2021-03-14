@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 64fb37fb4a57b3ee397ffe8814c76c7dca2fb9b3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 85c0a113f15a1ce94ca1cccc605085dcd003dce4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334580"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661385"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta de API do Cassandra usando o Striim
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -36,14 +36,14 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Localizar item do Marketplace do Striim":::
 
-1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim é implantado em uma máquina virtual. No painel **básico** , insira o **nome de usuário da VM** , senha da **VM** (essa senha é usada para ssh na VM). Selecione a **assinatura** , o **grupo de recursos** e os detalhes do **local** onde você gostaria de implantar o Striim. Depois de concluído, selecione **OK**.
+1. Em seguida, insira as propriedades de configuração da instância Striim. O ambiente Striim é implantado em uma máquina virtual. No painel **básico** , insira o **nome de usuário da VM**, senha da **VM** (essa senha é usada para ssh na VM). Selecione a **assinatura**, o **grupo de recursos** e os detalhes do **local** onde você gostaria de implantar o Striim. Depois de concluído, selecione **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Definir configurações básicas para Striim":::
 
 
 1. No painel **configurações de cluster do Striim** , escolha o tipo de implantação Striim e o tamanho da máquina virtual.
 
-   |Setting | Valor | Descrição |
+   |Configuração | Valor | Descrição |
    | ---| ---| ---|
    |Tipo de implantação Striim |Autônomo | Striim pode ser executado em tipos de implantação **autônomos** ou de **cluster** . O modo autônomo implantará o servidor Striim em uma única máquina virtual e você poderá selecionar o tamanho das VMs dependendo do volume de dados. O modo de cluster implantará o servidor Striim em duas ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade e failover automáticos.</br></br> Neste tutorial, você pode selecionar a opção autônomo. Use a VM de tamanho padrão "Standard_F4s". | 
    | Nome do cluster Striim|    <Striim_cluster_Name>|  Nome do cluster Striim.|
@@ -51,7 +51,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
    Depois de preencher o formulário, selecione **OK** para continuar.
 
-1. No painel **configurações de acesso do Striim** , configure o **endereço IP público** (escolha os valores padrão), **nome de domínio para Striim** , **senha de administrador** que você gostaria de usar para fazer logon na interface do usuário do Striim. Configure uma VNET e uma sub-rede (escolha os valores padrão). Depois de preencher os detalhes, selecione **OK** para continuar.
+1. No painel **configurações de acesso do Striim** , configure o **endereço IP público** (escolha os valores padrão), **nome de domínio para Striim**, **senha de administrador** que você gostaria de usar para fazer logon na interface do usuário do Striim. Configure uma VNET e uma sub-rede (escolha os valores padrão). Depois de preencher os detalhes, selecione **OK** para continuar.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Configurações de acesso do Striim":::
 
@@ -71,7 +71,7 @@ Nesta seção, você configurará a conta de API do Cassandra Azure Cosmos DB co
 
 1. Crie uma [conta de API do Cassandra Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) usando o portal do Azure.
 
-1. Navegue até o painel de **Data Explorer** em sua conta do cosmos do Azure. Selecione **nova tabela** para criar um novo contêiner. Suponha que você esteja migrando *produtos* e *pedidos* de dados do banco de dados Oracle para Azure Cosmos DB. Crie um novo keyspace chamado **StriimDemo** com um contêiner Orders. Provisione o contêiner com **1000 RUS** (Este exemplo usa 1000 Rus, mas você deve usar a taxa de transferência estimada para sua carga de trabalho) e **/ORDER_ID** como a chave primária. Esses valores serão diferentes dependendo dos dados de origem. 
+1. Navegue até o painel de **Data Explorer** em sua conta do cosmos do Azure. Selecione **nova tabela** para criar um novo contêiner. Suponha que você esteja migrando *produtos* e *pedidos* de dados do banco de dados Oracle para Azure Cosmos DB. Crie um novo keyspace chamado **StriimDemo** com um contêiner Orders. Provisione o contêiner com **1000 RUS**(Este exemplo usa 1000 Rus, mas você deve usar a taxa de transferência estimada para sua carga de trabalho) e **/ORDER_ID** como a chave primária. Esses valores serão diferentes dependendo dos dados de origem. 
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-cassandra-api-account.png" alt-text="Criar conta de API do Cassandra":::
 
@@ -131,7 +131,7 @@ Nesta seção, você configurará a conta de API do Cassandra Azure Cosmos DB co
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Entrar no Striim":::
 
-1. Agora você chegará às home page do Striim. Há três painéis diferentes – **dashboards** , **aplicativos** e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
+1. Agora você chegará às home page do Striim. Há três painéis diferentes – **dashboards**, **aplicativos** e **SourcePreview**. O painel painéis permite que você mova dados em tempo real e visualize-os. O painel aplicativos contém seus pipelines de dados de streaming ou fluxos de dados. No lado direito da página está SourcePreview onde você pode visualizar os dados antes de movê-los.
 
 1. Selecione o painel **aplicativos** , vamos nos concentrar neste painel por enquanto. Há uma variedade de aplicativos de exemplo que você pode usar para aprender sobre o Striim, no entanto, neste artigo, você criará o nosso. Selecione o botão **Adicionar aplicativo** no canto superior direito.
 
@@ -143,7 +143,7 @@ Nesta seção, você configurará a conta de API do Cassandra Azure Cosmos DB co
 
 1. Dê um nome amigável para seu aplicativo, algo como **oraToCosmosDB** e selecione **salvar**.
 
-   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="Criar um aplicativo":::
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="Crie um novo aplicativo":::
 
 1. Você chegará ao designer de fluxo, onde poderá arrastar e soltar conectores para criar seus aplicativos de streaming. Digite **Oracle** na barra de pesquisa, arraste e solte a fonte **Oracle CDC** na tela do aplicativo.  
 
@@ -157,7 +157,7 @@ Nesta seção, você configurará a conta de API do Cassandra Azure Cosmos DB co
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png" alt-text="Conectar-se ao destino":::
 
-1. Antes de configurar o destino, verifique se você adicionou um [certificado raiz Baltimore ao ambiente Java do Striim](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Antes de configurar o destino, verifique se você adicionou um [certificado raiz Baltimore ao ambiente Java do Striim](/bingmaps/articles/ssl-certificate-validation-for-java-applications#configuring-root-certificates).
 
 1. Insira as propriedades de configuração de sua instância de Azure Cosmos DB de destino e selecione **salvar** para continuar. Aqui estão os principais parâmetros a serem observados:
 

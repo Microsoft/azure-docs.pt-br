@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: 6b326ef6337d24324d3b21a16a7ae649f5d4c85f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1a997d12d4f8db2ce192c7b4267ec35a47674872
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85314812"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102433583"
 landingContent:
 - title: Sobre a Retransmissão do Azure
   linkLists:
@@ -60,6 +60,6 @@ landingContent:
   - linkListType: reference
     links:
     - text: .NET
-      url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.relay
     - text: REST
       url: /rest/api/relay/

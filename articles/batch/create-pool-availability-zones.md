@@ -3,12 +3,12 @@ title: Criar um pool entre zonas de disponibilidade
 description: Saiba como criar um pool do lote com a política de zonal para ajudar a proteger contra falhas.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055667"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725281"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Criar um pool do lote do Azure entre Zonas de Disponibilidade
 
@@ -22,7 +22,7 @@ O lote mantém a paridade com o Azure para dar suporte a Zonas de Disponibilidad
 
 Para que o pool do lote seja alocado entre as zonas de disponibilidade, a região do Azure na qual o pool é criado deve dar suporte à SKU de VM solicitada em mais de uma zona. Você pode validar isso chamando a [API de lista de SKUs de recursos](/rest/api/compute/resourceskus/list) e verificar o campo **locationInfo** de [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Certifique-se de que há suporte para mais de uma zona para a SKU de VM solicitada.
 
-Para [contas do lote no modo de assinatura do usuário](accounts.md#batch-accounts), verifique se a assinatura na qual você está criando o pool não tem uma restrição de oferta de zona no SKU de VM solicitado. Para confirmar isso, chame a [API da lista de SKUs de recursos](/rest/api/compute/resourceskus/list) e verifique o [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Se houver uma restrição de zona, você poderá enviar um [tíquete de suporte](../azure-portal/supportability/sku-series-unavailable.md) para remover a restrição de zona.
+Para [contas do lote no modo de assinatura do usuário](accounts.md#batch-accounts), verifique se a assinatura na qual você está criando o pool não tem uma restrição de oferta de zona no SKU de VM solicitado. Para confirmar isso, chame a [API da lista de SKUs de recursos](/rest/api/compute/resourceskus/list) e verifique o [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Se houver uma restrição de zona, você poderá enviar um [tíquete de suporte](/troubleshoot/azure/general/region-access-request-process) para remover a restrição de zona.
 
 Observe também que você não poderá criar um pool com uma política zonal se ela tiver a comunicação entre nós habilitada e usar uma [SKU de VM que dá suporte a InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
@@ -83,4 +83,3 @@ Corpo da solicitação
 - Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
 - Saiba como [criar um pool em uma sub-rede de uma rede virtual do Azure](batch-virtual-network.md).
 - Saiba como [criar um pool do lote do Azure sem endereços IP públicos](./batch-pool-no-public-ip-address.md).
-

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786032"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526622"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Azure Key Vault
 
@@ -74,7 +74,7 @@ Guias de instruções para controlar o acesso no Key Vault:
 - [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
 - [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Key Vault oferece suporte a até 15 marcas, cada uma delas pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -124,7 +124,7 @@ Guias de instruções para controlar o acesso no Key Vault:
 - [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
 - [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

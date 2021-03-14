@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706275"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Suporte a linguagem natural nos Serviços Cognitivos do Azure
 
@@ -24,7 +24,7 @@ Os serviços cognitivas do Azure permitem criar aplicativos que veem, ouvem, fal
 Esses serviços cognitivas são independentes de idioma e não têm limitações com base no idioma humano.
 
 * [Detector de anomalias (visualização)](./anomaly-detector/index.yml)
-* [Visão Personalizada](./Custom-Vision-Service/index.yml)
+* [Visão Personalizada](./custom-vision-service/index.yml)
 * [Detecção Facial](./face/index.yml)
 * [Personalizador](./personalizer/index.yml)
 
@@ -32,10 +32,10 @@ Esses serviços cognitivas são independentes de idioma e não têm limitações
 
 * [Pesquisa Visual Computacional](./computer-vision/language-support.md)
 * [Reconhecedor de formulário (visualização)](./form-recognizer/language-support.md)
-* [Reconhecimento de Tinta Digital (versão prévia)](./ink-recognizer/language-support.md)
+* [Reconhecimento de Tinta Digital (versão prévia)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
-## <a name="language"></a>Linguagem
+## <a name="language"></a>Idioma
 
 * [Leitura Avançada](./immersive-reader/language-support.md)
 * [Reconhecimento Vocal (LUIS)](./luis/luis-language-support.md)
@@ -49,7 +49,7 @@ Esses serviços cognitivas são independentes de idioma e não têm limitações
 * [Serviço de Fala: conversão de texto em fala](./speech-service/language-support.md#text-to-speech)
 * [Serviço de Fala: tradução de fala](./speech-service/language-support.md#speech-translation)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisar
 
 * [Pesquisa Personalizada do Bing](./bing-custom-search/language-support.md)
 * [Pesquisa de Imagem do Bing](./bing-image-search/language-support.md)

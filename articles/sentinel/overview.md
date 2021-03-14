@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4bc5732c1b2349f34297ecaacc7eb3176fdba611
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654653"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570490"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -51,7 +51,7 @@ Para a integração do Azure Sentinel, você precisa primeiro [se conectar às s
 
 ## <a name="workbooks"></a>Pastas de trabalho
 
-Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você poderá monitorar os dados usando a integração do Azure Sentinel às Pastas de Trabalho do Azure Monitor, que oferece versatilidade na criação de pastas de trabalho personalizadas. Embora as Pastas de Trabalho sejam exibidas de maneiras diferentes no Azure Sentinel, pode ser útil para você ver como [Criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você poderá monitorar os dados usando a integração do Azure Sentinel às Pastas de Trabalho do Azure Monitor, que oferece versatilidade na criação de pastas de trabalho personalizadas. Embora as Pastas de Trabalho sejam exibidas de maneiras diferentes no Azure Sentinel, pode ser útil para você ver como [Criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 ![Painéis](./media/tutorial-monitor-data/access-workbooks.png)
 

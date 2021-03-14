@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285307"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203531"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no Python
 
@@ -66,7 +66,7 @@ Crie uma VM chamada **myVM** usando um dos seguintes métodos:
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [O portal do Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
-Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh* ). 
+Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh*). 
 
 ```azurecli-interactive
 az vm create \
@@ -81,7 +81,7 @@ Observe o valor de `publicIpAddress` na saída.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade à VM
 
-Crie uma identidade atribuída pelo sistema para a máquina virtual usando o comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) da CLI do Azure:
+Crie uma identidade atribuída pelo sistema para a máquina virtual usando o comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) da CLI do Azure:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

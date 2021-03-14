@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807556"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455494"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
 
@@ -68,41 +68,9 @@ Cada atividade é pontuada com "Pontuação de prioridade de investigação" –
 
 Veja como a análise de comportamento é usada em [Microsoft Cloud app Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) para obter um exemplo de como isso funciona.
 
-## <a name="entities-in-azure-sentinel"></a>Entidades no Azure Sentinel
+## <a name="entity-pages"></a>Páginas de entidade
 
-### <a name="entity-identifiers"></a>Identificadores de entidade
-
-Quando os alertas são enviados para o Azure Sentinel, eles incluem elementos de dados que o Azure Sentinel identifica e classifica como entidades, como contas de usuário, hosts, endereços IP e outros. Na ocasião, essa identificação pode ser um desafio, se o alerta não contiver informações suficientes sobre a entidade.
-
-Por exemplo, as contas de usuário podem ser identificadas de mais de uma maneira: usando um identificador numérico (GUID) da conta do Azure AD ou seu valor de nome principal do usuário (UPN) ou, como alternativa, usando uma combinação de seu nome de usuário e seu domínio do NT. Diferentes fontes de dados podem identificar o mesmo usuário de diferentes maneiras. Portanto, sempre que possível, o Azure Sentinel mescla esses identificadores em uma única entidade, para que possa ser identificado corretamente.
-
-No entanto, pode acontecer que um de seus provedores de recursos crie um alerta no qual uma entidade não está suficientemente identificada; por exemplo, um nome de usuário sem o contexto do nome de domínio. Nesse caso, a entidade de usuário não pode ser mesclada com outras instâncias da mesma conta de usuário, que seria identificada como uma entidade separada, e essas duas entidades permanecerão separadas em vez de unificadas.
-
-Para minimizar o risco de isso acontecer, você deve verificar se todos os seus provedores de alertas identificam corretamente as entidades nos alertas que eles produzem. Além disso, a sincronização de entidades de conta de usuário com Azure Active Directory pode criar um diretório unificado, que poderá mesclar entidades de conta de usuário.
-
-Os seguintes tipos de entidades estão atualmente identificados no Azure sentinela:
-
-- Conta de usuário (conta)
-- Host
-- Endereço IP (IP)
-- Malware
-- Arquivo
-- Processar
-- Aplicativo de nuvem (CloudApplication)
-- Nome de domínio (DNS)
-- Recursos do Azure
-- Arquivo (FileHash)
-- Chave do Registro
-- Valor do Registro
-- Grupo de segurança
-- URL
-- Dispositivo IoT
-- Mailbox
-- Cluster de emails
-- Mensagem de email
-- Email de envio
-
-### <a name="entity-pages"></a>Páginas de entidade
+Saiba mais sobre [entidades no Azure Sentinel](entities-in-azure-sentinel.md) e veja a lista completa de [entidades e identificadores com suporte](entities-reference.md).
 
 Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade**, uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
  
@@ -131,20 +99,23 @@ Os seguintes tipos de itens estão incluídos na linha do tempo:
  
 ### <a name="entity-insights"></a>Informações de entidade
  
-As informações de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar seus analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança valiosas sobre hosts e usuários, na forma de gráficos e dados tabulares. Ter as informações aqui significa que você não precisa desvio a Log Analytics. As informações incluem dados relacionados a entradas, adições de grupo, eventos anormais e muito mais, e incluem algoritmos de ML avançados para detectar o comportamento anormal. As informações são baseadas nos seguintes tipos de dados:
-- syslog
-- SecurityEvent
-- Logs de Auditoria
-- Logs de entrada
-- Atividade do Office
-- BehaviorAnalytics (UEBA) 
- 
+As informações de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar seus analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança valiosas sobre hosts e usuários, na forma de gráficos e dados tabulares. Ter as informações aqui significa que você não precisa desvio a Log Analytics. As informações incluem dados relacionados a entradas, adições de grupo, eventos anormais e muito mais, e incluem algoritmos de ML avançados para detectar o comportamento anormal. 
+
+As informações são baseadas nas seguintes fontes de dados:
+- Syslog (Linux)
+- SecurityEvent (Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- OfficeActivity (Office 365)
+- BehaviorAnalytics (Azure Sentinel UEBA)
+- Pulsação (agente de Azure Monitor)
+- CommonSecurityLog (Sentinela do Azure)
+
 ### <a name="how-to-use-entity-pages"></a>Como usar páginas de entidade
 
 As páginas de entidade são projetadas para fazer parte de vários cenários de uso e podem ser acessadas do gerenciamento de incidentes, do grafo de investigação, de indicadores ou diretamente da página de pesquisa de entidade em **análise de comportamento de entidade** no menu principal do Sentinela do Azure.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso de página de entidade":::
-
 
 ## <a name="data-schema"></a>Esquema de dados
 

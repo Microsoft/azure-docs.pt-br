@@ -1,17 +1,17 @@
 ---
 title: Introdução às funções geoespaciais do Azure Stream Analytics
 description: Este artigo descreve funções geoespaciais que são usadas em trabalhos do Azure Stream Analytics.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc590593b9bff8f646ee6155d32a2ce3f9790f6e
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a5e65ddacfd4c168d4b97816e448951bacc2b534
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625241"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438533"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introdução às funções geoespaciais do Stream Analytics
 

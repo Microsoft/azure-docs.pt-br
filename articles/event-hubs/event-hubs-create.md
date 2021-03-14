@@ -3,12 +3,12 @@ title: Início Rápido do Azure – Criar um hub de eventos usando o portal do A
 description: Neste início rápido, você aprenderá a criar um hub de eventos do Azure usando o portal do Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742034"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos usando o portal do Azure
 O Hubs de Eventos do Azure é uma plataforma de streaming de Big Data e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
@@ -87,7 +87,7 @@ Para criar um hub de eventos dentro do namespace, faça o seguinte:
 
     A configuração **contagem de partição** permite que você paralelize o consumo entre muitos consumidores. Para saber mais, confira [Partições](event-hubs-scalability.md#partitions).
 
-    A configuração de **retenção de mensagem** especifica por quanto tempo o serviço dos Hubs de Eventos mantém os dados. Para obter os limites máximos dessa configuração, confira [Cotas e limites](event-hubs-quotas.md).
+    A configuração de **retenção de mensagem** especifica por quanto tempo o serviço dos Hubs de Eventos mantém os dados. Para obter mais informações, confira [Retenção de eventos](event-hubs-features.md#event-retention).
 1. Você pode verificar o status da criação do hub de eventos em alertas. Depois que o hub de eventos for criado, você o verá na lista de Hubs de Eventos.
 
     ![Hub de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)

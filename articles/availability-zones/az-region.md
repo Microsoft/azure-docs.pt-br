@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701443"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -55,7 +55,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Leste dos EUA            | Norte da Europa         |                     | Leste da Austrália |
 | Leste dos EUA 2          | Sul do Reino Unido             |                     |                |
 | EUA Central do Sul | Europa Ocidental          |                     |                |
-| US Gov-Virgínia * |                      |                     |                |
+| Gov. dos EUA – Virgínia    |                      |                     |                |
 | Oeste dos EUA 2        |                      |                     |                |
 
 
@@ -88,7 +88,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     IP público do Azure                                           | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Uso Geral camada)                 | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Premium & camada de Comercialmente Crítico)     | : large_blue_diamond:  |
-|     Armazenamento em disco                                                | : large_blue_diamond:  |
+|     Armazenamento em Disco                                                | : large_blue_diamond:  |
 |     Hubs de Eventos                                                  | : large_blue_diamond:  |
 |     Key Vault                                                   | : large_blue_diamond:  |
 |     Load Balancer                                               | : large_blue_diamond:  |
@@ -106,6 +106,8 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Máquinas virtuais: Dv3-Series                              | : large_blue_diamond:  |
 |     Máquinas virtuais: ESv3-Series                             | : large_blue_diamond:  |
 |     Máquinas virtuais: Ev3-Series                              | : large_blue_diamond:  |
+|     Máquinas virtuais: série F                                | : large_blue_diamond:  |
+|     Máquinas virtuais: FS-Series                               | : large_blue_diamond:  |
 |     Rede virtual                                           | : large_blue_diamond:  |
 |     Gateway de VPN                                                 | : large_blue_diamond:  |
 
@@ -129,11 +131,18 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Link Privado do Azure                              |      : large_blue_diamond:  |
 | Red Hat OpenShift no Azure                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |
+| SQL do Azure: máquina virtual                      |      : large_blue_diamond:  |
+| Azure Search                                    |      : large_blue_diamond:  |
+| Firewall do aplicativo Web do Azure                  |      : large_blue_diamond:  |
+| Serviços cognitivas: Análise de Texto              |      : large_blue_diamond:  |
 | Registro de Contêiner                              |      : large_blue_diamond:  |
 | Grade de Eventos                                      |      : large_blue_diamond:  |
 | Observador de Rede                                 |      : large_blue_diamond:  |
+| Observador de rede: Análise de Tráfego              |      : large_blue_diamond:  |
 | Power BI Embedded                               |      : large_blue_diamond:  |
 | Armazenamento de blob Premium                            |      : large_blue_diamond:  |
+| Armazenamento: arquivos premium do Azure                    |      : large_blue_diamond:  |
+| Máquinas virtuais: host dedicado do Azure          |      : large_blue_diamond:  |
 | Máquinas virtuais: Ddsv4-Series                  |      : large_blue_diamond:  |
 | Máquinas virtuais: Ddv4-Series                   |      : large_blue_diamond:  |
 | Máquinas virtuais: Dsv4-Series                   |      : large_blue_diamond:  |
@@ -145,6 +154,9 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Máquinas virtuais: Fsv2-Series                   |      : large_blue_diamond:  |
 | Máquinas virtuais: série M                      |      : large_blue_diamond:  |
 | WAN Virtual                                     |      : large_blue_diamond:  |
+| WAN virtual: ExpressRoute                       |      : large_blue_diamond:  |
+| WAN virtual: gateway de VPN ponto a site          |      : large_blue_diamond:  |
+| WAN virtual: gateway de VPN site a site           |      : large_blue_diamond:  |
 
 
 **Não regional**
@@ -153,21 +165,30 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |-----------------------------------------------|:-------------------:|
 |     DNS do Azure                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Proteção Avançada contra Ameaças do Azure          |     : globe_with_meridians:             |
 |     Assistente do Azure                             |     : globe_with_meridians:             |
+|     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Serviços de Bot do Azure                        |     : globe_with_meridians:             |
 |     Azure defender para IoT                  |     : globe_with_meridians:             |
+|     Porta da frente do Azure                           |     : globe_with_meridians:             |
 |     Proteção de informações do Azure            |     : globe_with_meridians:             |
 |     Lighthouse do Azure                        |     : globe_with_meridians:             |
 |     Aplicativos gerenciados do Azure              |     : globe_with_meridians:             |
 |     Mapas do Azure                                |     : globe_with_meridians:             |
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Grafo de recursos do Azure                    |     : globe_with_meridians:             |
-|     Azure Stack Hub                               |     : globe_with_meridians:             |
+|     Azure Sentinel                            |     : globe_with_meridians:             |
+|     Azure Stack                               |     : globe_with_meridians:             |
 |     Borda do Azure Stack                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
+|     Rede de Distribuição de Conteúdo                  |     : globe_with_meridians:             |
+|     Gerenciamento de Custos                           |     : globe_with_meridians:             |
 |     Sistema de Proteção de Dados do Cliente para Microsoft Azure    |     : globe_with_meridians:             |
+|     Intune                                    |     : globe_with_meridians:             |
 |     Serviço de emparelhamento Microsoft Azure         |     : globe_with_meridians:             |
 |     portal do Microsoft Azure                  |     : globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     : globe_with_meridians:             |
+|     Microsoft Graph                           |     : globe_with_meridians:             |
 |     Central de segurança                         |     : globe_with_meridians:             |
 |     Gerenciador de tráfego                         |     : globe_with_meridians:             |
 

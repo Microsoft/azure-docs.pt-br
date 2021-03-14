@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377472"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546628"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutorial: Usar revisões para fazer alterações sem interrupções na API com segurança
 Quando sua API estiver pronta e começar a ser usada por desenvolvedores, e algum momento será necessário fazer alterações nessa API e, ao mesmo tempo, não interromper os chamadores de sua API. Também é útil permitir que os desenvolvedores saibam sobre as alterações feitas por você. 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Adicionar uma nova revisão
@@ -78,6 +78,8 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Torne sua revisão a atual e adicione uma entrada ao log de alterações
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Selecione a guia **Revisões** no menu próximo à parte superior da página.
 1. Abra o menu de contexto (**...**) para a **Revisão 2**.
 1. Selecione **Tornar atual**.
@@ -86,6 +88,61 @@ Neste tutorial, você aprenderá como:
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menu de revisão na janela &quot;Revisões&quot;":::
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para começar a usar a CLI do Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Use este procedimento para criar e atualizar uma versão.
+
+1. Execute o comando [az apim api list](/cli/azure/apim/api#az_apim_api_list) para ver as IDs da API:
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   A ID da API a ser usada no próximo comando é o valor `Name`. A revisão da API está na coluna `ApiRevision`.
+
+1. Para criar a versão, com uma nota sobre a versão, execute o comando [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create):
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   A revisão liberada se torna a revisão atual.
+
+1. Para ver as versões, use o comando [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list):
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   As notas especificadas são exibidas no log de mudanças. Você poderá vê-las na saída do comando anterior.
+
+1. Quando você cria uma versão, o parâmetro `--notes` é opcional. Você pode adicionar ou alterar as notas posteriormente usando o comando [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update):
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Use o valor da coluna `Name` para a ID da versão.
+
+Remova qualquer versão executando o comando [az apim api release delete ](/cli/azure/apim/api/release#az_apim_api_release_delete):
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Procurar no portal do desenvolvedor para ver as alterações e o log de alterações
 

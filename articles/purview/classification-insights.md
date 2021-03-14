@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196530"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666521"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informações de classificação sobre seus dados do Azure alcance
 
 Este guia de instruções descreve como acessar, exibir e filtrar relatórios de insights de classificação alcance para seus dados.
 
-As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API do SQL), Azure Synapse Analytics (anteriormente conhecido como SQL DW), banco de dados SQL do Azure, Instância Gerenciada SQL do Azure, SQL Server
+As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API do SQL), Azure Synapse Analytics (anteriormente conhecido como SQL DW), banco de dados SQL do Azure, Azure SQL Instância Gerenciada, SQL Server, Buckets do Amazon S3
 
 Neste guia de instruções, você aprenderá a:
 
@@ -33,7 +33,7 @@ Antes de começar a usar o alcance insights, verifique se você concluiu as segu
 
 - Configurar os recursos do Azure e preencher as contas relevantes com dados de teste
 
-- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados
+- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados. Para obter mais informações, consulte [gerenciar fontes de dados no Azure alcance (versão prévia)](manage-data-sources.md) e [criar um conjunto de regras de verificação](create-a-scan-rule-set.md).
 
 - Conectado ao alcance com uma [função de leitor de dados ou de curador dos dados](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
@@ -81,7 +81,7 @@ Em qualquer um dos seguintes gráficos de **informações de classificação** ,
 - **Principais classificações para tabelas**
 - **Atividade de classificação > dados de classificação**
 
-Por exemplo:
+Por exemplo: 
 
 :::image type="content" source="media/insights/view-classifications-small.png" alt-text="Exibir todas as classificações" lightbox="media/insights/view-classifications.png":::
 

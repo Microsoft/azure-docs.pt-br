@@ -5,13 +5,13 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 04ec652c6e7ce8de003a464c6427439cf1519eab
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.service: virtual-machines
+ms.openlocfilehash: 32f259f20e0e24b4d5346c598e23fdc2df48dee6
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092662"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556427"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover a computação do mainframe para o Azure
 

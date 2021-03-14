@@ -3,12 +3,12 @@ title: Anotações de versão para o Application Insights | Microsoft Docs
 description: Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993713"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386026"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 
@@ -81,7 +81,7 @@ Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipe
 
 Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada para Application Insights. As anotações podem ser exibidas nos seguintes locais:
 
-O painel de uso em que você também pode criar anotações de versão manualmente:
+O painel de **uso** em que você também pode criar anotações de versão manualmente:
 
 ![Captura de tela do gráfico de barras com o número de visitas do usuário exibidas em um período de horas. As anotações de versão aparecem como marcas de seleção verdes acima do gráfico indicando o momento em que uma liberação ocorreu](./media/annotations/usage-pane.png)
 

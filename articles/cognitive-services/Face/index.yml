@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: f8b134c1cce93468d68d8d920b412d2c5751b104
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: dc7ef676663e94d6ad03a5cfed8ae68cfcfc26c3
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98737058"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102507731"
 landingContent:
 - title: Sobre o serviço de Detecção Facial
   linkLists:
@@ -92,14 +92,14 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API de Detecção Facial v1.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: API REST
+      url: /rest/api/face/
     - text: SDK .NET
-      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - text: SDK do Python
-      url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-face/
     - text: Java SDK
-      url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi
     - text: SDK do Node.js
       url: /javascript/api/@azure/cognitiveservices-face
     - text: SDK do Go
@@ -107,7 +107,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

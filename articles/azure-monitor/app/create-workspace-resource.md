@@ -3,12 +3,12 @@ title: Criar um novo recurso baseado em espaço de trabalho do Azure Monitor App
 description: Saiba mais sobre as etapas necessárias para habilitar os novos recursos baseados em espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063359"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578335"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos baseados em workspace do Application Insights
 
@@ -23,10 +23,10 @@ Isso também permite o controle de acesso baseado em função (RBAC) comum do Az
 
 Os Application Insights baseados em espaço de trabalho permitem aproveitar os recursos mais recentes de Azure Monitor e Log Analytics, incluindo:
 
-* [As chaves gerenciadas pelo cliente (CMK)](../platform/customer-managed-keys.md) fornecem criptografia em repouso para seus dados com chaves de criptografia somente às quais você tem acesso.
-* O [Link Privado do Azure](../platform/private-link-security.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados.
+* [As chaves gerenciadas pelo cliente (CMK)](../logs/customer-managed-keys.md) fornecem criptografia em repouso para seus dados com chaves de criptografia somente às quais você tem acesso.
+* O [Link Privado do Azure](../logs/private-link-security.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados.
 * [Traga seu próprio armazenamento (BYOS) para o criador de perfil e depurador de instantâneos](./profiler-bring-your-own-storage.md) oferece controle total sobre a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede para todos os dados associados a Application Insights Profiler e depurador de instantâneos. 
-* As [camadas de reserva de capacidade](../platform/manage-cost-storage.md#pricing-model) permitem que você economize até 25% em comparação com o preço pago conforme o uso. 
+* As [camadas de reserva de capacidade](../logs/manage-cost-storage.md#pricing-model) permitem que você economize até 25% em comparação com o preço pago conforme o uso. 
 * Ingestão de dados mais rápida por meio de Log Analytics ingestão de streaming.
 
 ## <a name="create-workspace-based-resource"></a>Criar recurso baseado em espaço de trabalho
@@ -36,7 +36,7 @@ Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Applic
 > [!div class="mx-imgBorder"]
 > ![Recurso baseado em espaço de trabalho do Application Insights](./media/create-workspace-resource/create-workspace-based.png)
 
-Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md).
+Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](../logs/quick-create-workspace.md).
 
 **Os recursos baseados em espaço de trabalho estão disponíveis atualmente em todas as regiões comerciais e Azure governamental**
 
@@ -212,5 +212,5 @@ A funcionalidade de exportação contínua herdada não tem suporte para recurso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas do Analytics](../logs/log-query-overview.md)

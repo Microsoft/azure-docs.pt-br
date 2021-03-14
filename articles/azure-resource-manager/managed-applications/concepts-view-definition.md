@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592059"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
 
@@ -127,9 +127,9 @@ Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele sub
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|header|Não|O cabeçalho da página de visão geral.|
-|descrição|Não|A descrição do seu aplicativo gerenciado.|
-|comandos|Não|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
+|header|No|O cabeçalho da página de visão geral.|
+|descrição|No|A descrição do seu aplicativo gerenciado.|
+|comandos|No|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
 
 ![Captura de tela mostra a visão geral de um aplicativo gerenciado com um controle de ação de teste para executar um aplicativo de demonstração.](./media/view-definition/overview.png)
 
@@ -137,7 +137,7 @@ Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele sub
 
 `"kind": "Metrics"`
 
-A exibição de métricas permite coletar e agregar dados de seus recursos de aplicativo gerenciado em [métricas de Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+A exibição de métricas permite coletar e agregar dados de seus recursos de aplicativo gerenciado em [métricas de Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -166,26 +166,26 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Não|O título exibido da exibição.|
-|version|Não|A versão da plataforma usada para renderizar a exibição.|
-|gráficos|Sim|A matriz de gráficos da página de métricas.|
+|displayName|No|O título exibido da exibição.|
+|version|No|A versão da plataforma usada para renderizar a exibição.|
+|gráficos|Yes|A matriz de gráficos da página de métricas.|
 
 ### <a name="chart"></a>Gráfico
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido do gráfico.|
-|tipo de gráfico|Não|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com suporte: `Bar, Line, Area, Scatter` .|
-|Métricas|Sim|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
+|displayName|Yes|O título exibido do gráfico.|
+|tipo de gráfico|No|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com suporte: `Bar, Line, Area, Scatter` .|
+|Métricas|Yes|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### <a name="metric"></a>Métrica
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |name|Sim|O nome da métrica.|
-|aggregationType|Sim|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte: `none, sum, min, max, avg, unique, percentile, count`|
-|namespace|Não|Informações adicionais a serem usadas ao determinar o provedor de métricas correto.|
-|resourceTagFilter|Não|A matriz de marcas de recurso (será separada com `or` o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
+|aggregationType|Yes|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte: `none, sum, min, max, avg, unique, percentile, count`|
+|namespace|No|Informações adicionais a serem usadas ao determinar o provedor de métricas correto.|
+|resourceTagFilter|No|A matriz de marcas de recurso (será separada com `or` o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
 |resourceType|Sim|O tipo de recurso para o qual as métricas seriam exibidas.|
 
 ![A captura de tela mostra uma página de monitoramento chamada esta é a exibição de métricas para um aplicativo gerenciado.](./media/view-definition/metrics.png)
@@ -226,13 +226,13 @@ Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de CustomResources no seu **viewDefinition.jsem**.|
-|version|Não|A versão da plataforma usada para renderizar a exibição.|
+|displayName|Yes|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de CustomResources no seu **viewDefinition.jsem**.|
+|version|No|A versão da plataforma usada para renderizar a exibição.|
 |resourceType|Sim|O tipo de recurso personalizado. Deve ser um tipo de recurso personalizado **exclusivo** do seu provedor personalizado.|
-|ícone|Não|O ícone da exibição. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
-|createUIDefinition|Não|Crie um esquema de definição de interface do usuário para o comando criar recurso personalizado. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
-|comandos|Não|A matriz de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
-|colunas|Não|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"` . Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador, por exemplo, `"key": "name"` ou `"key": "properties.property1"` . Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
+|ícone|No|O ícone da exibição. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|createUIDefinition|No|Crie um esquema de definição de interface do usuário para o comando criar recurso personalizado. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
+|comandos|No|A matriz de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
+|colunas|No|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"` . Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador, por exemplo, `"key": "name"` ou `"key": "properties.property1"` . Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
 
 ![Captura de tela mostra uma página de recursos chamada tipo de recurso de teste personalizado e a ação de contexto personalizado de controle.](./media/view-definition/customresources.png)
 
@@ -255,10 +255,10 @@ Os comandos são uma matriz de botões adicionais da barra de ferramentas que s�
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O nome exibido do botão de comando.|
-|caminho|Sim|O nome da ação do provedor personalizado. A ação deve ser definida no **mainTemplate.jsem**.|
-|ícone|Não|O ícone do botão de comando. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
-|createUIDefinition|Não|Crie o esquema de definição da interface do usuário para o comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
+|displayName|Yes|O nome exibido do botão de comando.|
+|caminho|Yes|O nome da ação do provedor personalizado. A ação deve ser definida no **mainTemplate.jsem**.|
+|ícone|No|O ícone do botão de comando. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|createUIDefinition|No|Crie o esquema de definição da interface do usuário para o comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
 
 ## <a name="associations"></a>Associações
 
@@ -282,10 +282,10 @@ Nessa exibição, você pode estender os recursos existentes do Azure com base n
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de associações no seu **viewDefinition.jsem**.|
-|version|Não|A versão da plataforma usada para renderizar a exibição.|
-|targetResourceType|Sim|O tipo de recurso de destino. Esse é o tipo de recurso que será exibido para integração de recursos.|
-|createUIDefinition|Não|Criar esquema de definição de interface do usuário para comando criar recurso de associação. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
+|displayName|Yes|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de associações no seu **viewDefinition.jsem**.|
+|version|No|A versão da plataforma usada para renderizar a exibição.|
+|targetResourceType|Yes|O tipo de recurso de destino. Esse é o tipo de recurso que será exibido para integração de recursos.|
+|createUIDefinition|No|Criar esquema de definição de interface do usuário para comando criar recurso de associação. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
 
 ## <a name="looking-for-help"></a>Procurando ajuda
 

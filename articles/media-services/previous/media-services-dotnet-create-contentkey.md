@@ -3,7 +3,7 @@ title: Criar ContentKeys com .NET
 description: Este artigo demonstra como criar chaves de conteúdo usando o .NET. Essas chaves fornecem acesso seguro aos ativos.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5efbc30c80a0052ed99cb129c2e5f9030482012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05bf928490e94f43b755e1958213899e9e1e98e9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261219"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014159"
 ---
 # <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET
 
@@ -38,7 +38,7 @@ Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services
 
 Quando você fornece ativos para seus clientes, é possível [configurar para que os ativos sejam criptografados dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Os ativos criptografados precisam ser associados a **ContentKey** s. Este artigo descreve como criar uma chave de conteúdo.
 
 > [!NOTE]
 > Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.

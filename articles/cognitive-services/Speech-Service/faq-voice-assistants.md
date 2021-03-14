@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 511eb12df511fd037fc0b5bec701c0cc5c29bad2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599421"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617770"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Perguntas frequentes sobre assistentes de voz
 
@@ -36,7 +36,7 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 **R:** A melhor maneira de começar a criar um aplicativo de comandos personalizados (versão prévia) ou bot de estrutura de bot básico.
 
 - [Criar um aplicativo de comandos personalizados (versão prévia)](./quickstart-custom-commands-application.md)
-- [Criar um bot de estrutura de bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Criar um bot de estrutura de bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 - [Conectar um bot ao canal de fala de linha direta](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Depuração

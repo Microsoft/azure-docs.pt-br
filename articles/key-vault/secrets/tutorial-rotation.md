@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd90043c8f03361244d3500f83f6df5347f1d867
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539393"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805223"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -213,7 +213,7 @@ A criação de um segredo com uma data de validade curta publicará um evento `S
 
 Para verificar se a rotação do segredo foi realizada, acesse **Key Vault** > **Segredos**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Acessar Segredos":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Captura de tela que mostra como acessar Key Vault > Segredos.":::
 
 Abra o segredo **sqlPassword** e veja as versões originais e com rotação:
 

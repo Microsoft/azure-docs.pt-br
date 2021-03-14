@@ -3,16 +3,15 @@ title: Conectar ao GitHub
 description: Use o GitHub para especificar suas referências de entidade de modelo de dados comuns
 author: djpmsft
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: daperlov
-ms.openlocfilehash: 0e17580524d6a67934aed83c6f745583b92e2422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d555d7bc4d3aae9c016cacbe17b68c30859d99a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84771029"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372273"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>Usar o GitHub para ler referências de entidade de modelo de dados comuns
 

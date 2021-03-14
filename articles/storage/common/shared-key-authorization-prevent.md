@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677556"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199924"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -22,12 +22,8 @@ Todas as solicitações seguras para uma conta de armazenamento do Azure devem s
 
 Quando você não permite a autorização de chave compartilhada para uma conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações subsequentes para essa conta que são autorizadas com as chaves de acesso da conta. Somente as solicitações seguras autorizadas com o Azure AD terão sucesso. Para obter mais informações sobre como usar o Azure AD, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão. Como o portal do Azure sempre usa a autorização de chave compartilhada para acessar dados de arquivo e tabela, se você não permitir a autorização com chave compartilhada para a conta de armazenamento, não será possível acessar dados de arquivo ou tabela no portal do Azure.
->
-> A Microsoft recomenda que você migre todos os arquivos do Azure ou dados de armazenamento de tabela para uma conta de armazenamento separada antes de não permitir o acesso à conta por meio da chave compartilhada ou que você não aplique essa configuração a contas de armazenamento que dão suporte a arquivos do Azure ou cargas de trabalho de armazenamento de tabelas.
->
-> A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
+> [!IMPORTANT]
+> A despermissão da autorização de chave compartilhada está atualmente em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 Este artigo descreve como detectar solicitações enviadas com a autorização de chave compartilhada e como corrigir a autorização de chave compartilhada para sua conta de armazenamento. Para saber como registrar-se para a versão prévia, consulte [sobre a versão prévia](#about-the-preview).
 
@@ -41,7 +37,7 @@ Para obter mais informações sobre como interpretar solicitações feitas com u
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Monitorar quantas solicitações são autorizadas com chave compartilhada
 
-Para controlar como as solicitações para uma conta de armazenamento estão sendo autorizadas, use o Metrics Explorer do Azure no portal do Azure. Para obter mais informações sobre Metrics Explorer, consulte [introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Para controlar como as solicitações para uma conta de armazenamento estão sendo autorizadas, use o Metrics Explorer do Azure no portal do Azure. Para obter mais informações sobre Metrics Explorer, consulte [introdução ao Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Siga estas etapas para criar uma métrica que controla as solicitações feitas com a chave compartilhada ou SAS:
 
@@ -67,7 +63,7 @@ Depois de configurar a métrica, as solicitações para sua conta de armazenamen
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de tela mostrando solicitações agregadas autorizadas com chave compartilhada":::
 
-Você também pode configurar uma regra de alerta para notificá-lo quando um determinado número de solicitações que são autorizadas com chave compartilhada são feitas em sua conta de armazenamento. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Você também pode configurar uma regra de alerta para notificá-lo quando um determinado número de solicitações que são autorizadas com chave compartilhada são feitas em sua conta de armazenamento. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Analisar logs para identificar clientes que estão autorizando solicitações com chave compartilhada ou SAS
 
@@ -75,14 +71,14 @@ Os logs de armazenamento do Azure capturam detalhes sobre as solicitações feit
 
 Para registrar solicitações em sua conta de armazenamento do Azure para avaliar como elas são autorizadas, você pode usar o log de armazenamento do Azure no Azure Monitor (versão prévia). Para obter mais informações, consulte [monitorar o armazenamento do Azure](../blobs/monitor-blob-storage.md).
 
-O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+O log de armazenamento do Azure no Azure Monitor dá suporte ao uso de consultas de log para analisar dados de log. Para consultar logs, você pode usar um espaço de trabalho de Log Analytics do Azure. Para saber mais sobre consultas de log, consulte [tutorial: introdução às consultas de log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma configuração de diagnóstico no portal do Azure
 
 Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los com o Azure Log Analytics, você deve primeiro criar uma configuração de diagnóstico que indica quais tipos de solicitações e para quais serviços de armazenamento você deseja registrar dados. Para criar uma configuração de diagnóstico no portal do Azure, siga estas etapas:
 
 1. Registre-se no [log de armazenamento do Azure na versão prévia do Azure monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Crie um novo espaço de trabalho Log Analytics na assinatura que contém sua conta de armazenamento do Azure ou use um espaço de trabalho Log Analytics existente. Depois de configurar o log para sua conta de armazenamento, os logs estarão disponíveis no espaço de trabalho Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Crie um novo espaço de trabalho Log Analytics na assinatura que contém sua conta de armazenamento do Azure ou use um espaço de trabalho Log Analytics existente. Depois de configurar o log para sua conta de armazenamento, os logs estarão disponíveis no espaço de trabalho Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navegue até sua conta de armazenamento no portal do Azure.
 1. Na seção monitoramento, selecione **configurações de diagnóstico (versão prévia)**.
 1. Selecione o serviço de armazenamento do Azure para o qual você deseja registrar solicitações. Por exemplo, escolha **blob** para registrar solicitações ao armazenamento de BLOBs.
@@ -95,7 +91,7 @@ Para registrar dados do armazenamento do Azure com Azure Monitor e analisá-los 
 
 Você pode criar uma configuração de diagnóstico para cada tipo de recurso de armazenamento do Azure em sua conta de armazenamento.
 
-Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Depois de criar a configuração de diagnóstico, as solicitações para a conta de armazenamento são registradas subsequentemente de acordo com essa configuração. Para obter mais informações, consulte [criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Para obter uma referência dos campos disponíveis nos logs de armazenamento do Azure no Azure Monitor, consulte [logs de recursos (versão prévia)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +106,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-Você também pode configurar uma regra de alerta com base nessa consulta para notificá-lo sobre solicitações autorizadas com chave compartilhada ou SAS. Para obter mais informações, consulte [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/platform/alerts-log.md).
+Você também pode configurar uma regra de alerta com base nessa consulta para notificá-lo sobre solicitações autorizadas com chave compartilhada ou SAS. Para obter mais informações, consulte [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Corrigir a autorização via chave compartilhada
 
@@ -133,30 +129,29 @@ Para não permitir a autorização de chave compartilhada para uma conta de arma
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de tela mostrando como não permitir acesso de chave compartilhada para a conta":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com o PowerShell, instale o [módulo AZ. Storage PowerShell](https://www.powershellgallery.com/packages/Az.Storage), versão 3.4.0 ou posterior. Em seguida, configure a propriedade **AllowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
+
+O exemplo a seguir mostra como impedir o acesso com chave compartilhada para uma conta de armazenamento existente com o PowerShell. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com CLI do Azure, instale CLI do Azure versão 2.9.1 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Em seguida, configure a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
+Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com CLI do Azure, instale CLI do Azure versão 2.20.0 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Em seguida, configure a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
 
-O exemplo a seguir mostra como definir a propriedade **allowSharedKeyAccess** com CLI do Azure. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+O exemplo a seguir mostra como impedir o acesso com chave compartilhada para uma conta de armazenamento existente com CLI do Azure. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```azurecli-interactive
-$storage_account_id=$(az resource show \
+az storage account update \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
-
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowSharedKeyAccess=false
-
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowSharedKeyAccess \
-    --output tsv
+    --allow-shared-key-access false
 ```
 
 ---
@@ -171,7 +166,7 @@ Para verificar se a autorização de chave compartilhada não é mais permitida,
 az storage container create \
     --account-name <storage-account> \
     --name sample-container \
-    --account-key <key>
+    --account-key <key> \
     --auth-mode key
 ```
 
@@ -193,13 +188,13 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Permissões para permitir ou não permitir acesso à chave compartilhada
 
-Para definir a propriedade **AllowSharedKeyAccess** para a conta de armazenamento, um usuário deve ter permissões para criar e gerenciar contas de armazenamento. As funções do Azure RBAC (controle de acesso baseado em função) que fornecem essas permissões incluem a ação **Microsoft. Storage/storageAccounts/Write** ou **Microsoft. Storage \* /storageAccounts/* _. As funções internas com essa ação incluem:
+Para definir a propriedade **AllowSharedKeyAccess** para a conta de armazenamento, um usuário deve ter permissões para criar e gerenciar contas de armazenamento. As funções do Azure RBAC (controle de acesso baseado em função) que fornecem essas permissões incluem o **Microsoft. Storage/storageAccounts/Write** ou **Microsoft. Storage/ \* storageAccounts/** Action. As funções internas com essa ação incluem:
 
 - A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
 - A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Essas funções não fornecem acesso a dados em uma conta de armazenamento por meio do Azure Active Directory (Azure AD). No entanto, eles incluem o _ * Microsoft. Storage/storageAccounts/listkeys/Action * *, que concede acesso às chaves de acesso da conta. Com essa permissão, um usuário pode usar as chaves de acesso da conta para acessar todos os dados em uma conta de armazenamento.
+Essas funções não fornecem acesso a dados em uma conta de armazenamento por meio do Azure Active Directory (Azure AD). No entanto, eles incluem a **ação Microsoft. Storage/storageAccounts/listkeys/**, que concede acesso às chaves de acesso da conta. Com essa permissão, um usuário pode usar as chaves de acesso da conta para acessar todos os dados em uma conta de armazenamento.
 
 As atribuições de função devem ser delimitadas ao nível da conta de armazenamento ou superior para permitir que um usuário permita ou proíba o acesso a chaves compartilhadas para a conta de armazenamento. Para obter mais informações sobre o escopo da função, consulte [entender o escopo do RBAC do Azure](../../role-based-access-control/scope-overview.md).
 
@@ -214,7 +209,7 @@ Quando o acesso à chave compartilhada não é permitido para a conta de armazen
 
 | Tipo de SAS | Tipo de autorização | Comportamento quando AllowSharedKeyAccess é false |
 |-|-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
 | SAS do serviço | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 | SAS da conta | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 
@@ -236,12 +231,17 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do RBAC do Azure. Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Fazer a transição de cargas de trabalho de armazenamento de tabelas e arquivos do Azure
+
+O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão. Como o portal do Azure sempre usa a autorização de chave compartilhada para acessar dados de arquivo e tabela, se você não permitir a autorização com chave compartilhada para a conta de armazenamento, não será possível acessar dados de arquivo ou tabela no portal do Azure.
+
+A Microsoft recomenda que você migre todos os arquivos do Azure ou dados de armazenamento de tabela para uma conta de armazenamento separada antes de não permitir o acesso à conta por meio da chave compartilhada ou que você não aplique essa configuração a contas de armazenamento que dão suporte a arquivos do Azure ou cargas de trabalho de armazenamento de tabelas.
+
+A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
+
 ## <a name="about-the-preview"></a>Sobre a visualização
 
 A visualização para a despermissão da autorização de chave compartilhada está disponível na nuvem pública do Azure. Há suporte para contas de armazenamento que usam apenas o modelo de implantação Azure Resource Manager. Para obter informações sobre quais contas de armazenamento usam o modelo de implantação Azure Resource Manager, consulte [tipos de contas de armazenamento](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Esta versão prévia é destinada apenas para uso não produtivo.
 
 A visualização inclui as limitações descritas nas seções a seguir.
 

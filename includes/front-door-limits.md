@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411745"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102930"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411745"
 | Comprimento do nome do cookie do firewall do aplicativo Web | 256 |
 | Tamanho do corpo da solicitação HTTP do firewall do aplicativo Web inspecionado | 128 KB |
 | Comprimento do corpo da resposta personalizada do firewall do aplicativo Web | 2 KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Limites de serviço do Azure Front Door Standard/Premium (Versão prévia)
+
+*** *Máximo de **500** perfis Standard e Premium por assinatura.*
+
+| Recurso | Limite de SKU Standard | Limite de SKU Premium |
+| --- | --- | --- |
+| Máximo de pontos de extremidade por perfil  | 10 | 25 |
+| Máximo de domínios personalizados por perfil | 100 | 200 |
+| Máximo de grupos de origem por perfil | 100 | 200 |
+| Máximo de segredos por perfil | 100 | 200 |
+| Máximo de políticas de segurança por perfil | 100 | 200 |
+| Máximo de conjuntos de regras por perfil | 100 | 200 |
+| Máximo de regras por conjunto de regras | 100 | 100 |
+| Máximo de origens por grupo de origem | 50 | 50 |
+| Máximo de rotas por ponto de extremidade | 100 | 200 |
+| Condições de correspondência do firewall do aplicativo Web por regra personalizada | 10 | 10 |
+| Intervalos de endereços IP de firewall do aplicativo Web por condição de correspondência | 600 | 600 |
+| Valores de correspondência da cadeia de caracteres do firewall do aplicativo Web por condição de correspondência | 10 | 10 |
+| Comprimento do valor de correspondência da cadeia de caracteres do firewall do aplicativo Web | 256 | 256 |
+| Comprimento do nome do parâmetro de corpo de POST do firewall do aplicativo Web | 256 | 256 |
+| Comprimento do nome do cabeçalho HTTP do firewall do aplicativo Web | 256 | 256 |
+| Comprimento do nome do cookie do firewall do aplicativo Web | 256 | 256|
+| Tamanho do corpo da solicitação HTTP do firewall do aplicativo Web inspecionado | 128 KB | 128 KB |
+| Comprimento do corpo da resposta personalizada do firewall do aplicativo Web | 2 KB | 2 KB |
 
 ### <a name="timeout-values"></a>Valores de tempo limite
 #### <a name="client-to-front-door"></a>Cliente para o Front Door

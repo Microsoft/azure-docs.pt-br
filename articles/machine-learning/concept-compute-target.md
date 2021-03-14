@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791165"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503599"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -101,15 +101,21 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 | **Série de VMs com suporte**  | **Restrições** |
 |------------|------------|
 | D | Nenhum. |
+| DDSv4 | Nenhum. |
 | Dv2 | Nenhum. |  
 | Dv3 | Nenhum.|
 | DSv2 | Nenhum. | 
 | DSv3 | Nenhum.|
+| EAv4 | Nenhum. |
+| Ev3 | Nenhum. |
 | FSv2 | Nenhum. | 
+| H | Nenhum. |
+| HB | Requer aprovação. |
 | HBv2 | Requer aprovação. |  
 | HCS | Requer aprovação. |  
 | M | Requer aprovação. |
-| NC | Nenhum. |    
+| NC | Nenhum. |  
+| Promoção de NC | Nenhum. |
 | NCsv2 | Requer aprovação. |
 | NCsv3 | Requer aprovação. |  
 | NDs | Requer aprovação. |
@@ -123,7 +129,7 @@ Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas pode
 > [!NOTE]
 > Azure Machine Learning não dá suporte a todos os tamanhos de VM com suporte da computação do Azure. Para listar os tamanhos de VM disponíveis, use um dos seguintes métodos:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [SDK do Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [SDK do Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Isolamento de computação

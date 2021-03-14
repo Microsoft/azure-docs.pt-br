@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736178"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -19,7 +19,7 @@ Com o Azure, suas cargas de trabalho de servidor MySQL podem ser executadas em u
 
 Ao tomar sua decisão, considere as duas opções a seguir:
 
-- **Banco de dados do Azure para MySQL** . Essa opção é um mecanismo de banco de dados MySQL totalmente gerenciado com base na versão estável do MySQL Community Edition. Esse DBaaS (banco de dados relacional como serviço), hospedado na plataforma de nuvem do Azure, se enquadra na categoria do setor de PaaS.
+- **Banco de dados do Azure para MySQL**. Essa opção é um mecanismo de banco de dados MySQL totalmente gerenciado com base na versão estável do MySQL Community Edition. Esse DBaaS (banco de dados relacional como serviço), hospedado na plataforma de nuvem do Azure, se enquadra na categoria do setor de PaaS.
 
   Com uma instância gerenciada do MySQL no Azure, você pode usar recursos internos aula sobre visualização aplicação de patch automatizada, alta disponibilidade, backups automatizados, dimensionamento elástico, segurança de nível empresarial, conformidade e governança, monitoramento e alertas que, caso contrário, exigem uma configuração extensiva quando o servidor MySQL está no local ou em uma VM do Azure. Ao usar o MySQL como um serviço, você paga conforme o uso, com opções para escalar verticalmente ou escalar horizontalmente para maior controle sem interrupção.
   
@@ -35,7 +35,7 @@ Ao tomar sua decisão, considere as duas opções a seguir:
   - Alta disponibilidade com redundância de zona
   - Janelas de manutenção gerenciadas
 
-- **MySQL em VMs do Azure** . Essa opção se encaixa na categoria do setor de IaaS. Com esse serviço, você pode executar o MySQL Server dentro de uma máquina virtual gerenciada na plataforma de nuvem do Azure. Todas as versões e edições recentes do MySQL podem ser instaladas na máquina virtual.
+- **MySQL em VMs do Azure**. Essa opção se encaixa na categoria do setor de IaaS. Com esse serviço, você pode executar o MySQL Server dentro de uma máquina virtual gerenciada na plataforma de nuvem do Azure. Todas as versões e edições recentes do MySQL podem ser instaladas na máquina virtual.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Comparando as opções de implantação do MySQL no Azure
 
@@ -43,17 +43,19 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 
 | Atributo          | Banco de Dados do Azure para MySQL<br/>Servidor único |Banco de Dados do Azure para MySQL<br/>Servidor flexível  |MySQL em VMs do Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Suporte à versão do MySQL | 5,6, 5,7 & 8,0| 5.7 | Qualquer versão|
+| Suporte à versão do MySQL | 5,6, 5,7 & 8,0| 5,7 & 8,0 | Qualquer versão|
 | Dimensionamento de computação | Com suporte (não há suporte para dimensionar de e para a camada básica)| Com suporte | Com suporte|
 | Tamanho de armazenamento | 5 GiB a 16 TiB| 5 GiB a 16 TiB | 32 GiB a 32.767 GiB|
 | Dimensionamento de armazenamento online | Com suporte| Com suporte| Sem suporte|
 | Dimensionamento automático do armazenamento | Com suporte| Sem suporte na visualização| Sem suporte|
+| Escala de IOPs adicional | Sem suporte| Com suporte| Sem suporte|
 | Conectividade de rede | -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|-Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com integração de rede virtual.| -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|
 | SLA (Contrato de Nível de Serviço) | SLA de disponibilidade de 99,99% |Nenhum SLA na versão prévia| 99,99% usando Zonas de Disponibilidade|
 | Aplicação de patch do sistema operacional| Automática  | Automático com controle de janela de manutenção personalizada | Gerenciado por usuários finais |
 | Aplicação de patch do MySQL     | Automática  | Automático com controle de janela de manutenção personalizada | Gerenciado por usuários finais |
 | Alta disponibilidade | HA interna dentro da zona de disponibilidade única| HA interna dentro e entre zonas de disponibilidade | Gerenciados personalizados usando clustering, replicação, etc.|
 | Redundância de zona | Sem suporte | Com suporte | Com suporte|
+| Posicionamento da zona | Sem suporte | Com suporte | Com suporte|
 | Cenários híbridos | Com suporte com [replicação de dados](./concepts-data-in-replication.md)| Não disponível no modo visualização | Gerenciado por usuários finais |
 | Réplicas de leitura | Com suporte (até 5 réplicas)| Com suporte (até 10 réplicas)| Gerenciado por usuários finais |
 | Backup | Automatizado com retenção de 7-35 dias | Automatizado com retenção de 1-35 dias | Gerenciado por usuários finais |

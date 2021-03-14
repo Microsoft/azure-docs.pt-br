@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.date: 02/21/2021
+ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732795"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de rede – banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -61,6 +61,8 @@ Aqui estão alguns conceitos a serem familiarizados com o uso de redes virtuais 
 * **Sub-rede delegada** – uma rede virtual contém sub-redes (sub-redes). As sub-redes permitem segmentar sua rede virtual em espaços de endereço menores. Os recursos do Azure são implantados em sub-redes específicas em uma rede virtual. 
 
    Seu servidor flexível PostgreSQL deve estar em uma sub-rede que é **delegada** somente para uso do servidor flexível PostgreSQL. Essa delegação significa que somente os servidores flexíveis do banco de dados do Azure para PostgreSQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada. Você delega uma sub-rede atribuindo sua propriedade de delegação como Microsoft. DBforPostgreSQL/flexibleServers.
+
+   Adicione `Microsoft.Storage` ao ponto de extremidade de serviço para a sub-rede delegada a servidores flexíveis. 
 
 * **NSG (grupos de segurança de rede)** As regras de segurança nos grupos de segurança de rede permitem filtrar o tipo de tráfego de rede que pode fluir para dentro e para fora das sub-redes e interfaces de rede da rede virtual. Examine a [visão geral do grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md) para obter mais informações.
 

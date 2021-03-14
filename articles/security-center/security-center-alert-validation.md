@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560094"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099515"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta na central de segurança do Azure
 Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
@@ -28,7 +28,7 @@ Alertas são as notificações que a Central de Segurança gera quando detecta a
 Para obter mais informações, consulte [alertas de segurança na central de segurança](security-center-alerts-overview.md) e [Gerenciando e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
 
 
-## <a name="generate-sample-azure-defender-alerts"></a>Gerar alertas de exemplo do Azure defender
+## <a name="generate-sample-azure-defender-alerts"></a>Gerar alertas de exemplo do Azure Defender
 
 Se você estiver usando a nova experiência de alertas de visualização, conforme descrito em [gerenciar e responder a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md), poderá criar alertas de exemplo com alguns cliques na página alertas de segurança no portal do Azure.
 
@@ -36,11 +36,6 @@ Use alertas de exemplo para:
 
 - avaliar o valor e os recursos do Azure defender
 - Valide todas as configurações feitas para seus alertas de segurança (como integrações do SIEM, automação de fluxo de trabalho e notificações por email)
-
-> [!NOTE]
-> Este procedimento requer a nova experiência de alertas (versão prévia) disponível na faixa na parte superior da página **alertas de segurança** .
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Faixa com link para a nova experiência de visualização de alertas":::
 
 Para criar alertas de exemplo:
 
@@ -102,5 +97,4 @@ Este artigo apresentou a você o processo de validação de alertas. Agora que v
 
 * [Validação da detecção de ameaças do Azure Key Vault na Central de Segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) -saiba como gerenciar alertas e responder a incidentes de segurança na central de segurança.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas sobre alertas de segurança na central de segurança do Azure](./security-center-alerts-overview.md) -saiba mais sobre os diferentes tipos de alertas de segurança.

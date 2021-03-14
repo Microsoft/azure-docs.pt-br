@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992040"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211763"
 ---
 # <a name="managed-hsm-logging"></a>Registro em log do HSM Gerenciado 
 
@@ -22,7 +22,7 @@ Depois de criar um ou mais HSMs Gerenciados, você provavelmente desejará monit
 
 Você pode acessar suas informações de registro em log 10 minutos (no máximo) após a operação do HSM Gerenciado. Na maioria dos casos, será mais rápido do que isso.  Cabe a você gerenciar os logs em sua conta de armazenamento:
 
-* Use os métodos de controle de acesso padrão do Azure para proteger seus logs ao restringir quem pode acessá-los.
+* use os métodos de controle de acesso padrão do Azure para proteger os logs, restringindo quem pode acessá-los.
 * Exclua os logs que você não deseja manter em sua conta de armazenamento.
 
 Este tutorial vai ajudar você a começar a usar o registro em log do HSM Gerenciado. Você criará uma conta de armazenamento, habilitará o registro em log e interpretará as informações de log coletadas.  
@@ -48,7 +48,7 @@ A primeira etapa para configurar o registro em log das chaves é apontar a CLI d
 az login
 ```
 
-Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli)
 
 Talvez seja necessário especificar a assinatura que você usou para criar o HSM Gerenciado. Insira o seguinte comando para ver as assinaturas da sua conta:
 

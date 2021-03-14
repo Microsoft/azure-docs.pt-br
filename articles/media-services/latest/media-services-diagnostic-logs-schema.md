@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8015f610dfd9404810a1fa19c951078ebb45ac4f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295420"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588486"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
@@ -26,13 +26,13 @@ ms.locfileid: "89295420"
 
 [Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Você pode monitorar os logs de diagnóstico dos serviços de mídia e criar alertas e notificações para as métricas e os logs coletados. Você pode enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-los para [log Analytics](https://azure.microsoft.com/services/log-analytics/)ou usar serviços de terceiros.
 
-Para obter informações detalhadas, consulte [Azure monitor métricas](../../azure-monitor/platform/data-platform.md) e [Azure monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter informações detalhadas, consulte [Azure monitor métricas](../../azure-monitor/data-platform.md) e [Azure monitor logs de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Este artigo descreve os esquemas dos logs de diagnóstico dos serviços de mídia.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de logs de diagnóstico de nível superior
 
-Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../azure-monitor/platform/resource-logs-schema.md).
+Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Esquema do log de distribuição de chaves
 
@@ -40,7 +40,7 @@ Para obter uma descrição detalhada do esquema de logs de diagnóstico de níve
 
 Essas propriedades são específicas para o esquema de log de distribuição de chaves.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |keyId|A ID da chave solicitada.|
 |keyType|Pode ser um dos seguintes valores: "Clear" (sem criptografia), "FairPlay", "PlayReady" ou "Widevine".|

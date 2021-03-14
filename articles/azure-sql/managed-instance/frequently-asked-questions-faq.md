@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes
+title: Perguntas frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428666"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503191"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Essa é uma limitação atual do componente subjacente que verifica o nome da su
 
 **Como posso dimensionar minha instância gerenciada?**
 
-Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-update) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover meu Instância Gerenciada de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, você pode. Para obter instruções, consulte [mover recursos entre regiõe
 
 **Como posso excluir meu Instância Gerenciada?**
 
-Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
+Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-delete) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo leva para criar ou atualizar uma instância, ou para restaurar um banco de dados?**
 
@@ -483,7 +483,7 @@ Cada logon deve definir sua senha no logon e alterar sua senha depois que atingi
 | Duração máxima da senha | 42 dias |
 | Duração mínima da senha | 1 dia |
 | Comprimento mínimo da senha | 10 caracteres |
-| A senha deve atender aos requisitos de complexidade | Habilitada |
+| A senha deve atender aos requisitos de complexidade | habilitado |
 
 **É possível desabilitar a complexidade e a expiração de senha no SQL Instância Gerenciada no nível de logon?**
 

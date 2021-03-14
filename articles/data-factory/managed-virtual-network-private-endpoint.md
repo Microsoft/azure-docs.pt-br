@@ -1,24 +1,20 @@
 ---
 title: Rede virtual gerenciada & pontos de extremidade privados gerenciados
 description: Saiba mais sobre a rede virtual gerenciada e pontos de extremidade privados gerenciados em Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699617"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -47,11 +43,11 @@ Benefícios do uso da rede virtual gerenciada:
 
 ## <a name="managed-private-endpoints"></a>Pontos de extremidade privados gerenciados
 
-Pontos de extremidade privados gerenciados são pontos de extremidade privados criados no Azure Data Factory rede virtual gerenciada estabelecendo um link privado para recursos do Azure. Azure Data Factory gerencia esses pontos de extremidade privados em seu nome. 
+Pontos de extremidade privados gerenciados são pontos de extremidade privados criados no Azure Data Factory rede virtual gerenciada estabelecendo um link privado para recursos do Azure. O Azure Data Factory gerencia para você esses pontos de extremidade privados. 
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
+Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics).
 
 Quando você usa um link privado, o tráfego entre os armazenamentos de dados e a rede virtual gerenciada atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
@@ -86,7 +82,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Arquivos do Azure
 - Azure Data Lake Gen2
 - Banco de dados SQL do Azure (sem incluir o Azure SQL Instância Gerenciada)
-- Azure Synapse Analytics (antigo SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Serviço de vínculo privado do Azure
@@ -112,11 +108,13 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.
-- O armazenamento do Azure e o Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada por ADF.
+- O Armazenamento do Microsoft Azure e o Azure Data Lake Gen2 não têm compatibilidade com conexão por meio do ponto de extremidade público da rede virtual gerenciada pelo ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço vinculado de Azure Key Vault 
-- Quando você cria um serviço vinculado para Azure Key Vault, não há nenhuma referência de Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
+- Quando você cria um Serviço Vinculado para Azure Key Vault, não há referências do Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
 - **Testar** a operação de conexão para o serviço vinculado do Azure Key Vault valida apenas o formato da URL, mas não faz nenhuma operação de rede.
+- A coluna que **usa o ponto de extremidade privado** sempre é mostrada como em branco mesmo se você criar um ponto de extremidade privado para Azure Key Vault.
+![Ponto de extremidade privado para AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

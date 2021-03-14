@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 9e395ce996bf7e6889a27fcb04b0e643cf63c58b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219886"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430880"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -62,7 +62,7 @@ Você pode gerar as regras de acesso à rede padrão para contas de armazenament
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Vá até a conta de armazenamento que você deseja proteger.
+1. Acesse a conta de armazenamento que você deseja proteger.
 
 2. Selecione no menu configurações chamado **rede**.
 
@@ -136,7 +136,7 @@ Ao planejar a recuperação de desastre durante uma interrupção regional, voc�
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para aplicar uma regra da rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A permissão necessária é *Ingressar o Serviço em uma Sub-rede* e está incluída na função interna *Colaborador da conta de armazenamento*. Também podem ser adicionado às definições de função personalizada.
+Para aplicar uma regra da rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A aplicação de uma regra pode ser executada por um [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) ou um usuário que tenha recebido permissão para a operação do provedor de `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [recursos do Azure](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) por meio de uma função personalizada do Azure.
 
 A conta de armazenamento e o acesso concedido às redes virtuais podem estar em assinaturas diferentes, incluindo assinaturas que são parte do mesmo locatário do Azure AD.
 
@@ -149,7 +149,7 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Vá até a conta de armazenamento que você deseja proteger.
+1. Acesse a conta de armazenamento que você deseja proteger.
 
 2. Selecione no menu configurações chamado **rede**.
 
@@ -275,7 +275,7 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Vá até a conta de armazenamento que você deseja proteger.
+1. Acesse a conta de armazenamento que você deseja proteger.
 
 2. Selecione no menu configurações chamado **rede**.
 
@@ -371,10 +371,12 @@ Em alguns casos, um aplicativo pode depender de recursos do Azure que não podem
 
 Os tipos de operações que uma instância de recurso pode executar nos dados da conta de armazenamento são determinados pelas [atribuições de função do Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) da instância de recurso. As instâncias de recurso devem ser do mesmo locatário como sua conta de armazenamento, mas podem pertencer a qualquer assinatura no locatário.
 
-A lista de serviços do Azure com suporte aparece na seção [acesso confiável com base em identidade gerenciada atribuída pelo sistema](#trusted-access-system-assigned-managed-identity) deste artigo.
+> [!NOTE]
+> Esse recurso está em visualização pública e está disponível em todas as regiões de nuvem pública.
 
 > [!NOTE]
-> Esse recurso está em visualização pública e está disponível em todas as regiões de nuvem pública. 
+> Atualmente, há suporte para regras de instância de recurso apenas para Synapse do Azure. O suporte para outros serviços do Azure listados na seção [acesso confiável baseado em identidade gerenciada atribuída pelo sistema](#trusted-access-system-assigned-managed-identity) deste artigo estará disponível nas próximas semanas.
+
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -415,7 +417,7 @@ Instale o módulo de visualização **AZ. Storage** .
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
 ```
 
-Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps)
 
 #### <a name="grant-access"></a>Conceder acesso
 
@@ -565,7 +567,7 @@ Os recursos de alguns serviços, **quando registrados em sua assinatura**, podem
 | Sincronização de Arquivos do Azure          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de Arquivos do Azure. Isso permite a sincronização de vários sites, recuperação rápida de desastre e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Importação/Exportação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o armazenamento do Azure ou a exportação de dados do armazenamento do Azure usando o serviço de importação/exportação do armazenamento do Azure. [Saiba mais](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](../../azure-monitor/roles-permissions-security.md). |
 | Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 

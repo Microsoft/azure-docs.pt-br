@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: cec17b98daa8eca31cda076921288e2838960511
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434525"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633930"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
 
@@ -71,11 +71,11 @@ EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceito | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
 PUT | Com sucesso | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Com falha | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PUT | Failed (Falha) | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
 PATCH | Com sucesso | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
-DELETE | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
-DELETE | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-DELETE | Com falha | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+Delete (excluir) | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
+Delete (excluir) | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
+Delete (excluir) | Failed (Falha) | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 
@@ -86,10 +86,10 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 {
     "eventType": "PUT",
-    "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
+    "applicationId": "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
-    "applicationDefinitionId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applicationDefinitions/<appDefName>"    
+    "applicationDefinitionId": "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applicationDefinitions/<appDefName>"    
 }
 
 ```
@@ -104,7 +104,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
-    "applicationDefinitionId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applicationDefinitions/<appDefName>",
+    "applicationDefinitionId": "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applicationDefinitions/<appDefName>",
     "error": {
         "code": "ErrorCode",
         "message": "error message",
@@ -127,7 +127,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 {
     "eventType": "PUT",
-    "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
+    "applicationId": "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
     "billingDetails": {
@@ -150,7 +150,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 {
     "eventType": "PUT",
-    "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
+    "applicationId": "/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
     "billingDetails": {
@@ -182,7 +182,7 @@ eventType | O tipo de evento que disparou a notificação. (Por exemplo, PUT, PA
 applicationId | O identificador de recurso totalmente qualificado do aplicativo gerenciado para o qual a notificação foi disparada.
 eventTime | O carimbo de data/hora do evento que disparou a notificação. (Data e hora no formato UTC ISO 8601.)
 provisioningState | O estado de provisionamento da instância do aplicativo gerenciado. (Por exemplo, com êxito, com falha, excluindo, excluiu.)
-error | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
+erro | *Especificado somente quando ProvisioningState falhou*. Contém o código de erro, a mensagem e os detalhes do problema que causou a falha.
 applicationDefinitionId | *Especificado somente para aplicativos gerenciados do catálogo de serviços*. Representa o identificador de recurso totalmente qualificado da definição de aplicativo para a qual a instância do aplicativo gerenciado foi provisionada.
 plan | *Especificado somente para aplicativos gerenciados do Azure Marketplace*. Representa o editor, a oferta, a SKU e a versão da instância do aplicativo gerenciado.
 billingDetails | *Especificado somente para aplicativos gerenciados do Azure Marketplace.* Os detalhes de cobrança da instância do aplicativo gerenciado. Contém o resourceUsageId que você pode usar para consultar o Azure Marketplace para obter detalhes de uso.

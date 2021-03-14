@@ -1,27 +1,27 @@
 ---
-title: Adicionar uma atribuição de função para uma identidade gerenciada (versão prévia) – RBAC do Azure
-description: Saiba como adicionar uma atribuição de função iniciando com a identidade gerenciada e, em seguida, selecione o escopo e a função usando o portal do Azure e o controle de acesso baseado em função do Azure (RBAC do Azure).
+title: Atribuir funções do Azure a uma identidade gerenciada (versão prévia) – RBAC do Azure
+description: Saiba como atribuir funções do Azure iniciando com a identidade gerenciada e, em seguida, selecione o escopo e a função usando o portal do Azure e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: a01246c0cf35653f4d13262183cf9df28b056c69
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57c8c00a64996bc6223fbe7e514db9db38ccdcc2
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556854"
 ---
-# <a name="add-a-role-assignment-for-a-managed-identity-preview"></a>Adicionar uma atribuição de função para uma identidade gerenciada (versão prévia)
+# <a name="assign-azure-roles-to-a-managed-identity-preview"></a>Atribuir funções do Azure a uma identidade gerenciada (versão prévia)
 
-Você pode adicionar atribuições de função para uma identidade gerenciada usando a página **controle de acesso (iam)** , conforme descrito em [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md). Ao usar a página controle de acesso (IAM), você começa com o escopo e, em seguida, seleciona a identidade e a função gerenciadas. Este artigo descreve uma maneira alternativa de adicionar atribuições de função para uma identidade gerenciada. Usando essas etapas, você começa com a identidade gerenciada e, em seguida, seleciona o escopo e a função.
+Você pode atribuir uma função a uma identidade gerenciada usando a página **controle de acesso (iam)** , conforme descrito em [atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md). Ao usar a página controle de acesso (IAM), você começa com o escopo e, em seguida, seleciona a identidade e a função gerenciadas. Este artigo descreve uma maneira alternativa de atribuir funções para uma identidade gerenciada. Usando essas etapas, você começa com a identidade gerenciada e, em seguida, seleciona o escopo e a função.
 
 > [!IMPORTANT]
-> A adição de uma atribuição de função para uma identidade gerenciada usando essas etapas alternativas está atualmente em versão prévia.
+> A atribuição de uma função a uma identidade gerenciada usando essas etapas alternativas está atualmente em versão prévia.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -61,7 +61,7 @@ Siga estas etapas para atribuir uma função a uma identidade gerenciada atribu�
 
    Depois de alguns instantes, a identidade gerenciada é atribuída à função no escopo selecionado.
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
+## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
 
 Siga estas etapas para atribuir uma função a uma identidade gerenciada atribuída pelo usuário, começando com a identidade gerenciada.
 
@@ -92,5 +92,5 @@ Siga estas etapas para atribuir uma função a uma identidade gerenciada atribu�
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)

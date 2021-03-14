@@ -3,7 +3,7 @@ title: Usar a criptografia comum dinâmica PlayReady e/ou Widevine | Microsoft D
 description: Você pode usar os Serviços de Mídia do Microsoft Azure para fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o DRM do Microsoft PlayReady. Você também pode usá-los para o fornecimento de DASH criptografado com o DRM do Widevine. Este tópico mostra como criptografar dinamicamente com o DRM do PlayReady e do Widevine.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58ca7df5a99752f05a4715511685b31a467356f1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695045"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009446"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
 
@@ -55,7 +55,7 @@ Este artigo é útil para os desenvolvedores que trabalham em aplicativos que fo
 >[!NOTE]
 >Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming padrão é adicionado à sua conta em estado "Parado". Para iniciar seu conteúdo de streaming e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado "Executando". 
 
-## <a name="download-the-sample"></a>Baixe o exemplo
+## <a name="download-the-sample"></a>Baixar o exemplo
 Você pode baixar o exemplo descrito neste artigo nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurar a criptografia dinâmica comum e os serviços de distribuição de licenças de DRM

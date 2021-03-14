@@ -6,20 +6,19 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56e2e2a048e44dcad626208b059e258d55ba7057
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e1fd4d53a642052c55bbe5d31bf80133ae89d35
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967592"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675451"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
 
@@ -34,7 +33,7 @@ Alta disponibilidade e recuperação de desastre (DR) são aspectos críticos da
 A Microsoft dá suporte a alguns recursos de alta disponibilidade do SAP HANA com instâncias grandes do HANA. Esses recursos incluem:
 
 - **Replicação de armazenamento**: a capacidade do sistema de armazenamento de replicar todos os dados para outro selo de instância grande do HANA em outra região do Azure. O SAP HANA funciona independentemente desse método. Essa funcionalidade é o mecanismo de recuperação de desastre padrão oferecido para o SAP HANA em Instâncias Grandes.
-- **Replicação de sistema do Hana**: a [replicação de todos os dados no SAP Hana](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) para um sistema de SAP Hana separado. O objetivo de tempo de recuperação é minimizado por meio da replicação de dados em intervalos regulares. O SAP HANA dá suporte a modos síncronos, síncronos na memória e assíncronos. O modo síncrono é utilizado apenas para sistemas SAP HANA que estão dentro do mesmo datacenter ou a menos de 100 km de distância. Com o design atual dos carimbos do SAP HANA em Instâncias Grandes, a replicação do sistema HANA pode ser utilizada para alta disponibilidade apenas dentro de uma região. A replicação do sistema HANA requer um componente roteamento ou de proxy reverso de terceiros para usar as configurações de recuperação de desastre em outra região do Azure. 
+- **Replicação do sistema HANA**: a [replicação de todos os dados no SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) para um sistema SAP HANA separado. O objetivo de tempo de recuperação é minimizado por meio da replicação de dados em intervalos regulares. O SAP HANA dá suporte a modos síncronos, síncronos na memória e assíncronos. O modo síncrono é utilizado apenas para sistemas SAP HANA que estão dentro do mesmo datacenter ou a menos de 100 km de distância. Com o design atual dos carimbos do SAP HANA em Instâncias Grandes, a replicação do sistema HANA pode ser utilizada para alta disponibilidade apenas dentro de uma região. A replicação do sistema HANA requer um componente roteamento ou de proxy reverso de terceiros para usar as configurações de recuperação de desastre em outra região do Azure. 
 - **Failover automático de host**: uma solução local de recuperação de falhas para o SAP HANA que é uma alternativa à replicação do sistema HANA. Se o nó mestre ficar não disponível, configure um ou mais nós SAP HANA em espera no modo de escala horizontal e o SAP HANA fará automaticamente o failover para um nó em espera.
 
 O SAP HANA (Instâncias Grandes) do Azure é oferecido em duas regiões do Azure, em quatro áreas geopolíticas (EUA, Austrália, Europa e Japão). Duas regiões dentro de uma área geopolítica que hospedam os carimbos do SAP HANA em Instâncias Grandes são conectadas a circuitos de rede dedicados separados. Eles são utilizados para replicar instantâneos de armazenamento para fornecer métodos de recuperação de desastre. A replicação não é estabelecida por padrão, mas é configurada para clientes que solicitam a funcionalidade de recuperação de desastre. A replicação de armazenamento depende do uso de instantâneos de armazenamento para instâncias grandes HANA. Não será possível escolher uma região do Azure como uma região de DR se estiver em uma área geopolítica diferente. 
@@ -70,7 +69,7 @@ Consulte os [ cenários suportados pelo HLI ](hana-supported-scenario.md) para a
 
 Para aproveitar a funcionalidade da recuperação de desastre do SAP HANA em Instâncias Grandes, é necessário começar a projetar a conectividade de rede para as duas regiões do Azure. É necessária uma conexão de circuito do Azure ExpressRoute dos locais em sua região principal do Azure e outra conexão de circuito com os locais em sua região de recuperação de desastre. Essa medida abrange uma situação na qual há um problema em uma região do Azure, incluindo um local do MSEE (Microsoft Enterprise Edge Router).
 
-Como segunda medida, é possível conectar todas as redes virtuais do Azure que conectam-se ao SAP HANA (Instâncias Grandes) do Azure em uma região a um circuito de ExpressRoute que conecta o SAP HANA em Instâncias Grandes na outra região. Com esse *Cross connect*, os serviços em execução em uma rede virtual do Azure na região 1 podem se conectar às unidades de instância grande do Hana na região 2 e o contrário. Essa medida resolve um caso em que apenas um dos locais do MSEE conecta-se a um ponto local com o Azure estando offline.
+Como segunda medida, é possível conectar todas as redes virtuais do Azure que conectam-se ao SAP HANA (Instâncias Grandes) do Azure em uma região a um circuito de ExpressRoute que conecta o SAP HANA em Instâncias Grandes na outra região. Com essa *conexão cruzada* os serviços em execução em uma rede virtual do Azure na Região 1 podem conectar-se a unidades do SAP HANA em Instâncias Grandes na Região 2 e vice-versa. Essa medida resolve um caso em que apenas um dos locais do MSEE conecta-se a um ponto local com o Azure estando offline.
 
 O gráfico a seguir ilustra uma configuração flexível para casos de recuperação de desastre:
 

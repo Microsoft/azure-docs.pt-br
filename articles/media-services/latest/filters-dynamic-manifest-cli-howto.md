@@ -14,33 +14,31 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 54e99c645b93bfcb3aee4e81cef3b2b5d6589d95
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897570"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211457"
 ---
 # <a name="creating-filters-with-cli"></a>Criando filtros com a CLI
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
+Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo.
 
 Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
 
-Este tópico mostra como configurar um filtro para um ativo de vídeo sob demanda e usar a CLI para os Serviços de Mídia do Microsoft Azure v3 criem [filtros de conta](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativo](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Este tópico mostra como configurar um filtro para um ativo de vídeo sob demanda e usar a CLI para os Serviços de Mídia do Microsoft Azure v3 criem [filtros de conta](/cli/azure/ams/account-filter) e [filtros de ativo](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Certifique-se de examinar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## <a name="define-a-filter"></a>Definir um filtro 
+## <a name="define-a-filter"></a>Definir um filtro
 
 O exemplo a seguir define as condições de seleção de faixas adicionadas ao manifesto final. Esse filtro inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo com taxa de bits na faixa de 0 a 1000000.
 
@@ -82,7 +80,7 @@ O exemplo a seguir define as condições de seleção de faixas adicionadas ao m
 
 ## <a name="create-account-filters"></a>Crie filtros de conta
 
-O comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) a seguir cria um filtro de conta com seleções de trilha de filtro que foram [definidas anteriormente](#define-a-filter). 
+O comando [az ams account-filter](/cli/azure/ams/account-filter) a seguir cria um filtro de conta com seleções de trilha de filtro que foram [definidas anteriormente](#define-a-filter).
 
 O comando permite que passar um parâmetro opcional `--tracks` que contém o JSON que representa as seleções de faixa.  Use @{file} para carregar o JSON de um arquivo. Se estiver usando a CLI do Azure localmente, especifique o caminho do arquivo inteiro:
 
@@ -94,7 +92,7 @@ Além disso, veja [exemplos de JSON para filtros](/rest/api/media/accountfilters
 
 ## <a name="create-asset-filters"></a>Crie filtros de ativos
 
-O comando [az-s-asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) a seguir cria um filtro de ativos com seleções de trilha de filtro [definidas anteriormente](#define-a-filter). 
+O comando [az-s-asset-filter](/cli/azure/ams/asset-filter) a seguir cria um filtro de ativos com seleções de trilha de filtro [definidas anteriormente](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -130,8 +128,8 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 ## <a name="next-step"></a>Próxima etapa
 
-[Vídeos do Stream](stream-files-tutorial-with-api.md) 
+[Vídeos do Stream](stream-files-tutorial-with-api.md)
 
 ## <a name="see-also"></a>Confira também
 
-[CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
+[CLI do Azure](/cli/azure/ams)

@@ -1,5 +1,5 @@
 ---
-title: Encaminhar informações de alerta
+title: Encaminhar informações de alertas
 description: Você pode enviar informações de alerta para sistemas de parceiros trabalhando com regras de encaminhamento.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837984"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522726"
 ---
-# <a name="forward-alert-information"></a>Encaminhar informações de alerta
+# <a name="forward-alert-information"></a>Encaminhar informações de alertas
 
 Você pode enviar informações de alerta aos parceiros que estão se integrando ao Azure defender para IoT, a servidores de syslog, a endereços de email e muito mais. Trabalhar com regras de encaminhamento permite que você forneça rapidamente informações de alerta para os participantes da segurança.  
 
@@ -203,6 +203,6 @@ O administrador pode ter definido regras de exclusão de alertas. Essas regras a
 
 Isso significa que as regras de encaminhamento que você definir poderão ser ignoradas com base nas regras de exclusão que o administrador criou. As regras de exclusão são definidas no console de gerenciamento local.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)

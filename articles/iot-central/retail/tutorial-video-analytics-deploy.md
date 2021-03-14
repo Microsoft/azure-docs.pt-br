@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c578da7e83a39f84e72b550038bd87dde3c61d28
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831936"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727457"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Como implantar um aplicativo do IoT Central usando o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -22,6 +22,13 @@ Para obter uma visão geral dos principais componentes do aplicativo de *detecç
 O seguinte vídeo fornece uma explicação sobre como usar o _modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo_ para implantar uma solução do IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+Neste conjunto de tutoriais, você aprenderá como:
+
+> [!div class="checklist"]
+> * Implantar o aplicativo
+> * Implantar uma instância do IoT Edge que se conecte ao aplicativo
+> * Monitorar e gerenciar o aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

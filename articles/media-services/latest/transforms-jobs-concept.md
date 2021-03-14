@@ -1,7 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
 Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
-serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
 MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 08/19/2019 MS. Author: inhenkel
 ---
@@ -45,7 +45,7 @@ Use **Transformações** para configurar tarefas comuns para codificar ou analis
 
 ### <a name="viewing-schema"></a>Exibindo esquema
 
-Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou em outra documentação de referência do SDK dos serviços de mídia v3.
+Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset)ou em outra documentação de referência do SDK dos serviços de mídia v3.
 
 ### <a name="creating-transforms"></a>Criando transformações
 

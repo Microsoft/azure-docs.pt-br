@@ -1,24 +1,24 @@
 ---
-title: Opção de venda conjunta no Marketplace comercial | Azure Marketplace
-description: As informações que você fornecer na guia co-venda com o Microsoft da sua oferta serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente.
+title: Configurar a televenda para uma oferta de Marketplace comercial | Azure Marketplace
+description: As informações fornecidas na guia covenda com a Microsoft para sua oferta são usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/08/2020
-ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 2/24/2021
+ms.openlocfilehash: 6fdae505a4c2d05dc3e19d01ed52b0ef44ae3a40
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880954"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699004"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de venda conjunta no marketplace comercial
+# <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configurar a televenda para uma oferta de Marketplace comercial
 
-Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Este artigo descreve como configurar a guia **co-venda com a Microsoft** para uma oferta de Marketplace comercial. Fornecer informações sobre essa guia é totalmente opcional, mas é necessário para atingir o [status de incentivados de venda de cooperação e](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)de covenda de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Essas informações não estão disponíveis diretamente para os clientes. Para obter mais informações sobre as vendas conjuntas, consulte [visão geral de venda com os vendedores e parceiros da Microsoft](marketplace-co-sell.md) e [venda conjunta com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-A opção de venda conjunta no Partner Center está disponível para os seguintes tipos de oferta.
+A opção de venda conjunta está disponível para os seguintes tipos de oferta.
 
 - Aplicativo do Azure
 - Contêiner do Azure
@@ -32,95 +32,149 @@ A opção de venda conjunta no Partner Center está disponível para os seguinte
 - Aplicativo do Power BI
 - SaaS (software como serviço)
 
-## <a name="listing"></a>Listando
+## <a name="go-to-the-co-sell-with-microsoft-tab"></a>Vá para a guia co-venda com a Microsoft
 
-As listagens de televenda ajudarão as equipes de vendas da Microsoft a comercializar sua oferta para um público mais amplo. *(Todos os campos necessários.)*
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. No menu de navegação à esquerda, selecione   >  **visão geral** do Marketplace comercial.
+    > [!TIP]
+    > Se você não vir o **Marketplace comercial** na navegação à esquerda, [crie uma conta do Marketplace comercial no Partner Center](./partner-center-portal/create-account.md) e verifique se sua conta está inscrita no programa do Marketplace comercial.
+1. Na guia **visão geral** , selecione a oferta que você deseja vender.
+    > [!NOTE]
+    > Você pode configurar a televenda para uma nova oferta que ainda não foi publicada ou com uma oferta já publicada.
 
-- Escolha as plataformas da Microsoft com as quais sua oferta é criada, se estende ou se integra com.
-- Selecione os segmentos de mercado aos quais sua oferta está direcionada.
-- Selecione um [tipo de solução](#solution-type) para sua oferta.
-- Escolha até três [áreas de solução](#solution-areas) e subáreas.
+1. No menu à esquerda, selecione **co-vender com a Microsoft**.
 
-### <a name="solution-type"></a>Tipo de solução
+    [![Ilustra o link co-venda com a Microsoft no painel de navegação esquerdo.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+## <a name="co-sell-listings"></a>Listagens de venda conjuntas
+
+Listagens de produtos ajudam as equipes de vendas da Microsoft a comercializar sua oferta para um público mais amplo. Você deve fornecer as seguintes informações para obter o status pronto para a venda:
+
+- Plataformas da Microsoft (selecione um ou mais)
+- Segmentos (selecione um ou mais)
+- Tipo de solução (selecione uma)
+- Sub-área da solução (selecione uma ou duas)
+
+### <a name="select-microsoft-platforms-and-segments"></a>Selecionar plataformas e segmentos da Microsoft
+
+1. Em **listagem**, selecione uma ou mais plataformas da Microsoft com as quais sua oferta foi criada, se estende ou se integra com.
+1. Selecione um ou mais segmentos de mercado para os quais sua oferta está direcionada.
+
+### <a name="select-solution-types"></a>Selecionar tipos de solução
 
 Os tipos de solução ajudam a definir os cenários para os quais sua oferta foi projetada para resolver.
+
+- Na lista **selecionar um tipo de solução** , selecione um tipo de solução que melhor corresponda à sua oferta. Esta tabela descreve os tipos de solução disponíveis.
+
+***Tabela 1: tipos de solução disponíveis***
 
 | **Tipo de solução**    | **Descrição**  |
 | :------------------- | :-------------------|
 | Dispositivo (hardware) | Uma oferta que envolve a criação ou a venda de hardware de um fabricante de dispositivos. |
-| IP (aplicativo) | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo: um programa CRM que pode ser licenciado e instalado localmente. |
-| Serviço | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo: configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
-| Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo: fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciado. |
+| IP (aplicativo) | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo, um programa de CRM que pode ser licenciado e instalado localmente. |
+| Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo, fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciado. |
+| Serviço | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo, configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
+|||
 
-### <a name="solution-areas"></a>Áreas de solução
+### <a name="select-solution-areas"></a>Selecionar áreas da solução
 
-As áreas de solução ajudam a definir ainda mais sua solução.
+As áreas de solução ajudam a definir ainda mais sua solução. Isso ajuda as equipes de vendas da Microsoft a encontrar e entender a proposta de valor da sua solução. Você deve selecionar pelo menos um e até um máximo de três áreas de solução para sua oferta. Para cada área de solução, você pode escolher ainda mais até duas subáreas de solução.
 
-Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a `Ctrl` chave (no Windows) ou a chave de comando (no MacOS).
+1. Selecione o link **+ Adicionar área de solução (3 máx.)** .
+1. Selecione uma área de solução na lista suspensa que aparece.
+1. Selecione pelo menos uma e até duas subáreas de solução. Para selecionar várias subáreas, use a `Ctrl` chave (no Windows) ou a `Command` chave (no MacOS).
+1. Para adicionar outra área de solução, repita as etapas de 1 a 3.
 
-## <a name="documents"></a>Documentos
+## <a name="upload-documents"></a>Carregar documentos
 
-Você tem a opção de fornecer documentos de material de apoio que a Microsoft usará para saber mais sobre sua oferta e avaliar seu ajuste para suas necessidades de cliente.
+Você deve fornecer documentos de material de apoio que forneçam detalhes sobre sua oferta. As equipes de vendas da Microsoft usam essas informações para avaliar se sua oferta é adequada às necessidades do cliente, a fim de recomendar e vender sua oferta. Quanto mais informações você fornecer, mais informações as equipes de vendas da Microsoft precisarão compreender e promover seu produto.
+
+Os tipos de arquivo com suporte são. pdf,. ppt,. pptx,. doc,. docx,. xls,. xlsx,. jpg,. png e. mp4. Os modelos para alguns documentos são fornecidos na tabela 2 abaixo.
+
+> [!NOTE]
+> Os totais da **solução/oferta One-pager** e **solução/oferta** são necessários para atingir o status pronto para venda. Eles também são pré-requisitos para algumas ofertas para ser o IP do Azure covenda de incentivados. O diagrama de arquitetura de referência também é necessário para o status de incentivados de venda de IP do Azure. Os outros documentos descritos nesta tabela são opcionais, mas recomendados.
+
+***Tabela 2: documentos que dão suporte à venda***
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente One-pager (obrigatório)* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Modelo Microsoft 365 1-pager </li> <li> Windows 10 1-modelo de pager </li> </ul> |
-| *Apresentação do cliente (obrigatória)* | Deslize a apresentação para pitch sua oferta e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que sua empresa e a Microsoft trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que sua oferta faz, como ela pode ajudar os clientes, em quais setores a oferta é relevante e como ele se compara com as soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
-| *Estudo de caso de cliente* | Essas informações mostram um possível cliente de como você e a Microsoft implantaram com êxito sua oferta em casos anteriores. <br> <br> Use o modelo disponível no Partner Center. |
-| *Cliente verificável ganha* | Exemplos específicos de sucessos do cliente após sua oferta ter sido implantada. |
-| *Baralho da distância do canal* | Um conjunto de slides com informações que ajudarão os revendedores de canal a saber mais sobre sua oferta e colocar suas equipes de vendas prontas para vendê-lo. O baralho normalmente inclui uma inclinação do elevador, informações sobre clientes-alvo, perguntas a serem feitas aos clientes, pontos de discussão e links para vídeos, documentação e informações de suporte. |
-| *Diagrama de arquitetura de referência* | Um diagrama que mostra o modelo que representa sua oferta e sua relação com os serviços de nuvem da Microsoft, demonstrando como ele atende aos requisitos técnicos do programa de venda conjunta de IP. [Saiba mais sobre o diagrama da arquitetura de referência.](#reference-architecture-diagram) |
-| *Outros documentos* | Opcionalmente, você pode carregar até cinco documentos ou vídeos adicionais para ajudar as equipes de vendas da Microsoft e revendedores de canal a aprender mais sobre sua oferta, organização e/ou diferenciais. |
-| *URL de referência externa* | O link para o site do seu produto, onde as equipes de vendas da Microsoft e os revendedores de canal podem saber mais sobre sua oferta. |
+| *Solução/oferta One-pager (obrigatório)* | Promova o reconhecimento entre clientes em potencial com um pager profissionalmente projetado que demonstra a proposta de valor de sua solução.<br><br>Você pode usar um dos modelos relevantes para fornecer uma descrição pronta para o cliente de sua oferta:<br><ul><li> [Microsoft Azure modelo de um pager](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Modelo do Microsoft Dynamics 365 1-pager](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Modelo Microsoft 365 1-pager](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 1-modelo de pager](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. |
+| *Conjunto de densidade da solução/oferta (obrigatório)* | Você pode usar o [modelo de apresentação do cliente](https://aka.ms/GTMServices_CustomerPresentation) para criar seu baralho. Este baralho deve fazer referência ao [diagrama da arquitetura de referência](reference-architecture-diagram.md). A finalidade deste conjunto de slides é resmesar sua oferta e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar essa apresentação com os clientes para articular o valor que sua empresa e a Microsoft trazem ao implantar uma solução conjunta. A apresentação deve abranger o que sua oferta faz, como ela pode ajudar os clientes, em quais setores a oferta é relevante e como ela se compara com as soluções concorrentes. |
+| *Estudo de caso de cliente* (opcional)| Use o [modelo de estudo de caso](https://aka.ms/GTM_Case_Study_Template) para criar seu estudo de caso de cliente. Essas informações mostram um possível cliente de como você e a Microsoft implantaram com êxito sua oferta em casos anteriores. |
+| *Cliente verificável ganha* (opcional) | Forneça exemplos específicos de sucessos do cliente depois que sua oferta tiver sido implantada. |
+| *Baralho com densidade de canal* (opcional) | Um conjunto de slides com informações que ajudam os revendedores de canal a saber mais sobre sua oferta e colocar suas equipes de vendas prontas para vendê-lo. Esse baralho normalmente inclui um timbre de elevador, informações sobre clientes-alvo, perguntas a serem feitas aos clientes, pontos de discussão e links para vídeos, documentação e informações de suporte. |
+| *Diagrama de arquitetura de referência* (necessário para o status de incentivados de venda de IP do Azure) | Um diagrama que representa sua oferta e sua relação com os serviços de nuvem da Microsoft. Ele também pode demonstrar como sua oferta atende aos requisitos técnicos do Azure IP co-vender o status do incentivados. [Saiba mais sobre o diagrama da arquitetura de referência.](reference-architecture-diagram.md) |
+| *Outros documentos* (opcional) | Você pode carregar até cinco documentos ou vídeos adicionais para ajudar as equipes de vendas da Microsoft e revendedores de canal a saber mais sobre sua oferta, organização e como ela é diferente de outras ofertas. |
+|||
 
-## <a name="contacts"></a>Contacts
+- Depois de criar seus documentos, arraste-os para a caixa apropriada em **documentos** ou selecione **Procurar arquivo (s)** para carregar um documento do seu computador.
 
-Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. *(Um contato para cada geografia no qual sua oferta está disponível é necessário para o programa de venda conjunta.)* Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
+    [![Ilustra a seção de documentação da co-venda da guia co-vender com a Microsoft.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
-Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contato e importando esse arquivo CSV. A importação de um arquivo CSV substituirá os contatos existentes.
+## <a name="product-landing-page"></a>Página inicial do produto
 
-Você também pode exportar sua lista existente de contatos de uma oferta e, em seguida, fazer alterações nesse arquivo.
+- Em **documentos**, na caixa **página inicial do produto** , insira o link para o site do seu produto, onde as equipes de vendas da Microsoft e os revendedores de canal podem saber mais sobre sua oferta e exibir as atualizações mais recentes.
 
-* *Nome (obrigatório)*: o nome do contato.
-* *Endereço de email (obrigatório)*: o endereço de email do contato.
-* Cargo *(obrigatório)*: título do trabalho.
-* *Função (obrigatório)*: Use qualquer uma das funções a seguir.
+## <a name="enter-your-contacts"></a>Insira seus contatos
+
+Um contato para cada geografia no qual sua oferta está disponível é necessário para atingir o status pronto para venda. Se você optar por disponibilizar sua oferta no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
+
+Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft.
+
+> [!NOTE]
+> É fundamental que você mantenha suas informações de contato atualizadas.
+
+1. Para baixar o modelo para fornecer suas informações de contato, em **contatos**, selecione **baixar modelo de contatos (. csv)** como visto nesta captura de tela. Se você carregou contatos anteriormente, poderá exportar sua lista de contatos existente para uma oferta e, em seguida, fazer alterações nele. Arquivo CSV.
+
+    [![Ilustra a seção de contatos da guia co-venda com a Microsoft.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
+
+1. Abra o. Arquivo CSV em um aplicativo como o Microsoft Excel e, em seguida, preencha cada linha com informações sobre o contato.
+
+    - Nome (obrigatório): o nome do contato.
+    - Email (obrigatório): o endereço de email do contato.
+    - Cargo (obrigatório): título do trabalho.
+    - Função (obrigatório): Use qualquer uma das funções a seguir.
+
+    ***Tabela 3: Descrição das funções***
 
     | **Função**    | **Descrição**  |
     | :------------------- | :-------------------|
-    | *:::no-loc text="Partner marketing":::* | Essa função se concentra em marketing de sua oferta e na colaboração de esforços de marketing com equipes de vendas da Microsoft e revendedores de canal. O ponto principal de contato para contratos de marketing e conteúdo de listagem de oferta, como descrições de produtos, imagens e vídeos. |
-    | *:::no-loc text="Partner sales":::* | Essa função se concentra em vender sua oferta e colaborar em vendas com equipes de vendas da Microsoft e revendedores de canal. Indique pelo menos um contato de vendas de parceiro por região no qual você deseja que sua oferta esteja pronta para venda. O mesmo contato de vendas do parceiro pode abranger várias regiões. |
-    | *:::no-loc text="Partner technical sales":::* | Dá suporte a questões de implantação e arquitetura técnica durante o ciclo de vendas, a integração pós-venda e os períodos de implantação. |
-    | *:::no-loc text="Partner customer success manager":::* | Normalmente dá suporte a clientes após a implantação, para ajudá-los a obter o máximo de sua oferta e aumentar sua superfície na organização do cliente. |
+    | Marketing para parceiros | Essa função se concentra em marketing de sua oferta e na colaboração de esforços de marketing com equipes de vendas da Microsoft e revendedores de canal. O ponto principal de contato para contratos de marketing e conteúdo de listagem de oferta, como descrições de produtos, imagens e vídeos. |
+    | Vendas do parceiro | Essa função se concentra em vender sua oferta e colaborar em vendas com equipes de vendas da Microsoft e revendedores de canal. Indique pelo menos um contato de vendas do parceiro para cada região em que você deseja que sua oferta esteja pronta para venda. O mesmo contato de vendas do parceiro pode abranger várias regiões. |
+    | Vendas técnicas do parceiro | Dá suporte a questões de implantação e arquitetura técnica durante o ciclo de vendas, a integração pós-venda e os períodos de implantação. |
+    | Gerente de sucesso do cliente do parceiro | Normalmente dá suporte a clientes após a implantação para ajudá-los a obter o máximo de sua oferta e aumentar seu uso na organização do cliente. |
+    |||
 
-* *Países/regiões (obrigatório):*  Ao preencher o modelo, use os [códigos de país/região de duas letras, conforme listado](commercial-marketplace-co-sell-countries.md). Se o contato abranger todos os países/regiões, use o código de três letras "OOO". Se um contato abranger mais de um país/região, insira cada um dos dois códigos de letra separados por uma vírgula (por exemplo, digite "US, CA, FR" sem aspas no modelo).
+    - Países/regiões (obrigatório): ao preencher o modelo, use as duas letras [para envendar códigos de país e região](commercial-marketplace-co-sell-countries.md). Se o contato abranger todos os países e regiões, use o código de três letras "OOO". Se um contato abranger mais de um país ou região, insira cada um dos dois códigos de letra separados por uma vírgula. Por exemplo, digite "US, CA, FR" sem aspas no modelo.
 
-    Os países/regiões devem refletir a região de cada contato. As equipes de vendas da Microsoft e os revendedores de canal usarão essas informações para solicitar informações ou colaborar em vendas dentro do país/região específico.
+        Os países e regiões devem refletir a região de cada contato. As equipes de vendas da Microsoft e os revendedores de canal usarão essas informações ao solicitar informações ou colaborar em vendas dentro do país ou da região específica.
 
-* *Estados/províncias (opcional):*  Ao preencher o modelo, use o formato XX-XX, conforme listado na [tabela Estados/províncias](commercial-marketplace-co-sell-states.md).
+    - Estados/províncias (opcional): ao preencher o modelo, use o formato XX-XX, conforme listado nas [tabelas Estados, províncias e regiões](commercial-marketplace-co-sell-states.md).
 
-## <a name="reference-architecture-diagram"></a>Diagrama de arquitetura de referência
+1. Salve e feche o. Arquivo CSV.
 
-### <a name="what-is-a-reference-architecture--diagram"></a>O que é um diagrama de arquitetura de referência
-O diagrama de arquitetura de referência é um modelo que representa a infraestrutura de que sua oferta depende e como sua oferta aproveita nossos serviços de nuvem de acordo com os requisitos técnicos do programa de venda de IP. Ele não foi projetado para avaliar a qualidade da arquitetura, mas como ela está aproveitando os diferentes serviços.
+1. Para importar o. Arquivo CSV, selecione o link **importar contatos (. csv)** .
+    > [!NOTE]
+    > Importando o. O arquivo CSV substituirá todos os contatos existentes.
 
-O documento pode ser criado por meio de várias ferramentas. Recomendamos o Microsoft Visio, pois ele tem vários estênceis que descrevem os modelos de arquitetura do Azure.
+1. Selecione o. Arquivo CSV e, em seguida, selecione **abrir**. Será exibida uma mensagem informando que os contatos foram importados com êxito.
 
-Um ponto de partida útil para criar diagramas de arquitetura de referência é aproveitar os [modelos de arquitetura do Azure](/azure/architecture/browse/).
+## <a name="save-and-republish-the-offer"></a>Salvar e republicar a oferta
 
-### <a name="typical-components-of-a-reference-architecture-diagram"></a>Componentes típicos de um diagrama de arquitetura de referência
-- Serviços de nuvem que hospedam e interagem com sua oferta, incluindo aqueles que geram consumo do Azure
-- Conexões de dados, camadas de dados, serviços de dados sendo consumidos por sua oferta
-- Serviços de nuvem usados para controlar a segurança, a autenticação e os usuários da oferta
-- Interfaces do usuário e outros serviços que expõem a oferta aos usuários finais
-- Conectividade híbrida e/ou local e integrações 
+1. Selecione **salvar rascunho** para salvar as alterações antes de continuar.
+1. Depois de concluir todas as seções necessárias da oferta, você pode enviá-las para análise e publicação. Selecione **revisar e publicar**.
+1. Realize uma destas ações:
 
-### <a name="example-reference-architecture-diagram"></a>Diagrama de arquitetura de referência de exemplo
+    - Se você concluiu ou atualizou a guia **co-venda com a Microsoft** para uma oferta que já foi publicada anteriormente e não tiver atualizado outras guias, recomendamos que você marque apenas a caixa de seleção **covenda** .
 
-[![Esta imagem é um diagrama de arquitetura de revenda de exemplo.](./media/co-sell/co-sell-arch-diagram.png)](./media/co-sell/co-sell-arch-diagram.png#lightbox)
+    - Se esta for uma oferta nova ou de rascunho que nunca foi publicada, recomendamos que você selecione todas as caixas. Opcionalmente, você pode selecionar **comparar** para comparar a versão atual com as alterações não publicadas.
 
-(O exemplo de diagrama de arquitetura de referência acima é para uma chatbot do setor vertical que pode ser integrada a sites de intranet para ajudar com cenários de demanda de previsão por meio de um algoritmo de Machine Learning usando cadeia de fornecedores e dados de agendamento de manufatura de sistemas ERP diferentes. O bot foi projetado para abordar perguntas sobre quando um vendedor pode confirmar as possíveis datas de entrega de um pedido.)
+1. Para iniciar a fase de validação, selecione **publicar**. Observe que sua oferta não será publicada em tempo real até que a oferta tenha sido revisada e, em seguida, você selecione **entrar em ativação** após a fase de validação ser concluída. Se sua oferta já foi publicada e você configurou a televenda, a oferta permanece ao vivo enquanto validamos o status de venda. Para obter detalhes sobre como revisar e publicar uma oferta, consulte [como examinar e publicar uma oferta no Marketplace comercial](review-publish-offer.md).
+
+> [!NOTE]
+> Você não precisa mais entrar em contato conosco para indicar sua oferta para venda conjunta. Após preencher todos os campos obrigatórios na página de venda conjunta com a Microsoft e publicar a oferta novamente, examinaremos a oferta para determinar se atende aos requisitos do status de venda conjunta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações, consulte [vender com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+- Para obter detalhes sobre como republicar uma oferta, consulte [como examinar e publicar uma oferta no Marketplace comercial](review-publish-offer.md).
+- Para obter informações sobre recompensas do Marketplace comercial e benefícios técnicos, consulte [os benefícios do Marketplace comercial](gtm-your-marketplace-benefits.md).

@@ -4,15 +4,15 @@ description: Saiba mais sobre a arquitetura da solução, a preparação da rede
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621305"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733237"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure Defender para IoT
 
@@ -22,7 +22,7 @@ O Azure defender para IoT fornece monitoramento de ameaças e descoberta de disp
 
 **Console de gerenciamento local do defender para IOT**: o console de gerenciamento local fornece uma exibição consolidada de todos os dispositivos de rede. Ele fornece uma visão em tempo real dos indicadores de risco e dos alertas de chave de OT e de todos os seus recursos. Totalmente integrado aos seus fluxos de trabalho e guias estratégicos do SOC, ele permite uma priorização fácil de atividades de mitigação e correlação entre sites de ameaças. 
 
-**Defender para IOT para o portal de IOT:** O aplicativo defender para IoT pode ajudá-lo a adquirir dispositivos de solução, instalar e atualizar software e atualizar pacotes de TI. 
+**Defender para Portal de IOT:** O aplicativo defender para IoT pode ajudá-lo a adquirir dispositivos de solução, instalar e atualizar software e atualizar pacotes de TI. 
 
 Este artigo fornece informações sobre a arquitetura da solução, a preparação da rede, os pré-requisitos e muito mais para ajudá-lo a configurar com êxito sua rede para trabalhar com o defender para dispositivos IoT. Os leitores que trabalham com as informações neste artigo devem ter experiência em operar e gerenciar redes de OT e IoT. Os exemplos incluem engenheiros de automação, gerentes de fábrica, como provedores de serviços de infraestrutura de rede, equipes segurança cibernéticas, CISOs ou CIOs.
 
@@ -365,7 +365,7 @@ Os agregadores TAP também podem ser usados para o monitoramento de porta. Esses
 
 Esses modelos foram testados quanto à compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
-| Imagem | Modelo |
+| Imagem | Modelar |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
@@ -534,24 +534,23 @@ Examine esta lista antes da implantação do site:
 
 | **#** | **Tarefa ou atividade** | **Status** | **Comentários** |
 |--|--|--|--|
-| 1 | Forneça global. | ☐ |  |
-| 3 | Solicitar dispositivos. | ☐ |  |
-| 4 | Prepare uma lista de sub-redes na rede. | ☐ |  |
-| 5 | Forneça uma lista de VLANs das redes de produção. | ☐ |  |
-| 6 | Forneça uma lista de modelos de comutador na rede. | ☐ |  |
-| 7 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
-| 8 | Forneça detalhes da rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
-| 9 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
-| 10 | Crie portas de abrangência em switches para monitoramento de porta ou configure toques de rede conforme desejado. | ☐ |  |
-| 11 | Prepare o espaço do rack para dispositivos de sensor. | ☐ |  |
-| 12 | Prepare uma estação de trabalho para a equipe. | ☐ |  |
-| 13 | Forneça um teclado, monitor e mouse para os dispositivos de rack do defender para IoT. | ☐ |  |
-| 14 | Rack e cabeamento dos dispositivos. | ☐ |  |
-| 15 | Aloque recursos do site para dar suporte à implantação. | ☐ |  |
-| 16 | Crie grupos de Active Directory ou usuários locais. | ☐ |  |
-| 17 | Treinamento de configuração (auto-learning). | ☐ |  |
-| 18 | Ir ou não ir. | ☐ |  |
-| 19 | Agendar a data de implantação. | ☐ |  |
+| 1 | Solicitar dispositivos. | ☐ |  |
+| 2 | Prepare uma lista de sub-redes na rede. | ☐ |  |
+| 3 | Forneça uma lista de VLANs das redes de produção. | ☐ |  |
+| 4 | Forneça uma lista de modelos de comutador na rede. | ☐ |  |
+| 5 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
+| 6 | Forneça detalhes da rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
+| 7 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
+| 8 | Crie portas de abrangência em switches para monitoramento de porta ou configure toques de rede conforme desejado. | ☐ |  |
+| 9 | Prepare o espaço do rack para dispositivos de sensor. | ☐ |  |
+| 10 | Prepare uma estação de trabalho para a equipe. | ☐ |  |
+| 11 | Forneça um teclado, monitor e mouse para os dispositivos de rack do defender para IoT. | ☐ |  |
+| 12 | Rack e cabeamento dos dispositivos. | ☐ |  |
+| 13 | Aloque recursos do site para dar suporte à implantação. | ☐ |  |
+| 14 | Crie grupos de Active Directory ou usuários locais. | ☐ |  |
+| 15 | Treinamento de configuração (auto-learning). | ☐ |  |
+| 16 | Ir ou não ir. | ☐ |  |
+| 17 | Agendar a data de implantação. | ☐ |  |
 
 
 | **Data** | **Observação** | **Data de implantação** | **Observação** |
@@ -564,7 +563,7 @@ Examine esta lista antes da implantação do site:
 
 Uma visão geral do diagrama de rede industrial permitirá que você defina o local apropriado para o equipamento do defender para IoT.
 
-1.  Exiba um diagrama de rede global do ambiente industrial de OT. Por exemplo:
+1.  Exiba um diagrama de rede global do ambiente industrial de OT. Por exemplo: 
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagrama do ambiente industrial de OT para a rede global.":::
 
@@ -606,7 +605,7 @@ Uma visão geral do diagrama de rede industrial permitirá que você defina o lo
 
     Qual é sua política? __________________________________ 
 
-    Por exemplo:
+    Por exemplo: 
 
     - Siemens
 
@@ -696,6 +695,6 @@ Contate um administrador de Active Directory para criar um grupo de usuários de
 | Câmera | |
 | Computador com Ray X | |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [Sobre a instalação do defender para IoT](how-to-install-software.md)

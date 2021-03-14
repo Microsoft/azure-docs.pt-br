@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 59791b72272ccd721a61da88d13b973119cef5d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089971"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596151"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorar recursos do Spring Cloud usando alertas e grupos de ações
 
@@ -113,7 +113,7 @@ Uma regra também pode ser criada usando a página **Métricas**:
 Neste tutorial, você aprendeu a configurar alertas e grupos de ações para um aplicativo do Azure Spring Cloud. Para saber mais sobre grupos de ações, confira:
 
 > [!div class="nextstepaction"]
-> [Criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md)
+> [Criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/alerts/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [Comportamento dos alertas de SMS em grupos de ação](../azure-monitor/platform/alerts-sms-behavior.md)
+> [Comportamento dos alertas de SMS em grupos de ação](../azure-monitor/alerts/alerts-sms-behavior.md)

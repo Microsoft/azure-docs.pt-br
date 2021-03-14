@@ -4,7 +4,7 @@
   items:
     - name: O que é o Tradutor?
       href: translator-info-overview.md
-    - name: Guia de Início Rápido
+    - name: Início Rápido
       href: quickstart-translator.md
     - name: Suporte ao idioma
       href: language-support.md
@@ -22,7 +22,7 @@
           href: character-counts.md
     - name: Guias de instruções
       items:
-        - name: Inscrever-se no Tradutor
+        - name: Criar um recurso Tradutor
           href: ./translator-how-to-signup.md
         - name: Migrar para a API de texto V3
           href: migrate-to-v3.md
@@ -86,6 +86,22 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+- name: Tradução de Documento
+  items:
+    - name: Visão geral
+      items:
+        - name: O que é a Tradução de Documento?
+          href: document-translation/overview.md
+    - name: Guias de instruções
+      items:
+        - name: Introdução à Tradução de Documento
+          href: document-translation/get-started-with-document-translation.md
+        - name: Criar tokens SAS
+          href: document-translation/create-sas-tokens.md
+    - name: Referência
+      items:
+        - name: Referência da API de Tradução de Documento
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Tradutor personalizado
   items:
     - name: Visão geral
@@ -149,4 +165,4 @@
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Criptografia
-          href: translator-encryption-of-data-at-rest.md
+          href: encrypt-data-at-rest.md

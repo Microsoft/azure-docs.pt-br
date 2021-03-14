@@ -10,29 +10,29 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 950ed3c6c8a5d4b495dc3f72e1e6105c9391c3fa
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 1dfbaea2086dd038a55bfb84b350d526ec49466b
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98786211"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102425559"
 highlightedContent:
   items:
   - title: O que é o Azure IoT?
     itemType: overview
     url: ../iot-fundamentals/iot-introduction.md
+  - title: Introdução ao desenvolvimento de dispositivos no Azure IoT
+    itemType: get-started
+    url: ../iot-develop/index.yml
   - title: Instalar as ferramentas do VS Code para Azure IoT
     itemType: download
     url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
   - title: Começar a criar com a CLI do Azure para Azure IoT
     itemType: reference
-    url: /cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
+    url: /cli/azure/azure-cli-reference-for-IoT
   - title: Procurar exemplos de código do Azure IoT
     itemType: overview
     url: /samples/browse/?term=iot
-  - title: Proteger sua implantação do Azure IoT
-    itemType: concept
-    url: ../iot-fundamentals/security-recommendations.md
   - title: Arquitetura de referência de IoT do Azure
     itemType: architecture
     url: /azure/architecture/reference-architectures/iot/
@@ -75,7 +75,7 @@ conceptualContent:
       itemType: tutorial
       text: Conectar um dispositivo
     footerLink:
-      url: ../iot-central/core/index.yml
+      url: ../iot-central/index.yml
       text: Ver mais
   - title: Executar a inteligência de nuvem para dispositivos de borda
     links:
@@ -184,10 +184,10 @@ tools:
     url: https://github.com/Azure/azure-iot-sdk-python
   - title: Referência do SDK do Azure IoT para Node.js
     imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-    url: /javascript/api/overview/azure/iot-hub?view=azure-node-latest
+    url: /javascript/api/overview/azure/iot-hub
   - title: Referência do SDK do Azure IoT para Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: /java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+    url: /java/api/com.microsoft.azure.sdk.iot.service
   - title: Referência do SDK do Azure IoT para .NET
     imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-    url: /dotnet/api/overview/azure/iot?view=azure-dotnet
+    url: /dotnet/api/overview/azure/iot

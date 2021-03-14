@@ -3,12 +3,12 @@ title: Avaliar o impacto de uma nova definição de Azure Policy
 description: Entenda o processo a ser seguido ao introduzir uma nova definição de política em seu ambiente do Azure.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873860"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590798"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Avaliar o impacto de uma nova definição de Azure Policy
 
@@ -63,7 +63,7 @@ Todas as alterações no escopo (nível ou exclusões) devem ser totalmente vali
 
 ## <a name="monitor-your-policy-and-compliance"></a>Monitore sua política e conformidade
 
-A implementação e a atribuição da definição de política não é a etapa final. Monitore continuamente o nível de [conformidade](../how-to/get-compliance-data.md) dos recursos para sua nova definição de política e configure [alertas e notificações apropriados do Azure Monitor](../../../azure-monitor/platform/alerts-overview.md) para quando dispositivos não compatíveis forem identificados. Também é recomendável avaliar a definição de política e as atribuições relacionadas segundo um agendamento para validar que a definição de política esteja atendendo às necessidades de conformidade e à política de negócios. As políticas devem ser removidas se não forem mais necessárias. As políticas também precisam ser atualizadas de tempos em tempos à medida que os recursos subjacentes do Azure evoluem e adicionam novas propriedades e funcionalidades.
+A implementação e a atribuição da definição de política não é a etapa final. Monitore continuamente o nível de [conformidade](../how-to/get-compliance-data.md) dos recursos para sua nova definição de política e configure [alertas e notificações apropriados do Azure Monitor](../../../azure-monitor/alerts/alerts-overview.md) para quando dispositivos não compatíveis forem identificados. Também é recomendável avaliar a definição de política e as atribuições relacionadas segundo um agendamento para validar que a definição de política esteja atendendo às necessidades de conformidade e à política de negócios. As políticas devem ser removidas se não forem mais necessárias. As políticas também precisam ser atualizadas de tempos em tempos à medida que os recursos subjacentes do Azure evoluem e adicionam novas propriedades e funcionalidades.
 
 ## <a name="next-steps"></a>Próximas etapas
 

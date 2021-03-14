@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047062"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454340"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -85,7 +85,7 @@ Queremos garantir que as cotas disponíveis na assinatura de destino sejam sufic
 
 **Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
-**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](../azure-portal/supportability/resource-manager-core-quotas-request.md) sobre como aumentar as cotas.
+**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura** do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](../azure-portal/supportability/resource-manager-core-quotas-request.md) sobre como aumentar as cotas.
 **Verificar limites de failover** | O número de failovers não deve excede Site Recovery limites de failover. |  Se os failovers excederem os limites, você poderá adicionar assinaturas e fazer failover para várias assinaturas ou aumentar a cota de uma assinatura. 
 
 
@@ -214,7 +214,7 @@ Para executar um failover em larga escala, recomendamos o seguinte:
     - [Saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 2. Adicione scripts de runbook de automação do Azure aos planos de recuperação para automatizar qualquer tarefa manual no Azure. As tarefas típicas incluem a configuração de balanceadores de carga, a atualização de DNS, etc. [Saiba mais](site-recovery-runbook-automation.md)
 2. Antes do failover, prepare as máquinas do Windows para que elas estejam em conformidade com o ambiente do Azure. [Os limites de failover](#plan-azure-subscriptions-and-quotas) são mais altos para computadores que estão em conformidade. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre runbooks.
-4.  Disparar failover com o cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) do PowerShell, junto com um plano de recuperação.
+4.  Disparar failover com o cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) do PowerShell, junto com um plano de recuperação.
 
 
 

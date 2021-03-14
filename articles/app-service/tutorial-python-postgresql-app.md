@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 05bdbd6c9d5dc3862c3191e4564a79e7a44bc0b8
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a9f8fe10c5ffa787a6c170a29188cba21427b602
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494049"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175151"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -81,7 +81,7 @@ Esse comando abre um navegador para coletar suas credenciais. Quando o comando f
 
 Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
 
-Está enfrentando problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
+Está com problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="2-clone-or-download-the-sample-app"></a>2. Clonar ou baixar o aplicativo de exemplo
 
@@ -231,7 +231,7 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 
     Substitua `<app-name>` pelo nome usado anteriormente no comando `az webapp up`.
 
-    Você também pode se conectar a uma sessão SSH com o comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh). No Windows, esse comando requer a CLI do Azure 2.18.0 ou superior.
+    Você também pode se conectar a uma sessão SSH com o comando [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh). No Windows, esse comando requer a CLI do Azure 2.18.0 ou superior.
 
     Se você não puder se conectar à sessão SSH, o aplicativo não terá sido iniciado. [Confira os logs de diagnóstico](#6-stream-diagnostic-logs) para obter detalhes. Por exemplo, se você não tiver criado as configurações de aplicativo necessárias na seção anterior, os logs indicarão `KeyError: 'DBNAME'`.
 
@@ -403,7 +403,7 @@ Abra uma sessão SSH novamente no navegador acessando `https://<app-name>.scm.az
 ```
 cd $APP_PATH
 source /antenv/bin/activate
-pip instal -r requirements.txt
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

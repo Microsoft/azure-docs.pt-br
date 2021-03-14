@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693151"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094003"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança de computador** | <ul><li>[Verifique se as ACLs apropriadas estão configuradas para restringir o acesso não autorizado aos dados no dispositivo](#acl-restricted-access)</li><li>[Garantir que os conteúdos confidenciais do usuário armazenados no aplicativo sejam armazenados no diretório do perfil do usuário](#sensitive-directory)</li><li>[Verifique se os aplicativos implantados são executados com privilégios mínimos](#deployed-privileges)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Impor ordem de etapa sequencial ao processar fluxos de lógica de negócios](#sequential-logic)</li><li>[Implementar um mecanismo de limitação de taxa para evitar a enumeração](#rate-enumeration)</li><li>[Verifique se a autorização adequada está em vigor e se o princípio de privilégios mínimos é seguido](#principle-least-privilege)</li><li>[As decisões de autorização de acesso a recursos e a lógica de negócios não devem ser baseadas em parâmetros de solicitação de entrada](#logic-request-parameters)</li><li>[Garantir que conteúdos e recursos não sejam enumeráveis ou estejam acessíveis por meio da navegação forçada](#enumerable-browsing)</li></ul> |
-| **Banco de dados** | <ul><li>[Garantir que contas com privilégios mínimos sejam usadas para conexão com o servidor de banco de dados](#privileged-server)</li><li>[Implemente Segurança em Nível de Linha RLS para impedir que os locatários acessem os dados uns dos outros](#rls-tenants)</li><li>[A função sysadmin deve ter apenas usuários necessários válidos](#sysadmin-users)</li></ul> |
+| **Backup de banco de dados** | <ul><li>[Garantir que contas com privilégios mínimos sejam usadas para conexão com o servidor de banco de dados](#privileged-server)</li><li>[Implemente Segurança em Nível de Linha RLS para impedir que os locatários acessem os dados uns dos outros](#rls-tenants)</li><li>[A função sysadmin deve ter apenas usuários necessários válidos](#sysadmin-users)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Conectar ao Gateway de Nuvem usando tokens com privilégios mínimos](#cloud-least-privileged)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Usar uma chave SAS com a permissão somente envio para gerar tokens de dispositivo](#sendonly-sas)</li><li>[Não use tokens de acesso que forneçam acesso direto ao Hub de eventos](#access-tokens-hub)</li><li>[Conectar ao Hub de Eventos usando chaves SAS que tenham as permissões mínimas necessárias](#sas-minimum-permissions)</li></ul> |
 | **Azure DocumentDB** | <ul><li>[Usar tokens de recurso para se conectar ao Azure Cosmos DB sempre que possível](#resource-docdb)</li></ul> |
@@ -237,7 +237,7 @@ Observe que a RLS como um recurso de banco de dados pronto para uso é aplicáve
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Adicionar ou remover atribuições de função do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Referências**              | [Atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Etapas** | O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC do Azure, você pode conceder apenas a quantidade de acesso que os usuários precisam para executar seus trabalhos.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente às operações de cluster usando o Service Fabric RBAC

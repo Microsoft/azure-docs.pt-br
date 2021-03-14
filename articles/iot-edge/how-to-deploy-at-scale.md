@@ -9,14 +9,16 @@ ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: db27a466ca5f1370e8b43ceb472f5deeaba509f1
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048416"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200326"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implantar módulos IoT Edge em escala usando o portal do Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Crie um **IOT Edge implantação automática** no portal do Azure para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](../iot-hub/iot-hub-automatic-device-management.md) do Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário.
 
@@ -43,7 +45,7 @@ Para obter mais informações sobre tags e gêmeos de dispositivos, consulte [En
 
 ## <a name="create-a-deployment"></a>Criar uma implantação
 
-O IoT Edge fornece dois tipos diferentes de implantações automáticas que você pode usar para personalizar seu cenário. Você pode criar uma *implantação*padrão, que inclui os módulos de tempo de execução do sistema e todos os módulos e rotas adicionais. Cada dispositivo só pode aplicar uma implantação. Ou você pode criar uma *implantação em camadas*, que inclui apenas módulos e rotas personalizadas, não o tempo de execução do sistema. Muitas implantações em camadas podem ser combinadas em um dispositivo, além de uma implantação padrão. Para obter mais informações sobre como os dois tipos de implantações automáticas funcionam em conjunto, consulte [entender IOT Edge implantações automáticas para dispositivos únicos ou em escala](module-deployment-monitoring.md).
+O IoT Edge fornece dois tipos diferentes de implantações automáticas que você pode usar para personalizar seu cenário. Você pode criar uma *implantação* padrão, que inclui os módulos de tempo de execução do sistema e todos os módulos e rotas adicionais. Cada dispositivo só pode aplicar uma implantação. Ou você pode criar uma *implantação em camadas*, que inclui apenas módulos e rotas personalizadas, não o tempo de execução do sistema. Muitas implantações em camadas podem ser combinadas em um dispositivo, além de uma implantação padrão. Para obter mais informações sobre como os dois tipos de implantações automáticas funcionam em conjunto, consulte [entender IOT Edge implantações automáticas para dispositivos únicos ou em escala](module-deployment-monitoring.md).
 
 As etapas para criar uma implantação e uma implantação em camadas são muito semelhantes. Todas as diferenças são chamadas nas etapas a seguir.
 
@@ -132,7 +134,7 @@ Se várias implantações tiverem como destino o mesmo dispositivo, somente aque
 Qualquer implantação em camadas direcionada a um dispositivo deve ter uma prioridade mais alta do que a implantação base para ser aplicada.
 
 1. Insira um inteiro positivo para a **Prioridade** da implantação.
-1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão.Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
+1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação.  A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
 
 Selecione **Avançar: revisar + criar** para passar para a etapa final.
 
@@ -149,14 +151,14 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
 * Condições de destino
 * Métricas personalizadas
 * Rótulos
-* Marcações
+* Marcas
 * Propriedades desejadas
 
 ### <a name="modify-target-conditions-custom-metrics-and-labels"></a>Modificar condições de destino, métricas personalizadas e rótulos
 
 1. No Hub IoT, selecione **IOT Edge** no menu do painel esquerdo.
 1. Selecione a guia **implantações IOT Edge** e, em seguida, selecione a implantação que deseja configurar.
-1. Selecione a guia **condição de destino** . Altere a **condição de destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Clique em **Salvar**.
+1. Selecione a guia **condição de destino** . Altere a **condição de destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Selecione **Salvar**.
 
     Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
 
@@ -164,7 +166,7 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta.
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova.
 
-1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Clique em **Salvar**.
+1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Selecione **Salvar**.
 
     ![Editar métricas personalizadas em uma implantação](./media/how-to-deploy-monitor/metric-list.png)
 
@@ -182,7 +184,7 @@ Quando você exclui uma implantação, todos os dispositivos implantados assumem
 
 1. Use a caixa de seleção para selecionar a implantação que deseja excluir.
 1. Selecione **Excluir**.
-1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.Uma implantação com prioridade mais baixa será aplicada.Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos.Clique em **Sim** para continuar.
+1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos. Uma implantação com prioridade mais baixa será aplicada. Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos. Clique em **Sim** para continuar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

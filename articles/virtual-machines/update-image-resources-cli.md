@@ -3,19 +3,19 @@ title: Listar, atualizar e excluir recursos de imagem usando o CLI do Azure
 description: Liste, atualize e exclua recursos de imagem em sua galeria de imagens compartilhadas usando CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6099afc82e76ed28e8557ac0eee3e64cb292a715
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3554eccf28c5abbe9741af5b9718fb83710dab38
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882001"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553622"
 ---
 # <a name="list-update-and-delete-image-resources"></a>Listar, atualizar e excluir recursos de imagem 
 

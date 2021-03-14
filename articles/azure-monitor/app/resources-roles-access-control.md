@@ -4,12 +4,12 @@ description: Proprietários, colaboradores e leitores de percepções de sua org
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589598"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 
@@ -76,7 +76,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 | [Leitor](../../role-based-access-control/built-in-roles.md#reader) |Pode exibir, mas não alterar nada. |
 | [Depurador de Instantâneos do Application Insights](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Concede ao usuário permissão para usar os recursos do Depurador de Captura Instantânea do Application Insights. Observe que essa função não está incluída nas funções Owner e Contributor. |
 | Colaborador do Gerenciamento de Liberação do Azure Service Deploy | Função de contribuição para a implantação de serviços por meio do Azure Service Deploy. |
-| [Limpador de Dados](../../role-based-access-control/built-in-roles.md#data-purger) | Função especial para limpar os dados pessoais. Consulte nosso [orientação para os dados pessoais](../platform/personal-data-mgmt.md) para obter mais informações.   |
+| [Limpador de Dados](../../role-based-access-control/built-in-roles.md#data-purger) | Função especial para limpar os dados pessoais. Consulte nosso [orientação para os dados pessoais](../logs/personal-data-mgmt.md) para obter mais informações.   |
 | Administrador de ExpressRoute | Pode excluir de criar e gerenciar as rotas expressas.|
 | [Colaborador do Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure.  |
 | [Leitor do Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. |

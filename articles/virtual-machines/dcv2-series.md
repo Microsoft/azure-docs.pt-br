@@ -3,16 +3,16 @@ title: Série DC – Máquinas Virtuais do Azure
 description: Especificações para as VMs da série DC.
 author: susaxen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 677f4df0873f8b72d40dd373035111e2e0002491
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095849"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102549223"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -21,15 +21,15 @@ A série DCsv2 pode ajudar a proteger a confidencialidade e a integridade dos da
 
 Exemplos de casos de uso incluem: compartilhamento de dados confidenciais entre vários participantes, detecção de fraudes, antilavagem de dinheiro, blockchain, análise de uso confidencial, análise de inteligência e machine learning confidencial.
 
-[Armazenamento Premium](premium-storage-performance.md): com suporte *<br>
-[Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
-[Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
-[Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
-[Suporte à geração de VM](generation-2.md): geração 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Armazenamento Premium](premium-storage-performance.md):*<br> 
+ [cache de armazenamento Premium](premium-storage-performance.md)com suporte: migração ao vivo com suporte <br> 
+ [](maintenance-and-updates.md): <br> 
+ [atualizações de preservação de memória](maintenance-and-updates.md)sem suporte: <br> 
+ [suporte à geração de VM](generation-2.md)sem suporte: <br> 
+ [rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md)de geração 2: com suporte (* requer um mínimo de 4 vCPU *) <br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 
-*Exceto para Standard_DC8_v2
+*Exceto para Standard_DC8_v2 <br>
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Número máximo de NICs/largura de banda de rede esperada (MBps) | Memória EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

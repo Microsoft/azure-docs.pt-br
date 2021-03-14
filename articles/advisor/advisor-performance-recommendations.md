@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735521"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579919"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -88,7 +88,7 @@ Migre seu modelo de implantação de conta de armazenamento para Azure Resource 
 O Advisor identifica todas as contas de armazenamento autônomas que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do Gerenciador de recursos.
 
 > [!NOTE]
-> Os alertas clássicos no Azure Monitor foram desativados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para obter mais informações, consulte [clássico alertas](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)de desativação.
+> Os alertas clássicos no Azure Monitor foram desativados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para obter mais informações, consulte [clássico alertas](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)de desativação.
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Projete suas contas de armazenamento para evitar atingir o limite máximo de assinaturas
 

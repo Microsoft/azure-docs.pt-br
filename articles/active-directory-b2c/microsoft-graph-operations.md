@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952216"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033615"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
 
@@ -27,7 +27,7 @@ Microsoft Graph permite que você gerencie recursos em seu diretório Azure AD B
 
 Para usar o MS API do Graph e interagir com recursos em seu locatário do Azure AD B2C, você precisa de um registro de aplicativo que conceda as permissões para fazer isso. Siga as etapas no artigo [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md) para criar um registro de aplicativo que seu aplicativo de gerenciamento pode usar. 
 
-## <a name="user-management"></a>Gerenciamento de usuários
+## <a name="user-management"></a>Gerenciamento de Usuários
 
 - [Listar usuários](/graph/api/user-list)
 - [Criar um usuário do consumidor](/graph/api/user-post-users)
@@ -137,6 +137,14 @@ O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizado
 - [Listar logs de auditoria](/graph/api/directoryaudit-list)
 
 Para obter mais informações sobre como acessar Azure AD B2C logs de auditoria, consulte [Acessando Azure ad B2C logs de auditoria](view-audit-logs.md).
+
+## <a name="conditional-access"></a>Acesso Condicional
+
+- [Listar todas as políticas de acesso condicional](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Ler propriedades e relações de uma política de acesso condicional](/graph/api/conditionalaccesspolicy-get)
+- [Criar uma nova política de Acesso Condicional](/graph/api/resources/application)
+- [Atualizar uma política de acesso condicional](/graph/api/conditionalaccesspolicy-update)
+- [Excluir uma política de acesso condicional](/graph/api/conditionalaccesspolicy-delete)
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Exemplo de código: como gerenciar programaticamente contas de usuário
 

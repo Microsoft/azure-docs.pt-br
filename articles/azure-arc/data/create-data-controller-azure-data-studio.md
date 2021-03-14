@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 22ad2d65710a3fc149f5a83fb511244ac3be2203
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733232"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644401"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -49,7 +49,7 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
    
    O local do Azure selecionado aqui é o local no Azure, no qual os *metadados* sobre o controlador de dados e as instâncias de banco que ele gerencia serão armazenados. As instâncias do controlador de dados e do banco de dados serão realmente crewted no cluster do kubernetes, onde quer que possa ser.
 
-10. Selecione o modo de conectividade apropriado. Saiba mais sobre [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Clique em Avançar**.
+10. Selecione o modo de conectividade apropriado. Saiba mais sobre [modos de conectividade](./connectivity.md). **Clique em Avançar**.
 
     Se você selecionar o modo de conectividade direta, as credenciais da entidade de serviço serão necessárias, conforme descrito em [criar entidade de serviço](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 

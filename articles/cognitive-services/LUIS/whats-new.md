@@ -4,13 +4,13 @@ description: Este artigo é atualizado regularmente com notícias sobre a API de
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/21/2021
-ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/16/2021
+ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693588"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706734"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
@@ -20,7 +20,7 @@ Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versã
 
 ### <a name="january-2021"></a>Janeiro de 2021
 
-* Agora, a API de previsão V3 dá suporte à [API de Verificação Ortográfica do Bing](luis-how-to-publish-app.md#spelling-correction).
+* Agora, a API de previsão V3 dá suporte à [API de Verificação Ortográfica do Bing](luis-tutorial-bing-spellcheck.md).
 * Os portais regionais (au.luis.ai e eu.luis.ai) foram consolidados em um só portal e uma só URL. Se estiver usando um desses portais, você será automaticamente redirecionado para luis.ai.
 
 ### <a name="december-2020"></a>Dezembro de 2020
@@ -56,7 +56,7 @@ Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versã
 * Novos recursos para desenvolvedores
     * [Ferramentas de integração contínua](developer-reference-resource.md#continuous-integration-tools)
     * Workshop: conheça as melhores práticas para [_Reconhecimento Vocal Natural_ (NLU) usando o LUIS](developer-reference-resource.md#workshops)
-* [Chaves gerenciadas pelo cliente](luis-encryption-of-data-at-rest.md): criptografe todos os dados que você usa no LUIS com sua própria chave
+* [Chaves gerenciadas pelo cliente](./encrypt-data-at-rest.md): criptografe todos os dados que você usa no LUIS com sua própria chave
 * [AI Show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vídeo): veja os novos recursos no LUIS
 
 

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
-ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339862"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489745"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -153,9 +153,9 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
 
-3. No painel **Failover Automático** , verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
+3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal Failover automático":::
 
@@ -182,11 +182,11 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
 
-3. No painel **Failover Automático** , verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**.
+3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**.
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura nos três pontos à esquerda da linha que aparecem quando o mouse é passado sobre ela.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu do portal Failover automático":::
 
@@ -206,7 +206,7 @@ Consulte [definir a prioridade de failover com o PowerShell](manage-with-powersh
 O processo de execução de um failover manual envolve a alteração da região de gravação da conta (prioridade de failover = 0) para outra região configurada para a conta.
 
 > [!NOTE]
-> Não é possível fazer failover manual de contas com várias regiões de gravação. Para aplicativos que usam o SDK do Azure Cosmos, o SDK detectará quando uma região ficar indisponível e, em seguida, fará o redirecionamento automático para a próxima região mais perto se a API de hospedagem múltipla estiver sendo usada no SDK.
+> Não é possível fazer failover manual de contas com várias regiões de gravação. Para aplicativos que usam o SDK do cosmos do Azure, o SDK detectará quando uma região ficar indisponível e, em seguida, redirecionará automaticamente para a região mais próxima.
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portal do Azure
 
@@ -216,7 +216,7 @@ O processo de execução de um failover manual envolve a alteração da região 
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replicar dados globalmente":::
 
-3. No menu **Failover Manual** , escolha a nova região de gravação. Marque a caixa de seleção para indicar que você entende que essa opção alterará sua região de gravação.
+3. No menu **Failover Manual**, escolha a nova região de gravação. Marque a caixa de seleção para indicar que você entende que essa opção alterará sua região de gravação.
 
 4. Para disparar o failover, escolha **OK**.
 

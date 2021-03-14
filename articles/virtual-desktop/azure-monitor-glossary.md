@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f13909d3835bdbd2931277a88244abfae3f80759
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466134"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576620"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Azure Monitor para o Glossário da área de trabalho virtual do Windows (versão prévia)
 
@@ -24,7 +24,7 @@ Este artigo lista e descreve brevemente os principais termos e conceitos relacio
 
 ## <a name="alerts"></a>Alertas
 
-Todos os alertas do Active Azure Monitor que você configurou na assinatura e classificados como [severidade 1](#severity-1-alerts) aparecerão na página Visão geral. Para saber como configurar alertas, consulte [responder a eventos com Azure monitor alertas](../azure-monitor/learn/tutorial-response.md).
+Todos os alertas do Active Azure Monitor que você configurou na assinatura e classificados como [severidade 1](#severity-1-alerts) aparecerão na página Visão geral. Para saber como configurar alertas, consulte [responder a eventos com Azure monitor alertas](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Sessões disponíveis
 
@@ -128,7 +128,7 @@ A tabela a seguir lista os contadores de desempenho recomendados e os intervalos
 |\* \\ RTT de TCP atual () de rede do RemoteFX|30 segundos|
 |Rede do RemoteFX ( \* ) \\ largura de banda UDP atual|30 segundos|
 
-Para saber mais sobre como ler contadores de desempenho, confira [Configurando contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md).
+Para saber mais sobre como ler contadores de desempenho, confira [Configurando contadores de desempenho](../azure-monitor/agents/data-sources-performance-counters.md).
 
 Para saber mais sobre contadores de desempenho de atraso de entrada, confira [contadores de desempenho de atraso de entrada do usuário](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -186,7 +186,7 @@ A tabela a seguir lista os eventos do Windows necessários para Azure Monitor pa
 | Microsoft-FSLogix-apps/operacional|Erro, aviso e informações|
 |Microsoft-FSLogix-apps/admin|Erro, aviso e informações|
 
-Para saber mais sobre eventos do Windows, consulte [Propriedades de registros de eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md).
+Para saber mais sobre eventos do Windows, consulte [Propriedades de registros de eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

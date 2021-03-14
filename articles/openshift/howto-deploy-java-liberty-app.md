@@ -3,16 +3,16 @@ title: Implantar um aplicativo Java com o Liberty/WebSphere Liberty aberto em um
 description: Implante um aplicativo Java com o Liberty/WebSphere Liberty aberto em um cluster do Azure Red Hat OpenShift 4.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, Jacarta, Java, microperfil, Open-Liberty, WebSphere-Liberty, aro, openshift, Red Hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 08fd3ab112498a983b438d5ba1f1f100816cbf5d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493927"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212987"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implantar um aplicativo Java com o Liberty/WebSphere Liberty aberto em um cluster do Azure Red Hat OpenShift 4
 
@@ -31,16 +31,16 @@ Conclua os seguintes pré-requisitos para percorrer com êxito este guia.
 1. Instale uma implementação Java SE (por exemplo, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
 1. Instale o [Maven](https://maven.apache.org/download.cgi) 3.5.0 ou superior.
 1. Instale o [Docker](https://docs.docker.com/get-docker/) para o seu sistema operacional.
-1. Instale o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) 2.0.75 ou posterior.
+1. Instale o [CLI do Azure](/cli/azure/install-azure-cli) 2.0.75 ou posterior.
 1. Verifique e instale [`envsubst`](https://command-not-found.com/envsubst) se ele não é pré-instalado em seu sistema operacional.
 1. Clone o código deste exemplo em seu sistema local. O exemplo está no [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 1. Siga as instruções em [criar um cluster do Azure Red Hat OpenShift 4](./tutorial-create-cluster.md).
 
    Embora a etapa "obter um segredo de pull do Red Hat" seja rotulada como opcional, **ela é necessária para este artigo**.  O segredo de pull permite que o cluster do Azure Red Hat OpenShift encontre o operador Open Liberty.
 
-   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, confira:
+   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, consulte:
 
-   * [CLI do Azure criar um cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
+   * [CLI do Azure criar um cluster](/cli/azure/aro#az-aro-create)
    * [Tamanhos de máquina virtual com suporte para memória otimizada](./support-policies-v4.md#memory-optimized)
    * [Pré-requisitos para instalar o operador Elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
@@ -312,7 +312,7 @@ Exclua o aplicativo da CLI executando este comando.
 oc delete -f openlibertyapplication.yaml
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua o cluster toa seguindo as etapas em [tutorial: excluir um cluster do Azure Red Hat OpenShift 4](./tutorial-delete-cluster.md)
 

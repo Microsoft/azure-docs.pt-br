@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756067"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102692"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -81,10 +81,8 @@ Para obter mais informações, confira a [Tabela 3: valores de ID válidos por o
 
 Você também pode atribuir qualquer valor constante (estático) a qualquer declaração que você definir no Azure AD. Siga as etapas abaixo para atribuir um valor constante:
 
-1. Na <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, na seção **atributos de usuário & declarações** , clique no ícone **Editar** para editar as declarações.
-
+1. No <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>, na seção **Declarações e Atributos do Usuário**, clique no ícone **Editar** para editar as declarações.
 1. Clique na declaração necessária que você deseja modificar.
-
 1. Insira o valor da constante sem aspas no **Atributo de origem** de acordo com sua organização e clique em **Salvar**.
 
     ![Seção de declarações & atributos org no portal do Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)

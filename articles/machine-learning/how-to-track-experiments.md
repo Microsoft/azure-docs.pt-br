@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9e5f64d9ef61a272da488ad70e690db4c07ddccc
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 3d970193bd8d73baeac89fb45da4c8a3d81cbde4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625070"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518392"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>Habilitar log em execuções de treinamento de ML
 
@@ -37,17 +37,48 @@ Os logs podem ajudar você a diagnosticar erros e avisos ou acompanhar métricas
 
 ## <a name="data-types"></a>Tipos de dados
 
-Registre em log vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios, entre outros. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, confira a [página de referência da Classe de execução](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
+Registre em log vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios, entre outros. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, confira a [página de referência da Classe de execução](/python/api/azureml-core/azureml.core.run%28class%29).
+
+### <a name="logging-run-metrics"></a>Métricas de execução de log 
+
+Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas. Observe os [limites de serviço](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para essas métricas registradas. 
+
+|Valor conectado|Código de exemplo| Formato no portal|
+|----|----|----|
+|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável único|
+|Registre um único valor numérico com o mesmo nome de métrica usado repetidamente (como em um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável-único|
+|Faça uma linha com colunas numéricas 2 repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
+|Tabela de log com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
+|Imagem de log|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Use este método para registrar um arquivo de imagem ou um gráfico matplotlib na execução. Essas imagens estarão visíveis e comparáveis no registro de execução|
+
+### <a name="logging-with-mlflow"></a>Registrando em log com MLflow
+Use MLFlowLogger para registrar métricas.
+
+```python
+from azureml.core import Run
+# connect to the workspace from within your running code
+run = Run.get_context()
+ws = run.experiment.workspace
+
+# workspace has associated ml-flow-tracking-uri
+mlflow_url = ws.get_mlflow_tracking_uri()
+
+#Example: PyTorch Lightning
+from pytorch_lightning.loggers import MLFlowLogger
+
+mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
+mlf_logger._run_id = run.id
+```
 
 ## <a name="interactive-logging-session"></a>Sessão de log interativo
 
-As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de log interativo. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento. O método [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
+As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) inicia uma sessão de log interativo. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento. O método [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) encerra as sessões e marca a execução como concluída.
 
 ## <a name="scriptrun-logs"></a>Logs do ScriptRun
 
-Nesta seção, você aprenderá a adicionar o código de log dentro de execuções criadas durante a configuração do ScriptRunConfig. Use a classe [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para encapsular scripts e ambientes de execuções repetíveis. Use também essa opção para mostrar um widget de visual do Jupyter Notebooks para monitoramento.
+Nesta seção, você aprenderá a adicionar o código de log dentro de execuções criadas durante a configuração do ScriptRunConfig. Use a classe [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig) para encapsular scripts e ambientes de execuções repetíveis. Use também essa opção para mostrar um widget de visual do Jupyter Notebooks para monitoramento.
 
-Este exemplo executa uma limpeza de parâmetro em valores alfa e captura os resultados usando o método [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----).
+Este exemplo executa uma limpeza de parâmetro em valores alfa e captura os resultados usando o método [run.log()](/python/api/azureml-core/azureml.core.run%28class%29#log-name--value--description----).
 
 1. Crie um script de treinamento que inclua a lógica de log, `train.py`.
 

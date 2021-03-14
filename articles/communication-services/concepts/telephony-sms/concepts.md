@@ -9,16 +9,19 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 35398d60008ac52ba16dca0a0201f8c2f2101a0f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 7a02acb01e72f594f6c0fe601c4aeea25591c0e4
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758550"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487518"
 ---
 # <a name="sms-concepts"></a>Conceitos de SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Os Serviços de Comunicação do Azure permitem que você envie e receba mensagens de texto SMS usando as bibliotecas de cliente SMS dos Serviços de Comunicação. Essas bibliotecas de cliente podem ser usadas para dar suporte a cenários de atendimento ao cliente, lembretes de compromissos, autenticação de dois fatores e outras necessidades de comunicação em tempo real. O recurso Serviços de Comunicação de SMS permite que você envie mensagens de maneira confiável enquanto expõe as informações de taxa de envio e resposta relativas às suas campanhas.
 
@@ -45,4 +48,4 @@ Os seguintes documentos podem ser do seu interesse:
 
 - Familiarize-se com a [biblioteca de clientes de SMS](../telephony-sms/sdk-features.md)
 - Obter um [número de telefone](../../quickstarts/telephony-sms/get-phone-number.md) compatível com SMS
-- [Planejar sua solução SMS](../telephony-sms/plan-solution.md)
+- [Tipos de número de telefone nos Serviços de Comunicação do Azure](../telephony-sms/plan-solution.md)

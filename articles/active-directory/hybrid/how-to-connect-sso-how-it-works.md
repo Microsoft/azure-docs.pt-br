@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144703"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369638"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
@@ -67,6 +67,10 @@ O fluxo de entrada em um navegador da Web é o seguinte:
 6. O Active Directory localiza a conta do computador e retorna um tíquete Kerberos para o navegador criptografado com o segredo da conta do computador.
 7. O navegador encaminha o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
 8. O Azure AD descriptografa o tíquete Kerberos, que inclui a identidade do usuário conectado ao dispositivo corporativo, usando a chave compartilhada anteriormente.
+
+   >[!NOTE]
+   >O Azure AD tentará corresponder o UPN do usuário do tíquete Kerberos a um objeto de usuário do Azure AD que tem um valor correspondente no atributo userPrincipalName. Se isso não for bem-sucedido, o Azure AD voltará a corresponder o samAccountName do tíquete Kerberos para um objeto de usuário do Azure AD que tem um valor correspondente no atributo onPremisesSamAccountName.
+   
 9. Após a avaliação, o Azure AD retorna um token ao aplicativo ou solicita que o usuário realize provas adicionais, como a Autenticação Multifator.
 10. Se a entrada do usuário for bem-sucedida, ele será capaz de acessar o aplicativo.
 

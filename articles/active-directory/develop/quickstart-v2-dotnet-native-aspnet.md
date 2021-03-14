@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0e8565615cdbac63b0526b5cd87dd9d92d5aa4f1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754312"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216676"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
@@ -48,13 +48,12 @@ Nesta seção, você registrará sua API Web em **Registros de aplicativo** no p
 
 Para registrar seus aplicativos manualmente, escolha o locatário do Azure AD (Azure Active Directory) no qual deseja criar os aplicativos.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> com uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
-1. Se a conta estiver em mais de um locatário do Azure AD, selecione o perfil na parte superior direita e selecione **Alternar diretório**.
-1. Altere sua sessão do portal para o locatário do Azure AD que deseja usar.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário que deseja usar.
 
 ### <a name="register-the-todolistservice-app"></a>Registrar o aplicativo TodoListService
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -179,7 +178,7 @@ Você pode restringir o acesso de entrada ao aplicativo às contas de usuário q
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Opção 2: Usar um método personalizado para validar emissores
 
-É possível implementar um método personalizado para validar emissores usando o parâmetro `IssuerValidator`. Para obter mais informações sobre como usar esse parâmetro, confira a [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
+É possível implementar um método personalizado para validar emissores usando o parâmetro `IssuerValidator`. Para obter mais informações sobre como usar esse parâmetro, confira a [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

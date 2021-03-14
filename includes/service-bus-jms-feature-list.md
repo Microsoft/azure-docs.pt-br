@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798130"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652591"
 ---
 A tabela a seguir lista os recursos do Java Message Service (JMS) que o barramento de serviço do Azure suporta atualmente. Ele também mostra recursos sem suporte.
 
@@ -34,4 +34,5 @@ A tabela a seguir lista os recursos do Java Message Service (JMS) que o barramen
 | Seletores de mensagem | depende do consumidor criado | **Com suporte** |
 | Atraso de entrega (mensagens agendadas) | <ul> <li> JMSProducer. setDeliveryDelay (Long deliveryDelay) </li> </ul>|**Com suporte**|
 | Mensagem criada |<ul> <li> JMSContext. CreateMessage () </li> <li> JMSContext.createBytesMessage() </li> <li> JMSContext.createMapMessage() </li> <li> JMSContext. createObjectMessage (objeto serializável) </li> <li> JMSContext.createStreamMessage() </li> <li> JMSContext.createTextMessage() </li> <li> JMSContext. createTextMessage (texto da cadeia de caracteres) </li> </ul>| **Com suporte** |
+| Transações entre entidades |<ul> <li> Connection. CreateSession (true, Session.SESSION_TRANSACTED) </li> </ul> | **Com suporte** |
 | Transações distribuídas || Sem suporte |

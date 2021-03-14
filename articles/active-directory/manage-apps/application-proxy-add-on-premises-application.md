@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Adicionar um aplicativo local – Proxy de aplicativo no Azure AD
+title: Tutorial – Adicionar um aplicativo local – Proxy de Aplicativo no Azure Active Directory
 description: O Azure AD (Active Directory) tem um serviço de Proxy de Aplicativo que permite que os usuários acessem aplicativos locais ao entrar com sua conta do Azure AD. Este tutorial mostra como preparar o ambiente para uso com o Proxy de Aplicativo. Em seguida, ele usa o portal do Azure para adicionar um aplicativo local ao locatário do Azure AD.
 services: active-directory
 author: kenwith
@@ -8,22 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 04b3dd51aab9686d102b6b94324f89396a268e7d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260072"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095164"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
-O Azure AD (Active Directory) tem um serviço de Proxy de Aplicativo que permite que os usuários acessem aplicativos locais ao entrar com sua conta do Azure AD. Esse tutorial prepara seu ambiente para uso com o Proxy de Aplicativo. Depois que seu ambiente estiver pronto, você usará o portal do Azure para adicionar um aplicativo local ao seu locatário do Azure AD.
+O Azure AD (Active Directory) tem um serviço de Proxy de Aplicativo que permite que os usuários acessem aplicativos locais ao entrar com sua conta do Azure AD. Para saber mais sobre o proxy de aplicativo, confira [O que é o Proxy de Aplicativo?](what-is-application-proxy.md). Esse tutorial prepara seu ambiente para uso com o Proxy de Aplicativo. Depois que seu ambiente estiver pronto, você usará o portal do Azure para adicionar um aplicativo local ao seu locatário do Azure AD. 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagrama de visão geral do Proxy de Aplicativo" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+Antes de começar, verifique se você está familiarizado com os conceitos de gerenciamento de aplicativo e de **SSO (logon único)** . Confira os seguintes links:
+- [Série de guias de início rápido sobre gerenciamento de aplicativo no Azure AD](view-applications-portal.md)
+- [O que é SSO (logon único)?](what-is-single-sign-on.md)
 
 Os conectores são uma parte fundamental do Proxy de Aplicativo. Para saber mais sobre conectores, confira [Noções básicas sobre conectores do Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).
 
@@ -252,7 +256,7 @@ Para testar o logon no aplicativo:
 
 Para solucionar problemas, confira [Solucionar problemas e mensagens de erro do Proxy do Aplicativo](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não forem mais necessários, exclua todos os recursos criados neste tutorial.
 

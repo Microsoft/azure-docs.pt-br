@@ -2,13 +2,13 @@
 title: Configure sua própria chave para criptografar dados do barramento de serviço do Azure em repouso
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378308"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium usa o armazenamento do Azure para armazenar os dados. Todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar sua própria chave (também conhecida como Bring Your Own Key (BYOK) ou chave gerenciada pelo cliente), os dados ainda serão criptografados usando a chave gerenciada pela Microsoft, mas, além disso, a chave gerenciada pela Microsoft será criptografada usando a chave gerenciada pelo cliente. Esse recurso permite que você crie, gire, desabilite e revogue o acesso a chaves gerenciadas pelo cliente que são usadas para criptografar chaves gerenciadas pela Microsoft. Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
@@ -94,6 +94,17 @@ Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do
 Revogar o acesso às chaves de criptografia não limpará os dados do barramento de serviço. No entanto, os dados não podem ser acessados no namespace do barramento de serviço. Você pode revogar a chave de criptografia por meio da política de acesso ou excluindo a chave. Saiba mais sobre as políticas de acesso e proteger o cofre de chaves de [acesso seguro a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
 
 Depois que a chave de criptografia for revogada, o serviço do barramento de serviço no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave excluída for restaurada, o serviço do barramento de serviço escolherá a chave para que você possa acessar os dados do namespace do barramento de serviço criptografado.
+
+## <a name="caching-of-keys"></a>Cache de chaves
+A instância do barramento de serviço pesquisa suas chaves de criptografia listadas a cada 5 minutos. Ele armazena em cache e usa-os até a próxima sondagem, que é posterior a 5 minutos. Contanto que pelo menos uma chave esteja disponível, as filas e os tópicos estarão acessíveis. Se todas as chaves listadas estiverem inacessíveis durante a sondagem, todas as filas e tópicos ficarão indisponíveis. 
+
+Aqui estão mais detalhes: 
+
+- A cada 5 minutos, o serviço do barramento de serviço sonda todas as chaves gerenciadas pelo cliente listadas no registro do namespace:
+    - Se uma chave for girada, o registro será atualizado com a nova chave.
+    - Se uma chave tiver sido revogada, a chave será removida do registro.
+    - Se todas as chaves tiverem sido revogadas, o status de criptografia do namespace será definido como **revogado**. Os dados não podem ser acessados no namespace do barramento de serviço. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Usar o modelo do Resource Manager para habilitar a criptografia
 Esta seção mostra como realizar as tarefas a seguir usando **modelos de Azure Resource Manager**. 

@@ -1,22 +1,17 @@
 ---
 title: Tolerância a falhas da atividade de cópia no Azure Data Factory
 description: Saiba como adicionar a tolerância a falhas da atividade de cópia no Azure Data Factory ignorando dados incompatíveis.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 0fe1470661c006399ea176af1112d271524b2a1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809534"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390956"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -59,7 +54,7 @@ Ao copiar arquivos binários entre repositórios de armazenamento, você pode ha
         "fileMissing": true, 
         "fileForbidden": true, 
         "dataInconsistency": true,
-        "invalidFileName": true     
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
     "logSettings": {

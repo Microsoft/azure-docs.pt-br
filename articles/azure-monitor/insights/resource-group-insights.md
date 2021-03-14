@@ -1,18 +1,17 @@
 ---
 title: Insights do Grupo de Recursos do Azure Monitor | Microsoft Docs
 description: Compreender a integridade e o desempenho dos serviços e aplicativos distribuídos no nível do Grupo de Recursos com Azure Monitor
-ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045780"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704320"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
 
@@ -46,9 +45,9 @@ A página de informações do grupo de recursos fornece várias outras ferrament
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](../platform/alerts-overview.md)      |  Exiba, crie e gerencie os alertas. |
-   | [**Métrica**](../platform/data-platform.md) | Visualize e explore os dados baseados em métricas.    |
-   | [**Log de atividades**](../platform/platform-logs-overview.md) | Eventos de nível de assinatura que ocorreram no Azure.  |
+   | [**Alertas**](../alerts/alerts-overview.md)      |  Exiba, crie e gerencie os alertas. |
+   | [**Métrica**](../data-platform.md) | Visualize e explore os dados baseados em métricas.    |
+   | [**Log de atividades**](../essentials/platform-logs-overview.md) | Eventos de nível de assinatura que ocorreram no Azure.  |
    | [**Mapa do aplicativo**](../app/app-map.md) | Navegue pela topologia do aplicativo distribuído para identificar gargalos de desempenho ou pontos de acesso. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
@@ -117,6 +116,6 @@ O Monitor do Azure para grupos de recursos depende do sistema Gerenciamento de a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md)
+- [Pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alertas do Azure Monitor](../platform/alerts-overview.md)
+- [Alertas do Azure Monitor](../alerts/alerts-overview.md)

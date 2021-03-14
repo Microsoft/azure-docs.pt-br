@@ -1,19 +1,19 @@
 ---
-title: Como usar o Redis-CLI com o cache do Azure para Redis
-description: Saiba como usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
+title: Usar o Redis-CLI com o cache do Azure para Redis
+description: Saiba como usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538010"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183379"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Use a ferramenta de linha de comando Redis com o cache do Azure para Redis
 
 O *redis-cli.exe* é uma ferramenta de linha de comando popular para interagir com um Cache do Azure para Redis como um cliente. Essa ferramenta também está disponível para uso com Cache do Azure para Redis.
 
@@ -27,7 +27,7 @@ Se você quiser executar a ferramenta de linha de comando em outra plataforma, b
 
 Você pode coletar as informações necessárias para acessar o cache usando três métodos:
 
-1. Usando a CLI do Azure [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+1. Usando a CLI do Azure [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
 2. Com o Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Usando o portal do Azure.
 
@@ -46,11 +46,11 @@ Com o cache do Azure para Redis, somente a porta TLS (6380) é habilitada por pa
 
     Execute **stunnel GUI Start** para iniciar o servidor.
 
-    Clique com o botão direito no ícone da barra de tarefas para o servidor stunnel e clique em **Mostrar janela de log** .
+    Clique com o botão direito no ícone da barra de tarefas para o servidor stunnel e clique em **Mostrar janela de log**.
 
     No menu da janela de log do stunnel, clique em **configuração**  >  **Editar configuração** para abrir o arquivo de configuração atual.
 
-    Adicione a seguinte entrada para *redis-cli.exe* sob a seção **Definições de serviço** . Insira o nome real do cache em vez de `yourcachename`. 
+    Adicione a seguinte entrada para *redis-cli.exe* sob a seção **Definições de serviço**. Insira o nome real do cache em vez de `yourcachename`. 
 
     ```
     [redis-cli]
@@ -61,7 +61,7 @@ Com o cache do Azure para Redis, somente a porta TLS (6380) é habilitada por pa
 
     Salve e feche o arquivo de configuração. 
   
-    No menu da janela de log do stunnel, clique em **configuração**  >  **recarregar configuração** .
+    No menu da janela de log do stunnel, clique em **configuração**  >  **recarregar configuração**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte-se usando a ferramentas de linha de comando do Redis.
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Captura de tela que mostra que a conexão com o cache foi bem-sucedida.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se você estiver usando um cache de teste com a porta não TLS não **segura** , execute `redis-cli.exe` e passe seu *nome de host* , *porta* e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
+Se você estiver usando um cache de teste com a porta não TLS não **segura** , execute `redis-cli.exe` e passe seu *nome de host*, *porta* e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

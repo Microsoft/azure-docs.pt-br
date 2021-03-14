@@ -4,19 +4,19 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734716"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
-Habilitar o monitoramento em seus ASP.NET e ASP.NET Core aplicativos Web com base em execução em [serviços de Azure app](../../app-service/index.yml) agora está mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
+Habilitar o monitoramento em seus ASP.NET, ASP.NET Core e Node.js aplicativos Web com base em execução em [serviços de Azure app](../../app-service/index.yml) agora é mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
 
 > [!NOTE]
-> A adição manual de uma extensão de site Application insights por meio de extensões de **ferramentas de desenvolvimento**  >  **Extensions** foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é  [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
+> A adição manual de uma extensão de site Application insights por meio de extensões de **ferramentas de desenvolvimento**  >   foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é  [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
 
 ## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
@@ -75,7 +75,8 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+> [!IMPORTANT]
+> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1 e 3,1. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
 
 O direcionamento para a estrutura completa de ASP.NET Core, implantação independente e aplicativos baseados em Linux **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 
@@ -90,13 +91,13 @@ O direcionamento para a estrutura completa de ASP.NET Core, implantação indepe
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. ASP.NET Core oferece uma **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
+2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. ASP.NET Core oferece a **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1 e 3,1.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Em seu aplicativo Web do serviço de aplicativo em **configurações**,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
+Não há suporte para o monitoramento baseado em agente do Windows, para habilitar com o Linux visite a [ documentação do serviço de aplicativoNode.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -169,6 +170,7 @@ Para habilitar a coleta de telemetria com Application Insights, somente as confi
 |XDT_MicrosoftApplicationInsights_Mode |  Somente no modo padrão, os recursos essenciais são habilitados para garantir o desempenho ideal. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o mecanismo de regravação binária `InstrumentationEngine` será ativado. Essa configuração tem implicações de desempenho e afeta o tempo de início/inicialização frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla se o SQL & texto da tabela do Azure será capturado junto com as chamadas de dependência. Aviso de desempenho: o tempo de inicialização a frio do aplicativo será afetado. Essa configuração requer o `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Somente para aplicativos ASP.NET Core. Habilita a interoperabilidade (interoperação) com o SDK Application Insights. Carrega a extensão lado a lado com o SDK e a usa para enviar telemetria (desabilita o SDK do Application Insights). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configurações de aplicativo do serviço de aplicativo com Azure Resource Manager
 
@@ -346,7 +348,7 @@ A partir da versão 2.8.9, a extensão de site pré-instalada é usada. Se você
 
 Se a atualização for feita a partir de uma versão anterior à 2.5.1, verifique se as DLLs ApplicationInsigths são removidas da pasta bin do aplicativo [consulte as etapas de solução de problemas](#troubleshooting).
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos baseados em ASP.NET e ASP.NET Core em execução em serviços Azure App.
 
@@ -420,6 +422,12 @@ Se você quiser testar o monitoramento do lado do cliente e do servidor sem cód
 
 Quando o monitoramento sem código está sendo usado, somente a cadeia de conexão é necessária. No entanto, ainda recomendamos definir a chave de instrumentação para preservar a compatibilidade com versões anteriores do SDK quando a instrumentação manual está sendo executada.
 
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Diferença entre as métricas padrão das métricas do serviço Application Insights vs Azure App?
+
+Application Insights coleta a telemetria para as solicitações que a fizeram para o aplicativo. Se a falha ocorreu no webapps/IIS e a solicitação não alcançou o aplicativo de usuário, Application Insights não terá nenhuma telemetria sobre ele.
+
+A duração da `serverresponsetime` calculada pelo Application insights não corresponde necessariamente ao tempo de resposta do servidor observado pelos aplicativos Web. Isso ocorre porque Application Insights só conta a duração quando a solicitação real atinge o aplicativo do usuário. Se a solicitação estiver presa/enfileirada no IIS, esse tempo de espera será incluído nas métricas do aplicativo Web, mas não no Application Insights métricas.
+
 ## <a name="release-notes"></a>Notas de versão
 
 Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./web-app-extension-release-notes.md).
@@ -427,8 +435,8 @@ Para obter as atualizações mais recentes e as correções de bugs, [consulte a
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – monitorar o Azure Functions com o Application Insights
-* [Permita que o diagnóstico do Azure](../platform/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
-* [Monitore as métricas de integridade do serviço](../platform/data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
-* [Receba notificações de alerta](../platform/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Permita que o diagnóstico do Azure](../agents/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
+* [Monitore as métricas de integridade do serviço](../data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
+* [Receba notificações de alerta](../alerts/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](monitor-web-app-availability.md) para ser alertado se o seu site for desativado.

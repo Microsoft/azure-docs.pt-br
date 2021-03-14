@@ -3,16 +3,15 @@ title: Visão geral da transformação fluxo de dados de mapeamento
 description: Uma visão geral das diferentes transformações disponíveis no fluxo de dados de mapeamento
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 9d44890e84e97a413543a4291d1331fee0f04841
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490866"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367904"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação fluxo de dados de mapeamento
 
@@ -33,7 +32,7 @@ Veja abaixo uma lista das transformações com suporte no fluxo de dados de mape
 | [Pesquisar](data-flow-lookup.md) | Várias entradas/saídas | Dados de referência de outra fonte. |
 | [Novo branch](data-flow-new-branch.md) | Várias entradas/saídas | Aplique vários conjuntos de operações e transformações no mesmo fluxo de dados. |
 | [Pivô](data-flow-pivot.md) | Modificador de esquema | Uma agregação em que uma ou mais colunas de Agrupamento têm seus valores de linha distintos transformados em colunas individuais. |
-| [Rank](data-flow-rank.md) | Modificador de esquema | Gerar uma classificação ordenada com base nas condições de classificação |
+| [Fique](data-flow-rank.md) | Modificador de esquema | Gerar uma classificação ordenada com base nas condições de classificação |
 | [Selecionar](data-flow-select.md) | Modificador de esquema | Colunas de alias e nomes de fluxo, e soltar ou reordenar colunas |
 | [Coletor](data-flow-sink.md) | - | Um destino final para seus dados |
 | [Sort](data-flow-sort.md) | Modificador de linha | Classificar linhas de entrada no fluxo de dados atual |

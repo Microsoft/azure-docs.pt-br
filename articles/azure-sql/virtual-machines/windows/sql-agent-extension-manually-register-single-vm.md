@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964517"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181424"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrar SQL Server VM com extensão do agente IaaS do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -282,7 +282,7 @@ O cancelamento do registro da máquina virtual do SQL com a extensão do SQL Iaa
 
 Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure, siga estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Navegue até o recurso de VM do SQL. 
   
    ![Recurso de máquinas virtuais do SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)
@@ -304,7 +304,7 @@ Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure,
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para cancelar o registro da VM SQL Server da extensão com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* da VM, mas não excluirá a máquina virtual. 
+Para cancelar o registro da VM SQL Server da extensão com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* da VM, mas não excluirá a máquina virtual. 
 
 
 ```azurecli-interactive

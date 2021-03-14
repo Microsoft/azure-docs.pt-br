@@ -3,18 +3,19 @@ title: Criar um grupo de posicionamento por proximidade usando o portal
 description: Saiba como criar um grupo de posicionamento de proximidade usando o portal do Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daf844870670c14db5208f45fbd9c9adf46be985
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871427"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504619"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Criar um grupo de posicionamento por proximidade usando o portal
+# <a name="create-a-proximity-placement-group-using-the-azure-portal"></a>Criar um grupo de posicionamento de proximidade usando o portal do Azure
 
 Para obter as VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-las em um [grupo de posicionamento de proximidade](../co-location.md#proximity-placement-groups).
 

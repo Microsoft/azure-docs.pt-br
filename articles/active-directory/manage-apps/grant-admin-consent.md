@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258313"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643551"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
-Saiba como simplificar a experiência do usuário concedendo consentimento de administrador em todo o locatário a um aplicativo. Este artigo fornece as diferentes maneiras de conseguir isso. Os métodos se aplicam a todos os usuários finais do locatário do Azure AD (Azure Active Directory).
+  Saiba como conceder consentimento de administrador em todo o locatário a um aplicativo. Este artigo fornece as diferentes maneiras de conseguir isso.
 
 Para obter mais informações sobre o consentimento de aplicativos, consulte a [estrutura de consentimento do Azure Active Directory](../develop/consent-framework.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conceder consentimento de administrador em todo o locatário exige que você entre como [administrador global](../roles/permissions-reference.md#global-administrator), [administrador de aplicativos](../roles/permissions-reference.md#application-administrator)ou administrador de [aplicativos de nuvem](../roles/permissions-reference.md#cloud-application-administrator).
-
-> [!IMPORTANT]
-> Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](./assign-user-or-group-access-portal.md).
->
-> A função de administrador global é necessária para fornecer consentimento de administrador para permissões de aplicativo para a API de Microsoft Graph.
+Conceder consentimento de administrador em todo o locatário exige que você entre como um usuário autorizado a consentir em nome da organização. Isso inclui [administrador global](../roles/permissions-reference.md#global-administrator) e [administrador de função com privilégios](../roles/permissions-reference.md#privileged-role-administrator)e, para alguns aplicativos, [administrador de aplicativos](../roles/permissions-reference.md#application-administrator) e administrador de aplicativos de [nuvem](../roles/permissions-reference.md#cloud-application-administrator). Um usuário também pode ser autorizado a conceder consentimento em todo o locatário se eles forem atribuídos a uma [função de diretório personalizada](../roles/custom-create.md) que inclua a [permissão para conceder permissões a aplicativos](../roles/custom-consent-permissions.md).
 
 > [!WARNING]
 > Conceder consentimento de administrador em todo o locatário a um aplicativo concederá o aplicativo e o acesso do Publicador do aplicativo aos dados da sua organização. Examine atentamente as permissões que o aplicativo está solicitando antes de conceder consentimento.
->
-> A função de administrador global é necessária para fornecer consentimento de administrador para permissões de aplicativo para a API de Microsoft Graph.
+
+> [!IMPORTANT]
+> Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](./assign-user-or-group-access-portal.md).
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento de administrador do portal do Azure
 
@@ -101,4 +97,4 @@ Como sempre, examine atentamente as permissões que um aplicativo solicita antes
 
 [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD no Microsoft Q&A](/answers/topics/azure-active-directory.html)

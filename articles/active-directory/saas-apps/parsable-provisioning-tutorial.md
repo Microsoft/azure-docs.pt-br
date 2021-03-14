@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731353"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526418"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Tutorial: configurar analisáveis para o provisionamento automático de usuário
 
@@ -32,6 +32,7 @@ Este tutorial descreve as etapas que você precisa executar tanto em analisávei
 > * Criar usuários em analisáveis
 > * Remova os usuários em analisáveis quando eles não exigem mais acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e analisáveis
+> * Provisionar grupos e associações de grupo em analisáveis
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +56,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-parsable-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar analisáveis da Galeria de aplicativos do Azure AD
 
-Adicione analisáveis da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para analisáveis. Se você tiver configurado anteriormente a análise para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione analisáveis da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para analisáveis. Se você tiver configurado anteriormente a análise para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -107,17 +108,25 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |userName|String|&check;|
    |displayName|String|
 
-10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para analisáveis**.
 
-11. Para habilitar o serviço de provisionamento do Azure AD para analisável, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Examine os atributos de grupo que são sincronizados do Azure AD para analisáveis na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos em analisáveis para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+
+      |Atributo|Type|Com suporte para filtragem|
+      |---|---|---|
+      |displayName|String|&check;|
+      |membros|Referência|
+12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar o serviço de provisionamento do Azure AD para analisável, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você gostaria de provisionar para analisáveis escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou grupos que você gostaria de provisionar para analisáveis escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **Salvar**.
+15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
 2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Log de alterações
+
+* 02/15/2021-o provisionamento de grupo foi habilitado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

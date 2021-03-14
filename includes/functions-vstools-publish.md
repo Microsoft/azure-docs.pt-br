@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956496"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "100529712"
 ---
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar**. Depois, em **Destino**, selecione **Azure** e **Avançar**.
 
-1. Em **Destino**, selecione **Azure** e :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Selecionar destino do Azure":::
+1. Para o **Destino específico**, escolha o **Aplicativo de Funções do Azure (Windows)** , que cria um aplicativo de funções executado no Windows.
 
-1. Em **Destino específico**, selecione **Aplicativo de Funções do Azure (Windows)**
+1. Em **Instância de Função**, escolha **Criar uma função do Azure...** 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Selecionar o Aplicativo de Funções do Azure":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Criar uma instância de aplicativo de funções":::
 
-1. Em **Instância de Função**, selecione **Criar uma Função do Azure...** e use os valores especificados na seguinte tabela:
+1. Crie uma instância usando os valores especificados nesta tabela:
 
     | Configuração      | Valor  | Descrição                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956496"
 
     ![Criar caixa de diálogo do Serviço de Aplicativo](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Selecione **Criar** para criar um aplicativo de funções e recursos relacionados no Azure. 
-1. Na **Instância do Functions**, verifique se **Executar no arquivo de pacote** está marcado. Seu aplicativo de funções é implantado usando a [Implantação de Zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Esse é o método de implantação recomendado para o seu projeto do Functions, pois ele resulta em um melhor desempenho. 
+1. Selecione **Criar** para criar um aplicativo de funções e recursos relacionados no Azure. O status da criação do recurso é mostrado na parte inferior esquerda da janela. 
+
+1. Na **Instância do Functions**, verifique se **Executar no arquivo do pacote** está marcado. Seu aplicativo de funções é implantado usando a [Implantação de Zip](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) habilitado. Esse é o método de implantação recomendado para o seu projeto do Functions, pois ele resulta em um melhor desempenho. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Concluir a criação do perfil":::
 

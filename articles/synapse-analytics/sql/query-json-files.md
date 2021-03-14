@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8dc07a3aa954a74ba594eb99da1ea3ee59610c9b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5fcf688bbe8a5be2fc10b70950990b7b6ca71df8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678314"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225584"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -126,12 +126,13 @@ Os exemplos de consulta lêem arquivos *JSON* contendo documentos com a seguinte
 
 ### <a name="query-json-files-using-json_value"></a>Consultar arquivos JSON usando JSON_VALUE
 
-A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de documentos JSON:
+A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares ( `date_rep` , `countries_and_territories` , `cases` ) de um documento JSON:
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -144,9 +145,11 @@ from openrowset(
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
+Depois de extrair as propriedades JSON de um documento JSON, você pode definir aliases de coluna e, opcionalmente, converter o valor textual em algum tipo.
+
 ### <a name="query-json-files-using-openjson"></a>Consultar arquivos JSON usando OPENJSON
 
-A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
+A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
 
 ```sql
 select
@@ -166,6 +169,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+Os resultados são funcionalmente iguais aos resultados retornados usando a `JSON_VALUE` função. Em alguns casos, o `OPENJSON` pode ter vantagem sobre `JSON_VALUE` :
+- Na `WITH` cláusula, você pode definir explicitamente os aliases de coluna e os tipos para cada propriedade. Você não precisa colocar a `CAST` função em todas as colunas na `SELECT` lista.
+- `OPENJSON` pode ser mais rápido se você estiver retornando um grande número de propriedades. Se você estiver retornando apenas 1-2 Propriedades, a `OPENJSON` função poderá ser a sobrecarga.
+- Você deve usar a `OPENJSON` função se precisar analisar a matriz de cada documento e associá-la à linha pai.
 
 ## <a name="next-steps"></a>Próximas etapas
 

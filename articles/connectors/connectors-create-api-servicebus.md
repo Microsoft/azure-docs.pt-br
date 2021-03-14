@@ -3,16 +3,16 @@ title: Trocar mensagens com o barramento de serviço do Azure
 description: Criar tarefas e fluxos de trabalho automatizados que enviam e recebem mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019695"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367411"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -169,7 +169,7 @@ Ao criar um aplicativo lógico, você pode selecionar o modelo **entrega em orde
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Atrasos em atualizações para seu aplicativo lógico entrar em vigor
 
-Se o intervalo de sondagem de um gatilho do barramento de serviço for pequeno, como 10 segundos, as atualizações para seu aplicativo lógico poderão não entrar em vigor por até 10 minutos. Para contornar esse problema, você pode aumentar temporariamente o intervalo de sondagem para um valor maior, como 30 segundos ou 1 minuto, antes de atualizar seu aplicativo lógico. Depois de fazer a atualização, você pode redefinir o intervalo de sondagem para o valor original. 
+Se o intervalo de sondagem de um gatilho do barramento de serviço for pequeno, como 10 segundos, as atualizações para seu aplicativo lógico poderão não entrar em vigor por até 10 minutos. Para contornar esse problema, você pode desabilitar o aplicativo lógico, fazer as alterações e, em seguida, habilitar o aplicativo lógico novamente.
 
 <a name="connector-reference"></a>
 

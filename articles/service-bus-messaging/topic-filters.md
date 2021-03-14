@@ -2,17 +2,17 @@
 title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742957"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651656"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
-Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Cada regra consiste em uma condição de **filtro** que seleciona mensagens específicas e, **opcionalmente** , contém uma **ação** que anota a mensagem selecionada. 
+Os assinantes podem definir quais mensagens desejam receber de um tópico. Essas mensagens são especificadas na forma de uma ou mais regras de assinatura nomeadas. Cada regra consiste em uma **condição de filtro** que seleciona mensagens específicas e, **opcionalmente** , contém uma **ação** que anota a mensagem selecionada. 
 
 Todas as regras **sem ações** são combinadas usando uma `OR` condição e resultam em uma **única mensagem** na assinatura mesmo que você tenha várias regras de correspondência. 
 
@@ -32,13 +32,11 @@ Cada assinatura de tópico recém-criada tem uma regra de assinatura padrão ini
 O Barramento de Serviço dá suporte a três condições de filtro:
 
 -   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades ( `EXISTS` ), valores nulos ( `IS NULL` ), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples com `LIKE` .
-
 -   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura. Esses dois filtros derivam do filtro SQL. 
-
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
     - **ContentType**
-     - **Chamada**
+     - **Rótulo**
      - **MessageId**
      - **ReplyTo**
      - **ReplyToSessionId**
@@ -66,7 +64,8 @@ O particionamento usa filtros para distribuir mensagens através de várias assi
 
 O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em aplicativos de linhas de negócios.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemplos
+Para obter exemplos, consulte [exemplos de filtro do barramento de serviço](service-bus-filter-examples.md).
 
 
 

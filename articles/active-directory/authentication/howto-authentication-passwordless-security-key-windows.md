@@ -1,36 +1,33 @@
 ---
 title: Chave de segurança sem senha no Windows-Azure Active Directory
-description: Saiba como habilitar a entrada de chave de segurança sem senha para Azure Active Directory usando chaves de segurança FIDO2 (versão prévia)
+description: Saiba como habilitar a entrada de chave de segurança sem senha para Azure Active Directory usando as chaves de segurança do FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743455"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653500"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory 
 
 Este documento se concentra em habilitar a autenticação sem senha baseada em chave de segurança FIDO2 com dispositivos Windows 10. No final deste artigo, você poderá entrar no Azure AD e no Azure AD híbrido ingressado em dispositivos Windows 10 com sua conta do Azure AD usando uma chave de segurança FIDO2.
-
-> [!NOTE]
-> As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte  [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
 | Tipo de dispositivo | Adicionado ao Azure AD | Adicionado ao Azure AD híbrido |
 | --- | --- | --- |
 | [Autenticação multifator do Azure AD](howto-mfa-getstarted.md) | X | X |
-| [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | Webauthn requer o Windows 10 versão 1903 ou superior | X | X |
 | [Dispositivos ingressados no Azure ad](../devices/concept-azure-ad-join.md) requerem o Windows 10 versão 1909 ou superior | X |   |
@@ -54,9 +51,9 @@ Os cenários a seguir não têm suporte:
 - Entrar ou desbloquear um dispositivo Windows 10 com uma chave de segurança que contém várias contas do Azure AD. Esse cenário utiliza a última conta adicionada à chave de segurança. Webauthn permite que os usuários escolham a conta que desejam usar.
 - Desbloqueie um dispositivo que executa o Windows 10 versão 1809. Para obter a melhor experiência, use o Windows 10 versão 1903 ou superior.
 
-## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
+## <a name="prepare-devices"></a>Preparar dispositivos
 
-Os dispositivos ingressados no Azure AD que você está realizando o piloto durante a visualização do recurso com devem executar o Windows 10 versão 1909 ou superior.
+Os dispositivos adicionados ao Azure AD devem executar o Windows 10 versão 1909 ou superior.
 
 Dispositivos ingressados no Azure AD híbrido devem executar o Windows 10 versão 2004 ou mais recente.
 
@@ -79,7 +76,7 @@ As organizações podem optar por usar um ou mais dos seguintes métodos para ha
 Para habilitar o uso de chaves de segurança usando o Intune, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune** registro de dispositivo inscrição do  >  **Device enrollment**  >  **Windows**  >  **Windows Hello para empresas**  >  **Propriedades**.
+1. Navegue até **Microsoft Intune** registro de dispositivo inscrição do  >    >  **Windows**  >  **Windows Hello para empresas**  >  **Propriedades**.
 1. Em **configurações**, defina **usar chaves de segurança para entrar** como **habilitado**.
 
 A configuração de chaves de segurança para entrada não depende da configuração do Windows Hello para empresas.
@@ -89,7 +86,7 @@ A configuração de chaves de segurança para entrada não depende da configura�
 Para direcionar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas por meio do Intune:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Microsoft Intune**  >  perfis de **configuração de dispositivo**  >  **Profiles**  >  **Criar perfil**.
+1. Navegue até **Microsoft Intune**  >  perfis de **configuração de dispositivo**  >    >  **Criar perfil**.
 1. Configure o novo perfil com as seguintes configurações:
    - Nome: chaves de segurança para o Windows Sign-In
    - Descrição: permite que as chaves de segurança FIDO sejam usadas durante a entrada do Windows
@@ -129,7 +126,7 @@ Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pod
 
 ### <a name="enable-with-group-policy"></a>Habilitar com Política de Grupo
 
-Para **dispositivos ingressados no Azure ad híbrido**, as organizações podem definir a configuração de política de grupo a seguir para habilitar a entrada de chave de segurança do Fido. A configuração pode ser encontrada em **configuração do computador**  >  **modelos administrativos**  >  **System**  >  **logon**  >  **do sistema Ativar entrada de chave de segurança**:
+Para **dispositivos ingressados no Azure ad híbrido**, as organizações podem definir a configuração de política de grupo a seguir para habilitar a entrada de chave de segurança do Fido. A configuração pode ser encontrada em **configuração do computador**  >  **modelos administrativos**  >    >  **logon**  >  **do sistema Ativar entrada de chave de segurança**:
 
 - Definir essa política como **habilitada** permite que os usuários entrem com chaves de segurança.
 - Definir essa política como **desabilitada** ou **não configurada** impede que os usuários entrem com chaves de segurança.
@@ -145,18 +142,18 @@ No exemplo a seguir, um usuário chamado bala Sandhu já provisionou sua chave d
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Gerenciar chave de segurança biométrica, PIN ou redefinição de chaves de segurança
 
 * Windows 10 versão 1903 ou superior
-   * Os usuários podem abrir **as configurações do Windows** em seu dispositivo > chave de **Accounts**  >  **segurança** de contas
+   * Os usuários podem abrir **as configurações do Windows** em seu dispositivo > chave de   >  **segurança** de contas
    * Os usuários podem alterar seu PIN, atualizar a biometria ou redefinir sua chave de segurança
 
 ## <a name="troubleshooting-and-feedback"></a>Solução de problemas e comentários
 
-Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
+Se você quiser compartilhar comentários ou encontrar problemas sobre esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
 
 1. Inicie o **Hub de comentários** e verifique se você está conectado.
 1. Envie comentários sob a seguinte categorização:
    - Categoria: segurança e privacidade
    - Subcategoria: FIDO
-1. Para capturar logs, use a opção para **recriar meu problema**
+1. Para capturar os logs, use a opção para **recriar o meu problema**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

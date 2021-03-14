@@ -4,19 +4,19 @@ description: Use este artigo para resolver problemas comuns encontrados ao impla
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045965"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -75,7 +75,7 @@ Por padrão, IoT Edge inicia os módulos em sua própria rede de contêiner isol
 
 **Opção 1: definir o servidor DNS em configurações do mecanismo de contêiner**
 
-Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo:
+Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo: 
 
 ```json
 {
@@ -87,7 +87,7 @@ O exemplo acima define o servidor DNS para um serviço DNS acessível publicamen
 
 Coloque `daemon.json` no local certo para sua plataforma:
 
-| Plataforma | Location |
+| Plataforma | Local |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host do Windows com contêineres do Windows | `C:\ProgramData\iotedge-moby\config` |
@@ -103,7 +103,7 @@ Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor.
 
 **Opção 2: definir o servidor DNS na implantação IoT Edge por módulo**
 
-Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo:
+Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo: 
 
 ```json
 "createOptions": {
@@ -174,7 +174,7 @@ Na deployment.jsno arquivo:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
        },
        "type": "docker",
@@ -188,7 +188,7 @@ Na deployment.jsno arquivo:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0"
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
        },
        "type": "docker",
        "status": "running",
@@ -216,6 +216,9 @@ O runtime do IoT Edge só pode oferecer suporte a nomes de host com menos de 64 
 
 Quando você vir esse erro, você pode resolvê-lo a configurar o nome DNS de sua máquina virtual e, em seguida, definindo o nome DNS de nome de host no comando de instalação.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. No portal do Azure, navegue até a página de visão geral de sua máquina virtual.
 2. Selecione **configurar** em nome DNS. Caso sua máquina virtual já tenha um nome DNS configurado, você não precisará configurar um novo.
 
@@ -236,6 +239,39 @@ Quando você vir esse erro, você pode resolvê-lo a configurar o nome DNS de su
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. No portal do Azure, navegue até a página de visão geral de sua máquina virtual.
+
+2. Selecione **configurar** em nome DNS. Caso sua máquina virtual já tenha um nome DNS configurado, você não precisará configurar um novo.
+
+   ![Configurar o nome DNS da máquina virtual](./media/troubleshoot/configure-dns.png)
+
+3. Forneça um valor para **rótulo do nome DNS** e selecione **Salvar**.
+
+4. Copie o novo nome DNS, que deve estar no formato **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+
+5. No dispositivo IoT Edge, abra o arquivo de configuração.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. Substitua o valor de `hostname` pelo seu nome DNS.
+
+7. Salve e feche o arquivo e aplique as alterações a IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Não é possível obter os logs do daemon do IoT Edge no Windows
 
@@ -286,7 +322,7 @@ No manifesto de implantação:
 "edgeHub": {
   "type": "docker",
   "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
     "createOptions": <snipped>
   },
   "env": {
@@ -343,7 +379,7 @@ O daemon IoT Edge está ativo com um arquivo de configuração válido, mas não
 
 **Causa raiz:**
 
-IoT Edge dispositivos atrás de um gateway, obtenha suas imagens de módulo do dispositivo de IoT Edge pai especificado no `parent_hostname` campo do arquivo config. YAML. O `Could not perform HTTP request` erro significa que o dispositivo filho não consegue acessar seu dispositivo pai via http.
+IoT Edge dispositivos atrás de um gateway, obtenha suas imagens de módulo do dispositivo de IoT Edge pai especificado no `parent_hostname` campo do arquivo de configuração. O `Could not perform HTTP request` erro significa que o dispositivo filho não consegue acessar seu dispositivo pai via http.
 
 **Resolução:**
 

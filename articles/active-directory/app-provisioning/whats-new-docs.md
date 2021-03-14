@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no provisionamento de aplicativos Azure Active Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Active Directory Application.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255994"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453666"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicativos Azure Active Directory: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de provisionamento, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Como Azure Active Directory provisionamento se integra ao workday](workday-integration-reference.md)
+- [Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md)
+- [O que é o provisionamento de usuários automatizado no aplicativo SaaS no Azure AD?](user-provisioning.md)
+- [Tutorial: desenvolver um ponto de extremidade SCIM de exemplo](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutorial: Desenvolver e planejar o provisionamento para um ponto de extremidade SCIM](use-scim-to-provision-users-and-groups.md)
+- [Como funciona o provisionamento](how-provisioning-works.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -72,7 +83,7 @@ Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [O que há de novo no Docs?](whats-new-docs.md)
+- [O que há de novo no docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de aplicativo no status de quarentena](application-provisioning-quarantine-status.md)

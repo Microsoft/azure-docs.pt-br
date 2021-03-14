@@ -3,12 +3,12 @@ title: Remover Application Insights no Visual Studio-Azure Monitor
 description: Como remover Application Insights SDK para ASP.NET e ASP.NET Core no Visual Studio.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5bfa6ee21cc1a55f653c0e79807a14ac34082e73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d70413fa6a47e2d41693db6eb705f31b2a2b1b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981478"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704303"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Como remover Application Insights no Visual Studio
 
@@ -27,7 +27,7 @@ Para remover Application Insights, você precisará remover os pacotes NuGet e a
     > [!NOTE]
     > Se a coleta de rastreamento estiver habilitada, primeiro você precisará desinstalar Microsoft. ApplicationInsights. TraceListener. Insira `Uninstall-package Microsoft.ApplicationInsights.TraceListener` , em seguida, siga a etapa abaixo para remover Microsoft. ApplicationInsights. Web.
 
-1. Digite o seguinte comando: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. Digite o seguinte comando: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
     Depois de inserir o comando, o pacote de Application Insights e todas as suas dependências serão desinstalados do projeto.
     
@@ -39,17 +39,17 @@ Para remover Application Insights, você precisará remover os pacotes NuGet e a
 
     ![No menu superior, clique em ferramentas > Gerenciador de pacotes NuGet > console do Gerenciador de pacotes](./media/remove-application-insights/package-manager.png)
 
-1. Digite o seguinte comando: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. Digite o seguinte comando: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
     Depois de inserir o comando, o pacote de Application Insights e todas as suas dependências serão desinstalados do projeto.
 
 ---
 
-## <a name="uninstall-using-the-visual-studio-nugetui"></a>Desinstalar usando a interface do usuário do NuGet do Visual Studio
+## <a name="uninstall-using-the-visual-studio-nuget-ui"></a>Desinstalar usando a interface do usuário do NuGet do Visual Studio
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. Na *Gerenciador de soluções*à   direita, clique com o botão direito do mouse em **solução**   e selecione **gerenciar pacotes NuGet para solução**.
+1. Na *Gerenciador de soluções* à direita, clique com o botão direito do mouse em **solução** e selecione **gerenciar pacotes NuGet para solução**.
 
     Em seguida, você verá uma tela que permite editar todos os pacotes NuGet que fazem parte do projeto.
     
@@ -57,26 +57,26 @@ Para remover Application Insights, você precisará remover os pacotes NuGet e a
 
     > [!NOTE]
     > Se a coleta de rastreamento estiver habilitada, primeiro você precisará desinstalar Microsoft. ApplicationInsights. TraceListener sem remover dependências selecionadas e, em seguida, seguir as etapas abaixo para desinstalar Microsoft. ApplicationInsights. Web com remover dependências selecionadas.
-    
-1. Clique no pacote "Microsoft. ApplicationInsights. Web".À direita, marque a caixa de seleção ao lado de *projeto*   para selecionar todos os projetos.
-    
-1. Para remover todas as dependências ao desinstalar o, selecione **Options**o   botão suspenso opções abaixo da seção em que você selecionou projeto.
 
-    Em *Opções de desinstalação*, marque a caixa de seleção ao lado de *remover dependências*.
+1. Clique no pacote **Microsoft. ApplicationInsights. Web** . À direita, marque a caixa de seleção ao lado de **projeto** para selecionar todos os projetos.
+
+1. Para remover todas as dependências ao desinstalar o, selecione o botão suspenso **Opções** abaixo da seção em que você selecionou projeto.
+
+    Em *Opções de desinstalação*, marque a caixa de seleção ao lado de *remover dependências*.
 
 1. Selecione **Desinstalar**.
     
     ![Captura de tela mostra a janela Microsoft. ApplicationInsights. Web com remover dependências marcadas e desinstalação realçadas.](./media/remove-application-insights/uninstall-framework.png)
 
-    Será exibida uma caixa de diálogo mostrando todas as dependências a serem removidas do aplicativo.Selecione **OK**   para desinstalar.
+    Será exibida uma caixa de diálogo mostrando todas as dependências a serem removidas do aplicativo. Selecione **OK** para desinstalar.
     
     ![Captura de tela mostra uma caixa de diálogo com as dependências a serem removidas.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  Depois que tudo for desinstalado, você ainda poderá ver "ApplicationInsights.config" e "AiHandleErrorAttribute.cs" na *Gerenciador de soluções*.Você pode excluir os dois arquivos manualmente.
+1.  Depois que tudo for desinstalado, você ainda poderá ver "ApplicationInsights.config" e "AiHandleErrorAttribute.cs" na *Gerenciador de soluções*. Você pode excluir os dois arquivos manualmente.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. Na *Gerenciador de soluções*à   direita, clique com o botão direito do mouse em **solução**   e selecione **gerenciar pacotes NuGet para solução**.
+1. Na *Gerenciador de soluções* à direita, clique com o botão direito do mouse em **solução** e selecione **gerenciar pacotes NuGet para solução**.
 
     Em seguida, você verá uma tela que permite editar todos os pacotes NuGet que fazem parte do projeto.
 

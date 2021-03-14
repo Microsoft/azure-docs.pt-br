@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738133"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
-Use o tradutor para traduzir de e para qualquer uma das mais de 70 idiomas de tradução de texto. A conversão de máquina neural (NMT) é o novo padrão para traduções de máquina com ia de alta qualidade e está disponível como o padrão usando V3 do tradutor quando um sistema neural está disponível.
+Use o tradutor para traduzir de e para qualquer uma das linguagens de tradução de texto 90 e dialetos. A conversão de máquina neural (NMT) é o novo padrão para traduções de máquina com ia de alta qualidade e está disponível como o padrão usando V3 do tradutor quando um sistema neural está disponível.
 
 Você também pode usar o Translator em conjunto com o tradutor personalizado para criar sistemas de tradução neural que compreendam a terminologia usada em seu próprio negócio e setor e com o serviço de fala da Microsoft para adicionar tradução de fala ao seu aplicativo.
 
@@ -37,8 +37,12 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 | Linguagem | Código de idioma |
 |:-|:-:|
 | Africâner | `af` |
+| Albanês | `sq` |
+| Amárico | `am` |
 | Árabe | `ar` |
+| Armênia | `hy` |
 | Assamês | `as` |
+| Azerbaidjano | `az` |
 | Bangla | `bn` |
 | Bósnio (latim) | `bs` |
 | Búlgaro | `bg` |
@@ -74,11 +78,13 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 | Japonês | `ja` |
 | canarim | `kn` |
 | Cazaque | `kk` |
+| Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Coreano | `ko` |
 | Curdo (central) | `ku` |
 | Curdo (Norte) | `kmr` |
+| Lao | `lo` |
 | Letão | `lv` |
 | Lituano | `lt` |
 | Malgaxe | `mg` |
@@ -87,6 +93,8 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 | Maltês | `mt` |
 | Maori | `mi` |
 | Marati | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
 | Norueguês | `nb` |
 | Oriá | `or` |
 | Pashto | `ps` |
@@ -110,6 +118,7 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 | Tâmil | `ta` |
 | Télugo | `te` |
 | Tailandês | `th` |
+| Tigrinya | `ti` |
 | Tongan | `to` |
 | Turco | `tr` |
 | Ucraniano | `uk` |
@@ -130,6 +139,7 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 | Linguagem | Código de idioma |
 |:-|:-:|
 | Africâner | `af` |
+| Albanês | `sq` |
 | Árabe | `ar` |
 | Búlgaro | `bg` |
 | Catalão | `ca` |
@@ -152,6 +162,7 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 | Húngaro | `hu` |
 | Islandês | `is` |
 | Indonésio | `id` |
+| Inuktitut | `iu` |
 | Irlandês | `ga` |
 | Italiano | `it` |
 | Japonês | `ja` |
@@ -192,7 +203,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | script | Para/De | script|
+| Linguagem    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Assamês | `as` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -232,7 +243,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 |Ucraniano| `uk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 |Urdu| `ur` | Árabe `Arab`  | <--> | Latim `Latn` |
 
-### <a name="dictionary"></a>Dictionary
+### <a name="dictionary"></a>Dicionário
 
 O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos Lookup e Examples.
 

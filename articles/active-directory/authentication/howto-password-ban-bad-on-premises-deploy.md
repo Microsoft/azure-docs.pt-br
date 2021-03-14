@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091033"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653806"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
@@ -48,7 +48,7 @@ Também é possível que uma validação de senha mais forte afete sua automaç�
 * [A promoção da réplica do controlador de domínio falha devido a uma senha fraca do modo de reparo do serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [O rebaixamento do controlador de domínio falha devido a uma senha de administrador local fraca](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-Depois que o recurso estiver sendo executado no modo de auditoria por um período razoável, você poderá alternar a configuração de *auditoria* para *impor* para exigir senhas mais seguras. O monitoramento adicional durante esse tempo é uma boa ideia.
+Depois que o recurso estiver sendo executado no modo de auditoria por um período razoável, você poderá alternar a configuração de *auditoria* para *impor* para exigir senhas mais seguras. O monitoramento extra durante esse tempo é uma boa ideia.
 
 É importante observar que a proteção de senha do Azure AD só pode validar senhas durante a alteração de senha ou as operações de definição. As senhas que foram aceitas e armazenadas no Active Directory antes da implantação da proteção de senha do Azure AD nunca serão validadas e continuarão funcionando no estado em que se encontram. Ao longo do tempo, todos os usuários e contas serão iniciados usando a proteção de senha do Azure AD senhas validadas, já que suas senhas existentes expiram normalmente. As contas configuradas com "a senha nunca expira" são isentas disso.
 
@@ -102,7 +102,8 @@ Os seguintes requisitos se aplicam ao agente DC da proteção de senha do Azure 
 
 * Todos os computadores em que o software do agente DC da proteção de senha do Azure AD serão instalados devem executar o Windows Server 2012 ou posterior, incluindo as edições do Windows Server Core.
     * O domínio ou floresta Active Directory não precisa estar no nível funcional de domínio do Windows Server 2012 (DFL) ou no nível funcional de floresta (FFL). Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
-* Todos os computadores que executam o agente DC de proteção de senha do Azure AD devem ter o .NET 4,5 instalado.
+* Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter o .NET 4.7.2 instalado.
+    * Se o .NET 4.7.2 ainda não estiver instalado, baixe e execute o instalador encontrado no [instalador offline do .NET Framework 4.7.2 para Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Qualquer domínio Active Directory que executa o serviço de agente de DC de proteção de senha do Azure AD deve usar a replicação de Sistema de Arquivos Distribuído (DFSR) para replicação de SYSVOL.
    * Se o seu domínio ainda não estiver usando o DFSR, você deverá migrar antes de instalar a proteção de senha do Azure AD. Para obter mais informações, consulte [Guia de migração de replicação do SYSVOL: FRS para replicação do DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
@@ -122,8 +123,8 @@ Os seguintes requisitos se aplicam ao serviço de proxy de proteção de senha d
     > [!NOTE]
     > A implantação do serviço proxy de proteção de senha do Azure AD é um requisito obrigatório para implantar a proteção de senha do Azure AD, embora o controlador de domínio possa ter conectividade de Internet direta de saída.
 
-* Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter o .NET 4,7 instalado.
-    * O .NET 4,7 já deve estar instalado em um Windows Server totalmente atualizado. Se necessário, baixe e execute o instalador encontrado no [instalador offline do .NET Framework 4,7 para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter o .NET 4.7.2 instalado.
+    * Se o .NET 4.7.2 ainda não estiver instalado, baixe e execute o instalador encontrado no [instalador offline do .NET Framework 4.7.2 para Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Todos os computadores que hospedam o serviço de proxy de proteção de senha do Azure AD devem ser configurados para conceder aos controladores de domínio a capacidade de fazer logon no serviço de proxy. Essa capacidade é controlada por meio da atribuição de privilégio "acessar este computador pela rede".
 * Todos os computadores que hospedam o serviço de proxy de proteção de senha do Azure AD devem ser configurados para permitir o tráfego HTTP de saída TLS 1,2.
 * Uma conta de *administrador global* ou de *administrador de segurança* para registrar o serviço proxy de proteção de senha do Azure AD e a floresta com o Azure AD.
@@ -157,7 +158,7 @@ Na próxima seção, você instalará os agentes de DC de proteção de senha do
 Escolha um ou mais servidores para hospedar o serviço de proxy de proteção de senha do Azure AD. As seguintes considerações se aplicam ao (s) servidor (es):
 
 * Cada serviço desse tipo só pode fornecer políticas de senha para uma única floresta. O computador host deve ser Unido a qualquer domínio nessa floresta.
-* Ele tem suporte para instalar o proxy no serviço em domínios raiz ou filho, ou uma combinação deles.
+* Você pode instalar o serviço de proxy em domínios raiz ou filho ou uma combinação deles.
 * Você precisa de conectividade de rede entre pelo menos um DC em cada domínio da floresta e um servidor proxy de proteção por senha.
 * Você pode executar o serviço de proxy de proteção de senha do Azure AD em um controlador de domínio para teste, mas esse controlador de domínio requer conectividade com a Internet. Essa conectividade pode ser uma preocupação de segurança. Recomendamos essa configuração apenas para teste.
 * Recomendamos pelo menos dois servidores proxy de proteção por senha do Azure AD por floresta para redundância, conforme observado na seção anterior sobre [considerações de alta disponibilidade](#high-availability-considerations).
@@ -200,7 +201,7 @@ Para instalar o serviço de proxy de proteção de senha do Azure AD, conclua as
 
     Este cmdlet requer credenciais de *administrador global* ou de *administrador de segurança* para seu locatário do Azure. Esse cmdlet também deve ser executado usando uma conta com privilégios de administrador local.
 
-    Depois que esse comando for executado uma vez para um serviço de proxy de proteção de senha do Azure AD, as invocações adicionais serão realizadas com sucesso, mas são desnecessárias.
+    Depois que esse comando for executado uma vez, as invocações adicionais também serão bem sucedidos, mas serão desnecessárias.
 
     O `Register-AzureADPasswordProtectionProxy` cmdlet dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure AD, mas o terceiro modo não.
 

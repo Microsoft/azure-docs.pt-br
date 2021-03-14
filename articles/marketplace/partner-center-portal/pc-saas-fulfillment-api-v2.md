@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712344"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Marketplace comercial
 
@@ -964,7 +964,7 @@ Um fluxo de compra pode ser disparado a partir do portal do Azure ou Microsoft A
 
 As ações *Alterar plano*, *Alterar quantidade* e *cancelar assinatura* são testadas no lado do Publicador.  Do lado da Microsoft, o *cancelamento da assinatura* pode ser disparado tanto do portal do Azure quanto do centro de administração (o portal onde Microsoft AppSource compras são gerenciadas).  *Alterar a quantidade e o plano* só podem ser disparados no centro de administração.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Consulte [suporte para o programa do Marketplace comercial no Partner Center](../support.md) para obter opções de suporte do Publicador.
 
@@ -972,4 +972,4 @@ Consulte [suporte para o programa do Marketplace comercial no Partner Center](..
 
 Consulte as [APIs do serviço de medição do Marketplace comercial](marketplace-metering-service-apis.md) para obter mais opções de ofertas de SaaS no Marketplace comercial.
 
-Examine e use o [SDK do SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) criado com base nas APIs descritas neste documento.
+Revise e use os [clientes para diferentes linguagens de programação e exemplos](https://github.com/microsoft/commercial-marketplace-samples).

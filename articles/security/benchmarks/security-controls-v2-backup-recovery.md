@@ -4,19 +4,21 @@ description: Backup e recuperação do benchmark de segurança do Azure v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 39466ad621eff1a7d3490c936c90fbff6f63e0fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368878"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051541"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controle de segurança v2: backup e recuperação
 
 O backup e a recuperação abrangem controles para garantir que os backups de dados e de configuração em diferentes camadas de serviço sejam executados, validados e protegidos.
+
+Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: backup e recuperação](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantir backups automatizados regulares
 
@@ -26,7 +28,7 @@ O backup e a recuperação abrangem controles para garantir que os backups de da
 
 Verifique se você está fazendo backup de sistemas e dados para manter a continuidade dos negócios após um evento inesperado. Isso deve ser definido por quaisquer objetivos de RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação).
 
-Habilite o backup do Azure e configure a fonte de backup (por exemplo, VMs do Azure, SQL Server, bancos de dados HANA ou compartilhamentos de arquivos), bem como a frequência e o período de retenção desejados.  
+Habilite o backup do Azure e configure a fonte de backup (como VMs do Azure, SQL Server, bancos de dados HANA ou compartilhamentos de arquivos), bem como a frequência e o período de retenção desejados.
 
 Para um nível mais alto de proteção, você pode habilitar a opção de armazenamento com redundância geográfica para replicar dados de backup para uma região secundária e recuperar usando a restauração entre regiões.
 
@@ -54,9 +56,9 @@ Para um nível mais alto de proteção, você pode habilitar a opção de armaze
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
-Verifique se os backups estão protegidos contra ataques. Isso deve incluir a criptografia dos backups para proteger contra perda de confidencialidade.   
+Verifique se os backups estão protegidos contra ataques. Isso deve incluir a criptografia dos backups para proteger contra perda de confidencialidade.
 
-Para backups locais usando o backup do Azure, a criptografia em repouso é fornecida usando a senha que você fornecer. Para backups regulares do serviço do Azure, os dados de backup são criptografados automaticamente usando chaves gerenciadas pela plataforma do Azure. Você pode optar por criptografar os backups usando a chave gerenciada pelo cliente. Nesse caso, verifique se essa chave gerenciada pelo cliente no cofre de chaves também está no escopo de backup. 
+Para backups locais usando o backup do Azure, a criptografia em repouso é fornecida usando a senha que você fornecer. Para backups regulares do serviço do Azure, os dados de backup são criptografados automaticamente usando chaves gerenciadas pela plataforma do Azure. Você pode optar por criptografar os backups usando a chave gerenciada pelo cliente. Nesse caso, verifique se essa chave gerenciada pelo cliente no cofre de chaves também está no escopo de backup.
 
 Use o controle de acesso baseado em função do Azure no backup do Azure, Azure Key Vault ou outros recursos para proteger backups e chaves gerenciadas pelo cliente. Além disso, você pode habilitar recursos de segurança avançados para exigir MFA antes que os backups possam ser alterados ou excluídos.
 
@@ -64,7 +66,7 @@ Use o controle de acesso baseado em função do Azure no backup do Azure, Azure 
 
 - [Criptografia de dados de backup usando chaves gerenciadas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Como fazer backup de chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como fazer backup de chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [Recursos de segurança para ajudar a proteger backups híbridos contra ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -88,7 +90,7 @@ Execute periodicamente a restauração de dados do seu backup. Verifique se voc�
 
 - [Como recuperar arquivos do backup de máquina virtual do Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Responsabilidade**: Cliente
 
@@ -104,7 +106,7 @@ Execute periodicamente a restauração de dados do seu backup. Verifique se voc�
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Verifique se você tem medidas em vigor para evitar e se recuperar da perda de chaves. Habilite a exclusão temporária e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  
+Verifique se você tem medidas em vigor para evitar e se recuperar da perda de chaves. Habilite a exclusão temporária e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
 - [Como habilitar a exclusão temporária e a proteção de limpeza no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

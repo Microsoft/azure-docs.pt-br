@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743880"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652013"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
@@ -174,7 +174,7 @@ Considere o seguinte exemplo:
 A próxima etapa é identificar todas as instâncias de senhas banidas na nova senha normalizada do usuário. Os pontos são atribuídos com base nos seguintes critérios:
 
 1. Cada senha banida encontrada na senha de um usuário recebe um ponto.
-1. Cada caractere exclusivo restante recebe um ponto.
+1. Cada caractere restante que não faz parte de uma senha banida recebe um ponto.
 1. Uma senha deve ter pelo menos cinco (5) pontos para serem aceitas.
 
 Para os próximos dois cenários de exemplo, a Contoso está usando a proteção de senha do Azure AD e tem "contoso" em sua lista personalizada de senhas banidas. Vamos supor também que "blank" está na lista global.

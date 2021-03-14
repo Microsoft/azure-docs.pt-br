@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466145"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632026"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para o Azure Stack Edge pro R e Azure Stack o mini R Edge
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 A segurança é uma preocupação importante quando você está adotando uma nova tecnologia, especialmente se a tecnologia for usada com dados confidenciais ou proprietários. Azure Stack o Edge pro R e o Azure Stack Edge mini R ajudam a garantir que apenas entidades autorizadas possam exibir, modificar ou excluir seus dados.
 
@@ -66,7 +66,7 @@ Para obter mais informações, consulte [obter uma chave de ativação](azure-st
 
 As senhas garantem que somente usuários autorizados possam acessar seus dados. Os dispositivos Azure Stack Edge pro R são inicializados em um estado bloqueado.
 
-Você poderá:
+Você pode:
 
 - Conecte-se à interface do usuário da Web local do dispositivo por meio de um navegador e forneça uma senha para entrar no dispositivo.
 - Conecte-se remotamente à interface do dispositivo do PowerShell por HTTP. O gerenciamento remoto é ativado por padrão. O gerenciamento remoto também é configurado para usar a administração suficiente (JEA) para limitar o que os usuários podem fazer. Em seguida, você pode fornecer a senha do dispositivo para entrar no dispositivo. Para obter mais informações, consulte [conectar-se remotamente ao seu dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).
@@ -77,7 +77,7 @@ Você poderá:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Estabelecer confiança com o dispositivo por meio de certificados
 
-Azure Stack dispositivo resistente à borda permite que você traga seus próprios certificados e instale-os para serem usados para todos os pontos de extremidade públicos. Para obter mais informações, acesse [carregar seu certificado](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Para obter uma lista de todos os certificados que podem ser instalados em seu dispositivo, vá para [gerenciar certificados em seu dispositivo](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack dispositivo resistente à borda permite que você traga seus próprios certificados e instale-os para serem usados para todos os pontos de extremidade públicos. Para obter mais informações, acesse [carregar seu certificado](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Para obter uma lista de todos os certificados que podem ser instalados em seu dispositivo, vá para [gerenciar certificados em seu dispositivo](azure-stack-edge-gpu-manage-certificates.md).
 
 - Quando você configura a computação em seu dispositivo, um dispositivo IoT e um IoT Edge dispositivo são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
 
@@ -133,7 +133,7 @@ Quando o dispositivo passa por uma redefinição de hardware, um apagamento segu
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-j-series-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
+- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-gpu-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
 
 ## <a name="manage-personal-information"></a>Gerenciar informações pessoais
 
@@ -141,7 +141,7 @@ O serviço do Azure Stack Edge coleta informações pessoais nos seguintes cená
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-j-series-manage-shares.md).
+Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-gpu-manage-shares.md).
 
 Para obter mais informações, examine a política de privacidade da Microsoft na [central de confiabilidade](https://www.microsoft.com/trustcenter).
 

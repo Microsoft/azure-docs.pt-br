@@ -6,19 +6,25 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675689"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213786"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
-> [!CAUTION]
-> Há um bug executando o Profiler para aplicativos ASP.NET Core no serviço Azure App. Temos uma correção, mas levará algumas semanas para implantar o mundo todo. Você pode contornar o bug adicionando o SDK do Application Insights ao seu aplicativo com instruções [aqui](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
-
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Solução de problemas gerais
+
+### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Verifique se você está usando o ponto de extremidade do criador de perfil apropriado
+
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+|Configurações de Aplicativo    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Os perfis são carregados apenas se há solicitações para seu aplicativo enquanto o Profiler está em execução
 
@@ -67,6 +73,7 @@ Geralmente, o thread rapidamente entra em estado de espera é simplesmente aguar
 Envie um tíquete de suporte no portal. Certifique-se de incluir uma ID de correlação da mensagem de erro.
 
 ## <a name="troubleshoot-profiler-on-azure-app-service"></a>Solucionar problemas do Profiler no Serviço de Aplicativo do Azure
+
 Para o Profiler funcionar corretamente:
 * Seu plano de serviço de aplicativo da web deve ser de nível Básico ou superior.
 * Seu aplicativo da web deve ter o Application Insights ativado.
@@ -95,6 +102,10 @@ Se o profiler não estiver funcionando para você, você poderá baixar o log e 
 
 ### <a name="check-the-diagnostic-services-site-extension-status-page"></a>Verificar a página de status da extensão de site dos serviços de diagnóstico
 Se o criador de perfil foi habilitado por meio do [painel de Application insights](profiler.md) no portal, ele foi habilitado pela extensão de site dos serviços de diagnóstico.
+
+> [!NOTE]
+> A instalação sem código do Application Insights Profiler segue a política de suporte do .NET Core.
+> Para obter mais informações sobre tempos de execução com suporte, consulte [política de suporte do .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Você pode verificar a página de status dessa extensão indo para a seguinte URL: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
@@ -140,7 +151,7 @@ Se estiver reimplementando seu aplicativo Web em um recurso de Aplicativos Web c
 
 *Diretório não vazio ' d \\ : \\ site inicial \\ wwwroot \\ App_Data \\ trabalhos '*
 
-Esse erro ocorrerá se você executar Implantação da Web de scripts ou do Azure Pipelines. A solução é adicionar os seguintes parâmetros de implantação adicionados à tarefa de Implantação da Web:
+Esse erro ocorrerá se você executar Implantação da Web de scripts ou do Azure Pipelines. A solução é adicionar os seguintes parâmetros de implantação à tarefa de Implantação da Web:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

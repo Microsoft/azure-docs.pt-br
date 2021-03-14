@@ -1,22 +1,18 @@
 ---
 title: Como executar Self-Hosted Integration Runtime no contêiner do Windows
 description: Saiba mais sobre como executar Self-Hosted Integration Runtime no contêiner do Windows.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e34e1f589442be41e2a4eac3ac893f377675e4b5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634531"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379498"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Como executar Self-Hosted Integration Runtime no contêiner do Windows
 

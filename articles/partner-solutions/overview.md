@@ -4,14 +4,14 @@ description: Saiba mais sobre as soluções oferecidas por parceiros no Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 01/19/2021
+ms.date: 02/12/2021
 ms.author: tomfitz
-ms.openlocfilehash: 6779596efdebf8220af99f4e86c1fe6cc0ec90d6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cab246cf19e8a2e3f9e7b08019cd836e3d085266
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598774"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736042"
 ---
 # <a name="extend-azure-with-solutions-from-partners"></a>Estenda o Azure com soluções de parceiros
 
@@ -21,4 +21,5 @@ As soluções de parceiros estão disponíveis no Marketplace.
 
 | Solução de parceiro | Descrição |
 | :--- | :--- |
-| [Apache Kafka para nuvem confluente](./apache-kafka-confluent-cloud/overview.md) | Plataforma de transmissão de eventos totalmente gerenciada com a Apache Kafka |
+| [Apache Kafka para Confluent Cloud](./apache-kafka-confluent-cloud/overview.md) | Plataforma de transmissão de eventos totalmente gerenciada com a Apache Kafka |
+| [Datadog](./datadog/overview.md) | Monitore seus servidores, nuvens, métricas e aplicativos em um único lugar. |

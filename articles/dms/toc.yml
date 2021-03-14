@@ -37,18 +37,12 @@
   items:
     - name: Migrar SQL Server
       items:
-        - name: para o Banco de Dados SQL do Azure (offline)
+        - name: para Banco de Dados SQL do Azure
           href: tutorial-sql-server-to-azure-sql.md
-        - name: para o Banco de Dados SQL do Azure (online)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: para a Instância Gerenciada de SQL do Azure (offline)
           href: tutorial-sql-server-to-managed-instance.md
         - name: para a Instância Gerenciada de SQL do Azure (online)
           href: tutorial-sql-server-managed-instance-online.md
-    - name: Migrar o RDS SQL Server
-      items:
-        - name: para o Banco de Dados SQL do Azure ou a Instância Gerenciada de SQL
-          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: Migrar MySQL
       items:
         - name: para o Banco de Dados do Azure para MySQL
@@ -139,8 +133,6 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Problemas de migração conhecidos
           items:
-            - name: Banco de Dados SQL
-              href: known-issues-azure-sql-online.md
             - name: Instância Gerenciada do SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
             - name: Banco de dados do Azure para MySQL

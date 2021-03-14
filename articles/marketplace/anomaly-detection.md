@@ -1,34 +1,32 @@
 ---
-title: Detecção de anomalias para cobrança limitada | Azure Marketplace
-description: Saiba como a detecção automática de anomalias para cobrança limitada ajuda a garantir que seus clientes sejam cobrados corretamente para uso limitado da sua oferta de Marketplace comercial.
+title: Gerenciar anomalias de cobrança limitadas no Partner Center | Azure Marketplace
+description: Saiba como a detecção automática de anomalias para cobrança limitada ajuda a garantir que seus clientes sejam cobrados corretamente para uso limitado de suas ofertas de mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989280"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092515"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Detecção de anomalias para cobrança limitada
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gerenciar anomalias de cobrança limitadas no Partner Center
 
-Este artigo fornece detalhes sobre o serviço de medição do Marketplace e a capacidade de detecção de anomalias automatizada associada para ajudar a garantir que possamos faturar os clientes corretamente para seu uso medido. A opção de cobrança limitada está disponível atualmente para ofertas de [software como serviço](plan-saas-offer.md) (SaaS) e [aplicativos do Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicativo gerenciado. Essa opção permite que os parceiros criem ofertas no programa comercial do Marketplace que são cobrados de acordo com as unidades não padrão.
+A opção de cobrança limitada personalizada está disponível atualmente para ofertas de [software como serviço](plan-saas-offer.md) (SaaS) e [aplicativos do Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicativo gerenciado.
 
-Os parceiros que têm medidores personalizados implantados para SaaS e aplicativos gerenciados podem ver o desvio do comportamento de uso esperado como anomalias para os _eventos excedentes_ em _medidores personalizados_ específicos no Partner Center. Para atenuar o risco, o Partner Center usa um serviço de detecção de anomalias que aplica os algoritmos de aprendizado de máquina para determinar o comportamento de cobrança medido normal, analisar o uso de cobrança medido e descobrir anomalias com pouca intervenção do usuário. Usando _modelos de detecção de anomalias_ nos conjuntos de dados de uso de cobrança medido, o Partner Center visa informar o Publicador quando o uso relatado excede o uso esperado.
+Se você estiver usando a opção de cobrança limitada para criar ofertas no programa do Marketplace comercial que permite cobrar pelo uso com base em unidades não padrão, você precisa saber quando o cliente usou mais de um serviço do que o esperado.
 
-## <a name="usability-experience"></a>Experiência de usabilidade
+## <a name="use-the-anomaly-detection-feature"></a>Usar o recurso de detecção de anomalias
 
-A Microsoft conta com o parceiro para reportar o uso excedente do seu cliente do SaaS ou das ofertas de aplicativos gerenciados pelo Azure antes da Microsoft faturar o cliente. Se o uso incorreto for relatado, o cliente poderá potencialmente receber uma fatura incorreta, submineração da Microsoft e da credibilidade do parceiro.
+A Microsoft conta com você, o parceiro, para reportar o uso excedente de seus clientes do SaaS ou das ofertas de aplicativos gerenciados pelo Azure antes da Microsoft faturar o cliente. Se o uso incorreto for relatado, o cliente poderá potencialmente receber uma fatura incorreta, submineração da Microsoft e da credibilidade do parceiro.
 
-Para ajudar a mitigar isso, um recurso automatizado de detecção de anomalias é fornecido para aplicativos SaaS e planos de aplicativo gerenciados por aplicativos do Azure. Esse recurso é um modelo de aprendizado de máquina que monitora de forma proativa o uso em relação à cobrança limitada e prevê o valor esperado de uso dentro do intervalo esperado. Se o uso estiver fora do intervalo esperado, ele será tratado como uma anomalia e uma notificação de alerta será exibida para o parceiro na página Visão geral da oferta no programa do Marketplace comercial do Partner Center.
+Para ajudar a garantir que seus clientes sejam cobrados corretamente, use o recurso de **detecção de anomalias** para aplicativos SaaS e planos de aplicativo gerenciados por aplicativo do Azure. Esse recurso monitora o uso em relação à cobrança limitada e prevê o valor esperado de uso dentro do intervalo esperado. Se o uso estiver fora do intervalo esperado, ele será tratado como inesperado (uma anomalia) e você receberá uma notificação de alerta em sua página de visão geral da oferta no programa do Marketplace comercial do Partner Center. Você pode acompanhar o uso de seus clientes diariamente para cada dimensão de medidor personalizado que você definiu.
 
-O modelo de aprendizado de máquina analisa o uso excedente diário. O Publicador pode ver todas as anomalias relatadas no uso excedente do seu cliente para as dimensões de medidor personalizado de cada oferta.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Exibir e gerenciar anomalias de uso medido
+## <a name="view-and-manage-metered-usage-anomalies"></a>Exibir e gerenciar anomalias de uso medido
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No menu de navegação à esquerda, selecione análise do **Marketplace comercial**  >  .
@@ -79,6 +77,7 @@ Depois de marcar um uso excedente como uma anomalia ou reconhecer um modelo que 
 > [!IMPORTANT]
 > Você pode enviar novamente os usos excedentes no caso de situações de sobrecarga.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 - [Cobrança limitada para SaaS usando o serviço de medição do Marketplace comercial](./partner-center-portal/saas-metered-billing.md)
 - [Cobrança limitada do aplicativo gerenciado](./partner-center-portal/azure-app-metered-billing.md)
+- [Serviço de detecção de anomalias para cobrança limitada](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

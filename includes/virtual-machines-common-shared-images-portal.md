@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750011"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -93,10 +93,7 @@ Pode levar algum tempo para replicar a imagem para todas as regiões de destino.
 
 Recomendamos que você compartilhe o acesso no nível da galeria de imagens. O seguinte guia você pelo compartilhamento da galeria que você acabou de criar.
 
-1. Abra o [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione grupos de **recursos**. 
-1. Na lista de grupos de recursos, selecione **myGalleryRG**. A folha do seu grupo de recursos será aberta.
-1. No menu à esquerda da página **myGalleryRG** , selecione **controle de acesso (iam)**. 
+1. Na página da nova galeria de imagens, no menu à esquerda, selecione **controle de acesso (iam)**. 
 1. Em **Adicionar uma atribuição de função**, selecione **Adicionar**. O painel **Adicionar uma atribuição de função** será aberto. 
 1. Em **função**, selecione **leitor**.
 1. Em **atribuir acesso a**, deixe o padrão de **usuário, grupo ou entidade de serviço do Azure ad**.

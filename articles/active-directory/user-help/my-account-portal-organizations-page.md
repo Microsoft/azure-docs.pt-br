@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/10/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370331"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094110"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gerenciar as organizações às quais você tem acesso no portal minha conta
 
@@ -30,21 +30,26 @@ A página **organizações** do portal **minha conta** ajuda você a gerenciar a
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações da organização acessadas por uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../enterprise-users/index.yml).
+>Este artigo destina-se a usuários que tentam atualizar as informações da organização acessadas por uma conta corporativa ou de estudante. Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
-1. Entre em sua conta corporativa ou de estudante e vá para a página **Minha Conta** (https://myaccount.microsoft.com/).
+1. Entre em sua conta corporativa ou de estudante e vá para a página **Minha Conta** (https://myaccount.microsoft.com/). 
 
-2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
+1. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
 
     ![Página Minha Conta, com links para Organizações em destaque](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Examine as informações de sua **Organização inicial**.
+1. Examine as informações de sua **Organização inicial**.
 
     ![Página Organizações](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Examine suas outras organizações, certificando-se de reconhecer todas as organizações às quais você tem acesso.
+1. Examine suas outras organizações, certificando-se de reconhecer todas as organizações às quais você tem acesso.
 
 ## <a name="leave-an-organization"></a>Sair da organização
 

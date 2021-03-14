@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1012dad1b7e0a314687a38e420ff9ad4780051da
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111100"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686403"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -115,6 +115,7 @@ Se você quiser alterar a cadeia de caracteres de um atributo de usuário person
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
+  ]
 }
 ```
 
@@ -129,22 +130,24 @@ Se você quiser fornecer uma lista configurada de valores para respostas, será 
 ```json
 {
   "LocalizedStrings": [...],
-  "LocalizedCollections": [{
+  "LocalizedCollections": [
+    {
       "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
       "Items":[
-           {
-                "Name":"<Response1>",
-                "Value":"<Value1>"
-           },
-           {
-                "Name":"<Response2>",
-                "Value":"<Value2>"
-           }
-     ]
-  }]
+        {
+          "Name":"<Response1>",
+          "Value":"<Value1>"
+        },
+        {
+          "Name":"<Response2>",
+          "Value":"<Value2>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -181,7 +184,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Será necessário fornecer as traduções para todas as cadeias de caracteres no fluxo de usuário. Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1.
+Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Será necessário fornecer as traduções para todas as cadeias de caracteres no fluxo de usuário. Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. O formato de código de localidade deve ser "ISO_639-1_code"-"CountryCode", por exemplo `en-GB` . Para obter mais informações sobre formatos de ID de localidade, consulte https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 2. Clique no fluxo de usuário no qual você quer adicionar idiomas personalizados e, em seguida, clique em **Idiomas**.
@@ -223,7 +226,7 @@ O [LocalizedResources](localization.md#localizedresources) do elemento `Localiza
 Você configura elementos de recursos localizados para a definição de conteúdo e a qualquer idioma ao qual você deseje dar suporte. Para personalizar as páginas de inscrição ou de entrada unificadas para inglês e espanhol, adicione os seguintes elementos de `LocalizedResources` após o fechamento do elemento `</SupportedLanguages>`.
 
 > [!NOTE]
-> No exemplo a seguir, adicionamos o símbolo de libra `#` no início de cada linha, para que você possa localizar facilmente os rótulos localizados na tela.
+> No exemplo a seguir, adicionamos o `#` símbolo de libra no início de cada linha, para que você possa encontrar facilmente os rótulos localizados na tela.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->
@@ -487,7 +490,7 @@ O Azure AD B2C inclui suporte para os seguintes idiomas. As linguagens de fluxo 
 | Galego              | gl            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Guzerate              | gu            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
 | Hebraico                | he            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
-| Hindi                 | hi            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
+| Híndi                 | hi            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Croata              | hr            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Húngaro             | hu            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Indonésio            | id            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
@@ -503,7 +506,7 @@ O Azure AD B2C inclui suporte para os seguintes idiomas. As linguagens de fluxo 
 | Malaio                 | ms            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Norueguês Bokmal      | nb            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
 | Holandês                 | nl            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
-| Norueguês             | no            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
+| Norueguês             | não            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Panjabi               | pa            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
 | Polonês                | pl            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Português - Brasil   | pt-br         | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
@@ -516,7 +519,7 @@ O Azure AD B2C inclui suporte para os seguintes idiomas. As linguagens de fluxo 
 | Sérvio - latino       | sr-latn-cs    | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Sueco               | sv            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Tâmil                 | ta            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
-| Telugu                | te            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
+| Télugo                | te            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![X indicando não.](./media/user-flow-language-customization/no.png) |
 | Tailandês                  | th            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Turco               | tr            | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |
 | Ucraniano             | uk            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca de seleção verde.](./media/user-flow-language-customization/yes.png) |

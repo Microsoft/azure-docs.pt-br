@@ -1,25 +1,19 @@
 ---
 title: Usar Azure PowerShell para habilitar o diagnóstico em uma VM do Windows
-services: virtual-machines-windows
-documentationcenter: ''
 description: Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
-author: mimckitt
-manager: gwallace
-editor: ''
-ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
+author: amjads1
+ms.author: amjads
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.date: 12/15/2015
-ms.author: mimckitt
-ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e242a45e2c0f8247a1c23bf4d43a6e8b0a033d9b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955966"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560065"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
 
@@ -213,4 +207,4 @@ A configuração precisa ser atualizada para incluir o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter orientações adicionais sobre como usar a funcionalidade do Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [esquema de configuração de diagnóstico](../../azure-monitor/platform/diagnostics-extension-versions.md) explica as várias opções de configurações de XML para a extensão de diagnóstico.
+* [esquema de configuração de diagnóstico](../../azure-monitor/agents/diagnostics-extension-versions.md) explica as várias opções de configurações de XML para a extensão de diagnóstico.

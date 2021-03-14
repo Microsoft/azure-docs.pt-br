@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576340"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta logs do Azure Monitor para monitorar clusters do HDInsight
 
@@ -52,7 +52,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
     | where Type == "Heartbeat"
     ```
 
-1. Você pode se aprofundar usando as opções disponíveis no menu à esquerda. Por exemplo:
+1. Você pode se aprofundar usando as opções disponíveis no menu à esquerda. Por exemplo: 
 
     - Para ver os logs de um nó específico:
 
@@ -122,9 +122,9 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
     ![Log de Azure Monitor do HDInsight logs de exclusão de alertas](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="see-also"></a>Veja também
 
-* [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Introdução às consultas de log no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/visualize/view-designer.md)

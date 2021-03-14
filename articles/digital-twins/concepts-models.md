@@ -1,22 +1,22 @@
 ---
-title: Modelos personalizados
+title: Modelos de DTDL
 titleSuffix: Azure Digital Twins
-description: Entenda como o Azure digital gêmeos usa modelos definidos pelo usuário para descrever as entidades em seu ambiente.
+description: Entenda como o Azure digital gêmeos usa modelos personalizados para descrever entidades em seu ambiente.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131382"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034754"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos gêmeo nos Gêmeos Digitais do Azure
 
-Uma característica importante do Azure digital gêmeos é a capacidade de definir seu próprio vocabulário e criar seu grafo de entrelaçamento nos termos autodefinidos de sua empresa. Esse recurso é fornecido por meio de **modelos** definidos pelo usuário. Você pode considerar os modelos como os substantivos em uma descrição do seu mundo. 
+Uma característica importante do Azure digital gêmeos é a capacidade de definir seu próprio vocabulário e criar seu grafo de entrelaçamento nos termos autodefinidos de sua empresa. Esse recurso é fornecido por meio de **modelos** fornecidos pelo usuário. Você pode considerar os modelos como os substantivos em uma descrição do seu mundo. 
 
 Um modelo é semelhante a uma **classe** em uma linguagem de programação orientada a objeto, definindo uma forma de dados para um determinado conceito em seu ambiente de trabalho real. Os modelos têm nomes (como *sala* ou *sensor*) e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que esse tipo de entidade em seu ambiente pode fazer. Posteriormente, você usará esses modelos para criar [**gêmeos digitais**](concepts-twins-graph.md) que representam entidades específicas que atendem a essa descrição de tipo.
 
@@ -24,7 +24,7 @@ Os modelos de gêmeos digitais do Azure são representados na **DTDL (digital My
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>DTDL (digital mydefinition Language) para modelos
 
-Os modelos para o gêmeos digital do Azure são definidos usando o DTDL (digital gêmeos Definition Language). O DTDL é baseado em JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo do Azure digital gêmeos, mas também é usado para representar dados de dispositivo em outros serviços de IoT, como o [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+Os modelos dos Gêmeos Digitais do Azure são definidos usando o DTDL (Linguagem de Definição de Gêmeos Digitais). O DTDL é baseado em JSON-LD e é uma linguagem de programação independente. O DTDL não é exclusivo do Azure digital gêmeos, mas também é usado para representar dados de dispositivo em outros serviços de IoT, como o [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
 O Azure digital gêmeos usa a **_versão 2_ do DTDL**. Para obter mais informações sobre esta versão do DTDL, consulte sua documentação de especificações no GitHub: [*digital gêmeos Definition Language (DTDL)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O uso do DTDL _versão 1_ com o Azure digital gêmeos agora foi preterido.
 
@@ -65,7 +65,7 @@ A **telemetria** é geralmente usada com dispositivos IOT, porque muitos disposi
 
 Como resultado, ao criar um modelo no Azure digital gêmeos, você provavelmente usará **Propriedades** na maioria dos casos para modelar seu gêmeos. Isso permite que você tenha o armazenamento de backup e a capacidade de ler e consultar os campos de dados.
 
-A telemetria e as propriedades geralmente funcionam juntas para lidar com a entrada de dados de dispositivos. Como todas as ingressos no Azure digital gêmeos são por meio de [APIs](how-to-use-apis-sdks.md), normalmente você usará sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos e definirá uma propriedade em ADT em resposta. 
+A telemetria e as propriedades geralmente funcionam juntas para lidar com a entrada de dados de dispositivos. Como todas as ingressos no Azure digital gêmeos são por meio de [APIs](how-to-use-apis-sdks.md), você normalmente usará sua função de entrada para ler eventos de telemetria ou propriedade de dispositivos e definirá uma propriedade no gêmeos digital do Azure em resposta. 
 
 Você também pode publicar um evento de telemetria da API gêmeos do Azure digital. Assim como acontece com outras telemetrias, isso é um evento de curta duração que requer um ouvinte para manipular.
 
@@ -136,23 +136,31 @@ Ao criar modelos para refletir as entidades em seu ambiente, pode ser útil olha
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>Integração com modelos padrão do setor
+## <a name="tools-for-models"></a>Ferramentas para modelos 
 
-Usar modelos baseados em padrões do setor ou usar a representação ontologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao projetar seus modelos do Azure digital gêmeos. O uso de modelos do setor também ajuda na padronização e no compartilhamento de informações.
+Há várias amostras disponíveis para tornar ainda mais fácil lidar com modelos e ontologies. Elas estão localizadas neste repositório: [ferramentas para DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-tools).
 
-Para ser usado com o gêmeos digital do Azure, um modelo deve ser representado na [**DTDL (digital gêmeos Definition Language)**](concepts-models.md)baseada em JSON-ld. Portanto, para usar um modelo padrão do setor, você deve primeiro convertê-lo em DTDL para que o gêmeos digital do Azure possa usá-lo. O modelo DTDL, em seguida, serve como a fonte de verdade para o modelo dentro do gêmeos digital do Azure.
+Esta seção descreve o conjunto atual de amostras em mais detalhes.
 
-Há dois caminhos principais para integrar modelos padrão do setor com o DTDL, dependendo da sua situação:
-* Se você ainda tiver criado seus modelos, poderá criá-los em um **ontologies inicial DTDL existente** que contenha idioma específico do seu setor.
-* Se você já tiver modelos existentes baseados em um padrão do setor, precisará **convertê-los em DTDL para** colocá-los no gêmeos digital do Azure.
+### <a name="model-uploader"></a>Carregador de modelo 
 
-Para obter mais informações sobre esses dois processos, consulte [*como: integrar modelos padrão do setor*](how-to-integrate-models.md).
+_**Para carregar modelos no Azure digital gêmeos**_
+
+Depois de concluir a criação, a extensão ou a seleção de seus modelos, você poderá carregá-los em sua instância de gêmeos digital do Azure para disponibilizá-los para uso em sua solução. Isso é feito usando as [APIs do gêmeos digital do Azure](how-to-use-apis-sdks.md), conforme descrito em [*como gerenciar modelos DTDL*](how-to-manage-model.md#upload-models).
+
+No entanto, se você tiver muitos modelos para carregar — ou se eles tiverem muitas interdependências que tornaram a ordenação de carregamentos individuais, você poderá usar este exemplo para carregar vários modelos ao mesmo tempo: o [**carregador de modelo de gêmeos digital do Azure**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Siga as instruções fornecidas com o exemplo para configurar e usar este projeto para carregar modelos em sua própria instância.
+
+### <a name="model-visualizer"></a>Visualizador de modelo 
+
+_**Para visualizar modelos**_
+
+Depois de carregar modelos em sua instância do gêmeos digital do Azure, você pode exibir os modelos em sua instância do gêmeos digital do Azure, incluindo quaisquer relações de herança e modelo, usando o [**Visualizador de modelo do Azure digital gêmeos**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Este exemplo está atualmente em um estado de rascunho. Incentivamos a comunidade de desenvolvimento digital gêmeos a estender e contribuir para o exemplo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte como gerenciar modelos com as APIs do DigitalTwinModels:
-* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
+* Saiba mais sobre como criar modelos com base em ontologies padrão do setor: [ *conceitos: o que é um ontologia?*](concepts-ontologies.md)
 
-Ou então, saiba como os gêmeos digitais são criados com base em modelos:
-* [*Conceitos: digital gêmeos e o gráfico de entrelaçamento*](concepts-twins-graph.md)
+* Aprofunde-se no gerenciamento de modelos com operações de API: [ *como gerenciar modelos de DTDL*](how-to-manage-model.md)
+
+* Saiba mais sobre como os modelos são usados para criar gêmeos digital: [ *conceitos: digital gêmeos e o gráfico de entrelaçamento*](concepts-twins-graph.md)
 

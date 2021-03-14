@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4a2a69b5013ab8e1bc4637f21ce484a132d37834
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547467"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455705"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurar a política de expiração para grupos de Microsoft 365
 
@@ -42,7 +42,7 @@ Para saber mais sobre como fazer o download e instalar os cmdlets do PowerShell 
 
 ## <a name="activity-based-automatic-renewal"></a>Renovação automática baseada em atividade
 
-Com a inteligência do Azure AD, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele é baseado na atividade do usuário em grupos entre Microsoft 365 serviços, como o Outlook, o SharePoint ou as equipes. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
+Com a inteligência do Azure AD, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele é baseado na atividade do usuário em grupos entre Microsoft 365 serviços, como o Outlook, o SharePoint ou as equipes. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente cerca de 35 dias antes que o grupo expire e o proprietário não obtenha nenhuma notificação de renovação.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Atividades que renovam automaticamente a expiração do grupo
 
@@ -172,7 +172,7 @@ Aqui estão exemplos de como você pode usar os cmdlets do PowerShell para defin
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-Os seguintes cmdlets podem ser usados ​​para configurar a política com mais detalhes. Para obter mais informações, consulte a [documentação do PowerShell](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
+Os seguintes cmdlets podem ser usados ​​para configurar a política com mais detalhes. Para obter mais informações, consulte a [documentação do PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

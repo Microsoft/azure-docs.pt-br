@@ -2,18 +2,18 @@
 title: Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure | Microsoft Docs
 description: Execute rapidamente o Oracle Data Guard no ambiente do Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: d9ff355ac81d3375a7c41b18df687f6068ee7069
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1b04ef24ff01787c6904db0e288c23d4434e7dcf
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98926964"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673827"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
@@ -154,7 +154,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
+### <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 
 Use o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP pelo valor de `publicIpAddress` de sua máquina virtual.
 

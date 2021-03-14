@@ -3,19 +3,20 @@ title: Implantar a OpenShift do contêiner da plataforma 3,11 Self-Managed ofert
 description: Implante a plataforma de contêiner OpenShift 3,11 Self-Managed oferta do Marketplace no Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374092"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670443"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -65,7 +66,7 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
 | Subscription | Assinatura do Azure na qual implantar o cluster |
 | Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Location | Região do Azure na qual implantar o cluster |
+| Local | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -93,7 +94,7 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 
 **Alterar tamanho**
 
-Para selecionar um tamanho de VM diferente, clique em ***alterar tamanho***.  A janela seleção de VM será aberta.  Selecione o tamanho da VM desejado e clique em **selecionar**.
+Para selecionar um tamanho de VM diferente, clique em ***alterar tamanho** _.  A janela seleção de VM será aberta.  Selecione o tamanho da VM que você deseja e clique em _ * selecionar * *.
 
    ![Selecionar tamanho da VM](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

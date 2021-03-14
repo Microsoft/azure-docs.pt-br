@@ -7,21 +7,30 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882256"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102547537"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do NAS (armazenamento anexado à rede) para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
+
+Este artigo de migração é um dos vários que envolvem as palavras-chave NAS e Sincronização de Arquivos do Azure. Verifique se este artigo se aplica ao seu cenário:
+
+> [!div class="checklist"]
+> * Fonte de dados: NAS (armazenamento anexado à rede)
+> * Rota de migração: o &rArr; servidor do Windows Server é &rArr; carregado e sincronizado com os compartilhamentos de arquivos do Azure
+> * Caching de arquivos locais: Sim, o objetivo final é uma implantação Sincronização de Arquivos do Azure.
+
+Se seu cenário for diferente, examine a [tabela de guias de migração](storage-files-migration-overview.md#migration-guides).
 
 Sincronização de Arquivos do Azure funciona em locais DAS (armazenamento anexado direto) e não oferece suporte à sincronização para os locais de NAS (armazenamento anexado à rede).
 Esse fato faz uma migração dos arquivos necessários e este artigo o orienta durante o planejamento e a execução de tal migração.
 
 ## <a name="migration-goals"></a>Metas de migração
 
-O objetivo é mover os compartilhamentos que você tem em seu dispositivo NAS para um Windows Server. Em seguida, utilize Sincronização de Arquivos do Azure para uma implantação de nuvem híbrida. Essa migração precisa ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. O segundo requer um mínimo de tempo de inatividade, para que ele possa se ajustar ou ter apenas um pouco mais de uma janela de manutenção regular.
+O objetivo é mover os compartilhamentos que você tem em seu dispositivo NAS para um Windows Server. Em seguida, utilize Sincronização de Arquivos do Azure para uma implantação de nuvem híbrida. Em geral, as migrações precisam ser feitas de uma maneira que Guaranty a integridade dos dados de produção e sua disponibilidade durante a migração. O segundo requer um mínimo de tempo de inatividade, para que ele possa se ajustar ou ter apenas um pouco mais de uma janela de manutenção regular.
 
 ## <a name="migration-overview"></a>Visão geral da migração
 
@@ -45,12 +54,12 @@ Conforme mencionado no [artigo Visão geral da migração](storage-files-migrati
 * Crie um Windows Server 2019 – no mínimo 2012R2-como uma máquina virtual ou um servidor físico. Também há suporte para um cluster de failover do Windows Server.
 * Provisione ou adicione armazenamento de conexão direta (DAS em comparação com o NAS, para o qual não há suporte).
 
-    A quantidade de armazenamento que você provisiona pode ser menor do que o que você está usando atualmente em seu dispositivo NAS, se você usar o recurso de [camadas de nuvem](storage-sync-cloud-tiering.md) de sincronizações de arquivos do Azure.
+    A quantidade de armazenamento que você provisiona pode ser menor do que o que você está usando atualmente em seu dispositivo NAS. Essa opção de configuração requer que você também use o recurso de camadas de [nuvem](storage-sync-cloud-tiering-overview.md) de sincronizações de arquivos do Azure.
     No entanto, quando você copiar os arquivos do espaço de NAS maior para o volume menor do Windows Server em uma fase posterior, será necessário trabalhar em lotes:
 
     1. Mover um conjunto de arquivos que se ajustam ao disco
     2. permitir que a sincronização de arquivos e a camada de nuvem se envolvam
-    3. Quando mais espaço livre for criado no volume, prossiga com o próximo lote de arquivos. 
+    3. Quando mais espaço livre for criado no volume, prossiga com o próximo lote de arquivos. Como alternativa, examine o comando RoboCopy na próxima [seção Robocopy](#phase-7-robocopy) para usar o novo `/LFSM` comutador. `/LFSM`O uso do pode simplificar significativamente seus trabalhos do Robocopy, mas não é compatível com algumas outras opções do Robocopy nas quais você pode depender.
     
     Você pode evitar essa abordagem de envio em lote Provisionando o espaço equivalente no Windows Server que os arquivos ocupam no dispositivo NAS. Considere a eliminação de duplicação no NAS/Windows. Se você não quiser confirmar permanentemente essa grande quantidade de armazenamento para o Windows Server, poderá reduzir o tamanho do volume após a migração e antes de ajustar as políticas de camadas de nuvem. Isso cria um cache local menor de seus compartilhamentos de arquivos do Azure.
 
@@ -105,79 +114,10 @@ Execute a primeira cópia local em sua pasta de destino do Windows Server:
 
 O comando RoboCopy a seguir copiará os arquivos do armazenamento NAS para a pasta de destino do Windows Server. O Windows Server irá sincronizá-lo para os compartilhamentos de arquivos do Azure. 
 
-Se você provisionou menos armazenamento no Windows Server do que seus arquivos ocupam no dispositivo NAS, você configurou a camada de nuvem. Como o volume do Windows Server local fica cheio, a disposição em [camadas da nuvem](storage-sync-cloud-tiering.md) será iniciada e os arquivos de camada que já foram sincronizados com êxito. A disposição em camadas da nuvem gerará espaço suficiente para continuar a cópia do dispositivo NAS. As verificações de camadas de nuvem uma vez por hora para ver o que foi sincronizado e liberar espaço em disco para alcançar o espaço livre do volume de 99%.
+Se você provisionou menos armazenamento no Windows Server do que seus arquivos ocupam no dispositivo NAS, você configurou a camada de nuvem. Como o volume do Windows Server local fica cheio, a disposição em [camadas da nuvem](storage-sync-cloud-tiering-overview.md) será iniciada e os arquivos de camada que já foram sincronizados com êxito. A disposição em camadas da nuvem gerará espaço suficiente para continuar a cópia do dispositivo NAS. As verificações de camadas de nuvem uma vez por hora para ver o que foi sincronizado e liberar espaço em disco para alcançar o espaço livre do volume de 99%.
 É possível que o RoboCopy mova arquivos mais rápido do que você pode sincronizar com a nuvem e a camada localmente, ficando sem espaço em disco local. O RoboCopy falhará. É recomendável que você trabalhe nos compartilhamentos em uma sequência que impede isso. Por exemplo, não iniciar trabalhos do RoboCopy para todos os compartilhamentos ao mesmo tempo ou mover somente compartilhamentos que caibam na quantidade atual de espaço livre no Windows Server, para mencionar alguns.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Plano de fundo:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Permite que o RoboCopy seja executado em vários threads. O padrão é 8, o máximo é 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Gera o status do arquivo de LOG como UNICODE (Substitui o log existente).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Saídas para a janela do console. Usado em conjunto com a saída para um arquivo de log.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Executa o RoboCopy no mesmo modo que um aplicativo de backup usaria. Ele permite que o RoboCopy mova arquivos aos quais o usuário atual não tem permissões.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Permite executar esse comando RoboCopy várias vezes, sequencialmente no mesmo destino/destino. Ele identifica o que foi copiado antes e o omite. Somente as alterações, adições e "*exclusões*" serão processadas, ocorridas desde a última execução. Se o comando não for executado antes, nada será omitido. O sinalizador */Mir* é uma excelente opção para locais de origem que ainda são usados e alterados ativamente.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      fidelidade da cópia de arquivo (o padrão é/COPY: DAT), sinalizadores de cópia: D = dados, A = atributos, T = carimbos de data/hora, S = segurança = ACLs de NTFS, O = informações de proprietário, U = informações de auditoria
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      Copie todas as informações do arquivo (equivalente a/COPY: DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY: copyflag [s]
-   :::column-end:::
-   :::column span="1":::
-      fidelidade para a cópia de diretórios (o padrão é/DCOPY: DA), sinalizadores de cópia: D = data, A = atributos, T = carimbos de hora
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## <a name="phase-8-user-cut-over"></a>Fase 8: recortar o usuário
 
@@ -196,7 +136,7 @@ A segunda vez que terminará mais rapidamente, porque ele só precisa transporta
 
 Repita esse processo até estar convencido de que o tempo necessário para concluir um RoboCopy para um local específico está dentro de uma janela aceitável para tempo de inatividade.
 
-Quando você considera o tempo de inatividade aceitável e está preparado para colocar o local NAS offline: para que o usuário tenha acesso offline, você tem a opção de alterar ACLs na raiz do compartilhamento, de modo que os usuários não possam mais acessar o local ou executar qualquer outra etapa apropriada que impeça o conteúdo seja alterado nessa pasta em seu NAS.
+Ao considerar o tempo de inatividade aceitável, você precisa remover o acesso do usuário aos seus compartilhamentos baseados em NAS. Você pode fazer isso por qualquer etapa que impeça os usuários de alterar o conteúdo e a estrutura de arquivos e pastas. Um exemplo é apontar seu DFS-Namespace para um local não existente ou alterar as ACLs raiz no compartilhamento.
 
 Executar uma última rodada do RoboCopy. Ele escolherá todas as alterações, que podem ter sido perdidas.
 Quanto tempo leva essa etapa final, depende da velocidade da verificação do RoboCopy. Você pode estimar o tempo (que é igual ao seu tempo de inatividade) medindo quanto tempo a execução anterior levou.
@@ -208,13 +148,13 @@ Você concluiu a migração de um compartilhamento/grupo de compartilhamentos em
 Você pode tentar executar algumas dessas cópias em paralelo. É recomendável processar o escopo de um compartilhamento de arquivos do Azure por vez.
 
 > [!WARNING]
-> Depois de mover todos os dados do NAS para o Windows Server, e sua migração for concluída: retorne para ***todos os** grupos de sincronização no portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
+> Depois de mover todos os dados do NAS para o Windows Server e sua migração estiver concluída: retorne a ***todos os***  grupos de sincronização na portal do Azure e ajuste o valor de porcentagem de espaço livre do volume de camadas da nuvem para algo mais adequado para a utilização do cache, digamos 20%. 
 
 A política de espaço livre do volume de camadas de nuvem age em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, tornando o cache local não funcionando como você poderia esperar. A menos que seja o objetivo de ter apenas o namespace para um volume que contenha apenas dados de arquivamento raramente acessados e você esteja reservando o restante do espaço de armazenamento para outro cenário.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-O problema mais provável que você pode encontrar é que o comando RoboCopy falha com _ "volume cheio" * no lado do Windows Server. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. Seu objetivo é atingir o espaço livre de 99% no volume.
+O problema mais provável que você pode encontrar é que o comando RoboCopy falha com *"volume cheio"* no lado do Windows Server. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. Seu objetivo é atingir o espaço livre de 99% no volume.
 
 Deixe o progresso da sincronização e a camada da nuvem liberar espaço em disco. Você pode observar isso no explorador de arquivos no seu Windows Server.
 

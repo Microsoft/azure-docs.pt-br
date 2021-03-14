@@ -1,23 +1,18 @@
 ---
 title: Guia Desempenho e ajuste da Atividade de Cópia
 description: Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados no Azure Data Factory quando você usa a Atividade de Cópia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5910b94dba03f105197a94cf1ea1805f45249f3f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451341"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377203"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 
@@ -28,7 +23,7 @@ ms.locfileid: "96451341"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço do Data Factory, consulte [ Copiar o desempenho da atividade e o guia de ajuste para o Data Factory ](../copy-activity-performance.md).
 
-A Atividade de cópia do Azure Data Factory fornece uma solução de dados excelente, segura, confiável e de alto desempenho. Ela permite que você a copie dezenas de terabytes de dados diariamente em uma grande variedade de repositórios de dados na nuvem e locais. Desempenho de carregamento de dados de rápido são a chave para garantir que você possa se concentrar no principal problema de "Big Data": a criação de soluções de análise avançada e obtenção de informações aprofundadas de todos esses dados.
+A Atividade de cópia do Azure Data Factory fornece uma solução de dados excelente, segura, confiável e de alto desempenho. Ela permite que você a copie dezenas de terabytes de dados diariamente em uma grande variedade de repositórios de dados na nuvem e locais. O desempenho de carregamento de dados mais rápido é a chave para garantir que você possa se concentrar no principal problema de "Big Data": criar soluções de análise avançada e obter informações aprofundadas de todos esses dados.
 
 O Azure fornece um conjunto de soluções de armazenamento de dados e data warehouse de nível empresarial, e atividade de cópia oferece uma experiência de carregamento de dados altamente otimizada que é fácil de configurar. Com apenas uma atividade de cópia única, você pode obter:
 
@@ -203,9 +198,9 @@ Quando você ativa o movimento de dados usando um armazenamento de preparo, pode
 Atualmente, não é possível copiar dados entre dois armazenamentos de dados locais usando um armazenamento de preparo. Esperamos que essa opção esteja disponível em breve.
 
 ### <a name="configuration"></a>Configuração
-Configure a definição **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados no Armazenamento de Blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você definir **enableStaging** para TRUE, especifique as propriedades adicionais listadas na tabela a seguir. Se não tiver um, também precisará criar um Armazenamento do Azure ou um serviço vinculado de assinatura de acesso compartilhado do Armazenamento para o preparo.
+Configure a definição **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados no Armazenamento de Blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você definir **enableStaging** para TRUE, especifique as propriedades adicionais listadas na tabela a seguir. Se você não tiver uma, também precisará criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparo.
 
-| Propriedade | Descrição | Valor padrão | Obrigatório |
+| Propriedade | Descrição | Valor padrão | Necessária |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | **linkedServiceName** |Especifique o nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância do Armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados no Azure Synapse Analytics por meio do polybase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
@@ -254,7 +249,7 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
 
    ![Detalhes da execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
-   Posteriormente neste artigo, você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](#performance-reference) da Atividade de Cópia de nossos testes.
+   Posteriormente neste artigo, você pode comparar o desempenho e a configuração do seu cenário para copiar a [referência de desempenho](#performance-reference) da atividade de nossos testes.
 2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os gargalos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos gargalos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
 
    * Recursos de desempenho:
@@ -371,7 +366,7 @@ Tenha cuidado com o número de conjuntos de dados e atividades de cópia que req
 
 **Análise e teste**: A taxa de transferência da Atividade de Cópia é menor que 2 MBps, que é muito mais lento do que o parâmetro de comparação de desempenho.
 
-**Análise e ajuste do desempenho:** para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
+**Análise e ajuste de desempenho**: para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
 
 1. **Ler dados:** o Gateway abre uma conexão com o SQL Server e envia a consulta. SQL Server responde enviando o fluxo de dados para o Gateway por meio da intranet.
 2. **Serializar e compactar dados**: o Gateway serializa o fluxo de dados para o formato CSV e compacta os dados em um fluxo bzip2.

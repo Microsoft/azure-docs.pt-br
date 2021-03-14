@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221517"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701698"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Habilitar e gerenciar logs de Análise de Armazenamento do Azure (clássico)
 
-[Análise de armazenamento do Azure](storage-analytics.md) fornece logs para BLOBs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) para configurar logs são registrados para sua conta. Este artigo mostra como habilitar e gerenciar logs. Para saber como habilitar as métricas, consulte [habilitar e gerenciar métricas de análise de armazenamento do Azure (clássico)](storage-monitor-storage-account.md).  Há custos associados ao exame e armazenamento de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de Armazenamento](storage-analytics.md).
+[Análise de armazenamento do Azure](storage-analytics.md) fornece logs para BLOBs, filas e tabelas. Você pode usar o [portal do Azure](https://portal.azure.com) para configurar logs são registrados para sua conta. Este artigo mostra como habilitar e gerenciar logs. Para saber como habilitar as métricas, consulte [habilitar e gerenciar métricas de análise de armazenamento do Azure (clássico)]().  Há custos associados ao exame e armazenamento de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de Armazenamento](storage-analytics.md).
 
 > [!NOTE]
 > Recomendamos que você use os logs de armazenamento do Azure em Azure Monitor em vez de Análise de Armazenamento logs. Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Essa visualização habilita logs para BLOBs (que inclui Azure Data Lake Storage Gen2), arquivos, filas e tabelas. Para saber mais, consulte qualquer um dos seguintes artigos:
@@ -191,7 +191,7 @@ Os dados de log podem ser acumulados em sua conta ao longo do tempo, o que pode 
 
    * Substitua o valor de espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento. 
 
-6. Use [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) para exibir a política de retenção de log atual. O exemplo a seguir imprime no console o período de retenção para serviços de armazenamento de BLOB e fila.
+6. Use [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) para exibir a política de retenção de log atual. O exemplo a seguir imprime no console o período de retenção para serviços de armazenamento de BLOB e fila.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ Os dados de log podem ser acumulados em sua conta ao longo do tempo, o que pode 
    > [!div class="mx-imgBorder"]
    > ![Política de retenção na saída do PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Use o [set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) para alterar o período de retenção. O exemplo a seguir altera o período de retenção para 4 dias.  
+7. Use o [set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) para alterar o período de retenção. O exemplo a seguir altera o período de retenção para 4 dias.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Após baixar seus dados de log, veja as entradas de log nos arquivos. Esses arqu
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre Análise de Armazenamento, consulte [análise de armazenamento](storage-analytics.md) para análise de armazenamento.
-* [Configure análise de armazenamento métricas](storage-monitor-storage-account.md).
 * Para obter mais informações sobre como usar uma linguagem .NET para configurar o Log de Armazenamento, consulte [Referência da Biblioteca do Clientes do Armazenamento](/previous-versions/azure/dn261237(v=azure.100)). 
 * Para obter informações gerais sobre a configuração do Registro em Log do Armazenamento usando a API REST, veja [Habilitar e configurar a Análise do Armazenamento](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Saiba mais sobre o formato dos logs de Análise de Armazenamento. Consulte [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format).

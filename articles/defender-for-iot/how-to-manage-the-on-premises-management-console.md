@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539352"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618246"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerenciar o console de gerenciamento local
 
@@ -90,7 +90,7 @@ Para alterar a configuração de validação:
 
 1. Ative ou desative a alternância **Habilitar validação de certificado** .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação aparecerá no console.
 
@@ -322,13 +322,13 @@ Para editar o nome de host do console de gerenciamento configurado no servidor D
 
 3. Insira o nome do host configurado no servidor DNS organizacional. 
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="define-vlan-names"></a>Definir nomes de VLAN
 
 Os nomes de VLAN não são sincronizados entre o sensor e o console de gerenciamento. Você deve definir nomes idênticos nos componentes.
 
-Na área rede, selecione **VLAN** e adicione nomes às IDs de VLAN descobertas. Depois, selecione **Salvar**.
+Na área rede, selecione **VLAN** e adicione nomes às IDs de VLAN descobertas. Em seguida, selecione **Salvar**.
 
 ## <a name="define-a-proxy-to-sensors"></a>Definir um proxy para sensores
 
@@ -372,7 +372,7 @@ Para alterar o nome:
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Captura de tela da edição da configuração da plataforma defender para IoT.":::
 
-3. Clique em **Salvar**. O novo nome é aplicado.
+3. Selecione **Salvar**. O novo nome é aplicado.
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Captura de tela que mostra o nome alterado do console.":::
 
@@ -415,7 +415,21 @@ O procedimento a seguir descreve como atualizar a versão do software do console
 
 1. Selecione o arquivo que você baixou da página de **atualizações** do defender for IOT.
 
-## <a name="see-also"></a>Confira também
+## <a name="mail-server-settings"></a>Configurações do servidor de email
+
+Defina as configurações do servidor de email SMTP para o console de gerenciamento local.
+
+Para definir:
+
+1. Entre na CLI para o gerenciamento local com credenciais administrativas.
+1. Digite ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Selecione enter. Os prompts a seguir são exibidos.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Insira o nome do servidor SMTP e o remetente e selecione Enter.
+
+## <a name="see-also"></a>Consulte também
 
 [Gerenciar sensores do console de gerenciamento](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

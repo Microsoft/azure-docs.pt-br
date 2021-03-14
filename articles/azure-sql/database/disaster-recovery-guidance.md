@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782987"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580759"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar o banco de dados SQL do Azure ou fazer failover para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ A operação de recuperação afeta o aplicativo. Ela exige a alteração da cad
 
 Dependendo da tolerância a tempo de inatividade de seu aplicativo e possível responsabilidade comercial, você pode considerar as opções de recuperação a seguir.
 
-Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ) para obter o ponto de restauração com replicação geográfica mais recente.
+Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) para obter o ponto de restauração com replicação geográfica mais recente.
 
 ## <a name="wait-for-service-recovery"></a>Aguarde a recuperação de serviço
 
@@ -109,7 +109,7 @@ Você deve verificar se todos os logons usados pelo aplicativo existem no servid
 
 Você precisa certificar-se de que as configurações de regra de alerta existentes sejam atualizadas para mapear para o banco de dados recuperado e para o outro servidor.
 
-Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../../azure-monitor/platform/alerts-overview.md) e [Acompanhar a integridade do serviço](../../service-health/service-notifications.md).
+Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../../azure-monitor/alerts/alerts-overview.md) e [Acompanhar a integridade do serviço](../../service-health/service-notifications.md).
 
 ### <a name="enable-auditing"></a>Habilitar a auditoria
 

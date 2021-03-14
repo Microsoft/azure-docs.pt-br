@@ -1,23 +1,23 @@
 ---
 title: Monitorar recursos delegados em escala
 description: Saiba como usar efetivamente os logs de Azure Monitor de maneira escalonável nos locatários do cliente que você está gerenciando.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742578"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
 Como um provedor de serviços, você pode ter integrado vários locatários de clientes ao [Azure Lighthouse](../overview.md). O Azure Lighthouse permite que os provedores de serviços realizem operações em escala em vários locatários ao mesmo tempo, tornando as tarefas de gerenciamento mais eficientes.
 
-Este tópico mostra como usar [os logs de Azure monitor](../../azure-monitor/platform/data-platform-logs.md) de maneira escalonável nos locatários do cliente que você está gerenciando. Embora possamos nos referimos a provedores de serviços e clientes neste tópico, essa orientação também se aplica a [empresas que usam o Azure Lighthouse para gerenciar vários locatários](../concepts/enterprise.md).
+Este tópico mostra como usar [os logs de Azure monitor](../../azure-monitor/logs/data-platform-logs.md) de maneira escalonável nos locatários do cliente que você está gerenciando. Embora possamos nos referimos a provedores de serviços e clientes neste tópico, essa orientação também se aplica a [empresas que usam o Azure Lighthouse para gerenciar vários locatários](../concepts/enterprise.md).
 
 > [!NOTE]
-> Verifique se os usuários em seus locatários de gerenciamento receberam as [funções necessárias para gerenciar espaços de trabalho de log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) em suas assinaturas de cliente delegadas.
+> Verifique se os usuários em seus locatários de gerenciamento receberam as [funções necessárias para gerenciar espaços de trabalho de log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) em suas assinaturas de cliente delegadas.
 
 ## <a name="create-log-analytics-workspaces"></a>Criar Log Analytics espaços de trabalho
 
@@ -28,7 +28,7 @@ Para coletar dados, você precisará criar Log Analytics espaços de trabalho. E
 > [!TIP]
 > Qualquer conta de automação usada para acessar dados de um espaço de trabalho Log Analytics deve ser criada no mesmo locatário que o espaço de trabalho.
 
-Você pode criar um espaço de trabalho Log Analytics usando o [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md), usando [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)ou usando [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+Você pode criar um espaço de trabalho Log Analytics usando o [portal do Azure](../../azure-monitor/logs/quick-create-workspace.md), usando [CLI do Azure](../../azure-monitor/logs/quick-create-workspace-cli.md)ou usando [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Mesmo que todos os espaços de trabalho sejam criados no locatário do cliente, o provedor de recursos Microsoft. insights também deve ser registrado em uma assinatura no locatário de gerenciamento.
@@ -43,13 +43,13 @@ Quando você determinar quais políticas implantar, poderá [implantá-las em su
 
 ## <a name="analyze-the-gathered-data"></a>Analisar os dados coletados
 
-Depois de implantar suas políticas, os dados serão registrados nos espaços de trabalho do Log Analytics que você criou em cada locatário do cliente. Para obter informações sobre todos os clientes gerenciados, você pode usar ferramentas como [pastas de trabalho do Azure monitor](../../azure-monitor/platform/workbooks-overview.md) para coletar e analisar dados a partir de várias fontes.
+Depois de implantar suas políticas, os dados serão registrados nos espaços de trabalho do Log Analytics que você criou em cada locatário do cliente. Para obter informações sobre todos os clientes gerenciados, você pode usar ferramentas como [pastas de trabalho do Azure monitor](../../azure-monitor/visualize/workbooks-overview.md) para coletar e analisar dados a partir de várias fontes.
 
 ## <a name="view-alerts-across-customers"></a>Exibir alertas entre clientes
 
-Você pode exibir [alertas](../../azure-monitor/platform/alerts-overview.md) para as assinaturas delegadas nos locatários do cliente que você gerencia.
+Você pode exibir [alertas](../../azure-monitor/alerts/alerts-overview.md) para as assinaturas delegadas nos locatários do cliente que você gerencia.
 
-Do seu locatário de gerenciamento, você pode [criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) no portal do Azure ou por meio de APIs e ferramentas de gerenciamento.
+Do seu locatário de gerenciamento, você pode [criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/alerts/alerts-activity-log.md) no portal do Azure ou por meio de APIs e ferramentas de gerenciamento.
 
 Para atualizar alertas automaticamente em vários clientes, use uma consulta [do grafo de recursos do Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Você pode fixar a consulta ao seu painel e selecionar todos os clientes e assinaturas apropriados. Por exemplo, a consulta abaixo exibirá os alertas de severidade 0 e 1, atualizando a cada 60 minutos.
 
@@ -65,7 +65,6 @@ alertsmanagementresources
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Experimente os [logs de atividade por](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) pasta de trabalho do domínio no github.
 - Explore esta [pasta de trabalho de exemplo criada pelo MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que controla os relatórios de conformidade de patch [consultando gerenciamento de atualizações logs](../../automation/update-management/query-logs.md) em vários espaços de trabalho do log Analytics. 
-- Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml).
-- Saiba mais sobre [os logs de Azure monitor](../../azure-monitor/platform/data-platform-logs.md).
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
+- Saiba mais sobre outras [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

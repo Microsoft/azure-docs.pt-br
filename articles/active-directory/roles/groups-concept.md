@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 5df7088551e7e7f616077342b762baca179f8640
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740084"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123353"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -28,7 +28,7 @@ Considere este exemplo: a contoso contratou pessoas entre geografias para gerenc
 
 ## <a name="how-this-feature-works"></a>Como esse recurso funciona
 
-Crie um novo Microsoft 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 200 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
+Crie um novo Microsoft 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 250 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
 
 Se você não quiser que os membros do grupo tenham acesso à função, você poderá usar Azure AD Privileged Identity Management. Atribua um grupo como um membro qualificado de uma função do Azure AD. Em seguida, cada membro do grupo é elegível para que sua atribuição seja ativada para a função à qual o grupo está atribuído. Em seguida, eles podem ativar sua atribuição de função por uma duração fixa.
 
@@ -56,10 +56,10 @@ Os cenários a seguir não têm suporte no momento:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2*: não atribua um grupo como ativo a uma função por meio do Azure AD e do PRIVILEGED Identity Management (PIM). Especificamente, não atribua uma função a um grupo de função atribuível quando ela estiver sendo criada *e* atribua uma função ao grupo usando o PIM posteriormente. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
   - A hora de término da atribuição de função pode ser exibida incorretamente.
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
+- O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  
 - Use o novo [centro de administração do Exchange](https://admin.exchange.microsoft.com/) para atribuições de função por meio da Associação de grupo. O antigo centro de administração do Exchange ainda não dá suporte a esse recurso. Os cmdlets do PowerShell do Exchange funcionarão conforme o esperado.
 - O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.

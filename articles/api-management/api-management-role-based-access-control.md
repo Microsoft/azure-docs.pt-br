@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015282"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095553"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure
 
@@ -30,7 +30,7 @@ O gerenciamento de API do Azure conta com o Azure RBAC (controle de acesso basea
 
 No momento, o Gerenciamento de API oferece três funções internas e adicionará outras duas funções em breve. Essas funções podem ser atribuídas em escopos diferentes, incluindo assinatura, grupo de recursos e instância individual do Gerenciamento de API. Por exemplo, se você atribuir a função "leitor de serviço de gerenciamento de API" a um usuário no nível do grupo de recursos, o usuário terá acesso de leitura a todas as instâncias de gerenciamento de API dentro do grupo de recursos. 
 
-A tabela a seguir fornece breves descrições das funções internas. Atribua essas funções usando o portal do Azure ou outras ferramentas, incluindo o Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [CLI do Azure](../role-based-access-control/role-assignments-cli.md) e [API REST](../role-based-access-control/role-assignments-rest.md). Para obter detalhes sobre como atribuir funções internas, confira [Usar atribuições de função para gerenciar o acesso aos recursos de sua assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
+A tabela a seguir fornece breves descrições das funções internas. Atribua essas funções usando o portal do Azure ou outras ferramentas, incluindo o Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [CLI do Azure](../role-based-access-control/role-assignments-cli.md) e [API REST](../role-based-access-control/role-assignments-rest.md). Para obter detalhes sobre como atribuir funções internas, consulte [atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
 | Função          | Acesso de leitura<sup>[1]</sup> | Acesso de gravação<sup>[2]</sup> | Criação de serviço, exclusão, colocação em escala, VPN e configuração de domínio personalizado | Acesso ao portal do editor herdado | Descrição
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -81,6 +81,6 @@ O artigo [Operações do provedor de recursos do Azure Resource Manager](../role
 
 Saiba mais sobre o Controle de Acesso Baseado em Função no Azure, consulte os seguintes artigos:
   * [Introdução ao gerenciamento de acesso no portal do Azure](../role-based-access-control/overview.md)
-  * [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md)
+  * [Atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md)
   * [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md)
   * [Operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

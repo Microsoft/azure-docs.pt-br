@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460993"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558127"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
@@ -63,7 +63,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
 1. Clique em *Save* (Salvar).
 
-Para saber mais sobre a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se você estiver compartilhando dados usando APIs REST, poderá criar uma atribuição de função usando a API fazendo referência [a adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
+Para saber mais sobre a atribuição de função, consulte [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md). Se você estiver compartilhando dados usando APIs REST, poderá criar uma atribuição de função usando a API referenciando [atribuir funções do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para fontes baseadas em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento de data do Azure ao se conectar ao banco de dados SQL usando a autenticação Azure Active Directory. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhamento do banco de dados SQL do Azure ou do Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
@@ -83,7 +83,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
 1. Clique em *Save* (Salvar).
 
-Para saber mais sobre a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se você estiver recebendo dados usando APIs REST, poderá criar uma atribuição de função usando a API fazendo referência [a adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
+Para saber mais sobre a atribuição de função, consulte [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md). Se você estiver recebendo dados usando APIs REST, poderá criar uma atribuição de função usando a API referenciando [atribuir funções do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para o destino baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data ao se conectar ao banco de dado SQL usando a autenticação Azure Active Directory. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhamento do banco de dados SQL do Azure ou do Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
@@ -107,4 +107,4 @@ Para saber mais sobre o provedor de recursos, consulte [tipos e provedores de re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as funções no Azure – [Entender as definições de função](../role-based-access-control/role-definitions.md)
+- Saiba mais sobre as funções no Azure – [entender as definições de função do Azure](../role-based-access-control/role-definitions.md)

@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bd58f18959df3aa290083f907be8ab703366a7c6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360094"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615594"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Diretrizes de preços para SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -97,10 +97,7 @@ Para criar uma VM do Azure executando o SQL Server 2017 com uma dessas imagens p
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traga sua própria licença (BYOL)
 
-**Trazer sua própria licença do SQL Server por meio da Mobilidade de Licença**, também conhecida como **BYOL**, significa usar uma Licença de Volume existente do SQL Server com Software Assurance em uma VM do Azure. Uma VM do SQL Server usando BYOL é cobrada somente pelo custo da respectiva execução e não pelo licenciamento do SQL Server, considerando que você já tenha adquirido licenças e o Software Assurance por meio de um programa de Licenciamento por Volume.
-
-> [!IMPORTANT]
-> As imagens BYOL requeremum Enterprise Agreement com Software Assurance. Não estão disponíveis como parte do Parceiro de Solução de Nuvem (CSP) o Azure neste momento. Os clientes do CSP podem trazer as respectivas licenças implantando uma imagem paga conforme o uso e habilitando o [Benefício Híbrido do Azure](licensing-model-azure-hybrid-benefit-ahb-change.md).
+**Trazer sua própria licença do SQL Server por meio da Mobilidade de Licença**, também conhecida como **BYOL**, significa usar uma Licença de Volume existente do SQL Server com Software Assurance em uma VM do Azure. Uma VM SQL Server usando BYOL apenas cobra pelo custo da execução da VM, não pelo licenciamento de SQL Server, Considerando que você já tenha adquirido licenças e Software Assurance por meio de um programa de licenciamento por volume ou por meio de um parceiro de solução de nuvem (CSP).
 
 > [!NOTE]
 > Atualmente, as imagens BYOL só estão disponíveis para máquinas virtuais do Windows. No entanto, você pode instalar manualmente do SQL Server em uma VM somente Linux. Consulte as diretrizes no [SQL Server de perguntas frequentes sobre uma VM do Linux](../linux/frequently-asked-questions-faq.md).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 07bf22cfc683d8c6f2c765364334ed1594e2fdaa
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745877"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582800"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acessando os logs de diagnóstico do Azure Data Lake Storage Gen1
 Saiba como habilitar o log de diagnósticos em sua conta do Azure Data Lake Storage Gen1 e como exibir os logs coletados em sua conta.
@@ -46,7 +46,7 @@ As organizações podem habilitar o log de diagnóstico para sua conta de Azure 
         
         * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-        * Selecione a opção para **Enviar para log Analytics** usar o serviço Azure monitor para analisar os dados de log gerados. Se você selecionar essa opção, deverá fornecer os detalhes para o espaço de trabalho do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar dados coletados com Azure monitor logs de pesquisa](../azure-monitor/log-query/log-analytics-tutorial.md) para obter detalhes sobre como usar os logs de Azure monitor.
+        * Selecione a opção para **Enviar para log Analytics** usar o serviço Azure monitor para analisar os dados de log gerados. Se você selecionar essa opção, deverá fornecer os detalhes para o espaço de trabalho do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar dados coletados com Azure monitor logs de pesquisa](../azure-monitor/logs/log-analytics-tutorial.md) para obter detalhes sobre como usar os logs de Azure monitor.
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
@@ -185,7 +185,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | StreamName |String |O caminho em que a operação foi executada |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados do log
-Ao enviar logs de Azure Data Lake Storage Gen1 para Azure Monitor logs (consulte [Exibir ou analisar dados coletados com Azure monitor logs de pesquisa](../azure-monitor/log-query/log-analytics-tutorial.md) para obter detalhes sobre como usar logs do Azure monitor), a consulta a seguir retornará uma tabela que contém uma lista de nomes de exibição do usuário, a hora dos eventos e a contagem de eventos para a hora do evento junto com um gráfico Visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
+Ao enviar logs de Azure Data Lake Storage Gen1 para Azure Monitor logs (consulte [Exibir ou analisar dados coletados com Azure monitor logs de pesquisa](../azure-monitor/logs/log-analytics-tutorial.md) para obter detalhes sobre como usar logs do Azure monitor), a consulta a seguir retornará uma tabela que contém uma lista de nomes de exibição do usuário, a hora dos eventos e a contagem de eventos para a hora do evento junto com um gráfico Visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
 
 ```
 search *
@@ -196,6 +196,6 @@ search *
 
 O Azure Data Lake Storage Gen1 fornece um exemplo sobre como processar e analisar os dados de log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)

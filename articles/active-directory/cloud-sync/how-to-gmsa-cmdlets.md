@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d97128c15d974bfb704fdd446dbd9c727d7fa469
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 411a8e46151a762bcd270fb676f78a91f760ac4f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613019"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653789"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-gmsa-powershell-cmdlets"></a>Azure AD Connect cmdlets do PowerShell gMSA do agente de provisionamento de nuvem
 
@@ -36,7 +36,7 @@ Os pré-requisitos a seguir são necessários para usar esses cmdlets.
 2. Importe o módulo PS do agente de provisionamento para uma sessão do PowerShell. 
 
  ```PowerShell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll"  
  ```
 3. Remova as permissões existentes.  Para remover todas as permissões existentes na conta de serviço, exceto o uso automático: `Set-AADCloudSyncRestrictedPermission` .  
 
@@ -69,7 +69,7 @@ Os pré-requisitos a seguir são necessários para usar esses cmdlets.
 |HybridExchangePermissions|Consulte permissões de [HybridExchangePermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) para Azure ad Connect| 
 |ExchangeMailPublicFolderPermissions| Consulte permissões de [ExchangeMailPublicFolderPermissions](../../active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders-preview) para Azure ad Connect| 
 |CloudHR| Aplica ' controle total ' em ' objetos de usuário descendentes ' e ' criar/excluir objetos de usuário ' em ' este objeto e todos os objetos descendentes '| 
-|Tudo|Adiciona todas as permissões acima.| 
+|Todos|Adiciona todas as permissões acima.| 
 
 
 

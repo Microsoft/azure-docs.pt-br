@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 83758f63b7e60d08a31f1da9da4a6eec6ba7d4a4
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095229"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632060"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
-O Serviço de Aplicativo do Azure dá suporte interno à autenticação e autorização para que você possa fazer login de usuários e acessar dados, gravando o mínimo ou nenhum código no aplicativo Web, na API RESTful e no back-end para dispositivos móveis, e também [Azure Functions](../azure-functions/functions-overview.md). Este artigo descreve como o Serviço de Aplicativo ajuda a simplificar a autenticação e autorização do aplicativo.
+O serviço de Azure App fornece suporte interno de autenticação e autorização (às vezes conhecido como "autenticação fácil"), para que você possa conectar usuários e acessar dados escrevendo um mínimo ou nenhum código em seu aplicativo Web, API RESTful e back-end móvel e também [Azure Functions](../azure-functions/functions-overview.md). Este artigo descreve como o Serviço de Aplicativo ajuda a simplificar a autenticação e autorização do aplicativo.
 
 A autenticação e autorização seguras exigem um profundo entendimento de segurança, incluindo federação, criptografia, [gerenciamento JWT (Token Web JSON)](https://wikipedia.org/wiki/JSON_Web_Token), [tipos de concessão](https://oauth.net/2/grant-types/), e assim por diante. O Serviço de Aplicativo disponibiliza esses utilitários para que você possa investir mais tempo e energia no fornecimento de valor comercial ao seu cliente.
 
@@ -24,9 +24,6 @@ A autenticação e autorização seguras exigem um profundo entendimento de segu
 >
 > As versões ASP.NET Core 2,1 e acima hospedadas pelo serviço de aplicativo já estão corrigidas para essa alteração significativa e lidam com os navegadores Chrome 80 e mais antigos adequadamente. Além disso, o mesmo patch para o ASP.NET Framework 4.7.2 foi implantado nas instâncias do serviço de aplicativo em janeiro de 2020. Para obter mais informações, consulte [Azure app Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
-
-> [!NOTE]
-> O recurso de autenticação/autorização às vezes também é chamado de "autenticação fácil".
 
 > [!NOTE]
 > Habilitar esse recurso fará com que **todas** as solicitações HTTP não seguras para seu aplicativo sejam redirecionadas automaticamente para https, independentemente da definição de configuração do serviço de aplicativo para [impor https](configure-ssl-bindings.md#enforce-https). Se necessário, você pode desabilitar isso por meio da `requireHttps` configuração no [arquivo de configuração de configurações de autenticação](app-service-authentication-how-to.md#configuration-file-reference), mas você deve tomar cuidado para garantir que nenhum token de segurança seja transmitido por conexões http não seguras.

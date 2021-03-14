@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705765"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Use as etapas a seguir para implantar um módulo de segurança do defender para 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. No Hub IoT, verifique se o dispositivo está [registrado como um dispositivo IOT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
+1. No Hub IoT, verifique se o dispositivo está [registrado como um dispositivo IOT Edge](../iot-edge/how-to-register-device.md#register-a-new-device).
 
 1. O módulo do defender for IoT Edge requer que a [estrutura auditada](https://linux.die.net/man/8/auditd) esteja instalada no dispositivo IOT Edge.
 
@@ -107,7 +107,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     
    Para obter mais informações sobre como configurar o agente, consulte [Configurar agentes de segurança](./how-to-agent-configuration.md).
 
-1. Selecione **Atualização**.
+1. Selecione **Atualizar**.
 
 #### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
 
@@ -143,7 +143,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     }
     ```
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 5. Selecione **Avançar**.
 
@@ -179,7 +179,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
 1. Verifique se os seguintes contêineres estão em execução:
 
-   | Nome | IMAGE |
+   | Name | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

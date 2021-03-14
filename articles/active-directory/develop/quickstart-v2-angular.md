@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225792"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103848"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
@@ -35,9 +35,7 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se a conta tiver acesso a mais de um locatário, selecione a conta na parte superior direita e defina sua sessão do portal para o locatário do Azure AD (Azure Active Directory) que deseja usar.
-> 1. Abra o novo painel de [Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) no portal do Azure.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 > 1. Insira um nome para o aplicativo e selecione **Registrar**.
 > 1. Vá até o painel do início rápido e veja o início rápido do Angular. Siga as instruções para baixar e configurar automaticamente o novo aplicativo.
 >
@@ -45,15 +43,15 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >
 > #### <a name="step-1-register-the-application"></a>Etapa 1: Registrar o aplicativo
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se a conta tiver acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Siga as instruções para [registrar um aplicativo de página única](./scenario-spa-app-registration.md) no portal do Azure.
 > 1. Adicione uma nova plataforma no painel **Autenticação** do seu registro de aplicativo e registre o URI de redirecionamento: `http://localhost:4200/`.
 > 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar a ****Concessão implícita**.
+> Para que o exemplo de código deste guia de início rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e habilitar a **Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

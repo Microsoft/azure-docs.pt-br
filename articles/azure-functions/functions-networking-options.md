@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806991"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215146"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -87,7 +87,7 @@ Para obter mais detalhes, confira [Pontos de extremidade de serviço de rede vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas.  Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular.  Atualmente, esse recurso só funciona com planos do Windows Premium.  Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas. Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular. Esse recurso funciona atualmente para todas as SKUs com suporte de rede virtual que incluem Standard e Premium, exceto para carimbos flexíveis em que as redes virtuais estão disponíveis somente para o SKU Premium. Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos de extremidade de serviço habilitados.
 1. Configure a função para se conectar à sua rede virtual.
@@ -96,7 +96,7 @@ Quando você cria um aplicativo de funções, é necessário criar ou vincular u
 1. Habilite os pontos de extremidade de serviço ou o Endpoint particular para a conta de armazenamento.  
     * Se você estiver usando conexões de ponto de extremidade privado, a conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions, você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
     * Se estiver usando pontos de extremidade de serviço, habilite a sub-rede dedicada para seus aplicativos de funções para contas de armazenamento.
-1. Adicional Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
+1. Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
 1. Copie a cadeia de conexão para esta conta de armazenamento.
 1. Atualize as **configurações do aplicativo** em **configuração** para o aplicativo de funções para o seguinte:
     - `AzureWebJobsStorage` para a cadeia de conexão da conta de armazenamento protegida.

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 864152d1f1d0074305cbba448946bc05888b4f3b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566751"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521961"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Início Rápido: Usar o portal do Azure para criar um servidor flexível do Banco de Dados do Azure para MySQL
 
@@ -85,17 +85,35 @@ Por padrão, estes bancos de dados são criados no seu servidor: information_sch
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>Conecte-se ao servidor usando o mysql.exe
 
-Se você criou o servidor flexível com o acesso privado (Integração VNET), conecte-se ao servidor por meio de um recurso na mesma rede virtual do servidor. Crie uma máquina virtual e adicione-a à rede virtual criada com o servidor flexível.
+Se você criou o servidor flexível com o acesso privado (Integração VNET), conecte-se ao servidor por meio de um recurso na mesma rede virtual do servidor. Crie uma máquina virtual e adicione-a à rede virtual criada com o servidor flexível. Veja a documentação sobre como [configurar o acesso privado](how-to-manage-virtual-network-portal.md) para saber mais.
 
-Se você criou o servidor flexível com o acesso público (endereços IP permitidos), adicione seu endereço IP local à lista de regras de firewall no servidor.
+Se você criou o servidor flexível com o acesso público (endereços IP permitidos), adicione seu endereço IP local à lista de regras de firewall no servidor. Veja a [documentação sobre como criar ou gerenciar regras de firewall](how-to-manage-firewall-portal.md) para obter diretrizes passo a passo.
 
 Você pode usar o [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou o [Workbench do MySQL](./connect-workbench.md) para se conectar ao servidor do ambiente local. 
 
-Se estiver usando o mysql.exe, conecte-se usando o comando a seguir. Use o nome do servidor, o nome de usuário e a senha no comando. 
-
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
+Se você tiver provisionado seu servidor flexível usando o **acesso público**, também poderá usar o [Azure Cloud Shell](https://shell.azure.com/bash) para se conectar ao seu servidor flexível usando o cliente mysql pré-instalado conforme mostrado abaixo:
+
+Para usar Azure Cloud Shell para se conectar ao seu servidor flexível, você precisará permitir o acesso à rede de Azure Cloud Shell ao seu servidor flexível. Para fazer isso, você pode ir para a folha **Rede** no portal do Azure para seu servidor flexível do MySQL e marcar a caixa na seção **Firewall** que diz "Permitir acesso público de qualquer serviço do Azure no Azure para este servidor" e clicar em Salvar para manter a configuração.
+
+> [!NOTE]
+> Marcar a caixa **Permitir acesso público de qualquer serviço do Azure no Azure para este servidor** deve ser usado somente para desenvolvimento ou teste. Isso configura o firewall para permitir conexões de endereços IP alocados para qualquer serviço ou ativo do Azure, incluindo conexões das assinaturas de outros clientes.
+
+Clique em **Experimente** para iniciar o Azure Cloud Shell e usar os comandos a seguir para se conectar ao seu servidor flexível. Use o nome do servidor, o nome de usuário e a senha no comando. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+
+Se você vir a mensagem de erro a seguir ao conectar-se ao seu servidor flexível seguindo o comando anterior, você perdeu a configuração da regra de firewall usando "Permitir acesso público de qualquer serviço do Azure no Azure para este servidor" mencionado anteriormente ou a opção não foi salva. Tente configurar o firewall outra vez e tente novamente.
+
+ERRO 2002 (HY000): não é possível se conectar ao servidor MySQL em <servername> (115)
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Você acabou de criar um servidor flexível do Banco de Dados do Azure para MySQL em um grupo de recursos. Caso não espere precisar desses recursos no futuro, exclua-os eliminando o grupo de recursos ou exclua apenas o servidor MySQL. Para excluir o grupo de recursos, conclua estas etapas:
 

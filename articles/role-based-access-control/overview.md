@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559342"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?
 
@@ -38,7 +38,7 @@ Aqui estão alguns exemplos do que você pode fazer com o RBAC do Azure:
 
 ## <a name="how-azure-rbac-works"></a>Como o RBAC do Azure funciona
 
-A maneira de controlar o acesso aos recursos usando RBAC do Azure é criar atribuições de função. Esse é um conceito fundamental que deve ser entendido: como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
+A maneira de controlar o acesso aos recursos usando o RBAC do Azure é atribuir funções do Azure. Esse é um conceito fundamental que deve ser entendido: como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
 
 ### <a name="security-principal"></a>Entidade de segurança
 
@@ -80,9 +80,9 @@ O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exe
 
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
-Você pode criar atribuições de função usando o portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST.
+Você pode atribuir funções usando o portal do Azure, a CLI do Azure, o Azure PowerShell, SDKs do Azure ou APIs REST.
 
-Para obter mais informações, confira [Etapas para adicionar uma atribuição de função](role-assignments-steps.md).
+Para obter mais informações, confira [Etapas para atribuir uma função do Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Atribuições de função múltiplas
 
@@ -122,6 +122,6 @@ Veja a seguir as etapas gerais que o RBAC do Azure usa para determinar se você 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Entender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Gerenciamento de acesso aos recursos no Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

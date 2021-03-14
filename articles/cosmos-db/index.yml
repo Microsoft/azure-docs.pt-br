@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 7ee6db07facb1464428c6d1d8562fdd54216b883
-  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+  ms.openlocfilehash: 0dda9cb110592c9fd9325f607b455d16c32da7f3
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92485759"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101658005"
 landingContent:
 - title: Sobre o Banco de dados do Azure Cosmos
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Compatibilidade de protocolo de transmissão com o MongoDB
-      url: mongodb-feature-support-36.md
+      url: mongodb-feature-support-40.md
     - text: Comandos de extensão do MongoDB
       url: mongodb-custom-commands.md
     - text: Alterar os fluxos

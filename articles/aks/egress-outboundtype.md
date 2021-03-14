@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no AKS (Serviç
 services: container-service
 ms.topic: article
 ms.date: 06/29/2020
-ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 72ba90510afb00ee001c97612e88f452039f53a4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348127"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182121"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota de User-Defined
 
@@ -81,5 +81,5 @@ Confira [Visão geral do UDR de rede do Azure](../virtual-network/virtual-networ
 Confira [Como criar, alterar ou exclui uma tabela de rotas](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

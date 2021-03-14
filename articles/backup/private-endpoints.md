@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054865"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224700"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -24,29 +24,32 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede, incluindo aqueles usados pelo backup do Azure para armazenamento. Esse número pode ser maior (até 25) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
-- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
+- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará [desabilitar as políticas de rede](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) antes de continuar.
 - Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e selecione **registrar novamente**.
 - Não há suporte para a [restauração entre regiões](backup-create-rs-vault.md#set-cross-region-restore) para SQL e SAP Hana backups de banco de dados se o cofre tiver pontos de extremidade privados habilitados.
+- Ao mover um cofre dos serviços de recuperação que já usa pontos de extremidade privados para um novo locatário, você precisará atualizar o cofre dos serviços de recuperação para recriar e reconfigurar a identidade gerenciada do cofre e criar novos pontos de extremidade privados, conforme necessário (o que deve estar no novo locatário). Se isso não for feito, as operações de backup e restauração começarão a falhar. Além disso, qualquer permissão de RBAC (controle de acesso baseado em função) configurada na assinatura precisará ser reconfigurada.
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e com suporte
 
 Embora os pontos de extremidade privados estejam habilitados para o cofre, eles são usados para backup e restauração de cargas de trabalho do SQL e do SAP HANA somente em uma VM do Azure e no backup do agente MARS. Você também pode usar o cofre para backup de outras cargas de trabalho (eles não precisarão de pontos de extremidade privados). Além do backup de cargas de trabalho do SQL e do SAP HANA e do backup usando o agente MARS, os pontos de extremidade privados também são usados para executar a recuperação de arquivos para o backup de VM do Azure. Para obter mais informações, confira a tabela a seguir:
 
-| Backup de cargas de trabalho na VM do Azure (SQL, SAP HANA), backup usando o agente MARS | O uso de pontos de extremidade privados é recomendado para permitir backup e restauração sem a necessidade de permitir que qualquer IPs/FQDNs para o backup do Azure ou o armazenamento do Azure de suas redes virtuais. Nesse cenário, verifique se as VMs que hospedam bancos de dados SQL podem alcançar IPs ou FQDNs do Azure AD. |
+| Backup de cargas de trabalho na VM do Azure (SQL, SAP HANA), backup usando o agente MARS | O uso de pontos de extremidade privados é recomendado para permitir backup e restauração sem a necessidade de adicionar a uma lista de permissões quaisquer IPs/FQDNs para o backup do Azure ou o armazenamento do Azure de suas redes virtuais. Nesse cenário, verifique se as VMs que hospedam bancos de dados SQL podem alcançar IPs ou FQDNs do Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Backup de VM do Azure**                                         | O backup da VM não exige que você permita o acesso a IPs ou FQDNs. Portanto, ele não requer pontos de extremidade privados para backup e restauração de discos.  <br><br>   No entanto, a recuperação de arquivo de um cofre que contém pontos de extremidade privados seria restrita a redes virtuais que contêm um ponto final privado para o cofre. <br><br>    Ao usar os discos não gerenciados do ACL'ed, verifique se a conta de armazenamento que contém os discos permite o acesso a **serviços confiáveis da Microsoft** se for ACL'ed. |
 | **Backup de arquivos do Azure**                                      | Os backups de arquivos do Azure são armazenados na conta de armazenamento local. Portanto, ele não requer pontos de extremidade privados para backup e restauração. |
 
-## <a name="creating-and-using-private-endpoints-for-backup"></a>Criando e usando pontos de extremidade privados para backup
+## <a name="get-started-with-creating-private-endpoints-for-backup"></a>Introdução à criação de pontos de extremidade privados para backup
 
-Esta seção aborda as etapas envolvidas na criação e no uso de pontos de extremidade privados para o backup do Azure dentro de suas redes virtuais.
+As seções a seguir discutem as etapas envolvidas na criação e no uso de pontos de extremidade privados para o backup do Azure dentro de suas redes virtuais.
 
 >[!IMPORTANT]
 > É altamente recomendável que você siga as etapas na mesma sequência mencionada neste documento. Não fazer isso pode levar ao cofre que está sendo renderizado incompatível para usar pontos de extremidade privados e exigir que você reinicie o processo com um novo cofre.
 
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-Consulte [esta seção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para saber como criar um cofre usando o cliente Azure Resource Manager. Isso cria um cofre com sua identidade gerenciada já habilitada. Saiba mais sobre os cofres dos serviços de recuperação [aqui](./backup-azure-recovery-services-vault-overview.md).
+Pontos de extremidade privados para backup podem ser criados somente para cofres de serviços de recuperação que não têm nenhum item protegido (ou que nenhum item tentou ser protegido ou registrado nele no passado). Portanto, sugerimos que você crie um novo cofre com o qual começar. Para obter mais informações sobre como criar um novo cofre, consulte  [criar e configurar um cofre dos serviços de recuperação](backup-create-rs-vault.md).
+
+Consulte [esta seção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para saber como criar um cofre usando o cliente Azure Resource Manager. Isso cria um cofre com sua identidade gerenciada já habilitada.
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Habilitar identidade gerenciada para seu cofre
 
@@ -69,7 +72,7 @@ Para criar os pontos de extremidade privados necessários para o backup do Azure
 
 - O grupo de recursos que contém a VNet de destino
 - O grupo de recursos em que os pontos de extremidade privados devem ser criados
-- O grupo de recursos que contém as zonas de DNS privado, conforme discutido em detalhes [aqui](#creating-private-endpoints-for-backup)
+- O grupo de recursos que contém as zonas de DNS privado, conforme discutido em detalhes [aqui](#create-private-endpoints-for-azure-backup)
 
 Recomendamos que você conceda a função de **colaborador** para esses três grupos de recursos ao cofre (identidade gerenciada). As etapas a seguir descrevem como fazer isso para um grupo de recursos específico (isso precisa ser feito para cada um dos três grupos de recursos):
 
@@ -84,41 +87,39 @@ Recomendamos que você conceda a função de **colaborador** para esses três gr
 
 Para gerenciar permissões em um nível mais granular, consulte [criar funções e permissões manualmente](#create-roles-and-permissions-manually).
 
-## <a name="creating-and-approving-private-endpoints-for-azure-backup"></a>Criando e aprovando pontos de extremidade privados para o backup do Azure
+## <a name="create-private-endpoints-for-azure-backup"></a>Criar pontos de extremidade privados para o backup do Azure
 
-### <a name="creating-private-endpoints-for-backup"></a>Criando pontos de extremidade privados para backup
+Esta seção explica como criar um ponto de extremidade privado para seu cofre.
 
-Esta seção descreve o processo de criação de um ponto de extremidade privado para seu cofre.
+1. Navegue até o cofre criado acima e vá para **conexões de ponto de extremidade privado** na barra de navegação à esquerda. Selecione **+ ponto de extremidade privado** na parte superior para começar a criar um novo ponto de extremidade privado para este cofre.
 
-1. Na barra de pesquisa, procure e selecione **link privado**. Isso levará você ao **centro de links privado**.
-
-    ![Pesquisar link privado](./media/private-endpoints/search-for-private-link.png)
-
-1. Na barra de navegação à esquerda, selecione **pontos de extremidade privados**. Uma vez no painel **pontos de extremidade particulares** , selecione **+ Adicionar** para começar a criar um ponto de extremidade privado para seu cofre.
-
-    ![Adicionar ponto de extremidade privado no centro de link privado](./media/private-endpoints/add-private-endpoint.png)
+    ![Criar novo ponto de extremidade privado](./media/private-endpoints/new-private-endpoint.png)
 
 1. Uma vez no processo **criar ponto de extremidade privado** , será necessário especificar detalhes para criar sua conexão de ponto de extremidade privada.
+  
+    1. **Noções básicas**: Preencha os detalhes básicos para seus pontos de extremidade privados. A região deve ser a mesma do cofre e o recurso que está sendo submetido a backup.
 
-    1. **Noções básicas**: Preencha os detalhes básicos para seus pontos de extremidade privados. A região deve ser a mesma do cofre e do recurso.
+        ![Preencher detalhes básicos](./media/private-endpoints/basics-tab.png)
 
-        ![Preencher detalhes básicos](./media/private-endpoints/basic-details.png)
+    1. **Recurso**: essa guia exige que você selecione o recurso de PaaS para o qual você deseja criar a conexão. Selecione **Microsoft. recoveryservices/cofres** do tipo de recurso para sua assinatura desejada. Depois de concluído, escolha o nome do seu cofre de serviços de recuperação como o **recurso** e **AzureBackup** como o **subrecurso de destino**.
 
-    1. **Recurso**: essa guia exige que você mencione o recurso de PaaS para o qual deseja criar a conexão. Selecione **Microsoft. recoveryservices/cofres** do tipo de recurso para sua assinatura desejada. Depois de concluído, escolha o nome do seu cofre de serviços de recuperação como o **recurso** e **AzureBackup** como o **subrecurso de destino**.
+        ![Selecione o recurso para sua conexão](./media/private-endpoints/resource-tab.png)
 
-        ![Preencher a guia de recursos](./media/private-endpoints/resource-tab.png)
+    1. **Configuração**: em configuração, especifique a rede virtual e a sub-rede em que você deseja que o ponto de extremidade privado seja criado. Essa será a vnet em que a VM está presente.
 
-    1. **Configuração**: em configuração, especifique a rede virtual e a sub-rede em que você deseja que o ponto de extremidade privado seja criado. Essa será a vnet em que a VM está presente. Você pode optar por **integrar seu ponto de extremidade privado** a uma zona DNS privada. Como alternativa, você também pode usar seu servidor DNS personalizado ou criar uma zona DNS privada.
+        Para se conectar de forma privada, você precisa dos registros DNS necessários. Com base na sua configuração de rede, você pode escolher um dos seguintes:
 
-        ![Guia de configuração de preenchimento](./media/private-endpoints/configuration-tab.png)
+          - Integre seu ponto de extremidade privado a uma zona DNS privada: selecione **Sim** se desejar integrá-lo.
+          - Usar seu servidor DNS personalizado: selecione **não** se desejar usar seu próprio servidor DNS.
 
-        Consulte [esta seção](#dns-changes-for-custom-dns-servers) se você quiser usar seus servidores DNS personalizados em vez de integrar com o Azure DNS privado Zones.  
+        O gerenciamento de registros DNS para ambos são [descritos posteriormente](#manage-dns-records).
+
+          ![Especificar a rede virtual e a sub-rede](./media/private-endpoints/configuration-tab.png)
 
     1. Opcionalmente, você pode adicionar **marcas** para seu ponto de extremidade particular.
-
     1. Continue a **examinar + criar** depois de inserir detalhes. Quando a validação for concluída, selecione **criar** para criar o ponto de extremidade privado.
 
-## <a name="approving-private-endpoints"></a>Aprovando pontos de extremidade privados
+## <a name="approve-private-endpoints"></a>Aprovar pontos de extremidade privados
 
 Se o usuário que cria o ponto de extremidade privado também for o proprietário do cofre dos serviços de recuperação, o ponto de extremidade privado criado acima será aprovado automaticamente. Caso contrário, o proprietário do cofre deve aprovar o ponto de extremidade privado antes de poder usá-lo. Esta seção aborda a aprovação manual de pontos de extremidade privados por meio do portal do Azure.
 
@@ -130,7 +131,90 @@ Consulte [aprovação manual de pontos de extremidade privados usando o cliente 
 
     ![Aprovar pontos de extremidade privados](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="using-private-endpoints-for-backup"></a>Usando pontos de extremidade privados para backup
+## <a name="manage-dns-records"></a>Gerenciar registros DNS
+
+Conforme descrito anteriormente, você precisa dos registros DNS necessários em suas zonas DNS particulares ou servidores para se conectar de forma privada. Você pode integrar seu ponto de extremidade privado diretamente com as zonas DNS privadas do Azure ou usar seus servidores DNS personalizados para conseguir isso, com base nas suas preferências de rede. Isso deverá ser feito para todos os três serviços: backup, BLOBs e filas.
+
+### <a name="when-integrating-private-endpoints-with-azure-private-dns-zones"></a>Ao integrar pontos de extremidade privados com as zonas DNS privadas do Azure
+
+Se você optar por integrar seu ponto de extremidade privado a zonas DNS privadas, o backup adicionará os registros DNS necessários. Você pode exibir as zonas DNS privadas que estão sendo usadas na **configuração DNS** do ponto de extremidade privado. Se essas zonas DNS não estiverem presentes, elas serão criadas automaticamente ao criar o ponto de extremidade privado. No entanto, você deve verificar se sua rede virtual (que contém os recursos de backup) está corretamente vinculada a todas as três zonas DNS privadas, conforme descrito abaixo.
+
+![Configuração de DNS na zona DNS privada do Azure](./media/private-endpoints/dns-configuration.png)
+
+#### <a name="validate-virtual-network-links-in-private-dns-zones"></a>Validar links de rede virtual em zonas DNS privadas
+
+Para **cada zona DNS privada** listada acima (para backup, BLOBs e filas), faça o seguinte:
+
+1. Navegue até a opção respectivos **links de rede virtual** na barra de navegação à esquerda.
+1. Você deve ser capaz de ver uma entrada para a rede virtual para a qual você criou o ponto de extremidade privado, como aquele mostrado abaixo:
+
+    ![Rede virtual para ponto de extremidade privado](./media/private-endpoints/virtual-network-links.png)
+
+1. Se você não vir uma entrada, adicione um link de rede virtual a todas as zonas DNS que não as têm.
+
+    ![Adicionar link de rede virtual](./media/private-endpoints/add-virtual-network-link.png)
+
+### <a name="when-using-custom-dns-server-or-host-files"></a>Ao usar o servidor DNS personalizado ou arquivos de host
+
+Se você estiver usando seus servidores DNS personalizados, será necessário criar as zonas DNS necessárias e adicionar os registros DNS necessários aos pontos de extremidade privados aos seus servidores DNS. Para BLOBs e filas, você também pode usar encaminhadores condicionais.
+
+#### <a name="for-the-backup-service"></a>Para o serviço de backup
+
+1. No servidor DNS, crie uma zona DNS para backup de acordo com a seguinte convenção de nomenclatura:
+
+    |Zona |Serviço |
+    |---------|---------|
+    |`privatelink.<geo>.backup.windowsazure.com`   |  Backup        |
+
+    >[!NOTE]
+    > No texto acima, `<geo>` refere-se ao código de região (por exemplo, *eus* e *ne* para leste dos EUA e Europa setentrional respectivamente). Consulte as seguintes listas para códigos de regiões:
+    >
+    > - [Todas as nuvens públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
+
+1. Em seguida, precisamos adicionar os registros DNS necessários. Para exibir os registros que precisam ser adicionados à zona DNS de backup, navegue até o ponto de extremidade privado que você criou acima e vá para a opção **configuração de DNS** na barra de navegação à esquerda.
+
+    ![Configuração de DNS para o servidor DNS personalizado](./media/private-endpoints/custom-dns-configuration.png)
+
+1. Adicione uma entrada para cada FQDN e IP exibido como um registro de tipo em sua zona DNS para backup. Se você estiver usando um arquivo de host para resolução de nomes, faça entradas correspondentes no arquivo de host para cada IP e FQDN de acordo com o seguinte formato:
+
+    `<private ip><space><backup service privatelink FQDN>`
+
+>[!NOTE]
+>Conforme mostrado na captura de tela acima, os FQDNs representam `xxxxxxxx.<geo>.backup.windowsazure.com` e não `xxxxxxxx.privatelink.<geo>.backup. windowsazure.com` . Nesses casos, certifique-se de incluir (e, se necessário, adicionar) o de `.privatelink.` acordo com o formato declarado.
+
+#### <a name="for-blob-and-queue-services"></a>Para serviços de BLOB e fila
+
+Para BLOBs e filas, você pode usar encaminhadores condicionais ou criar zonas DNS no seu servidor DNS.
+
+##### <a name="if-using-conditional-forwarders"></a>Se estiver usando encaminhadores condicionais
+
+Se você estiver usando encaminhadores condicionais, adicione encaminhadores para FQDNs de BLOB e de fila da seguinte maneira:
+
+|FQDN  |IP  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  168.63.129.16       |
+|`privatelink.queue.core.windows.net`     | 168.63.129.16        |
+
+##### <a name="if-using-private-dns-zones"></a>Se estiver usando zonas DNS privadas
+
+Se você estiver usando zonas DNS para BLOBs e filas, precisará primeiro criar essas zonas DNS e, posteriormente, adicionar os registros A necessários.
+
+|Zona |Serviço  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  Blob     |
+|`privatelink.queue.core.windows.net`     | Fila        |
+
+Neste momento, criaremos apenas as zonas para BLOBs e filas ao usar servidores DNS personalizados. A adição de registros DNS será feita posteriormente em duas etapas:
+
+1. Quando você registra a primeira instância de backup, ou seja, quando você configura o backup pela primeira vez
+1. Quando você executa o primeiro backup
+
+Executaremos essas etapas nas seções a seguir.
+
+## <a name="use-private-endpoints-for-backup"></a>Usar pontos de extremidade privados para backup
 
 Depois que os pontos de extremidade privados criados para o cofre em sua VNet tiverem sido aprovados, você poderá começar a usá-los para executar backups e restaurações.
 
@@ -138,21 +222,84 @@ Depois que os pontos de extremidade privados criados para o cofre em sua VNet ti
 >Verifique se você concluiu todas as etapas mencionadas acima no documento com êxito antes de continuar. Para recapitular, você deve ter concluído as etapas na seguinte lista de verificação:
 >
 >1. Criado um (novo) cofre de serviços de recuperação
->1. Habilitou o cofre para usar a identidade gerenciada atribuída pelo sistema
->1. Permissões relevantes atribuídas à identidade gerenciada do cofre
->1. Criou um ponto de extremidade privado para seu cofre
->1. Aprovado o ponto de extremidade privado (se não aprovado automaticamente)
+>2. Habilitou o cofre para usar a identidade gerenciada atribuída pelo sistema
+>3. Permissões relevantes atribuídas à identidade gerenciada do cofre
+>4. Criou um ponto de extremidade privado para seu cofre
+>5. Aprovado o ponto de extremidade privado (se não aprovado automaticamente)
+>6. Garantiu que todos os registros DNS sejam adicionados adequadamente (exceto registros de BLOB e fila para servidores personalizados, que serão discutidos nas seções a seguir)
 
-### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Backup e restauração de cargas de trabalho na VM do Azure (SQL, SAP HANA)
+### <a name="check-vm-connectivity"></a>Verificar conectividade da VM
 
-Depois que o ponto de extremidade privado é criado e aprovado, nenhuma alteração adicional é necessária do lado do cliente para usar o ponto de extremidade privado. Toda a comunicação e transferência de dados de sua rede segura para o cofre serão executadas por meio do ponto de extremidade privado.
-No entanto, se você remover pontos de extremidade privados para o cofre depois que um servidor (SQL/SAP HANA) tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+Na VM na rede bloqueada, verifique o seguinte:
+
+1. A VM deve ter acesso ao AAD.
+2. Execute o **nslookup** na URL de backup ( `xxxxxxxx.privatelink.<geo>.backup. windowsazure.com` ) de sua VM, para garantir a conectividade. Isso deve retornar o IP privado atribuído em sua rede virtual.
+
+### <a name="configure-backup"></a>Configurar backup
+
+Depois de garantir que a lista de verificação e o acesso a foram concluídos com êxito, você pode continuar a configurar o backup de cargas de trabalho para o cofre. Se você estiver usando um servidor DNS personalizado, precisará adicionar entradas DNS para BLOBs e filas que estão disponíveis após a configuração do primeiro backup.
+
+#### <a name="dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration"></a>Registros DNS para BLOBs e filas (somente para arquivos de host/servidores DNS personalizados) após o primeiro registro
+
+Depois de configurar o backup para pelo menos um recurso em um cofre do ponto de extremidade privado habilitado, adicione os registros DNS necessários para BLOBs e filas, conforme descrito abaixo.
+
+1. Navegue até o grupo de recursos e procure o ponto de extremidade privado que você criou.
+1. Além do nome do ponto de extremidade privado fornecido por você, você verá dois pontos de extremidades mais privados sendo criados. Elas começam com `<the name of the private endpoint>_ecs` e são sufixadas `_blob` e, `_queue` respectivamente.
+
+    ![Recursos de ponto de extremidade privados](./media/private-endpoints/private-endpoint-resources.png)
+
+1. Navegue até cada um desses pontos de extremidade privados. Na opção configuração de DNS para cada um dos dois pontos de extremidade privados, você verá um registro com e um FQDN e um endereço IP. Adicione ambos ao seu servidor DNS personalizado, além daqueles descritos anteriormente.
+Se você estiver usando um arquivo de host, faça entradas correspondentes no arquivo de host para cada IP/FQDN de acordo com o seguinte formato:
+
+    `<private ip><space><blob service privatelink FQDN>`<br>
+    `<private ip><space><queue service privatelink FQDN>`
+
+    ![Configuração de DNS do blob](./media/private-endpoints/blob-dns-configuration.png)
+
+Além do que está acima, há outra entrada necessária após o primeiro backup, que é discutido [posteriormente](#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+
+### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-and-sap-hana"></a>Backup e restauração de cargas de trabalho na VM do Azure (SQL e SAP HANA)
+
+Depois que o ponto de extremidade privado é criado e aprovado, nenhuma outra alteração é necessária do lado do cliente para usar o ponto de extremidade privado (a menos que você esteja usando grupos de disponibilidade do SQL, que discutiremos mais adiante nesta seção). Toda a comunicação e transferência de dados de sua rede segura para o cofre serão executadas por meio do ponto de extremidade privado. No entanto, se você remover pontos de extremidade privados para o cofre depois que um servidor (SQL ou SAP HANA) tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+
+#### <a name="dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup"></a>Registros DNS para BLOBs (somente para arquivos de host/servidores DNS personalizados) após o primeiro backup
+
+Depois de executar o primeiro backup e você estiver usando um servidor DNS personalizado (sem o encaminhamento condicional), é provável que o backup falhe. Se isso acontecer:
+
+1. Navegue até o grupo de recursos e procure o ponto de extremidade privado que você criou.
+1. Além dos três pontos de extremidade privados discutidos anteriormente, agora você verá um quarto ponto de extremidades privado com seu nome começando com `<the name of the private endpoint>_prot` e com o sufixo `_blob` .
+
+    ![Endpoing particular com sufixo "Prot"](./media/private-endpoints/private-endpoint-prot.png)
+
+1. Navegue até esse novo ponto de extremidade privado. Na opção configuração de DNS, você verá um registro com um FQDN e um endereço IP. Adicione-os ao seu servidor DNS privado, além daqueles descritos anteriormente.
+
+    Se você estiver usando um arquivo de host, faça as entradas correspondentes no arquivo de host para cada IP e FQDN de acordo com o seguinte formato:
+
+    `<private ip><space><blob service privatelink FQDN>`
+
+>[!NOTE]
+>Neste ponto, você deve ser capaz de executar o **nslookup** da VM e resolver para endereços IP privados quando terminar nas URLs de armazenamento e backup do cofre.
+
+### <a name="when-using-sql-availability-groups"></a>Ao usar grupos de disponibilidade do SQL
+
+Ao usar os grupos de disponibilidade do SQL (AG), você precisará provisionar o encaminhamento condicional no DNS do AG personalizado conforme descrito abaixo:
+
+1. Entre no controlador de domínio.
+1. No aplicativo DNS, adicione encaminhadores condicionais para todas as três zonas DNS (backup, BLOBs e filas) para o IP do host 168.63.129.16 ou o endereço IP do servidor DNS personalizado, conforme necessário. As capturas de tela a seguir mostram quando você está encaminhando para o IP do host do Azure. Se você estiver usando seu próprio servidor DNS, substitua pelo IP do seu servidor DNS.
+
+    ![Encaminhadores condicionais no Gerenciador DNS](./media/private-endpoints/dns-manager.png)
+
+    ![Novo encaminhador condicional](./media/private-endpoints/new-conditional-forwarder.png)
 
 ### <a name="backup-and-restore-through-mars-agent"></a>Backup e restauração por meio do agente MARS
 
-Ao usar o agente MARS para fazer backup de seus recursos locais, verifique se sua rede local (contendo seus recursos de backup) está emparelhada com a VNet do Azure que contém um ponto de extremidade privado para o cofre, para que você possa usá-lo. Em seguida, você pode continuar a instalar o agente MARS e configurar o backup conforme detalhado aqui. Você deve, no entanto, garantir que toda a comunicação para o backup ocorra somente por meio da rede emparelhada.
+Ao usar o agente MARS para fazer backup de seus recursos locais, verifique se sua rede local (contendo seus recursos de backup) está emparelhada com a VNet do Azure que contém um ponto de extremidade privado para o cofre, para que você possa usá-lo. Em seguida, você pode continuar a instalar o agente MARS e configurar o backup conforme detalhado aqui. No entanto, você deve garantir que toda a comunicação para o backup ocorra somente por meio da rede emparelhada.
 
-No entanto, se você remover pontos de extremidade privados para o cofre depois que um agente MARS tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+Mas se você remover pontos de extremidade privados para o cofre depois que um agente MARS tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+
+## <a name="deleting-private-endpoints"></a>Excluindo pontos de extremidade privados
+
+Consulte [esta seção](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) para saber como excluir pontos de extremidade privados.
 
 ## <a name="additional-topics"></a>Tópicos adicionais
 
@@ -337,7 +484,11 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
         -Name $privateEndpointConnectionName `
         -PrivateLinkServiceId $vault.ID `
         -GroupId "AzureBackup"  
-  
+
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $VMResourceGroupName
+$subnet = $vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq '<subnetName>'}
+
+
 $privateEndpoint = New-AzPrivateEndpoint `
         -ResourceGroupName $vmResourceGroupName `
         -Name $privateEndpointName `
@@ -382,64 +533,6 @@ $privateEndpoint = New-AzPrivateEndpoint `
     }
     ```
 
-### <a name="dns-changes-for-custom-dns-servers"></a>Alterações de DNS para servidores DNS personalizados
-
-#### <a name="create-dns-zones-for-custom-dns-servers"></a>Criar zonas DNS para servidores DNS personalizados
-
-Você precisa criar três zonas DNS privadas e vinculá-las à sua rede virtual. Tenha em mente que, diferentemente do blob e da fila, as URLs públicas do serviço de backup não se registram no DNS público do Azure para o redirecionamento para as zonas DNS do link privado. 
-
-| **Zona**                                                     | **Serviço** |
-| ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
-| `privatelink.blob.core.windows.net`                            | Blob        |
-| `privatelink.queue.core.windows.net`                           | Fila       |
-
->[!NOTE]
->No texto acima, *geo* refere-se ao código da região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente.
-
-Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região. Consulte os links a seguir para obter as convenções de nomenclatura de URL em regiões nacionais:
-
-- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-#### <a name="adding-dns-records-for-custom-dns-servers"></a>Adicionando registros DNS para servidores DNS personalizados
-
-Isso exige que você faça entradas para cada FQDN em seu ponto de extremidade privado em sua zona de DNS privado.
-
-Deve-se observar que usaremos os pontos de extremidade privados criados para backup, BLOB e serviço Fila.
-
-- O ponto de extremidade privado para o cofre usa o nome especificado ao criar o ponto de extremidade privado
-- Os pontos de extremidade privados para serviços BLOB e fila são prefixados com o nome do mesmo para o cofre.
-
-Por exemplo, a imagem a seguir mostra os três pontos de extremidade privados criados para uma conexão de ponto de extremidades privada com o nome *pee2epe*:
-
-![Três pontos de extremidade privados para uma conexão de ponto final particular](./media/private-endpoints/three-private-endpoints.png)
-
-Zona DNS para o serviço de backup ( `privatelink.<geo>.backup.windowsazure.com` ):
-
-1. Navegue até o ponto de extremidade privado para backup no **centro de links privado**. A página de visão geral lista o FQDN e os IPs privados para seu ponto de extremidade privado.
-
-1. Adicione uma entrada para cada FQDN e IP privado como um registro de tipo.
-
-    ![Adicionar entrada para cada FQDN e IP privado](./media/private-endpoints/add-entry-for-each-fqdn-and-ip.png)
-
-Zona DNS para o serviço BLOB ( `privatelink.blob.core.windows.net` ):
-
-1. Navegue até o ponto de extremidade privado para blob no **centro de links privado**. A página de visão geral lista o FQDN e os IPs privados para seu ponto de extremidade privado.
-
-1. Adicione uma entrada para o FQDN e o IP privado como um registro de tipo.
-
-    ![Adicionar entrada para o FQDN e o IP privado como um registro de tipo para o serviço blob](./media/private-endpoints/add-type-a-record-for-blob.png)
-
-Zona DNS para o serviço Fila ( `privatelink.queue.core.windows.net` ):
-
-1. Navegue até o ponto de extremidade privado para a fila no **centro de links privado**. A página de visão geral lista o FQDN e os IPs privados para seu ponto de extremidade privado.
-
-1. Adicione uma entrada para o FQDN e o IP privado como um registro de tipo.
-
-    ![Adicione a entrada para o FQDN e o IP privado como um registro de tipo para o serviço Fila](./media/private-endpoints/add-type-a-record-for-queue.png)
-
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Q. Posso criar um ponto de extremidade privado para um cofre de backup existente?<br>
@@ -465,4 +558,4 @@ a. Depois de seguir o processo detalhado neste artigo, você não precisa fazer 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md)
+- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md).

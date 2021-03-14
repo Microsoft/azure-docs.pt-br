@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 02/24/2021
 ms.author: alkohli
-ms.openlocfilehash: 3497551616b96dc04e2dbdec28d0bf84a11afde0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 13de2b024bf4541c6234dd6bfba601597de59434
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954590"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716220"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista de verificação de implantação para seu dispositivo de GPU pro do Azure Stack Edge  
 
@@ -29,10 +29,10 @@ Use a lista de verificação a seguir para garantir que você tenha essas inform
 | Instalação do dispositivo               | Cabos de alimentação no pacote. <br>Para nós, um cabo SVE 18/3 classificado para 125 V e 15 amps com um 15P de C13 do NEMA 5, com um conector de entrada para saída (Input to Output), é enviado. | Para obter mais informações, consulte a lista de [cabos de energia com suporte por país](azure-stack-edge-technical-specifications-power-cords-regional.md)  |
 |                                   | <li>Pelo menos 1 X 1-cabo de rede RJ-45 de GbE para a porta 1  </li><li> Pelo menos 1 X 25-GbE SFP + cabo de cobre para a porta 3, porta 4, porta 5 ou porta 6</li>| O cliente precisa adquirir esses cabos.<br>Para obter uma lista completa dos cabos de rede, comutadores e transceptores com suporte para placas de rede do dispositivo, consulte [matriz de interoperabilidade da série Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) e [adaptadores de rede Mellanox Dual Port 25g ConnectX-4 Channel Adapter](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
 | Conexão do dispositivo pela primeira vez      | <li>Laptop cujas configurações de IPv4 podem ser alteradas. Esse laptop se conecta à porta 1 por meio de um comutador ou de um adaptador USB para Ethernet.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
-| Entrada do dispositivo                      | Senha de administrador do dispositivo, entre 8 e 16 caracteres e contém três dos seguintes: letras maiúsculas, letras minúsculas, números e caracteres especiais.                                            | A senha padrão é *password1* que expira na primeira entrada.                                                     |
+| Entrada do dispositivo                      | Senha de administrador do dispositivo, entre 8 e 16 caracteres, incluindo três dos seguintes tipos de caracteres: letras maiúsculas, letras minúsculas, números e caracteres especiais.                                            | A senha padrão é *password1*, que expira na primeira entrada.                                                     |
 | Configurações de rede                  | O dispositivo vem com duas portas de rede de 2 x 1 GbE, 4 x 25 GbE. <li>A porta 1 é usada para definir apenas as configurações de gerenciamento. Uma ou mais portas de dados podem ser conectadas e configuradas. </li><li> Pelo menos uma interface de rede de dados entre a porta 2 – a porta 6 precisa estar conectada à Internet (com conectividade com o Azure).</li><li> Configuração de DHCP estático e IPv4 com suporte. | A configuração estática de IPv4 requer IP, servidor DNS e gateway padrão.   |
 | Configurações de rede de computação     | <li>Exigir dois IPs gratuitos, estáticos e contíguos para nós kubernetes e um IP estático para o serviço IoT Edge.</li><li>Exija um IP adicional para cada serviço extra ou módulo que você implantará.</li>| Somente a configuração IPv4 estática tem suporte.|
-| Adicional Configurações de proxy Web     | <li>IP/FQDN do servidor proxy da Web, porta </li><li>Nome de usuário do proxy Web, senha</li> | Não há suporte para o proxy Web com a configuração de computação. |
+| Adicional Configurações de proxy Web     | <li>IP/FQDN do servidor proxy da Web, porta </li><li>Nome de usuário do proxy Web, senha</li> |  |
 | Configurações de firewall e porta        | Se estiver usando o firewall, verifique se os [padrões de URLs e portas listadas](azure-stack-edge-system-requirements.md#networking-port-requirements) são permitidos para IPS de dispositivo. |  |
 | Aconselhável Configurações de hora       | Configure o fuso horário, o servidor NTP primário, o servidor NTP secundário. | Configure o servidor NTP primário e secundário na rede local.<br>Se o servidor local não estiver disponível, os servidores NTP públicos poderão ser configurados.                                                    |
 | Adicional Atualizar configurações do servidor | <li>Exigir o endereço IP do servidor de atualização na rede local, caminho para o servidor do WSUS. </li> | Por padrão, o servidor Windows Update público é usado.|

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fe427150b15c6bccb97172ae751235d388c95c7b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dbeb3cd4fccf80f434e6c7ac08c658632f64b135
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675019"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096846"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Tutorial: configurar o acesso privado do Zscaler com o Azure Active Directory B2C
 
@@ -100,11 +100,11 @@ Para configurar políticas personalizadas em seu locatário do Azure AD B2C, con
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>Etapa 3: registrar o ZPA como um aplicativo SAML no Azure AD B2C
 
-Para configurar um aplicativo SAML no Azure AD B2C, consulte [registrar um aplicativo SAML no Azure ad B2C](./connect-with-saml-service-providers.md). 
+Para configurar um aplicativo SAML no Azure AD B2C, consulte [registrar um aplicativo SAML no Azure ad B2C](./saml-service-provider.md). 
 
-Na etapa ["3,2 carregar e testar seus metadados de política"](./connect-with-saml-service-providers.md#32-upload-and-test-your-policy-metadata), copie ou anote a URL de metadados SAML do IDP usada pelo Azure ad B2C. Você precisará dela mais tarde.
+Na etapa ["carregar sua política"](./saml-service-provider.md#upload-your-policy), copie ou anote a URL de metadados SAML do IDP usada pelo Azure ad B2C. Você precisará dela mais tarde.
 
-Siga as instruções na etapa ["4,2 atualizar o manifesto do aplicativo"](./connect-with-saml-service-providers.md#42-update-the-app-manifest). Na etapa 4,2, atualize as propriedades do manifesto do aplicativo da seguinte maneira:
+Siga as instruções na etapa ["configurar seu aplicativo no Azure ad B2C"](./saml-service-provider.md#configure-your-application-in-azure-ad-b2c). Na etapa 4,2, atualize as propriedades do manifesto do aplicativo da seguinte maneira:
 
 - Para **identifierUris**: Use a ID de entidade do provedor de serviços que você copiou ou anotou anteriormente em "Step 1.6. b".  
 - Para **samlMetadataUrl**: ignore essa propriedade, porque ZPA não hospeda uma URL de metadados do SAML.  
@@ -150,6 +150,6 @@ Vá para um portal do usuário do ZPA ou um aplicativo de acesso ao navegador e 
 Para obter mais informações, examine os seguintes artigos:
 
 - [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md)
-- [Registrar um aplicativo SAML no Azure AD B2C](./connect-with-saml-service-providers.md)
+- [Registrar um aplicativo SAML no Azure AD B2C](./saml-service-provider.md)
 - [Guia de configuração passo a passo para ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configurar um IdP para logon único](https://help.zscaler.com/zpa/configuring-idp-single-sign)

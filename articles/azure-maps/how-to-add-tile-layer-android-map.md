@@ -3,17 +3,18 @@ title: Adicionar uma camada de bloco ao Android Maps | Mapas do Microsoft Azure
 description: Saiba como adicionar uma camada de bloco a um mapa. Veja um exemplo que usa o Azure Maps SDK do Android para adicionar uma sobreposição de radar meteorológico a um mapa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679312"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047495"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Adicionar uma camada de bloco a um mapa (SDK do Android)
 
@@ -36,6 +37,7 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 * `{quadkey}` - identificador quadkey de bloco baseado a convenção de nomenclatura do sistema de blocos Bing Maps.
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
 * `{subdomain}` -Um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
+* `azmapsdomain.invalid` -Um espaço reservado para alinhar o domínio e a autenticação de solicitações de bloco com os mesmos valores usados pelo mapa. Use isso ao chamar um serviço de bloco hospedado pelo Azure Maps.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,6 +46,8 @@ Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK 
 ## <a name="add-a-tile-layer-to-the-map"></a>Adicionar uma camada de bloco ao mapa
 
 Este exemplo mostra como criar uma camada de bloco que aponta para um conjunto de blocos. Este exemplo usa o sistema de divisão "x, y," zoom ". A origem dessa camada do bloco é o [projeto OpenSeaMap](https://openseamap.org/index.php), que contém gráficos náuticas originados de um público. Geralmente, ao exibir camadas de bloco, é desejável poder ver claramente os rótulos de cidades no mapa. Esse comportamento pode ser obtido inserindo-se a camada lado abaixo das camadas do rótulo do mapa.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -57,16 +61,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 A captura de tela a seguir mostra o código acima exibindo uma camada de bloco de informações náuticas em um mapa que tem um estilo de tons de cinza escuro.
 
 ![Mapa do Android exibindo camada do bloco](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
+Consulte o artigo a seguir para saber mais sobre maneiras de sobrepor imagens em um mapa.
 
 > [!div class="nextstepaction"]
-> [Alterar o estilo do mapa](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Adicionar um mapa de calor](map-add-heat-map-layer-android.md)
+> [Camada de imagem](map-add-image-layer-android.md)

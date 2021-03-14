@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594528"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218716"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou excluir um balanceador de carga usado por conjuntos de dimensionamento de máquinas virtuais
 
@@ -30,7 +30,7 @@ Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e uma instâ
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurar um balanceador de carga para dimensionar conjuntos de dimensionamento de máquinas virtuais
 
-Certifique-se de que a instância do Azure Load Balancer tenha um [pool de NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurado e que o conjunto de dimensionamento de máquinas virtuais seja colocado no pool de back-end do balanceador de carga. Load Balancer criará automaticamente novas regras NAT de entrada no pool de NAT de entrada quando novas instâncias de máquina virtual forem adicionadas ao conjunto de dimensionamento de máquinas virtuais.
+Certifique-se de que a instância do Azure Load Balancer tenha um [pool de NAT de entrada](/cli/azure/network/lb/inbound-nat-pool) configurado e que o conjunto de dimensionamento de máquinas virtuais seja colocado no pool de back-end do balanceador de carga. Load Balancer criará automaticamente novas regras NAT de entrada no pool de NAT de entrada quando novas instâncias de máquina virtual forem adicionadas ao conjunto de dimensionamento de máquinas virtuais.
 
 Para verificar se o pool de NAT de entrada está configurado corretamente:
 
@@ -44,7 +44,7 @@ Não é possível adicionar regras de NAT de entrada individuais. Mas você pode
 
 Para adicionar um conjunto completo de regras de NAT de entrada para os conjuntos de dimensionamento de máquinas virtuais, primeiro crie um pool de NAT de entrada no balanceador de carga. Em seguida, faça referência ao pool de NAT de entrada do perfil de rede do conjunto de dimensionamento de máquinas virtuais. É mostrado um exemplo completo usando a CLI.
 
-O novo pool de NAT de entrada não deve ter um intervalo de portas de front-end sobrepostos com pools NAT de entrada existentes. Para exibir os pools NAT de entrada existentes que estão configurados, use este [comando da CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+O novo pool de NAT de entrada não deve ter um intervalo de portas de front-end sobrepostos com pools NAT de entrada existentes. Para exibir os pools NAT de entrada existentes que estão configurados, use este [comando da CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
@@ -83,14 +83,15 @@ az network lb inbound-nat-pool update
 
 ## <a name="delete-inbound-nat-rules"></a>Excluir regras de NAT de entrada
 
-As regras de NAT de entrada individuais não podem ser excluídas, mas você pode excluir o conjunto inteiro de regras de NAT de entrada.
+As regras de NAT de entrada individuais não podem ser excluídas, mas você pode excluir o conjunto inteiro de regras de NAT de entrada excluindo o pool de NAT de entrada.
 
-Para excluir o conjunto inteiro de regras de NAT de entrada usadas pelo conjunto de dimensionamento, primeiro remova o pool de NAT do conjunto de dimensionamento. Um exemplo completo usando a CLI é mostrado aqui:
-    
+Para excluir o pool de NAT, primeiro remova-o do conjunto de dimensionamento. Um exemplo completo usando a CLI é mostrado aqui:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup
@@ -110,6 +111,52 @@ Para adicionar várias configurações de IP:
 1. Na página **Adicionar endereço IP de front-end** , insira os valores e selecione **OK**.
 1. Siga as [etapas 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) e [6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) neste tutorial se forem necessárias novas regras de balanceamento de carga.
 1. Crie um novo conjunto de regras NAT de entrada usando as configurações de IP de front-end recém-criadas, se necessário. Um exemplo é encontrado na seção anterior.
+
+## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>Vários conjuntos de dimensionamento de máquinas virtuais por trás de um único Load Balancer
+
+Crie um pool NAT de entrada no Load Balancer, faça referência ao pool NAT de entrada no perfil de rede de um conjunto de dimensionamento de máquinas virtuais e, finalmente, atualize as instâncias para que as alterações entrem em vigor. Repita as etapas para todos os conjuntos de dimensionamento de máquinas virtuais.
+
+Certifique-se de criar pools NAT de entrada separados com intervalos de porta de front-end não sobrepostos.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
 
 ## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>Excluir a configuração de IP de front-end usada pelo conjunto de dimensionamento de máquinas virtuais
 

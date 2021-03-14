@@ -3,16 +3,15 @@ title: Formato Delta no Azure Data Factory
 description: Transformar e mover dados de um lago Delta usando o formato Delta
 author: djpmsft
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 794c9a0768a7b649ce4fb123c85f6cc0120764c8
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854964"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386485"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta no Azure Data Factory
 
@@ -30,15 +29,15 @@ Esse conector está disponível como um [conjunto de dados embutido](data-flow-s
 
 A tabela abaixo lista as propriedades com suporte por uma fonte Delta. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | O formato deve ser `delta` | sim | `delta` | format |
+| Formatar | O formato deve ser `delta` | sim | `delta` | format |
 | Sistema de arquivos | O sistema de contêiner/arquivos do Delta Lake | sim | String | fileSystem |
 | Caminho da pasta | O Direct Lake do Delta | sim | String | folderPath |
-| Tipo de compactação | O tipo de compactação da tabela Delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
+| Tipo de compactação | O tipo de compactação da tabela Delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Nível de compactação | Escolha se a compactação será concluída o mais rapidamente possível ou se o arquivo resultante deve ser compactado de forma ideal. | obrigatório se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressionLevel |
-| Viagem de tempo | Escolha se deseja consultar um instantâneo mais antigo de uma tabela Delta | no | Consultar por carimbo de data/hora: timestamp <br> Consultar por versão: inteiro | timestampAsOf <br> versionAsOf |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
+| Viagem de tempo | Escolha se deseja consultar um instantâneo mais antigo de uma tabela Delta | não | Consultar por carimbo de data/hora: timestamp <br> Consultar por versão: inteiro | timestampAsOf <br> versionAsOf |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Importar esquema
 
@@ -67,12 +66,12 @@ source(output(movieId as integer,
 
 A tabela abaixo lista as propriedades com suporte de um coletor Delta. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | O formato deve ser `delta` | sim | `delta` | format |
+| Formatar | O formato deve ser `delta` | sim | `delta` | format |
 | Sistema de arquivos | O sistema de contêiner/arquivos do Delta Lake | sim | String | fileSystem |
 | Caminho da pasta | O Direct Lake do Delta | sim | String | folderPath |
-| Tipo de compactação | O tipo de compactação da tabela Delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
+| Tipo de compactação | O tipo de compactação da tabela Delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Nível de compactação | Escolha se a compactação será concluída o mais rapidamente possível ou se o arquivo resultante deve ser compactado de forma ideal. | obrigatório se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressionLevel |
 | Vacuum | Especifique o limite de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos usa como padrão 30 dias | sim | Integer | vácuo |
 | Método Update | Especifique quais operações de atualização são permitidas no Delta Lake. Para métodos que não são inseridos, uma transformação ALTER Row anterior é necessária para marcar linhas. | sim | `true` ou `false` | pode ser excluído <br> Insertable <br> atualizável <br> mesclar |

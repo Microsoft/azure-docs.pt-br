@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511977"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101300"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteger os recursos do centro de administração do Windows com a central de segurança
 
@@ -21,7 +21,7 @@ O centro de administração do Windows é uma ferramenta de gerenciamento para s
 
 > [!NOTE]
 > Sua assinatura do Azure e o espaço de trabalho Log Analytics associado precisam ter o Azure defender habilitado para habilitar a integração do centro de administração do Windows.
-> O Azure defender será gratuito pelos primeiros 30 dias se você ainda não o tiver usado na assinatura e no espaço de trabalho. Para obter mais informações, consulte [a página de informações de preços](security-center-pricing.md).
+> O Azure defender será gratuito pelos primeiros 30 dias se você ainda não o tiver usado na assinatura e no espaço de trabalho. Para obter detalhes de preços na sua moeda de escolha e de acordo com sua região, consulte [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 Quando você tiver integrado com êxito um servidor do centro de administração do Windows à central de segurança do Azure, poderá:

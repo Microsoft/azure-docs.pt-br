@@ -2,18 +2,19 @@
 title: Como mapear discos do Azure para discos convidados da VM do Linux
 description: Como determinar os discos do Azure que underlay os discos convidados de uma VM Linux.
 author: timbasham
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: 4f0e48bf1c14728c54d4e89f30700017b0420d7d
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.collection: linux
+ms.openlocfilehash: bc6c6273ab3d1a4403763e4ed0a8c491995fb2df
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523399"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556716"
 ---
 # <a name="how-to-map-azure-disks-to-linux-vm-guest-disks"></a>Como mapear discos do Azure para discos convidados da VM do Linux
 
@@ -23,7 +24,7 @@ Talvez seja necessário determinar os discos do Azure que retornam os discos con
 
 Um LUN (número de unidade lógica) é um número usado para identificar um dispositivo de armazenamento específico. Cada dispositivo de armazenamento recebe um identificador numérico exclusivo, começando em zero. O caminho completo para um dispositivo é representado pelo número de barramento, número de ID de destino e LUN (número de unidade lógica). 
 
-Por exemplo: ***número de barramento 0, ID de destino 0, LUN 3** _
+Por exemplo: ***número de barramento 0, ID de destino 0, LUN 3***
 
 Para nosso exercício, você só precisa usar o LUN.
 
@@ -36,7 +37,7 @@ Abaixo, listamos dois métodos para localizar o LUN de um disco no Linux.
 1. Conectar-se à VM
 1. `sudo lsscsi`
 
-A primeira coluna listada conterá o LUN, o formato é [host: Channel: target: _ * LUN * *].
+A primeira coluna listada conterá o LUN, o formato será [host: Channel: target:**LUN**].
 
 ### <a name="listing-block-devices"></a>Listando dispositivos de bloco
 

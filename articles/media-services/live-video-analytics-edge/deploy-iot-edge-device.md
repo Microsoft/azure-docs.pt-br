@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491783"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718923"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -23,9 +23,9 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 * Um dispositivo x86-64 ou ARM64 executando um dos [sistemas operacionais Linux com suporte](../../iot-edge/support.md#operating-systems)
 * Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
-* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
-* [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
+* [Criar uma conta dos serviços de mídia do Azure](../latest/create-account-howto.md)
 
     * Use uma destas regiões: leste dos EUA 2, leste dos EUA, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
     * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
@@ -61,8 +61,8 @@ Siga as etapas neste artigo para obter credenciais para acessar as APIs do servi
 Para executar o módulo análise de vídeo ao vivo no IoT Edge, crie uma conta de usuário local com o menor número de privilégios possível. Por exemplo, execute os seguintes comandos em seu computador Linux:
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## <a name="granting-permissions-to-device-storage"></a>Concedendo permissões ao armazenamento do dispositivo
@@ -72,15 +72,15 @@ Agora que você criou uma conta de usuário local,
 * Você precisará de uma pasta local para armazenar os dados de configuração do aplicativo. Crie uma pasta e conceda permissões para a conta LocalUser Write nessa pasta usando os seguintes comandos:
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * Você também precisará de uma pasta para [gravar vídeos em um arquivo local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Use os comandos a seguir para criar uma pasta local para o mesmo:
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Implantar módulo de borda de análise de vídeo ao vivo

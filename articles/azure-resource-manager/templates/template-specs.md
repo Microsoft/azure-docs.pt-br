@@ -2,15 +2,15 @@
 title: Criar e implantar especificações de modelo
 description: Descreve como criar especificações de modelo e compartilhá-las com outros usuários em sua organização.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 76573e4415dffb2212dd025ed486d834446d3851
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734908"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043891"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo de Azure Resource Manager (versão prévia)
 
@@ -184,6 +184,12 @@ az deployment group create \
 
 ---
 
+Você também pode abrir uma URL no seguinte formato para implantar uma especificação de modelo:
+
+```url
+https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsubscriptions%2f{subscription-id}%2fresourceGroups%2f{resource-group-name}%2fproviders%2fMicrosoft.Resources%2ftemplateSpecs%2f{template-spec-name}%2fversions%2f{template-spec-version}
+```
+
 ## <a name="parameters"></a>Parâmetros
 
 A passagem de parâmetros para a especificação do modelo é exatamente como passar parâmetros para um modelo do ARM. Adicione os valores de parâmetro embutidos ou em um arquivo de parâmetro.
@@ -245,6 +251,78 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="versioning"></a>Controle de versão
+
+Ao criar uma especificação de modelo, você fornece um nome de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o nome da versão que desejam usar ao implantá-lo.
+
+## <a name="use-tags"></a>Usar marcações
+
+As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Você pode adicionar marcas às especificações de modelo usando Azure PowerShell e CLI do Azure:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Ao criar ou modificar uma especificação de modelo com o parâmetro de versão especificado, mas sem o parâmetro tag/Tags:
+
+- Se a especificação do modelo existir e tiver marcas, mas a versão não existir, a nova versão herdará as mesmas marcas da especificação do modelo existente.
+
+Ao criar ou modificar uma especificação de modelo com o parâmetro de marca/marcas e o parâmetro de versão especificado:
+
+- Se a especificação do modelo e a versão não existirem, as marcas serão adicionadas à nova especificação do modelo e à nova versão.
+- Se a especificação do modelo existir, mas a versão não existir, as marcas serão adicionadas somente à nova versão.
+- Se a especificação do modelo e a versão existirem, as marcas se aplicarão somente à versão.
+
+Ao modificar um modelo com o parâmetro de marca/marcas especificado, mas sem o parâmetro de versão especificado, as marcas só são adicionadas à especificação do modelo.
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Criar uma especificação de modelo com modelos vinculados
 
@@ -331,10 +409,6 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
 ```
 
 Para obter mais informações sobre como vincular especificações de modelo, consulte [tutorial: implantar uma especificação de modelo como um modelo vinculado](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Controle de versão
-
-Ao criar uma especificação de modelo, você fornece um nome de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o nome da versão que desejam usar ao implantá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

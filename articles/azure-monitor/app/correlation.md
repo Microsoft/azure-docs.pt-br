@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 50b858d0bf05aa46ea20a6cf9e088376be2996e3
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: beaeb0131a2c9b326d663f6fcbb8273a9b52b412
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693419"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100960"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -48,7 +48,7 @@ Nos resultados, observe que todos os itens de telemetria compartilham a raiz `op
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
-| pageView   | Página de ações                |              | STYz               | STYz         |
+| pageView   | Página de ações                | STYz         |                    | STYz         |
 | dependência | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
 | solicitação    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependência | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |

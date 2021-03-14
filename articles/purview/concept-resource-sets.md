@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539460"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200824"
 ---
 # <a name="understanding-resource-sets"></a>Compreensão dos conjuntos de recursos
 
@@ -21,7 +21,7 @@ Este artigo ajuda você a entender como o Azure alcance usa conjuntos de recurso
 
 Normalmente, os sistemas de processamento de dados em escala armazenam uma única tabela em um disco como vários arquivos. Esse conceito é representado no Azure alcance usando conjuntos de recursos. Um conjunto de recursos é um único objeto no catálogo que representa um grande número de ativos no armazenamento.
 
-Por exemplo, suponha que o cluster Spark tenha persistido um dataframe em uma fonte de dados Gen2 do armazenamento do Azure Dataal Lake (ADLS). Embora no Spark a tabela se pareça com um único recurso lógico, o disco provavelmente tem milhares de arquivos parquet, cada um representando uma partição do conteúdo total do dataframe. Dados de IoT e dados de log da Web têm o mesmo desafio. Imagine que você tenha um sensor que produza arquivos de log várias vezes por segundo. Não levará muito tempo até que você tenha centenas de milhares de arquivos de log desse único sensor.
+Por exemplo, suponha que o cluster Spark persistiu um dataframe em uma fonte de dados de Azure Data Lake Storage (ADLS) Gen2. Embora no Spark a tabela se pareça com um único recurso lógico, o disco provavelmente tem milhares de arquivos parquet, cada um representando uma partição do conteúdo total do dataframe. Dados de IoT e dados de log da Web têm o mesmo desafio. Imagine que você tenha um sensor que produza arquivos de log várias vezes por segundo. Não levará muito tempo até que você tenha centenas de milhares de arquivos de log desse único sensor.
 
 Para resolver o desafio de mapear um grande número de ativos de dados para um único recurso lógico, o Azure alcance usa conjuntos de recursos.
 
@@ -86,19 +86,19 @@ Quando o Azure alcance corresponde a um grupo de ativos em um conjunto de recurs
 
 ### <a name="example-1"></a>Exemplo 1
 
-Nome qualificado: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Nome qualificado: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Nome de exibição: "nome da saída do Spark"
 
 ### <a name="example-2"></a>Exemplo 2
 
-Nome qualificado: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Nome qualificado: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Nome de exibição: "meus dados particionados"
 
 ### <a name="example-3"></a>Exemplo 3
 
-Nome qualificado: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Nome qualificado: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nome de exibição: "dados"
 

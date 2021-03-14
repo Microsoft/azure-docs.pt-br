@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 6c441c9f81477a586c3e153e23b1fc63f2f76344
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a4223dbc913b7b46cf73c0ed99f607fff67b7e67
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819913"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448057"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado no defender para IoT em C# para Windows
 
@@ -27,11 +27,10 @@ Este guia explica como instalar o agente de segurança baseado no defender para 
 
 Neste guia, você aprenderá a:
 
-> [!div class="checklist"]
-> * Instalar
-> * Verificar a implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar a implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +76,7 @@ Esse script executa as seguintes ações:
 * Instala o agente como um **Serviço do Sistema**.
 * Configura o agente com os parâmetros de autenticação fornecidos.
 
-Para obter ajuda adicional, use o comando Get-Help no PowerShell.
+Para obter ajuda extra, use o comando Get-Help no PowerShell.
 
 Exemplo de Get-Help:    ```Get-Help .\InstallSecurityAgent.ps1```
 

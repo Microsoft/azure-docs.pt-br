@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 3b4d66525ec52ef2382dfbe97bc09278e35b31fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704411"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124662"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
 
@@ -58,7 +58,7 @@ Todas as regiões do Azure dão suporte a DPDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A rede acelerada deve ser habilitada em uma máquina virtual Linux. A máquina virtual deve ter pelo menos dois adaptadores de rede, com uma interface de gerenciamento. Saiba como [criar uma máquina virtual Linux com rede acelerada habilitada](create-vm-accelerated-networking-cli.md).
+A rede acelerada deve ser habilitada em uma máquina virtual Linux. A máquina virtual deve ter pelo menos dois adaptadores de rede, com uma interface de gerenciamento. Não é recomendável habilitar a rede acelerada na interface de gerenciamento. Saiba como [criar uma máquina virtual Linux com rede acelerada habilitada](create-vm-accelerated-networking-cli.md).
 
 ## <a name="install-dpdk-dependencies"></a>Instalar dependências DPDK
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601820"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434419"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -58,13 +58,14 @@ A **conversão de texto em fala (TTS)** está disponível nas seguintes platafor
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
+Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que você crie interfaces de conversação naturais e humanas para seus aplicativos e experiências. O SDK de fala fornece uma interação rápida e confiável que inclui a conversão de fala em texto, conversão de texto em fala e dados de conversação em uma única conexão. Sua implementação pode usar o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
 
-Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
+O suporte ao **Assistente de voz** está disponível nas seguintes plataformas:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (SDK de dispositivos de fala)
+  - Go
 
 #### <a name="keyword-spotting"></a>Palavra-chave parando
 
@@ -113,7 +114,7 @@ A **transcrição do Call Center** está disponível por meio do serviço de fal
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada por codec
 
-Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos <span class="docon docon-navigate-external x-hidden-focus"></span> de entrada de áudio compactados </a>.
+Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos de entrada de áudio compactados </a>.
 
 A **entrada de áudio compactada por codec** está disponível nas seguintes plataformas:
 
@@ -125,7 +126,7 @@ A **entrada de áudio compactada por codec** está disponível nas seguintes pla
 
 Embora o SDK de fala cubra muitos recursos de recurso do serviço de fala, em alguns cenários, talvez você queira usar a API REST.
 
-### <a name="batch-transcription"></a>Transcrição de lote
+### <a name="batch-transcription"></a>Transcrição em lote
 
 A [transcrição em lote](batch-transcription.md) permite a transcrição de fala em texto assíncrona de grandes volumes de dados. A transcrição do lote só é possível da API REST. Além de converter áudio de fala em texto, a conversão de texto em lote também permite a análise de diarization e de sentimentos.
 

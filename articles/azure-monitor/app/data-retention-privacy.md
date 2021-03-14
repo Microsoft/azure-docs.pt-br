@@ -4,12 +4,12 @@ description: Declaração de política de privacidade e retenção
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263905"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579577"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -120,7 +120,7 @@ Sim, determinados Canais de Telemetria persistirão os dados localmente se um po
 
 Os canais de telemetria que utilizam o armazenamento local criam arquivos temporários nos diretórios TEMP ou APPDATA, que são restritos à conta específica que executa o aplicativo. Isso poderá acontecer quando um ponto de extremidade estiver temporariamente indisponível ou se o limite da limitação for atingido. Assim que esse problema for resolvido, o canal de telemetria continuará enviando todos os dados novos e persistentes.
 
-Os dados persistentes não são criptografados localmente. Se essa for uma preocupação, revise os dados e restrinja a coleta de dados privados. (Para obter mais informações, consulte [como exportar e excluir dados privados](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+Os dados persistentes não são criptografados localmente. Se essa for uma preocupação, revise os dados e restrinja a coleta de dados privados. (Para obter mais informações, consulte [como exportar e excluir dados privados](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 Se um cliente precisar configurar esse diretório com requisitos de segurança específicos, ele poderá ser configurado por estrutura. Certifique-se de que o processo executando no aplicativo tenha acesso para gravação ao diretório, mas também certifique-se de que esse diretório está protegido para evitar que a telemetria seja lida por usuários indesejados.
 
@@ -212,7 +212,7 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 | Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para o .NET 4,7 e versões anteriores, consulte [estas instruções](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de status | Configuração com suporte exigida | Status monitor conta com a [OS Configuration](/windows-server/security/tls/tls-registry-settings)  +  [configuração do .net](/dotnet/framework/network-programming/tls#support-for-tls-12) de configuração do so para dar suporte a TLS 1,2.
+|Monitor de status | Configuração com suporte exigida | Status monitor conta com a [](/windows-server/security/tls/tls-registry-settings)  +  [configuração do .net](/dotnet/framework/network-programming/tls#support-for-tls-12) de configuração do so para dar suporte a TLS 1,2.
 |Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use a [documentação oficial Node.js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados no Application Insights
 
-Nossos [artigo de dados pessoais do Application Insights](../platform/personal-data-mgmt.md) aborda esse problema detalhado.
+Nossos [artigo de dados pessoais do Application Insights](../logs/personal-data-mgmt.md) aborda esse problema detalhado.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Meus usuários podem desativar o Application Insights?
 Não diretamente. Não fornecemos um comutador que os usuários possam operar para desativar o Application Insights.
@@ -254,15 +254,15 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>usuários |
+| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Sessão<br/>usuários |
 | [Instalar o Monitor de Status no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>usuários |
+| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Sessão<br/>usuários |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>?<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Chamar Track*][api] |Nome do evento<br/>**Propriedades** |
 | [Chamar TrackException][api] |**Exceções**<br/>Despejo da pilha<br/>**Propriedades** |
-| O SDK não é capaz de coletar dados. Por exemplo: <br/> - não é possível acessar os contadores de desempenho<br/> - exceção no inicializador de telemetria |Diagnóstico do SDK |
+| O SDK não é capaz de coletar dados. Por exemplo:  <br/> - não é possível acessar os contadores de desempenho<br/> - exceção no inicializador de telemetria |Diagnóstico do SDK |
 
 Para [SDKs para outras plataformas][platforms], consulte seus respectivos documentos.
 
@@ -273,7 +273,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 | **Propriedades** |**Quaisquer dados - determinados pelo seu código** |
 | DeviceContext |`Id`, IP, localidade, modelo de dispositivo, rede, tipo de rede, nome do OEM, resolução da tela, instância de função, nome da função, tipo de dispositivo |
 | ClientContext  |Sistema operacional, localidade, linguagem, rede, resolução da janela |
-| Session |`session id` |
+| Sessão |`session id` |
 | ServerContext |Nome do computador, localidade, sistema operacional, dispositivo, sessão de usuário, contexto de usuário, operação |
 | Inferido |localização geográfica do endereço IP, carimbo de data/hora, sistema operacional, navegador |
 | Métricas |Valor e nome da métrica |
@@ -293,7 +293,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 Você pode [desativar alguns dos dados editando ApplicationInsights.config][config]
 
 > [!NOTE]
-> O IP do cliente é usado para inferir a localização geográfica mas, por padrão, os dados do IP não são mais armazenados e todos os zeros são gravados no campo associado. Para compreender mais sobre tratamento de dados pessoais, recomendamos este [artigo](../platform/personal-data-mgmt.md#application-data). Se você precisar armazenar dados de endereço IP, nosso [artigo de coleção de endereços IP](./ip-collection.md) o guiará pelas suas opções.
+> O IP do cliente é usado para inferir a localização geográfica mas, por padrão, os dados do IP não são mais armazenados e todos os zeros são gravados no campo associado. Para compreender mais sobre tratamento de dados pessoais, recomendamos este [artigo](../logs/personal-data-mgmt.md#application-data). Se você precisar armazenar dados de endereço IP, nosso [artigo de coleção de endereços IP](./ip-collection.md) o guiará pelas suas opções.
 
 ## <a name="credits"></a>Credits
 Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponíveis no [https://www.maxmind.com](https://www.maxmind.com) .

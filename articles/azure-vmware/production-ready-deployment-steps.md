@@ -2,13 +2,13 @@
 title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733646"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -51,12 +51,6 @@ Identifique o tamanho dos hosts que você deseja usar ao implantar a Solução V
 Defina o número de hosts que você deseja implantar na nuvem privada da Solução VMware no Azure.  O número mínimo de hosts é três, e o máximo é 16 por cluster.  Para obter mais informações, confira a documentação [Nuvem privada e clusters da Solução VMware no Azure](concepts-private-clouds-clusters.md#clusters).
 
 Você sempre poderá estender o cluster mais tarde se precisar ir além do número de implantação inicial.
-
-## <a name="vcenter-admin-password"></a>Senha de administrador do vCenter
-Defina a senha de administrador do vCenter.  Durante a implantação, você criará uma senha de administrador do vCenter. A senha é para a conta do administrador cloudadmin@vsphere.local durante a criação do vCenter. Você a usará para entrar no vCenter.
-
-## <a name="nsx-t-admin-password"></a>Senha de administrador do NSX-T
-Defina a senha de administrador do NSX-T.  Durante a implantação, você criará uma senha de administrador do NSX-T. A senha é atribuída ao usuário administrador na conta do NSX durante a criação do NSX. Você a usará para entrar no NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento de endereço IP
 

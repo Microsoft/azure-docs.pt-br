@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913712"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535273"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -57,7 +57,7 @@ Primeiro, crie um Standard Load Balancer usando o portal. O nome e o endereço I
 Você pode implantar um conjunto de dimensionamento com uma imagem do Windows Server ou do Linux como CentOS, RHEL, Ubuntu ou SLES.
 
 1. Digite **Conjunto de dimensionamento** na caixa de pesquisa. Nos resultados, em **Marketplace**, selecione **Conjuntos de dimensionamento de máquinas virtuais**. Selecione **Criar** na página **Conjuntos de Dimensionamento de Máquinas Virtuais**, que abrirá a página **Criar um conjunto de dimensionamento de máquinas virtuais**. 
-1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK**. 
+1. Na guia **Noções Básicas**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e selecione *myVMSSResourceGroup* na lista do grupo de recursos. 
 1. Digite *myScaleSet* como o nome do conjunto de dimensionamento.
 1. Em **Região**, selecione uma região próxima à sua área.
 1. Selecione uma imagem do marketplace para **Imagem**. Neste exemplo, escolhemos *Ubuntu Server 18.04 LTS*.

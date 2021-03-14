@@ -1,35 +1,36 @@
 ---
-title: Exemplos de processadores de telemetria-Azure Monitor Application Insights para Java
-description: Exemplos que ilustram processadores de telemetria no Azure Monitor Application Insights para Java
+title: Exemplos do processador de telemetria-Azure Monitor Application Insights para Java
+description: Explore exemplos que mostram os processadores de telemetria no Azure Monitor Application Insights para Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696305"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734580"
 ---
-# <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Exemplos de processadores de telemetria-Azure Monitor Application Insights para Java
+# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Exemplos do processador de telemetria-Azure Monitor Application Insights para Java
 
-## <a name="includeexclude-samples"></a>Incluir/excluir amostras
+Este artigo fornece exemplos de processadores de telemetria no Application Insights para Java. Você encontrará exemplos para incluir e excluir configurações. Você também encontrará exemplos de processadores de atributos e de span.
+## <a name="include-and-exclude-samples"></a>Incluir e excluir amostras
 
-### <a name="1-include-spans"></a>1. incluir spans
+Nesta seção, você verá como incluir e excluir intervalos. Você também verá como excluir vários spans e aplicar o processamento seletivo.
+### <a name="include-spans"></a>Incluir spans
 
-O a seguir demonstra como incluir spans para esse processador de atributos. Todas as outras extensões que não correspondem às propriedades não são processadas por esse processador.
+Esta seção mostra como incluir spans para um processador de atributo. Os spans que não correspondem às propriedades não são processados pelo processador.
 
-Estas são as condições a serem atendidas para uma correspondência:
-* O nome do span deve ser igual a "spana" ou "spanB" 
+Uma correspondência requer que o nome de extensão seja igual a `spanA` ou `spanB` . 
 
-Veja a seguir as extensões que correspondem às propriedades include e as ações do processador são aplicadas.
+Essas extensões correspondem às propriedades include e as ações do processador são aplicadas:
 * Nome do Span1: atributos ' spana ': {env: dev, test_request: 123, credit_card: 1234}
 * Nome do Span2: atributos ' spanB ': {env: dev, test_request: false}
 * Nome do Span3: atributos ' spana ': {env: 1, test_request: dev, credit_card: 1234}
 
-O trecho a seguir não corresponde às propriedades include e as ações do processador não são aplicadas.
+Esse span não corresponde às propriedades include e as ações do processador não são aplicadas:
 * Nome do Span4: atributos ' spanC ': {env: dev, test_request: false}
 
 ```json
@@ -58,19 +59,18 @@ O trecho a seguir não corresponde às propriedades include e as ações do proc
 }
 ```
 
-### <a name="2-exclude-spans"></a>2. excluir spans
+### <a name="exclude-spans"></a>Excluir spans
 
-O seguinte demonstra a exclusão de Spans para esse processador de atributos. Todas as extensões que correspondem às propriedades não são processadas por esse processador.
+Esta seção demonstra como excluir spans para um processador de atributo. As extensões que correspondem às propriedades não são processadas por esse processador.
 
-Estas são as condições a serem atendidas para uma correspondência:
-* O nome do span deve ser igual a "spana" ou "spanB" 
+Uma correspondência requer que o nome de extensão seja igual a `spanA` ou `spanB` .
 
-A seguir estão as extensões que correspondem às propriedades de exclusão e as ações do processador não são aplicadas.
+Os seguintes intervalos correspondem às propriedades de exclusão e as ações do processador não são aplicadas:
 * Nome do Span1: atributos ' spana ': {env: dev, test_request: 123, credit_card: 1234}
 * Nome do Span2: atributos ' spanB ': {env: dev, test_request: false}
 * Nome do Span3: atributos ' spana ': {env: 1, test_request: dev, credit_card: 1234}
 
-O trecho a seguir não corresponde às propriedades Exclude e as ações do processador são aplicadas.
+Esse intervalo não corresponde às propriedades de exclusão e as ações do processador são aplicadas:
 * Nome do Span4: atributos ' spanC ': {env: dev, test_request: false}
 
 ```json
@@ -99,19 +99,19 @@ O trecho a seguir não corresponde às propriedades Exclude e as ações do proc
 }
 ```
 
-### <a name="3-excludemulti-spans"></a>3. ExcludeMulti spans
+### <a name="exclude-spans-by-using-multiple-criteria"></a>Excluir intervalos usando vários critérios
 
-O seguinte demonstra a exclusão de Spans para esse processador de atributos. Todas as extensões que correspondem às propriedades não são processadas por esse processador.
+Esta seção demonstra como excluir spans para um processador de atributo. As extensões que correspondem às propriedades não são processadas por esse processador.
 
-Estas são as condições a serem atendidas para uma correspondência:
-* Um atributo (' env ', ' dev ') deve existir no span para uma correspondência.
-* Desde que haja um atributo com a chave ' test_request ' no span, há uma correspondência.
+Uma correspondência requer que as seguintes condições sejam atendidas:
+* Um atributo (por exemplo, `env` ou `dev` ) deve existir no span.
+* O span deve ter um atributo que tenha a chave `test_request` .
 
-A seguir estão as extensões que correspondem às propriedades de exclusão e as ações do processador não são aplicadas.
+Os intervalos a seguir correspondem às propriedades de exclusão e as ações do processador não são aplicadas.
 * Nome do Span1: atributos ' spanB ': {env: dev, test_request: 123, credit_card: 1234}
 * Nome do Span2: atributos ' spana ': {env: dev, test_request: false}
 
-O trecho a seguir não corresponde às propriedades Exclude e as ações do processador são aplicadas.
+O trecho a seguir não corresponde às propriedades Exclude e as ações do processador são aplicadas:
 * Nome do Span3: atributos ' spanB ': {env: 1, test_request: dev, credit_card: 1234}
 * Nome do Span4: atributos ' spanC ': {env: dev, dev_request: false}
 
@@ -151,16 +151,16 @@ O trecho a seguir não corresponde às propriedades Exclude e as ações do proc
 }
 ```
 
-### <a name="4-selective-processing"></a>4. processamento seletivo
+### <a name="selective-processing"></a>Processamento seletivo
 
-O seguinte demonstra como especificar o conjunto de propriedades de span para indicar a qual extensão esse processador deve ser aplicado. As `include` Propriedades de indicam quais devem ser incluídas e as `exclude` Propriedades filtram ainda mais os intervalos que não devem ser processados.
+Esta seção mostra como especificar o conjunto de propriedades de span que indicam a quais extensões esse processador deve ser aplicado. As propriedades include indicam quais extensões devem ser processadas. As propriedades de exclusão filtram os intervalos que não devem ser processados.
 
-Com a configuração abaixo, as seguintes extensões correspondem às propriedades e as ações do processador são aplicadas:
+Na configuração a seguir, essas extensões correspondem às propriedades e as ações do processador são aplicadas:
 
 * Nome do Span1: atributos ' spanB ': {env: Production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 * Nome do Span2: atributos ' spana ': {env: preparo, test_request: false, redact_trace: true}
 
-As seguintes extensões não correspondem às propriedades include e as ações do processador não são aplicadas:
+Essas extensões não correspondem às propriedades include e as ações do processador não são aplicadas:
 * Nome do Span3: atributos ' spanB ': {env: Production, test_request: true, credit_card: 1234, redact_trace: false}
 * Nome do Span4: atributos ' spanC ': {env: dev, test_request: false}
 
@@ -206,7 +206,7 @@ As seguintes extensões não correspondem às propriedades include e as ações 
 
 ### <a name="insert"></a>Inserir
 
-O seguinte insere um novo atributo {"attribute1": "attributeValue1"} para abranger onde a chave "attribute1" não existe.
+O exemplo a seguir insere o novo atributo `{"attribute1": "attributeValue1"}` em spans onde a chave `attribute1` não existe.
 
 ```json
 {
@@ -230,7 +230,7 @@ O seguinte insere um novo atributo {"attribute1": "attributeValue1"} para abrang
 
 ### <a name="insert-from-another-key"></a>Inserir de outra chave
 
-O seguinte usa o valor do atributo "anotherkey" para inserir um novo atributo {"newKey": "valor do atributo" anotherkey "} para se estender onde a chave" newKey "não existe. Se o atributo ' anotherkey ' não existir, nenhum novo atributo será inserido para se estender.
+O exemplo a seguir usa o atributo valor do `anotherkey` para inserir o novo atributo `{"newKey": "<value from attribute anotherkey>"}` em spans onde a chave `newKey` não existe. Se o atributo `anotherkey` não existir, nenhum atributo novo será inserido em spans.
 
 ```json
 {
@@ -254,7 +254,7 @@ O seguinte usa o valor do atributo "anotherkey" para inserir um novo atributo {"
 
 ### <a name="update"></a>Atualizar
 
-O seguinte atualiza o atributo para {"DB. Secret": "redaçãod"} e atualiza o atributo ' Boo ' usando o valor do atributo ' foo '. As extensões sem o atributo ' Boo ' não serão alteradas.
+O exemplo a seguir atualiza o atributo para `{"db.secret": "redacted"}` . Ele atualiza o atributo `boo` usando o valor do atributo `foo` . Os spans que não têm o atributo `boo` não são alterados.
 
 ```json
 {
@@ -283,7 +283,7 @@ O seguinte atualiza o atributo para {"DB. Secret": "redaçãod"} e atualiza o at
 
 ### <a name="delete"></a>Excluir
 
-O seguinte demonstra como excluir o atributo com a chave ' credit_card '.
+O exemplo a seguir mostra como excluir um atributo que tem a chave `credit_card` .
 
 ```json
 {
@@ -306,7 +306,7 @@ O seguinte demonstra como excluir o atributo com a chave ' credit_card '.
 
 ### <a name="hash"></a>Hash
 
-O seguinte demonstra os valores de atributo existentes de hash.
+O exemplo a seguir mostra como fazer hash de valores de atributo existentes.
 
 ```json
 {
@@ -329,13 +329,13 @@ O seguinte demonstra os valores de atributo existentes de hash.
 
 ### <a name="extract"></a>Extract
 
-O exemplo a seguir demonstra o uso de Regex para criar novos atributos com base no valor de outro atributo.
-Por exemplo, dado http. URL = ' http://example.com/path?queryParam1=value1 , queryParam2 = value2 ', os seguintes atributos serão inseridos:
-* httpProtocol: http
-* httpDomain: example.com
-* httpPath: caminho
-* httpQueryParams: queryParam1 = value1, queryParam2 = value2
-* o valor de http. URL não é alterado.
+O exemplo a seguir mostra como usar uma expressão regular (Regex) para criar novos atributos com base no valor de outro atributo.
+Por exemplo, dado `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2` , os seguintes atributos são inseridos:
+* httpProtocol: `http`
+* httpDomain: `example.com`
+* httpPath: `path`
+* httpQueryParams: `queryParam1=value1,queryParam2=value2`
+* http. URL: *nenhuma* alteração
 
 ```json
 {
@@ -357,8 +357,8 @@ Por exemplo, dado http. URL = ' http://example.com/path?queryParam1=value1 , que
 }
 ```
 
-O exemplo a seguir demonstra como processar intervalos que têm um nome de extensão que corresponde aos padrões de RegExp.
-Esse processador removerá o atributo "token" e ofuscará o atributo "password" em Spans, onde o nome do span corresponde a "auth \* ". e onde o nome do span não corresponde a "login. \* ".
+O exemplo a seguir mostra como processar intervalos que têm um nome de extensão que corresponde aos padrões de Regex.
+Esse processador remove o `token` atributo. Ele ofusca o `password` atributo em spans onde o nome do span corresponde `auth.*` e onde o nome do span não corresponde `login.*` .
 
 ```json
 {
@@ -401,7 +401,7 @@ Esse processador removerá o atributo "token" e ofuscará o atributo "password" 
 
 ### <a name="name-a-span"></a>Nomear um intervalo
 
-O exemplo a seguir especifica os valores do atributo "DB. svc", "Operation" e "ID" formará o novo nome do span, nessa ordem, separados pelo valor "::".
+O exemplo a seguir especifica os valores de atributos `db.svc` , `operation` e `id` . Ele forma o novo nome do span usando esses atributos, nessa ordem, separados pelo valor `::` .
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -423,9 +423,9 @@ O exemplo a seguir especifica os valores do atributo "DB. svc", "Operation" e "I
 }
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extrair atributos do nome do span
+### <a name="extract-attributes-from-a-span-name"></a>Extrair atributos de um nome de extensão
 
-Vamos supor que o nome da extensão de entrada seja/API/v1/Document/12345678/Update. Aplicar os seguintes resultados no nome do span de saída/api/v1/document/{documentId}/update adicionará um novo atributo "DocumentID" = "12345678" à extensão.
+Vamos supor que o nome da extensão de entrada seja `/api/v1/document/12345678/update` . O exemplo a seguir resulta no nome da extensão de saída `/api/v1/document/{documentId}/update` . Ele adiciona o novo atributo `documentId=12345678` à extensão.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -446,11 +446,11 @@ Vamos supor que o nome da extensão de entrada seja/API/v1/Document/12345678/Upd
 }
 ```
 
-### <a name="extract-attributes-from-span-name-with-include-and-exclude"></a>Extrair atributos do nome do span com include e Exclude
+### <a name="extract-attributes-from-a-span-name-by-using-include-and-exclude"></a>Extrair atributos de um nome de extensão usando include e Exclude
 
-O a seguir demonstra como renomear o nome do span como "{operation_website}" e adicionar o atributo {Key: operation_website, value: oldSpanName} quando o span tem as seguintes propriedades:
-- O nome de extensão contém '/' em qualquer lugar na cadeia de caracteres.
-- O nome do span não é ' não cercamento/Change '.
+O exemplo a seguir mostra como alterar o nome do span para `{operation_website}` . Ele adiciona um atributo com chave `operation_website` e valor `{oldSpanName}` quando a extensão tem as seguintes propriedades:
+- O nome do span contém `/` qualquer lugar na cadeia de caracteres.
+- O nome do span não é `donot/change` .
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",

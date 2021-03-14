@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760394"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388984"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>RabbitMQ do gatilho para Azure Functions visão geral
 
@@ -27,7 +27,7 @@ Para obter informações sobre a instalação e detalhes de configuração, conf
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê e registra a mensagem RabbitMQ como um [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê e registra a mensagem RabbitMQ como um [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -229,7 +229,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O tipo de mensagem padrão é [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` Propriedade do evento RabbitMQ pode ser lida como os tipos listados abaixo:
+O tipo de mensagem padrão é [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` Propriedade do evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
 * `An object serializable as JSON` -A mensagem é entregue como uma cadeia de caracteres JSON válida.
 * `string`
@@ -238,7 +238,7 @@ O tipo de mensagem padrão é [evento RabbitMQ](https://www.rabbitmq.com/release
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-O tipo de mensagem padrão é [evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` Propriedade do evento RabbitMQ pode ser lida como os tipos listados abaixo:
+O tipo de mensagem padrão é [evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` Propriedade do evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
 * `An object serializable as JSON` -A mensagem é entregue como uma cadeia de caracteres JSON válida.
 * `string`
@@ -283,8 +283,8 @@ Esta seção descreve as definições de configuração global disponíveis para
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |prefetchCount|30|Obtém ou define o número de mensagens que o receptor de mensagens pode solicitar e é armazenado em cache.|
-|queueName|n/a| Nome da fila da qual receber mensagens.|
-|connectionString|n/a|A cadeia de conexão da fila de mensagens RabbitMQ. Observe que a cadeia de conexão é especificada diretamente aqui e não por meio de uma configuração de aplicativo.|
+|queueName|N/D| Nome da fila da qual receber mensagens.|
+|connectionString|N/D|A cadeia de conexão da fila de mensagens RabbitMQ. Observe que a cadeia de conexão é especificada diretamente aqui e não por meio de uma configuração de aplicativo.|
 |porta|0|(ignorado se estiver usando connectionString) Obtém ou define a porta usada. O padrão é 0, que aponta para a configuração de porta padrão do cliente RabbitMQ: 5672.|
 
 ## <a name="local-testing"></a>Teste local
@@ -310,9 +310,9 @@ Se você estiver testando localmente sem uma cadeia de conexão, defina a config
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
-|hostName|n/a|(ignorado se estiver usando connectionString) <br>Nome do host da fila (ex: 10.26.45.210)|
-|userName|n/a|(ignorado se estiver usando connectionString) <br>Nome para acessar a fila |
-|password|n/a|(ignorado se estiver usando connectionString) <br>Senha para acessar a fila|
+|hostName|N/D|(ignorado se estiver usando connectionString) <br>Nome do host da fila (ex: 10.26.45.210)|
+|userName|N/D|(ignorado se estiver usando connectionString) <br>Nome para acessar a fila |
+|password|N/D|(ignorado se estiver usando connectionString) <br>Senha para acessar a fila|
 
 
 ## <a name="enable-runtime-scaling"></a>Habilitar dimensionamento de tempo de execução

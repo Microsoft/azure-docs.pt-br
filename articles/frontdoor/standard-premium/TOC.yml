@@ -1,0 +1,101 @@
+- name: Documentação do Front Door Standard/Premium (Versão Prévia)
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Front Door Standard/Premium (Versão Prévia)?
+      href: overview.md
+    - name: Comparação de camadas
+      href: tier-comparison.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Criar Front Door Standard/Premium – Portal
+      href: create-front-door-portal.md
+- name: Exemplos
+  items:
+    - name: Modelos do Gerenciador de Recursos
+      href: resource-manager-template-samples.md
+- name: Conceitos
+  items:
+    - name: Perguntas frequentes sobre o Front Door
+      href: faq.md
+    - name: Endpoint Manager
+      href: concept-endpoint-manager.md
+    - name: Origem
+      href: concept-origin.md
+    - name: Rota
+      href: concept-route.md
+    - name: Conjunto de regras
+      href: concept-rule-set.md
+    - name: Condições de correspondência de conjunto de regras
+      href: concept-rule-set-match-conditions.md
+    - name: Ações de conjunto de regras
+      href: concept-rule-set-actions.md
+    - name: Redirecionamento e reconfiguração de URL
+      href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Investigações de integridade
+      href: concept-health-probes.md
+    - name: Link Privado
+      href: concept-private-link.md
+    - name: Cache
+      href: concept-caching.md
+    - name: DDoS
+      href: concept-ddos.md
+- name: Guias de instruções
+  items:
+    - name: Configurar o Endpoint Manager
+      href: how-to-configure-endpoint-manager.md
+    - name: Configurar grupos de origem
+      href: how-to-create-origin.md
+    - name: Adicionar um domínio personalizado
+      href: how-to-add-custom-domain.md
+    - name: Habilitar HTTPS para um domínio personalizado
+      href: how-to-configure-https-custom-domain.md
+    - name: Associação de rota
+      href: how-to-configure-route.md
+    - name: Configurar um conjunto de regras
+      href: how-to-configure-rule-set.md
+    - name: Configurar cabeçalhos de segurança com conjunto de regras
+      href: how-to-add-security-headers.md
+    - name: Limpeza do cache
+      href: how-to-cache-purge.md
+    - name: Compactação
+      href: how-to-compression.md
+    - name: Habilitar o Link Privado
+      items:
+        - name: Conectar-se a uma conta de armazenamento
+          href: how-to-enable-private-link-storage-account.md
+        - name: Conectar-se a um aplicativo Web
+          href: how-to-enable-private-link-web-app.md
+    - name: Registro em log
+      href: how-to-logs.md
+    - name: Monitoramento e alertas
+      href: how-to-monitor-metrics.md
+    - name: Relatórios
+      href: how-to-reports.md
+    - name: Solucionar problemas
+      items:
+        - name: Problemas de roteamento
+          href: troubleshoot-route-issues.md
+        - name: Autoridades de certificação habilitadas
+          href: troubleshoot-allowed-certificate-authority.md
+        - name: Compactação
+          href: troubleshoot-compression.md
+        - name: Compartilhamento de recursos entre origens
+          href: troubleshoot-cross-origin-resources.md
+- name: Referência
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: API REST
+      href: /rest/api/cdn/
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

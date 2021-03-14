@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Hive usando o Azure Data Factory
 description: Saiba como copiar dados do Hive para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844925"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367020"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copiar e transformar dados do hive usando o Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -174,17 +169,17 @@ Há suporte para o conector do hive como uma fonte de conjunto de dados [embutid
 
 A tabela abaixo lista as propriedades com suporte por uma origem do hive. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Repositório | O repositório deve ser `hive` | yes |  `hive` | store | 
-| Formatar | Se você está lendo de uma tabela ou consulta | yes | `table` ou `query` | format |
-| Nome do esquema | Se estiver lendo de uma tabela, o esquema da tabela de origem |  Sim, se o formato for `table` | Cadeia de caracteres | schemaName |
-| Nome da tabela | Se estiver lendo de uma tabela, o nome da tabela |   Sim, se o formato for `table` | Cadeia de caracteres | tableName |
-| Consulta | Se o formato for `query` , a consulta de origem no serviço vinculado do hive | Sim, se o formato for `query` | Cadeia de caracteres | Consulta |
-| Em etapas | A tabela do hive sempre será preparada. | yes | `true` | em etapas |
-| Contêiner de armazenamento | Contêiner de armazenamento usado para preparar dados antes de ler do hive ou gravar no hive. O cluster do hive deve ter acesso a esse contêiner. | yes | Cadeia de caracteres | storageContainer |
-| Banco de dados de preparo | O esquema/banco de dados ao qual a conta de usuário especificada no serviço vinculado tem acesso. Ela é usada para criar tabelas externas durante o preparo e descartadas posteriormente | no | `true` ou `false` | stagingDatabaseName |
-| Scripts anteriores do SQL | Código SQL a ser executado na tabela Hive antes de ler os dados | no | Cadeia de caracteres | preSQLs |
+| Repositório | O repositório deve ser `hive` | sim |  `hive` | store | 
+| Formatar | Se você está lendo de uma tabela ou consulta | sim | `table` ou `query` | format |
+| Nome do esquema | Se estiver lendo de uma tabela, o esquema da tabela de origem |  Sim, se o formato for `table` | String | schemaName |
+| Nome da tabela | Se estiver lendo de uma tabela, o nome da tabela |   Sim, se o formato for `table` | String | tableName |
+| Consulta | Se o formato for `query` , a consulta de origem no serviço vinculado do hive | Sim, se o formato for `query` | String | Consulta |
+| Em etapas | A tabela do hive sempre será preparada. | sim | `true` | em etapas |
+| Contêiner de armazenamento | Contêiner de armazenamento usado para preparar dados antes de ler do hive ou gravar no hive. O cluster do hive deve ter acesso a esse contêiner. | sim | String | storageContainer |
+| Banco de dados de preparo | O esquema/banco de dados ao qual a conta de usuário especificada no serviço vinculado tem acesso. Ela é usada para criar tabelas externas durante o preparo e descartadas posteriormente | não | `true` ou `false` | stagingDatabaseName |
+| Scripts anteriores do SQL | Código SQL a ser executado na tabela Hive antes de ler os dados | não | String | preSQLs |
 
 #### <a name="source-example"></a>Exemplo de origem
 

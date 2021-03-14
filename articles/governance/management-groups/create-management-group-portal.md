@@ -1,14 +1,14 @@
 ---
 title: Criar um grupo de gerenciamento com o portal
 description: Neste guia de início rápido, você usará o portal do Azure para criar um grupo de gerenciamento para organizar seus recursos em uma hierarquia de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661746"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592425"
 ---
 # <a name="quickstart-create-a-management-group"></a>Início Rápido: Crie um grupo de gerenciamento
 
@@ -39,7 +39,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
    - **ID do Grupo de Gerenciamento** é o identificador exclusivo do diretório usado para enviar comandos nesse grupo de gerenciamento. Esse identificador não é editável após a criação, pois é usado em todo o sistema do Azure para identificar esse grupo. O [grupo de gerenciamento raiz](./overview.md#root-management-group-for-each-directory) é criado automaticamente com uma ID que é a ID do Azure Active Directory. Para todos os outros grupos de gerenciamento, atribua uma ID exclusiva.
    - O campo de nome de exibição é o nome exibido no portal do Azure. Um nome de exibição separado é um campo opcional ao criar o gerenciamento de grupo e pode ser alterado a qualquer momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Captura de tela da página Grupos de gerenciamento mostrando assinaturas e grupos de gerenciamento filho.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Captura de tela das opções &quot;Adicionar grupo de gerenciamento&quot; para criar um grupo de gerenciamento.":::
 
 1. Clique em **Salvar**.
 

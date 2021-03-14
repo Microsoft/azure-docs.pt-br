@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500264"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831190"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conectar um módulo IoT Plug and Play (C#)
 
@@ -20,7 +20,12 @@ Este tutorial mostra como conectar um [módulo](../iot-hub/iot-hub-devguide-modu
 
 Um dispositivo é IoT Plug and Play se ele publica a ID de modelo quando se conecta a um hub IoT e implementa as propriedades e os métodos descritos no modelo DTDL (Linguagem de Definição de Gêmeos Digitais) identificado pela ID do modelo. Para saber mais sobre como os dispositivos usam uma DTDL e uma ID de modelo, confira o [Guia do desenvolvedor do IoT Plug and Play](./concepts-developer-guide-device.md). Os módulos usam IDs de modelo e modelos de DTDL da mesma maneira.
 
-Para demonstrar como implementar um módulo de IoT Plug and Play, este tutorial mostra como converter o dispositivo termostato de exemplo do C# em um módulo genérico.
+Para demonstrar como implementar um módulo de IoT Plug and Play, este tutorial mostra como:
+
+> [!div class="checklist"]
+> * Adicionar um dispositivo com um módulo ao seu hub IoT.
+> * Converter a amostra de dispositivo de termostato em C# em um módulo genérico.
+> * Usar o SDK do serviço para interagir com o módulo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,7 +103,7 @@ Para abrir e preparar o projeto de exemplo:
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | A cadeia de conexão do módulo anotada anteriormente |
@@ -173,7 +178,7 @@ Os SDKs de serviço permitem recuperar a ID do modelo dos dispositivos e módulo
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-module-device |
     | IOTHUB_CONNECTION_STRING | O valor anotado quando você concluiu [Configurar seu ambiente](set-up-environment.md) |
@@ -232,6 +237,10 @@ Você pode usar a ferramenta Explorer de IoT do Azure para ver:
 * Telemetria enviada pelo dispositivo do IoT Edge.
 * Atualizações de propriedade do módulo gêmeo do IoT Edge que disparam notificações do IoT Plug and Play.
 * A reação do módulo do IoT Edge aos seus comandos do IoT Plug and Play.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

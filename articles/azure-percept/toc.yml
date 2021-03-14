@@ -1,0 +1,104 @@
+- name: Documentação do Azure Percept
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Plataforma Azure Percept
+      href: overview-azure-percept.md
+    - name: Azure Percept Studio
+      href: overview-azure-percept-studio.md
+    - name: Azure Percept DK
+      href: overview-azure-percept-dk.md
+    - name: Áudio do Azure Percept
+      href: overview-azure-percept-audio.md
+    - name: Modelos de IA do Azure Percept
+      href: overview-ai-models.md
+    - name: Desenvolvimento avançado
+      href: overview-advanced-code.md
+    - name: Segurança do Azure Percept
+      href: overview-percept-security.md
+    - name: Integração 80/20
+      href: overview-8020-integration.md
+    - name: Atualizar seus dispositivos Percept
+      href: overview-update-experience.md
+- name: Inícios rápidos
+  items:
+    - name: Configurar seus dispositivos Azure Percept
+      items:
+        - name: Desembalar e montar o Azure Percept DK
+          href: quickstart-percept-dk-unboxing.md
+        - name: Concluir a experiência de instalação do Azure Percept DK
+          href: quickstart-percept-dk-set-up.md
+        - name: Configuração do Áudio do Azure Percept
+          href: quickstart-percept-audio-setup.md
+- name: Tutoriais
+  items:
+    - name: Iniciar a criação de protótipo com o Azure Percept
+      items:
+        - name: Criar e implantar uma solução de pesquisa visual sem código
+          href: tutorial-nocode-vision.md
+        - name: Criar e implantar uma solução de fala sem código
+          href: tutorial-no-code-speech.md
+- name: Conceitos
+  items:
+    - name: Áudio do Azure Percept
+      items:
+        - name: Comportamento de LED e botão
+          href: audio-button-led-behavior.md
+- name: Guias de instruções
+  items:
+    - name: Desenvolvimento de solução de pesquisa visual com o Azure Percept DK
+      items:
+        - name: Exibir o fluxo de vídeo do kit de desenvolvimento
+          href: how-to-view-video-stream.md
+        - name: Implantar um modelo de IA no kit de desenvolvimento
+          href: how-to-deploy-model.md
+        - name: Capturar imagens para um projeto de pesquisa visual
+          href: how-to-capture-images.md
+        - name: Exibir a telemetria do kit de desenvolvimento
+          href: how-to-view-telemetry.md
+    - name: Desenvolvimento de solução de fala com o Azure Percept DK
+      items:
+        - name: Configurar o assistente de voz no Azure Percept Studio
+          href: how-to-configure-voice-assistant.md
+        - name: Configurar seu assistente de voz no Hub IoT
+          href: how-to-manage-voice-assistant.md
+    - name: Atualizar dispositivos Azure Percept
+      items:
+        - name: Configurar atualizações remotas
+          href: how-to-set-up-over-the-air-updates.md
+        - name: Atualizar o Azure Percept DK remotamente
+          href: how-to-update-over-the-air.md
+        - name: Atualizar o Azure Percept DK por USB
+          href: how-to-update-via-usb.md
+    - name: Conectar-se ao Azure Percept DK
+      items:
+        - name: Conectar-se via SSH
+          href: how-to-ssh-into-percept-dk.md
+        - name: Conectar-se por serial
+          href: how-to-connect-to-percept-dk-over-serial.md
+    - name: Ferramentas
+      items:
+        - name: Instalador do pacote Devtools
+          href: dev-tools-installer.md
+    - name: Solução de problemas
+      items:
+        - name: Solução de problemas com a experiência de instalação
+          href: how-to-troubleshoot-setup.md
+        - name: Solução de problemas gerais com o Azure Percept DK
+          href: troubleshoot-dev-kit.md
+        - name: Solução de problemas com a solução de pesquisa visual
+          href: vision-solution-troubleshooting.md
+        - name: Solução de problemas de áudio do Azure Percept
+          href: troubleshoot-audio-accessory-speech-module.md
+        - name: Problemas conhecidos
+          href: known-issues.md
+- name: Referência
+  items:
+    - name: Folhas de dados do dispositivo Azure Percept
+      items:
+        - name: Folha de dados do Azure Percept DK
+          href: azure-percept-dk-datasheet.md
+        - name: Folha de dados da pesquisa visual do Azure Percept
+          href: azure-percept-vision-datasheet.md
+        - name: Folha de dados do áudio do Azure Percept
+          href: azure-percept-audio-datasheet.md

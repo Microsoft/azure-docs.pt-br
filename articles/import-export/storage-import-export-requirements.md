@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706184"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712599"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
 Este artigo descreve os requisitos importantes para o serviço de Importação/Exportação do Azure. Recomendamos que você leia as informações com atenção antes de usar o serviço de Importação/Exportação, e consulte-as quando precisar durante a operação.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguintes **sistemas operacionais de 64 bits dão suporte à Criptografia de Unidade de Disco BitLocker**.
 
@@ -43,7 +43,10 @@ O serviço de importação/exportação do Azure é compatível com os seguintes
 
 - Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
 - Contas de Armazenamento de Blobs
-- Contas de armazenamento v1 de Uso Geral (implantações clássicas ou do Azure Resource Manager)
+- Contas de armazenamento de v1 de uso gerais (implantações clássicas ou do Azure Resource Manager)
+
+> [!IMPORTANT]
+> O suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure não tem suporte com a importação/exportação do Azure.
 
 Para saber mais sobre as contas de armazenamento, confira [Azure storage accounts overview](../storage/common/storage-account-overview.md)(Visão geral de contas de armazenamento do Azure).
 

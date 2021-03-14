@@ -4,7 +4,7 @@ description: Esse artigo mostra como configurar sua conta de Serviços de Mídia
 services: media-services
 keywords: DASH, DRM, Modo Offline do Widevine, ExoPlayer, Android
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 828895894464eafc53f74e7c8b5798db4db03533
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693885"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103016127"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline para Windows 10
 

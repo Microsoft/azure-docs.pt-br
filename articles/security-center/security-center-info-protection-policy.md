@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 34d2e8116b7b914803d1bb68b350c9aadd78439f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 432729417a65376533d9ecc201f2f6f52376cc58
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792058"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099396"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Política de proteção de informações do SQL na central de segurança do Azure
  
@@ -32,7 +32,7 @@ O mecanismo de classificação baseia-se nos dois elementos a seguir:
 As opções de política da proteção de informações na central de segurança fornecem um conjunto predefinido de rótulos e tipos de informações que servem como padrões para o mecanismo de classificação. Você pode personalizar a política, de acordo com as necessidades da sua organização, conforme descrito abaixo.
 
 > [!IMPORTANT]
-> Para personalizar a política de proteção de informações para seu locatário do Azure, você precisará de privilégios administrativos no grupo de gerenciamento raiz do locatário. Saiba mais em [obter visibilidade em todo o locatário para a central de segurança do Azure](security-center-management-groups.md).
+> Para personalizar a política de proteção de informações para seu locatário do Azure, você precisará de privilégios administrativos no grupo de gerenciamento raiz do locatário. Saiba mais em [conceder e solicitar visibilidade em todo o locatário](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="A página que mostra sua política de proteção de informações do SQL":::
  
@@ -58,7 +58,7 @@ Cada um deles é mostrado na guia relevante abaixo.
 Na página de **preços e configurações** da central de segurança, selecione **proteção de informações do SQL**.
 
 > [!NOTE]
-> Essa opção só aparece para usuários com permissões de nível de locatário. [Conceda permissões em todo o locatário](https://docs.microsoft.com/azure/security-center/security-center-management-groups#grant-tenant-wide-permissions-to-yourself).
+> Essa opção só aparece para usuários com permissões de nível de locatário. [Conceda permissões em todo o locatário](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acessando a política de proteção de informações do SQL na página preços e configurações da central de segurança do Azure":::
 

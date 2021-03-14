@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090180"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102471"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
@@ -181,7 +181,7 @@ Em geral, as permissões devem ser definidas estaticamente para um determinado a
 
 Para configurar a lista de permissões solicitadas estaticamente para um aplicativo:
 
-1. Vá para seu aplicativo na experiência de início rápido de <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">portal do Azure registros de aplicativo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Vá para seu aplicativo na experiência de início rápido de <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">portal do Azure registros de aplicativo</a> .
 1. Selecione um aplicativo ou [crie um aplicativo](quickstart-register-app.md) , caso ainda não tenha feito isso.
 1. Na página **visão geral** do aplicativo, em **gerenciar**, selecione **permissões de API**  >  **Adicionar uma permissão**.
 1. Selecione **Microsoft Graph** na lista de APIs disponíveis. Em seguida, adicione as permissões que seu aplicativo requer.

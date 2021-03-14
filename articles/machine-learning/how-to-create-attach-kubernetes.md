@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/02/2020
-ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.date: 03/11/2021
+ms.openlocfilehash: bc8f7aa6827ce251799acd0673d43344c0833c3a
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560466"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149317"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster do serviço kubernetes do Azure
 
@@ -26,7 +26,7 @@ Azure Machine Learning pode implantar modelos de aprendizado de máquina treinad
 
 - Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Se você planeja usar uma rede virtual do Azure para proteger a comunicação entre seu espaço de trabalho do Azure ML e o cluster AKS, leia o [isolamento de rede durante o treinamento & artigo inferência](./how-to-network-security-overview.md) .
 
@@ -93,7 +93,7 @@ Ao **anexar** um cluster AKs existente, damos suporte a todas as versões do AKS
 
 ### <a name="available-and-default-versions"></a>Versões padrão e disponíveis
 
-Para localizar as versões de AKS disponíveis e padrão, use o comando [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) [AZ AKs Get-Versions](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_versions). Por exemplo, o comando a seguir retorna as versões disponíveis na região oeste dos EUA:
+Para localizar as versões de AKS disponíveis e padrão, use o comando [CLI do Azure](/cli/azure/install-azure-cli) [AZ AKs Get-Versions](/cli/azure/aks#az_aks_get_versions). Por exemplo, o comando a seguir retorna as versões disponíveis na região oeste dos EUA:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -187,10 +187,10 @@ aks_target.wait_for_completion(show_output = True)
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
-* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -198,7 +198,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 az ml computetarget create aks -n myaks
 ```
 
-Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -219,12 +219,12 @@ Se você já tiver o cluster AKS em sua assinatura do Azure, poderá usá-lo com
 > [!WARNING]
 > Não crie vários anexos simultâneos para o mesmo cluster AKS do seu espaço de trabalho. Por exemplo, anexar um cluster AKS a um espaço de trabalho usando dois nomes diferentes. Cada novo anexo interromperá os anexos existentes anteriores.
 >
-> Se você quiser anexar novamente um cluster AKS, por exemplo, para alterar o TLS ou outra configuração de cluster, primeiro você deve remover o anexo existente usando [AksCompute. Detach ()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--).
+> Se você quiser anexar novamente um cluster AKS, por exemplo, para alterar o TLS ou outra configuração de cluster, primeiro você deve remover o anexo existente usando [AksCompute. Detach ()](/python/api/azureml-core/azureml.core.compute.akscompute#detach--).
 
 Para obter mais informações sobre como criar um cluster AKS usando o CLI do Azure ou o portal, consulte os seguintes artigos:
 
-* [Criar um cluster do AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
-* [Criar um cluster AKS (Portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
+* [Criar um cluster do AKS (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
+* [Criar um cluster AKS (Portal)](../aks/kubernetes-walkthrough-portal.md)
 * [Criar um cluster AKS (modelo ARM nos modelos de início rápido do Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 O exemplo a seguir demonstra como anexar um cluster AKS existente ao seu espaço de trabalho:
@@ -251,9 +251,9 @@ aks_target.wait_for_completion(show_output = True)
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
-* [AksCompute. Attach](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
+* [AksCompute. Attach](/python/api/azureml-core/azureml.core.compute.computetarget#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -275,7 +275,7 @@ Para anexar o cluster existente ao seu espaço de trabalho, use o comando a segu
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para obter mais informações, consulte a referência de [AKs AZ ml computetarget Attach](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) .
+Para obter mais informações, consulte a referência de [AKs AZ ml computetarget Attach](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -284,7 +284,7 @@ Para obter informações sobre como anexar um cluster AKS no portal, consulte [c
 ---
 
 ## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>Criar ou anexar um cluster AKS com terminação TLS
-Ao [criar ou anexar um cluster AKs](how-to-create-attach-kubernetes.md), você pode habilitar a terminação de TLS com os objetos de configuração **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** e **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . O método retorna um objeto de configuração que tem um método **Enable_ssl** , e você pode usar **Enable_ssl** método para habilitar o TLS.
+Ao [criar ou anexar um cluster AKs](how-to-create-attach-kubernetes.md), você pode habilitar a terminação de TLS com os objetos de configuração **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** e **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . O método retorna um objeto de configuração que tem um método **Enable_ssl** , e você pode usar **Enable_ssl** método para habilitar o TLS.
 
 O exemplo a seguir mostra como habilitar o encerramento de TLS com a geração e configuração automáticas de certificado TLS usando o certificado da Microsoft nos bastidores.
 ```python
@@ -293,14 +293,14 @@ O exemplo a seguir mostra como habilitar o encerramento de TLS com a geração e
    # Enable TLS termination when you create an AKS cluster by using provisioning_config object enable_ssl method
 
    # Leaf domain label generates a name using the formula
-   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
    # where "######" is a random series of characters
    provisioning_config.enable_ssl(leaf_domain_label = "contoso")
    
    # Enable TLS termination when you attach an AKS cluster by using attach_config object enable_ssl method
 
    # Leaf domain label generates a name using the formula
-   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
    # where "######" is a random series of characters
    attach_config.enable_ssl(leaf_domain_label = "contoso")
 

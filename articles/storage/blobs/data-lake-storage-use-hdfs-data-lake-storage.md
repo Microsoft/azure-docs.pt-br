@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b73e79c2f7bbd37b640d3e83d98be68d85ed3b5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735362"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ O HDInsight fornece acesso ao contêiner distribuído que está anexado localmen
 Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [Guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI do databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI do databricks](/azure/databricks/dev-tools/cli/).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar a CLI do HDFS com um cluster HDInsight Hadoop no Linux
 
@@ -118,6 +118,6 @@ Consulte [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [ Use uma conta compatível com o Azure Data Lake Gen2 em bancos de dados do Azure ](./data-lake-storage-quickstart-create-databricks-account.md)
+* [ Use uma conta compatível com o Azure Data Lake Gen2 em bancos de dados do Azure ](./data-lake-storage-use-databricks-spark.md)
 
 * [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](./data-lake-storage-access-control.md)

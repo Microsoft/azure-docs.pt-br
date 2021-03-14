@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Saiba mais sobre as ferramentas e os ambientes de desenvolvimento integrados disponíveis no Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecc195b8b97ffd9b25cf12898726352ddd698a9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012376"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519432"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de desenvolvimento no Máquina Virtual de Ciência de Dados do Azure
 
@@ -63,7 +62,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 | O que é?   | IDE baseado na Web para R    |
 | Versões do DSVM com suporte      | Linux      |
 | Usos típicos      |  Desenvolvimento em R     |
-| Como usá-lo e executá-lo      | Habilite o serviço com _systemctl habilite o RStudio-Server_e inicie o serviço com _systemctl Start RStudio-Server_. Em seguida, entre no RStudio Server em http: \/ /Your-VM-IP: 8787.       |
+| Como usá-lo e executá-lo      | Habilite o serviço com _systemctl habilite o RStudio-Server_ e inicie o serviço com _systemctl Start RStudio-Server_. Em seguida, entre no RStudio Server em http: \/ /Your-VM-IP: 8787.       |
 | Ferramentas relacionadas no DSVM      |   Visual Studio, Visual Studio Code, RStudio desktop      |
 
 ## <a name="juno"></a>Juno 

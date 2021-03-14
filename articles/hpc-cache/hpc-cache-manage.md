@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648065"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590787"
 ---
 # <a name="manage-your-cache"></a>Gerenciar seu cache
 
@@ -198,7 +198,7 @@ $
 
 ---
 
-## <a name="collect-diagnostics"></a>Coletar diagnóstico
+## <a name="collect-diagnostics"></a>Coletar o diagnóstico
 
 O botão **coletar diagnósticos** inicia manualmente o processo para coletar informações do sistema e carregá-lo para o serviço Microsoft e o suporte para solução de problemas. O cache coleta e carrega automaticamente as mesmas informações de diagnóstico se ocorre um problema grave de cache.
 
@@ -253,7 +253,7 @@ A página Visão geral mostra grafos para algumas estatísticas básicas de cach
 
 ![captura de tela de três gráficos de linha mostrando as estatísticas mencionadas acima para um cache de exemplo](media/hpc-cache-overview-stats.png)
 
-Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Próximas etapas
 

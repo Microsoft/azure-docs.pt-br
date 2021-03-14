@@ -8,17 +8,17 @@ author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 1729a20825eb554a4fd2ee60141994e57e62f030
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
-ms.translationtype: MT
+ms.openlocfilehash: 51b1f639ada01eda06bdf6c938eef7dce2a379fc
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809712"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448601"
 ---
 # <a name="agent-based-solution-for-device-builders"></a>Solução baseada em agente para construtores de dispositivos
 
@@ -44,7 +44,7 @@ Os alertas e recomendações do defender for IoT (saída de pipeline de análise
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="A arquitetura do micro Agent.":::
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [FAQ do defender for IoT](resources-frequently-asked-questions.md)
 

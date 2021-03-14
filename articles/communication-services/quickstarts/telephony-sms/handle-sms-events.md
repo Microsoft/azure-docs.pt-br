@@ -9,26 +9,28 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d6409c005e006372f55e77aeb4d977e6b1c45832
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: eeb9d5df70dea945608688130a67f564361a5fec
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936261"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489286"
 ---
 # <a name="quickstart-handle-sms-events"></a>Início Rápido: Manipular eventos de SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Introdução aos Serviços de Comunicação do Azure usando a Grade de Eventos do Azure para manipular eventos de SMS dos Serviços de Comunicação. 
+Introdução aos Serviços de Comunicação do Azure usando a Grade de Eventos do Azure para manipular eventos de SMS dos Serviços de Comunicação.
 
 ## <a name="about-azure-event-grid"></a>Sobre a Grade de Eventos do Azure
 
 A [Grade de Eventos do Azure](../../../event-grid/overview.md) é um serviço de eventos baseado em nuvem. Neste artigo, você aprenderá a assinar eventos para [eventos do serviço de comunicação](../../concepts/event-handling.md) e disparar um evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, enviaremos os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Um recurso do Serviço de Comunicação do Azure. Mais detalhes podem ser encontrados no início rápido [Criar um Recurso de Comunicação do Azure](../create-communication-resource.md).
 - Um número de telefone habilitado para SMS. [Obter um número de telefone](./get-phone-number.md).
 
@@ -44,13 +46,13 @@ No Portal do Azure:
 2. Selecione a assinatura que você está usando para a Grade de Eventos.
 3. No menu à esquerda, em **Configurações**, selecione **Provedores de recursos**.
 4. Encontre **Microsoft.EventGrid**.
-5. Se não estiver registrado, selecione **Registrar**. 
+5. Se não estiver registrado, selecione **Registrar**.
 
 A conclusão do registro pode demorar um pouco. Selecione **Atualizar** para atualizar o status. Quando **Status** for **Registrado**, você está pronto para continuar.
 
 ### <a name="event-grid-viewer-deployment"></a>Implantação do Visualizador da Grade de Eventos
 
-Para este guia de início rápido, usaremos o [Exemplo do Visualizador da Grade de Eventos do Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para exibir eventos quase em tempo real. Isso dará ao usuário a experiência de ter um feed em tempo real. Além disso, o conteúdo do evento também deve estar disponível para inspeção.  
+Para este guia de início rápido, usaremos o [Exemplo do Visualizador da Grade de Eventos do Azure](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) para exibir eventos quase em tempo real. Isso dará ao usuário a experiência de ter um feed em tempo real. Além disso, o conteúdo do evento também deve estar disponível para inspeção.
 
 ## <a name="subscribe-to-the-sms-events-using-web-hooks"></a>Assinar os eventos de SMS usando webhooks
 
@@ -62,7 +64,7 @@ Pressione **Adicionar Assinatura de Evento** para entrar no assistente de criaç
 
 Na página **Criar Assinatura de Evento**, insira um **nome** para a assinatura do evento.
 
-Você pode assinar eventos específicos para informar à Grade de Eventos qual dos eventos de SMS você deseja acompanhar e aonde enviar os eventos. Selecione os eventos que você gostaria de assinar no menu suspenso. Para o SMS, você terá a opção de escolher `SMS Received` e `SMS Delivery Report Received`. 
+Você pode assinar eventos específicos para informar à Grade de Eventos qual dos eventos de SMS você deseja acompanhar e aonde enviar os eventos. Selecione os eventos que você gostaria de assinar no menu suspenso. Para o SMS, você terá a opção de escolher `SMS Received` e `SMS Delivery Report Received`.
 
 Se for solicitado que você forneça um **Nome do Tópico do Sistema**, fique à vontade para fornecer uma cadeia de caracteres exclusiva. O campo não tem impacto sobre sua experiência e é usado para fins de telemetria interna.
 
@@ -70,7 +72,7 @@ Confira a lista completa de [eventos com suporte dos Serviços de Comunicação 
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Captura de tela mostrando os tipos de evento de SMS Recebido e Relatório de Entrega de SMS Recebido sendo selecionados.":::
 
-Selecione **Web Hook** para o **Tipo de ponto de extremidade**. 
+Selecione **Web Hook** para o **Tipo de ponto de extremidade**.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Captura de tela mostrando o campo Tipo de Ponto de Extremidade sendo definido como Web Hook.":::
 
@@ -111,7 +113,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 Neste guia de início rápido, você aprendeu a consumir eventos de SMS. Você pode receber mensagens SMS criando uma assinatura da Grade de Eventos.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Enviar SMS](../telephony-sms/send.md)
 
 Você também pode querer:

@@ -1,20 +1,20 @@
 ---
-title: Como usar o armazenamento de filas do Azure do Python – armazenamento do Azure
+title: Como usar o armazenamento de filas do Azure do Python
 description: Saiba como usar o armazenamento de filas do Azure do Python para criar e excluir filas, e inserir, obter e excluir mensagens.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600800"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653254"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Como usar o armazenamento de filas do Azure do Python
 
@@ -24,7 +24,7 @@ ms.locfileid: "98600800"
 
 Este artigo demonstra cenários comuns usando o serviço de armazenamento de filas do Azure. Os cenários abordados incluem inserção, inspeção, obtenção e exclusão de mensagens da fila. O código para criar e excluir filas também é abordado.
 
-Os exemplos neste artigo são escritos em Python e usam a [biblioteca de cliente de armazenamento de filas do Azure para Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
+Os exemplos neste artigo são escritos em Python e usam a [biblioteca de cliente de armazenamento de filas do Azure para Python](https://github.com/azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue). Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -117,6 +117,26 @@ queue_service.create_queue(queue_name)
 
 ---
 
+As mensagens da fila do Azure são armazenadas como texto. Se você quiser armazenar dados binários, configure as funções codificação Base64 e decodificação antes de colocar uma mensagem na fila.
+
+# <a name="python-v12"></a>[Python V12](#tab/python)
+
+Configure a codificação Base64 e decodificação de funções ao criar o objeto de cliente.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Configurar a codificação Base64 e decodificar funções no objeto de armazenamento de fila.
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_service.encode_function = QueueMessageFormat.binary_base64encode
+queue_service.decode_function = QueueMessageFormat.binary_base64decode
+```
+
+---
+
 ## <a name="insert-a-message-into-a-queue"></a>Inserir uma mensagem em uma fila
 
 # <a name="python-v12"></a>[Python V12](#tab/python)
@@ -133,26 +153,6 @@ Para inserir uma mensagem em uma fila, use o [`put_message`](/azure/developer/py
 message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
-```
-
----
-
-As mensagens da fila do Azure são armazenadas como texto. Se você quiser armazenar dados binários, configure as funções codificação Base64 e decodificação antes de colocar uma mensagem na fila.
-
-# <a name="python-v12"></a>[Python V12](#tab/python)
-
-Configure a codificação Base64 e decodificação de funções no objeto de cliente fila.
-
-:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
-
-# <a name="python-v2"></a>[Python v2](#tab/python2)
-
-Configurar a codificação Base64 e decodificar funções no objeto de armazenamento de fila.
-
-```python
-# Setup Base64 encoding and decoding functions
-queue_service.encode_function = QueueMessageFormat.binary_base64encode
-queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
 ---

@@ -3,17 +3,17 @@ title: Suporte para VMs de geração 2 no Azure
 description: Visão geral do suporte do Azure para VMs de geração 2
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: generation-2-vm
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: a9c832d9a5e90cb2c9ffcbe8a26cdb08ebcddfcc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759731"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553112"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -79,11 +79,13 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 | Recurso de geração 2                | Hyper-V local | Azure |
 |-------------------------------------|---------------------|-------|
-| Inicialização Segura                         | :heavy_check_mark:  | :x:   |
+| Inicialização Segura                         | :heavy_check_mark:  | Com inicialização confiável (versão prévia)   |
 | VM blindada                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | Com inicialização confiável (versão prévia)  |
+| Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | Com inicialização confiável (versão prévia)   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
+
+Para obter mais informações, consulte [inicialização confiável (versão prévia)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Recursos e funcionalidades
 
@@ -105,7 +107,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
-| [Criptografia de disco do Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Criptografia de disco do Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Criptografia no servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
@@ -206,7 +208,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
     Sim. Para obter mais informações, consulte [Criar uma VM com rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **As VMs de geração 2 dão suporte à inicialização segura ou vTPM no Azure?**
-    As VMs de geração 1 e de geração 2 no Azure não oferecem suporte à inicialização segura ou vTPM. 
+    Tanto o vTPM quanto o Secure boot são recursos de inicialização confiável (versão prévia) para VMs de geração 2. Para obter mais informações, consulte [inicialização confiável](trusted-launch.md).
     
 * **Há suporte para VHDX na geração 2?**  
     Não, as VMs de geração 2 dão suporte apenas a VHD.
@@ -225,5 +227,7 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
     1. Verifique se você está procurando um [tamanho de VMs que dá suporte a VMs Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre a [inicialização confiável (versão prévia)](trusted-launch-portal.md) com VMs Gen 2.
 
 Saiba mais sobre [máquinas virtuais geração 2 no Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

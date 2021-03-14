@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: cf53b3165863c6f22ce4c9a74d002eafd2dcc329
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: 55495d690511c1ebfbd81b80ad9c99d76e708146
+  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92792337"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102566394"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
@@ -108,16 +108,16 @@ conceptualContent:
     - url: ./general/client-libraries.md
       itemType: reference
       text: Bibliotecas de cliente para Azure Key Vault
-    - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - url: /dotnet/api/overview/azure/key-vault
       itemType: reference
       text: Biblioteca de clientes do .NET
-    - url: /python/api/overview/azure/key-vault-index?view=azure-python
+    - url: /python/api/overview/azure/key-vault-index
       itemType: reference
       text: Biblioteca de clientes do Python
     - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
       itemType: reference
       text: Biblioteca de clientes do Java
-    - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    - url: /javascript/api/overview/azure/key-vault-index
       itemType: reference
       text: Biblioteca de clientes do Node.js
   - title: Key Vault com armazenamento
@@ -153,7 +153,7 @@ conceptualContent:
       text: Key Vault com os Conjuntos de Dimensionamento de Máquinas Virtuais
   - title: Integração do Cofre da Chave
     links:
-    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
+    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
       itemType: overview
       text: Azure DevOps – referenciar segredos do Key Vault no Azure Pipelines
     - url: ../app-service/app-service-key-vault-references.md

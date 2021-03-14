@@ -6,18 +6,18 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 03/02/2021
 ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
-adobe-target-content: connect-mongodb-account-experimental.md
-ms.openlocfilehash: d3e619559f1fb2500904aa7349aa131fd9b5fc00
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+adobe-target-content: ./connect-mongodb-account-experimental
+ms.openlocfilehash: b3e10931307914f1471b8a6fbffd38953ee4717b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980772"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659470"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo do MongoDB ao Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -74,6 +74,12 @@ Os valores dessa cadeia de caracteres estão disponíveis na folha **Cadeia de c
 Por exemplo, considere a conta mostrada na folha **Cadeia de conexão**. Uma cadeia de conexão válida é:
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
+
+## <a name="driver-requirements"></a>Requisitos de driver
+
+Todos os drivers que suportam o protocolo de conexão versão 3,4 ou superior oferecerão suporte à API Azure Cosmos DB para MongoDB.
+
+Especificamente, os drivers de cliente devem dar suporte à extensão de TLS do SNI (identificação do nome do serviço) e/ou à opção de cadeia de conexão appName. Se o `appName` parâmetro for fornecido, ele deverá ser incluído como encontrado no valor da cadeia de conexão no portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

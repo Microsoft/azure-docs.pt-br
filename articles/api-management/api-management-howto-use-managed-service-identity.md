@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605591"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521536"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
@@ -263,6 +263,19 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar para o back-end usando uma identidade de gerenciamento de API
 
 Você pode usar a identidade atribuída pelo sistema para se autenticar no back-end por meio da política de [identidade gerenciada por autenticação](api-management-authentication-policies.md#ManagedIdentity) .
+
+### <a name="connect-to-azure-resources-behind-ip-firewall-using-system-assigned-managed-identity"></a><a name="apim-as-trusted-service"></a>Conectar-se aos recursos do Azure por trás do firewall IP usando a identidade gerenciada atribuída pelo sistema
+
+
+O gerenciamento de API é um serviço confiável da Microsoft para os seguintes recursos. Isso permite que o serviço se conecte aos recursos a seguir por trás de um firewall. Depois de atribuir explicitamente a função apropriada do Azure à [identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso, o escopo de acesso da instância do corresponde à função do Azure atribuída à identidade gerenciada.
+
+
+|Serviço do Azure | Link|
+|---|---|
+|Armazenamento do Azure | [Acesso confiável ao Azure-Storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
+|Barramento de Serviço do Azure | [Acesso confiável-para-Azure-Service-Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
+|Hub de Eventos do Azure | [Confiáveis-Access-to-Azure-Hub de eventos](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
+
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 

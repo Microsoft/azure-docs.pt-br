@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590553"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096115"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com o data vazamento Protection habilitado
 Este artigo descreve como criar um espaço de trabalho com a proteção de vazamento de dados habilitada e como gerenciar os locatários do Azure AD aprovados para este espaço de trabalho.
@@ -49,6 +49,11 @@ Você pode criar pontos de extremidade privados gerenciados para se conectar aos
 >[!IMPORTANT]
 >Os recursos em locatários diferentes do locatário do espaço de trabalho não devem bloquear as regras de firewall em vigor para que os pools do SQL se conectem a eles. Os recursos dentro da rede virtual gerenciada do espaço de trabalho, como clusters do Spark, podem se conectar por meio de links privados gerenciados para recursos protegidos por firewall.
 
+## <a name="known-limitations"></a>Limitações conhecidas
+Os usuários podem fornecer um arquivo de configuração de ambiente para instalar pacotes python de repositórios públicos, como PyPI. Em espaços de trabalho protegidos por data vazamento, as conexões com repositórios de saída são bloqueadas. Como resultado, a biblioteca do Python instalada a partir de repositórios públicos, como PyPI, não é suportada. 
+
+Como alternativa, os usuários podem carregar pacotes de espaço de trabalho ou criar um canal privado dentro de sua conta de Azure Data Lake Storage primária. Para obter mais informações, visite [Gerenciamento de pacotes no Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 
+  
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [proteção de vazamento de dados em espaços de trabalho do Synapse](./workspace-data-exfiltration-protection.md)

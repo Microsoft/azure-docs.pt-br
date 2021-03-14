@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589341"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorando operações de gerenciamento de Instância Gerenciada do SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ A maioria das operações de gerenciamento são [operações de longa execução
 Há várias maneiras de monitorar as operações gerenciadas de gerenciamento de instância:
 
 - [Implantações de grupo de recursos](../../azure-resource-manager/templates/deployment-history.md)
-- [Log de atividades](../../azure-monitor/platform/activity-log.md)
+- [Log de atividades](../../azure-monitor/essentials/activity-log.md)
 - [API de operações de instância gerenciada](#managed-instance-operations-api)
 
 
@@ -46,7 +46,7 @@ A tabela a seguir compara as opções de monitoramento da operação de gerencia
 | Opção | Retenção | Dá suporte a cancelar | Criar | Atualizar | Excluir | Cancelar | Etapas |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Implantações de grupo de recursos | Infinito<sup>1</sup> | Não<sup>2</sup> | Visible | Visible | Não visível | Visible | Não visível |
-| Log de atividades | 90 dias | Não | Visible | Visible | Visible | Visible |  Não visível |
+| Log de atividades | 90 dias | No | Visible | Visible | Visible | Visible |  Não visível |
 | API de operações de instância gerenciada | 24 horas | [Sim](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 

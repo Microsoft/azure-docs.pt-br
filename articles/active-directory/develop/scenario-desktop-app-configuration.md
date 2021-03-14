@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 372efa217e400ffd4bcecd286f3c3dc7b81f64d6
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756565"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007950"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicativo de área de trabalho que chama APIs da Web: configuração de código
 
 Agora que você criou seu aplicativo, você aprenderá a configurar o código com as coordenadas do aplicativo.
 
-## <a name="microsoft-authentication-libraries"></a>Bibliotecas de autenticação da Microsoft
+## <a name="microsoft-libraries-supporting-desktop-apps"></a>Microsoft Libraries que dão suporte a aplicativos da área de trabalho
 
-As seguintes MSALs (bibliotecas de autenticação da Microsoft) oferecem suporte a aplicativos de área de trabalho.
+As seguintes bibliotecas da Microsoft dão suporte a aplicativos da área de trabalho:
 
-  Biblioteca de Autenticação da Microsoft | Descrição
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas, como Linux, Windows e macOS.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Dá suporte a aplicativos de área de trabalho que são executados somente no macOS.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## <a name="public-client-application"></a>Aplicativo cliente público
 

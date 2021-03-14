@@ -5,18 +5,18 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 275e57e5dcf173e8d5f30f262641b02698910422
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209404"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585916"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Como criar alertas para Controle de Alterações e inventário
 
 Os alertas no Azure notificam proativamente os resultados de trabalhos de runbook, problemas de integridade do serviço ou outros cenários relacionados à sua conta de automação. A automação do Azure não inclui regras de alerta pré-configuradas, mas você pode criar suas próprias com base nos dados que ele gera. Este artigo fornece orientação sobre como criar regras de alerta com base nas alterações identificadas por Controle de Alterações e inventário.
 
-Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../../azure-monitor/platform/alerts-unified-log.md).
+Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../../azure-monitor/alerts/alerts-unified-log.md).
 
 ## <a name="create-alert"></a>Criar alerta
 
@@ -38,11 +38,11 @@ Vamos usar este exemplo para discutir as etapas para criar alertas em uma altera
 
 5. Depois que a lógica de alerta for definida, atribua grupos de ações para executar ações em resposta ao disparo do alerta. Nesse caso, estamos configurando emails a serem enviados e um tíquete de ITSM (Gerenciamento de Serviços de TI) a ser criado.
 
-Siga as etapas abaixo para configurar alertas para que você saiba o status de uma implantação de atualização. Se você for novo nos alertas do Azure, consulte [visão geral de alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
+Siga as etapas abaixo para configurar alertas para que você saiba o status de uma implantação de atualização. Se você for novo nos alertas do Azure, consulte [visão geral de alertas do Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configurar grupos de ações para seus alertas
 
-Depois de configurar os alertas, você pode configurar um grupo de ações, que é um grupo de ações a serem usadas em vários alertas. As ações podem incluir notificações por email, runbooks, WebHooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../../azure-monitor/platform/action-groups.md).
+Depois de configurar os alertas, você pode configurar um grupo de ações, que é um grupo de ações a serem usadas em vários alertas. As ações podem incluir notificações por email, runbooks, WebHooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../../azure-monitor/alerts/action-groups.md).
 
 1. Selecione um alerta e, em seguida, selecione **Criar** em **Grupos de Ações**.
 
@@ -66,8 +66,8 @@ Depois de configurar os alertas, você pode configurar um grupo de ações, que 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [alertas no Azure monitor](../../azure-monitor/platform/alerts-overview.md).
+* Saiba mais sobre [alertas no Azure monitor](../../azure-monitor/alerts/alerts-overview.md).
 
-* Saiba mais sobre [consultas de log](../../azure-monitor/log-query/log-query-overview.md) para recuperar e analisar dados de um espaço de trabalho log Analytics.
+* Saiba mais sobre [consultas de log](../../azure-monitor/logs/log-query-overview.md) para recuperar e analisar dados de um espaço de trabalho log Analytics.
 
-* Gerenciar o [uso e os custos com logs de Azure monitor](../../azure-monitor/platform/manage-cost-storage.md) descreve como controlar seus custos alterando seu período de retenção de dados e como analisar e alertar o uso de dados.
+* Gerenciar o [uso e os custos com logs de Azure monitor](../../azure-monitor/logs/manage-cost-storage.md) descreve como controlar seus custos alterando seu período de retenção de dados e como analisar e alertar o uso de dados.

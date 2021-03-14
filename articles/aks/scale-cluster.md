@@ -4,12 +4,12 @@ description: Saiba como dimensionar o número de nós em um cluster do AKS (Serv
 services: container-service
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb61bf090351894329c24eb1a3c73d627e622e8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902946"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173759"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar a contagem de nós em um cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -93,4 +93,4 @@ Neste artigo, você dimensionou manualmente um cluster AKS para aumentar ou dimi
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale

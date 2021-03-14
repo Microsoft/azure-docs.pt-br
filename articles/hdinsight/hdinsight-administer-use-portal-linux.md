@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942820"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091434"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -54,10 +54,10 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |---|---|
     |Visão geral|Fornece informações gerais para o cluster.|
     |Log de atividades|Mostra e consulta logs de atividades.|
-    |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
-    |Marcas|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto** e usar um valor comum para todos os serviços associados a um projeto específico.|
+    |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
+    |Marcações|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto** e usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Exibe informações sobre solução de problemas.|
-    |Guia de Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
+    |Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
     |Ferramentas|Informações de ajuda para ferramentas relacionadas ao HDInsight.|
 
   - **Menu configurações**  
@@ -74,7 +74,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
     |Propriedades|Exibe as [propriedades do cluster](#properties).|
-    |Bloqueios|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
+    |Locks|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
     |Exportar modelo|Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menu Monitoramento**
@@ -263,7 +263,7 @@ O bloco **tamanho do cluster** do [Home Page de cluster](#homePage) exibe o núm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu algumas funções administrativas básicas. Confira os seguintes artigos para saber mais:
 
 - [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 - [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)

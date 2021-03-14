@@ -1,19 +1,17 @@
 ---
 title: Cópia em massa de dados de arquivos para banco de dados
 description: Saiba como usar um modelo de solução para copiar dados em massa do Azure Data Lake Storage Gen2 para o Azure Synapse Analytics/Banco de Dados SQL do Azure.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5f68c7b33a26bc8c01f3f413943351ff8d61b380
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920426"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376114"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de dados de arquivos para banco de dados
 

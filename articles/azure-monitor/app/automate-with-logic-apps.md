@@ -3,19 +3,19 @@ title: Automatizar processos do insights Aplicativo Azure usando aplicativos ló
 description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970867"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589928"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
 Você está executando repetidamente as mesmas consultas nos dados telemétricos para verificar se o serviço está funcionando adequadamente? Deseja automatizar essas consultas para descobrir tendências e anomalias e então criar seus próprios fluxos de trabalho para elas? O conector do insights Aplicativo Azure para aplicativos lógicos é a ferramenta certa para essa finalidade.
 
 > [!NOTE]
-> O conector do insights Aplicativo Azure foi substituído pelo [conector de Azure monitor](../platform/logicapp-flow-connector.md) integrado ao Azure Active Directory em vez de exigir uma chave de API e também permite que você recupere dados de um espaço de trabalho log Analytics.
+> O conector do insights Aplicativo Azure foi substituído pelo [conector de Azure monitor](../logs/logicapp-flow-connector.md) integrado ao Azure Active Directory em vez de exigir uma chave de API e também permite que você recupere dados de um espaço de trabalho log Analytics.
 
 Com essa integração, você pode automatizar diversos processos sem a necessidade de escrever nenhuma linha de código. É possível criar um Aplicativo Lógico com o conector do Application Insights para automatizar rapidamente qualquer processo do Application Insights. 
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
     ![Janela Designer de Aplicativo Lógico](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa  **intervalo** , digite **1** e, em seguida, caixa**frequência** , selecione **dia**.
+1. Na caixa  **intervalo** , digite **1** e, em seguida, caixa **frequência** , selecione **dia**.
 
     ![Janela "Recorrência" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -130,7 +130,7 @@ Quando o aplicativo lógico for executado, os destinatários especificados na li
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como criar [consultas do Analytics](../log-query/get-started-queries.md).
+- Saiba mais sobre como criar [consultas do Analytics](../logs/get-started-queries.md).
 - Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
 
 

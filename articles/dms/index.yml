@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: c2461fa9eb2c326141d244fbc576355226f891dd
-  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+  ms.openlocfilehash: a154a3a6579ff3414502b16dcfe6d60748840a6c
+  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94962698"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102183287"
 landingContent:
 - title: Serviço de Migração de Banco de Dados do Azure
   linkLists:
@@ -57,29 +57,25 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrar para o banco de dados individual do BD SQL – online
-      url: tutorial-sql-server-azure-sql-online.md
-    - text: Migrar para o banco de dados individual do BD SQL – offline
+    - text: Migrar para o Banco de Dados SQL do Azure
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Migrar para a instância gerenciada do BD SQL – online
+    - text: Migrar para a Instância Gerenciada de SQL do Azure (online)
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Migrar para a instância gerenciada do BD SQL – offline
+    - text: Migrar para a Instância Gerenciada de SQL (offline)
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migrar o RDS SQL Server para o banco de dados individual/a instância gerenciada do BD SQL – online
-      url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: reference
     links:
-    - text: Problemas conhecidos – Migração online para o banco de dados individual do BD SQL
+    - text: Problemas conhecidos – Migração online para o Banco de Dados SQL
       url: known-issues-azure-sql-online.md
-    - text: Problemas conhecidos – Migração online para a instância gerenciada do BD SQL
+    - text: Problemas conhecidos – Migração online para a Instância Gerenciada de SQL
       url: known-issues-azure-sql-db-managed-instance-online.md
-    - text: Topologias de rede para migrações de instância gerenciada do BD SQL
+    - text: Topologias de rede para migrações de Instância Gerenciada de SQL
       url: resource-network-topologies.md
-    - text: Funções personalizadas para migrações online do SQL Server para a instância gerenciada do BD SQL
+    - text: Funções personalizadas para migrações online do SQL Server para a Instância Gerenciada de SQL
       url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
-    - text: Migrar o SQL Server 2008 para a instância gerenciada do BD SQL
+    - text: Migrar o SQL Server 2008 para a Instância Gerenciada de SQL
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 - title: Migrar bancos de dados open-source para o Azure
   linkLists:

@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: c79159fca9d619b727ef651bf42044182144ab35
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 64266e72bf2aa24ac7fbf70f87f27739709fa0be
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842508"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626335"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint dos Serviços Compartilhados ISO 27001
 

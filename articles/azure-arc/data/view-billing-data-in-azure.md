@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7ef1cd43d2efbc5ab92cc2b4cba4d237805d8921
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206445"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202647"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carregar dados de cobrança no Azure e exibi-los no portal do Azure
 
 > [!IMPORTANT] 
->  Não há nenhum custo para usar os serviços de dados habilitados para o Azure Arc durante o período de versão prévia. Embora o sistema de cobrança funcione de ponta a ponta, o medidor de cobrança é definido como $0.  Se você seguir este cenário, verá entradas em sua cobrança para um serviço chamado atualmente serviços de **dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureData/ `<resource type>` **. Você poderá ver um registro para cada serviço de dados-arco do Azure que você criar, mas cada registro será cobrado por $0.
+>  Não há nenhum custo para usar os serviços de dados habilitados para o Azure Arc durante o período de versão prévia. Embora o sistema de cobrança funcione de ponta a ponta, o medidor de cobrança é definido como $0.  Se você seguir esse cenário, verá entradas em sua cobrança para um serviço chamado atualmente serviços de **dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureArcData/ `<resource type>`**. Você poderá ver um registro para cada serviço de dados-arco do Azure que você criar, mas cada registro será cobrado por $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,14 +111,15 @@ azdata arc dc upload -p usage.json
 
 Siga estas etapas para exibir dados de cobrança no portal do Azure:
 
-1. Abra o portal do Azure usando a URL especial:  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa na parte superior do tipo de tela em **Gerenciamento de custos** e clique no serviço gerenciamento de custos.
+1. Em **visão geral do gerenciamento de custos**, clique na guia **Gerenciamento de custos** .
 1. Clique na guia **análise de custo** à esquerda.
 1. Clique no botão **custo por recurso** na parte superior da exibição.
 1. Verifique se o escopo está definido para a assinatura na qual os recursos do serviço de dados foram criados.
 1. Selecione **custo por recurso** na lista suspensa de exibição ao lado do seletor de escopo próximo à parte superior da exibição.
 1. Verifique se o filtro de data está definido para **este mês** ou outro intervalo de tempo que faz sentido dado o tempo de quando você criou os recursos do serviço de dados.
-1. Clique em **Adicionar filtro** para adicionar um filtro por **tipo de recurso**  =  `microsoft.azuredata/<data service type>` se você quiser filtrar para apenas um tipo de serviço de dados habilitado para Arc do Azure.
+1. Clique em **Adicionar filtro** para adicionar um filtro por **tipo de recurso**  =  `Microsoft.AzureArcData/<data service type>` se você quiser filtrar para apenas um tipo de serviço de dados habilitado para Arc do Azure.
 1. Agora, você verá uma lista de todos os recursos que foram criados e carregados no Azure. Como o medidor de cobrança é $0, você verá que o custo é sempre $0.
 
 ## <a name="download-billing-data"></a>Baixar dados de cobrança
@@ -158,5 +159,5 @@ Você pode validar os arquivos de dados de cobrança no portal do Azure.
 7. Faça uma busca detalhada nas pastas e nos arquivos gerados e clique em um dos arquivos. csv gerados.
 8. Clique no botão **baixar** , que salvará o arquivo em sua pasta de downloads local.
 9. Abra o arquivo usando um visualizador de arquivos. csv, como o Excel.
-10. Filtre os resultados para mostrar apenas as linhas com o **tipo de recurso**  =  `Microsoft.AzureData/<data service resource type` .
+10. Filtre os resultados para mostrar apenas as linhas com o **tipo de recurso**  =  `Microsoft.AzureArcData/<data service resource type` .
 11. Você verá o número de horas que a instância foi usada no período de 24 horas atual na coluna UsageQuantity.

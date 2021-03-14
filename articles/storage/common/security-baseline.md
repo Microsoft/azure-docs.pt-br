@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195714"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714707"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
 
@@ -158,7 +158,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -180,7 +180,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: ingerir logs por meio de Azure monitor para agregar dados de segurança gerados por dispositivos de pontos de extremidade, recursos de rede e outros sistemas de segurança. Em Azure Monitor, use Log Analytics espaços de trabalho para consultar e executar análises e use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento, opcionalmente com recursos de segurança como armazenamento imutável e retenção imposta.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -190,7 +190,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Diretrizes**: análise de armazenamento do Azure fornece logs para BLOBs, filas e tabelas. Você pode usar o portal do Azure para configurar quais logs são registrados para sua conta. 
 
-- [Como configurar o monitoramento para sua conta de armazenamento do Azure](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Como configurar o monitoramento para sua conta de armazenamento do Azure](./manage-storage-analytics-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -208,9 +208,9 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: ao armazenar logs de eventos de segurança na conta de armazenamento do Azure ou log Analytics espaço de trabalho, você pode definir a política de retenção de acordo com os requisitos da sua organização. 
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](./storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](./manage-storage-analytics-logs.md#configure-logging)
 
-- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -238,7 +238,7 @@ Além disso, habilite a proteção avançada contra ameaças para sua conta de a
 
 - [Como gerenciar alertas na central de segurança do Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Log da análise do Armazenamento do Azure](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 - [Entenda as detecções de risco do Azure Active Directory](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como configurar grupos de ação para alertas e notificações personalizados](../../azure-monitor/platform/action-groups.md)
+- [Como configurar grupos de ação para alertas e notificações personalizados](../../azure-monitor/alerts/action-groups.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -414,7 +414,7 @@ Uma maneira eficaz de reduzir o risco de acesso à conta de usuário não suspei
 
 - [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](../blobs/anonymous-read-access-configure.md)
 
-- [Monitorar uma conta de armazenamento no portal do Azure](./storage-monitor-storage-account.md)
+- [Monitorar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md)
 
 - [Gerenciar chaves de acesso da conta de armazenamento](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Crie configurações de diagnóstico para Azure Active Directory contas de usuá
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como configurar alertas de métricas para contas de armazenamento do Azure](./storage-monitor-storage-account.md)
+- [Como configurar alertas de métricas para contas de armazenamento do Azure](./manage-storage-analytics-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -572,11 +572,11 @@ Além disso, use políticas de ponto de extremidade de serviço de rede virtual 
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para os recursos da conta de armazenamento. Você também pode habilitar o log de armazenamento do Azure para controlar como cada solicitação feita no armazenamento do Azure foi autorizada. Os logs indicam se uma solicitação foi feita anonimamente, usando um token OAuth 2,0, usando a chave compartilhada ou usando uma SAS (assinatura de acesso compartilhado). Além disso, use Azure Monitor para alertar sobre o acesso anônimo para contas de armazenamento usando a condição de autenticação anônima.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Log da análise do Armazenamento do Azure](./storage-analytics-logging.md)
 
-- [Como configurar alertas de métricas para contas de armazenamento do Azure](./storage-monitor-storage-account.md)
+- [Como configurar alertas de métricas para contas de armazenamento do Azure](./manage-storage-analytics-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

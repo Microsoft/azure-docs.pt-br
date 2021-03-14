@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013627"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104171"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
 
@@ -34,7 +34,7 @@ A tabela a seguir resume o comportamento padrão do valor de domínio do Publica
 
 | Domínios verificados por locatário | Valor padrão do domínio do Publicador |
 |-------------------------|----------------------------|
-| null | null |
+| nulo | nulo |
 | *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primário) | domain2.com |
 
@@ -48,18 +48,12 @@ Se seu aplicativo foi registrado antes de 21 de maio de 2019, o prompt de consen
 
 Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a> usando uma conta corporativa ou de estudante ou uma conta Microsoft pessoal.
-
-1. Se sua conta estiver presente em mais de um locatário do Azure AD:
-   1. Selecione seu perfil no menu no canto superior direito da página e, em seguida, escolha **Alternar diretório**.
-   1. Altere a sessão para o locatário do Azure AD no qual você deseja criar seu aplicativo.
-
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se você tiver acesso a vários locatários, use o filtro **diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual o aplicativo está registrado.
 1. Navegue até [Azure Active Directory > registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para localizar e selecionar o aplicativo que você deseja configurar.
 
    Depois de selecionar o aplicativo, você verá a página **visão geral** do aplicativo.
-
-1. Na página **visão geral** do aplicativo, selecione a seção **identidade visual** .
-
+1. Em **gerenciar**, selecione a **identidade visual**.
 1. Localize o campo **domínio do Publicador** e selecione uma das seguintes opções:
 
    - Selecione **configurar um domínio** se ainda não tiver configurado um domínio.

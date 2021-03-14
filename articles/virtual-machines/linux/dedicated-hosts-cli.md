@@ -3,15 +3,16 @@ title: Implantar VMs e instâncias do conjunto de dimensionamento para hosts ded
 description: Implante VMs e instâncias do conjunto de dimensionamento para hosts dedicados usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dcb5a3c664386e65e676f5559c47236126fefe87
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9d4117cafd665556fb60278aa4dc60dc14a27ada
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704921"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670533"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implantar em hosts dedicados usando o CLI do Azure
  

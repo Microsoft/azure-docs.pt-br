@@ -1,28 +1,22 @@
 ---
 title: Copiar os novos arquivos incrementalmente com base no nome do arquivo particionado
 description: Crie um data factory do Azure e, em seguida, use a ferramenta Copiar Dados para carregar incrementalmente novos arquivos com base no nome do arquivo particionado.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ae66bb025f2a49a79120fe86e0de7c4a3ccf26ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 02/18/2021
+ms.openlocfilehash: aa6c0d9035f172cc7fb520ff58f233a82fca228a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741065"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, você usa a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente novos arquivos com base no nome de arquivo particionado do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure.
 
@@ -38,8 +32,8 @@ Neste tutorial, você executa as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure** : Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure** : Use o armazenamento de BLOBs como o armazenamento de dados de _origem_  e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
+* **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de armazenamento do Azure**: Use o armazenamento de BLOBs como o armazenamento de dados de _origem_  e de _coletor_ . Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Criar dois contêineres no armazenamento de BLOBs
 
@@ -54,13 +48,13 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 2. Crie um contêiner chamado **destino**. É possível usar várias ferramentas para executar essas tarefas, como o [Azure Storage Explorer](https://storageexplorer.com/).
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **criar um recurso**  >  **integração**  >  **Data Factory** :
+1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**:
 
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. Na página **Novo data factory** , em **Nome** , insira **ADFTutorialDataFactory**.
+2. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
     O nome do seu data factory deve ser _globalmente exclusivo_. Você deve ver a seguinte mensagem de erro:
 
@@ -68,7 +62,7 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
    Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
 3. Selecione a **assinatura** do Azure na qual deseja criar o novo data factory.
-4. Em **Grupo de Recursos** , use uma das seguintes etapas:
+4. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
     a. Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
 
@@ -76,8 +70,8 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
          
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
 
-5. Em **versão** , selecione **V2** para a versão.
-6. Em **local** , selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo seu data factory podem estar em outros locais e regiões.
+5. Em **versão**, selecione **V2** para a versão.
+6. Em **local**, selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo seu data factory podem estar em outros locais e regiões.
 7. Selecione **Criar**.
 8. Depois de finalizada a criação, a home page do **Data Factory** é exibida.
 9. Para iniciar a interface do usuário do Azure Data Factory em uma guia separada, selecione o bloco **Criar e Monitorar**.
@@ -93,20 +87,20 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
 2. Na página **Propriedades** , execute as seguintes etapas:
 
-    a. Em **nome da tarefa** , insira **DeltaCopyFromBlobPipeline**.
+    a. Em **nome da tarefa**, insira **DeltaCopyFromBlobPipeline**.
 
-    b. Em **cadência da tarefa ou no agendamento da tarefa** , selecione **executar regularmente na agenda**.
+    b. Em **cadência da tarefa ou no agendamento da tarefa**, selecione **executar regularmente na agenda**.
 
-    c. Em **tipo de gatilho** , selecione **janela em cascata**.
+    c. Em **tipo de gatilho**, selecione **janela em cascata**.
 
-    d. Em **recorrência** , insira **1 hora (s)**.
+    d. Em **recorrência**, insira **1 hora (s)**.
 
     e. Selecione **Avançar**.
 
     A interface do usuário do Data Factory cria um pipeline com o nome especificado da tarefa.
 
     ![Página Propriedades](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png)
-3. Na página **Configurações do armazenamento de dados** , conclua as seguintes etapas:
+3. Na página **Configurações do armazenamento de dados**, conclua as seguintes etapas:
 
     a. Clique em **+ Criar nova conexão** para adicionar uma conexão
     
@@ -118,19 +112,19 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
 
     d. Selecione o serviço vinculado recém-criado na página **armazenamento de dados de origem** e clique em **Avançar**.
 
-4. Na página **Escolher o arquivo ou a pasta de entrada** , execute as etapas a seguir:
+4. Na página **Escolher o arquivo ou a pasta de entrada**, execute as etapas a seguir:
 
     a. Procure e selecione o contêiner de **origem** e selecione **escolher**.
 
     ![Captura de tela mostra a caixa de diálogo Escolher arquivo de entrada ou pasta.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
-    b. Em **comportamento de carregamento de arquivo** , selecione **carga incremental: nomes de pasta/arquivo particionados por tempo**.
+    b. Em **comportamento de carregamento de arquivo**, selecione **carga incremental: nomes de pasta/arquivo particionados por tempo**.
 
     c. Grave o caminho da pasta dinâmica como **origem/{ano}/{mês}/{dia}/{hora}/** e altere o formato, conforme mostrado na captura de tela a seguir. Marque **cópia binária** e clique em **Avançar**.
 
     ![Captura de tela mostra a caixa de diálogo Escolher arquivo ou pasta de entrada com uma pasta selecionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
-5. Na página **armazenamento de dados de destino** , selecione o **AzureBlobStorage** , que é a mesma conta de armazenamento que o armazenamento de fonte de dados e clique em **Avançar**.
+5. Na página **armazenamento de dados de destino** , selecione o **AzureBlobStorage**, que é a mesma conta de armazenamento que o armazenamento de fonte de dados e clique em **Avançar**.
 
     ![Página Armazenamento de dados de destino](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)
 6. Na página **escolher o arquivo de saída ou a pasta** , execute as seguintes etapas:
@@ -144,13 +138,13 @@ Prepare o armazenamento de BLOBs para o tutorial executando estas etapas.
     c. Clique em **Avançar**.
 
     ![Captura de tela mostra a caixa de diálogo Escolher arquivo de saída ou pasta com a próxima selecionada.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
-7. Na página **Configurações** , selecione **Avançar**.
+7. Na página **Configurações**, selecione **Avançar**.
 
-8. Na página **Resumo** , analise as configurações e selecione **Avançar**.
+8. Na página **Resumo**, analise as configurações e selecione **Avançar**.
 
     ![Página Resumo](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
 
-9. Na **página Implantação** , selecione **Monitorar** para monitorar o pipeline (tarefa).
+9. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa).
     ![Página Implantação](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
 
 10. Observe que a guia **Monitor** à esquerda é selecionada automaticamente.  Você precisa aguardar a execução do pipeline quando ele é disparado automaticamente (aproximadamente uma hora). Quando ele for executado, clique no nome do pipeline link **DeltaCopyFromBlobPipeline** para exibir detalhes da execução da atividade ou execute novamente o pipeline. Selecione **Atualizar** para atualizar a lista.

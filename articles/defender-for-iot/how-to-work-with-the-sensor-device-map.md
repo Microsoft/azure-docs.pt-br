@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509041"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523831"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar as detecções do sensor no mapa do dispositivo
 
@@ -309,7 +309,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 
   - Type
 
-  - SO
+  - Sistema operacional
 
   - Camada Purdue
 
@@ -318,7 +318,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 | Item | Descrição |
 |--|--|
 | Informações Básicas | As informações básicas necessárias. |
-| Name | O nome do dispositivo. <br /> Por padrão, o sensor descobre o nome do dispositivo como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se esses nomes não tiverem sido definidos, o endereço IP do dispositivo aparecerá nesse campo. <br /> Você pode alterar um nome de dispositivo manualmente. Dê aos seus dispositivos nomes significativos que reflitam sua funcionalidade. |
+| Nome | O nome do dispositivo. <br /> Por padrão, o sensor descobre o nome do dispositivo como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se esses nomes não tiverem sido definidos, o endereço IP do dispositivo aparecerá nesse campo. <br /> Você pode alterar um nome de dispositivo manualmente. Dê aos seus dispositivos nomes significativos que reflitam sua funcionalidade. |
 | Type | O tipo de dispositivo detectado pelo sensor. <br /> Para obter mais informações, consulte [Exibir tipos de dispositivo](#view-device-types). |
 | Fornecedor | O fornecedor do dispositivo. Isso é determinado pelos caracteres à esquerda do endereço MAC do dispositivo. Este campo é somente leitura. |
 | Sistema operacional | O sistema operacional do dispositivo detectado pelo sensor. |
@@ -709,6 +709,6 @@ Para exportar:
 
 1. Selecione uma opção de exportação.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Investigar detecções de sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

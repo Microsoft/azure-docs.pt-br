@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993662"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728188"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -153,10 +153,10 @@ As tabelas a seguir descrevem o comportamento de compactação CDN do Azure para
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compactação está habilitada ou o arquivo está qualificado para compactação
 | Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | Resposta CDN para o cliente | Observações |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |CDN transcodifica entre os formatos com suporte. |
+| Compressed |Compressed |Compressed |CDN transcodifica entre os formatos com suporte. <br/>A **CDN do Azure da Microsoft** não dá suporte à transcodificação entre formatos e, em vez disso, busca dados da origem, compacta e armazena em cache separadamente para o formato. |
 | Compressed |Não compactado |Compressed |CDN executa uma compactação. |
 | Compressed |Não armazenado em cache |Compressed |A CDN executará compactação se a origem retornar um arquivo descompactado. <br/>**CDN do Azure da Verizon** passa o arquivo descompactado na primeira solicitação e, em seguida, compacta e armazena em cache o arquivo para solicitações subsequentes. <br/>Arquivos com o cabeçalho `Cache-Control: no-cache` nunca são compactados. |
-| Não compactado |Compressed |Não compactado |A CDN executa uma descompactação. |
+| Não compactado |Compressed |Não compactado |A CDN executa uma descompactação. <br/>A **CDN do Azure da Microsoft** não oferece suporte à descompactação e, em vez disso, busca dados de origem e caches separadamente para clientes descompactados. |
 | Não compactado |Não compactado |Não compactado | |
 | Não compactado |Não armazenado em cache |Não compactado | |
 
@@ -167,6 +167,6 @@ Para pontos de extremidade habilitados para streaming da CDN dos Serviços de M�
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
 

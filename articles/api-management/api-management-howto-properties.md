@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490998"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545795"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Usar valores nomeados em políticas de gerenciamento de API do Azure
 
@@ -86,6 +86,8 @@ Consulte [pré-requisitos para a integração do Key Vault](#prerequisites-for-k
 
 ### <a name="add-a-plain-or-secret-value"></a>Adicionar um valor simples ou secreto
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. No [portal do Azure](https://portal.azure.com), navegue até a instância do Gerenciamento de API.
 1. Em **APIs**, selecione **valores nomeados**  >  **+ Adicionar**.
 1. Insira um identificador de **nome** e insira um **nome de exibição** usado para fazer referência à propriedade em políticas.
@@ -95,6 +97,50 @@ Consulte [pré-requisitos para a integração do Key Vault](#prerequisites-for-k
 1. Selecione **Criar**.
 
 Depois que o valor nomeado for criado, você poderá editá-lo selecionando o nome. Se você alterar o nome de exibição, todas as políticas que fazem referência a esse valor nomeado serão atualizadas automaticamente para usar o novo nome de exibição.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para começar a usar o CLI do Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para adicionar um valor nomeado, use o comando [AZ APIM NV Create](/cli/azure/apim/nv#az_apim_nv_create) :
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+Depois de criar um valor nomeado, você pode atualizá-lo usando o comando [AZ APIM NV Update](/cli/azure/apim/nv#az_apim_nv_update) . Para ver todos os seus valores nomeados, execute o comando [AZ APIM NV List](/cli/azure/apim/nv#az_apim_nv_list) :
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Para ver os detalhes do valor nomeado que você criou para este exemplo, execute o comando [AZ APIM NV show](/cli/azure/apim/nv#az_apim_nv_show) :
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Este exemplo é um valor secreto. O comando anterior não retorna o valor. Para ver o valor, execute o comando [AZ APIM NV show-Secret](/cli/azure/apim/nv#az_apim_nv_show_secret) :
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Para excluir um valor nomeado, use o comando [AZ APIM NV Delete](/cli/azure/apim/nv#az_apim_nv_delete) :
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
 
 ## <a name="use-a-named-value"></a>Usar um valor nomeado
 

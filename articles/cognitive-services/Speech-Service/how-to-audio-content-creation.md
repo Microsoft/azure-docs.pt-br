@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024952"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388576"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de criação de conteúdo de áudio
 
@@ -125,7 +125,7 @@ Depois de revisar sua saída de áudio e ficar satisfeito com seu ajuste e ajust
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Como adicionar/remover usuários de criação de conteúdo de áudio?
 
-Se mais de um usuário quiser usar a criação de conteúdo de áudio, você poderá compartilhar sua conta e senha do Azure com o usuário ou conceder acesso ao usuário à assinatura do Azure e ao recurso de fala. Se você adicionar um usuário a uma assinatura do Azure, o usuário poderá acessar todos os recursos na assinatura do Azure. Mas se você adicionar apenas um usuário a um recurso de fala, o usuário só terá acesso ao recurso de fala e não poderá acessar outros recursos nessa assinatura do Azure. Um usuário com acesso ao recurso de fala pode usar a criação de conteúdo de áudio.
+Se mais de um usuário quiser usar a criação de conteúdo de áudio, você poderá conceder acesso de usuário à assinatura do Azure e ao recurso de fala. Se você adicionar um usuário a uma assinatura do Azure, o usuário poderá acessar todos os recursos na assinatura do Azure. Mas se você adicionar apenas um usuário a um recurso de fala, o usuário só terá acesso ao recurso de fala e não poderá acessar outros recursos nessa assinatura do Azure. Um usuário com acesso ao recurso de fala pode usar a criação de conteúdo de áudio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Adicionar usuários a um recurso de fala
 
@@ -146,7 +146,7 @@ Os usuários que estão no mesmo recurso de fala verão o trabalho deles no est�
 
 ### <a name="remove-users-from-a-speech-resource"></a>Remover usuários de um recurso de fala
 1. Procure **Serviços cognitivas** no portal do Azure, selecione o recurso de fala do qual você deseja remover os usuários.
-2. Clique em **Controle de acesso (IAM)** . Clique na guia **atribuições de função** para exibir todas as atribuições de função para este recurso de fala.
+2. Clique em **IAM (Controle de Acesso)**. Clique na guia **atribuições de função** para exibir todas as atribuições de função para este recurso de fala.
 3. Selecione os usuários que você deseja remover e clique em **remover**  >  **OK**.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="Botão Remover":::
 
@@ -158,7 +158,7 @@ Se você quiser que um dos usuários forneça acesso a outros usuários, será n
 1. Pesquise o conta Microsoft do usuário e vá para a página de detalhes do usuário. Clique em **funções atribuídas**.
 1. Clique em **Adicionar atribuições** de  ->  **diretório leitores**.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [API de áudio longo](./long-audio-api.md)
 

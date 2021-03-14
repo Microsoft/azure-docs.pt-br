@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c176fcafe13749ba89c04b34854f036aa5aea516
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551515"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677656"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solucionar problemas de conexões no Azure alcance
 
@@ -34,7 +34,7 @@ Há instruções específicas para cada tipo de fonte:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
 ## <a name="storing-your-credential-in-your-key-vault-and-using-the-right-secret-name-and-version"></a>Armazenando suas credenciais no cofre de chaves e usando o nome e a versão corretos do segredo
 
 Você também deve armazenar suas credenciais em sua instância do Azure Key Vault e usar o nome e a versão corretos do segredo.
@@ -53,11 +53,14 @@ Verifique se as permissões corretas foram configuradas para a identidade gerenc
 Para verificar isso, execute as seguintes etapas:
 
 1. Navegue até o cofre de chaves e para a seção **políticas de acesso**
-1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* , com permissões **Get** em segredos pelo menos
+
+1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* com pelo menos permissões de **obtenção** e **lista** de segredos
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Imagem mostrando a seleção de lista suspensa das opções de permissão Get e List":::
 
 Se você não vir sua identidade gerenciada do alcance listada, siga as etapas em [criar e gerenciar credenciais para verificações](manage-credentials.md) para adicioná-la. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

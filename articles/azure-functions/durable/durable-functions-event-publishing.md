@@ -3,12 +3,12 @@ title: Publicação de Funções Duráveis para a Grade de Eventos do Azure (vis
 description: Saiba como configurar a publicação automática da Grade de Eventos do Azure para Funções Duráveis.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081739"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175950"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicação de Funções Duráveis para a Grade de Eventos do Azure (visualização)
 
@@ -26,7 +26,7 @@ A seguir, alguns cenários em que esse recurso é útil:
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) no seu projeto de Durable Functions.
 * Instale o [Emulador de Armazenamento do Azure](../../storage/common/storage-use-emulator.md) (apenas Windows) ou use uma conta já existente de Armazenamento do Azure.
-* Instalar a [CLI do Azure](/cli/azure/?view=azure-cli-latest) ou usar o [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instalar a [CLI do Azure](/cli/azure/) ou usar o [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico de Grade de Eventos personalizado
 
@@ -132,11 +132,11 @@ Usando o portal do Azure, crie outro aplicativo de funções para escutar evento
 
 1. Pesquise **Grade de Eventos** e, em seguida, selecione o modelo **Gatilho da Grade de Eventos do Azure**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Adicione uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selecione o modelo de gatilho da grade de eventos no portal do Azure." border="true":::
 
 1. Nomeie o novo gatilho e, em seguida, selecione **Criar Função**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Adicione uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nomeie o gatilho da grade de eventos no portal do Azure." border="true":::
 
 
     Uma função com o código a seguir é criada:
@@ -172,11 +172,11 @@ Agora você pode adicionar uma assinatura de Grade de Eventos ao tópico de Grad
 
 1. Na sua nova função, selecione **Integração** e, em seguida, escolha **Gatilho da Grade de Eventos** (eventGridEvent). 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Adicione uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selecione o link do Gatilho de Grade de Eventos." border="true":::
 
 1. Selecione **Criar Descrição da Grade de Eventos**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Adicione uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Crie a assinatura da Grade de Eventos." border="true":::
 
 1. Nomeie sua assinatura do evento e selecione o tipo de tópico **Tópicos de Grade de Eventos**. 
 
@@ -184,7 +184,7 @@ Agora você pode adicionar uma assinatura de Grade de Eventos ao tópico de Grad
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Adicione uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Crie uma assinatura da Grade de Eventos." border="true":::
 
 Agora, você está pronto para receber eventos de ciclo de vida.
 

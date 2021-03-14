@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592318"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referência de dados de monitoramento de arquivos do Azure
 
@@ -36,7 +36,7 @@ Os arquivos do Azure fornecem as seguintes métricas de capacidade no Azure Moni
 
 #### <a name="azure-files"></a>Arquivos do Azure
 
-Esta tabela mostra as [métricas de arquivos do Azure](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+Esta tabela mostra as [métricas de arquivos do Azure](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -88,4 +88,4 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 ## <a name="see-also"></a>Confira também
 
 - Consulte [monitorando arquivos do Azure](storage-files-monitoring-reference.md) para obter uma descrição do monitoramento do armazenamento do Azure.
-- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.
+- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

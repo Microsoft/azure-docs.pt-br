@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524985"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539104"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
     ```
 
 Se você encontrar problemas, envie um email para a equipe de Operações do Data Box na Ásia [adbo@microsoft.com](mailto:adbo@microsoft.com) com detalhes dos problemas e coloque o número do trabalho na linha Assunto:.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Emirados Árabes Unidos](#tab/in-uae)
+
+1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
+2. Verifique se a cópia de dados para o dispositivo foi concluída e se a etapa **Preparação para o envio** foi concluída com êxito.
+3. Anote o número de referência na página **Preparação para o envio** da IU da Web local do dispositivo.
+4. Desligue o dispositivo e remova os cabos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
+6. Empacote o dispositivo para a remessa de devolução na caixa original.
+7. Envie um email para [Operações do Azure Data Box](mailto:adbops@microsoft.com) para obter uma ID que será usada para identificar o pacote quando ele chegar ao datacenter.
+8. Anote essa ID no rótulo de envio impresso, ao lado do endereço de retorno, de modo que fique claramente visível.  
+9. Agende uma retirada online acessando [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Agendar uma retirada**.
+   - Insira o número de referência da página **Preparação para o envio** da IU da Web local do dispositivo no campo de número do conhecimento de embarque.
+   - Reservas são aceitas das 9h às 14h, seis dias por semana (exceto às sextas-feiras e feriados públicos).
+   - As solicitações de retirada devem ser feitas pelo menos 90 minutos antes do horário de encerramento do atendimento a clientes.
+10. Se tiver algum problema com a ferramenta de reservas da DHL, entre em contato com a DHL por meio de um destes métodos:
+    - Telefone para 04-2924545.
+    - Envie um email para [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) com detalhes dos problemas e coloque o número da nota de entrega na linha Assunto:.
+    - Entre em contato com o atendimento ao cliente da DHL pelo número 600 567567.
 
 ::: zone target="chromeless"
 

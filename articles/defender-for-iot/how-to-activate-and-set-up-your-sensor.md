@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805658"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449825"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -98,7 +98,7 @@ Para entrar e ativar:
 1. Insira uma frase secreta e carregue um arquivo PEM, se necessário.
 1. Selecione **Avançar**. A tela validação é aberta. Por padrão, a validação entre o console de gerenciamento e os sensores conectados está habilitada.
 1. Desative a alternância **Habilitar validação em todo o sistema** para desabilitar a validação. Recomendamos que você habilite a validação.
-1. Selecione **Salvar**.  
+1. Clique em **Salvar**.  
 
 Talvez seja necessário atualizar a tela depois de carregar o certificado assinado por uma autoridade de certificação.
 
@@ -179,7 +179,7 @@ Você acessa as ferramentas do console no menu lateral.
 
 | Janela | ícone | Descrição |
 | -----------|--|--|
-| Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
+| Painel | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Exiba os dispositivos de rede, as conexões de dispositivo e as propriedades de dispositivo em um mapa. Várias opções de zoom, realce e filtro estão disponíveis para exibir a rede. |
 | Inventário de dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário de dispositivo exibe uma lista de atributos de dispositivo que esse sensor detecta. As opções estão disponíveis para: <br /> -Classifique ou filtre as informações de acordo com os campos de tabela e veja as informações filtradas exibidas. <br /> -Exportar informações para um arquivo CSV. <br /> -Importar detalhes do registro do Windows.|
 | Alertas | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Exibe alertas quando ocorrem violações de política, desvios do comportamento de linha de base ocorrem ou qualquer tipo de atividade suspeita na rede é detectada. |
@@ -214,9 +214,9 @@ Você acessa as ferramentas do console no menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contate a [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
 
-### <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-[Integrar um sensor](getting-started.md#4-onboard-a-sensor)
+[Integrar um sensor](getting-started.md#onboard-a-sensor)
 
 [Gerenciar arquivos de ativação do sensor](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

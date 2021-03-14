@@ -30,7 +30,7 @@
     - name: Inícios rápidos
       expanded: true
       items:
-        - name: Criar um servidor
+        - name: Criar um servidor único do MySQL
           items:
             - name: Portal do Azure
               href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -413,14 +413,13 @@
         - name: O que é o servidor flexível?
           href: flexible-server/overview.md
         - name: Versões com suporte
-          href: flexible-server/concepts-supported-versions.md
+          href: concepts-supported-versions.md
         - name: Computação e armazenamento
           href: flexible-server/concepts-compute-storage.md
     - name: Inícios rápidos
       expanded: true
       items:
-        - name: Criar um servidor
-          expanded: true
+        - name: Criar um servidor flexível do MySQL
           items:
             - name: Portal do Azure
               href: flexible-server/quickstart-create-server-portal.md
@@ -431,6 +430,8 @@
               href: flexible-server/quickstart-create-arm-template.md
         - name: Conectar e consultar
           items:
+            - name: CLI do Azure
+              href: flexible-server/connect-azure-cli.md
             - name: PHP
               href: flexible-server/connect-php.md
             - name: Workbench do MySQL
@@ -554,6 +555,9 @@
     - name: Migrar dados com mysqldump ou phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: Migrar dados com o dbForge Studio para MySQL
+      href: concepts-migrate-dbforge-studio-for-mysql.md
+      displayName: 'migrate, dbforge'
     - name: Migrar dados com o MySQL Workbench
       href: concepts-migrate-import-export.md
       displayName: 'import , migrate, export'

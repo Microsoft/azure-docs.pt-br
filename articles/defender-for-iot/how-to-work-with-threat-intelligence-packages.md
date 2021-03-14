@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ddf2eb2fab6281e76bac0a958024b639d18a7ccc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: a210771d99d28a0e9c15d7952d491a5e5f94e704
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97838024"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521400"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Pesquisa e pacotes de inteligência contra ameaças
 
@@ -73,6 +73,6 @@ Para atualizar um pacote em vários sensores simultaneamente:
 
 7. Carregue o pacote.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Versões de atualização](how-to-manage-sensors-from-the-on-premises-management-console.md#update-versions)

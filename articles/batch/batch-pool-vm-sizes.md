@@ -2,14 +2,14 @@
 title: Escolher tamanhos e imagens de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis e as versões de so para nós de computação em pools do lote do Azure
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576694"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455188"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho e uma imagem da VM para nós de computação em um pool do lote do Azure
 
@@ -35,13 +35,11 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | DC | Sem suporte |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
-| Dav4 | Todos os tamanhos |
-| Dasv4 | Todos os tamanhos |
+| Dav4, Dasv4 | Todos os tamanhos |
 | Ddv4, Ddsv4 |  Todos os tamanhos |
 | Dv4, Dsv4 | Sem suporte |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 |
-| Eav4 | Todos os tamanhos |
-| Easv4 | Todos os tamanhos |
+| Eav4, Easv4 | Todos os tamanhos |
 | Edv4, Edsv4 |  Todos os tamanhos |
 | Ev4, Esv4 | Sem suporte |
 | F, Fs | Todos os tamanhos |
@@ -58,7 +56,7 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | NC | Todos os tamanhos |
 | NCv2 | Todos os tamanhos |
 | NCv3 | Todos os tamanhos |
-| NCasT4_v3 | Nenhum - ainda não disponível |
+| NCasT4_v3 | Todos os tamanhos |
 | ND | Todos os tamanhos |
 | NDv2 | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |

@@ -4,23 +4,28 @@ description: Saiba como criar um escopo de criptografia para isolar dados de blo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017399"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209584"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerenciar escopos de criptografia (visualização)
 
 Escopos de criptografia (visualização) permitem que você gerencie a criptografia no nível de um BLOB ou contêiner individual. Um escopo de criptografia isola os dados de blob em um Secure Enclave em uma conta de armazenamento. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes. Para obter mais informações sobre escopos de criptografia, consulte [escopos de criptografia para armazenamento de BLOBs (versão prévia)](encryption-scope-overview.md).
 
 Este artigo mostra como criar um escopo de criptografia. Ele também mostra como especificar um escopo de criptografia quando você cria um BLOB ou contêiner.
+
+> [!IMPORTANT]
+> No momento, os escopos de criptografia estão em versão **prévia**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+>
+> Para evitar custos inesperados, certifique-se de desabilitar os escopos de criptografia que não são necessários no momento.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

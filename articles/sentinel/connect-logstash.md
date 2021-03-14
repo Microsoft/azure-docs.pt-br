@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299625"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035406"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usar o Logstash para conectar fontes de dados ao Azure Sentinel
 
 > [!IMPORTANT]
 > A ingestão de dados usando o plug-in de saída Logstash está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Usando o novo plug-in de saída do Sentinela do Azure para o **mecanismo de coleta de dados Logstash**, agora você pode enviar qualquer tipo de log que desejar por meio do Logstash diretamente para seu espaço de trabalho do log Analytics no Azure sentinela. Seus logs serão enviados para uma tabela personalizada que você definirá usando o plug-in de saída.
+Usando o plug-in de saída do Sentinela do Azure para o **mecanismo de coleta de dados Logstash**, você pode enviar qualquer tipo de log que desejar por meio do Logstash diretamente para seu espaço de trabalho do log Analytics no Azure Sentinel. Seus logs serão enviados para uma tabela personalizada que você definirá usando o plug-in de saída.
 
 Para saber mais sobre como trabalhar com o mecanismo de coleta de dados do Logstash, consulte [introdução ao Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -49,7 +49,7 @@ O mecanismo Logstash é composto por três componentes:
 O plug-in de saída do Sentinela do Azure para Logstash envia dados formatados em JSON para seu espaço de trabalho Log Analytics, usando a API REST do coletor de dados HTTP Log Analytics. Os dados são ingeridos em logs personalizados.
 
 - Saiba mais sobre a [API REST do log Analytics](/rest/api/loganalytics/create-request).
-- Saiba mais sobre [logs personalizados](../azure-monitor/platform/data-sources-custom-logs.md).
+- Saiba mais sobre [logs personalizados](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Implantar o plug-in de saída do Sentinela do Azure no Logstash
 
@@ -57,7 +57,7 @@ O plug-in de saída do Sentinela do Azure para Logstash envia dados formatados e
 
 O plug-in de saída do Sentinela do Azure está disponível na coleção Logstash.
 
-- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in **_[Microsoft-Logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _.
+- Siga as instruções no documento Logstash [trabalhando com plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plug-in ***[Microsoft-Logstash-output-Azure-loganalytics](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** .
    
 - Se o sistema Logstash não tiver acesso à Internet, siga as instruções no documento de [Gerenciamento de plug-ins offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) do Logstash para preparar e usar um pacote de plugin offline. (Isso exigirá que você crie outro sistema Logstash com acesso à Internet.)
 
@@ -67,17 +67,19 @@ Use as informações na estrutura Logstash [de um documento de arquivo de config
 
 | Nome do campo | Tipo de dados | Descrição |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Insira seu GUID de ID do espaço de trabalho. _ |
+| `workspace_id` | string | Insira seu GUID de ID do espaço de trabalho. * |
 | `workspace_key` | string | Insira o GUID de chave primária do espaço de trabalho. * |
 | `custom_log_table_name` | string | Defina o nome da tabela na qual os logs serão ingeridos. Somente um nome de tabela por plug-in de saída pode ser configurado. A tabela de log será exibida no Azure Sentinel em **logs**, em **tabelas** na categoria **logs personalizados** , com um `_CL` sufixo. |
 | `endpoint` | string | Campo opcional. Por padrão, esse é o ponto de extremidade Log Analytics. Use este campo para definir um ponto de extremidade alternativo. |
 | `time_generated_field` | string | Campo opcional. Essa propriedade substitui o campo **TimeGenerated** padrão em log Analytics. Insira o nome do campo de carimbo de data/hora na fonte de dados. Os dados no campo devem estar de acordo com o formato ISO 8601 ( `YYYY-MM-DDThh:mm:ssZ` ) |
-| `key_names` | matriz | Insira uma lista de Log Analytics campos de esquema de saída. Cada item de lista deve ser colocado entre aspas simples e os itens separados por vírgulas e a lista inteira entre colchetes. Consulte o exemplo a seguir. |
+| `key_names` | array | Insira uma lista de Log Analytics campos de esquema de saída. Cada item de lista deve ser colocado entre aspas simples e os itens separados por vírgulas e a lista inteira entre colchetes. Consulte o exemplo a seguir. |
 | `plugin_flush_interval` | número | Campo opcional. Defina para definir o intervalo máximo (em segundos) entre as transmissões de mensagem para Log Analytics. O padrão é 5. |
     | `amount_resizing` | booleano | True ou false. Habilitar ou desabilitar o mecanismo de dimensionamento automático, que ajusta o tamanho do buffer de mensagens de acordo com o volume de dados de log recebidos. |
 | `max_items` | número | Campo opcional. Aplica-se somente se `amount_resizing` definido como "false". Use para definir um limite no tamanho do buffer de mensagens (em registros). O padrão é 2000.  |
+| `azure_resource_id` | string | Campo opcional. Define a ID do recurso do Azure onde os dados residem. <br>O valor da ID de recurso será especialmente útil se você estiver usando o [RBAC de contexto de recurso](resource-context-rbac.md) para fornecer acesso apenas a dados específicos. |
+| | | |
 
-\* Você pode encontrar a ID do espaço de trabalho e a chave primária no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
+* Você pode encontrar a ID do espaço de trabalho e a chave primária no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 #### <a name="sample-configurations"></a>Exemplos de configuração
 

@@ -1,7 +1,7 @@
 ---
 title: Introdução aos utilitários do Microsoft Spark
 description: 'Tutorial: MSSparkutils nos blocos de anotações do Azure Synapse Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954286"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368652"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos utilitários do Microsoft Spark
 
@@ -25,9 +25,9 @@ Os utilitários do Microsoft Spark (MSSparkUtils) são um pacote interno para aj
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurar o acesso ao Azure Data Lake Storage Gen2 
 
-Os notebooks Synapse usam a passagem do Azure Active Directory (Azure AD) para acessar as contas de ADLS Gen2. Você precisa ser um **colaborador de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta). 
+Os notebooks Synapse usam a passagem do Azure Active Directory (Azure AD) para acessar as contas de ADLS Gen2. Você precisa ser um **colaborador de dados de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta). 
 
-Os pipelines do Synapse usam a identidade do espaço de trabalho (MSI) para acessar as contas de armazenamento. Para usar o MSSparkUtils em suas atividades de pipeline, sua identidade de espaço de trabalho precisa ser **colaborador de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta).
+Os pipelines do Synapse usam a identidade do espaço de trabalho (MSI) para acessar as contas de armazenamento. Para usar o MSSparkUtils em suas atividades de pipeline, sua identidade de espaço de trabalho precisa ser **colaborador de dados de armazenamento de BLOBs** para acessar a conta de ADLS Gen2 (ou a pasta).
 
 Siga estas etapas para verificar se o Azure AD e o MSI do espaço de trabalho têm acesso à conta de ADLS Gen2:
 1. Abra o [portal do Azure](https://portal.azure.com/) e a conta de armazenamento que você deseja acessar. Você pode navegar até o contêiner específico que deseja acessar.

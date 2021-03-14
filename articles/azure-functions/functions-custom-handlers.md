@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936984"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578525"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
 
@@ -122,9 +122,6 @@ Para manipuladores personalizados, defina `FUNCTIONS_WORKER_RUNTIME` como `Custo
 }
 ```
 
-> [!NOTE]
-> `Custom` pode não ser reconhecido como um tempo de execução válido nos planos do Linux Premium ou do serviço de aplicativo. Se esse for seu destino de implantação, defina `FUNCTIONS_WORKER_RUNTIME` como uma cadeia de caracteres vazia.
-
 ### <a name="function-metadata"></a>Metadados de função
 
 Quando usado com um manipulador personalizado, o *function.jsno* conteúdo não é diferente de como você definiria uma função em qualquer outro contexto. O único requisito é que *function.jsem* arquivos deve estar em uma pasta chamada para corresponder ao nome da função.
@@ -191,8 +188,8 @@ Por convenção, as respostas de função são formatadas como pares de chave/va
 
 | <nobr>Chave de carga</nobr>   | Tipo de dados | Comentários                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | objeto    | Mantém valores de resposta conforme definidos pela `bindings` matriz no *function.jsem*.<br /><br />Por exemplo, se uma função for configurada com uma associação de saída de fila chamada "myQueueOutput", `Outputs` conterá uma chave chamada `myQueueOutput` , que é definida pelo manipulador personalizado para as mensagens que são enviadas para a fila. |
-| `Logs`        | matriz     | As mensagens aparecem nos logs de invocação de funções.<br /><br />Ao executar no Azure, as mensagens aparecem no Application Insights. |
+| `Outputs`     | object    | Mantém valores de resposta conforme definidos pela `bindings` matriz no *function.jsem*.<br /><br />Por exemplo, se uma função for configurada com uma associação de saída de fila chamada "myQueueOutput", `Outputs` conterá uma chave chamada `myQueueOutput` , que é definida pelo manipulador personalizado para as mensagens que são enviadas para a fila. |
+| `Logs`        | array     | As mensagens aparecem nos logs de invocação de funções.<br /><br />Ao executar no Azure, as mensagens aparecem no Application Insights. |
 | `ReturnValue` | string    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` na *function.jsno* arquivo. |
 
 Este é um exemplo de uma carga de resposta.
@@ -580,7 +577,7 @@ Você também pode usar essa estratégia em seus pipelines de CI/CD para executa
 
 Os manipuladores personalizados são executados no mesmo ambiente que um aplicativo Azure Functions típico. Teste seu manipulador para garantir que o ambiente contenha todas as dependências necessárias para executar. Para aplicativos que exigem dependências adicionais, talvez seja necessário executá-los usando uma [imagem de contêiner personalizada](functions-create-function-linux-custom-image.md) hospedada no [plano Azure Functions Premium](functions-premium-plan.md).
 
-### <a name="get-support"></a>Obtenha suporte
+### <a name="get-support"></a>Obter suporte
 
 Se precisar de ajuda em um aplicativo de funções com manipuladores personalizados, você poderá enviar uma solicitação por meio de canais de suporte regular. No entanto, devido à grande variedade de linguagens possíveis usadas para criar aplicativos de manipuladores personalizados, o suporte não é ilimitado.
 

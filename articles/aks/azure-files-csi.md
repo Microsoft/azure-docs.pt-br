@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 93f7f7a3c59beca362145ac16f7cf727df773f81
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636973"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174054"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usar drivers da interface de armazenamento de contêiner de arquivos do Azure (CSI) no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -33,13 +33,13 @@ Para obter mais informações sobre o Kubernetes, veja [Opções de armazenament
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Criar dinamicamente arquivos do Azure PVs usando as classes de armazenamento internas
 
-Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para manter os compartilhamentos dos arquivos do Azure. Escolha uma das seguintes [SKUs de redundância de armazenamento do Azure][storage-skus] para *skuName* :
+Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para manter os compartilhamentos dos arquivos do Azure. Escolha uma das seguintes [SKUs de redundância de armazenamento do Azure][storage-skus] para *skuName*:
 
-* **Standard_LRS** : armazenamento com redundância local padrão
-* **Standard_GRS** : armazenamento com redundância geográfica padrão
-* **Standard_ZRS** : armazenamento com redundância de zona padrão
-* **Standard_RAGRS** : armazenamento com redundância geográfica com acesso de leitura padrão
-* **Premium_LRS** : armazenamento com redundância local Premium
+* **Standard_LRS**: armazenamento com redundância local padrão
+* **Standard_GRS**: armazenamento com redundância geográfica padrão
+* **Standard_ZRS**: armazenamento com redundância de zona padrão
+* **Standard_RAGRS**: armazenamento com redundância geográfica com acesso de leitura padrão
+* **Premium_LRS**: armazenamento com redundância local Premium
 
 > [!NOTE]
 > Os arquivos do Azure dão suporte ao armazenamento Premium do Azure. O compartilhamento de arquivos Premium mínimo é de 100 GB.
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Criar uma conta de armazenamento para o compartilhamento de arquivos NFS
 
-[Criar um `Premium_LRS` Conta de armazenamento do Azure](../storage/files/storage-how-to-create-premium-fileshare.md) com as seguintes configurações para dar suporte a compartilhamentos NFS:
+[Criar um `Premium_LRS` Conta de armazenamento do Azure](../storage/files/storage-how-to-create-file-share.md) com as seguintes configurações para dar suporte a compartilhamentos NFS:
 - tipo de conta: FileStorage
 - transferência segura necessária (somente habilitar tráfego HTTPS): false
 - Selecione a rede virtual de seus nós de agente em firewalls e redes virtuais-portanto, talvez você prefira criar a conta de armazenamento no grupo de recursos MC_.
@@ -334,10 +334,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

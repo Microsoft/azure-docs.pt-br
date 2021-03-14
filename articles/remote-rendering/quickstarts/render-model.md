@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729956"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -52,6 +52,7 @@ Execute os seguintes comandos:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
+powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 O último comando cria um subdiretório no diretório do ARR que contém os vários projetos de exemplo para o Azure Remote Rendering.
@@ -74,8 +75,8 @@ O modelo padrão que renderizamos é um [modelo de exemplo interno](../samples/s
 ![Informações de Conta do ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Defina **AccountDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).\
-> Defina **AccountAuthenticationDomain** como [domínio de contas](../how-tos/create-an-account.md#retrieve-the-account-information), conforme exibido no portal do Azure.
+> Defina **RemoteRenderingDomain** como `<region>.mixedreality.azure.com`, em que `<region>` é [uma das regiões disponíveis perto de você](../reference/regions.md).\
+> Defina **AccountDomain** como [domínio de contas](../how-tos/create-an-account.md#retrieve-the-account-information), conforme exibido no portal do Azure.
 
 Posteriormente, convém implantar esse projeto em um HoloLens e conectar-ao serviço do Remote Rendering nesse dispositivo. Como não temos uma forma fácil de inserir as credenciais no dispositivo, o exemplo de início rápido **salvará as credenciais na cena do Unity**.
 

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bec221f762213fa8576ccef30e9b6a27aa708f01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1651ef1b49ecedb8070f32c56e9d23a0f8fd0da
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944140"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201581"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -100,6 +100,9 @@ Para saber mais sobre tokens SAS e como obter um, consulte [usando assinaturas d
 ## <a name="transfer-data"></a>Transferir dados
 
 Depois de ter autorizado sua identidade ou obtido um token SAS, você pode começar a transferir dados.
+
+> [!NOTE]
+> A configuração de [transferência segura necessária](storage-require-secure-transfer.md) de uma conta de armazenamento determina se a conexão com uma conta de armazenamento está protegida com TLS (segurança da camada de transporte). Essa configuração é habilitada por padrão.   
 
 Para encontrar comandos de exemplo, consulte qualquer um desses artigos.
 

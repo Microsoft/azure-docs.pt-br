@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008172"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176970"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -59,7 +59,7 @@ Você pode acompanhar o progresso à medida que os revisores concluírem suas re
     ![Examinar o acesso de convidado em grupos de Microsoft 365](./media/complete-access-review/all-company-group-results.png)
 
 
-    Se você estiver exibindo uma revisão de acesso que revisa o acesso de convidado em grupos de Microsoft 365 (versão prévia), a folha de visão geral listará cada grupo na revisão. 
+    Se você estiver exibindo uma revisão de acesso que revisa o acesso de convidado em grupos de Microsoft 365, a folha de visão geral listará cada grupo na revisão. 
    
     ![examinar o acesso de convidado em grupos de Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

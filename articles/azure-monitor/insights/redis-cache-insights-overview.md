@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210368"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573463"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Explorar Azure Monitor para o cache do Azure para Redis
 
@@ -186,6 +186,6 @@ Para obter diretrizes de solução de problemas, consulte o artigo dedicado de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados que auxiliam na detecção de problemas.
+* Configure [alertas de métrica](../alerts/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados que auxiliam na detecção de problemas.
 
-* Conheça os cenários compatíveis com as pastas de trabalho, como criar ou personalizar relatórios e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
+* Conheça os cenários compatíveis com as pastas de trabalho, como criar ou personalizar relatórios e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md).

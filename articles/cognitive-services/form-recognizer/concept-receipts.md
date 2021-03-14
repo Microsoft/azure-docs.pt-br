@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585034"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545999"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recebimento predefinido do reconhecedor de formulário
 
@@ -38,7 +38,7 @@ O serviço de recebimento predefinido extrai o conteúdo de recibos de vendas &m
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Type | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Recibotype | string | Tipo de recibo de vendas | Detalhadas |  |
 | Comerciantename | string | Nome do comerciante que está emitindo o recebimento | Contoso |  |
@@ -102,7 +102,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -115,7 +115,12 @@ Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá o
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
-Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de negócios que o modelo descobriu. É aí que você encontrará pares úteis de chave/valor como nome, sobrenome, nome da empresa e muito mais.
+
+A resposta para a operação obter resultado da confirmação de análise será a representação estruturada do recibo com todas as informações extraídas.  Consulte aqui para obter um [exemplo de arquivo de recebimento](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) e sua saída de saída estruturada de [exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+
+Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
+* O nó `"readResults"` contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. 
+* O nó `"documentResults"` contém os valores específicos do cartão de visita descobertos pelo modelo. É aí que você encontrará pares úteis de chave/valor como nome, sobrenome, nome da empresa e muito mais.
 
 ```json
 { 

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: c4c98ad377100c35b0c364607bfd3803d07a95a7
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f3d4ec8db89e9bebfdcd594e842a6c19d3d66d54
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015922"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104086"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como habilitar o SSO entre aplicativos no Android usando o MSAL
 
@@ -119,7 +119,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Depois de gerar um hash de assinatura com *keytool*, use o portal do Azure para gerar o URI de redirecionamento:
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selecione seu aplicativo Android no **registros de aplicativo**.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e selecione seu aplicativo Android no **registros de aplicativo**.
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Android**.
 1. No painel **configurar seu aplicativo Android** que é aberto, insira o **hash de assinatura** que você gerou anteriormente e um **nome de pacote**.
 1. Selecione o botão **Configurar** .
@@ -131,7 +131,7 @@ Para obter mais informações sobre como assinar seu aplicativo, consulte [assin
 > [!IMPORTANT]
 > Use sua chave de assinatura de produção para a versão de produção do seu aplicativo.
 
-#### <a name="configure-msal-to-use-a-broker"></a>Configurar o MSAL para usar um agente
+#### <a name="configure-msal-to-use-a-broker"></a>Configurar a MSAL para usar um agente
 
 Para usar um agente em seu aplicativo, você deve atestar que configurou o redirecionamento do agente. Por exemplo, inclua o URI de redirecionamento habilitado para o agente – e indique que você o registrou, incluindo as seguintes configurações no arquivo de configuração do MSAL:
 

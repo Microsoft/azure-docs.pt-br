@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7f316b17096e1241fe23cbf2c965122fd8966522
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366353"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630870"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
 
-Uma política de acesso condicional deve incluir uma atribuição de usuário como um dos sinais no processo de decisão. Os usuários podem ser incluídos ou excluídos das políticas de acesso condicional. Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder acesso ao usuário.
+Uma política de acesso condicional deve incluir uma atribuição de usuário como um dos sinais no processo de decisão. Os usuários podem ser incluídos ou excluídos das políticas de acesso condicional. Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder acesso ao usuário. Além deste artigo, temos um vídeo sobre [como incluir ou excluir usuários de políticas de acesso condicional](https://www.youtube.com/watch?v=5DsW1hB3Jqs) que orientam você durante o processo descrito abaixo. 
 
 ![Usuário como um sinal nas decisões tomadas pelo acesso condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -38,9 +38,12 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
    - Todos os usuários convidados e externos
       - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com o `user type` atributo definido como `guest` . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
    - Funções de diretório
-      - Permite que os administradores selecionem funções de diretório específicas do Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída.
+      - Permite que os administradores selecionem funções de diretório internas específicas do Azure AD usadas para determinar a atribuição de política. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída. Não há suporte para outros tipos de função, incluindo funções de diretório administrativas com escopo de unidade, funções personalizadas.
    - Usuários e grupos
       - Permite direcionar conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contém todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo de nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos. A política será aplicada a usuários e grupos aninhados.
+
+> [!IMPORTANT]
+> Ao selecionar quais usuários e grupos estão incluídos em uma política de acesso condicional, há um limite para o número de usuários individuais que podem ser adicionados diretamente a uma política de acesso condicional. Se houver uma grande quantidade de usuários individuais que precisam ser adicionados diretamente a uma política de acesso condicional, recomendamos colocar os usuários em um grupo e atribuir o grupo à política de acesso condicional em vez disso.
 
 > [!WARNING]
 > Se os usuários ou grupos forem membros de mais de 2048 grupos, seu acesso poderá ser bloqueado. Esse limite se aplica à associação de grupo direta e aninhada.

@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0233e58a404721586af0ae2fbdf78dbab6d424ed
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95996246"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550363"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo HoloLens Unity usando Âncoras Espaciais do Azure
 
@@ -140,36 +140,13 @@ Podemos usar o loop Update() para verificar se há uma ação na fila. Se houver
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obter o SDK das Âncoras Espaciais do Azure
 
-## <a name="via-unity-package-manager-upm-package"></a>[Usando o pacote do UPM (Gerenciador de Pacotes do Unity)](#tab/UPMPackage)
+### <a name="download-packages"></a>Baixar os pacotes
+[!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-Esse método é compatível com as versões do Unity 2019.1+.
+### <a name="import-packages"></a>Importar pacotes
+[!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
-### <a name="add-the-registry-to-your-unity-project"></a>Adicionar o registro ao projeto do Unity
-
-1. Em um explorador de arquivos, navegue até a pasta `Packages` do projeto do Unity. Abra o arquivo de manifesto do projeto, `manifest.json`, em um editor de texto.
-2. Na parte superior do arquivo, no mesmo nível que a seção `dependencies`, adicione a entrada a seguir para incluir o registro de Âncoras Espaciais do Azure no projeto. A entrada `scopedRegistries` informa ao Unity onde procurar os pacotes do SDK de Âncoras Espaciais do Azure.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
-
-### <a name="add-the-sdk-package-to-your-unity-project"></a>Adicionar o pacote do SDK ao projeto do Unity
-
-1. Adicione uma entrada com o nome do pacote do SDK do Windows de Âncoras Espaciais do Azure (`com.microsoft.azure.spatial-anchors-sdk.windows`) e a versão do pacote à seção `dependencies` no manifesto do projeto. Veja um exemplo abaixo.
-
-    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
-
-2. Salve e feche o arquivo `manifest.json`. Quando você retornar ao Unity, ele deverá detectar automaticamente a alteração no manifesto do projeto e recuperar os pacotes especificados. Você pode expandir a pasta `Packages` na exibição do Projeto para verificar se os pacotes corretos foram importados.
-
-## <a name="via-unity-asset-package"></a>[Usando o Pacote de Ativos do Unity](#tab/UnityAssetPackage)
-
-> [!WARNING]
-> A distribuição do Pacote de Ativos do Unity do SDK de Âncoras Espaciais do Azure será preterida após a versão 2.5.0 do SDK.
-
-Vamos baixar o SDK de Âncoras Espaciais do Azure. Acesse a [página de versões das Âncoras Espaciais do Azure no GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). Em **Ativos**, baixe o arquivo **AzureSpatialAnchors.unitypackage**. No Unity, vá até **Ativos**, selecione **Importar Pacote** > **Pacote Personalizado...** . Navegue até o pacote e selecione **Abrir**.
-
-Na nova janela **Importar Pacote do Unity** exibida, desmarque a opção **Plug-ins** e selecione **Importar** no canto inferior direito.
-
----
-
+### <a name="prepare-code"></a>Preparar o código
 Na solução do **Visual Studio**, adicione a importação a seguir em seu `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]

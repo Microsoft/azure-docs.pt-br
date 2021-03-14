@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753868"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043058"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -36,21 +36,20 @@ Veja mais informações sobre o dispositivo migrações para Azure:
 
 ## <a name="how-can-i-deploy-the-appliance"></a>Como posso implantar o dispositivo?
 
-O dispositivo pode ser implantado da seguinte maneira:
+O dispositivo pode ser implantado usando alguns métodos:
 
-- Usando um modelo para a descoberta de VMs VMware (. Arquivo OVA) e VMs do Hyper-V (. Arquivo VHD) para criar uma nova VM que hospeda o dispositivo.
-- Se você não quiser usar um modelo, poderá implantar o dispositivo em uma máquina física ou virtual existente para descoberta de VMs do VMware ou VMs do Hyper-V usando um script do instalador do PowerShell, disponível para download em um arquivo zip do Portal.
-- Para servidores físicos ou virtuais do local ou de qualquer nuvem, você sempre implanta o dispositivo usando um script em um servidor existente.
-- Para o Azure governamental, todos os três dispositivos só podem ser implantados usando o script do instalador do PowerShell.
+- O dispositivo pode ser implantado usando um modelo para servidores em execução no VMware ou no ambiente do Hyper-V ([modelo OVA para VMware](how-to-set-up-appliance-vmware.md) ou [VHD para Hyper-v](how-to-set-up-appliance-hyper-v.md)).
+- Se você não quiser usar um modelo, poderá implantar o dispositivo para o ambiente do VMware ou do Hyper-V usando um [script do instalador do PowerShell](deploy-appliance-script.md).
+- No Azure governamental, você deve implantar o dispositivo usando um script do instalador do PowerShell. Consulte as etapas de implantação [aqui](deploy-appliance-script-government.md).
+- Para servidores físicos ou virtualizados locais ou qualquer outra nuvem, você sempre implanta o dispositivo usando um script do instalador do PowerShell. Consulte as etapas de implantação [aqui](how-to-set-up-appliance-physical.md).
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
 
 O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. 
 
 - Verifique se o dispositivo pode se conectar a essas [URLs do Azure](./migrate-appliance.md#url-access). 
-- Você pode usar o ExpressRoute com o emparelhamento da Microsoft.  O emparelhamento público foi preterido e não está disponível para novos circuitos do ExpressRoute.
+- Você pode usar o ExpressRoute com o emparelhamento da Microsoft. O emparelhamento público foi preterido e não está disponível para novos circuitos do ExpressRoute.
 - Somente o emparelhamento privado não tem suporte.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>A análise de dispositivos afeta o desempenho?
@@ -109,7 +108,7 @@ Não. Há um mapeamento de um para um entre um dispositivo de [migrações para 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto de migrações para Azure pode ter vários dispositivos?
 
-Um projeto pode ter vários dispositivos anexados a ele. No entanto, um dispositivo só pode ser associado a um projeto. 
+Um projeto pode ter vários dispositivos registrados nele. No entanto, um dispositivo só pode ser registrado com um projeto.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O dispositivo de migração/dispositivo de replicação do Azure pode se conectar ao mesmo vCenter?
 
@@ -135,7 +134,7 @@ Além disso, você não pode usar novamente uma chave de projeto de migrações 
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso configurar o dispositivo em uma VM do Azure?
 
-Não. Atualmente, não há suporte para essa opção. 
+Não. Atualmente, não há suporte para essa opção.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir em um host ESXi?
 
@@ -150,6 +149,19 @@ Somente o dispositivo e os agentes do dispositivo são atualizados por essas atu
 ## <a name="can-i-check-agent-health"></a>Posso verificar a integridade do agente?
 
 Sim. No portal, acesse a página de **integridade do agente** para a ferramenta migrações para Azure: avaliação do servidor ou migrações para Azure: Server Migration. Lá, você pode verificar o status da conexão entre o Azure e os agentes de descoberta e avaliação no dispositivo.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Posso adicionar várias credenciais de servidor no dispositivo VMware?
+
+Sim, agora damos suporte a várias credenciais de servidor para executar o inventário de software (descoberta de aplicativos instalados), análise de dependência sem agente e descoberta de instâncias de SQL Server e bancos de dados. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials) sobre como fornecer credenciais no Gerenciador de configuração de dispositivo.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Que tipo de credenciais de servidor posso adicionar ao dispositivo VMware?
+Você pode fornecer credenciais de autenticação de domínio/Windows (não domínio)/Linux (não domínio)/SQL Server no Gerenciador de configuração de dispositivo. [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como tratá-las.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quais tipos de propriedades de conexão de SQL Server são compatíveis com a migração do Azure para descoberta de SQL?
+As migrações para Azure criptografarão a comunicação entre o dispositivo de migração do Azure e as instâncias de SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como true); a camada de transporte usará SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor de dispositivo deve ser configurado para [confiar na autoridade raiz do certificado](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Se nenhum certificado tiver sido provisionado no servidor quando ele for iniciado, SQL Server gerará um certificado autoassinado que será usado para criptografar pacotes de logon. [Saiba mais](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

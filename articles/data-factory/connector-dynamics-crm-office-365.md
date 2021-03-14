@@ -1,25 +1,20 @@
 ---
 title: Copiar dados no Dynamics (Common Data Service)
-description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline de data factory.
-services: data-factory
-documentationcenter: ''
+description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service/Microsoft dataverso) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para o Dynamics CRM ou o Dynamics 365 usando uma atividade de cópia em um pipeline de data factory.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/08/2021
+ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428463"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447428"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service/Microsoft dataverso) ou o Dynamics CRM usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -32,7 +27,7 @@ Este conector tem suporte para as seguintes atividades:
 - [Atividade de cópia](copy-activity-overview.md) com a [origem com suporte e a matriz de coletor](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Dynamics 365 (Common Data Service) ou Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 (Common Data Service) ou Dynamics CRM. Para obter uma lista de armazenamentos de dados com suporte de uma atividade de cópia como fontes e coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados do Dynamics 365 (Common Data Service/Microsoft dataverso) ou do Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 (Common Data Service) ou Dynamics CRM. Para obter uma lista de armazenamentos de dados com suporte de uma atividade de cópia como fontes e coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Este conector do Dynamics dá suporte ao Dynamics das versões 7 a 9 para online e local. Mais especificamente:
 
@@ -368,6 +363,32 @@ A combinação ideal de **writeBatchSize** e **parallelCopies** depende do esque
         }
     }
 ]
+```
+
+## <a name="retrieving-data-from-views"></a>Recuperando dados de exibições
+
+Para recuperar dados de exibições do Dynamics, você precisa obter a consulta salva da exibição e usar a consulta para obter os dados.
+
+Há duas entidades que armazenam diferentes tipos de exibição: "consulta salva" armazena a exibição do sistema e a "consulta do usuário" armazena a exibição do usuário. Para obter as informações dos modos de exibição, consulte a seguinte consulta FetchXML e substitua "TARGETENTITY" por `savedquery` ou `userquery` . Cada tipo de entidade tem mais atributos disponíveis que você pode adicionar à consulta com base em sua necessidade. Saiba mais sobre entidade [savedquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) e [entidade userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+
+```xml
+<fetch top="5000" >
+  <entity name="<TARGETENTITY>">
+    <attribute name="name" />
+    <attribute name="fetchxml" />
+    <attribute name="returnedtypecode" />
+    <attribute name="querytype" />
+  </entity>
+</fetch>
+```
+
+Você também pode adicionar filtros para filtrar as exibições. Por exemplo, adicione o filtro a seguir para obter uma exibição denominada "minhas contas ativas" na entidade de conta.
+
+```xml
+<filter type="and" >
+    <condition attribute="returnedtypecode" operator="eq" value="1" />
+    <condition attribute="name" operator="eq" value="My Active Accounts" />
+</filter>
 ```
 
 ## <a name="data-type-mapping-for-dynamics"></a>Mapeamento de tipo de dados para Dynamics

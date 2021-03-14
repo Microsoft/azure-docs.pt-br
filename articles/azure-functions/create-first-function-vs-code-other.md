@@ -3,12 +3,12 @@ title: Criar uma função no Go ou Rust usando o Visual Studio Code – Azure Fu
 description: Saiba como criar uma função Go como um manipulador personalizado do Azure Functions e publicar o projeto local por meio da hospedagem sem servidor no Azure Functions usando a extensão do Azure Functions no Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 1142ff76425e2e4bff0d3881be1378d9da07806e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493644"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704728"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Início rápido: Criar uma função Go ou Rust no Azure usando o Visual Studio Code
 
@@ -89,14 +89,14 @@ O arquivo *function.json* na pasta *HttpExample* declara uma função de gatilho
 
     ```go
     package main
-
+    
     import (
         "fmt"
         "log"
         "net/http"
         "os"
     )
-
+    
     func helloHandler(w http.ResponseWriter, r *http.Request) {
         message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
         name := r.URL.Query().Get("name")
@@ -105,7 +105,7 @@ O arquivo *function.json* na pasta *HttpExample* declara uma função de gatilho
         }
         fmt.Fprint(w, message)
     }
-
+    
     func main() {
         listenAddr := ":8080"
         if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
@@ -262,7 +262,7 @@ Nesta seção, você publicará seu projeto no Azure em um aplicativo de funçõ
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Altere o `defaultExecutablePath` em *host.json* de `handler.exe` para `handler`. Isso instrui o aplicativo de funções a executar o binário do Linux.

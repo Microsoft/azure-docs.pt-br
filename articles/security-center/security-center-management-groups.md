@@ -1,26 +1,22 @@
 ---
-title: Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure | Microsoft Docs
-description: Este artigo explica como gerenciar sua postura de segurança em escala aplicando políticas a todas as assinaturas vinculadas ao seu locatário de Azure Active Directory.
+title: Organizar assinaturas em grupos de gerenciamento e atribuir funções a usuários da central de segurança do Azure
+description: Saiba como organizar suas assinaturas do Azure em grupos de gerenciamento na central de segurança do Azure e atribuir funções a usuários em sua organização
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3508d508a19d6ce7fba4f3ef3a4fa545a58a167d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556433"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099379"
 ---
-# <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizar grupos de gerenciamento, assinaturas e visibilidade em todo o locatário
+# <a name="organize-subscriptions-into-management-groups-and-assign-roles-to-users"></a>Organizar assinaturas em grupos de gerenciamento e atribuir funções a usuários
 
 Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
 
@@ -79,65 +75,6 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
    > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você atribui um usuário a uma função do Azure ao grupo de gerenciamento pai, o acesso é herdado pelas assinaturas do grupo de gerenciamento filho. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
 
 
-## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões em todo o locatário para você mesmo
-
-Um usuário com a função de Azure Active Directory (AD) do **administrador global** pode ter responsabilidades em todo o locatário, mas não tem as permissões do Azure para exibir as informações de toda a organização na central de segurança do Azure. A elevação de permissões é necessária porque as atribuições de função do Azure AD não concedem acesso aos recursos do Azure. 
-
-> [!TIP]
-> Saiba mais sobre a elevação de permissões para a função de administrador global em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../role-based-access-control/elevate-access-global-admin.md).
-
-Para atribuir permissões em nível de locatário:
-
-1. Se sua organização gerencia o acesso a recursos com [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para o usuário seguindo o procedimento abaixo.
-
-1. Como um usuário administrador global sem uma atribuição no grupo de gerenciamento raiz do locatário, abra a página **visão geral** da central de segurança e selecione o link **visibilidade em todo o locatário** na faixa. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Habilitar permissões em nível de locatário na central de segurança do Azure":::
-
-1. Selecione a nova função do Azure a ser atribuída. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Formulário para definir as permissões de nível de locatário a serem atribuídas ao usuário":::
-
-    > [!TIP]
-    > Geralmente, a função Admin de Segurança é necessária para aplicar políticas no nível raiz, enquanto Leitor de Segurança será suficiente para fornecer visibilidade no nível dos locatários. Para obter mais informações sobre as permissões concedidas por essas funções, consulte a [descrição da função interna Admin de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a [descrição da função interna Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader).
-    >
-    > Para obter as diferenças entre essas funções específicas à central de segurança, consulte a tabela em [funções e ações permitidas](security-center-permissions.md#roles-and-allowed-actions).
-
-    A exibição de toda a organização é obtida com a concessão de funções no nível do grupo de gerenciamento raiz do locatário.  
-
-1. Faça logoff do portal do Azure e, em seguida, faça logon novamente.
-
-1. Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
-
-
-## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicitar permissões em todo o locatário quando as suas não forem suficientes
-
-Se você fizer logon na central de segurança e vir uma faixa informando que sua exibição é limitada, você pode clicar para enviar uma solicitação ao administrador global da sua organização. Na solicitação, você pode incluir a função que deseja atribuir e o administrador global tomará uma decisão sobre qual função conceder. 
-
-É a decisão do administrador global se você deve aceitar ou rejeitar essas solicitações. 
-
-> [!IMPORTANT]
-> Você só pode enviar uma solicitação a cada sete dias.
-
-Para solicitar permissões elevadas de seu administrador global:
-
-1. No portal do Azure, abra a central de segurança do Azure.
-
-1. Se você vir a faixa "você está vendo informações limitadas". Selecione-o.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Faixa informando a um usuário que ele pode solicitar permissões em todo o locatário.":::
-
-1. No formulário de solicitação detalhado, selecione a função desejada e a justificativa de por que você precisa dessas permissões.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalhes para solicitar permissões em todo o locatário do administrador global do Azure":::
-
-1. Selecione **Solicitar acesso**.
-
-    Um email é enviado para o administrador global. O email contém um link para a central de segurança onde eles podem aprovar ou rejeitar a solicitação.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email para o administrador global para obter novas permissões":::
-
-    Depois que o administrador global selecionar **examinar a solicitação** e concluir o processo, a decisão será enviada por email para o usuário solicitante. 
 
 ## <a name="assign-azure-roles-to-other-users"></a>Atribuir funções do Azure a outros usuários
 
@@ -195,6 +132,6 @@ Depois que as funções do Azure tiverem sido atribuídas aos usuários, o admin
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para obter informações relacionadas. consulte:
+Neste artigo, você aprendeu como organizar assinaturas em grupos de gerenciamento e atribuir funções a usuários. Para obter informações relacionadas. consulte:
 
 - [Permissões na Central de Segurança do Azure](security-center-permissions.md)

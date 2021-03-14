@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475177"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455815"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureActiveDirectory** | Azure Active Directory. | Saída | Não | Sim |
 | **AzureActiveDirectoryDomainServices** | Tráfego de gerenciamento para implantações dedicadas ao Azure Active Directory Domain Services. | Ambos | Não | Sim |
 | **AzureAdvancedThreatProtection** | Proteção Avançada contra Ameaças do Azure. | Saída | Não | Não |
+| **AzureAPIForFHIR** | API do Azure para FHIR (recursos de interoperabilidade do Fast Healthcare).<br/><br/> *Observação: essa marca não é configurável no momento por meio do portal do Azure.*| Saída | Não | Não |
 | **AzureArcInfrastructure** | Servidores habilitados para Arc do Azure, Azure Arc habilitado kubernetes e tráfego de configuração de convidado.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager** . *Essa marca não é configurável no momento por meio do portal do Azure*.| Saída | Não | Sim |
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **Armazenamento** e **AzureActiveDirectory**. | Saída | Não | Sim |
 | **AzureBotService** | Serviço de Bot do Azure. | Saída | Não | Não |
@@ -130,7 +131,7 @@ Você pode obter as informações da marca de serviço e dos intervalos atuais p
 Você pode recuperar de forma programática a lista atual de marcas de serviço com os detalhes dos intervalos de endereços IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
@@ -152,7 +153,8 @@ Os intervalos de endereços IP nesses arquivos estão na notação CIDR.
 
 ### <a name="tips"></a>Dicas 
 - Você pode detectar as atualizações de uma publicação em comparação com a próxima observando os valores *changeNumber* no arquivo JSON. Cada subseção (por exemplo, **Storage.WestUS**) tem seu *changeNumber*, que aumenta conforme ocorrem as alterações. O nível superior do *changeNumber* do arquivo aumenta quando qualquer uma das subseções é alterada.
-- Para obter exemplos de como analisar as informações de marcas de serviço (por exemplo, para obter todos os intervalos de endereços para Armazenamento no Oeste dos EUA), confira a documentação [API de Descoberta de Marca de Serviço do PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Para obter exemplos de como analisar as informações de marcas de serviço (por exemplo, para obter todos os intervalos de endereços para Armazenamento no Oeste dos EUA), confira a documentação [API de Descoberta de Marca de Serviço do PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag).
+- Quando novos endereços IP forem adicionados às marcas de serviço, eles não serão usados no Azure por pelo menos uma semana. Isso dá tempo para atualizar todos os sistemas que talvez precisem controlar os endereços IP associados às marcas de serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

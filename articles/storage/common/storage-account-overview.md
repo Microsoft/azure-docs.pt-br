@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051217"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561884"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -71,7 +71,7 @@ As contas de armazenamento para uso geral v2 são compatíveis com os recursos m
 - Tabelas
 
 > [!NOTE]
-> A Microsoft recomenda o uso de contas de armazenamento para uso geral v2 na maioria dos cenários. É possível atualizar facilmente de uma conta de armazenamento de blobs ou para uso geral v1 para uma v2 sem tempo de inatividade e sem a necessidade de copiar dados.
+> A Microsoft recomenda o uso de contas de armazenamento para uso geral v2 na maioria dos cenários. É possível atualizar facilmente de uma conta de armazenamento de blobs ou para uso geral v1 para uma v2 sem tempo de inatividade e sem a necessidade de copiar dados. No entanto, a atualização não pode ser desfeita.
 >
 > Para saber mais sobre o upgrade para uma conta para uso geral v2, confira [Atualizar para uma conta de armazenamento de para geral v2](storage-account-upgrade.md).
 
@@ -87,13 +87,18 @@ As contas de armazenamento v1 de uso geral fornecem acesso a todos os serviços 
 - Filas
 - Tabelas
 
-A Microsoft recomenda contas v2 de uso geral para a maioria dos cenários. Você pode usar contas v1 de uso geral para estes cenários:
+Você pode usar contas v1 de uso geral para estes cenários:
 
 - O modelo de implantação clássico do Azure é obrigatório para os aplicativos. As contas para uso geral v2 e de Armazenamento de Blobs só são compatíveis com o modelo de implantação do Azure Resource Manager.
 
 - Seus aplicativos têm uso intensivo de transações ou usam uma largura de banda de replicação geográfica significativa, mas não exigem grande capacidade. Nesse caso, o uso geral v1 pode ser a opção mais econômica.
 
 - Você usa uma versão da [API REST dos serviços de armazenamento](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) que é anterior à 2014-02-14 ou uma biblioteca de cliente com uma versão inferior a 4. x. Não é possível atualizar seu aplicativo.
+
+> [!NOTE]
+> Embora a Microsoft recomende contas de uso geral v2 para a maioria dos cenários, a Microsoft continuará a dar suporte a contas v1 de uso geral para clientes novos e existentes. Você pode criar contas de armazenamento de uso geral v1 em novas regiões sempre que o armazenamento do Azure estiver disponível nessas regiões. Atualmente, a Microsoft não tem um plano para substituir o suporte a contas v1 de uso geral e fornecerá pelo menos um ano de aviso prévio antes de substituir qualquer recurso de armazenamento do Azure. A Microsoft continuará a fornecer atualizações de segurança para contas v1 de uso geral, mas nenhum novo desenvolvimento de recurso é esperado para esse tipo de conta.
+>
+> A partir de 1º de outubro de 2020, os preços para contas v1 de uso geral em novas regiões de armazenamento do Azure são equivalentes a preços para contas v2 de uso geral nessas regiões. Os preços nas regiões de armazenamento do Azure existentes não foram alterados. Para obter detalhes de preços para contas v1 de uso geral em uma região específica, consulte a página de preços do armazenamento do Azure. Escolha sua região e, em seguida, ao lado de **ofertas de preços**, selecione **outros**.
 
 ### <a name="blockblobstorage-accounts"></a>Contas do BlockBlobStorage
 
@@ -182,7 +187,7 @@ A tabela a seguir lista os pontos de extremidade para cada um dos serviços de a
 
 | Serviço de armazenamento | Ponto de extremidade |
 |--|--|
-| Armazenamento de Blobs | `https://<storage-account>.blob.core.windows.net` |
+| Armazenamento de blob | `https://<storage-account>.blob.core.windows.net` |
 | Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Arquivos do Azure | `https://<storage-account>.file.core.windows.net` |
 | Armazenamento de filas | `https://<storage-account>.queue.core.windows.net` |

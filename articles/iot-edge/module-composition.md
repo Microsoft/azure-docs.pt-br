@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f6c12b892e01aafd5beecdff14751481cf7fc96
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 406420fcd517ceda8ea6eedfc955f54b15541f74
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366595"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
@@ -162,12 +162,12 @@ Por exemplo:
 }
 ```
 
-Cada módulo tem uma propriedade de **configurações** que contém a **imagem**do módulo, um endereço para a imagem de contêiner em um registro de contêiner e qualquer **criaroptions** para configurar a imagem na inicialização. Para obter mais informações, consulte [como configurar opções de criação de contêiner para módulos de IOT Edge](how-to-use-create-options.md).
+Cada módulo tem uma propriedade de **configurações** que contém a **imagem** do módulo, um endereço para a imagem de contêiner em um registro de contêiner e qualquer **criaroptions** para configurar a imagem na inicialização. Para obter mais informações, consulte [como configurar opções de criação de contêiner para módulos de IOT Edge](how-to-use-create-options.md).
 
 O módulo edgeHub e os módulos personalizados também têm três propriedades que dizem ao agente de IoT Edge como gerenciá-los:
 
-* **Status**: se o módulo deve estar em execução ou parado quando for implantado pela primeira vez. Obrigatórios.
-* **RestartPolicy**: quando e se o agente de IOT Edge deverá reiniciar o módulo se ele parar. Obrigatórios.
+* **Status**: se o módulo deve estar em execução ou parado quando for implantado pela primeira vez. Obrigatório.
+* **RestartPolicy**: quando e se o agente de IOT Edge deverá reiniciar o módulo se ele parar. Obrigatório.
 * **StartupOrder**: *introduzido na versão do IOT Edge 1.0.10.* Qual ordem o agente de IoT Edge deve iniciar os módulos quando implantados pela primeira vez. A ordem é declarada com inteiros, em que um módulo, dado um valor de inicialização 0, é iniciado primeiro e, em seguida, os números mais altos são seguidos. O módulo edgeAgent não tem um valor de inicialização porque ele sempre é iniciado primeiro. Opcional.
 
   O agente de IoT Edge inicia os módulos na ordem do valor de inicialização, mas não aguarda a conclusão de cada módulo antes de ir para o próximo.
@@ -327,7 +327,7 @@ O exemplo a seguir mostra o que pode ser a aparência de um documento de manifes
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
               "createOptions": ""
             }
           },
@@ -337,7 +337,7 @@ O exemplo a seguir mostra o que pode ser a aparência de um documento de manifes
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

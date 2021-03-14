@@ -3,12 +3,12 @@ title: Exibir e filtrar informações de recursos do Azure
 description: Filtre informações e use diferentes exibições para entender melhor seus recursos do Azure.
 ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: d1bd00a9e7f8c9c18484378f7c21d3bacdac2d3f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745886"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738626"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Exibir e filtrar informações de recursos do Azure
 
@@ -49,6 +49,18 @@ Para excluir uma exibição:
 1. Selecione **Gerenciar exibição** e, em seguida, **Procurar todas as exibições**.
 
 1. No painel **Exibições salvas para "Todos os recursos"** , selecione a exibição e o ícone **Excluir** ![ícone Excluir exibição](media/manage-filter-resource-views/icon-delete.png).
+
+## <a name="export-information-from-a-view"></a>Exportar informações de uma exibição
+
+Você pode exportar as informações de recurso de uma exibição. Para exportar informações no formato CSV:
+
+1. Selecione **Exportar para CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Captura de tela da exportação para o formato CSV":::
+
+1. Salve o arquivo localmente e abra-o no Excel ou em outro aplicativo compatível com o formato CSV. 
+
+Ao navegar pelo portal, você verá outras áreas em que pode exportar informações, como um grupo de recursos individual.
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 

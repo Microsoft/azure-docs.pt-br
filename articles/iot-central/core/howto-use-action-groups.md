@@ -8,18 +8,18 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a723023bf8614b837ba9783bae987403921c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585491"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupar várias ações para executar a partir de uma ou mais regras
 
 *Este artigo se aplica a construtores e administradores.*
 
-No Azure IoT Central, você cria regras para executar ações quando uma condição é atendida. As regras são baseadas em eventos ou telemetria do dispositivo. Por exemplo, você pode notificar um operador quando a temperatura de um dispositivo exceder um limite. Este artigo descreve como usar [Azure monitor](../../azure-monitor/overview.md) *grupos de ação* para anexar várias ações a uma regra de IOT central. Você pode anexar um grupo de ações a várias regras. Um [grupo de ações](../../azure-monitor/platform/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure.
+No Azure IoT Central, você cria regras para executar ações quando uma condição é atendida. As regras são baseadas em eventos ou telemetria do dispositivo. Por exemplo, você pode notificar um operador quando a temperatura de um dispositivo exceder um limite. Este artigo descreve como usar [Azure monitor](../../azure-monitor/overview.md) *grupos de ação* para anexar várias ações a uma regra de IOT central. Você pode anexar um grupo de ações a várias regras. Um [grupo de ações](../../azure-monitor/alerts/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ No Azure IoT Central, você cria regras para executar ações quando uma condiç
 
 ## <a name="create-action-groups"></a>Criar grupos de ação
 
-Você pode [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md) ou com um [modelo de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Você pode [criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/alerts/action-groups.md) ou com um [modelo de Azure Resource Manager](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md).
 
 Um grupo de ações pode:
 
@@ -51,7 +51,7 @@ Escolha um grupo de ação da sua assinatura do Azure:
 
 ![Escolher grupo de ação](media/howto-use-action-groups/chooseactiongroup.png)
 
-Clique em **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
+Selecione **Salvar**. O grupo de ações agora aparece na lista de ações a serem executadas quando a regra é disparada:
 
 ![Grupo de ações salvo](media/howto-use-action-groups/savedactiongroup.png)
 

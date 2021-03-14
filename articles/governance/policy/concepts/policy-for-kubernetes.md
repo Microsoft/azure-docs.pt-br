@@ -3,12 +3,12 @@ title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789731"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577105"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -447,7 +447,7 @@ Algumas outras considerações:
 ## <a name="logging"></a>Registro em log
 
 Como um controlador/contêiner do Kubernetes, os pods _azure-policy_ e _gatekeeper_ mantêm os logs no cluster do Kubernetes. Os logs podem ser expostos na página **Insights** do cluster do Kubernetes.
-Para obter mais informações, confira [Monitorar o desempenho do cluster do Kubernetes com o Azure Monitor para contêineres](../../../azure-monitor/insights/container-insights-analyze.md).
+Para obter mais informações, confira [Monitorar o desempenho do cluster do Kubernetes com o Azure Monitor para contêineres](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Para exibir os logs do complemento, use `kubectl`:
 

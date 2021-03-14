@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/27/2020
-ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/10/2021
+ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247158"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630887"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como revisar e publicar uma oferta no Marketplace comercial
 
@@ -74,6 +74,13 @@ A primeira etapa no processo de publicação é um conjunto de validações auto
 - **Validação e registro de gerenciamento de leads** (<15 min)
 
     Confirmamos que o seu sistema de gerenciamento de leads pode receber clientes potenciais com base nos detalhes fornecidos na página de **configuração da oferta** . Esta etapa só é aplicável para ofertas com gerenciamento de Lead habilitado.
+
+- **Validação da oferta** (<30 min)
+
+    Somente para ofertas de SaaS, executamos validações rápidas para conteúdo e configurações técnicas. A criação da visualização não será bloqueada em problemas de validação detectados nesta etapa. Se encontrarmos quaisquer problemas que possam falhar na certificação, um link **Exibir relatório de validação** aparecerá na página **visão geral da oferta** . O relatório conterá descrições de quaisquer violações de política.
+
+    > [!IMPORTANT]
+    > Certifique-se de examinar e endereçar todos os avisos da etapa de validação da oferta antes de selecionar o botão **ir ao vivo** . Caso contrário, você correrá o risco de realizar uma falha na certificação que atrasará a sua oferta.
 
 ## <a name="certification-phase"></a>Fase de certificação
 
@@ -143,16 +150,19 @@ Se você quiser publicar a oferta em um momento posterior, será necessário ini
 
 Quando a oferta estiver pronta para você revisar e ser desligada, enviaremos um email para solicitar que você examine e aprove sua versão prévia da oferta. Você também pode atualizar a página **visão geral da oferta** em seu navegador para ver se sua oferta atingiu a fase de aprovação do Publicador. Se tiver, o botão **Go Live** e os links de visualização estarão disponíveis.
 
-A captura de tela a seguir mostra a página **visão geral da oferta** para uma oferta de SaaS. As etapas de validação que você verá nessa página variam de acordo com o tipo de oferta e as seleções feitas quando você criou a oferta.
+A captura de tela a seguir mostra a página **visão geral da oferta** no programa do Marketplace comercial no Partner Center. As etapas de validação que você verá nessa página variam de acordo com o tipo de oferta e as seleções feitas quando você criou a oferta. Observe que a fase de certificação pode ocorrer durante o envio para visualização ou envio para o Live, dependendo do tipo de oferta.
 
 ![Ilustra a página Visão geral da oferta para uma oferta no Partner Center. O botão Go Live e os links de visualização são mostrados.](./media/publish-status-publisher-signoff.png)
 
 ### <a name="previewing-and-approving-your-offer"></a>Visualizando e aprovando sua oferta
 
 > [!IMPORTANT]
-> Para validar o fluxo de compra e configuração de ponta a ponta, compre sua oferta enquanto ela estiver em versão prévia. Primeiro Notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança. Se sua oferta for uma listagem entre em contato comigo, teste se um cliente potencial foi criado conforme o esperado fornecendo os detalhes de contato comigo durante a visualização.
+> Para validar o fluxo de compra e configuração de ponta a ponta, compre sua oferta enquanto ela estiver em versão prévia. Primeiro Notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança. Se sua oferta for uma listagem _entre em contato comigo_ , teste se um cliente potencial foi criado conforme o esperado fornecendo os detalhes de contato comigo durante a visualização.
 
 Na página **visão geral da oferta** , você verá links de visualização no botão **ir ao vivo** . Haverá um link para a visualização do AppSource, visualização do Azure Marketplace ou ambos, dependendo das opções escolhidas ao criar sua oferta. Se você optar por vender sua oferta pela Microsoft, qualquer pessoa que tenha sido adicionada ao público de visualização poderá testar a aquisição e a implantação de sua oferta para garantir que ela atenda às suas necessidades durante esse estágio.
+
+> [!IMPORTANT]
+> Certifique-se de examinar e endereçar todos os avisos da etapa de _validação da oferta_ antes de selecionar o botão **ir ao vivo** . Caso contrário, você correrá o risco de realizar uma falha na certificação que atrasará a sua oferta.
 
 Depois de aprovar sua versão prévia, selecione **entrar em tempo real** para publicar sua oferta ao vivo no Marketplace comercial. 
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049841"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
@@ -42,7 +42,7 @@ Aqui estão algumas perguntas a serem feitas:
 * Qual é a forma geral do *grafo* na minha instância? Quantas relações existem?
 * Quais *pontos de extremidade* eu tenho em minha instância?
 * Quais *rotas* tenho em minha instância? Eles têm filtros?
-* Onde a minha instância *se conecta a outros serviços do Azure* ? Alguns pontos de integração comuns incluem:
+* Onde a minha instância *se conecta a outros serviços do Azure*? Alguns pontos de integração comuns incluem:
 
     - Grade de eventos do Azure, hubs de eventos do Azure ou barramento de serviço do Azure
     - Funções do Azure
@@ -52,18 +52,18 @@ Aqui estão algumas perguntas a serem feitas:
     - Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 * Quais outros *aplicativos pessoais ou da empresa* tenho que se conectem à minha instância?
 
-Você pode coletar essas informações usando o [portal do Azure](https://portal.azure.com), [APIs e SDKs do gêmeos digital do Azure](how-to-use-apis-sdks.md), [comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md)ou o exemplo do [Explorer do Azure digital gêmeos (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Você pode coletar essas informações usando o [portal do Azure](https://portal.azure.com), [APIs e SDKs do gêmeos digital do Azure](how-to-use-apis-sdks.md), [comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md)ou o exemplo do [Azure digital gêmeos Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 ## <a name="prepare"></a>Preparar
 
-Nesta seção, você irá se preparar para recriar sua instância baixando seus modelos, gêmeos e grafo originais da sua instância original. Este artigo usa o exemplo do [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) para essa tarefa.
+Nesta seção, você irá se preparar para recriar sua instância baixando seus modelos, gêmeos e grafo originais da sua instância original. Este artigo usa o exemplo do [Gerenciador de gêmeos digital do Azure](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) para esta tarefa.
 
 >[!NOTE]
 >Talvez você já tenha arquivos que contenham os modelos ou o grafo em sua instância. Nesse caso, você não precisa baixar tudo novamente — apenas as partes que você está perdendo ou as coisas que podem ter mudado desde que você carregou esses arquivos originalmente. Por exemplo, você pode ter gêmeos que foram atualizados com novos dados.
 
-### <a name="limitations-of-adt-explorer"></a>Limitações do ADT Explorer
+### <a name="limitations-of-azure-digital-twins-explorer"></a>Limitações do Azure digital gêmeos Explorer
 
-O [exemplo do ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é um aplicativo cliente de exemplo que dá suporte a uma representação visual do grafo e fornece interação visual com sua instância. Este artigo mostra como usá-lo para baixar e, posteriormente, recarregar, seus modelos, gêmeos e grafos.
+O [exemplo do Gerenciador de gêmeos digital do Azure](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é um exemplo de aplicativo cliente que dá suporte a uma representação visual do grafo e fornece interação visual com sua instância. Este artigo mostra como usá-lo para baixar e, posteriormente, recarregar, seus modelos, gêmeos e grafos.
 
 Este exemplo não é uma ferramenta completa. Ele não foi testado com estresse e não foi criado para lidar com grafos de um grande tamanho. Consequentemente, tenha em mente as seguintes limitações de exemplo prontas para uso:
 
@@ -77,27 +77,27 @@ Se o exemplo não puder lidar com o tamanho do grafo, você poderá exportar e i
 * [Comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md)
 * [SDKs e APIs do Azure digital gêmeos](how-to-use-apis-sdks.md)
 
-### <a name="set-up-the-adt-explorer-application"></a>Configurar o aplicativo ADT Explorer
+### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurar o aplicativo do Gerenciador de gêmeos digital do Azure
 
-Para prosseguir com o ADT Explorer, primeiro Baixe o código do aplicativo de exemplo e configure-o para ser executado em seu computador.
+Para continuar com o Azure digital gêmeos Explorer, primeiro Baixe o código do aplicativo de exemplo e configure-o para ser executado em seu computador.
 
-Para obter o exemplo, consulte [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **baixar zip** para baixar um arquivo. zip desse código de exemplo em seu computador como **Azure_Digital_Twins__ADT__explorer.zip**. Descompacte o arquivo.
+Para obter o exemplo, consulte [Azure digital gêmeos Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **baixar zip** para baixar um arquivo. zip desse código de exemplo em seu computador como **Azure_Digital_Twins__ADT__explorer.zip**. Descompacte o arquivo.
 
-Em seguida, configure e configure permissões para o ADT Explorer. Siga as instruções na seção [Configurar o Gerenciador de gêmeos e ADT do Azure digital](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do guia de início rápido do gêmeos do Azure digital. Esta seção orienta você pelas seguintes etapas:
+Em seguida, configure e configure as permissões para o Gerenciador de gêmeos digital do Azure. Siga as instruções na seção [Configurar o gêmeos do Azure digital e o Gerenciador de gêmeos digital do Azure](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) do início rápido do Azure digital gêmeos. Esta seção orienta você pelas seguintes etapas:
 
 1. Configure uma instância de gêmeos digital do Azure. Você pode ignorar esta parte porque já tem uma instância.
 1. Configure as credenciais locais do Azure para fornecer acesso à sua instância.
-1. Execute o ADT Explorer e configure-o para se conectar à sua instância. Você usará o *nome do host* da sua instância do Azure digital gêmeos original que está sendo movida.
+1. Execute o Gerenciador de gêmeos digital do Azure e configure-o para se conectar à sua instância. Você usará o *nome do host* da sua instância do Azure digital gêmeos original que está sendo movida.
 
-Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um navegador em seu computador. O exemplo deve ser conectado à instância original do Azure digital gêmeos.
+Agora você deve ter o aplicativo de exemplo do Azure digital gêmeos Explorer em execução em um navegador em seu computador. O exemplo deve ser conectado à instância original do Azure digital gêmeos.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost: 3000. O aplicativo é chamado de ADT Explorer e contém caixas para Gerenciador de consultas, exibição de modelo, exibição de gráfico e Gerenciador de propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost: 3000. O aplicativo é chamado de Gerenciador de gêmeos digital do Azure e contém caixas para Gerenciador de consultas, exibição de modelo, exibição de gráfico e Gerenciador de propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 Para verificar a conexão, selecione o botão **Executar consulta** para executar a consulta padrão que exibe todas as gêmeos e relações no grafo na caixa **Explorador do Graph** .
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Uma consulta de execução de botão de leitura no canto superior direito da janela é realçada." lightbox="media/how-to-move-regions/run-query.png":::
 
-Você pode deixar o ADT Explorer em execução porque você o usará novamente mais tarde neste artigo para recarregar esses itens para a nova instância na região de destino.
+Você pode deixar o Azure digital gêmeos Explorer em execução porque você o usará novamente mais tarde neste artigo para recarregar esses itens para a nova instância na região de destino.
 
 ### <a name="download-models-twins-and-graph"></a>Baixar modelos, gêmeos e grafo
 
@@ -131,17 +131,17 @@ Após a conclusão dessa etapa, você precisará do nome do host da sua nova ins
 
 Em seguida, você configurará a nova instância para que ela seja uma cópia do original.
 
-#### <a name="upload-the-original-models-twins-and-graph-by-using-adt-explorer"></a>Carregar os modelos, gêmeos e grafo originais usando o ADT Explorer
+#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Carregar os modelos, gêmeos e grafo originais usando o Azure digital gêmeos Explorer
 
 Nesta seção, você pode recarregar seus modelos, gêmeos e grafo para a nova instância. Se você não tiver modelos, gêmeos ou grafo em sua instância original ou não quiser movê-los para a nova instância, poderá pular para a [próxima seção](#re-create-endpoints-and-routes).
 
-Caso contrário, retorne à janela do navegador que executa o ADT Explorer e siga estas etapas.
+Caso contrário, retorne à janela do navegador que executa o Gerenciador de gêmeos digital do Azure e siga estas etapas.
 
 ##### <a name="connect-to-the-new-instance"></a>Conectar-se à nova instância
 
-Atualmente, o ADT Explorer está conectado à instância original do Azure digital gêmeos. Alterne a conexão para apontar para a nova instância selecionando o botão **entrar** no canto superior direito da janela.
+Atualmente, o Gerenciador de gêmeos digital do Azure está conectado à instância original do Azure digital gêmeos. Alterne a conexão para apontar para a nova instância selecionando o botão **entrar** no canto superior direito da janela.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer realçando o ícone de entrada no canto superior direito da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="O Gerenciador de gêmeos digital do Azure destacando o ícone de entrada no canto superior direito da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
 
 Substitua a **URL ADT** para refletir sua nova instância. Altere esse valor para que ele leia *https://{novo nome de host de instância}*.
 
@@ -157,19 +157,19 @@ Para carregar seus modelos, gêmeos e grafo, selecione o ícone **importar grafo
 
 Na caixa seletor de arquivo, vá para o grafo baixado. Selecione o arquivo Graph **. JSON** e selecione **abrir**.
 
-Depois de alguns segundos, o ADT Explorer abre um modo de exibição de **importação** que mostra uma visualização do grafo a ser carregado.
+Após alguns segundos, o Azure digital gêmeos Explorer abre um modo de exibição de **importação** que mostra uma visualização do grafo a ser carregado.
 
-Para confirmar o carregamento do grafo, selecione o ícone **salvar** no canto superior direito da caixa de **exibição de gráfico** .
+Para confirmar o upload do grafo, selecione o ícone **Salvar** no canto superior direito da **EXIBIÇÃO DE GRAFO**.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Realçando o ícone salvar no painel visualização do gráfico." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Realce do ícone Salvar no painel Visualização do Grafo." lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-O ADT Explorer agora carrega seus modelos e o grafo (incluindo o gêmeos e as relações) para sua nova instância do Azure digital gêmeos. Você deverá ver uma mensagem de êxito indicando quantos modelos, gêmeos e relações foram carregados.
+O Gerenciador de gêmeos digital do Azure agora carrega seus modelos e o grafo (incluindo o gêmeos e as relações) para sua nova instância do Azure digital gêmeos. Você deverá ver uma mensagem de êxito indicando quantos modelos, gêmeos e relações foram carregados.
 
 :::row:::
     :::column:::
@@ -187,7 +187,7 @@ Para verificar se tudo foi carregado com êxito, selecione o botão **Executar c
 
 Você deve ver seu grafo com todas as suas gêmeos e relações exibidas na caixa **Explorador do Graph** . Você também deve ver seus modelos listados na caixa **exibição de modelo** .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma exibição do ADT Explorer mostrando dois modelos realçados na caixa exibição de modelo e um gráfico realçado na caixa Gerenciador de gráficos." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma exibição do Gerenciador de gêmeos digital do Azure mostrando dois modelos realçados na caixa exibição de modelo e um gráfico realçado na caixa Gerenciador de gráficos." lightbox="media/how-to-move-regions/post-upload.png":::
 
 Essas exibições confirmam que seus modelos, gêmeos e grafo foram carregados novamente para a nova instância na região de destino.
 
@@ -228,7 +228,7 @@ Para verificar se a nova instância foi configurada corretamente, use as seguint
 
 * [Portal do Azure](https://portal.azure.com). O portal é bom para verificar se a nova instância existe e está na região de destino correta. Também é bom para verificar pontos de extremidade e rotas e conexões com outros serviços do Azure.
 * [Comandos da CLI do gêmeos digital do Azure](how-to-use-cli.md). Esses comandos são bons para verificar se a nova instância existe e está na região de destino correta. Eles também podem ser usados para verificar os dados da instância.
-* [ADT Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer é bom para verificar dados de instância, como modelos, gêmeos e grafos.
+* [Gerenciador de gêmeos digital do Azure](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O Gerenciador de gêmeos digital do Azure é bom para verificar dados de instância, como modelos, gêmeos e grafos.
 * [SDKs e APIs do Azure digital gêmeos](how-to-use-apis-sdks.md). Esses recursos são bons para verificar dados de instância, como modelos, gêmeos e grafos. Eles também são bons para verificar pontos de extremidade e rotas.
 
 Você também pode tentar executar qualquer aplicativo personalizado ou fluxos de ponta a ponta que você tenha executado com sua instância original para ajudá-lo a verificar se eles estão funcionando corretamente com a nova instância.

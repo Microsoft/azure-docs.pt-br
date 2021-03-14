@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0c21c916d152188031212b47704dfb41d3f64a82
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339468"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596279"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de dados da Central de Segurança do Azure
 
@@ -82,8 +82,8 @@ Os clientes podem acessar os dados relacionados à Central de Segurança dos seg
 
 | STREAM                                                                                | Tipos de dados                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)                       | Todos os alertas de segurança, as solicitações de acesso [just-in-time](security-center-just-in-time.md) da Central de Segurança aprovadas e todos os alertas gerados pelos [controles de aplicativos adaptáveis](security-center-adaptive-application.md).|
-| [Logs do Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
+| [Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)                       | Todos os alertas de segurança, as solicitações de acesso [just-in-time](security-center-just-in-time.md) da Central de Segurança aprovadas e todos os alertas gerados pelos [controles de aplicativos adaptáveis](security-center-adaptive-application.md).|
+| [Logs do Azure Monitor](../azure-monitor/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
 | [Gráfico de Recursos do Azure](../governance/resource-graph/overview.md)                      | Alertas de segurança, recomendações de segurança, resultados da avaliação de vulnerabilidade, informações de classificação de segurança, status de verificações de conformidade e muito mais.                                                                       |
 | [API REST da Central de Segurança do Azure](/rest/api/securitycenter/) | Alertas de segurança, recomendações de segurança e muito mais.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |

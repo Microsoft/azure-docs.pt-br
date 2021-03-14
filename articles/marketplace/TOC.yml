@@ -47,12 +47,19 @@
       items:
         - name: Seus benefícios do Marketplace
           href: gtm-your-marketplace-benefits.md
-        - name: Participação de parceiros de venda conjunta
-          href: marketplace-co-sell.md
-        - name: Opção de venda conjunta na Central de Parceiros
-          href: commercial-marketplace-co-sell.md
-        - name: Fazer a migração de soluções de venda conjunta do OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Vendas conjuntas com a Microsoft
+          items:
+            - name: Visão geral de venda conjunta
+              href: marketplace-co-sell.md
+            - name: Requisitos de venda conjunta
+              href: co-sell-requirements.md
+            - name: Configurar a venda conjunta
+              href: commercial-marketplace-co-sell.md
+            - name: Verificar o status da venda conjunta
+              href: co-sell-status.md
+            - name: Fazer a migração de soluções de venda conjunta do OCP GTM
+              href: co-sell-solution-migration.md
         - name: Revenda por meio de Parceiros do CSP
           href: cloud-solution-providers.md
         - name: Guia de integração do Programa Connect
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparar ativos técnicos de módulo do Azure IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Lista de verificação de pré-certificação
+          href: iot-edge-checklist.md
     - name: Ofertas de serviço gerenciado
       items:
         - name: Planejar uma oferta de serviço gerenciado
@@ -299,6 +308,50 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Painel de classificações e opiniões
       href: partner-center-portal/ratings-reviews.md
+    - name: Acesso programático a análises
+      items:
+        - name: Introdução
+          href: analytics-get-started.md
+        - name: Pré-requisitos do acesso programático
+          href: analytics-prerequisites.md
+        - name: Paradigma do acesso programático
+          href: analytics-programmatic-access.md
+        - name: Faça sua primeira chamada à API
+          href: analytics-make-your-first-api-call.md
+        - name: Lista de consultas do sistema
+          href: analytics-system-queries.md
+        - name: Consultas de exemplo
+          href: analytics-sample-queries.md
+        - name: Aplicativo de exemplo
+          href: analytics-sample-application.md
+        - name: Especificação de consulta personalizada
+          href: analytics-custom-query-specification.md
+        - name: Perguntas frequentes sobre análise programática
+          href: analytics-programmatic-faq.md
+        - name: Referência da API de análise
+          items:
+            - name: Lista de APIs
+              href: analytics-available-apis.md
+            - name: Obter todos os conjuntos de dados
+              href: analytics-api-get-all-datasets.md
+            - name: Obter API de consultas de relatório
+              href: analytics-api-get-report-queries.md
+            - name: Excluir API de consultas de relatório
+              href: analytics-api-delete-report-queries.md
+            - name: Experimentar API de consultas de relatório
+              href: analytics-api-try-report-queries.md
+            - name: Obter API de relatório
+              href: analytics-api-get-report.md
+            - name: Atualizar API de relatório
+              href: analytics-api-update-report.md
+            - name: Excluir API de relatório
+              href: analytics-api-delete-report.md
+            - name: Pausar API de execuções de relatório
+              href: analytics-api-pause-report-executions.md
+            - name: Retomar API de execuções de relatório
+              href: analytics-api-resume-report-executions.md
+    - name: Gerenciar anomalias de cobrança limitadas
+      href: anomaly-detection.md
     - name: Perguntas comuns sobre a análise
       href: analytics-faq.md
 - name: Políticas e termos
@@ -393,6 +446,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de estado para venda conjunta
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagrama de Arquitetura de Referência
+      href: reference-architecture-diagram.md
     - name: Categorias e subcategorias
       href: categories.md
     - name: Marcas HTML com suporte

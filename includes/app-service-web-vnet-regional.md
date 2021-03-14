@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a4eb22320a15cc76a7543c25583003d57ea4e538
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98225649"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473638"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
 
@@ -38,6 +38,8 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se v
 
 > [!NOTE]
 > Se você rotear todo o tráfego de saída para sua VNet, ele estará sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você roteia todo o tráfego de saída para sua VNet, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego em outro lugar.
+> 
+> A integração VNet regional não é capaz de usar a porta 25.
 
 Há algumas limitações no uso da integração VNet com o VNets na mesma região:
 
@@ -79,7 +81,7 @@ A integração VNet regional permite que você use pontos de extremidade de serv
 1. configurar a integração VNet regional com seu aplicativo Web
 1. Vá para o serviço de destino e configure os pontos de extremidade de serviço em relação à sub-rede usada para integração
 
-### <a name="network-security-groups"></a>Grupos de Segurança de Rede
+### <a name="network-security-groups"></a>Grupos de segurança de rede
 
 Você pode usar grupos de segurança de rede para bloquear o tráfego de entrada e saída para recursos em uma VNet. Um aplicativo que usa a integração VNet regional pode usar um [grupo de segurança de rede][VNETnsg] para bloquear o tráfego de saída para recursos em sua VNet ou na Internet. Para bloquear o tráfego para endereços públicos, você deve ter a configuração de aplicativo WEBSITE_VNET_ROUTE_ALL definida como 1. As regras de entrada em um NSG não se aplicam ao seu aplicativo porque a integração VNet afeta apenas o tráfego de saída de seu aplicativo.
 

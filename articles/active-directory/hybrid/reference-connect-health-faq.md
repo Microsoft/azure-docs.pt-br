@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299758"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367989"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -29,7 +29,7 @@ Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (
 ## <a name="general-questions"></a>Perguntas gerais
 **P: gerencio vários diretórios do Azure AD. Como fazer mudar para aquela que tem Azure Active Directory Premium?**
 
-Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **Sair** e use as credenciais de administrador global do Diretório que tiver o Azure Active Directory Premium habilitado para entrar.
+Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **sair** e, em seguida, use as credenciais de administrador global do diretório que tem Azure Active Directory Premium (P1 ou P2) habilitado para entrar.
 
 **P: Qual versão de funções de identidade tem suporte do Azure AD Connect Health?**
 
@@ -47,8 +47,8 @@ Observe que os recursos fornecidos pelo serviço mudam de acordo com a função 
 
 **P: quantas licenças é necessário monitorar minha infra-estrutura?**
 
-* O primeiro o Agente do Connect Health requer pelo menos uma licença Azure AD Premium.
-* Cada agente registrado adicional requer 25 licenças Azure AD Premium adicionais.
+* O primeiro agente do Connect Health requer pelo menos uma licença Azure AD Premium (P1 ou P2).
+* Cada agente registrado adicional requer 25 licenças adicionais de Azure AD Premium (P1 ou P2).
 * A contagem de agentes é equivalente ao número total de agentes registrados em todas as funções monitoradas (AD FS, Azure AD Connect e/ou AD DS).
 * Licenciamento AAD Connect Health não exige que você atribua a licença para usuários específicos. Você só precisa ter o número necessário de licenças válidas.
 
@@ -110,7 +110,7 @@ Leia mais sobre [configurar HTTP Proxy para agentes de integridade](how-to-conne
 Se precisar configurar um proxy durante o registro do agente, talvez seja necessário modificar as configurações de proxy do Internet Explorer com antecedência.
 
 1. Abra o Internet Explorer > **configurações**  >  **Opções da Internet**  >  **conexões**  >  **configurações de LAN**.
-2. Selecione **Usar um Servidor Proxy para a LAN**.
+2. Selecione **usar um servidor proxy para sua LAN**.
 3. Selecione **Avançado** se você tiver portas de proxy diferentes para HTTP e HTTPS/Seguro.
 
 **P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**

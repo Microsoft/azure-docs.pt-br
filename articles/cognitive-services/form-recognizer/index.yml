@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1d4eb69942ad9d58e4d0d358efc13c3dbcb77923
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 6aecdb69a390dd5dfd43a541b29437c0feebf53d
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98788359"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102503055"
 landingContent:
 - title: Sobre o Reconhecimento de Formulários
   linkLists:
@@ -143,7 +143,7 @@ landingContent:
     - text: SDK .NET
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - text: SDK do Python
-      url: /python/api/azure-ai-formrecognizer/?view=azure-python
+      url: /python/api/azure-ai-formrecognizer/
     - text: Java SDK
       url: /java/api/overview/azure/ai-formrecognizer-readme
     - text: SDK do JavaScript

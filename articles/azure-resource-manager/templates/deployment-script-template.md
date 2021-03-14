@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733833"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175644"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usar scripts de implantação em modelos ARM
 
@@ -141,7 +141,7 @@ Detalhes do valor da propriedade:
 - `azPowerShellVersion`/`azCliVersion`: Especifique a versão do módulo a ser usada. Consulte uma lista de [versões de Azure PowerShell com suporte](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > O script de implantação usa as imagens da CLI disponíveis do registro de contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se uma versão sem suporte for usada, a mensagem de erro listará as versões com suporte.
+  > O script de implantação usa as imagens da CLI disponíveis do registro de contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli). Se uma versão sem suporte for usada, a mensagem de erro listará as versões com suporte.
 
 - `arguments`: Especifique os valores de parâmetro. os valores são separados por espaços.
 
@@ -149,7 +149,7 @@ Detalhes do valor da propriedade:
 
   Se os argumentos contiverem caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para dobrar o escape dos caracteres. Cole a cadeia de caracteres de escape original na ferramenta e selecione **escape**.  A ferramenta gera uma cadeia de caracteres com escape duplo. Por exemplo, no modelo de exemplo anterior, o argumento é `-name \"John Dole\"` . A cadeia de caracteres de escape é `-name \\\"John Dole\\\"` .
 
-  Para passar um parâmetro de modelo ARM do tipo Object como um argumento, converta o objeto em uma cadeia de caracteres usando a função [String ()](./template-functions-string.md#string) e, em seguida, use a função [replace ()](./template-functions-string.md#replace) para substituir qualquer `\"` `\\\"` . Por exemplo:
+  Para passar um parâmetro de modelo ARM do tipo Object como um argumento, converta o objeto em uma cadeia de caracteres usando a função [String ()](./template-functions-string.md#string) e, em seguida, use a função [replace ()](./template-functions-string.md#replace) para substituir qualquer `\"` `\\\"` . Por exemplo: 
 
   ```json
   replace(string(parameters('tables')), '\"', '\\\"')
@@ -327,7 +327,7 @@ O script do usuário, os resultados da execução e o arquivo stdout são armaze
 
 A pasta de saída contém um _executionresult.json_ e o arquivo de saída de script. Você pode ver a mensagem de erro de execução do script em _executionresult.json_. O arquivo de saída é criado somente quando o script é executado com êxito. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. Você pode substituir o arquivo de script de implantação do usuário por um revisado e executar novamente o script de implantação da instância de contêiner do Azure.
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Depois de implantar um recurso de script de implantação, o recurso é listado no grupo de recursos no portal do Azure. A captura de tela a seguir mostra a página de **visão geral** de um recurso de script de implantação:
 
@@ -377,10 +377,10 @@ Timeout             : PT1H
 
 Usando CLI do Azure, você pode gerenciar scripts de implantação na assinatura ou no escopo do grupo de recursos:
 
-- [AZ Deployment – scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete): excluir um script de implantação.
-- [AZ Deployment-lista de scripts](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list): lista todos os scripts de implantação.
-- [AZ Deployment – scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show): recuperar um script de implantação.
-- [AZ Deployment – scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log): Mostrar logs de script de implantação.
+- [AZ Deployment – scripts Delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): excluir um script de implantação.
+- [AZ Deployment-lista de scripts](/cli/azure/deployment-scripts#az-deployment-scripts-list): lista todos os scripts de implantação.
+- [AZ Deployment – scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): recuperar um script de implantação.
+- [AZ Deployment – scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Mostrar logs de script de implantação.
 
 A saída do comando de lista é semelhante a:
 

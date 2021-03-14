@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631152"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571026"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
@@ -99,7 +99,7 @@ O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo do
 
 ## <a name="may-2020"></a>Maio de 2020
 
-* [Usuários da política de backup](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Versão Prévia)
+* [Usuários da política de backup](create-active-directory-connections.md) (Versão Prévia)
 
     O Azure NetApp Files permite incluir outras contas que exigem privilégios elevados na conta de computador criada para uso com esse serviço. As contas especificadas terão permissão para alterar as permissões de NTFS no nível do arquivo ou da pasta. Por exemplo, você pode especificar uma conta de serviço sem privilégios usada para migrar dados para um compartilhamento de arquivos SMB no Azure NetApp Files. O recurso de usuários da política de backup está em versão prévia no momento.
 

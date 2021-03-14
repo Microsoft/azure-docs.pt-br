@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e0247560afa8229f4fa5c25ec7dfbbca4f7defb2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979514"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486091"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -132,18 +132,18 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
 }
 ```
 
-## <a name="natural-reading-order-output"></a>Saída da ordem de leitura natural
-Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), especifique a ordem na qual as linhas de texto são geradas com o `readingOrder` parâmetro de consulta. Use `natural` para uma saída de ordem de leitura mais amigável, conforme mostrado no exemplo a seguir.
+## <a name="natural-reading-order-output-latin-only"></a>Saída da ordem de leitura natural (somente latino)
+Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), especifique a ordem na qual as linhas de texto são geradas com o `readingOrder` parâmetro de consulta. Use `natural` para uma saída de ordem de leitura mais amigável, conforme mostrado no exemplo a seguir. Esse recurso só tem suporte em idiomas latinos.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Exemplo de ordem de leitura de OCR":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>Classificação manuscrita para linhas de texto (somente latino)
-A resposta da [API de visualização 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) inclui a classificação se cada linha de texto é do estilo de manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos. O exemplo a seguir mostra a classificação manuscrita para o texto na imagem.
+A resposta da [API de visualização 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) inclui a classificação se cada linha de texto é do estilo de manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso só tem suporte em idiomas latinos. O exemplo a seguir mostra a classificação manuscrita para o texto na imagem.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="Exemplo de classificação de manuscrito de OCR":::
 
 ## <a name="select-pages-or-page-ranges-for-text-extraction"></a>Selecionar página (s) ou intervalos de página para extração de texto
-Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, use o `pages` parâmetro de consulta para especificar números de página ou intervalos de página para extrair texto apenas dessas páginas. O exemplo a seguir mostra um documento com 10 páginas, com texto extraído para ambos os casos – todas as páginas (1-10) e páginas selecionadas (3-6).
+Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, use o `pages` parâmetro de consulta para especificar números de página ou intervalos de página para extrair texto apenas dessas páginas. O exemplo a seguir mostra um documento com 10 páginas, com texto extraído para ambos os casos – todas as páginas (1-10) e páginas selecionadas (3-6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Saída de páginas selecionadas":::
 
@@ -166,4 +166,4 @@ A [API de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/c
 
 - Introdução à [API REST do pesquisa Visual computacional ou aos guias de início rápido da biblioteca do cliente](./quickstarts-sdk/client-library.md).
 - Saiba mais sobre a [API REST de leitura 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) com suporte para um total de 73 idiomas.
+- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) com suporte para um total de 73 idiomas.

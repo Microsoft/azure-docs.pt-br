@@ -1,22 +1,18 @@
 ---
 title: Atualizar modelos de Machine Learning usando Azure Data Factory
 description: Descreve como criar pipelines preditivas usando Azure Data Factory v1 e Azure Machine Learning Studio (clássico)
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 556936eb6e8c1c1c2dd1fab4ce7dfc1b648710b7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7a27ed657ba21d9e2125df903b40d74cd81eacf6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496595"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379294"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizando modelos de Azure Machine Learning Studio (clássico) usando atualizar atividade de recurso
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 8347dcd60dcdfbf03f52e25eb24744909c69465a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6160dd09edc57f2f52306d4dad0dde413fff0616
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804863"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617175"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 > [!IMPORTANT]
-> A visualização do toque de rede virtual está em espera no momento em todas as regiões do Azure. Você pode enviar um email para nós <azurevnettap@microsoft.com> com sua ID de assinatura e notificaremos você com atualizações futuras sobre a versão prévia. No ínterim, você pode usar soluções baseadas em agente ou NVA que fornecem funcionalidade de visibilidade de toque/rede por meio de nossas [soluções de parceiros de agente de pacotes](#virtual-network-tap-partner-solutions) disponíveis nas [ofertas do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> A visualização do toque de rede virtual está em espera no momento em todas as regiões do Azure. Você pode enviar um email para nós <azurevnettap@microsoft.com> com sua ID de assinatura e notificaremos você com atualizações futuras sobre a versão prévia. No ínterim, você pode usar soluções baseadas em agente ou NVA que fornecem funcionalidade de visibilidade de toque/rede por meio de nossas [soluções de parceiros de agente de pacotes](#virtual-network-tap-partner-solutions) disponíveis nas [ofertas do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você transmita o tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. A ferramenta de análise ou de coleta é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/). Para obter uma lista de soluções de parceiros validadas para trabalhar com o TAP de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
 A imagem seguir mostra como o TAP de rede virtual funciona. Você pode adicionar uma configuração de TAP em um [adaptador de rede](virtual-network-network-interface.md) anexado a uma máquina virtual implantada em sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que o adaptador de rede monitorado ou em uma rede [virtual emparelhada](virtual-network-peering-overview.md). A solução de coleta para TAP de rede virtual pode ser implantada com base em um balanceador de carga interno do Azure para oferecer alta disponibilidade.
@@ -38,7 +38,7 @@ Antes de criar um toque de rede virtual, você deve ter recebido um email de con
 
 As contas usadas para aplicar a configuração de TAP em adaptadores de rede precisam ser atribuídas à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) com as ações necessárias da tabela a seguir atribuídas:
 
-| Ação | Nome |
+| Ação | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessária para criar, atualizar, ler e excluir um recurso de TAP de rede virtual |
 | Microsoft.Network/networkInterfaces/read | Necessária para ler o recurso de adaptador de rede no qual o TAP será configurado |
@@ -64,6 +64,7 @@ As contas usadas para aplicar a configuração de TAP em adaptadores de rede pre
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [LANGuardian NetFort](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Segurança do NoName](https://nonamesecurity.com/)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)

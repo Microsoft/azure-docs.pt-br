@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713041"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Introdução aos assistentes de voz no Windows
 
@@ -34,7 +34,7 @@ Para começar a desenvolver um assistente de voz para Windows, você precisará 
 
 Alguns recursos necessários para um agente de voz completamente personalizado no Windows precisarão de recursos da Microsoft. O [exemplo de assistente de voz UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) fornece versões de exemplo desses recursos para desenvolvimento e teste iniciais, portanto, esta seção é desnecessária para o desenvolvimento inicial.
 
-- **Modelo de palavra-chave:** A ativação por voz requer um modelo de palavra-chave da Microsoft na forma de um arquivo. bin. O arquivo. bin fornecido no exemplo do assistente de voz UWP é treinado na palavra-chave "contoso".
+- **Modelo de palavra-chave:** A ativação por voz requer um modelo de palavra-chave da Microsoft na forma de um arquivo. bin. O arquivo. bin fornecido no exemplo do assistente de voz UWP é treinado na palavra-chave *contoso*.
 - **Token de recurso de acesso limitado:** Como as APIs ConversationalAgent fornecem acesso ao áudio do microfone, elas são protegidas sob restrições de recursos de acesso limitado. Para usar um recurso de acesso limitado, será necessário obter um token de recurso de acesso limitado conectado à identidade do pacote do seu aplicativo da Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Estabelecer um serviço de diálogo

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788563"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425576"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
@@ -429,7 +429,7 @@ Se você tiver `isSessionsEnabled` definido como `true` , o `sessionHandlerOptio
 |---------|---------|---------|
 |prefetchCount|0|Obtém ou define o número de mensagens que o destinatário da mensagem pode solicitar simultaneamente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
+|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagem deve iniciar por instância dimensionada. Por padrão, o runtime do Functions processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manipuladas simultaneamente por instância dimensionada.|
 

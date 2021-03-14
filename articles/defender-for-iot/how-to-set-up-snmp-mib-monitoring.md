@@ -1,5 +1,5 @@
 ---
-title: Configurar o monitoramento de MIB SNMP
+title: Configurar o monitoramento de MIB do SNMP
 description: Você pode executar o monitoramento de integridade do sensor usando SNMP. O sensor responde a consultas SNMP enviadas de um servidor de monitoramento autorizado.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837678"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523814"
 ---
-# <a name="set-up-snmp-mib-monitoring"></a>Configurar o monitoramento de MIB SNMP
+# <a name="set-up-snmp-mib-monitoring"></a>Configurar o monitoramento de MIB do SNMP
 
 Você pode executar o monitoramento de integridade do sensor usando Simple Network Management Protocol (SNMP). O sensor responde a consultas SNMP enviadas de um servidor de monitoramento autorizado. O monitor SNMP sonda os OIDs do sensor periodicamente (até 50 vezes por segundo).
 
@@ -36,7 +36,7 @@ Antes de começar a configurar o monitoramento SNMP, você precisa abrir a porta
 | Uso de memória | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indicação de zero a 100 |
 | Uso de disco | 1.3.6.1.4.1.9.9.53313.3.4 | GAUGE32 | Indicação de zero a 100 |
 | Status do Serviço | 1.3.6.1.4.1.9.9.53313.5 | DISPLAYSTRING | Online ou offline se um dos quatro componentes cruciais estiver inativo |
-| Largura de banda | Fora do escopo para 2,4 |  | A largura de banda recebida em cada interface do monitor em Xsense |
+| Largura de Banda | Fora do escopo para 2,4 |  | A largura de banda recebida em cada interface do monitor em Xsense |
 
    - Chaves não existentes respondem com NULL, HTTP 200, com base em [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     
@@ -58,7 +58,7 @@ Para definir o monitoramento de integridade SNMP v2:
 
 4. Na seção **autenticação** , na caixa **cadeia de caracteres da comunidade SNMP v2** , digite a cadeia de caracteres. A cadeia de caracteres da comunidade SNMP pode conter até 32 caracteres e incluir qualquer combinação de caracteres alfanuméricos (letras maiúsculas, letras minúsculas e números). Espaços não são permitidos.
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 Para definir o monitoramento de integridade SNMP V3:
 
@@ -84,6 +84,6 @@ Para definir o monitoramento de integridade SNMP V3:
 
 5. Clique em **Salvar**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Exportar logs de solução de problemas](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

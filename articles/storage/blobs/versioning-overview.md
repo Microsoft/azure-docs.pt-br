@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980150"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380807"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -28,7 +28,7 @@ A Microsoft recomenda usar o controle de versão de BLOB para manter versões an
 Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e gerenciar o controle de versão de blob](versioning-enable.md).
 
 > [!IMPORTANT]
-> O controle de versão de BLOB não pode ajudá-lo a se recuperar da exclusão acidental de uma conta de armazenamento ou contêiner. Para evitar a exclusão acidental da conta de armazenamento, configure um bloqueio **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> O controle de versão de BLOB não pode ajudá-lo a se recuperar da exclusão acidental de uma conta de armazenamento ou contêiner. Para evitar a exclusão acidental da conta de armazenamento, configure um bloqueio no recurso da conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md). Para proteger contêineres contra exclusão acidental, configure a exclusão reversível de contêiner para a conta de armazenamento. Para obter mais informações, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -191,7 +191,7 @@ O controle de versão de blob foi projetado para proteger seus dados contra excl
 
 A tabela a seguir mostra quais ações do RBAC do Azure dão suporte à exclusão de um BLOB ou uma versão de BLOB.
 
-| Description | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
+| Descrição | Operação do serviço blob | Ação de dados RBAC do Azure necessária | Suporte de função interna do Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Excluindo a versão atual do blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Colaborador de dados de blob de armazenamento |
 | Excluindo uma versão | Delete Blob | **Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/deleteBlobVersion/ação** | Proprietário de Dados do Blob de Armazenamento |

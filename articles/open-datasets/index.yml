@@ -10,12 +10,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 11/04/2019
-  ms.openlocfilehash: 29a87a9977c647af7f93e62e48bc493f579a1959
-  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+  ms.openlocfilehash: 087926f732179ac09b79122ad490d4e3117498a6
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94986225"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102505708"
 landingContent:
 - title: Sobre o Open Datasets
   linkLists:
@@ -38,4 +38,4 @@ landingContent:
   - linkListType: reference
     links:
     - text: API de Python
-      url: /python/api/azureml-opendatasets/?view=azure-ml-py
+      url: /python/api/azureml-opendatasets/

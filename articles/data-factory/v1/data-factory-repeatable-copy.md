@@ -1,23 +1,18 @@
 ---
 title: Cópia repetida no Azure Data Factory
 description: Saiba como evitar duplicatas mesmo que uma fatia que copia dados seja executada mais de uma vez.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c427cd90412121e896738ca43f4c66dd24b096dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456835"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387080"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
 
@@ -59,7 +54,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade de Down Tubes de dois para quatro. Se você executar novamente a fatia de dados para esse período manualmente, você encontrará dois novos registros anexados ao banco de dados SQL do Azure/banco de dados do SQL Server. Este exemplo pressupõe que nenhuma das colunas na tabela tem a restrição de chave primária.
+Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade de Down Tubes de dois para quatro. Se você executar novamente a fatia de dados para esse período manualmente, encontrará dois novos registros anexados ao banco de dado SQL/SQL Server do Azure. Este exemplo pressupõe que nenhuma das colunas na tabela tem a restrição de chave primária.
 
 ```
 ID    Product        Quantity    ModifiedDate

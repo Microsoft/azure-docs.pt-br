@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002061"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623441"
 ---
 Use a associação de saída dos Hubs de Eventos para gravar eventos em um fluxo de eventos. É necessário ter permissão de envio para que um hub de eventos grave eventos nele.
 
@@ -250,7 +250,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name** | n/d | É o nome da variável usada no código da função que representa o evento. |
 |**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em runtime. |
 |**eventHubName** |**EventHubName** | Functions 2.x e posterior. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em runtime. |
-|**connection** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.|
+|**connection** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento. <br><br>Se você estiver usando a [versão 5.x ou superior da extensão](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), em vez de uma cadeia de conexão, você poderá fornecer uma referência a uma seção de configuração que define a conexão. Confira [Conexões](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -258,11 +258,39 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+### <a name="default"></a>Padrão
+
+É possível usar os seguintes tipos de parâmetro para a associação de saída do Hub de Eventos:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` – As propriedades padrão de EventData são fornecidas para o [namespace Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Envie mensagens usando um parâmetro de método, como `out string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Para gravar várias mensagens, você pode usar `ICollector<string>` ou `IAsyncCollector<string>` no lugar de `out string`.
+
+### <a name="additional-types"></a>Tipos adicionais 
+Os aplicativos que usam a versão 5.0.0 ou superior da extensão do Hub de Eventos usam o tipo `EventData` em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez do tipo no [namespace Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Essa versão removerá o suporte do tipo herdado `Body` para beneficiar os seguintes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
+### <a name="default"></a>Padrão
+
+É possível usar os seguintes tipos de parâmetro para a associação de saída do Hub de Eventos:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` – As propriedades padrão de EventData são fornecidas para o [namespace Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
 Envie mensagens usando um parâmetro de método, como `out string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Para gravar várias mensagens, você pode usar `ICollector<string>` ou `IAsyncCollector<string>` no lugar de `out string`.
+
+### <a name="additional-types"></a>Tipos adicionais 
+Os aplicativos que usam a versão 5.0.0 ou superior da extensão do Hub de Eventos usam o tipo `EventData` em [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) em vez do tipo no [namespace Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). Essa versão removerá o suporte do tipo herdado `Body` para beneficiar os seguintes tipos:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -274,7 +302,7 @@ Há duas opções para gerar uma mensagem do Hub de Eventos de uma função:
 
 - **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor retornado da função será mantido como uma mensagem do Hub de Eventos.
 
-- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/03/2021
+ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805927"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034278"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -139,7 +139,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para aumentar o limite padrão para o máximo de seu aplicativo lógico, consulte [executar no modo de alta taxa de transferência](#run-high-throughput-mode), que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário. |
+| Ação: execuções por intervalo de interrupção de 5 minutos | -100.000 execuções (padrão) <p><p>-300.000 execuções (máximo no modo de alta taxa de transferência)  | Para aumentar o limite padrão para o limite máximo para seu aplicativo lógico, consulte [executar no modo de alta taxa de transferência](#run-high-throughput-mode), que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário. |
 | Ação: chamadas de saída simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
 | Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
 | Ponto de extremidade de runtime: Chamadas de leitura a cada 5 minutos  | 60.000 | Esse limite se aplica a chamadas que obtêm as entradas e saídas brutas do histórico de execução de um aplicativo lógico. Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
@@ -151,7 +151,7 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 #### <a name="run-in-high-throughput-mode"></a>Executar no modo de alta taxa de transferência
 
-Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar o limite padrão para o máximo de seu aplicativo lógico, você pode habilitar o modo de alta taxa de transferência, que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário.
+Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar o limite padrão para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) para seu aplicativo lógico, que é três vezes o limite padrão, você pode habilitar o modo de alta taxa de transferência, que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário.
 
 1. No portal do Azure, no menu do aplicativo lógico, em **configurações**, selecione **configurações de fluxo de trabalho**.
 
@@ -193,19 +193,20 @@ Para obter mais informações sobre a definição de recurso de aplicativo lógi
 
 ### <a name="integration-service-environment-ise"></a>Ambiente do serviço de integração (ISE)
 
-Estes são os limites da taxa de transferência para o [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [SKU do ISE do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): fornece até 500 execuções por minuto, mas observe estas considerações:
 
-| Nome | Limite | Observações |
-|------|-------|-------|
-| Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
-| Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
-| Unidades de escala máximas que você pode adicionar | 10 | |
-||||
+  * Certifique-se de usar essa SKU somente para exploração, experimentos, desenvolvimento ou teste-não para teste de produção ou de desempenho. Essa SKU não tem SLA (contrato de nível de serviço), capacidade de expansão ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade.
 
-Para ultrapassar esses limites no processamento normal ou executar um teste de carga que possa ultrapassar esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
+  * As atualizações de back-end podem interromper o serviço intermitentemente.
 
-> [!NOTE]
-> O [SKU do ISE do Desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, nenhum recurso para escalar verticalmente, nem SLA (contrato de nível de serviço). Use esse SKU somente para experimentar, desenvolver e testar, não para produção ou teste de desempenho.
+* [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): a tabela a seguir descreve os limites de taxa de transferência do SKU, mas para exceder esses limites no processamento normal ou executar testes de carga que podem ultrapassar esses limites, [entre em contato com a equipe dos aplicativos lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
+
+  | Nome | Limite | Observações |
+  |------|-------|-------|
+  | Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
+  | Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
+  | Unidades de escala máximas que você pode adicionar | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -388,7 +389,7 @@ Quando seu aplicativo lógico precisa se comunicar por meio de um firewall que l
 
 Por exemplo, para dar suporte a chamadas que os aplicativos lógicos na região oeste dos EUA enviam ou recebem por meio de gatilhos e ações internas, como o [gatilho http ou a ação](../connectors/connectors-native-http.md), o firewall precisa permitir o acesso a *todos* os endereços IP de entrada *e* endereços IP de saída do serviço de aplicativos lógicos que existem na região oeste dos EUA.
 
-Se seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector do Outlook do Office 365 ou o conector do SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](#outbound) na região do Azure do aplicativo lógico. Além disso, se você usar conectores personalizados que acessam recursos locais por meio do [recurso de gateway de dados local no Azure](logic-apps-gateway-connection.md), será necessário configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](#outbound)dos conectores gerenciados* correspondentes.
+Se o seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector Outlook do Office 365 ou SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](#outbound) na região do Azure do seu aplicativo lógico. Além disso, se você usar conectores personalizados que acessam recursos locais por meio do [recurso de gateway de dados local no Azure](logic-apps-gateway-connection.md), será necessário configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](#outbound)dos conectores gerenciados* correspondentes.
 
 Para obter mais informações sobre como definir as configurações de comunicação no gateway, consulte estes tópicos:
 
@@ -443,6 +444,7 @@ Esta seção lista os endereços IP de entrada para o serviço de Aplicativos L�
 | Leste da Austrália | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Sudeste da Austrália | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Sul do Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Sudeste do Brasil | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
 | Canadá Central | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Leste do Canadá | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Índia Central | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -509,6 +511,7 @@ Esta seção lista os endereços IP de saída para o serviço de Aplicativos Ló
 | Leste da Austrália | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Sudeste da Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
 | Sul do Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
+| Sudeste do Brasil | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
 | Canadá Central | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Leste do Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | Índia Central | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |

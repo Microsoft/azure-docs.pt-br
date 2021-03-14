@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618154"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574215"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
@@ -46,7 +46,7 @@ Os AD DS do Azure incluem os dois modelos de pasta de trabalho a seguir:
 * Relatório de visão geral de segurança
 * Relatório de atividade da conta
 
-Para obter mais informações sobre como editar e gerenciar pastas de trabalho, consulte [visão geral de Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
+Para obter mais informações sobre como editar e gerenciar pastas de trabalho, consulte [visão geral de Azure monitor pastas de trabalho](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="use-the-security-overview-report-workbook"></a>Usar a pasta de trabalho de relatório visão geral de segurança
 

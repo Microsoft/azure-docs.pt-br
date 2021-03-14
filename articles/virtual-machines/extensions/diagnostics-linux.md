@@ -1,28 +1,26 @@
 ---
 title: Computação do Azure-extensão de diagnóstico do Linux 4,0
 description: Como configurar a extensão de diagnóstico Linux do Azure (LAD) 4,0 para coletar métricas e eventos de log de VMs Linux em execução no Azure.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/05/2021
-ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4c4851ab28e5da74e7f1fa36f087ecfdabb1c638
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980636"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102560116"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux 4,0 para monitorar as métricas e os logs
 
 Este documento descreve a versão 4,0 e mais recente da extensão de diagnóstico do Linux.
 
 > [!IMPORTANT]
-> Para obter informações sobre a versão 3. *, consulte  [este documento](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Para obter informações sobre a versão 3. *, consulte  [este documento](./diagnostics-linux-v3.md). Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introdução
 
@@ -108,7 +106,7 @@ O executável python2 deve ter um alias para *Python*. A seguir, um método que 
 A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o Armazenamento de Tabelas. A URL para a configuração de exemplo e o respectivo conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, fazer com que qualquer modelo ou automação que você construa use sua versão do arquivo de configuração, em vez de baixar essa URL a cada vez.
 
 > [!NOTE]
-> Para habilitar o novo coletor de Azure Monitor, as VMs precisam ter a identidade atribuída pelo sistema habilitada para a geração de token de autenticação do MSI. Isso pode ser feito durante a criação da VM ou após a criação da VM. Etapas para habilitar a identidade atribuída pelo sistema por meio do portal, da CLI, do PowerShell e do Resource Manager.  são listados detalhadamente [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> Para habilitar o novo coletor de Azure Monitor, as VMs precisam ter a identidade atribuída pelo sistema habilitada para a geração de token de autenticação do MSI. Isso pode ser feito durante a criação da VM ou após a criação da VM. Etapas para habilitar a identidade atribuída pelo sistema por meio do portal, da CLI, do PowerShell e do Resource Manager.  são listados detalhadamente [aqui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### <a name="azure-cli-sample"></a>Exemplo de CLI do Azure
 
@@ -490,7 +488,7 @@ Os exemplos incluem `LinuxSyslog20170410` e `LinuxSyslog20170609`.
 Essa seção opcional controla a habilitação de métricas de envio para o coletor de Azure Monitor além da conta de armazenamento e da folha de métricas de convidado padrão.
 
 > [!NOTE]
-> Isso requer que a identidade atribuída pelo sistema esteja habilitada nas VMs/VMSS. Isso pode ser feito por meio do portal, da CLI, do PowerShell e do Resource Manager. As etapas são listadas em detalhes [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). As etapas para habilitar isso também estão listadas nos exemplos de instalação para AZ CLI, PowerShell, etc. acima. 
+> Isso requer que a identidade atribuída pelo sistema esteja habilitada nas VMs/VMSS. Isso pode ser feito por meio do portal, da CLI, do PowerShell e do Resource Manager. As etapas são listadas em detalhes [aqui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). As etapas para habilitar isso também estão listadas nos exemplos de instalação para AZ CLI, PowerShell, etc. acima. 
 
 ```json
   "sinksConfig": {
@@ -827,6 +825,6 @@ Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-about.md) c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que você coletar.
-* Criar [gráficos de monitoramento](../../azure-monitor/platform/data-platform.md) para suas métricas.
+* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para as métricas que você coletar.
+* Criar [gráficos de monitoramento](../../azure-monitor/data-platform.md) para suas métricas.
 * Aprenda a [criar um conjunto de dimensionamento de máquinas virtuais](../linux/tutorial-create-vmss.md) usando suas métricas para controlar o dimensionamento automático.

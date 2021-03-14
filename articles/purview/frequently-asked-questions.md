@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 description: Este artigo responde às perguntas frequentes sobre o Azure alcance.
 author: SunetraVirdi
 ms.author: suvirdi
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: eca0b9986c4da30adeeb02bc3d90d1e3d2892df7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551434"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667807"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Perguntas frequentes sobre o Azure alcance
 
@@ -36,7 +36,7 @@ Essas perguntas frequentes respondem a perguntas comuns que os clientes e as equ
 |Instância Gerenciada do Azure SQL|SAP ECC (disponível por fim de 2020)|
 |Azure Data Explorer|SAP S/4 HANA (disponível por fim de 2020)|
 |Azure Data Lake Storage Gen1|Metastore do hive (disponível até o final de 2020)|
-|Azure Data Lake Storage Gen2|--|
+|Azure Data Lake Storage Gen2|Amazon S3|
 |Arquivos do Azure|--|
 |Banco de Dados SQL do Azure|--|
 

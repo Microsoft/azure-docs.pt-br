@@ -58,9 +58,9 @@
     - name: API REST
       href: /rest/api/advisor/
     - name: CLI do Azure
-      href: /cli/azure/advisor?view=azure-cli-latest
+      href: /cli/azure/advisor
     - name: PowerShell
-      href: /powershell/module/az.advisor/?view=azps-1.2.0
+      href: /powershell/module/az.advisor/
 - name: Recursos
   items:
     - name: Roteiro do Azure

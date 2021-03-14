@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: dfb18281ad558832e4b06d1c0d24654d351ed01d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4209e609420e610b9f3456da26b0afe0bf839d43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455180"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Azure Active Directory ao CorpTax
 
@@ -61,7 +61,7 @@ Para configurar a integração do Corptax ao Azure AD, você precisa adicionar o
 
     ![O botão Novo aplicativo](common/add_new_app.png)
 
-4. Na caixa de pesquisa, digite **Corptax** , selecione **Corptax** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Corptax**, selecione **Corptax** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Corptax na lista de resultados](common/search_new_app.png)
 
@@ -85,37 +85,37 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Corptax, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo **Corptax** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo **Corptax**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select_sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select_saml_option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit_urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Corptax](common/sp_intiated.png)
 
-    Na caixa de texto **URL de Logon** , digite uma URL: `https://asp.corptax.com`
+    Na caixa de texto **URL de Logon**, digite uma URL: `https://asp.corptax.com`
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de assinatura SAML** , clique em **Fazer o download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Fazer o download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
 ### <a name="configure-corptax-single-sign-on"></a>Configurar logon único do Corptax
 
-Para configurar o logon único no **Corptax** , você precisa enviar o **XML de metadados de federação** para [equipe de suporte do Corptax](https://connect.corptax.com/) baixado. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no **Corptax**, você precisa enviar o **XML de metadados de federação** para [equipe de suporte do Corptax](https://connect.corptax.com/) baixado. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -127,10 +127,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user_properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
 
-    b. No campo **Nome de usuário** , digite `brittasimon\@yourcompanydomain.extension`  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@<yourcompanydomain.extension>`. Por exemplo: `brittasimon@contoso.com`.
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -140,7 +139,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Corptax.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais** , escolha **Todos os aplicativos** e, em seguida, escolha **Corptax**.
+1. No portal do Azure, escolha **Aplicativos Empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Corptax**.
 
     ![Folha de aplicativos empresariais](common/enterprise_applications.png)
 
@@ -156,11 +155,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add_assign_user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-corptax-test-user"></a>Criar um usuário de teste do Corptax
 
@@ -173,7 +172,7 @@ Quando você clicar no bloco do Corptax no painel de acesso, você deverá ser r
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-Na caixa de texto **Ambiente** , digite o seu ambiente apropriado e você deverá ser conectado automaticamente ao Corptax para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+Na caixa de texto **Ambiente**, digite o seu ambiente apropriado e você deverá ser conectado automaticamente ao Corptax para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -181,4 +180,4 @@ Na caixa de texto **Ambiente** , digite o seu ambiente apropriado e você dever�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

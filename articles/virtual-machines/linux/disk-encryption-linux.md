@@ -2,21 +2,21 @@
 title: Cenários do Azure Disk Encryption em VMs Linux
 description: Este artigo fornece instruções sobre como habilitar as VMs Linux do Microsoft Azure Disk Encryption para vários cenários
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bf5da120072f49421b6f2194626178048b044f6a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878131"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564689"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
-
 
 O Azure Disk Encryption para VMs (máquinas virtuais) do Linux usa o recurso DM-Crypt do Linux para fornecer criptografia de disco completa do disco do sistema operacional e discos de dados. Além disso, ele fornece criptografia do disco temporário ao usar o recurso EncryptFormatAll.
 
@@ -408,7 +408,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
 - Kdump (kernel de despejo de memória).
 - Oracle ACFS (Sistema de Arquivos de Cluster do ASM).
-- VMs Gen2 (consulte: [Suporte para VMs de geração 2 no Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Os discos NVMe das VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
@@ -416,7 +415,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - VMs da série M com discos Acelerador de Gravação.
 - Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
 - Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).
-- [Tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md); especificamente, DV4, Dsv4, Ev4 e Esv4.
 - Criptografia de VMs em clusters de failover.
 
 ## <a name="next-steps"></a>Próximas etapas

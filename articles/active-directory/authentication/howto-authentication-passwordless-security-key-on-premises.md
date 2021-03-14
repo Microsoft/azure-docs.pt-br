@@ -1,29 +1,26 @@
 ---
-title: Chave de segurança sem senha entre em recursos locais (versão prévia)-Azure Active Directory
-description: Saiba como habilitar a entrada de chave de segurança sem senha para recursos locais usando Azure Active Directory (versão prévia)
+title: Chave de segurança sem senha entre para recursos locais-Azure Active Directory
+description: Saiba como habilitar a entrada de chave de segurança sem senha para recursos locais usando o Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743472"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647465"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar entrada de chave de segurança sem senha para recursos locais com Azure Active Directory (versão prévia)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitar a entrada de chave de segurança sem senha para recursos locais com Azure Active Directory 
 
 Este documento se concentra em habilitar a autenticação sem senha para recursos locais para ambientes com dispositivos Windows 10 ingressados no **Azure ad** e no **Azure ad híbrido** . Essa funcionalidade fornece SSO (logon único) contínuo para recursos locais usando chaves de segurança compatíveis com a Microsoft.
-
-> [!NOTE]
-> As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO para recursos locais usando chaves FIDO2
 
@@ -42,7 +39,7 @@ Um objeto de servidor Kerberos do Azure AD é criado em seu Active Directory loc
 
 ## <a name="requirements"></a>Requisitos
 
-As organizações devem concluir as etapas para [habilitar o logon de chave de segurança sem senha para dispositivos Windows 10 (versão prévia)](howto-authentication-passwordless-security-key.md) antes de concluir as etapas neste artigo.
+As organizações devem concluir as etapas para [habilitar o logon de chave de segurança sem senha para dispositivos Windows 10](howto-authentication-passwordless-security-key.md) antes de concluir as etapas neste artigo.
 
 As organizações também devem atender aos seguintes requisitos de software.
 
@@ -156,13 +153,13 @@ Entrar com FIDO será bloqueado se sua senha tiver expirado. A expectativa é pa
 
 ## <a name="troubleshooting-and-feedback"></a>Solução de problemas e comentários
 
-Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
+Se você quiser compartilhar comentários ou encontrar problemas com esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
 
 1. Inicie o **Hub de comentários** e verifique se você está conectado.
 1. Envie comentários sob a seguinte categorização:
    - Categoria: segurança e privacidade
    - Subcategoria: FIDO
-1. Para capturar logs, use a opção para **recriar meu problema**
+1. Para capturar os logs, use a opção para **recriar o meu problema**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -180,7 +177,7 @@ Estamos trabalhando nessa funcionalidade para GA (disponibilidade geral) desse r
 
 ### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Onde posso encontrar as chaves de segurança em conformidade?
 
-[Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+[Chaves de segurança do FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 
 ### <a name="what-do-i-do-if-i-lose-my-security-key"></a>O que devo fazer se perder minha chave de segurança?
 

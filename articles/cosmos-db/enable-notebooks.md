@@ -5,33 +5,34 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/22/2019
+ms.date: 02/22/2021
 ms.author: dech
-ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: references_regions
+ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692769"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente nas seguintes regiões do Azure: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental e oeste dos EUA 2. Para usar blocos de anotações, [crie uma nova conta com blocos de anotações](#enable-notebooks-in-a-new-cosmos-account) ou [habilite blocos de anotações em uma conta existente](#enable-notebooks-in-an-existing-cosmos-account) em uma dessas regiões.
+> Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente em [29 regiões](#supported-regions). Para usar blocos de anotações, [crie uma nova conta do cosmos](#create-a-new-cosmos-account) ou [habilite blocos de anotações em uma conta existente](#enable-notebooks-in-an-existing-cosmos-account) em uma dessas regiões. 
 
 Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como habilitar esse recurso para sua conta do Azure Cosmos DB.
 
-## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Habilitar blocos de anotações em uma nova conta do cosmos
-
+## <a name="create-a-new-cosmos-account"></a>Criar uma nova conta do cosmos
+A partir de 10 de fevereiro de 2021, novas contas do Azure Cosmos criadas em uma das [regiões com suporte](#supported-regions) terão automaticamente blocos de anotações habilitados. Não há nenhuma configuração adicional necessária para habilitar os blocos de anotações. Use as instruções a seguir para criar uma nova conta:
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
-1. Na página **criar conta de Azure Cosmos DB** , selecione **notebooks**. 
- 
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
+1. Insira as configurações básicas para a conta.
+
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 
 1. Selecione **Examinar + criar**. Você pode ignorar a opção de **rede** e **marcas** . 
-1. Examine as configurações da conta e selecione **Criar**. São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída**. 
+1. Examine as configurações da conta e selecione **Criar**. São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída**.
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="O painel Notificações do portal do Azure":::
 
@@ -59,12 +60,12 @@ Você também pode habilitar blocos de anotações em contas existentes. Esta et
 
 Para verificar se você pode usar blocos de anotações, selecione um dos blocos de anotações em blocos de anotações de exemplo. Isso salvará uma cópia do bloco de anotações no espaço de trabalho e o abrirá.
 
-Neste exemplo, usaremos **gettingstarted. ipynb**. 
+Neste exemplo, usaremos **gettingstarted. ipynb**.
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Exibir o GettingStarted. ipynb Notebook":::
 
 Para executar o bloco de anotações:
-1. Selecione a primeira célula de código que contém o código Python. 
+1. Selecione a primeira célula de código que contém o código Python.
 1. Selecione **executar** para executar a célula. Você também pode usar **Shift + Enter** para executar a célula.
 1. Atualize o painel de recursos para ver o banco de dados e o contêiner que foram criados.
 
@@ -74,6 +75,44 @@ Você também pode selecionar **novo bloco de anotações** para criar um novo b
 
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Criar ou carregar um novo bloco de anotações":::
 
+## <a name="supported-regions"></a>Regiões com suporte
+Os notebooks internos para Azure Cosmos DB estão disponíveis atualmente em 29 regiões do Azure. Novas contas do Azure Cosmos criadas nessas regiões terão blocos de anotações habilitados automaticamente. Os notebooks são gratuitos com sua conta. 
+
+- Austrália Central
+- Austrália Central 2
+- Leste da Austrália
+- Sudeste da Austrália
+- Sul do Brasil
+- Canadá Central
+- Leste do Canadá
+- Índia Central
+- Centro dos EUA
+- Leste dos EUA
+- Leste dos EUA 2
+- França Central
+- Sul da França
+- Norte da Alemanha
+- Centro-Oeste da Alemanha
+- Oeste do Japão
+- Sul da Coreia
+- Centro-Norte dos EUA
+- Norte da Europa
+- Centro-Sul dos Estados Unidos
+- Sudeste Asiático
+- Norte da Suíça
+- EAU Central
+- Sul do Reino Unido
+- Oeste do Reino Unido
+- Centro-Oeste dos EUA
+- Europa Ocidental
+- Oeste da Índia
+- Oeste dos EUA 2
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os benefícios do [Azure Cosmos DB notebooks Jupyter](cosmosdb-jupyter-notebooks.md)
+* Saiba mais sobre os benefícios do [Azure Cosmos DB notebooks Jupyter](cosmosdb-jupyter-notebooks.md)
+* [Explorar galeria de exemplos de notebook](https://cosmos.azure.com/gallery.html)
+* [Publicar blocos de anotações na Galeria de notebooks Azure Cosmos DB](publish-notebook-gallery.md)
+* [Usar recursos e comandos de notebook Python](use-python-notebook-features-and-commands.md)
+* [Usar recursos e comandos de notebook C#](use-csharp-notebook-features-and-commands.md)
+* [Importar notebooks de um repositório GitHub](import-github-notebooks.md)

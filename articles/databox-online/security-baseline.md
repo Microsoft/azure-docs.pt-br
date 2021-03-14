@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787257"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452366"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linha de base de segurança do Azure para Azure Stack Edge
 
@@ -308,7 +308,7 @@ Observe que podem ser necessárias permissões adicionais para obter visibilidad
 
 **Orientação**: você pode colocar seus próprios aplicativos para executar em qualquer máquina virtual criada localmente. Use scripts do PowerShell para criar máquinas virtuais de computação local em seu dispositivo de borda de pilha. É altamente recomendável que você coloque somente aplicativos confiáveis para executar nas máquinas virtuais locais. 
 
-- [Como controlar a execução de script do PowerShell no ambiente do Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [Como controlar a execução de script do PowerShell no ambiente do Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -545,7 +545,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 **Responsabilidade**: Compartilhado
 
-## <a name="endpoint-security"></a>Segurança do ponto de extremidade
+## <a name="endpoint-security"></a>Segurança de ponto de extremidade
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança do ponto de extremidade](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820595"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516831"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
 
@@ -39,12 +39,12 @@ Para localizar seu espaço de trabalho do Log Analytics para armazenamento de da
 1. Abra seu Hub IoT,
 1. Em **segurança**, selecione **configurações** e, em seguida, selecione **coleta de dados**.
 1. Altere seus detalhes de configuração do espaço de trabalho do Log Analytics.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Após a configuração, faça o seguinte para acessar dados armazenados no espaço de trabalho do Log Analytics:
 
-1. Selecione e clique em um alerta do defender for IoT em seu hub IoT.
-1. Clique em **Investigação posterior**.
+1. Selecione e selecione um alerta do defender for IoT em seu hub IoT.
+1. Selecione **investigação adicional**.
 1. Selecione **Para ver quais dispositivos têm esse alerta, clique aqui e veja a coluna DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Etapas de investigação para dispositivos de IoT suspeitas
@@ -55,7 +55,7 @@ Consulte as consultas kql de exemplo abaixo para começar a investigar alertas e
 
 ### <a name="related-alerts"></a>Alertas relacionados
 
-Para saber se outros alertas foram disparados em torno do mesmo tempo, use a seguinte consulta kql:
+Você pode descobrir se outros alertas foram disparados ao mesmo tempo por meio da seguinte consulta kql:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,9 +143,9 @@ Para localizar os usuários que fizeram logon no dispositivo, use a seguinte con
 
 Use os resultados da consulta para descobrir:
 
-- Quais usuários se conectaram ao dispositivo?
-- Os usuários que fizeram logon devem fazer logon?
-- Os usuários que fizeram logon se conectaram com endereços de IP esperados ou inesperados?
+- Quais usuários entraram no dispositivo?
+- Os usuários que entraram, deveriam entrar?
+- Os usuários que entraram se conectaram de endereços IP esperados ou inesperados?
 
 ### <a name="process-list"></a>Lista de processos
 
@@ -182,7 +182,7 @@ Use os resultados da consulta para descobrir:
 
 - Houve qualquer processo em execução suspeito no dispositivo?
 - Os processos foram executados por usuários apropriados?
-- Execuções de qualquer linha de comando continha os argumentos corretos e esperados?
+- As execuções de linha de comando contêm os argumentos corretos e esperados?
 
 ## <a name="next-steps"></a>Próximas etapas
 

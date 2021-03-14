@@ -3,7 +3,7 @@ title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Micr
 description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: bda244267e81d959abbc4ae0a8532ddce68d5726
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041966"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103017385"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure
 
@@ -38,7 +38,7 @@ Para obter informações sobre como dimensionar o ponto de extremidade de stream
 Para começar a gerenciar pontos de extremidade de streaming para sua conta, faça o indicado a seguir.
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na folha **Configurações** , selecione **Pontos de extremidade de streaming** .
+2. Na folha **Configurações**, selecione **Pontos de extremidade de streaming**.
    
     ![Captura de tela que mostra a página "serviços de mídia" com "pontos de extremidade de streaming" selecionados na folha "configurações".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
@@ -77,7 +77,7 @@ Para obter informações detalhadas sobre essas propriedades, consulte [Streamin
 Você pode configurar o ponto de extremidade de streaming fazendo o seguinte:
 
 1. Selecione o ponto de extremidade de streaming que você quer configurar.
-2. Clique em **Configurações** .
+2. Clique em **Configurações**.
 
 A seguir há uma breve descrição dos campos.
 
@@ -95,14 +95,14 @@ Para saber mais, confira [este artigo](media-services-portal-scale-streaming-end
 
 Quando você cria uma nova conta, a integração padrão da CDN do Azure para Ponto de Extremidade de Streaming é habilitada por padrão.
 
-Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido** . Para que a integração da CDN do Azure seja habilitada e as alterações estejam ativas em todos os POPs da CDN talvez sejam necessárias até duas horas. No entanto, é possível iniciar o ponto de extremidade de streaming e o fluxo sem interrupções do ponto de extremidade de streaming e, assim que a integração estiver concluída, o fluxo é fornecido a partir da CDN. Durante o período de provisionamento seu ponto de extremidade de streaming estará no estado **iniciando** e você pode observar a degradação do desempenho.
+Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Para que a integração da CDN do Azure seja habilitada e as alterações estejam ativas em todos os POPs da CDN talvez sejam necessárias até duas horas. No entanto, é possível iniciar o ponto de extremidade de streaming e o fluxo sem interrupções do ponto de extremidade de streaming e, assim que a integração estiver concluída, o fluxo é fornecido a partir da CDN. Durante o período de provisionamento seu ponto de extremidade de streaming estará no estado **iniciando** e você pode observar a degradação do desempenho.
 
 A integração da CDN é habilitada em todos os datacenters do Azure, exceto nas regiões da China e do Governo Federal.
 
-Depois de habilitado, o **controle de acesso** , * * nome de host personalizado e configuração de **autenticação de assinatura Akamai** são desabilitados.
+Depois de habilitado, o **controle de acesso**, * * nome de host personalizado e configuração de **autenticação de assinatura Akamai** são desabilitados.
  
 > [!IMPORTANT]
-> A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada da **Verizon na CDN do Azure** para pontos de extremidade de streaming padrão. Os pontos de extremidade de streaming Premium podem ser configurados usando todos os **tipos de preço e provedores da CDN do Azure** . Para obter mais informações sobre os recursos da CDN do Azure, consulte [Visão geral da CDN](../../cdn/cdn-overview.md).
+> A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada da **Verizon na CDN do Azure** para pontos de extremidade de streaming padrão. Os pontos de extremidade de streaming Premium podem ser configurados usando todos os **tipos de preço e provedores da CDN do Azure**. Para obter mais informações sobre os recursos da CDN do Azure, consulte [Visão geral da CDN](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Considerações adicionais
 

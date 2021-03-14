@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690950"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introdução à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Como uma primeira etapa, você precisaria criar sua primeira Instância Gerencia
   > - Também é possível usar a rota expressa ou a conexão site a site da rede local, mas essas abordagens estão fora do escopo desses inícios rápidos.
   > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (os logs gravados durante o período em que a retenção era definida como ilimitada serão preservados, mesmo após a retenção ser habilitada).
 
-Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) ou a [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-create) para criar scripts e automatizar esse processo.
+Como alternativa à criação manual da Instância Gerenciada de SQL, você pode usar o [PowerShell](scripts/create-configure-managed-instance-powershell.md), o [PowerShell com o modelo do Resource Manager](./create-template-quickstart.md) ou a [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-create) para criar scripts e automatizar esse processo.
 
 ### <a name="migrate-your-databases"></a>Migrar seus bancos de dados
 

@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014560"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100722"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure Defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
@@ -21,8 +21,6 @@ Esta página explica como usar o verificador de vulnerabilidades interno para ve
 Quando o **Azure Defender para registros de contêiner** estiver habilitado, as imagens enviadas por push para o registro serão verificadas imediatamente. Além disso, qualquer imagem extraída nos últimos 30 dias também é verificada. 
 
 Quando o verificador relata vulnerabilidades à central de segurança, a central de segurança apresenta as descobertas e as informações relacionadas como recomendações. Além disso, as descobertas incluem informações relacionadas, como etapas de correção, CVEs relevantes, pontuações de CVSS e muito mais. Você pode exibir as vulnerabilidades identificadas para uma ou mais assinaturas ou para um registro específico.
-
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar as vulnerabilidades em imagens em registros de contêiner do Azure 
@@ -127,7 +125,7 @@ Você pode usar qualquer um dos seguintes critérios:
 - Categoria
 - Verificação de segurança 
 - Pontuações do CVSS v3
-- Severity 
+- Severidade 
 - Status de patch 
 
 Para criar uma regra:

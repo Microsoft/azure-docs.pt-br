@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503943"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183804"
 ---
 # <a name="use-purview-studio"></a>Usar o Purview Studio
 
@@ -38,7 +38,7 @@ Este artigo fornece uma visão geral de alguns dos principais recursos do Azure 
 
 A lista a seguir resume os principais recursos da **Home Page**. Cada número na lista corresponde a um número realçado na captura de tela anterior.
 
-1. Nome amigável do catálogo. Você pode definir o nome do catálogo no **centro de gerenciamento** > **informações da conta*.
+1. Nome amigável do catálogo. Você pode definir o nome do catálogo nas informações da conta do centro de **Gerenciamento**  >  .
 
 2. A análise de catálogo mostra o número de:
     - Usuários, grupos e aplicativos

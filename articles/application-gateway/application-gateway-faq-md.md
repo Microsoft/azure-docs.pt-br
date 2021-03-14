@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060690"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619147"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -454,7 +454,7 @@ No portal, clique em **Log de Atividades** na folha do menu de um Gateway de Apl
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Configurar alertas com o Gateway de aplicativo?
 
-Sim. No Gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte [métricas do gateway de aplicativo](./application-gateway-metrics.md) e [receber notificações de alerta](../azure-monitor/platform/alerts-overview.md).
+Sim. No Gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte [métricas do gateway de aplicativo](./application-gateway-metrics.md) e [receber notificações de alerta](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como faço para analisar as estatísticas de tráfego do Application Gateway?
 
@@ -470,9 +470,9 @@ Normalmente, você vê um status desconhecido quando o acesso ao back-end é blo
 
 Devido às limitações da plataforma atual, se você tiver um NSG na sub-rede do gateway de aplicativo v2 (Standard_v2, WAF_v2) e se tiver habilitado logs de fluxo do NSG nele, você verá um comportamento não determinístico e esse cenário não tem suporte no momento.
 
-### <a name="does-application-gateway-store-customer-data"></a>O gateway de aplicativo armazena dados do cliente?
+### <a name="where-does-application-gateway-store-customer-data"></a>Onde o gateway de aplicativo armazena dados do cliente?
 
-Não, o gateway de aplicativo não armazena dados do cliente.
+O gateway de aplicativo não move nem armazena os dados do cliente fora da região em que ele está implantado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

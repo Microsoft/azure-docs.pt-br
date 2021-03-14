@@ -3,16 +3,16 @@ title: Adicionar ou atualizar seu segredo de pull do Red Hat em um cluster do Az
 description: Adicionar ou atualizar seu segredo de pull do Red Hat nos clusters de ARO 4. x existentes
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: segredo de pull, toa, openshift, Red Hat
-ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 58c0eb2be3423783a69d005277ffe75aaf59415f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071079"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633726"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Adicionar ou atualizar seu segredo de pull do Red Hat em um cluster do Azure Red Hat OpenShift 4
 

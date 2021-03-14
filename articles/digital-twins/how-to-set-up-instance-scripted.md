@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 13f5db52917cd9659438c551ac2f01c477cc1c7b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664445"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201287"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -29,11 +30,11 @@ Esta versão deste artigo conclui essas etapas executando um exemplo de [ **scri
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: baixar o script
 
-O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *Procurar código* abaixo do título. Isso o levará para o repositório do GitHub para os exemplos que você pode baixar como um *. ZIP* selecionando o botão de *código* e *baixando o zip*.
+O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *Procurar código* abaixo do título. Isso levará você a um repositório GitHub para obter exemplos que poderão ser baixados como um arquivo *.zip* clicando no botão *Código*, depois em *Baixar arquivo .zip*.
 
-:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Exibição do repositório digital-gêmeos-Samples no GitHub. O botão código é selecionado, produzindo uma pequena caixa de diálogo na qual o botão baixar ZIP é realçado." lightbox="media/includes/download-repo-zip.png":::
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Uma exibição do repositório de gêmeos digitais de exemplo no GitHub. Após clicar no botão Código, uma pequena caixa de diálogo será exibida, na qual o botão Baixar arquivo .zip estará realçado." lightbox="media/includes/download-repo-zip.png":::
 
-Isso fará o download de um *. Pasta ZIP* em seu computador como **digital-twins-samples-master.zip**. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+Isso baixará uma pasta *.zip* chamada **digital-twins-samples-master.zip** em seu computador. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
 
 Na pasta descompactada, o script de implantação está localizado em _digital-gêmeos-Samples-master > scripts > **deploy.ps1**_.
 
@@ -122,7 +123,7 @@ Se a verificação não tiver sido bem-sucedida, você também poderá refazer s
 ## <a name="next-steps"></a>Próximas etapas
 
 Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
-* [referência de AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [referência de AZ DT](/cli/azure/ext/azure-iot/dt)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
 Ou então, consulte Como conectar um aplicativo cliente à sua instância com o código de autenticação:

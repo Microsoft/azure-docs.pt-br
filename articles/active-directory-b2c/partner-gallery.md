@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893365"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361750"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ A Microsoft faz parceria com os seguintes ISVs para MFA e autenticação sem sen
 | ![Captura de tela de um logotipo do typingDNA](./media/partner-gallery/typingdna-logo.png) | O [TypingDNA](./partner-typingdna.md) permite uma autenticação de cliente forte analisando o padrão de digitação de um usuário. Ele ajuda as empresas a habilitar uma MFA silenciosa e a cumprir os requisitos de SCA para PSD2. |
 | ![Captura de tela de um logotipo do whoiam](./media/partner-gallery/whoiam-logo.png) | O [WhoIAM](./partner-whoiam.md) é um aplicativo BRIMS (sistema de gerenciamento de identidades) que permite que as organizações verifiquem sua base de usuários por voz, SMS e email. |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função 
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções 
  
 A Microsoft faz parceria com os seguintes ISVs para controle de acesso baseado em função.
 
@@ -74,6 +74,7 @@ A Microsoft faz parceria com os seguintes ISVs para segurança.
 | Parceiro ISV | Orientações de descrição e integração |
 |:-------------------------|:--------------|
 | ![Captura de tela de um logotipo do arkose Lab](./media/partner-gallery/arkose-logo.png) | O [arkose Labs](./partner-arkose-labs.md) é um provedor de soluções de prevenção de fraude que ajuda as organizações a proteger contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas. |
+| ![Captura de tela de um logotipo do Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | A [proteção contra fraudes do Microsoft Dynamics 365](./partner-dynamics-365-fraud-protection.md) é uma solução que ajuda as organizações a proteger contra aberturas de contas fraudulentas por meio da impressão digital do dispositivo. |
 | ![Captura de tela de um logotipo de ping](./media/partner-gallery/ping-logo.png) | A [identidade de ping](./partner-ping-identity.md) permite acesso híbrido seguro a aplicativos herdados locais em várias nuvens. |
 | ![Captura de tela de um logotipo do Strata](./media/partner-gallery/strata-logo.png) | O [Strata](./partner-strata.md) fornece acesso híbrido seguro a aplicativos locais, impondo políticas de acesso consistentes, mantendo as identidades sincronizadas e tornando simples a transição de aplicativos de sistemas de identidade herdados para autenticação baseada em padrões e controle de acesso fornecido pelo Azure ad B2C. |
 | ![Captura de tela de um logotipo do Zscaler](./media/partner-gallery/zscaler-logo.png) | O [Zscaler](./partner-zscaler.md) fornece acesso seguro e baseado em políticas a aplicativos e ativos privados sem o custo, os aborrecimentos ou os riscos de segurança de uma VPN. |

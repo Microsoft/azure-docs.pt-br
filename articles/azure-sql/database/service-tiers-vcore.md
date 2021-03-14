@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735504"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659317"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ As opções da camada de serviço no modelo vCore incluem Uso Geral, Comercialme
 |Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada do banco de dados SQL**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**SQL instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada do banco de dados SQL**:<br/>5 GB – 4 TB<br/>**Instância gerenciada do SQL**:<br/>32 GB - 4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |IOPS e taxa de transferência (aproximado)|**Banco de dados SQL**: consulte limites de recursos para [bancos de dados individuais](resource-limits-vcore-single-databases.md) e [pools elásticos](resource-limits-vcore-elastic-pools.md).<br/>**Sql instância gerenciada**: consulte [visão geral limites de recursos do SQL instância gerenciada do Azure](../managed-instance/resource-limits.md#service-tier-characteristics).|Consulte limites de recursos para [bancos de dados individuais](resource-limits-vcore-single-databases.md) e [pools elásticos](resource-limits-vcore-elastic-pools.md).|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS e a taxa de transferência efetivos dependerão da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica em escala de leitura](read-scale-out.md),<br/>alta disponibilidade com redundância de zona (HA)|1 réplica de leitura/gravação, além [de 0-4 réplicas de escala de leitura](read-scale-out.md)|
-|Backups|[Armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../../storage/common/geo-redundant-design.md), 7-35 dias (7 dias por padrão)|[Ra-grs](../..//storage/common/geo-redundant-design.md), 7-35 dias (7 dias por padrão)|Backups baseados em instantâneo no armazenamento remoto do Azure. As restaurações usam esses instantâneos para recuperação rápida. Os backups são instantâneos e não afetam O desempenho de e/s de computação. As restaurações são rápidas e não são uma operação de tamanho de dados (levando minutos em vez de horas ou dias).|
+|Backups|[Armazenamento com redundância geográfica com acesso de leitura (ra-grs)](../../storage/common/geo-redundant-design.md), 1-35 dias (7 dias por padrão)|[Ra-grs](../..//storage/common/geo-redundant-design.md), 1-35 dias (7 dias por padrão)|Backups baseados em instantâneo no armazenamento remoto do Azure. As restaurações usam esses instantâneos para recuperação rápida. Os backups são instantâneos e não afetam O desempenho de e/s de computação. As restaurações são rápidas e não são uma operação de tamanho de dados (levando minutos em vez de horas ou dias).|
 |Na memória|Sem suporte|Com suporte|Sem suporte|
 |||
 
@@ -69,7 +69,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) dimensiona 
 
 ## <a name="hardware-generations"></a>Gerações de hardware
 
-As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M, Fsv2 e série DC. A geração de hardware geralmente define os limites de computação e de memória e outras características que afetam o desempenho da carga de trabalho.
+As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M, Fsv2 e série DC. A geração do hardware define de modo geral os limites de computação e de memória e outras características que afetam o desempenho da carga de trabalho.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -204,7 +204,7 @@ Para obter mais detalhes, marque o comando [AZ SQL Mi Update](/cli/azure/sql/mi#
 
 O hardware Gen4 está [sendo](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) descontinuado e não está mais disponível para novas implantações. Todos os novos bancos de dados devem ser implantados em hardware Gen5.
 
-O Gen5 está disponível na maioria das regiões em todo o mundo.
+O Gen5 está disponível em todas as regiões públicas em todo o mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 

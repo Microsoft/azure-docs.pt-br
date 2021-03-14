@@ -2,19 +2,17 @@
 title: Notificação de expiração e atualização automática do runtime de integração auto-hospedada
 description: Saiba mais sobre a notificação de atualização automática e expiração do tempo de execução de integração do auto-hospedado
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 972015f0f42a8a869de0edcc8f0e921ae7278cd1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222672"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376251"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificação de expiração e atualização automática do runtime de integração auto-hospedada
 

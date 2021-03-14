@@ -3,12 +3,12 @@ title: Funções de modelo
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707312"
 ---
 # <a name="arm-template-functions"></a>Funções de modelo ARM
 
@@ -33,6 +33,10 @@ A maioria das funções funciona da mesma quando implantada em um grupo de recur
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>Qualquer função
+
+A [função any](template-functions-any.md) está disponível em bicep para ajudar a resolver problemas relacionados a avisos de tipo de dados.
 
 ## <a name="array-functions"></a>Funções de matriz
 

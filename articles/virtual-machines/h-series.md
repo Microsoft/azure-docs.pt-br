@@ -3,17 +3,17 @@ title: Série H-máquinas virtuais do Azure
 description: Especificações para as VMs da série H.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 4aa0e498736ac804ec3ce5593cfd86417d09c126
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7a5ff47bb5de6d54564a86c0700ad69aa450887d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096857"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566134"
 ---
 # <a name="h-series"></a>Série H
 

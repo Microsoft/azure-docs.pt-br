@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: cc985f910120c814cd4eedb8275100d6831335f5
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: b9cfeefd4124dea5911faba2902609805cc5e3fd
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905223"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102509295"
 landingContent:
 - title: Sobre o Content Moderator
   linkLists:
@@ -135,11 +135,11 @@ landingContent:
     - text: API do Content Moderator
       url: ./api-reference.md
     - text: SDK .NET
-      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - text: SDK do Python
-      url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-contentmoderator/
     - text: Java SDK
-      url: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - text: SDK do Node.js
       url: /javascript/api/@azure/cognitiveservices-contentmoderator
     - text: SDK do Go
@@ -147,7 +147,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

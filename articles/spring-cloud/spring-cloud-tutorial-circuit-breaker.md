@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 13b57a8ef57e1d5f2fe066a9fc8b0b74382f066f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024272"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042837"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Usar o Painel do Circuit Breaker com o Azure Spring Cloud
 
@@ -46,9 +46,9 @@ Siga o procedimento, [Provisionar uma instância de serviço na CLI do Azure](./
 ## <a name="deploy-your-applications-to-azure-spring-cloud"></a>Implantar seus aplicativos no Azure Spring Cloud
 Esses aplicativos não usam o **Servidor de Configuração**, portanto, não há necessidade de configurar o **Servidor de Configuração** para o Azure Spring Cloud.  Crie e implante da seguinte maneira:
 ```azurecli
-az spring-cloud app create -n user-service --is-public
+az spring-cloud app create -n user-service --assign-endpoint
 az spring-cloud app create -n recommendation-service
-az spring-cloud app create -n hystrix-turbine --is-public
+az spring-cloud app create -n hystrix-turbine --assign-endpoint
 
 az spring-cloud app deploy -n user-service --jar-path user-service/target/user-service.jar
 az spring-cloud app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar

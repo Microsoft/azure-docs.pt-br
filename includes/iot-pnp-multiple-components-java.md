@@ -4,16 +4,24 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 49b18b83c778a990398c4443d508743566ecfb20
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 32a2ef82888e61c18c298c61c9b7ad268e7db797
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511232"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244982"
 ---
 Este tutorial mostra como criar um aplicativo de exemplo de dispositivo de vários componentes do IoT Plug and Play, conectá-lo ao hub IoT e usar a CLI do Azure para exibir a telemetria que ele envia. O aplicativo de exemplo é escrito no Java e é incluído no SDK do dispositivo de IoT do Azure para Java. Um construtor de soluções pode usar a CLI do Azure para compreender as funcionalidades de um dispositivo IoT Plug and Play sem a necessidade de ver nenhum código de dispositivo.
 
 Este tutorial mostra como criar um aplicativo de exemplo de dispositivo do IoT Plug and Play com componentes, como conectá-lo ao hub IoT e como usar a ferramenta Azure IoT Explorer para ver as informações que ele envia ao hub. O aplicativo de exemplo é escrito no Java e é incluído no SDK do dispositivo de IoT do Azure para Java. Um construtor de soluções pode usar a ferramenta Azure IoT Explorer para compreender as funcionalidades de um dispositivo IoT Plug and Play sem a necessidade de ver nenhum código de dispositivo.
+
+Neste tutorial, você:
+
+> [!div class="checklist"]
+> * Baixe o código de exemplo.
+> * Compilará o código de exemplo.
+> * Executará o aplicativo de dispositivo de exemplo e validará se ele se conecta ao seu hub IoT.
+> * Examinará o código-fonte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,7 +29,7 @@ Este tutorial mostra como criar um aplicativo de exemplo de dispositivo do IoT P
 
 Para realizar este tutorial no Windows, instale o seguinte software em um ambiente Windows local:
 
-* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), em **Suporte de longo prazo**, selecione **Java 8**.
+* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/), em **Suporte de longo prazo**, selecione **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Baixar o código
@@ -135,5 +143,3 @@ Use a ferramenta do Azure IoT Explorer para ver a telemetria e as propriedades d
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Vários dispositivos de componente no Azure IoT Explorer":::
 
 Também é possível usar a ferramenta Azure IoT Explorer para chamar comandos em um dos dois componentes do termostato ou no componente padrão.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

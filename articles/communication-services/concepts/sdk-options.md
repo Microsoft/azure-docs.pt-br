@@ -9,16 +9,17 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f59ebfdb1942c7eb9be6c2cf09e1ed677c3f22e3
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 8f82b59a9702ee249c2e8f330b4aec1ba512d2f3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507669"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636072"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Bibliotecas de cliente e APIs REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 As funcionalidades dos serviços de comunicação do Azure são organizadas conceitualmente em seis áreas. Algumas áreas têm bibliotecas de cliente totalmente abertas. A biblioteca de cliente de chamada usa interfaces de rede proprietárias e está fechada no momento e a biblioteca de chat inclui uma dependência de código-fonte fechado. Exemplos e detalhes técnicos adicionais para bibliotecas de cliente são publicados no [repositório GitHub dos serviços de comunicação do Azure](https://github.com/Azure/communication).
 
@@ -28,26 +29,29 @@ As funcionalidades dos serviços de comunicação do Azure são organizadas conc
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Aberto            | Azure. ResourceManager. comunicação | Provisionar e gerenciar recursos de serviços de comunicação             |
 | Comum                 | REST | Aberto               | Azure. Communication. comum          | Fornece tipos de base para outras bibliotecas de cliente |
-| Administração         | REST | Aberto               | Azure. Communication. Administration  | Gerenciar usuários, tokens de acesso e números de telefone, alocar STUN em conformidade com os padrões e transformar servidores |
+| Identity         | REST | Aberto               | Azure. Communication. Identity  | Gerenciar usuários, tokens de acesso |
+| Números de telefone         | REST | Aberto               | Azure. Communication. PhoneNumbers  | Gerenciando números de telefone |
 | Chat                   | REST com sinalização proprietária | Abrir com pacote de sinalização de origem fechado    | Azure. Communication. chat            | Adicionar chat com base em texto em tempo real aos seus aplicativos  |
-| SMS                    | REST | Aberto              | Azure. Communication. SMS             | Enviar e receber mensagens SMS |
+| sms                    | REST | Aberto              | Azure. Communication. SMS             | Enviar e receber mensagens SMS |
 | Chamando                | Transporte proprietário | Fechadas |Azure. Communication. chamando         | Aproveite o uso de voz, vídeo, compartilhamento de tela e outros recursos de comunicação de dados em tempo real          |
 
-Observe que as bibliotecas de cliente de Azure Resource Manager, administração e SMS se concentram na integração de serviços e, em muitos casos, surgem problemas de segurança se você integrar essas funções a aplicativos de usuário final. As bibliotecas de cliente comuns e de chat são adequadas para aplicativos de serviço e cliente. A biblioteca de cliente de chamada é projetada para aplicativos cliente. Uma biblioteca de cliente focada em cenários de serviço está em desenvolvimento.
+Observe que as bibliotecas de cliente de Azure Resource Manager, identidade e SMS se concentram na integração de serviços e, em muitos casos, surgem problemas de segurança se você integrar essas funções a aplicativos de usuário final. As bibliotecas de cliente comuns e de chat são adequadas para aplicativos de serviço e cliente. A biblioteca de cliente de chamada é projetada para aplicativos cliente. Uma biblioteca de cliente focada em cenários de serviço está em desenvolvimento.
 
 ### <a name="languages-and-publishing-locations"></a>Idiomas e locais de publicação
 
-Os locais de publicação para pacotes de biblioteca de cliente individual são detalhados abaixo. 
+Os locais de publicação para pacotes de biblioteca de cliente individual são detalhados abaixo.
 
 | Área           | JavaScript | .NET | Python | Java SE | iOS | Android | Outro                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
 | Azure Resource Manager | -         | [NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Communication)    |   [PyPi](https://pypi.org/project/azure-mgmt-communication/)    |  -  | -              | -  | [Go por meio do GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
-| Comum         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Common/)    | N/D      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.1)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |
-| Administração | [npm](https://www.npmjs.com/package/@azure/communication-administration)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Administration)    | [PyPi](https://pypi.org/project/azure-communication-administration/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-administration)   | -              | -              | -                            |
+| Comum         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Common/)    | N/D      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |
+| Identity | [npm](https://www.npmjs.com/package/@azure/communication-identity)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Identity)    | [PyPi](https://pypi.org/project/azure-communication-identity/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-identity)   | -              | -              | -                            |
+| Números de telefone | [npm](https://www.npmjs.com/package/@azure/communication-phone-numbers)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.PhoneNumbers)    | [PyPi](https://pypi.org/project/azure-communication-phonenumbers/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-phonenumbers)   | -              | -              | -                            |
 | Chat           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | sms            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
-| Chamando        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases/tag/v1.0.0-beta.2)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| Documentação de referência     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](https://docs.microsoft.com/objectivec/communication-services/calling/)      | [docs](https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android)            | -                              |
+| Chamando        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
+| Documentação de referência     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
+
 ## <a name="rest-apis"></a>APIs REST
 
 As APIs de serviços de comunicação são documentadas junto com outras APIs REST do Azure no [docs.Microsoft.com](/rest/api/azure/). Esta documentação lhe dirá como estruturar suas mensagens HTTP e oferece orientação para usar o postmaster. Esta documentação também é oferecida no formato Swagger no [GitHub](https://github.com/Azure/azure-rest-api-specs).
@@ -78,10 +82,25 @@ Suporte por meio do .NET Core 2,0:
 - Xamarin iOS 10,14
 - Xamarin Mac 3,8
 
-## <a name="api-stability-expectations"></a>Expectativas de estabilidade da API 
+## <a name="calling-client-library-timeouts"></a>Tempos limite da biblioteca de clientes em chamada
+
+Os tempos limite a seguir se aplicam aos serviços de comunicação que chamam as bibliotecas de cliente:
+
+| Ação           | Tempo limite em segundos |
+| -------------- | ---------- |
+| Reconectar/remover participante | 120 |
+| Adicionar ou remover uma nova modalidade de uma chamada (iniciar/parar o vídeo ou o compartilhamento de tela) | 40 |
+| Tempo limite da operação de transferência de chamada | 60 |
+| tempo limite de estabelecimento de chamada 1:1 | 85 |
+| Tempo limite de estabelecimento de chamada de grupo | 85 |
+| Tempo limite de estabelecimento de chamada PSTN | 115 |
+| Promover a chamada de 1:1 para um tempo limite de chamada de grupo | 115 |
+
+
+## <a name="api-stability-expectations"></a>Expectativas de estabilidade da API
 
 > [!IMPORTANT]
-> Esta seção fornece diretrizes sobre APIs REST e bibliotecas de cliente marcadas como **estáveis**. As APIs marcadas pré-lançamento, visualização ou beta podem ser alteradas ou preteridas **sem aviso prévio**. Atualmente, os serviços de comunicação do Azure estão em uma **Visualização pública** e as APIs são marcadas como tal.
+> Esta seção fornece diretrizes sobre APIs REST e bibliotecas de cliente marcadas como **estáveis**. As APIs marcadas pré-lançamento, visualização ou beta podem ser alteradas ou preteridas **sem aviso prévio**.
 
 No futuro, podemos desativar versões das bibliotecas de cliente dos serviços de comunicação e podemos introduzir alterações significativas em nossas APIs REST e bibliotecas de cliente lançadas. Os serviços de comunicação do Azure *geralmente* seguirão duas políticas de suporte para desativar versões de serviço:
 

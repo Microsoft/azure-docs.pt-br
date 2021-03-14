@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796492"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212460"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -26,7 +26,7 @@ Para obter mais informações sobre o Key Vault, confira [Sobre o Azure Key Vaul
 
 O acesso a um cofre de chaves é controlado por meio de duas interfaces: o **plano de gerenciamento** e o **plano de dados**. É no plano de gerenciamento que você administra o cofre de chaves em si. As operações nesse plano incluem criar e excluir cofres de chaves, recuperar propriedades do Key Vault e atualizar as políticas de acesso. No plano de dados, você trabalha com os dados armazenados em um cofre de chaves. Você pode adicionar, excluir e alterar chaves, segredos e certificados.
 
-Ambos os planos usam [Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md) para autenticação. Para autorização, o plano de gerenciamento usa o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) e o plano de dados usa uma [política de acesso Key Vault](./assign-access-policy-portal.md) e o [RBAC do Azure para Key Vault operações do plano de dados (versão prévia)](./rbac-guide.md).
+Ambos os planos usam [Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md) para autenticação. Para autorização, o plano de gerenciamento usa o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) e o plano de dados usa uma [política de acesso Key Vault](./assign-access-policy-portal.md) e o [RBAC do Azure para Key Vault operações do plano de dados](./rbac-guide.md).
 
 Para acessar um cofre de chaves em qualquer dos planos, todos os chamadores (usuários ou aplicativos) devem ter a autenticação e a autorização adequadas. A autenticação estabelece a identidade do chamador. A autorização determina quais operações o chamador pode executar. A autenticação com o Key Vault funciona em conjunto com o [Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md), que é responsável por autenticar a identidade de qualquer **entidade de segurança**.
 
@@ -36,7 +36,7 @@ Uma entidade de segurança é um objeto que representa um usuário, grupo, servi
 
 * Uma entidade de segurança de **grupo** identifica um conjunto de usuários criado no Azure Active Directory. Todas as funções ou permissões atribuídas ao grupo são concedidas a todos os usuários dentro do grupo.
 
-* Uma **entidade de serviço** é um tipo de entidade de segurança que identifica um aplicativo ou serviço, ou seja, um trecho de código, em vez de um usuário ou grupo. A ID do objeto de uma entidade de serviço é conhecida como a **ID do cliente** dessa entidade de serviço e atua como o nome de usuário dela. O **certificado** ou **segredo do cliente** da entidade de serviço atua como sua senha. Muitos serviços do Azure dão suporte à atribuição de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) com o gerenciamento automatizado da **ID do cliente** e do **certificado**. A identidade gerenciada é a opção mais segura e recomendada para autenticação no Azure.
+* Uma **entidade de serviço** é um tipo de entidade de segurança que identifica um aplicativo ou serviço, que é dizer, um trecho de código em vez de um usuário ou grupo. A ID do objeto de uma entidade de serviço é conhecida como a **ID do cliente** dessa entidade de serviço e atua como o nome de usuário dela. O **certificado** ou **segredo do cliente** da entidade de serviço atua como sua senha. Muitos serviços do Azure dão suporte à atribuição de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) com o gerenciamento automatizado da **ID do cliente** e do **certificado**. A identidade gerenciada é a opção mais segura e recomendada para autenticação no Azure.
 
 Para obter mais informações sobre autenticação para Key Vault, consulte [autenticar para Azure Key Vault](authentication.md)
 
@@ -111,7 +111,7 @@ Quando uma função do Azure é atribuída a uma entidade de segurança do Azure
 
 Os principais benefícios do uso da permissão RBAC do Azure em políticas de acesso do cofre são o gerenciamento de controle de acesso centralizado e sua integração com o [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). O Privileged Identity Management fornece ativação de função baseada em tempo e aprovação para atenuar os riscos de permissões de acesso excessivas, desnecessárias ou que foram indevidamente utilizadas em recursos importantes.
 
-Para obter mais informações sobre Key Vault plano de dados com o RBAC do Azure, consulte [Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure (versão prévia)](rbac-guide.md)
+Para obter mais informações sobre Key Vault plano de dados com o RBAC do Azure, consulte [Key Vault chaves, certificados e segredos com um controle de acesso baseado em função do Azure](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls e redes virtuais
 
@@ -182,13 +182,13 @@ Há outra função que está fora do escopo do nosso aplicativo: o administrador
 
 A tabela a seguir resume as permissões de acesso para as funções e o aplicativo.
 
-| Função | Permissões do plano de gerenciamento | Permissões do plano de dados-políticas de acesso do cofre | Permissões de plano de dados-RBAC do Azure (versão prévia)  |
+| Função | Permissões do plano de gerenciamento | Permissões do plano de dados-políticas de acesso do cofre | Permissões de plano de dados-RBAC do Azure  |
 | --- | --- | --- | --- |
-| Equipe de segurança | [Colaborador do Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Key Vault administrador (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Equipe de segurança | [Colaborador do Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Administrador de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão possibilita que as VMs implantadas busquem segredos do cofre de chaves. | Nenhum | Nenhum |
-| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Leitor de Key Vault (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Key Vault usuário de criptografia do serviço de criptografia](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault (visualização)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault usuário de segredo (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Leitor de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Key Vault usuário de criptografia do serviço de criptografia](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault usuário de segredo](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 As três funções da equipe precisam ter acesso a outros recursos e a permissões do Key Vault. Para implantar VMs (ou o recurso aplicativos Web do serviço Azure App), os desenvolvedores e operadores precisam de acesso de implantação. Os auditores precisam de acesso de leitura para a Conta de armazenamento em que os logs do Key Vault estão armazenados.
 

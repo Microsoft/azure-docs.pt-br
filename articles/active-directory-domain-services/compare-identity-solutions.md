@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: justinha
-ms.openlocfilehash: 479cc036ed3231d970d46eef9d89daa39a0b0876
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 48ce982a6d6d7a3ed12d6e3b4711d111dec4d6f8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620181"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174624"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado
 
@@ -78,7 +78,7 @@ A tabela a seguir descreve alguns dos recursos que podem ser necessários para s
 | **LDAPS (LDAP Seguro)**                           | **&#x2713;** | **&#x2713;** |
 | **Leitura LDAP**                                     | **&#x2713;** | **&#x2713;** |
 | **Gravação LDAP**                                    | **&#x2713;** (dentro do domínio gerenciado) | **&#x2713;** |
-| **Implantações com distribuição geográfica**                   | **&#x2715;** | **&#x2713;** |
+| **Implantações com distribuição geográfica**                   | **&#x2713;** | **&#x2713;** |
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS e Azure AD
 

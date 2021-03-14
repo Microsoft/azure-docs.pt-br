@@ -174,6 +174,9 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
+    - name: Compreensão de objeto do Azure
+      tocHref: /azure/object-understanding/
+      topicHref: /azure/object-understanding/
     - name: Registro de Contêiner
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -209,28 +212,18 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
+        - name: Visão geral do Azure Percept
+          tocHref: /azure/azure-percept/
+          topicHref: /azure/azure-percept/
+        - name: Documentação da Atualização de dispositivo para o Hub IoT
+          tocHref: /azure/iot-hub-device-update/
+          topicHref: /azure/iot-hub-device-update/
         - name: Hub IoT
           tocHref: /azure/iot-hub/
           topicHref: /azure/iot-hub/
         - name: Central da IoT
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
-          items:
-            - name: Central da IoT
-              tocHref: /azure/iot-central/core/
-              topicHref: /azure/iot-central/core/
-            - name: IoT Central para Energia
-              tocHref: /azure/iot-central/energy/
-              topicHref: /azure/iot-central/energy/
-            - name: IoT Central para Governo
-              tocHref: /azure/iot-central/government/
-              topicHref: /azure/iot-central/government/
-            - name: IoT Central nos Serviços de saúde
-              tocHref: /azure/iot-central/healthcare/
-              topicHref: /azure/iot-central/healthcare/
-            - name: IoT Central para Varejo
-              tocHref: /azure/iot-central/retail/
-              topicHref: /azure/iot-central/retail/
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
@@ -273,14 +266,18 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka para Confluent Cloud
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
     - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+      items:
+        - name: Azure Stack Edge
+          tocHref: /azure/databox-online/
+          topicHref: /azure/databox-online/
     - name: Usuário do Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
@@ -464,6 +461,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
+    - name: Instância Gerenciada para Apache Cassandra
+      tocHref: /azure/managed-instance-apache-cassandra/
+      topicHref: /azure/managed-instance-apache-cassandra/
     - name: Armazenamento
       tocHref: /azure/storage/
       topicHref: /azure/storage/
@@ -471,9 +471,6 @@
         - name: Transferência offline do Data Box
           tocHref: /azure/databox/
           topicHref: /azure/databox/
-        - name: Transferência online do Data Box
-          tocHref: /azure/databox-online/
-          topicHref: /azure/databox-online/
         - name: Data Box Gateway
           tocHref: /azure/databox-gateway/
           topicHref: /azure/databox-gateway/
@@ -674,6 +671,9 @@
         - name: Serviço de Front Door
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
+        - name: Front Door Standard/Premium (Versão Prévia)
+          tocHref: /azure/frontdoor/standard-premium
+          topicHref: /azure/frontdoor/standard-premium
         - name: Analisador de Internet
           tocHref: /azure/internet-analyzer/
           topicHref: /azure/internet-analyzer/
@@ -692,6 +692,9 @@
         - name: Serviço de Emparelhamento
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
+        - name: Sobre o Servidor de Rota do Azure (versão prévia)
+          tocHref: /azure/route-server/
+          topicHref: /azure/route-server/
         - name: Gerenciador de Tráfego
           tocHref: /azure/traffic-manager/
           topicHref: /azure/traffic-manager/

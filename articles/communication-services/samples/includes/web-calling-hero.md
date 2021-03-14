@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: d3586e03a3c6214390f4a8b72b1db5871d2d1900
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475602"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510788"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -29,7 +29,7 @@ Encontre o código finalizado para este guia de início rápido no [GitHub](http
 
 ## <a name="overview"></a>Visão geral
 
-O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure. 
+O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure.
 
 Aqui está um exemplo:
 
@@ -91,7 +91,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 ## <a name="next-steps"></a>Próximas etapas
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Para obter mais informações, consulte os seguintes artigos:

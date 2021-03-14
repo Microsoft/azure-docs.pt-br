@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684196"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200260"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorar implantações do IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge fornece relatórios que permitem monitorar informações em tempo real sobre os módulos implantados nos dispositivos do IoT Edge. O serviço do Hub IoT recupera o status dos dispositivos e os disponibiliza para o operador. O monitoramento também é importante para [implantações feitas em escala](module-deployment-monitoring.md) que incluem implantações automáticas e implantações em camadas.
 

@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449974"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426953"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Configurações de solicitação de alteração para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -198,7 +198,7 @@ Para alterar as configurações de solicitação e aprovação de um pacote do A
 
 1. Clique em **Avançar**.
 
-1. Se você quiser exigir que os solicitantes forneçam informações adicionais ao solicitar acesso a um pacote do Access, use as etapas em []() para configurar informações do solicitante (versão prévia).
+1. Se você quiser exigir que os solicitantes forneçam informações adicionais ao solicitar acesso a um pacote do Access, use as etapas em [configurações de aprovação de alteração e informações do solicitante (versão prévia) para um pacote de acesso no gerenciamento de direitos do Azure ad](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) para configurar informações do solicitante (versão prévia).
 
 1. Defina as configurações do ciclo de vida.
 

@@ -3,12 +3,12 @@ title: Estender Azure DevTest Labs usando Azure Functions | Microsoft Docs
 description: Saiba como estender Azure DevTest Labs usando Azure Functions.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620cda83094ee65f421a5529a9d5b51e505ec48e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476301"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501151"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Usar o Azure Functions para estender o DevTest Labs
 Você pode usar Azure Functions para dar suporte a cenários adicionais além daqueles que já têm suporte do DevTest Labs. Azure Functions pode ser usado para estender a funcionalidade interna do serviço para atender às suas necessidades específicas de negócios. A lista a seguir fornece alguns dos possíveis cenários. Este artigo mostra como implementar um desses cenários de exemplo.
@@ -44,9 +44,9 @@ Há uma ação adicional que pode ser executada, para todas as VMs nas quais os 
 Esta seção fornece instruções passo a passo para configurar os recursos do Azure necessários para atualizar a página de **suporte interna** . Este tutorial fornece um exemplo de extensão do DevTest Labs. Você pode usar esse padrão para outros cenários.
 
 ### <a name="step-1-create-a-service-principal"></a>Etapa 1: criar uma entidade de serviço 
-A primeira etapa é obter uma entidade de serviço com permissão para a assinatura que contém o laboratório. A entidade de serviço deve usar a autenticação baseada em senha. Isso pode ser feito com [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)ou o [portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se você já tiver uma entidade de serviço para usar, poderá ignorar esta etapa.
+A primeira etapa é obter uma entidade de serviço com permissão para a assinatura que contém o laboratório. A entidade de serviço deve usar a autenticação baseada em senha. Isso pode ser feito com [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)ou o [portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md). Se você já tiver uma entidade de serviço para usar, poderá ignorar esta etapa.
 
-Anote a **ID do aplicativo**, a **chave**e a ID do **locatário** para a entidade de serviço. Você precisará delas mais tarde neste passo a passos. 
+Anote a **ID do aplicativo**, a **chave** e a ID do **locatário** para a entidade de serviço. Você precisará delas mais tarde neste passo a passos. 
 
 ### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Etapa 2: baixar o exemplo e abri-lo no Visual Studio 2019
 Baixe uma cópia do [C# Azure Functions amostra](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) localmente (seja clonando o repositório ou baixando o repositório [aqui](https://github.com/Azure/azure-devtestlab/archive/master.zip)).  

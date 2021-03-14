@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581441"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720929"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -72,7 +72,7 @@ As especificações detalhadas dos tipos de servidor disponíveis são as seguin
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Armazenamento
 

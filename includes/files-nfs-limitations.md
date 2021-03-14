@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620929"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439100"
 ---
 Durante a visualização, o NFS tem as seguintes limitações:
 
@@ -25,6 +25,7 @@ Durante a visualização, o NFS tem as seguintes limitações:
 - Disponível somente para a camada Premium.
 - Os compartilhamentos NFS aceitam apenas UID/GID numéricos. Para evitar que seus clientes enviem UID/GID alfanumérico, você deve desabilitar o mapeamento de ID.
 - Os compartilhamentos só podem ser montados de uma conta de armazenamento em uma VM individual, ao usar links privados. A tentativa de montar compartilhamentos de outras contas de armazenamento falhará.
+- É melhor contar com as permissões atribuídas ao grupo primário. Às vezes, as permissões alocadas para o grupo não primário do usuário podem resultar em acesso negado devido a um bug conhecido.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Recursos de armazenamento do Azure ainda não suportados
 

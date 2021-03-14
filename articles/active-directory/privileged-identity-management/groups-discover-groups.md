@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688341"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Coloque os grupos de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -44,6 +44,12 @@ Você pode criar um grupo de função atribuível no Azure AD, conforme descrito
 
 > [!NOTE]
 > Depois que um grupo de acesso privilegiado é gerenciado, ele não pode ser retirado do gerenciamento. Isso impede que outro administrador de recursos remova Privileged Identity Management configurações.
+>
+
+> [!IMPORTANT]
+> Se um grupo de acesso privilegiado for excluído da Azure Active Directory, poderá levar até 24 horas para que o grupo seja removido da folha grupos de acesso privilegiado (versão prévia). 
+>
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615794"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181441"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -42,6 +42,7 @@ As permissões a seguir são usadas pela identidade do cluster AKS, que é criad
 
 | Permissão | Motivo |
 |---|---|
+| Microsoft. ContainerService/managedClusters/*  <br/> | Necessário para criar usuários e operar o cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Necessário para configurar o balanceador de carga para um serviço Balancer. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Necessário para localizar e configurar IPS públicos para um serviço Balancer. |
 | Microsoft.Network/publicIPAddresses/join/action | Necessário para configurar IPS públicos para um serviço Balancer. |
@@ -166,7 +167,7 @@ Com a integração do RBAC do Azure, o AKS usará um servidor de webhook de auto
 
 ![Azure RBAC para fluxo de autorização kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Conforme mostrado no diagrama acima, ao usar a integração do RBAC do Azure, todas as solicitações para a API kubernetes seguirão o mesmo fluxo de autenticação conforme explicado na [seção integração ativa do Azure](#azure-active-directory-integration). 
+Conforme mostrado no diagrama acima, ao usar a integração do RBAC do Azure, todas as solicitações para a API kubernetes seguirão o mesmo fluxo de autenticação, conforme explicado na [seção integração de Azure Active Directory](#azure-active-directory-integration). 
 
 Mas, depois disso, em vez de depender apenas do RBAC kubernetes para autorização, a solicitação será, na verdade, autorizada pelo Azure, desde que a identidade que fez a solicitação exista no AAD. Se a identidade não existir no AAD, por exemplo, uma conta de serviço kubernetes, o RBAC do Azure não iniciará e será o RBAC kubernetes normal.
 
@@ -174,6 +175,8 @@ Nesse cenário, você pode fornecer aos usuários uma das quatro funções inter
 
 Esse recurso permitirá, por exemplo, não só conceder permissões aos usuários para o recurso AKS em assinaturas, mas configurados e dar a eles a função e permissões que eles terão dentro de cada um desses clusters que controlam o acesso à API kubernetes. Por exemplo, você pode conceder a `Azure Kubernetes Service RBAC Viewer` função no escopo da assinatura e seu destinatário poderá listar e obter todos os objetos kubernetes de todos os clusters, mas não modificá-los.
 
+> [!IMPORTANT]
+> Observe que você precisa habilitar o RBAC do Azure para autorização de kubernetes antes de usar esse recurso. Para obter mais detalhes e orientações passo a passo, [Consulte aqui](manage-azure-rbac.md).
 
 #### <a name="built-in-roles"></a>Funções internas
 
@@ -186,7 +189,6 @@ O AKS fornece as quatro funções internas a seguir. Eles são semelhantes às [
 | Administrador de RBAC do serviço kubernetes do Azure  | Permite o acesso de administrador, destinado a ser concedido em um namespace. Permite acesso de leitura/gravação para a maioria dos recursos em um namespace (ou escopo de cluster), incluindo a capacidade de criar funções e associações de função no namespace. Essa função não permite acesso de gravação à cota de recursos ou ao próprio namespace. |
 | Administrador de cluster do RBAC do serviço kubernetes do Azure  | Permite o acesso de superusuário para executar qualquer ação em qualquer recurso. Ele fornece controle total sobre cada recurso no cluster e em todos os namespaces. |
 
-**Para saber como habilitar o RBAC do Azure para autorização de kubernetes, [Leia aqui](manage-azure-rbac.md).**
 
 ## <a name="summary"></a>Resumo
 
@@ -235,4 +237,4 @@ Para obter mais informações sobre os principais conceitos do Kubernetes e do A
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

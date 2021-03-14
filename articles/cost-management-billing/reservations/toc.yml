@@ -11,14 +11,16 @@
       href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Recomendações de reserva
       href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Como um desconto de reserva do Azure é aplicado
-      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Como o desconto é aplicado
       items:
+        - name: Como um desconto de reserva do Azure é aplicado
+          href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Serviço de Aplicativo
           href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cache Redis do Azure
           href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Fábrica de dados do Azure
+          href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Cosmos DB
           href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Banco de Dados para MariaDB
@@ -68,6 +70,8 @@
           href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Reserva de Cache do Azure para Redis
           href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Fábrica de dados do Azure
+          href: ../../data-factory/data-flow-reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Banco de Dados do Azure para MariaDB
           href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Banco de Dados do Azure para MySQL
@@ -98,7 +102,7 @@
           href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: 'Exibir, gerenciar e otimizar após a compra'
       items:
-        - name: Exibir reservas e utilização
+        - name: Permissões de exibição e gerenciamento
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Exibir reservas como CSP
           href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -120,6 +124,8 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Solucionar problemas
       items:
+        - name: Solucionar problemas de transferências entre locatários
+          href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Nenhuma assinatura qualificada
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas de utilização de reserva

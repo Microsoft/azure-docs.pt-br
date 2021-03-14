@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201715"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426783"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -29,7 +29,7 @@ Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você precisará.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>AD do Azure
 * Você precisa de um locatário do Azure AD. Você recebe uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode usar um dos seguintes portais para gerenciar o Azure AD Connect:
   * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).
@@ -73,6 +73,7 @@ Para saber mais sobre como proteger seu ambiente de Active Directory, consulte [
     - Você deve configurar certificados TLS/SSL. Para obter mais informações, consulte [Gerenciando protocolos SSL/TLS e conjuntos de codificação para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) e [gerenciar certificados SSL no AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Você deve configurar a resolução de nome. 
 - Se os seus administradores globais tiverem a MFA habilitada, a URL https://secure.aadcdn.microsoftonline-p.com *deverá* estar na lista de sites confiáveis. Você será solicitado a adicionar esse site à lista de sites confiáveis quando for solicitado um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
+- Se você planeja usar Azure AD Connect Health para sincronização, verifique se os pré-requisitos de Azure AD Connect Health também são atendidos. Para obter mais informações, consulte [Azure ad Connect Health instalação do agente](how-to-connect-health-agent-install.md).
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Proteger seu servidor de Azure AD Connect 
 Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a superfície de ataque de segurança para esse componente crítico de seu ambiente de ti. Seguir essas recomendações ajudará a reduzir alguns riscos de segurança para sua organização.
@@ -101,6 +102,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 
 ### <a name="connectivity"></a>Conectividade
 * O servidor do Azure AD Connect precisa da resolução de DNS para a intranet e a Internet. O servidor DNS deve conseguir resolver nomes tanto para o Active Directory local quanto para os pontos de extremidade do Azure AD.
+* Azure AD Connect requer conectividade de rede para todos os domínios configurados
 * Se você tiver firewalls em sua intranet e precisar abrir portas entre os servidores de Azure AD Connect e seus controladores de domínio, consulte [Azure ad Connect portas](reference-connect-ports.md) para obter mais informações.
 * Se o seu proxy ou firewall limitar quais URLs podem ser acessadas, as URLs documentadas em [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertas. Consulte também [as URLs do portal do Azure no seu firewall ou servidor proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Se você estiver usando a nuvem da Microsoft na Alemanha ou na Microsoft Azure Governamental nuvem, consulte [Azure ad Connect as considerações de instâncias do serviço de sincronização](reference-connect-instances.md) para URLs.
@@ -166,6 +168,17 @@ Antes da versão 1.1.614.0, o Azure AD Connect usa TLS 1.0 por padrão para crip
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. Se você também quiser habilitar o TLS 1,2 entre o servidor do mecanismo de sincronização e um SQL Server remoto, verifique se você tem as versões necessárias instaladas para o [suporte a TLS 1,2 para Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### <a name="dcom-prerequisites-on-the-synchronization-server"></a>Pré-requisitos do DCOM no servidor de sincronização
+Durante a instalação do serviço de sincronização, o Azure AD Connect verifica a presença da seguinte chave do registro:
+
+- HKEY_LOCAL_MACHINE: Software\Microsoft\Ole
+
+Nessa chave do registro, Azure AD Connect verificará se os seguintes valores estão presentes e não corrompedos: 
+
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a configuração e instalação de federação
 ### <a name="windows-remote-management"></a>Gerenciamento Remoto do Windows

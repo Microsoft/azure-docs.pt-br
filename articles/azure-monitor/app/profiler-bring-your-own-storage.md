@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202531"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589671"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
 
@@ -21,9 +21,9 @@ Quando você usa Application Insights Profiler ou Depurador de Instantâneos, os
 Com o traga seu próprio armazenamento, esses artefatos são carregados em uma conta de armazenamento que você controla. Isso significa que você controla a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede. No entanto, você será responsável pelos custos associados a essa conta de armazenamento.
 
 > [!NOTE]
-> Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](../platform/private-link-security.md)
+> Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](../logs/private-link-security.md)
 >
-> Se você estiver habilitando Customer-Managed chaves, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre Customer-Managed chaves para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
+> Se você estiver habilitando Customer-Managed chaves, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre Customer-Managed chaves para Application Insights, [consulte a documentação.](../logs/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como minha conta de armazenamento será acessada?
 1. Os agentes em execução em suas máquinas virtuais ou no serviço de aplicativo carregarão artefatos (perfis, instantâneos e símbolos) para contêineres de BLOB em sua conta. Esse processo envolve entrar em contato com o serviço de Application Insights Profiler ou Depurador de Instantâneos para obter um token SAS (assinatura de acesso compartilhado) para um novo BLOB em sua conta de armazenamento.

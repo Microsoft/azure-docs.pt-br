@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Banco de Dados do Azure para PostgreSQL
 description: Lista as definições de políticas internas do Azure Policy para o Banco de Dados do Azure para PostgreSQL. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c12e8e0aaf977d0f70c0ac4f50cd90dd31ea175c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: e50fb4a809467668dfa05412b8e3639ddd6e4919
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560370"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614558"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definições internas do Azure Policy para o Banco de Dados do Azure para PostgreSQL
 

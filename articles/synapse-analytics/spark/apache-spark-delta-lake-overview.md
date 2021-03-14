@@ -11,12 +11,12 @@ ms.date: 07/28/2020
 ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d960b64d71861044aa1b0344ccbfdaf5e6328e6a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1e0dfd597e7f445eeba6cef332d8ea12b27dc3a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120318"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676308"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Visão geral do Linux Foundation Delta Lake
 
@@ -566,11 +566,11 @@ Resulta em:
 
 |version|          timestamp|userId|userName|operation|                                                operationParameters| trabalho|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
-|      4|2020-04-25 00:36:27|  null|    null|    MESCLAR|                       [predicate -> (oldData.`ID` = newData.`ID`)]|null|    null|     null|          3|          null|        false|
-|      3|2020-04-25 00:36:08|  null|    null|   Delete (excluir)|[predicate -> ["((`ID` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|null|    null|     null|          2|          null|        false|
-|      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predicate -> ((ID#744L % cast(2 as bigint)) = cast(0 as bigint))]|null|    null|     nulo|          1|          null|        false|
-|      1|2020-04-25 00:35:05|  null|    null|    WRITE|                             [mode -> Overwrite, partitionBy -> []]|null|    null|     null|          0|          nulo|        false|
-|      0|2020-04-25 00:34:34|  null|    null|    WRITE|                         [mode -> ErrorIfExists, partitionBy -> []]|null|    null|     null|       null|          null|         true|
+|      4|2020-04-25 00:36:27|  null|    null|    MESCLAR|                       [predicate -> (oldData.`ID` = newData.`ID`)]|null|    nulo|     null|          3|          null|        false|
+|      3|2020-04-25 00:36:08|  null|    null|   Delete (excluir)|[predicate -> ["((`ID` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|null|    nulo|     null|          2|          null|        false|
+|      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predicate -> ((ID#744L % cast(2 as bigint)) = cast(0 as bigint))]|null|    nulo|     nulo|          1|          null|        false|
+|      1|2020-04-25 00:35:05|  null|    null|    WRITE|                             [mode -> Overwrite, partitionBy -> []]|null|    nulo|     null|          0|          nulo|        false|
+|      0|2020-04-25 00:34:34|  null|    null|    WRITE|                         [mode -> ErrorIfExists, partitionBy -> []]|null|    nulo|     nulo|       nulo|          null|         true|
 
 Aqui você pode ver todas as modificações feitas nos snippets de código acima.
 
@@ -905,12 +905,12 @@ Resulta em:
 
 |version|          timestamp|userId|userName|       operation| operationParameters| trabalho|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
-|      5|2020-04-25 00:37:09|  null|    null|ATUALIZAÇÃO DE STREAMING|[outputMode -> Ap...|null|    null|     null|          4|          null|         true|
-|      4|2020-04-25 00:36:27|  null|    null|           MESCLAR|[predicate -> (ol...|null|    null|     null|          3|          null|        false|
-|      3|2020-04-25 00:36:08|  null|    null|          Delete (excluir)|[predicate -> ["(...|null|    null|     null|          2|          null|        false|
-|      2|2020-04-25 00:35:51|  null|    null|          UPDATE|[predicate -> ((i...|null|    null|     nulo|          1|          null|        false|
-|      1|2020-04-25 00:35:05|  null|    null|           WRITE|[mode -> Overwrit...|null|    null|     null|          0|          nulo|        false|
-|      0|2020-04-25 00:34:34|  null|    null|           WRITE|[mode -> ErrorIfE...|null|    null|     null|       null|          null|         true|
+|      5|2020-04-25 00:37:09|  null|    null|ATUALIZAÇÃO DE STREAMING|[outputMode -> Ap...|null|    nulo|     null|          4|          null|         true|
+|      4|2020-04-25 00:36:27|  null|    null|           MESCLAR|[predicate -> (ol...|null|    nulo|     null|          3|          null|        false|
+|      3|2020-04-25 00:36:08|  null|    null|          Delete (excluir)|[predicate -> ["(...|null|    nulo|     null|          2|          null|        false|
+|      2|2020-04-25 00:35:51|  null|    null|          UPDATE|[predicate -> ((i...|null|    nulo|     nulo|          1|          null|        false|
+|      1|2020-04-25 00:35:05|  null|    null|           WRITE|[mode -> Overwrit...|null|    nulo|     null|          0|          nulo|        false|
+|      0|2020-04-25 00:34:34|  null|    null|           WRITE|[mode -> ErrorIfE...|null|    nulo|     nulo|       nulo|          null|         true|
 
 :::zone pivot = "programming-language-python"
 
@@ -996,5 +996,5 @@ Para obter mais informações, confira [Projeto do Delta Lake](https://github.co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* [Documentação do .NET para Apache Spark](/dotnet/spark)
 * [Azure Synapse Analytics](../index.yml)

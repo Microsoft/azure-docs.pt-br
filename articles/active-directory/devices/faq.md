@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165137"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199705"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -108,7 +108,7 @@ Veja abaixo como essas ações podem ser corrigidas.
 
 ### <a name="q-why-do-i-see-duplicate-device-entries-in-the-azure-portal"></a>P: por que vejo entradas de dispositivo duplicadas no portal do Azure?
 
-**Um**
+**R:**
 
 - Para o Windows 10 e o Windows Server 2016, tentativas repetidas de desunir e reingressar no mesmo dispositivo podem resultar em entradas duplicadas. 
 - Cada usuário do Windows que usar **Adicionar Conta Corporativa ou de Estudante** cria um novo registro do dispositivo com o mesmo nome do dispositivo.
@@ -147,7 +147,7 @@ Veja abaixo como essas ações podem ser corrigidas.
 
 ### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: não consigo adicionar mais de três contas de usuário do Azure AD na mesma sessão de usuário em um dispositivo Windows 10, por quê?
 
-**R: o** Azure ad adicionou suporte para várias contas do Azure ad na versão 10 1803 do Windows. No entanto, o Windows 10 restringe o número de contas do Azure AD em um dispositivo para 3 para limitar o tamanho das solicitações de token e habilitar o SSO (logon único confiável). Depois que 3 contas tiverem sido adicionadas, os usuários verão um erro para as contas subsequentes. As informações adicionais sobre o problema na tela de erro fornecem a seguinte mensagem indicando o motivo: "a operação de adição de conta está bloqueada porque o limite de conta é atingido". 
+**R: o** Azure ad adicionou suporte para várias contas do Azure ad na versão 10 1803 do Windows. No entanto, o Windows 10 restringe o número de contas do Azure AD em um dispositivo para 3 para limitar o tamanho das solicitações de token e habilitar o SSO (logon único confiável). Depois que 3 contas tiverem sido adicionadas, os usuários verão um erro para as contas subsequentes. As informações adicionais sobre o problema na tela de erro fornecem a seguinte mensagem indicando o motivo: "a operação de adição de conta está bloqueada porque o limite da conta foi atingido". 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
@@ -295,10 +295,15 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>P: Como fazer remover um estado registrado do Azure AD de um dispositivo localmente?
 
-**Um** 
+**R:** 
 - Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
 - Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações** de aplicativo  >   e selecionar **Cancelar registro de dispositivo**.
 - Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
+
+Para dispositivos Windows 10, esse processo pode ser automatizado com a [ferramenta de remoção de Workplace Join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> Essa ferramenta remove todas as contas de SSO no dispositivo. Após essa operação, todos os aplicativos perderão o estado do SSO e o dispositivo terá o registro cancelado das ferramentas de gerenciamento (MDM) e não registrado na nuvem. Na próxima vez que um aplicativo tentar entrar, os usuários serão solicitados a adicionar a conta novamente.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: como posso impedir que os usuários adicionem outras contas de trabalho (registradas no Azure AD) em meus dispositivos corporativos do Windows 10?

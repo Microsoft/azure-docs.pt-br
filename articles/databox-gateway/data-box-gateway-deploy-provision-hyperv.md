@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791554"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727678"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Provisionar o Azure Data Box Gateway no Hyper-V
 
@@ -55,7 +55,7 @@ Antes de implantar um dispositivo, verifique se:
 * O sistema de host é capaz de dedicar os recursos a seguir para provisionar seu dispositivo virtual:
 
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM.
+  * Pelo menos 8 GB de RAM. É altamente recomendável ter pelo menos 16 GB de RAM.
   * Uma interface de rede.
   * Um disco de SO de 250 GB.
   * Um disco virtual de 2 TB para armazenar dados.

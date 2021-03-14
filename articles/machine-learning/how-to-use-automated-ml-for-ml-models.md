@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879740"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520619"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 
@@ -136,7 +136,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     ------|------
     Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#primary-metric).
     Explicar o melhor modelo | Selecione para habilitar ou desabilitar o para mostrar explicações para o melhor modelo recomendado. <br> Essa funcionalidade não está disponível atualmente para [determinados algoritmos de previsão](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento. <br><br> A permissão de algoritmos só está disponível para [experimentos do SDK](how-to-configure-auto-train.md#supported-models). <br> Consulte os [modelos com suporte para cada tipo de tarefa](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento. <br><br> A permissão de algoritmos só está disponível para [experimentos do SDK](how-to-configure-auto-train.md#supported-models). <br> Consulte os [modelos com suporte para cada tipo de tarefa](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. <br> [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>A previsão só dá suporte à validação cruzada de k-fold.
     Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais vezes do que o número de iterações especificado. Saiba mais sobre como o ML automatizado executa [várias execuções filhas em clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
@@ -153,7 +153,7 @@ A tabela a seguir resume as personalizações disponíveis no momento por meio d
 
 Coluna| Personalização
 ---|---
-Incluído | Especifica quais colunas incluir para treinamento.
+Incluso | Especifica quais colunas incluir para treinamento.
 Tipo de recurso| Altere o tipo de valor da coluna selecionada.
 Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados.
 
@@ -179,6 +179,21 @@ A guia **Modelos** contém uma lista dos modelos criados ordenados pela pontuaç
 Faça uma busca detalhada em qualquer um dos modelos concluídos para ver os detalhes da execução de treinamento, como um resumo do modelo na guia **modelo** ou nos gráficos de métrica de desempenho na guia **métricas** . [saiba mais sobre gráficos](how-to-understand-automated-ml.md).
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+## <a name="model-explanations"></a>Explicações de modelo
+
+Para entender melhor seu modelo, consulte quais recursos de dados (brutos ou com engenharia) influenciaram as previsões do modelo com o painel de explicações do modelo. 
+
+O painel explicações de modelo fornece uma análise geral do modelo treinado junto com suas previsões e explicações. Ele também permite que você faça drill-through de um ponto de dados individual e de suas importâncias de recursos individuais. [Saiba mais sobre as visualizações do painel de explicação e gráficos específicos](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+Para obter explicações para um modelo específico, 
+
+1. Na guia **modelos** , selecione o modelo que você deseja usar. 
+1. Selecione o botão **modelo de explicação** e forneça uma computação que possa ser usada para gerar as explicações.
+1. Verifique a guia de **execuções filho** para obter o status. 
+1. Depois de concluído, navegue até a guia **explicações (visualização)** que contém o painel explicações. 
+
+    ![Painel de explicação de modelo](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>Implantar o seu modelo
 

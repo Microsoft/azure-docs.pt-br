@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dada52dcf66db2f0d0e40f3dbf6d1a16560c2754
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8915d780e79fa219428c54bad5458ab5966df6c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515019"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688494"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutorial: Integrar o Replicon ao Azure Active Directory
 
@@ -40,22 +40,22 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Replicon dá suporte a SSO iniciado por **SP** .
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Replicon dá suporte a SSO iniciado por **SP**.
 
 ## <a name="adding-replicon-from-the-gallery"></a>Adicionando Replicon a partir da galeria
 
 Para configurar a integração do Replicon ao Microsoft Azure AD, você precisará adicionar o Replicon a partir da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da por meio da galeria** , digite **Replicon** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da por meio da galeria**, digite **Replicon** na caixa de pesquisa.
 1. Selecione **Replicon** no painel de resultados e, depois, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Configure e teste o SSO do Azure AD com o Replicon usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Replicon.
+Configure e teste o SSO do Azure AD com o Replicon usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Replicon.
 
 Para configurar e testar o SSO do Azure AD com o Replicon, conclua os seguintes blocos de construção:
 
@@ -70,17 +70,17 @@ Para configurar e testar o SSO do Azure AD com o Replicon, conclua os seguintes 
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Replicon** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Escolher um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Replicon**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na página **Configuração Básica de SAML** , insira os valores nos seguintes campos:
+1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
     1. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://global.replicon.com/!/saml2/<client name>/sp-sso/post`
 
-    1. Na caixa **Identificador** , digite uma URL usando o seguinte padrão: `https://global.replicon.com/!/saml2/<client name>`
+    1. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://global.replicon.com/!/saml2/<client name>`
 
     1. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://global.replicon.com/!/saml2/<client name>/sso/post`
 
@@ -91,11 +91,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Algoritmo de assinatura](common/signing-algorithm.png)
 
-    1. Selecione **Assinar declaração SAML** como a **Opção de Assinatura** .
+    1. Selecione **Assinar declaração SAML** como a **Opção de Assinatura**.
 
-    1. Selecione **SHA-256** como o **Algoritmo de Assinatura** .
+    1. Selecione **SHA-256** como o **Algoritmo de Assinatura**.
 
-1. Na página **Configurar logon único com SAML** , na seção **Certificado de assinatura SAML** , localize **XML de Metadados de Federação** e escolha **Download** para fazer o download do certificado e salve-o em seu computador.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, localize **XML de Metadados de Federação** e escolha **Download** para fazer o download do certificado e salve-o em seu computador.
 
    ![O link de download do Certificado](common/metadataxml.png)
 
@@ -107,47 +107,47 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Habilitar a Autenticação SAML](./media/replicon-tutorial/ic777805.png "Habilitar a autenticação do SAML")
 
-    a. Para exibir a caixa de diálogo **EnableSAML Authentication2** , acrescente o seguinte à URL, após a chave da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    a. Para exibir a caixa de diálogo **EnableSAML Authentication2**, acrescente o seguinte à URL, após a chave da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-    * A seguir, é mostrado o esquema do URL completo: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    * A seguir, é mostrado o esquema do URL completo: `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-   b. Clique em **+** para expandir a seção **v20Configuration** .
+   b. Clique em **+** para expandir a seção **v20Configuration**.
 
-   c. Clique em **+** para expandir a seção **metaDataConfiguration** .
+   c. Clique em **+** para expandir a seção **metaDataConfiguration**.
 
    d. Selecione **SHA256** para xmlSignatureAlgorithm
 
-   e. Clique em **Escolher Arquivo** para selecionar o arquivo XML de metadados de provedor de identidade e clique em **Enviar** .
+   e. Clique em **Escolher Arquivo** para selecionar o arquivo XML de metadados de provedor de identidade e clique em **Enviar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Replicon.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, escolha **Replicon** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, escolha **Replicon**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-replicon-test-user"></a>Criar um usuário de teste do Replicon
 
@@ -157,11 +157,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Replicon.
 
 1. Em uma janela de navegador da Web, faça logon no site de sua empresa do Replicon como administrador.
 
-2. Vá para **Administração\>Usuários** .
+2. Vá para **Administração\>Usuários**.
 
     ![Usuários](./media/replicon-tutorial/ic777806.png "Usuários")
 
-3. Clique em **+Adicionar Usuário** .
+3. Clique em **+Adicionar Usuário**.
 
     ![Adicionar Usuário](./media/replicon-tutorial/ic777807.png "Adicionar usuário")
 
@@ -169,20 +169,20 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Replicon.
 
     ![Perfil do usuário](./media/replicon-tutorial/ic777808.png "Perfil de Usuário")
 
-    a. Na caixa de texto **Nome de Logon** , digite o endereço de email do Microsoft Azure Active Directory para o usuário do que você deseja provisionar, como `B.Simon@contoso.com`.
+    a. Na caixa de texto **Nome de Logon**, digite o endereço de email do Microsoft Azure Active Directory para o usuário do que você deseja provisionar, como `B.Simon@contoso.com`.
 
     > [!NOTE]
     > O Nome de Logon precisa corresponder ao endereço de email do usuário no AD do Azure
 
-    b. Para **Tipo de Autenticação** , selecione **SSO** .
+    b. Para **Tipo de Autenticação**, selecione **SSO**.
 
     c. Defina a ID de Autenticação com o mesmo valor como o Nome de Logon (o endereço de email do Azure AD do usuário)
 
     d. Na caixa de texto **Departamento** , digite o departamento do usuário.
 
-    e. Para **Tipo de Funcionário** , selecione **Administrador** .
+    e. Para **Tipo de Funcionário**, selecione **Administrador**.
 
-    f. Clique em **Salvar Perfil do Usuário** .
+    f. Clique em **Salvar Perfil do Usuário**.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do Replicon ou as APIs fornecidas pelo Replicon para provisionar as contas de usuário do Microsoft Azure AD.

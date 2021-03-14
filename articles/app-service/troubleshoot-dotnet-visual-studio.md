@@ -6,15 +6,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576575"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095713"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar um aplicativo no [Serviço de Aplicativo](./overview.md), seja executando-o no [modo de depuração](/visualstudio/debugger/) remotamente ou exibindo logs do aplicativo e do servidor Web.
 
 O que você aprenderá:
@@ -49,7 +49,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento d
    >
    >
 
-    Para obter mais informações sobre como se conectar aos recursos do Azure no Visual Studio, consulte [Gerenciar contas, assinaturas e funções administrativas](../role-based-access-control/role-assignments-portal.md).
+    Para obter mais informações sobre como se conectar aos recursos do Azure por meio do Visual Studio, consulte [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 2. No **Gerenciador de Servidores**, expanda **Azure** e **Serviço de Aplicativo**.
 3. Expanda o grupo de recursos que inclui o aplicativo que você criou em [Criar um aplicativo do ASP.NET no Serviço de Aplicativo do Azure](quickstart-dotnet-framework.md) e, em seguida, clique com o botão direito do mouse no nó do aplicativo e clique em **Exibir Configurações**.
 

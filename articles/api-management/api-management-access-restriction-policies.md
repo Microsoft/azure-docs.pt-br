@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688239"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 
@@ -22,7 +22,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso
 
--   [Verificar cabeçalho HTTP](#CheckHTTPHeader) - Impõe a existência e/ou valor de um cabeçalho HTTP.
+-   [Verificar cabeçalho http](#CheckHTTPHeader) – impõe a existência e/ou valor de um cabeçalho http.
 -   [Limitar a taxa de chamada por assinatura](#LimitCallRate) - Previne picos de uso da API limitando a taxa de chamada, baseado em assinatura.
 -   [Limitar a taxa de chamada por chave](#LimitCallRateByKey) - Previne picos de uso da API limitando a taxa de chamada, baseado em chave.
 -   [Restringir IP do autor da chamada](#RestrictCallerIPs) - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.
@@ -63,7 +63,7 @@ Use a política `check-header` para impor que uma solicitação tem um cabeçalh
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                       | Descrição                                                                                                                                                            | Obrigatório | Padrão |
+| Name                       | Descrição                                                                                                                                                            | Obrigatório | Padrão |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | A mensagem de erro para retornar no corpo da resposta HTTP se o cabeçalho não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape. | Sim      | N/D     |
 | failed-check-httpcode      | O código de status HTTP para retornar se o cabeçalho não existir ou tiver um valor inválido.                                                                                        | Sim      | N/D     |
@@ -80,7 +80,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limitar a taxa de chamada por assinatura
 
-A política `rate-limit` impede picos de uso da API para cada assinatura, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.
+A política `rate-limit` impede picos de uso da API para cada assinatura, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. Quando a taxa de chamada é excedida, o chamador recebe um `429 Too Many Requests` código de status de resposta.
 
 > [!IMPORTANT]
 > Essa política pode ser usada apenas uma vez por cada documento de política.
@@ -98,18 +98,25 @@ A política `rate-limit` impede picos de uso da API para cada assinatura, limita
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### <a name="example"></a>Exemplo
 
+No exemplo a seguir, o limite de taxa por assinatura é de 20 chamadas por 90 segundos. Após cada execução de política, as chamadas restantes permitidas no período de tempo são armazenadas na variável `remainingCallsPerSubscription` .
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -127,11 +134,16 @@ A política `rate-limit` impede picos de uso da API para cada assinatura, limita
 
 ### <a name="attributes"></a>Atributos
 
-| Nome           | Descrição                                                                                           | Obrigatório | Padrão |
+| Name           | Descrição                                                                                           | Obrigatório | Padrão |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | O nome da API para a qual aplicar o limite de taxa.                                                | Sim      | N/D     |
-| chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`. | Sim      | N/D     |
-| renewal-period | O período de tempo, em segundos, durante o qual uma cota reinicia.                                              | Sim      | N/D     |
+| chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado em `renewal-period` . | Sim      | N/D     |
+| renewal-period | O comprimento em segundos da janela deslizante durante o qual o número de solicitações permitidas deve ou não exceder o valor especificado em `calls` .                                              | Sim      | N/D     |
+| repetir-após-cabeçalho-nome    | O nome de um cabeçalho de resposta cujo valor é o intervalo de repetição recomendado em segundos depois que a taxa de chamada especificada é excedida. |  Não | N/D  |
+| repetir-após-variável-name    | O nome de uma variável de expressão de política que armazena o intervalo de repetição recomendado em segundos após a taxa de chamada especificada ser excedida. |  Não | N/D  |
+| restantes-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor após cada execução de política é o número de chamadas restantes permitidas para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
+| restantes-calls-variable-name    | O nome de uma variável de expressão de política que depois de cada execução de política armazena o número de chamadas restantes permitido para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
+| total-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor é o valor especificado em `calls` . |  Não | N/D  |
 
 ### <a name="usage"></a>Uso
 
@@ -146,7 +158,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 > [!IMPORTANT]
 > Esse recurso não está disponível na camada **Consumo** do Gerenciamento de API.
 
-A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.
+A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa taxa de chamada é excedida, o chamador recebe um `429 Too Many Requests` código de status de resposta.
 
 Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](./api-management-sample-flexible-throttling.md).
 
@@ -162,13 +174,16 @@ Para obter mais informações e exemplos dessa política, consulte [Limitação 
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### <a name="example"></a>Exemplo
 
-No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamador.
+No exemplo a seguir, o limite de taxa de 10 chamadas por 60 segundos é inserido pelo endereço IP do chamador. Após cada execução de política, as chamadas restantes permitidas no período de tempo são armazenadas na variável `remainingCallsPerIP` .
 
 ```xml
 <policies>
@@ -177,7 +192,8 @@ No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamado
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -193,12 +209,17 @@ No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamado
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                | Descrição                                                                                           | Obrigatório | Padrão |
+| Name                | Descrição                                                                                           | Obrigatório | Padrão |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | chamadas               | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`. | Sim      | N/D     |
 | counter-key         | A chave a ser usada para a política de limite de taxa.                                                             | Sim      | N/D     |
-| increment-condition | A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`).        | Não       | N/D     |
-| renewal-period      | O período de tempo, em segundos, durante o qual uma cota reinicia.                                              | Sim      | N/D     |
+| increment-condition | A expressão booliana que especifica se a solicitação deve ser contada em direção à taxa ( `true` ).        | Não       | N/D     |
+| renewal-period      | O comprimento em segundos da janela deslizante durante o qual o número de solicitações permitidas deve ou não exceder o valor especificado em `calls` .                                           | Sim      | N/D     |
+| repetir-após-cabeçalho-nome    | O nome de um cabeçalho de resposta cujo valor é o intervalo de repetição recomendado em segundos depois que a taxa de chamada especificada é excedida. |  Não | N/D  |
+| repetir-após-variável-name    | O nome de uma variável de expressão de política que armazena o intervalo de repetição recomendado em segundos após a taxa de chamada especificada ser excedida. |  Não | N/D  |
+| restantes-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor após cada execução de política é o número de chamadas restantes permitidas para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
+| restantes-calls-variable-name    | O nome de uma variável de expressão de política que depois de cada execução de política armazena o número de chamadas restantes permitido para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
+| total-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor é o valor especificado em `calls` . |  Não | N/D  |
 
 ### <a name="usage"></a>Uso
 
@@ -242,7 +263,7 @@ No exemplo a seguir, a política só permite solicitações provenientes do ende
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                                      | Descrição                                                                                 | Obrigatório                                           | Padrão |
+| Name                                      | Descrição                                                                                 | Obrigatório                                           | Padrão |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Um intervalo de endereços IP aos quais o acesso será permitido ou negado.                                        | Necessário quando o elemento `address-range` é usado. | N/D     |
 | ip-filter action="allow &#124; forbid"    | Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas. | Sim                                                | N/D     |
@@ -296,16 +317,16 @@ A política `quota` impõe uma cota renovável ou de tempo de vida de volume de 
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raiz.                                                                                                                                                                                                                                                                                | Sim      |
 | api       | Adicione um ou mais desses elementos para impor a cota de chamada em APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.                    | Não       |
-| operation | Adicione um ou mais desses elementos para impor a cota de chamada em operações em uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado. | Não       |
+| operation | Adicione um ou mais desses elementos para impor a cota de chamada em operações em uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado. | Não      |
 
 ### <a name="attributes"></a>Atributos
 
-| Nome           | Descrição                                                                                               | Obrigatório                                                         | Padrão |
+| Name           | Descrição                                                                                               | Obrigatório                                                         | Padrão |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | O nome da API ou operação à qual a cota se aplica.                                             | Sim                                                              | N/D     |
 | largura de banda      | O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`. | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.     | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
-| renewal-period | O período de tempo, em segundos, durante o qual uma cota reinicia.                                                  | Sim                                                              | N/D     |
+| renewal-period | O período de tempo, em segundos, durante o qual uma cota reinicia. Quando definido como `0` o período é definido como infinito. | Sim                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -319,7 +340,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 > [!IMPORTANT]
 > Esse recurso não está disponível na camada **Consumo** do Gerenciamento de API.
 
-A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Se várias políticas incrementassem o mesmo valor de chave, ele seria incrementado apenas uma vez por solicitação. Quando essa política é disparada, o chamador recebe um código de status de resposta `403 Forbidden`.
+A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Se várias políticas incrementassem o mesmo valor de chave, ele seria incrementado apenas uma vez por solicitação. Quando a taxa de chamada é excedida, o chamador recebe um `403 Forbidden` código de status de resposta.
 
 Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](./api-management-sample-flexible-throttling.md).
 
@@ -363,13 +384,13 @@ No exemplo a seguir, a cota é codificada pelo endereço IP do chamador.
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                | Descrição                                                                                               | Obrigatório                                                         | Padrão |
+| Name                | Descrição                                                                                               | Obrigatório                                                         | Padrão |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | largura de banda           | O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`. | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | chamadas               | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.     | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | counter-key         | A chave a ser usada para a política de cota.                                                                      | Sim                                                              | N/D     |
 | increment-condition | A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`)             | Não                                                               | N/D     |
-| renewal-period      | O período de tempo, em segundos, durante o qual uma cota reinicia.                                                  | Sim                                                              | N/D     |
+| renewal-period      | O período de tempo, em segundos, durante o qual uma cota reinicia. Quando definido como `0` o período é definido como infinito.                                                   | Sim                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -539,7 +560,7 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório                                                                         | Padrão                                                                           |
+| Name                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório                                                                         | Padrão                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | Período de tempo. Use para especificar a diferença de tempo máxima esperada entre os relógios do sistema do emissor do token e a instância do Gerenciamento de API.                                                                                                                                                                                                                                                                                                               | Não                                                                               | 0 segundos                                                                         |
 | failed-validation-error-message | Mensagem de erro para retornar no corpo da resposta HTTP se o JWT não passar na validação. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.                                                                                                                                                                                                                                                                                                 | Não                                                                               | A mensagem de erro padrão depende do problema de validação, por exemplo, "O JWT não está presente." |

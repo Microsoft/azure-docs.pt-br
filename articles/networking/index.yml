@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
-  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+  ms.openlocfilehash: c701f1f54955257fd60fe8d58fb703a1d26d1169
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/15/2021
-  ms.locfileid: "98233943"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102503390"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -159,20 +159,20 @@ conceptualContent:
     footerLink:
       url: ../application-gateway/index.yml
       text: Ver mais
-  - title: Balanceador de carga global
+  - title: CDN de nuvem segura e balanceador de carga global
     links:
     - url: ../frontdoor/front-door-overview.md
       itemType: overview
       text: O que é o Azure Front Door Service?
+    - url: ../frontdoor/standard-premium/overview.md
+      itemType: overview
+      text: O que é o Azure Front Door Standard/Premium (Versão Prévia)?
     - url: ../frontdoor/front-door-custom-domain.md
       itemType: how-to-guide
       text: Adicionar um domínio personalizado ao Azure Front Door Service
     - url: ../frontdoor/front-door-how-to-redirect-https.md
       itemType: how-to-guide
       text: Redirecionamento de HTTP para HTTPS
-    - url: ../frontdoor/front-door-troubleshoot-routing.md
-      itemType: how-to-guide
-      text: Solucionar problemas de roteamento
     footerLink:
       url: ../frontdoor/index.yml
       text: Ver mais
@@ -333,10 +333,10 @@ additionalContent:
   - items:
     - title: Comandos do Azure PowerShell para redes do Azure
       summary: Saiba mais sobre os cmdlets de rede do Azure.
-      url: /powershell/module/az.network/?view=azps-3.5.0#networking
+      url: /powershell/module/az.network/#networking
     - title: Comandos da CLI do Azure para a rede do Azure
       summary: Encontre os comandos de rede do Azure na referência da CLI.
-      url: /cli/azure/network?view=azure-cli-latest
+      url: /cli/azure/network
     - title: Blog da rede do Azure
       summary: Exibir os blogs mais recentes no sistema de rede do Azure.
       url: https://azure.microsoft.com/blog/topics/networking/

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fb1c1be8a0203d9f36712fda8e30f0f9354091
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750689"
 ---
 Você pode implantar perfis para clientes de VPN do Azure (Windows 10) usando Microsoft Intune. Este artigo ajuda você a criar um perfil do Intune usando configurações personalizadas.
 
@@ -30,7 +30,7 @@ Nas etapas a seguir, usamos um XML de exemplo para um perfil de OMA-URI personal
 * Conectar automaticamente
 * Detecção de rede confiável habilitada.
 
-Para outras opções com suporte, consulte o artigo [CSP VPNv2](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+Para outras opções com suporte, consulte o artigo [CSP VPNv2](/windows/client-management/mdm/vpnv2-csp) .
 
 1. Baixe o perfil de VPN do portal do Azure e extraia o arquivo de *azurevpnconfig.xml* do pacote.
 1. Copie e cole o texto abaixo em um novo arquivo do editor de texto.
@@ -46,21 +46,14 @@ Para outras opções com suporte, consulte o artigo [CSP VPNv2](https://docs.mic
       <PluginProfile>
         <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
         <CustomConfiguration>
+
         </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
     </VPNProfile>
    ```
 1. Modifique a entrada entre ```<ServerUrlList>``` e ```</ServerUrlList>``` com a entrada de seu perfil baixado (azurevpnconfig.xml). Altere o FQDN "TrustedNetworkDetection" para se ajustar ao seu ambiente.
-1. Abra o perfil baixado do Azure (azurevpnconfig.xml) e copie o conteúdo para a área de transferência realçando o texto e pressionando <ctrl> + C. Copie tudo entre as seguintes linhas AzVpnProfile, mas não copie as linhas AzVpnProfile em si:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-   For example - copy the text in your xml that is located here.
-   </AzVpnProfile>
-   ```
+1. Abra o perfil baixado do Azure (azurevpnconfig.xml) e copie todo o conteúdo para a área de transferência, destacando o texto e pressionando (Ctrl) + C. 
 1. Cole o texto copiado da etapa anterior no arquivo criado na etapa 2 entre as ```<CustomConfiguration>  </CustomConfiguration>``` marcas. Salve o arquivo com uma extensão XML.
 1. Anote o valor nas ```<name>  </name>``` marcas. Este é o nome do perfil. Você precisará desse nome ao criar o perfil no Intune. Feche o arquivo e lembre-se do local onde ele foi salvo.
 
@@ -89,4 +82,4 @@ Nesta seção, você criará um perfil de Microsoft Intune com configurações p
 1. Na página **Examinar + criar** escolha **Criar**.
 
     :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/create-profile.png" alt-text="Criar perfil":::
-1. Seu perfil personalizado agora é criado. Para as Microsoft Intune etapas para implantar esse perfil, consulte [atribuir perfis de usuário e de dispositivo](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. Seu perfil personalizado agora é criado. Para as Microsoft Intune etapas para implantar esse perfil, consulte [atribuir perfis de usuário e de dispositivo](/mem/intune/configuration/device-profile-assign).

@@ -1,22 +1,17 @@
 ---
 title: Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 description: Saiba como copiar dados de uma nuvem ou fonte REST local para armazenamentos de dados de coletor com suporte ou de um armazenamento de dados de origem com suporte para um coletor REST usando uma atividade de cópia em um pipeline de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369876"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -140,7 +135,7 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
 
@@ -385,7 +380,7 @@ Os **Valores com suporte** nas regras de paginação:
 
 **Exemplo:**
 
-O Facebook API do Graph retorna a resposta na estrutura a seguir, caso em que a URL da próxima página é representada em **_paginação. avançar_* _:
+O API do Graph do Facebook retorna a resposta na próxima estrutura, em cada casa a URL da próxima página é representada por ***paging.next***:
 
 ```json
 {
@@ -440,7 +435,7 @@ Esta seção descreve como usar um modelo de solução para copiar dados do cone
 ### <a name="about-the-solution-template"></a>Sobre o modelo de solução
 
 O modelo contém duas atividades:
-- _ A atividade *Web** recupera o token de portador e, em seguida, passa-o para a atividade de cópia subsequente como autorização.
+- A atividade **da Web** recupera o token de portador e, em seguida, passa-o para a atividade de cópia subsequente como autorização.
 - A atividade de **cópia** copia dados do REST para o Azure data Lake Storage.
 
 O modelo define dois parâmetros:

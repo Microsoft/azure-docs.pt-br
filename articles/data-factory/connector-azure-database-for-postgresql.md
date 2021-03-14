@@ -1,22 +1,18 @@
 ---
 title: Copiar e transformar dados no banco de dado do Azure para PostgreSQL
 description: Saiba como copiar e transformar dados no banco de dados do Azure para PostgreSQL usando o Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/25/2021
+ms.openlocfilehash: ec4ea645e325ef48d4cb5951cd39fd4e9cbe1617
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223078"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738048"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dado do Azure para PostgreSQL usando Azure Data Factory
 
@@ -33,6 +29,8 @@ Esse conector do banco de dados do Azure para PostgreSQL tem suporte para as seg
 - [Atividade de cópia](copy-activity-overview.md) com uma [fonte/matriz de coletor com suporte](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
+
+Atualmente, o fluxo de dados dá suporte ao banco de dados do Azure para PostgreSQL servidor único, mas não a um servidor ou hiperescala (Citus) flexível.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -73,7 +71,7 @@ Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;D
 
 **Exemplo**:
 
-**_Armazenar a senha no Azure Key Vault_* _
+***Armazenar a senha no Azure Key Vault***
 
 ```json
 {
@@ -99,7 +97,7 @@ Uma cadeia de conexão válida é `Server=<server>.postgres.database.azure.com;D
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets in Azure data Factory](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades às quais o banco de dados do Azure para PostgreSQL dá suporte em DataSets.
 
-Para copiar dados do banco de dados do Azure para PostgreSQL, defina a propriedade Type do DataSet como _ * AzurePostgreSqlTable * *. Há suporte para as seguintes propriedades:
+Para copiar dados de/para o Banco de Dados do Azure para PostgreSQL, defina o tipo da propriedade do conjunto de dados como **AzurePostgreSqlTable**. Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -221,7 +219,7 @@ Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em
 
 A tabela abaixo lista as propriedades com suporte pela origem do banco de dados do Azure para PostgreSQL. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Tabela | Se você selecionar tabela como entrada, o fluxo de dados buscará todos os dados da tabela especificada no conjunto. | Não | - |*(somente para conjunto de linhas embutido)*<br>tableName |
 | Consulta | Se você selecionar consulta como entrada, especifique uma consulta SQL para buscar dados da origem, o que substitui qualquer tabela que você especificar no DataSet. O uso de consultas é uma ótima maneira de reduzir linhas para teste ou pesquisas.<br><br>Não há suporte para a cláusula **order by** , mas você pode definir uma instrução SELECT FROM completa. Também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela que você pode usar no fluxo de dados.<br>Exemplo de consulta: `select * from mytable where customerId > 1000 and customerId < 2000` ou `select * from "MyTable"` . Observação no PostgreSQL, o nome da entidade é tratado como não diferencia maiúsculas de minúsculas, se não estiver entre aspas.| Não | String | Consulta |
@@ -244,7 +242,7 @@ source(allowSchemaDrift: true,
 
 A tabela abaixo lista as propriedades com suporte no coletor do banco de dados do Azure para PostgreSQL. Você pode editar essas propriedades na guia **Opções do coletor** .
 
-| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Método Update | Especifique quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções.<br>Para atualizar, upsertr ou excluir linhas, uma [transformação ALTER Row](data-flow-alter-row.md) é necessária para marcar linhas para essas ações. | Sim | `true` ou `false` | pode ser excluído <br/>Insertable <br/>atualizável <br/>upsertable |
 | Colunas de chaves | Para atualizações, upserts e exclusões, coluna (s) de chave devem ser definidas para determinar qual linha alterar.<br>O nome da coluna que você escolhe como a chave será usado como parte da atualização subsequente, Upsert, Delete. Portanto, você deve escolher uma coluna que exista no mapeamento do coletor. | Não | Array | chaves |

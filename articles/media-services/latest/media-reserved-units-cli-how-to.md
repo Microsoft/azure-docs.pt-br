@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955878"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213803"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como dimensionar unidades reservadas de mídia
 
@@ -32,13 +32,11 @@ Este artigo mostra como dimensionar MRSs (unidades reservadas de mídia) para um
 
 Entenda as [unidades reservadas de mídia](concept-media-reserved-units.md).
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
 ## <a name="scale-media-reserved-units-with-cli"></a>Unidades com a CLI reservadas de mídia de escala
 
 Execute o comando `mru`.
 
-O comando [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) a seguir define as Unidades Reservadas de Mídia na conta "amsaccount" usando os parâmetros **count** e **type**.
+O comando [az ams account mru](/cli/azure/ams/account/mru) a seguir define as Unidades Reservadas de Mídia na conta "amsaccount" usando os parâmetros **count** e **type**.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -52,6 +50,6 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Cotas e limites](limits-quotas-constraints.md)

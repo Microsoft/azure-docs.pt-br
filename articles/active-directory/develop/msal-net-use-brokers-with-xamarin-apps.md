@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583834"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199571"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -183,7 +183,7 @@ Adicione o URI de redirecionamento ao registro do aplicativo no [portal do Azure
 
 **Para gerar o URI de redirecionamento:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Selecione **Azure Active Directory**  >  **registros de aplicativo** > seu aplicativo registrado
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Ios/MacOS**
 1. Insira a ID do pacote e, em seguida, selecione **Configurar**.
@@ -326,6 +326,8 @@ Por exemplo, se você tiver um URI de redirecionamento de `msauth://com.microsof
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Para obter mais informações sobre como configurar seu aplicativo para o navegador do sistema e o suporte do Android 11, consulte [atualizar o manifesto do Android para o suporte ao navegador do sistema](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 Como alternativa, você pode configurar o MSAL para fazer fallback para o navegador incorporado, que não depende de um URI de redirecionamento:
 
 ```csharp
@@ -344,22 +346,22 @@ Aqui estão algumas dicas sobre como evitar problemas ao implementar a autentica
 
     Exemplo: se você instalar primeiro Microsoft Authenticator e, em seguida, instalar o Portal da Empresa do Intune, a autenticação orientada ocorrerá *somente* no Microsoft Authenticator.
 - **Logs** – se você encontrar um problema com a autenticação orientada, a exibição dos logs do agente poderá ajudá-lo a diagnosticar a causa.
-  - Exibir logs de Microsoft Authenticator:
+  - Obter logs de Microsoft Authenticator:
 
     1. Selecione o botão de menu no canto superior direito do aplicativo.
-    1. Selecione **ajudar**  >  **enviar logs**  >  **Exibir logs**.
-    1. Selecione **copiar tudo** para copiar os logs do agente para a área de transferência do dispositivo.
+    1. Selecione **enviar comentários**  >  **com problemas?**.
+    1. Em **o que você está tentando fazer?**, selecione uma opção e adicione uma descrição.
+    1. Para enviar os logs, selecione a seta no canto superior direito do aplicativo.
 
-    A melhor maneira de depurar com esses logs é enviá-los por email para você mesmo e exibi-los em seu computador de desenvolvimento. Talvez você ache mais fácil analisar os logs em seu computador em vez de no próprio dispositivo. Você também pode usar um editor de teste no Android para salvar os logs como um arquivo de texto e, em seguida, usar um cabo USB para copiar o arquivo em um computador.
+    Depois que você enviar os logs, uma caixa de diálogo exibirá a ID do incidente. Registre a ID do incidente e inclua-a quando solicitar assistência.
 
-  - Exibir logs de Portal da Empresa do Intune:
+  - Obter logs de Portal da Empresa do Intune:
 
-    1. Selecione o botão de menu no canto superior esquerdo do aplicativo
-    1. Selecione **configurações**  >  **dados de diagnóstico**
-    1. Selecione **copiar logs** para copiar os logs do agente para o cartão SD do dispositivo.
-    1. Conecte o dispositivo a um computador usando um cabo USB para exibir os logs em seu computador de desenvolvimento.
+    1. Selecione o botão de menu no canto superior esquerdo do aplicativo.
+    1. Selecione **ajuda**  >  **email suporte**.
+    1. Para enviar os logs, selecione **carregar somente logs**.
 
-    Depois de ter os logs, você pode pesquisá-los para suas tentativas de autenticação por meio da ID de correlação. A ID de correlação é anexada a cada solicitação de autenticação. Para localizar erros retornados pelo ponto de extremidade de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
+    Depois que você enviar os logs, uma caixa de diálogo exibirá a ID do incidente. Registre a ID do incidente e inclua-a quando solicitar assistência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

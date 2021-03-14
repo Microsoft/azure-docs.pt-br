@@ -1,24 +1,18 @@
 ---
 title: Recursos da Central de Segurança do Azure de acordo com o sistema operacional, tipo de computador e nuvem
 description: Saiba quais recursos da Central de Segurança do Azure estão disponíveis de acordo com o sistema operacional, tipo e implantação na nuvem.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: e827178d8ccb0f7de8d32433d03502a7412d1139
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 070f35dc3efea4a3f05ec36cc3860fa589aa87e3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834036"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437903"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -96,10 +90,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Deep Security | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
-| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim **\***  |
-
- **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+| McAfee v10+ | Família de servidores Linux  | Não | Sim |
+| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim |
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).
@@ -119,7 +111,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
+|[Exportação contínua](continuous-export.md)|✔|✔|
 |[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
@@ -133,7 +125,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
+|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) Exige o **Azure Defender para servidores**

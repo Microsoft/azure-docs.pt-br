@@ -2,16 +2,17 @@
 title: Etapas detalhadas para criar um par de chaves SSH
 description: Conheça as etapas detalhadas para criar e gerenciar um par de chaves SSH pública e privada para VMs Linux no Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7a7831a26d55e5c85b814efc6de78238678820ec
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9d888de78432558cda8e08c3de91be9673231b47
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203262"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554710"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: Criar e gerenciar chaves SSH para autenticação para uma VM do Linux no Azure
 
@@ -77,7 +78,7 @@ ssh-keygen \
 ### <a name="example-of-ssh-keygen"></a>Exemplo de ssh-keygen
 
 ```bash
-ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
+ssh-keygen -t rsa -m PEM -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):

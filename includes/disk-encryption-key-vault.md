@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6f8cfc314c75221a88b58095cc71ea685280ac49
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015360"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500999"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -21,7 +21,7 @@ ms.locfileid: "96015360"
 
 Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-Crie um grupo de recursos usando o comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) da CLI do Azure, o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) do Azure PowerShell ou por meio do [portal do Azure](https://portal.azure.com).
+Crie um grupo de recursos usando o comando [az group create](/cli/azure/group#az-group-create) da CLI do Azure, o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) do Azure PowerShell ou por meio do [portal do Azure](https://portal.azure.com).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Se você já tiver um cofre de chaves, poderá pular para [definir políticas de acesso avançado do cofre de chaves](#set-key-vault-advanced-access-policies).*
 
-Crie um cofre de chaves usando o comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) da CLI do Azure, o comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) do Azure PowerShell, o [portal do Azure](https://portal.azure.com) ou um [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Crie um cofre de chaves usando o comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) da CLI do Azure, o comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) do Azure PowerShell, o [portal do Azure](https://portal.azure.com) ou um [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
 > O cofre de chaves e as VMs devem estar na mesma assinatura. Além disso, para garantir que os segredos de criptografia não ultrapassem os limites regionais, o Azure Disk Encryption exige que o Key Vault e as VMs estejam localizados na mesma região. Crie e use um Key Vault que esteja na mesma assinatura e na mesma região que as VMs a ser criptografadas. 
@@ -129,7 +129,7 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
 
 Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional de segurança para chaves de criptografia, adicione uma KEK ao seu cofre de chaves. Quando uma chave de criptografia de chave é especificada, o Azure Disk Encryption usa essa chave para agrupar os segredos de criptografia antes de gravar no Key Vault.
 
-Você pode gerar uma nova KEK usando o comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) da CLI do Azure, o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) do Azure PowerShell ou o [portal do Azure](https://portal.azure.com/). Você deve gerar uma chave do tipo RSA. O Azure Disk Encryption ainda não é compatível com o uso de chaves de Curva Elíptica.
+Você pode gerar uma nova KEK usando o comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) da CLI do Azure, o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) do Azure PowerShell ou o [portal do Azure](https://portal.azure.com/). Você deve gerar uma chave do tipo RSA. O Azure Disk Encryption ainda não é compatível com o uso de chaves de Curva Elíptica.
 
 Em vez disso, você pode importar uma KEK do HSM de gerenciamento de chaves local. Para obter mais informações, consulte [documentação do cofre de chaves](../articles/key-vault/keys/hsm-protected-keys.md).
 
@@ -145,15 +145,15 @@ o Azure Disk Encryption não dá suporte à especificação de números de porta
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Use o comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) da CLI do Azure para gerar uma nova KEK e armazená-la no cofre de chaves.
+Use o comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) da CLI do Azure para gerar uma nova KEK e armazená-la no cofre de chaves.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
-Em vez disso, você pode importar uma chave privada usando o comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) da CLI do Azure:
+Em vez disso, você pode importar uma chave privada usando o comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) da CLI do Azure:
 
-Em ambos os casos, você fornecerá o nome da KEK ao parâmetro KEK [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) da CLI do Azure. 
+Em ambos os casos, você fornecerá o nome da KEK ao parâmetro KEK [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) da CLI do Azure. 
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>" --key-encryption-key "myKEK"
@@ -161,15 +161,15 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 ###  <a name="azure-powershell"></a>Azure PowerShell 
 
-Use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey?view=azps-2.5.0) do Azure PowerShell para gerar uma nova KEK e armazená-la no cofre de chaves.
+Use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) do Azure PowerShell para gerar uma nova KEK e armazená-la no cofre de chaves.
 
  ```powershell-interactive
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
 ```
 
-Em vez disso, você pode importar uma chave privada usando o comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) do Azure PowerShell.
+Em vez disso, você pode importar uma chave privada usando o comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) do Azure PowerShell.
 
-Em ambos os casos, você fornecerá a ID do cofre de chaves da KEK e a URL da KEK para os parâmetros [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId e -KeyEncryptionKeyUrl do Azure PowerShell. Observe que este exemplo pressupõe que você esteja usando o mesmo cofre de chaves para a chave de criptografia de disco e a KEK.
+Em ambos os casos, você fornecerá a ID do cofre de chaves da KEK e a URL da KEK para os parâmetros [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) -KeyEncryptionKeyVaultId e -KeyEncryptionKeyUrl do Azure PowerShell. Observe que este exemplo pressupõe que você esteja usando o mesmo cofre de chaves para a chave de criptografia de disco e a KEK.
 
  ```powershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup"

@@ -1,21 +1,21 @@
 ---
-title: Enviar e receber eventos dos hubs de eventos do Azure usando o .NET (antigo)
-description: Este artigo fornece instruções para a criação de um aplicativo .NET Core que envia/recebe eventos de/para os hubs de eventos do Azure usando o pacote Microsoft. Azure. EventHubs antigo.
-ms.topic: conceptual
+title: Enviar e receber eventos dos Hubs de Eventos do Azure usando o .NET (antigo)
+description: Este artigo fornece um passo a passo de como criar um aplicativo .NET Core que envia/recebe eventos nos Hubs de Eventos do Azure usando o pacote antigo Microsoft.Azure.EventHubs.
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8819a95364bf41c6f9837c3db31a9800968d096c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: MT
+ms.openlocfilehash: 7092c3a4c32fe2ad46b71c5a796ac811e4253dbb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332154"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653084"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Enviar eventos para ou receber eventos de hubs de eventos do Azure usando o .NET Core (Microsoft. Azure. EventHubs)
-Este guia de início rápido mostra como enviar eventos para e receber eventos de um hub de eventos usando a biblioteca do .NET Core **Microsoft. Azure. EventHubs** .
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Enviar ou receber eventos nos Hubs de Eventos do Azure usando o .NET Core (Microsoft.Azure.EventHubs)
+Este guia de início rápido mostra como enviar e receber eventos em um hub de eventos usando a biblioteca **Microsoft.Azure.EventHubs** do .NET Core.
 
 > [!WARNING]
-> Este guia de início rápido usa o pacote antigo **Microsoft. Azure. EventHubs** . Para obter um início rápido que usa a biblioteca  **Azure. Messaging. EventHubs** mais recente, consulte [Enviar e receber eventos usando a biblioteca Azure. Messaging. EventHubs](event-hubs-dotnet-standard-getstarted-send.md). Para mover seu aplicativo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar de Microsoft. Azure. EventHubs para Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+> Este guia de início rápido usa o pacote antigo **Microsoft.Azure.EventHubs**. Para obter um guia de início rápido que usa a biblioteca mais recente **Azure.Messaging.EventHubs**, confira [Enviar e receber eventos usando a biblioteca Azure.Messaging.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). Para migrar seu aplicativo da biblioteca antiga para a nova, confira o [Guia de migração de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você for novo nos Hubs de Eventos do Azure, confira a [Visão geral dos Hubs de Eventos](event-hubs-about.md) antes de prosseguir com este início rápido. 
@@ -36,13 +36,13 @@ Esta seção mostra como criar um aplicativo de console .NET Core para enviar ev
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
-Inicie o Visual Studio. No menu **arquivo** , clique em **novo**e em **projeto**. Crie um aplicativo de console do .NET Core.
+Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**. Crie um aplicativo de console do .NET Core.
 
 ![Novo Projeto](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
-Adicione o [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) pacote NuGet da biblioteca do .NET Core ao seu projeto seguindo estas etapas: 
+Adicione o pacote NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) de biblioteca do .NET Core ao projeto seguindo estas etapas: 
 
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
 2. Clique na guia **Procurar**, pesquise por "Microsoft.Azure.EventHubs" e selecione o pacote **Microsoft.Azure.EventHubs**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
@@ -190,15 +190,15 @@ Adicione o [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 6. Execute o programa e certifique-se de que não existem erros.
 
 ## <a name="receive-events"></a>Receber eventos
-Esta seção mostra como escrever um aplicativo de console .NET Core que recebe mensagens de um hub de eventos usando o [host do processador de eventos](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o Host do Processador de Eventos para um único destinatário.
+Esta seção mostra como escrever um aplicativo de console .NET Core que recebe mensagens de um hub de eventos usando o [Host do Processador de Eventos](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o Host do Processador de Eventos para um único destinatário.
 > [!NOTE]
-> Você pode baixar este guia de início rápido como um exemplo do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), substituir `EventHubConnectionString` e `EventHubName` , `StorageAccountName` ,, `StorageAccountKey` e `StorageContainerName` as cadeias de caracteres pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
+> Você pode baixar este início rápido como uma amostra com o [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName`, `StorageAccountName`, `StorageAccountKey` e `StorageContainerName` com seus valores de hub de eventos, e executá-los. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
-Inicie o Visual Studio. No menu **arquivo** , clique em **novo**e em **projeto**. Crie um aplicativo de console do .NET Core.
+Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**. Crie um aplicativo de console do .NET Core.
 
 ![Novo projeto para recebimento](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
 
@@ -362,9 +362,9 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
 ## <a name="next-steps"></a>Próximas etapas
 Leia os seguintes artigos:
 
-- [Exemplos do Azure RBAC (controle de acesso baseado em função)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- [Exemplos do RBAC do Azure (controle de acesso baseado em função do Azure)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Esses exemplos usam a antiga biblioteca **Microsoft. Azure. EventHubs** , mas você pode atualizá-lo facilmente para usar a biblioteca **Azure. Messaging. EventHubs** mais recente. Para mover o exemplo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar de Microsoft. Azure. EventHubs para Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Esses exemplos usam a biblioteca antiga **Microsoft.Azure.EventHubs**, mas você pode atualizá-los com facilidade para que usem a biblioteca **Azure.Messaging.EventHubs** mais recente. Para migrar o exemplo da biblioteca antiga para a nova, confira o [Guia de migração de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
 - [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Logs de consulta de Iniciar/Parar VMs fora do horário comercial
           href: automation-solution-vm-management-logs.md
+        - name: Remover a opção Iniciar/Parar VMs fora do horário comercial
+          href: automation-solution-vm-management-remove.md
         - name: Solucionar problemas de Iniciar/Parar VMs fora do horário comercial
           href: troubleshoot/start-stop-vm.md
     - name: Gerenciamento de atualizações

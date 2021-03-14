@@ -2,17 +2,17 @@
 title: Criar uma VM do Windows a partir de um modelo no Azure
 description: Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova VM do Windows.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c327f5ffbf7c0fbfadf443e80cc1f7540855f59e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 534a8480e783853f7497a0538b04e0302a9cda0c
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201817"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102553605"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual Windows usando um modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Uma alternativa é implantar o modelo do portal do Azure. Para abrir o modelo no
 
 A criação de uma máquina virtual do Azure geralmente inclui duas etapas:
 
-- Crie um grupos de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual.
+- Crie um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual.
 - Crie uma máquina virtual.
 
 O exemplo a seguir cria uma VM a partir de um [modelo de início rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Veja uma cópia do modelo:
@@ -64,7 +64,7 @@ Estes são alguns recursos adicionais:
 - Para ver os esquemas de máquina virtual do Azure, consulte [referência de modelo do Azure](/azure/templates/microsoft.compute/allversions).
 - Para ver mais exemplos de modelo de máquina virtual, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
-## <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
+## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 
 O último comando do PowerShell do script anterior mostra o nome da máquina virtual. Para se conectar à máquina virtual, consulte [como se conectar e entrar em uma máquina virtual do Azure que executa o Windows](./connect-logon.md).
 
@@ -77,5 +77,5 @@ Confira a sintaxe e as propriedades do JSON para os tipos de recursos que você 
 
 - [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 - [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

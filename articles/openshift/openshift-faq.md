@@ -3,15 +3,15 @@ title: Perguntas frequentes sobre o Azure Red Hat OpenShift
 description: Aqui estão as respostas para perguntas comuns sobre Microsoft Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: a3721083e48774963cd761178abdb552c93b15c7
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071045"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634338"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: eb42a9a77927d8577dfec3c9167294eb8f809fec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980994"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382610"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Instruções de segurança do Edge Azure Stack mini R
 
@@ -161,7 +161,6 @@ A operação na banda 5150 – 5250 MHz é apenas para uso interno, a fim de red
 
 ![Aviso de informações regulatórias – uso interno](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
 
-
 Os usuários são avisados de que os radares de alta potência são alocados como usuários primários (usuários prioritários) das bandas 5250 – 5350 MHz e 5650 – 5850 MHz, e esses radars podem causar interferência e/ou danos aos dispositivos LE-LAN.
 
 Este equipamento gera, usa e pode radiar energia de frequência de rádio e, se não estiver instalado e usado de acordo com as instruções, poderá causar interferência prejudicial às comunicações de rádio. No entanto, não há nenhuma garantia de que a interferência não ocorrerá em uma instalação específica.
@@ -205,11 +204,13 @@ Uma tabela com a taxa de absorção específica (SAR) média acima de 1 g para c
 
 #### <a name="european-union"></a>UNIÃO EUROPEIA:
 
-Solicite uma cópia da declaração de conformidade da UE para este equipamento.
+Solicite uma cópia da declaração de conformidade da UE para este equipamento. Envie um email para [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
 
 O adaptador USB Netgear A6150 WiFi fornecido com este equipamento está em conformidade com a diretiva 2014/53/EU e também pode ser fornecido na solicitação.
 
-> ![Ícone de aviso 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) este é um produto de classe a. Em um ambiente doméstico, o produto pode causar interferências de rádio. Nesse caso, o usuário talvez tenha que tomar as devidas medidas.
+![Ícone de aviso 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **AVISO:**  
+
+É um produto classe A. Em um ambiente doméstico, o produto pode causar interferências de rádio. Nesse caso, o usuário talvez tenha que tomar as devidas medidas.
 
 Descarte de baterias e equipamentos eletroeletrônicos:
 

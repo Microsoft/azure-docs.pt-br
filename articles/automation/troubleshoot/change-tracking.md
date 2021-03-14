@@ -3,18 +3,63 @@ title: Solucionar Problemas de Controle de Alterações e Inventário de Automa�
 description: Este artigo informa como solucionar problemas e resolver dúvidas com o recurso Controle de Alterações e Inventário de Automação do Azure.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723819"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solucionar problemas do Controle de Alterações e do Inventário
 
 Este artigo descreve como solucionar problemas e resolver dúvidas de Controle de Alterações e Inventário de Automação do Azure. Para obter informações gerais sobre Controle de Alterações e Inventário, confira [Visão Geral de Controle de Alterações e Inventário](../change-tracking/overview.md).
+
+## <a name="general-errors"></a>Erros gerais
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Cenário: O computador já está registrado em outra conta
+
+### <a name="issue"></a>Problema
+
+Você vê a seguinte mensagem de erro:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>Causa
+
+O computador já foi implantado em outro espaço de trabalho para Controle de Alterações.
+
+### <a name="resolution"></a>Resolução
+
+1. Verificar se seu computador envia relatórios para o espaço de trabalho correto. Para obter orientação sobre como verificar isso, consulte [verificar a conectividade do agente para Azure monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Verifique também se esse espaço de trabalho está vinculado à sua conta de automação do Azure. Para confirmar, acesse sua conta de automação e selecione **Espaço de trabalho vinculado** em **Recursos relacionados**.
+
+1. Verifique se as máquinas aparecem no espaço de trabalho Log Analytics vinculado à sua conta de automação. Execute a consulta a seguir do espaço de trabalho do Log Analytics.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   Se você não vir seu computador nos resultados da consulta, ele não será verificado recentemente. Provavelmente, há um problema de configuração local. Você deve reinstalar o agente de Log Analytics.
+
+   Se seu computador estiver listado nos resultados da consulta, verifique sob a propriedade Solutions que **changeTracking** está listada. Isso verifica se ele está registrado com Controle de Alterações e inventário. Se não estiver, verifique se há problemas de configuração de escopo. A configuração de escopo determina quais computadores estão configurados para Controle de Alterações e inventário. Para configurar a configuração de escopo para o computador de destino, consulte [habilitar controle de alterações e inventário de uma conta de automação](../change-tracking/enable-from-automation-account.md).
+
+   Em seu espaço de trabalho, execute esta consulta.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. Se você obtiver um resultado ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota```, a cota definida em seu espaço de trabalho foi atingida, o que impediu que os dados fossem salvos. Em seu espaço de trabalho, acesse **uso e custos estimados**. Selecione um novo **tipo de preço** que permita que você use mais dados ou clique em **limite diário** e remova o limite.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Uso e custos estimados." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+Se o problema ainda não tiver sido resolvido, siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows. Para o Linux, siga as etapas em  [implantar um Hybrid runbook Worker do Linux](../automation-linux-hrw-install.md).
 
 ## <a name="windows"></a>Windows
 
@@ -96,11 +141,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve reinstalar o agente. Para obter informações sobre instalação e configuração, confira [Coletar dados de log com o agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
+Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve reinstalar o agente. Para obter informações sobre instalação e configuração, confira [Coletar dados de log com o agente do Log Analytics](../../azure-monitor/agents/log-analytics-agent.md).
 
 Se o computador aparecer nos resultados da consulta, verifique a configuração de escopo. Confira [Direcionamento das soluções de monitoramento no Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-Para obter mais soluções para esse problema, confira [Problema: Você não vê os dados do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+Para obter mais soluções para esse problema, confira [Problema: Você não vê os dados do Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>O agente do Log Analytics para Linux não foi configurado corretamente
 

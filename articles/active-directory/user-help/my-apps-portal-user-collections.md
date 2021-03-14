@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609546"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095113"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>Coleções de usuários (visualização) em meus aplicativos
 
@@ -33,6 +33,12 @@ Neste artigo, você aprenderá a:
 - Ocultar coleções
 - Mostrar coleções ocultas
 - Excluir coleções
+
+>[!Note]
+>Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="create-a-collection"></a>Criar uma coleção
 
@@ -103,6 +109,7 @@ Para ocultar uma coleção:
 Para tornar uma coleção oculta visível:
 
 1. Vá para [minhas coleções de aplicativos](https://myapplications.microsoft.com/?endUserCollections) e entre usando sua conta corporativa ou de estudante.
+
 1. Abra o menu da página e :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Selecione o ícone de reticências para o menu de nível de página":::e, em seguida, selecione **gerenciar**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="O menu página contém o comando gerenciar para gerenciar seus aplicativos":::

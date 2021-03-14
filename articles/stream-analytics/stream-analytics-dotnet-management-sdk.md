@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012624"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232878"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gerenciamento de SDK do .NET: Configurar e executar trabalhos de análise usando API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
@@ -207,6 +207,12 @@ O método **TestConnection** testa se o trabalho do Stream Analytics é capaz de
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+O resultado da chamada TestConnection é um objeto *ResourceTestResult* que contém duas propriedades:
+
+- *status*: pode ser uma das seguintes cadeias de caracteres: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *erro*: é do tipo ErrorResponse que contém as seguintes propriedades:
+   - *código*: uma propriedade necessária do tipo cadeia de caracteres. O valor é System .net. HttpStatusCode padrão recebido durante o teste.
+   - *Message*: uma propriedade obrigatória do tipo cadeia de caracteres que representa o erro. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Criar um destino de saída do Stream Analytics
 Criar um destino de saída é semelhante a criar uma fonte de entrada do Stream Analytics. Como as fontes de entrada, os destinos de saída são vinculados a trabalho específico. Para usar o mesmo destino de saída para diferentes trabalhos, chame o método novamente e especifique um nome de trabalho diferente.

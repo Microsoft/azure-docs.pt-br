@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 09086af6cee517f9e30657802934d0f7fb1b14a9
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 63dfa9e9087f30a479df9b1ae3d0a654c956f902
+  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90928652"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102043023"
 landingContent:
 - title: Sobre o servidor flexível (versão prévia)
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
     - text: Opções de armazenamento e de computação
       url: concepts-compute-storage.md
     - text: Versões do MySQL
-      url: concepts-supported-versions.md
+      url: ./../concepts-supported-versions.md
     - text: Rede
       url: concepts-networking.md
     - text: Monitoramento

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0cf89a755090010bb80507c52f90baa2a4e804a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289436"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617617"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
 
@@ -98,7 +98,7 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 
 | Formato de arquivo | Codec de vídeo | Codec de áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H.264 (Perfis Alto, Principal e Linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H. 264 (perfis altos, principais e de linha de base), HEVC (H. 265) de 8 bits |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Próximas etapas

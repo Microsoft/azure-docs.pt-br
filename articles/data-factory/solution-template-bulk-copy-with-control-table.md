@@ -1,22 +1,18 @@
 ---
 title: Cópia em massa de um banco de dados usando a tabela de controle
 description: Saiba como usar um modelo de solução para copiar dados em massa de um banco de dados usando uma tabela de controle externa para armazenar uma lista de partições das tabelas de origem usando o Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: eed7a304bdd57846cd038cc9bf9a67e8150ca505
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920879"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392452"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
@@ -24,7 +20,7 @@ ms.locfileid: "96920879"
 
 Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQL Server para o Azure Synapse Analytics, você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados precisam ser particionados em cada tabela para que seja possível carregar linhas com vários threads paralelamente de uma só tabela. Este artigo descreve um modelo a ser usado nesses cenários.
 
- >! Observação Se você deseja copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para o Azure Synapse Analytics, é mais eficiente usar a [ferramenta de copiar dados de Azure data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que o necessário para esse cenário.
+ >! Observação Se você quiser copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para o Azure Synapse Analytics, será mais eficiente usar a [ferramenta de copiar dados de Azure data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que o necessário para esse cenário.
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 

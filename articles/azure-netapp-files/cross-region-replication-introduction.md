@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/25/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4d4cf7a0dc73070f4f48ed87f60a2458bc925b13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707346"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação entre regiões de volumes Azure NetApp Files
 
@@ -31,7 +31,7 @@ A funcionalidade de replicação de Azure NetApp Files fornece proteção de dad
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicação entre regiões com suporte
 
-A replicação de volume Azure NetApp Files tem suporte entre vários pares regionais e não pares [do Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) . No momento, a replicação de volume do Azure NetApp Files está disponível entre as seguintes regiões:  
+A replicação de volume Azure NetApp Files tem suporte entre vários pares regionais e não pares [do Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs) . No momento, a replicação de volume do Azure NetApp Files está disponível entre as seguintes regiões:  
 
 ### <a name="azure-regional-pairs"></a>Pares regionais do Azure
 
@@ -52,6 +52,7 @@ A replicação de volume Azure NetApp Files tem suporte entre vários pares regi
 *   Sul EUA Central e leste dos EUA
 *   EUA Central do Sul e leste dos EUA 2
 *   Leste dos EUA e leste dos EUA 2
+*   Leste dos EUA 2 e oeste dos EUA 2
 *   Leste da Austrália e sudeste asiático 
 *   Centro-oeste da Alemanha e Sul do Reino Unido
 
@@ -121,9 +122,7 @@ O custo regular de capacidade de armazenamento Azure NetApp Files para o mês 2 
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
-* [Gerenciar a recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
+* [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
 * [Excluir volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
-
-

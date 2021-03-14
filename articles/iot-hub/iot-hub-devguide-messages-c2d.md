@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844447"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199485"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -76,7 +76,7 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 | Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
-| nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
+| none     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
 | positivo | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
 | negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
 | completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
@@ -147,7 +147,7 @@ Você pode definir as opções de configuração de uma das seguintes maneiras:
 
     ![Definir opções de configuração para mensagens da nuvem para o dispositivo no portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **CLI do Azure**: Use o comando [AZ IOT Hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **CLI do Azure**: Use o comando [AZ IOT Hub Update](/cli/azure/iot/hub#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

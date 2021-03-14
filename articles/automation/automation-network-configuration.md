@@ -4,12 +4,12 @@ description: Este artigo fornece detalhes das informações de rede exigidas pel
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 0add7eed6abbe6c137d423ee4a7ef5f0f60072e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900115"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708876"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Detalhes de configuração de rede da automação do Azure
 
@@ -26,7 +26,7 @@ A porta e as URLs a seguir são necessárias para o Hybrid Runbook Worker e para
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Planejamento de rede para Hybrid Runbook Worker
 
-Para um sistema ou usuário Hybrid Runbook Worker para se conectar e se registrar com a automação do Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. O trabalhador também deve ter acesso às [portas e às URLs necessárias para que o agente de log Analytics](../azure-monitor/platform/agent-windows.md) se conecte ao espaço de trabalho Azure monitor log Analytics.
+Para um sistema ou usuário Hybrid Runbook Worker para se conectar e se registrar com a automação do Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. O trabalhador também deve ter acesso às [portas e às URLs necessárias para que o agente de log Analytics](../azure-monitor/agents/agent-windows.md) se conecte ao espaço de trabalho Azure monitor log Analytics.
 
 Se você tiver uma conta da Automação definida para uma região específica, você pode restringir a comunicação do Hybrid Runbook Worker para esse centro de dados regional. Examine os [registros DNS usados pela automação do Azure](how-to/automation-region-dns-records.md) para os registros DNS necessários.
 

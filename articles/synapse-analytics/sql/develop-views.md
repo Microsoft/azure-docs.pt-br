@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: de04be2495c6e81e9c5f8d32f9d876b49482c5fe
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9f52c3fd1284ce7e55680d051c5292361067fad9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678365"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673994"
 ---
 # <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Exibições T-SQL com pool dedicado de SQL e pool SQL sem servidor no Azure Synapse Analytics
 
@@ -27,11 +27,11 @@ As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qu
 ### <a name="sql-pool---create-view"></a>Pool do SQL – criar exibição
 
 > [!NOTE]
-> A sintaxe para CREATE VIEW não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+> A sintaxe para CREATE VIEW não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="architectural-abstraction"></a>Abstração de arquitetura
 
-Um padrão de aplicativo comum é recriar tabelas usando [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAS), que é seguido por um padrão de renomeação de objeto ao carregar dados.
+Um padrão de aplicativo comum é recriar tabelas usando [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) (CTAS), que é seguido por um padrão de renomeação de objeto ao carregar dados.
 
 O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como uma nova tabela, DimDate_New, é criada pela primeira vez e renomeada para substituir a versão original da tabela.
 

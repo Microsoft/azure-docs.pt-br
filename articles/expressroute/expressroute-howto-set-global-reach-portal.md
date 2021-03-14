@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 03/05/2021
 ms.author: duau
-ms.openlocfilehash: 8366978d50875389ce872c2d1402f0defa2a7371
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 336bd4aaf881b7315921ef374c92a2ac95ff3c8c
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539342"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431288"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Configurar Alcance Global ExpressRoute usando o portal do Azure
 
@@ -36,7 +36,7 @@ Antes de iniciar a configuração, confirme os seguintes critérios:
    * Se sua assinatura tiver os dois circuitos, será possível escolher qualquer circuito para executar a configuração nas seções a seguir.
    * Se os dois circuitos estiverem em diferentes assinaturas do Azure, você precisará de autorização de uma assinatura do Azure. Em seguida, você passa a chave de autorização quando executa o comando de configuração em outra assinatura do Azure.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-global-reach-list.png" alt-text="Lista de circuitos de ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-global-reach-list.png" alt-text="Captura de tela da lista de circuitos do ExpressRoute.":::
 
 ## <a name="enable-connectivity"></a>Habilitar a conectividade
 
@@ -46,19 +46,19 @@ Habilite a conectividade entre suas redes locais. Há conjuntos separados de ins
 
 1. Selecione a configuração de emparelhamento **privado do Azure** . 
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Visão geral de emparelhamento do ExpressRoute":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Captura de tela da página Visão geral do ExpressRoute.":::
 
-1. Marque a caixa de seleção **habilitar alcance global** e, em seguida, selecione **Adicionar alcance global** para abrir a página de configuração *Adicionar alcance global* .
+1. Selecione **adicionar alcance global** para abrir a página *Adicionar alcance global* configuração.
 
     :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Habilitar alcance global do emparelhamento privado":::
 
 1. Na página *Adicionar* configuração de alcance global, dê um nome para essa configuração. Selecione o *circuito de ExpressRoute* ao qual você deseja conectar esse circuito e insira em um **/29 IPv4** para a *sub-rede alcance global*. Usamos endereços IP nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não use os endereços nessa sub-rede em suas redes virtuais do Azure ou em sua rede local. Selecione **Adicionar** para adicionar o circuito à configuração de emparelhamento privado.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Página de configuração do Alcance Global":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Captura de tela da adição de Alcance Global no emparelhamento privado.":::
 
 1. Selecione **salvar** para concluir a configuração de alcance global. Quando a operação for concluída, você terá conectividade entre as duas redes locais por meio de ambos os circuitos do ExpressRoute.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Salvando a configuração de emparelhamento privado":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Captura de tela do salvamento de configurações de emparelhamento privado.":::
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuitos do ExpressRoute em diferentes assinaturas do Azure
 
@@ -66,41 +66,41 @@ Se os dois circuitos não estiverem na mesma assinatura do Azure, você precisar
 
 1. Gere uma chave de autorização.
 
-   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Gerar chave de autorização"::: 
+   :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Captura de tela da geração da chave de autorização."::: 
 
    Anote a ID do recurso de circuito do circuito 2 e a chave de autorização.
 
 1. Selecione a configuração de emparelhamento **privado do Azure** . 
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Visão geral do emparelhamento 1 do circuito":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/expressroute-circuit-private-peering.png" alt-text="Captura de tela de emparelhamento privado na página Visão geral.":::
 
-1. Marque a caixa de seleção **habilitar alcance global** e, em seguida, selecione **Adicionar alcance global** para abrir a página de configuração *Adicionar alcance global* .
+1. Selecione **adicionar alcance global** para abrir a página *Adicionar alcance global* configuração.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Habilitar alcance global do circuito 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/private-peering-enable-global-reach.png" alt-text="Captura de tela de adicionar Alcance Global em emparelhamento privado.":::
 
 1. Na página *Adicionar* configuração de alcance global, dê um nome para essa configuração. Marque a caixa **resgatar autorização** . Insira a **chave de autorização** e a **ID de circuito do ExpressRoute** geradas e obtidas na etapa 1. Em seguida, forneça um **/29 IPv4** para a *sub-rede alcance global*. Usamos endereços IP nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não use os endereços nessa sub-rede em suas redes virtuais do Azure ou em sua rede local. Selecione **Adicionar** para adicionar o circuito à configuração de emparelhamento privado.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Adicionar Alcance Global com a chave de autorização":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration-with-authorization.png" alt-text="Captura de tela de adicionar Alcance Global com a chave de autorização.":::
 
 1. Selecione **salvar** para concluir a configuração de alcance global. Quando a operação for concluída, você terá conectividade entre as duas redes locais por meio de ambos os circuitos do ExpressRoute.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Salvando a configuração de emparelhamento privado no circuito 1":::
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-private-peering-configuration.png" alt-text="Captura de tela de salvar a configuração de emparelhamento privado com Alcance Global.":::
 
 ## <a name="verify-the-configuration"></a>Verificar a configuração
 
 Verifique a configuração do Alcance Global selecionando *emparelhamento privado* na configuração do circuito do ExpressRoute. Quando configurado corretamente, a sua configuração deve ter a aparência seguida:
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/verify-global-reach-configuration.png" alt-text="Verificar configuração de Alcance Global":::
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/verify-global-reach-configuration.png" alt-text="Captura de tela de Alcance Global configurada.":::
 
 ## <a name="disable-connectivity"></a>Desabilitar a conectividade
 
-Você tem duas opções quando se trata de desabilitar Alcance Global. Para desabilitar a conectividade entre todos os circuitos, desmarque **habilitar alcance global** para desabilitar a conectividade entre todos os circuitos. Para desabilitar a conectividade entre um circuito individual, selecione o botão excluir ao lado do *nome do alcance global* para remover a conectividade entre eles. Em seguida, selecione **salvar** para concluir a operação.
+Para desabilitar a conectividade entre um circuito individual, selecione o botão excluir ao lado do *nome do alcance global* para remover a conectividade entre eles. Em seguida, selecione **salvar** para concluir a operação.
 
-:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/disable-global-reach-configuration.png" alt-text="Desabilitar configuração de Alcance Global":::
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/disable-global-reach-configuration.png" alt-text="Captura de tela mostrando como desabilitar Alcance Global.":::
 
 Depois que a operação for concluída, você não terá mais conectividade entre sua rede local por meio de circuitos do ExpressRoute.
 
 ## <a name="next-steps"></a>Próximas etapas
-1. [Saiba mais sobre o Alcance Global do ExpressRoute](expressroute-global-reach.md)
-2. [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
-3. [Vincular um circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)
+- [Saiba mais sobre o Alcance Global do ExpressRoute](expressroute-global-reach.md)
+- [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+- [Vincular um circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)

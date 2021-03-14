@@ -1,22 +1,17 @@
 ---
 title: Atividade Wait no Azure Data Factory
 description: A atividade Wait pausa a execução do pipeline pelo período especificado.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 12c9027067c00a3db84e6610a0d73090cc011713
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9271723e68e5edd6805f0197bca9cdefc3c5e921
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485902"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388321"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Executar atividade de espera no Azure Data Factory
 Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o período de tempo especificado antes de continuar com a execução de atividades subsequentes. 

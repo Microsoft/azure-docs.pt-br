@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685747"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505051"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
@@ -28,13 +28,13 @@ As dependências de saída do AKS são quase totalmente definidas com FQDNs, que
 Por padrão, os clusters do AKS têm acesso irrestrito de internet de saída. Esse nível de acesso à rede permite que os nós e os serviços que você executa acessem recursos externos, conforme necessário. Se quiser restringir o tráfego de saída, um número limitado de portas e endereços precisar estar acessível para manter a integridade das tarefas de manutenção de cluster. A solução mais simples para proteger endereços de saída está em uso de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Firewall do Azure, por exemplo, pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino. Você também pode configurar o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
 
 > [!IMPORTANT]
-> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [ * *_diretivas de rede_* _][network-policy].
+> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [**_as políticas de rede_**][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regras de rede de saída necessárias e FQDNs para clusters AKS
 
 As regras de rede e FQDN/aplicativo a seguir são necessárias para um cluster AKS, você poderá usá-las se desejar configurar uma solução diferente do firewall do Azure.
 
-_ As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP)
+* As dependências de Endereço IP são para o tráfego não HTTP/S (tráfego TCP e UDP)
 * Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 * Os pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com o cluster AKS com base em vários qualificadores.
 * O AKS usa um controlador de admissão para injetar o FQDN como uma variável de ambiente para todas as implantações em Kube-System e gatekeeper-System, que garante que toda a comunicação do sistema entre nós e o servidor de API use o FQDN do servidor de API e não o IP do servidor de API. 
@@ -180,7 +180,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado para enviar dados de métricas para Azure Monitor. |
 
-### <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
+### <a name="azure-dev-spaces"></a>Azure Dev Spaces
 
 Atualize o firewall ou a configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces][dev-spaces-service-tags]a seguir.
 
@@ -407,7 +407,7 @@ Agora um cluster AKS pode ser implantado na rede virtual existente. Também usar
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Criar uma entidade de serviço com acesso para provisionar dentro da rede virtual existente
 
-Uma entidade de serviço é usada pelo AKS para criar recursos do cluster. A entidade de serviço que é passada no momento da criação é usada para criar recursos de AKS subjacentes, como recursos de armazenamento, IPs e balanceadores de carga usados pelo AKS (você também pode usar uma [identidade gerenciada](use-managed-identity.md) em vez disso). Se não tiver concedido as permissões apropriadas abaixo, você não poderá provisionar o cluster AKS.
+Uma identidade de cluster (identidade gerenciada ou entidade de serviço) é usada pelo AKS para criar recursos de cluster. Uma entidade de serviço que é passada no momento da criação é usada para criar recursos de AKS subjacentes, como recursos de armazenamento, IPs e balanceadores de carga usados pelo AKS (você também pode usar uma [identidade gerenciada](use-managed-identity.md) em vez disso). Se não tiver concedido as permissões apropriadas abaixo, você não poderá provisionar o cluster AKS.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network

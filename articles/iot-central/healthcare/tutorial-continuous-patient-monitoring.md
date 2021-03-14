@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ff43980aafc75d5936b86c6ba2cd400311c5fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719093"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implantar e explorar um modelo de aplicativo de monitoramento contínuo de pacientes
 
@@ -24,6 +24,10 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Criar um modelo de aplicativo
 > * Explorar o modelo de aplicativo
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma assinatura do Azure é recomendada. Como alternativa, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Criar um modelo de aplicativo
 
@@ -61,11 +65,11 @@ Depois de implantar o modelo de aplicativo, primeiro, você aterrissará no **pa
 
 * Alterar o **status do paciente** de seu dispositivo para indicar se ele está sendo usado para um cenário interno no paciente ou remoto.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Status interno do paciente":::
 
 Você também pode selecionar **Ir para o painel de paciente remoto** para ver o painel do operador do Burkville Hospital. Esse painel contém um conjunto semelhante de ações, telemetria e informações. Você também pode ver vários dispositivos em uso e escolher **atualizar o firmware** em cada um.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Painel do operador remoto":::
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
@@ -75,7 +79,7 @@ Se você selecionar **Modelos de dispositivo**, verá os dois tipos de dispositi
 
 * **Smart Knee Brace**: esse dispositivo representa uma joelheira que os pacientes usam ao se recuperarem de uma cirurgia de substituição do joelho. Se você selecionar esse modelo, verá funcionalidades como dados do dispositivo, amplitude de movimento e aceleração.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de adesivo inteligente":::
 
 ### <a name="device-groups"></a>Grupos de dispositivos
 
@@ -93,7 +97,7 @@ Se você selecionar **Regras**, verá as três regras no modelo:
 
 * **Patch com pouca bateria**: essa regra é disparada quando o nível da bateria do dispositivo é inferior a 10%. Use essa regra para disparar uma notificação ao paciente para que ele carregue o dispositivo.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Regras":::
 
 ### <a name="jobs"></a>Trabalhos
 
@@ -113,7 +117,7 @@ A guia **Propriedades** permite editar propriedades de nuvem e as propriedades d
 
 A guia **Comandos** permite executar comandos no dispositivo.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Painel de cinta de joelho":::
 
 ### <a name="data-export"></a>Exportação de dados
 
@@ -123,11 +127,11 @@ A exportação de dados permite exportar seus dados do dispositivo continuamente
 
 Caso não pretenda continuar usando esse aplicativo, exclua-o acessando **Administração > Configurações do aplicativo** e clicando em **Excluir**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Modelo de aplicativo de assistência médica":::
+:::image type="content" source="media/admin-delete.png" alt-text="Recursos organizados":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Prossiga para o próximo artigo para saber como criar um painel de provedor que se conecta ao seu aplicativo do IoT Central.
 
 > [!div class="nextstepaction"]
-> [Criar um painel do provedor](howto-health-data-triage.md)
+> [Criar um painel do provedor](tutorial-health-data-triage.md)

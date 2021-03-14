@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f063ab50cfd880552e80a77ba798e4d06de5b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81727249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709573"
 ---
 # <a name="error-codes"></a>Códigos do Erro #
 

@@ -3,16 +3,16 @@ title: Série NDv2
 description: Especificações para as VMs da série NDv2.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97eb134a22bbf2304c39fe7c55457e394467f1d2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2f062aa43132543a2c149039eb50c0a0ab22d83d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618552"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 
@@ -39,7 +39,7 @@ De forma crucial, o NDv2 é criado para expansão computacionalmente intensa (ap
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 InfiniBand: com suporte<br>
 Interconexão NVIDIA NVLink: com suporte<br>
 <br>

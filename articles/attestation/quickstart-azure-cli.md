@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429238"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178704"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Início Rápido: Configurar o Atestado do Azure com a CLI do Azure
 
-Introdução ao [Atestado do Azure usando a CLI do Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
+Introdução ao [Atestado do Azure usando a CLI do Azure](/cli/azure/ext/attestation/attestation).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,13 +69,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Estes são os comandos que você pode usar para criar e gerenciar o provedor de atestado:
 
-1. Execute o comando [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) para criar um provedor de atestado sem o requisito de assinatura de política:
+1. Execute o comando [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) para criar um provedor de atestado sem o requisito de assinatura de política:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Execute o comando [az attestation show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) para recuperar as propriedades do provedor de atestado, como status e AttestURI:
+1. Execute o comando [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) para recuperar as propriedades do provedor de atestado, como status e AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ Estes são os comandos que você pode usar para criar e gerenciar o provedor de 
    TagsTable:
    ```
 
-Exclua um provedor de atestado usando o comando [az attestation delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete):
+Exclua um provedor de atestado usando o comando [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete):
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Use os comandos descritos aqui para fornecer o gerenciamento de política para um provedor de atestado, um tipo de atestado de cada vez.
 
-O comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) retorna a política atual para o TEE especificado:
+O comando [az attestation policy show](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) retorna a política atual para o TEE especificado:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ Estes são os tipos de TEE compatíveis:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Use o comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) para definir uma nova política para o tipo de atestado especificado.
+Use o comando [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) para definir uma nova política para o tipo de atestado especificado.
 
 Para definir a política no formato de texto para determinado tipo de atestado usando o caminho do arquivo:
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833976"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730024"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o monitor de conexão do monitor de conexão (clássico)
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2021, você não poderá adicionar novos monitores de conexão no monitor de conexão (clássico), mas poderá continuar a usar os monitores de conexão existentes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre do monitor de conexão (clássico) para o novo monitor de conexão](migrate-to-connection-monitor-from-connection-monitor-classic.md)  no observador de rede do Azure antes de 29 de fevereiro de 2024.
+> A partir de 1º de julho de 2021, você não poderá adicionar monitores de conexão no Monitor da Conexão (clássico), mas poderá continuar usando os monitores de conexão existentes criados antes de 1º de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre do monitor de conexão (clássico) para o novo monitor de conexão](migrate-to-connection-monitor-from-connection-monitor-classic.md)  no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 Você pode migrar os monitores de conexão existentes para um novo monitor de conexão aprimorado com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão](./connection-monitor-overview.md).
 
@@ -32,7 +32,7 @@ A migração ajuda a produzir os seguintes resultados:
 
 * Os agentes e as configurações de firewall funcionam como estão. Nenhuma alteração é necessária. 
 * Os monitores de conexão existentes são mapeados para o monitor de conexão > grupo de teste > formato de teste. Ao selecionar **Editar**, você pode exibir e modificar as propriedades do novo monitor de conexão, baixar um modelo para fazer alterações no monitor de conexão e enviá-lo por meio de Azure Resource Manager. 
-* As máquinas virtuais do Azure com a extensão do observador de rede enviam dados para o espaço de trabalho e para as métricas. O monitor de conexão torna os dados disponíveis por meio das novas métricas (ChecksFailedPercent e RoundTripTimeMs) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
+* As máquinas virtuais do Azure com a extensão do observador de rede enviam dados para o espaço de trabalho e para as métricas. O monitor de conexão torna os dados disponíveis por meio das novas métricas (ChecksFailedPercent e RoundTripTimeMs) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). As métricas antigas serão migradas para as novas métricas como ProbesFailedPercent-> ChecksFailedPercent e AverageRoundtripMs-> RoundTripTimeMs.
 * Monitoramento de dados:
    * **Alertas**: migrados automaticamente para as novas métricas.
    * **Painéis e integrações**: requer a edição manual do conjunto de métricas. 
@@ -49,7 +49,7 @@ Se você estiver usando um espaço de trabalho personalizado, verifique se o obs
     
 1. Selecione sua assinatura e os monitores de conexão que você deseja migrar e selecione **migrar selecionado**. 
 
-Com apenas alguns cliques, você migrou os monitores de conexão existentes para o monitor de conexão. 
+Com apenas alguns cliques, você migrou os monitores de conexão existentes para o monitor de conexão. Uma vez migrado de CM (clássico) para CM, você não poderá ver o monitor em CM (clássico)
 
 Agora você pode personalizar as propriedades do monitor de conexão, alterar o espaço de trabalho padrão, baixar modelos e verificar o status da migração. 
 

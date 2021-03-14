@@ -1,14 +1,14 @@
 ---
 title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
-ms.date: 02/03/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0b3dfe6d974f2cc2449faf54c4549589e0baa7cf
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550854"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199843"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -25,8 +25,8 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 
 - **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **' cloudServiceConfiguration ' ou ' virtualMachineConfiguration '.**
-    ' virtualMachineConfiguration ' deve ser usado. Todos os recursos do lote têm suporte nos pools ' virtualMachineConfiguration '. Nem todos os recursos têm suporte para pools ' cloudServiceConfiguration ' e nenhuma nova funcionalidade está sendo planejada.
+- **' virtualMachineConfiguration ' ou ' virtualMachineConfiguration '.**
+    Embora você possa criar pools no momento usando qualquer configuração, novos pools devem ser configurados usando ' virtualMachineConfiguration ' e não ' virtualMachineConfiguration '. Todos os recursos atuais e novos do lote serão suportados pelos pools de configuração da máquina virtual. Os pools de configuração de serviços de nuvem não oferecem suporte a todos os recursos e nenhuma nova funcionalidade é planejada. Você não poderá criar novos pools ' CloudServiceConfiguration ' ou adicionar novos nós a pools existentes [após 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Para obter mais informações, consulte [migrar a configuração do pool do lote dos serviços de nuvem para a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **Considere o tempo de execução de trabalho e tarefa ao determinar o mapeamento do trabalho para o pool.**
     Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.

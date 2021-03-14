@@ -1,35 +1,35 @@
 ---
-title: Adicionar ou remover atribuições de função do Azure para usuários externos usando o portal do Azure-RBAC do Azure
+title: Atribuir funções do Azure a usuários convidados externos usando o portal do Azure-RBAC do Azure
 description: Saiba como conceder acesso aos recursos do Azure para usuários externos a uma organização usando o portal do Azure e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
-ms.assetid: ''
+manager: daveba
 ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a18fc3e4851c2daf03c662cf40cef58cc7d9e77a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117700"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556298"
 ---
-# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure
+# <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Atribuir funções do Azure a usuários convidados externos usando o portal do Azure
 
 O Azure [RBAC (controle de acesso baseado em função)](overview.md) do Azure permite um melhor gerenciamento de segurança para grandes organizações e para empresas de pequeno e médio porte que trabalham com colaboradores externos, fornecedores ou freelanceres que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente à infraestrutura inteira ou a quaisquer escopos relacionados à cobrança. Você pode usar os recursos do [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) para colaborar com usuários convidados externos e pode usar o RBAC do Azure para conceder apenas as permissões que os usuários convidados precisam em seu ambiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+Para atribuir funções do Azure ou remover atribuições de função, você deve ter:
+
+- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+
 
 ## <a name="when-would-you-invite-guest-users"></a>Quando você convidar usuários convidados?
 
@@ -65,9 +65,9 @@ Para que o usuário convidado possa acessar seu diretório, ele deve concluir o 
 
 Para obter mais informações sobre o processo de convite, consulte [Azure Active Directory resgate de convite de colaboração B2B](../active-directory/external-identities/redemption-experience.md).
 
-## <a name="add-a-role-assignment-for-a-guest-user"></a>Adicionar uma atribuição de função para um usuário convidado
+## <a name="assign-a-role-to-a-guest-user"></a>Atribuir uma função a um usuário convidado
 
-No RBAC do Azure, para conceder acesso, você atribui uma função. Para adicionar uma atribuição de função para um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md#add-a-role-assignment) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para adicionar uma atribuição de função para um usuário convidado em escopos diferentes.
+No RBAC do Azure, para conceder acesso, você atribui uma função. Para atribuir uma função a um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para atribuir uma função a um usuário convidado em escopos diferentes.
 
 1. No portal do Azure, clique em **Todos os serviços**.
 
@@ -101,9 +101,9 @@ No RBAC do Azure, para conceder acesso, você atribui uma função. Para adicion
 
     ![Atribuição de função para colaborador de máquina virtual](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>Adicionar uma atribuição de função para um usuário convidado que ainda não está em seu diretório
+## <a name="assign-a-role-to-a-guest-user-not-yet-in-your-directory"></a>Atribuir uma função a um usuário convidado que ainda não está em seu diretório
 
-Para adicionar uma atribuição de função para um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md#add-a-role-assignment) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada.
+Para atribuir uma função a um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada.
 
 Se o usuário convidado ainda não estiver em seu diretório, você poderá convidar o usuário diretamente do painel Adicionar atribuição de função.
 
@@ -187,7 +187,7 @@ Se um usuário convidado precisar de privilégios adicionais no diretório, voc�
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>O usuário convidado não pode procurar usuários, grupos ou entidades de serviço para atribuir funções
 
-Usuários convidados têm permissões de diretório restritas. Mesmo que um usuário convidado seja um [proprietário](built-in-roles.md#owner) em um escopo, se eles tentarem adicionar uma atribuição de função para conceder a outra pessoa acesso, eles não poderão procurar a lista de usuários, grupos ou entidades de serviço.
+Usuários convidados têm permissões de diretório restritas. Mesmo que um usuário convidado seja um [proprietário](built-in-roles.md#owner) em um escopo, se eles tentarem atribuir uma função para conceder a outra pessoa acesso, eles não poderão procurar a lista de usuários, grupos ou entidades de serviço.
 
 ![O usuário convidado não pode procurar entidades de segurança para atribuir funções](./media/role-assignments-external-users/directory-no-browse.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874376"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578933"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -391,11 +391,11 @@ Saiba mais:
 
 * [TAP de rede virtual](../../virtual-network/virtual-network-tap-overview.md)
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-* [Logs de atividade](../../azure-monitor/platform/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
+* [Logs de atividade](../../azure-monitor/essentials/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
 * Logs de eventos. Esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
 * Logs de contador. Esses logs permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699990"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Tutorial: Extrair dados de formulário em massa usando o Azure Data Factory
 
@@ -65,7 +65,7 @@ Em seguida, o notebook do Azure Databricks usa os modelos treinados para extrair
 
 Sua lista de pendências de formulários pode estar em seu ambiente local ou em um servidor (s)FTP. Este tutorial usa formulários em uma conta de armazenamento do Azure Data Lake Gen 2. Você pode transferir os arquivos usando o Azure Data Factory, o Gerenciador de Armazenamento do Azure ou AzCopy. Os conjuntos de dados de treinamento e pontuação podem estar em contêineres diferentes, mas os conjuntos de dados de treinamento para todos os tipos de formulário devem estar no mesmo contêiner (embora possam estar em pastas diferentes).
 
-Para criar um Data Lake, siga as instruções em [Criar uma conta de armazenamento para usá-la com o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Para criar um Data Lake, siga as instruções em [Criar uma conta de armazenamento para usá-la com o Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Criar uma tabela de parametrização
 
@@ -89,7 +89,7 @@ Os seguintes campos serão usados na tabela:
 
 ### <a name="create-the-table"></a>Criar a tabela
 
-[Crie um Banco de Dados SQL do Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) e execute o script SQL a seguir no [editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) para criar a tabela necessária.
+[Crie um Banco de Dados SQL do Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) e execute o script SQL a seguir no [editor de consultas](../../azure-sql/database/connect-query-portal.md) para criar a tabela necessária.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Você usará o Azure Databricks para armazenar e executar o código Python que i
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Criar um escopo de segredo apoiado pelo Azure Key Vault
 
-Para referenciar os segredos no Azure Key Vault que criamos acima, você precisará criar um escopo de segredo no Databricks. Siga as etapas em [Criar um escopo de segredo apoiado pelo Azure Key Vault](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Para referenciar os segredos no Azure Key Vault que criamos acima, você precisará criar um escopo de segredo no Databricks. Siga as etapas em [Criar um escopo de segredo apoiado pelo Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Criar um cluster Databricks
 
@@ -461,7 +461,7 @@ Agora, podemos criar um notebook de pontuação. De maneira semelhante ao notebo
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatizar o treinamento e a pontuação com o Azure Data Factory
 
-A única etapa restante é configurar o serviço do ADF (Azure Data Factory) para automatizar os processos de treinamento e pontuação. Primeiro, siga as etapas em [Criar um data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Depois de criar o recurso do ADF, você precisará criar três pipelines: um para treinamento e dois para pontuação (explicados abaixo).
+A única etapa restante é configurar o serviço do ADF (Azure Data Factory) para automatizar os processos de treinamento e pontuação. Primeiro, siga as etapas em [Criar um data factory](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Depois de criar o recurso do ADF, você precisará criar três pipelines: um para treinamento e dois para pontuação (explicados abaixo).
 
 ### <a name="training-pipeline"></a>Pipeline de treinamento
 

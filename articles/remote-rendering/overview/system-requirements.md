@@ -6,18 +6,14 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722684"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705153"
 ---
 # <a name="system-requirements"></a>Requisitos do sistema
-
-> [!IMPORTANT]
-> No momento, o **Azure Remote Rendering** está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este capítulo lista os requisitos mínimos do sistema para trabalhar com a *renderização remota do Azure* (ARR).
 
@@ -71,7 +67,7 @@ Para solucionar problemas de rede, consulte o [Guia de solução de problemas](.
 
 As máquinas virtuais de renderização remota usam endereços IP compartilhados dos seguintes intervalos de IP:
 
-| Nome             | Região         | Prefixo de IP         |
+| Name             | Região         | Prefixo de IP         |
 |------------------|:---------------|:------------------|
 | Leste da Austrália   | australiaeast  | 20.53.44.240/28   |
 | Leste dos EUA          | eastus         | 20.62.129.224/28  |

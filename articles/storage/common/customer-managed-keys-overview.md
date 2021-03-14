@@ -5,27 +5,30 @@ description: Você pode usar sua própria chave de criptografia para proteger os
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/15/2020
+ms.date: 03/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179024"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102517524"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure
 
 Você pode usar sua própria chave de criptografia para proteger os dados em sua conta de armazenamento. Quando você especifica uma chave gerenciada pelo cliente, essa chave é usada para proteger e controlar o acesso à chave que criptografa os dados. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para gerenciar controles de acesso.
 
-Você deve usar Azure Key Vault ou Azure Key Vault o HSM (modelo de segurança de hardware) gerenciado (versão prévia) para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las no cofre de chaves ou HSM gerenciado, ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves ou HSM gerenciado devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes.
+Você deve usar Azure Key Vault ou Azure Key Vault o HSM (módulo de segurança de hardware) gerenciado (versão prévia) para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las no cofre de chaves ou HSM gerenciado, ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves ou HSM gerenciado devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes.
 
 Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/general/overview.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> A criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado está atualmente em versão **prévia**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+>
 > Azure Key Vault e Azure Key Vault o HSM gerenciado oferece suporte às mesmas APIs e interfaces de gerenciamento para configuração.
 
 ## <a name="about-customer-managed-keys"></a>Sobre as chaves gerenciadas pelo cliente

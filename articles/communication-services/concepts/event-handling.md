@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cb253ebfd8269779adf02dcbc01d7998590ce78c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888718"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657155"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Manipulação de Eventos nos Serviços de Comunicação do Azure
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Os Serviços de Comunicação do Azure integram-se à [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para fornecer notificações de eventos em tempo real de maneira confiável, escalonável e segura. A finalidade deste artigo é ajudar você a configurar aplicativos para escutar eventos dos Serviços de Comunicação. Por exemplo, talvez seja interessante atualizar um banco de dados, criar um item de trabalho e enviar uma notificação por push sempre que uma mensagem SMS for recebida por um número de telefone associado ao seu recurso dos Serviços de Comunicação.
 
@@ -26,9 +24,12 @@ A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente g
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagrama mostrando o modelo de evento da Grade de Eventos do Azure.":::
 
+> [!NOTE]
+> Para saber mais sobre como a residência de dados está relacionada à manipulação de eventos, visite a [documentação conceitual da Residência de Dados](./privacy.md)
+
 ## <a name="events-types"></a>Tipos de evento
 
-A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. 
+A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes.
 
 Os Serviços de Comunicação do Azure emitem os seguintes tipos de evento:
 
@@ -204,7 +205,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Microsoft.Communication.ChatThreadCreatedWithUser event 
+### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Microsoft.Communication.ChatThreadCreatedWithUser event
 
 ```json
 [{
@@ -262,7 +263,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event 
+### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser event
 
 ```json
 [{

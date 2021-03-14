@@ -1,22 +1,17 @@
 ---
 title: Log de sessão na atividade de cópia
 description: Saiba mais sobre como habilitar o log de sessão na atividade de cópia no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385261"
 ---
 #  <a name="session-log-in-copy-activity"></a>Log de sessão na atividade de cópia
 
@@ -101,6 +96,9 @@ Depois que a atividade de cópia for executada completamente, você poderá ver 
         }
 
 ```
+
+> [!NOTE]
+> Quando a `enableCopyActivityLog` propriedade é definida como `Enabled` , os nomes de arquivo de log são gerados pelo sistema.
 
 ### <a name="the-schema-of-the-log-file"></a>O esquema do arquivo de log
 

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 059d5545c71bef3465dc634f8fdad2396a6d9a7e
-  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+  ms.openlocfilehash: 70e2e77e008738ff7c2ed0981de5ee915614ab8d
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98681568"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102504109"
 highlightedContent:
   items:
   - title: O que são Serviços Cognitivos?
@@ -52,7 +52,7 @@ conceptualContent:
     - url: ./computer-vision/index.yml
       itemType: overview
       text: Visual Computacional
-    - url: ./Custom-Vision-Service/index.yml
+    - url: ./custom-vision-service/index.yml
       itemType: overview
       text: Custom Vision
     - url: ./face/index.yml
@@ -61,9 +61,6 @@ conceptualContent:
     - url: ./form-recognizer/index.yml
       itemType: overview
       text: Reconhecimento de Formulários
-    - url: ./ink-recognizer/index.yml
-      itemType: overview
-      text: Reconhecimento de Tinta Digital (Em processo de desativação)
     - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Video Indexer
@@ -136,7 +133,7 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: Usar o Docker Compose para implantar vários contêineres
-    - url: ./containers/container-faq.md
+    - url: ./containers/container-faq.yml
       itemType: reference
       text: Perguntas frequentes sobre contêineres de Serviços Cognitivos
   - title: Serviços Cognitivos para Big data
@@ -170,15 +167,15 @@ additionalContent:
     - title: SKDs e APIs REST
       links:
       - text: C#
-        url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+        url: /dotnet/api/overview/azure/cognitiveservices/client
       - text: Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
-        url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client
       - text: JavaScript
-        url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+        url: /javascript/api/overview/azure/cognitive-services
       - text: Python
-        url: /python/api/overview/azure/cognitive-services?view=azure-python
+        url: /python/api/overview/azure/cognitive-services
       - text: R
         url: https://github.com/Azure/AzureCognitive
       - text: Apache Spark e bancos de dados
@@ -188,6 +185,6 @@ additionalContent:
     - title: Ferramentas
       links:
       - text: CLI do Azure
-        url: /cli/azure/cognitiveservices?view=azure-cli-latest
+        url: /cli/azure/cognitiveservices
       - text: PowerShell
-        url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: /powershell/module/az.cognitiveservices/#cognitive_services

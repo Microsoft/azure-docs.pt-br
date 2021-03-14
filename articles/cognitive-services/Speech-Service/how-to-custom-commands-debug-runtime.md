@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b41bcda7381e5811ef1e1f91c102d8c85f50b3b5
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021789"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196925"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Erros de depuração ao executar um aplicativo de comandos personalizados
 
@@ -28,7 +28,7 @@ Se o aplicativo executar comandos personalizados do [aplicativo cliente (com o S
 | Código do erro | Detalhes |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: falha na atualização do WebSocket com um erro de autenticação |
-| [1002](#error-1002)] | O servidor retornou o código de status ' 404 ' quando o código de status ' 101 ' era esperado. |
+| [1002](#error-1002) | O servidor retornou o código de status ' 404 ' quando o código de status ' 101 ' era esperado. |
 
 ### <a name="error-401"></a>Erro 401
 - A região especificada no aplicativo cliente não corresponde à região do aplicativo de comando personalizado

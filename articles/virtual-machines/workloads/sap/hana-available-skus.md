@@ -7,20 +7,19 @@ author: msjuergent
 manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 886cd57b59bd4103ced9d496021e54ab0bdc99ad
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 25a11bf96ba680608e5bb22835becf80fadee4f3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723279"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668935"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para instâncias grandes do HANA
 
@@ -52,7 +51,7 @@ A lista de instâncias grandes do Azure disponíveis que são listas oferecidas 
 
 
 
-| Certificado SAP HANA | Modelo | Memória Total | DRAM de memória | Optane de memória | Armazenamento | Disponibilidade |
+| Certificado SAP HANA | Modelar | Memória Total | DRAM de memória | Optane de memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- | --- | --- |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA no Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4 <br /> 48 núcleos de CPU e 96 threads de CPU |  768 GB | 768 GB | --- | 3,0 TB | Disponível |
 | YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA no Azure S224<br /> – 4 x Intel® Xeon® Processador Platinum 8276 <br /> 112 núcleos de CPU e 224 threads de CPU |  3,0 TB | 3,0 TB | --- | 6,3 TB | Disponível |

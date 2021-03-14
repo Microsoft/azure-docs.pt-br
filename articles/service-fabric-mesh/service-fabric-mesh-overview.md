@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: 32e855ef1580dd065ee681e635994064a9038f77
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 64880a9ac3d6d48ce6d39d0b3a7a3aff6587f328
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840261"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626970"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é a Malha do Service Fabric?
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este vídeo fornece uma visão geral rápida da Malha do Service Fabric.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]

@@ -3,18 +3,18 @@ title: 'ML Studio (clássico): ciência de dados para iniciantes – Azure'
 description: Ciência de dados para iniciantes ensina os conceitos básicos em cinco vídeos curtos, começando com as cinco perguntas que a ciência de dados responde. Do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307484"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520384"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 
@@ -45,7 +45,7 @@ Neste primeiro vídeo, falaremos sobre "As cinco perguntas que a ciência de dad
 
 A ciência de dados usa números e nomes (também conhecidos como categorias ou rótulos) para prever as respostas às perguntas.
 
-Isso pode surpreender você, mas *há apenas cinco perguntas que a ciência de dados responde* :
+Isso pode surpreender você, mas *há apenas cinco perguntas que a ciência de dados responde*:
 
 * Isso é A ou B?
 * Isso é estranho?
@@ -124,7 +124,7 @@ Normalmente, o aprendizado de reforço é uma boa opção para sistemas automati
 
 ![Algoritmos de aprendizado de reforço: O que devo fazer agora?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. Os exemplos são:
+As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. São exemplos:
 
 * Se eu for um sistema de controle de temperatura de uma casa: ajusto a temperatura ou deixo como está?  
 * Se eu for um carro automático: no farol amarelo, freio ou acelero?  

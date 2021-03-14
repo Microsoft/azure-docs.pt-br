@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f26905366949c2c198e52f78bc7adb734cbb7f90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895196"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612449"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -36,7 +36,7 @@ Você pode encontrar o código de esquema completo e o exemplo de JSON no final 
 
 Coleção de entradas AssetFile do trabalho de codificação.  
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | **Fontes** |Coleção de arquivos de mídia de entrada/origem, que foi processada para produzir esse AssetFile.<br />Exemplo: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. <br />Consulte [VideoTracks](#videotracks). |
@@ -49,14 +49,14 @@ Coleção de entradas AssetFile do trabalho de codificação.
 
 Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeos.  
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | **Id**<br /> Necessária |Índice de base zero desta faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente a TrackID como usada em um arquivo MP4. <br /><br />Exemplo: `"Id": 1`|
-| **FourCC**<br />Necessária | Código FourCC do codec de vídeo relatado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
-| **Perfil** |Perfil H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Profile": "High"` |
+| **FourCC**<br />Necessária | Código FourCC do codec de vídeo relatado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1" | "hev1" | "hvc1"`|
+| **Perfil** |Perfil de H264 (aplicável somente ao Codec H264)  <br /><br />Exemplo: `"Profile": "High"` |
 | **Level** |Nível H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Largura**<br />Necessária |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Tamanho**<br />Necessária |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Altura**<br />Necessária |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Necessária|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Necessária |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Quadros**<br />Necessária |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
@@ -67,7 +67,7 @@ Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas e
 
 Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. O elemento **AudioTracks** representa uma coleção de todas essas faixas de áudio.  
 
-| Nome  | Descrição |
+| Name  | Descrição |
 | --- | --- |
 | **Id**<br />Necessária  |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de caracteres de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|

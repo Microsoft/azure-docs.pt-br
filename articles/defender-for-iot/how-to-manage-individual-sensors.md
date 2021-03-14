@@ -4,15 +4,15 @@ description: Saiba como gerenciar sensores individuais, incluindo o gerenciament
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508753"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526911"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -86,7 +86,7 @@ Você receberá uma mensagem de erro se o arquivo de ativação não pôde ser c
 
 - **Para sensores conectados à nuvem**: o sensor não pode se conectar à Internet. Verifique a configuração de rede do sensor. Se o seu sensor precisar se conectar por meio de um proxy Web para acessar a Internet, verifique se o servidor proxy está configurado corretamente na tela de **configuração de rede do sensor** . Verifique se \* . Azure-Devices.net:443 é permitido no firewall e/ou proxy. Se não houver suporte para caracteres curinga ou se você quiser mais controle, o FQDN do seu defender específico para o Hub IoT deverá ser aberto em seu firewall e/ou proxy. Para obter detalhes, consulte [referência-pontos de extremidade do Hub IOT](../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **Para sensores conectados à nuvem**: o arquivo de ativação é válido, mas o defender para IOT o rejeitou. Se você não puder resolver esse problema, poderá baixar outra ativação na página de **Gerenciamento do sensor** do portal do defender para IOT. Se isso não funcionar, entre em contato com Suporte da Microsoft.
+- **Para sensores conectados à nuvem**: o arquivo de ativação é válido, mas o defender para IOT o rejeitou. Se você não puder resolver esse problema, poderá baixar outra ativação na página sites e sensores do portal do defender para IoT. Se isso não funcionar, entre em contato com Suporte da Microsoft.
 
 ## <a name="manage-certificates"></a>Gerenciar certificados
 
@@ -114,7 +114,7 @@ O sensor do defender for IoT e o console de gerenciamento local usam SSL e certi
  
  - Proteger as comunicações entre os sensores e um console de gerenciamento local. 
 
-Uma vez instalado, o dispositivo gera um certificado autoassinado local para permitir o acesso preliminar ao console Web. O SSL corporativo e os certificados TLS podem ser instalados usando a [`cyberx-xsense-certificate-import`](#cli-commands) ferramenta de linha de comando. 
+Uma vez instalado, o dispositivo gera um certificado autoassinado local para permitir o acesso preliminar ao console Web. O SSL corporativo e os certificados TLS podem ser instalados usando a [`cyberx-xsense-certificate-import`](#cli-commands) ferramenta de linha de comando.
 
  > [!NOTE]
  > Para integrações e regras de encaminhamento em que o dispositivo é o cliente e o iniciador da sessão, certificados específicos são usados e não estão relacionados aos certificados do sistema.  
@@ -363,15 +363,23 @@ Se o sensor tiver sido registrado como um sensor conectado à nuvem, o nome do s
 
 Para alterar o nome:
 
-1. No portal do Azure defender para IoT, vá para a página de **Gerenciamento do sensor** .
+1. No portal do Azure defender para IoT, vá para a página sites e sensores.
 
-1. Exclua o sensor da janela de **Gerenciamento do sensor** .
+1. Exclua o sensor da página sites e sensores.
 
-1. Registre novamente com o novo nome.
+1. Registre-se com o novo nome selecionando **sensor integrado** na página Introdução.
 
 1. Baixe o novo arquivo de ativação.
 
-1. Entre no sensor e carregue o novo arquivo de ativação.
+1. Entre no console do sensor do defender para IoT.
+
+1. No console do sensor, selecione **configurações do sistema** e, em seguida, selecione **reativação**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Carregue o arquivo de ativação para reativar o sensor.":::
+
+1. Selecione **carregar** e selecione o arquivo que você salvou.
+
+1. Selecione **Ativar**.
 
 ## <a name="update-the-sensor-network-configuration"></a>Atualizar a configuração de rede do sensor
 
@@ -387,7 +395,7 @@ Para alterar a configuração:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Defina as configurações de rede.":::
 
-3. Defina os parâmetros da seguinte maneira:
+3. Defina os parâmetros:
 
     | Parâmetro | Descrição |
     |--|--|
@@ -458,7 +466,7 @@ Para salvar o backup em um servidor SMB Externo:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Edite `fstab`: 
+3. Edite `fstab`:
 
     - `sudo nano /etc/fstab`
 
@@ -526,7 +534,7 @@ O procedimento a seguir descreve como atualizar um sensor autônomo usando o con
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Captura de tela da versão de atualização que aparece depois que você entra.":::
 
-## <a name="forward-sensor-failure-alerts"></a>Alertas de falha do sensor de encaminhamento 
+## <a name="forward-sensor-failure-alerts"></a>Alertas de falha do sensor de encaminhamento
 
 Você pode encaminhar alertas para terceiros para fornecer detalhes sobre:
 

@@ -3,14 +3,14 @@ title: Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azur
 description: Saiba como criptografar dados do lote usando chaves gerenciadas pelo cliente.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: 01dc21f067b03ad8e07a05a18aa6312ed7f7189e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789406"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385057"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -21,11 +21,6 @@ As chaves que você fornecer devem ser geradas em [Azure Key Vault](../key-vault
 Há dois tipos de identidades gerenciadas: [ *atribuído pelo sistema* e *atribuído pelo usuário*](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Você pode criar sua conta do lote com identidade gerenciada atribuída pelo sistema ou criar uma identidade gerenciada atribuída pelo usuário separada que terá acesso às chaves gerenciadas pelo cliente. Examine a [tabela de comparação](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para entender as diferenças e considere qual opção funciona melhor para sua solução. Por exemplo, se você quiser usar a mesma identidade gerenciada para acessar vários recursos do Azure, será necessária uma identidade gerenciada atribuída pelo usuário. Caso contrário, uma identidade gerenciada atribuída pelo sistema associada à sua conta do lote pode ser suficiente. O uso de uma identidade gerenciada atribuída pelo usuário também oferece a opção de impor chaves gerenciadas pelo cliente na criação da conta do lote, conforme mostrado [no exemplo a seguir](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
-
-> [!IMPORTANT]
-> O suporte para chaves gerenciadas pelo cliente no lote do Azure está atualmente em visualização pública para as regiões Europa Ocidental, Europa Setentrional, Norte da Suíça, EUA Central, Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos EUA 2, oeste dos EUA 2, US Gov-Virgínia e US Gov Arizona.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Criar uma conta do lote com identidade gerenciada atribuída pelo sistema
 
@@ -68,7 +63,7 @@ az batch account show \
 ```
 
 > [!NOTE]
-> A identidade gerenciada atribuída pelo sistema criada em uma conta do lote é usada somente para recuperar chaves gerenciadas pelo cliente do Key Vault. Essa identidade não está disponível em pools do lote.
+> A identidade gerenciada atribuída pelo sistema criada em uma conta do lote é usada somente para recuperar chaves gerenciadas pelo cliente do Key Vault. Essa identidade não está disponível em pools do lote. Para usar uma identidade gerenciada atribuída pelo usuário em um pool, consulte [Configurar identidades gerenciadas em pools do lote](managed-identity-pools.md).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
@@ -90,7 +85,7 @@ Ao [criar uma instância de Azure Key Vault](../key-vault/general/quick-create-p
 
 No portal do Azure, depois que o Key Vault for criado, na configuração **política** de acesso em, adicione o acesso à conta do lote usando a identidade gerenciada. Em **permissões de chave**, **selecione obter**, **encapsular chave** e **desencapsular chave**.
 
-![Screenshow mostrando a tela Adicionar política de acesso.](./media/batch-customer-managed-key/key-permissions.png)
+![Captura de tela mostrando o botão Adicionar política de acesso.](./media/batch-customer-managed-key/key-permissions.png)
 
 No campo **selecionar** , em **principal**, preencha um dos seguintes:
 
@@ -202,7 +197,7 @@ az batch account set \
 - **Depois de restaurar o acesso, quanto tempo levará para que a conta do lote funcione novamente?** Pode levar até 10 minutos para que a conta seja acessível novamente quando o acesso for restaurado.
 - **Enquanto a conta do lote não está disponível, o que acontece com meus recursos?** Todos os pools que estão em execução quando o acesso ao lote para chaves gerenciadas pelo cliente são perdidos continuarão a ser executados. No entanto, os nós passarão para um estado indisponível e as tarefas deixarão de ser executadas (e serão recolocadas na fila). Quando o acesso for restaurado, os nós ficarão disponíveis novamente e as tarefas serão reiniciadas.
 - **Este mecanismo de criptografia se aplica a discos de VM em um pool do lote?** Não. Para pools de configuração do serviço de nuvem, nenhuma criptografia é aplicada ao sistema operacional e ao disco temporário. Para pools de configuração de máquina virtual, o sistema operacional e todos os discos de dados especificados serão criptografados com uma chave gerenciada da plataforma Microsoft por padrão. No momento, você não pode especificar sua própria chave para esses discos. Para criptografar o disco temporário de VMs para um pool do lote com uma chave gerenciada da plataforma Microsoft, você deve habilitar a propriedade [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) em seu pool de [configuração de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Para ambientes altamente confidenciais, é recomendável habilitar a criptografia de disco temporária e evitar o armazenamento de dados confidenciais no sistema operacional e nos discos de dados. Para obter mais informações, consulte [criar um pool com criptografia de disco habilitada](./disk-encryption.md)
-- **A identidade gerenciada atribuída pelo sistema na conta do lote está disponível nos nós de computação?** Não. A identidade gerenciada atribuída pelo sistema é atualmente usada somente para acessar o Azure Key Vault para a chave gerenciada pelo cliente.
+- **A identidade gerenciada atribuída pelo sistema na conta do lote está disponível nos nós de computação?** Não. A identidade gerenciada atribuída pelo sistema é atualmente usada somente para acessar o Azure Key Vault para a chave gerenciada pelo cliente. Para usar uma identidade gerenciada atribuída pelo usuário em nós de computação, consulte [Configurar identidades gerenciadas em pools do lote](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

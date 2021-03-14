@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: 74addd691e3a6c42f48100292542cfd3563b5c3a
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797574"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433907"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -98,13 +98,13 @@ Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode a
 
 Você pode recuperar a taxa de transferência provisionada de um contêiner ou de um banco de dados no portal do Azure ou usando os SDKs:
 
-* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
-* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
+* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) no SDK do .net.
+* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) no SDK do Java.
 
 A resposta desses métodos também contém a [taxa de transferência mínima provisionada](concepts-limits.md#storage-and-database-operations) para o contêiner ou banco de dados:
 
-* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) no SDK do .net.
-* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
+* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) no SDK do .net.
+* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) no SDK do Java.
 
 O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Mas, em geral, é o máximo de:
 
@@ -116,8 +116,8 @@ O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Ma
 
 Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados por meio do portal do Azure ou usando os SDKs:
 
-* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
-* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
+* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) no SDK do .net.
+* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) no SDK do Java.
 
 Se você estiver **reduzindo a taxa de transferência provisionada**, poderá fazer isso até o [mínimo](#current-provisioned-throughput).
 
@@ -128,8 +128,8 @@ Se você estiver **aumentando a taxa de transferência provisionada**, na maiori
 
 Você pode verificar o progresso do dimensionamento programaticamente lendo a [taxa de transferência provisionada atual](#current-provisioned-throughput) e usando:
 
-* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) no SDK do .net.
-* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) no SDK do Java.
+* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) no SDK do .net.
+* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) no SDK do Java.
 
 Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para exibir o histórico de taxa de transferência provisionada (ru/s) e o armazenamento em um recurso.
 

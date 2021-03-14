@@ -1,15 +1,15 @@
 ---
 title: Lista de definições de políticas internas
 description: Liste as definições de políticas internas para o Azure Policy. As categorias incluem Marcas, Conformidade a normas, Key Vault, Kubernetes, Configuração de convidado e muito mais.
-ms.date: 01/29/2021
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 2c9d4432276abe5392a554e57087e38615aaf902
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 566a439b2b25a4c8a0a09ca190e79c2cf1dc10a9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220184"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428968"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 

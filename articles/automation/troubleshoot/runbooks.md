@@ -2,16 +2,15 @@
 title: Solucionar problemas de runbook da Automação do Azure
 description: Este artigo informa como solucionar problemas e resolver dúvidas com runbooks de Automação do Azure.
 services: automation
-ms.subservice: ''
-ms.date: 11/03/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053662"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723802"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -161,7 +160,7 @@ Se você estiver tentando acessar recursos em outra assinatura, siga estas etapa
 
 1. Copiar o nome da assinatura.
 
-1. Agora você pode usar o seguinte código de runbook para testar as permissões de sua conta de Automação para a outra assinatura. Substitua `"\<CertificateThumbprint\>"` pelo valor copiado na etapa 1. Substitua `"\<SubscriptionName\>"` pelo valor copiado na etapa 4.
+1. Agora você pode usar o seguinte código de runbook para testar as permissões de sua conta de Automação para a outra assinatura. Substitua `<CertificateThumbprint>` pelo valor copiado na etapa 1. Substitua `"<SubscriptionName>"` pelo valor copiado na etapa 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -224,37 +223,46 @@ Ao executar runbooks, o runbook falha ao gerenciar recursos do Azure.
 
 ### <a name="cause"></a>Causa
 
-O runbook não está usando o contexto correto durante a execução.
+O runbook não está usando o contexto correto durante a execução. Isso pode ser devido ao runbook tentar acessar acidentalmente a assinatura incorreta.
+
+Você poderá ver erros como este:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### <a name="resolution"></a>Resolução
 
-O contexto de assinatura pode ser perdido quando um runbook invoca vários runbooks. Para garantir que o contexto de assinatura seja passado para os runbooks, faça com que o runbook do cliente passe o contexto para o cmdlet `Start-AzureRmAutomationRunbook` no parâmetro `AzureRmContext`. Use o cmdlet `Disable-AzureRmContextAutosave` com o parâmetro `Scope` definido como `Process` para garantir que as credenciais especificadas sejam usadas somente para o runbook atual. Para saber mais, confira [Assinaturas](../automation-runbook-execution.md#subscriptions).
+O contexto de assinatura pode ser perdido quando um runbook invoca vários runbooks. Para evitar a tentativa de acessar acidentalmente a assinatura incorreta, você deve seguir as diretrizes abaixo.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* Para evitar fazer referência à assinatura errada, desabilite a gravação de contexto em seus runbooks de automação usando o código a seguir no início de cada runbook.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* Os cmdlets Azure PowerShell dão suporte ao `-DefaultProfile` parâmetro. Isso foi adicionado a todos os cmdlets AZ e AzureRm para dar suporte à execução de vários scripts do PowerShell no mesmo processo, permitindo que você especifique o contexto e qual assinatura usar para cada cmdlet. Com seus runbooks, você deve salvar o objeto de contexto em seu runbook quando o runbook é criado (ou seja, quando uma conta entra) e sempre que ele é alterado e referencia o contexto quando você especifica um cmdlet AZ.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > Você deve passar um objeto de contexto mesmo ao manipular o contexto diretamente usando cmdlets como [set-AzContext](/powershell/module/az.accounts/Set-AzContext) ou [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Cenário: A Autenticação do Azure falhou porque a autenticação multifator está habilitada
 
 ### <a name="issue"></a>Problema
