@@ -11,34 +11,34 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 12/15/2020
 ms.locfileid: "97531846"
 ---
-Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo em uma permuta (não específico do slot), enquanto outros elementos de configuração permanecem no mesmo slot após uma permuta (específica do slot). A lista a seguir mostra as configurações que serão alterada com a troca de slots.
+Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Alguns elementos de configuração acompanham o conteúdo quando acontece um swap (que não seja específico do slot), enquanto outros elementos de configuração permanecem no mesmo slot após um swap (específico do slot). As listas a seguir mostram as configurações que são alteradas com a troca de slots.
 
-**Configurações que são permutadas**:
+**Configurações que são trocadas**:
 
-* Configurações gerais, como versão do Framework, 32/64 bits, Web Sockets
-* Configurações do aplicativo (podem ser configuradas para fixarem-se a um slot)
-* Cadeias de conexão (podem ser configuradas para fixarem-se a um slot)
-* Mapeamentos de manipulador
+* Configurações gerais, como versão do framework, 32/64 bits, web sockets
+* Configurações de aplicativo (podem ser configuradas para se fixarem a um slot)
+* Strings de conexão (podem ser configuradas para se fixarem a um slot)
+* Mapeamentos de manipuladores
 * Certificados públicos
-* Conteúdo de Trabalhos Web
+* Conteúdo do WebJobs
 * Conexões híbridas *
-* Pontos de extremidade de serviço *
+* Endpoints do serviço *
 * Rede de distribuição de conteúdo do Azure *
 
-Os recursos marcados com um asterisco (*) estão planejados para serem desalternados. 
+Recursos marcados com um asterisco (*) estão planejados para que não sejam alternados.
 
 **Configurações que não são alternadas**:
 
-* Pontos de extremidade de publicação
+* Endpoints de publicação
 * Nomes de domínio personalizados
 * Certificados não públicos e configurações de TLS/SSL
 * Configurações de dimensionamento
-* Agendadores de Trabalhos Web
+* Agendadores de WebJobs
 * Restrições de IP
 * Always On
 * Configurações de Diagnóstico
-* CORS (Compartilhamento de Recursos entre Origens)
-* Integração de rede virtual
+* CORS (Cross-origin resource sharing)
+* Integração com rede virtual
 
 > [!NOTE]
 > Para tornar essas configurações intercambiáveis, adicione a configuração do aplicativo `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` em cada slot do aplicativo e defina seu valor como `0` ou `false` . Essas configurações podem ser trocadas ou não. Você não pode fazer apenas algumas configurações serem trocadas e não as outras.
