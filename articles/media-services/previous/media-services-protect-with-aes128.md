@@ -22,7 +22,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009531"
 ---
-# <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
+# <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distribuição de chaves
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
