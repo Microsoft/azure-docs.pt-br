@@ -192,7 +192,7 @@ module.exports = function(context) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-O exemplo a seguir mostra uma associação de entrada de BLOB, definida no _function.jsno_ arquivo, que disponibiliza os dados de blob de entrada para a função do [PowerShell](functions-reference-powershell.md) .
+O exemplo a seguir mostra uma associação de entrada de BLOB, definida no _function.json_ arquivo, que disponibiliza os dados de blob de entrada para a função do [PowerShell](functions-reference-powershell.md) .
 
 Aqui está a configuração JSON:
 
@@ -375,7 +375,7 @@ Acessar dados de BLOB usando `context.bindings.<NAME>` onde `<NAME>` corresponde
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Acesse os dados de blob por meio de um parâmetro que corresponde ao nome designado pelo parâmetro de nome da associação na _function.jsno_ arquivo.
+Acesse os dados de blob por meio de um parâmetro que corresponde ao nome designado pelo parâmetro de nome da associação na _function.json_ arquivo.
 
 # <a name="python"></a>[Python](#tab/python)
 
