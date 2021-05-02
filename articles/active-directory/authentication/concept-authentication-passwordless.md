@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424224"
 ---
-# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem senha para Azure Active Directory
 
 Recursos como a MFA (autenticação multifator) são uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de se lembrar de suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
 
@@ -56,13 +56,13 @@ O [Guia de planejamento](/windows/security/identity-protection/hello-for-busines
 
 ## <a name="microsoft-authenticator-app"></a>Aplicativo Microsoft Authenticator
 
-Você também pode permitir que o telefone de seu funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Você também pode usar o aplicativo autenticador como uma opção com senha.
+Você também pode permitir que o telefone de seu funcionário se torne um método de autenticação sem senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Você também pode usar o aplicativo autenticador como uma opção sem senha.
 
 ![Entrar no Microsoft Edge com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
+O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
-A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
+A autenticação sem senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 
 ![Diagrama que descreve as etapas envolvidas para a entrada do usuário com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
 
@@ -84,7 +84,7 @@ Para começar a usar a entrada sem senha, conclua as seguintes instruções:
 
 A Aliança do FIDO (Fast IDentity online) ajuda a promover os padrões de autenticação aberta e a reduzir o uso de senhas como uma forma de autenticação. FIDO2 é o padrão mais recente que incorpora o padrão de autenticação na Web (WebAuthn).
 
-As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
+As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação sem senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
 Os usuários podem registrar e, em seguida, selecionar uma chave de segurança FIDO2 na interface de entrada como o principal meio de autenticação. Essas chaves de segurança FIDO2 normalmente são dispositivos USB, mas também podem usar Bluetooth ou NFC. Com um dispositivo de hardware que manipula a autenticação, a segurança de uma conta é aumentada, pois não há senha que possa ser exposta ou adivinhada.
 
@@ -154,18 +154,18 @@ Para começar a usar as chaves de segurança do FIDO2, conclua as seguintes inst
 
 As seguintes considerações se aplicam:
 
-- Os administradores podem habilitar métodos de autenticação com senha para seus locatários
+- Os administradores podem habilitar métodos de autenticação sem senha para seus locatários
 - Os administradores podem direcionar todos os usuários ou Selecionar usuários/grupos dentro de seu locatário para cada método
-- Os usuários finais podem registrar e gerenciar esses métodos de autenticação com senha em seu portal de conta
+- Os usuários finais podem registrar e gerenciar esses métodos de autenticação sem senha em seu portal de conta
 - Os usuários finais podem entrar com estes métodos de autenticação sem senha:
    - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do Windows 10 e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge (a borda herdada e nova).
 
-## <a name="choose-a-passwordless-method"></a>Escolha um método com senha
+## <a name="choose-a-passwordless-method"></a>Escolha um método sem senha
 
 A escolha entre essas três opções de senha depende dos requisitos de segurança, plataforma e aplicativo da sua empresa.
 
-Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
+Aqui estão alguns fatores a serem considerados ao escolher a tecnologia sem senha da Microsoft:
 
 ||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança do FIDO2**|
 |:-|:-|:-|:-|
@@ -177,7 +177,7 @@ Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com sen
 
 Use a tabela a seguir para escolher qual método dará suporte a seus requisitos e usuários.
 
-|Persona|Cenário|Ambiente|Tecnologia com senha|
+|Persona|Cenário|Ambiente|Tecnologia sem senha|
 |:-|:-|:-|:-|
 |**Administrador**|Proteger o acesso a um dispositivo para tarefas de gerenciamento|Dispositivo Windows 10 atribuído|Chave de segurança do Windows Hello para empresas e/ou FIDO2|
 |**Administrador**|Tarefas de gerenciamento em dispositivos que não são do Windows| Dispositivo móvel ou não Windows|Entrada sem senha com o aplicativo Microsoft Authenticator|
