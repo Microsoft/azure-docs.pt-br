@@ -14,7 +14,7 @@ ms.locfileid: "98250172"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: executar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
-Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Você compilar e implanta seus próprios aplicativos e serviços em um cluster Kubernetes e permite que o cluster gerencie a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. Você aprenderá como:
+Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Você compila e implanta seus próprios aplicativos e serviços em um cluster Kubernetes e permite que o cluster gerencie a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Atualizar um arquivo de manifesto do Kubernetes
@@ -108,7 +108,7 @@ Quando o endereço *EXTERNAL-IP* for alterado de *pendente* para um endereço IP
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
-Para ver o aplicativo em ação, abra um navegador da Web no endereço IP externo do sue serviço:
+Para ver o aplicativo em ação, abra um navegador da Web no endereço IP externo do seu serviço:
 
 :::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote.png" alt-text="Captura de tela que mostra a imagem de contêiner do Aplicativo de Votação do Azure em execução em um cluster do AKS aberto em um navegador da Web local" lightbox="./media/container-service-kubernetes-tutorials/azure-vote.png":::
 
@@ -116,7 +116,7 @@ Se o aplicativo não foi carregado, isso poderá ser devido a um problema de aut
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, o aplicativo Azure vote de exemplo foi implantado em um cluster Kubernetes no AKS. Você aprendeu a:
+Neste tutorial, o aplicativo Azure Vote de exemplo foi implantado em um cluster Kubernetes no AKS. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Atualizar os arquivos de manifesto do Kubernetes
