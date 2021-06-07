@@ -23,13 +23,13 @@ O arquivo de metadados *host.json* contém opções de configuração global que
 
 Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md) (para aplicativos implantados) ou seu [local.settings.jsno](functions-run-local.md#local-settings-file) arquivo (para desenvolvimento local).
 
-As configurações no host.jsrelacionadas às associações são aplicadas igualmente a cada função no aplicativo de funções. 
+As configurações no host.json relacionadas às associações são aplicadas igualmente a cada função no aplicativo de funções. 
 
 Você também pode [substituir ou aplicar configurações por ambiente](#override-hostjson-values) usando as configurações do aplicativo.
 
 ## <a name="sample-hostjson-file"></a>Arquivo host.json de exemplo
 
-O exemplo a seguir *host.jsno* arquivo para a versão 2. x + tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
+O exemplo a seguir *host.json* arquivo para a versão 2. x + tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
 
 ```json
 {
@@ -147,7 +147,7 @@ Essa configuração é a filha de [Registro em log](#logging).
 
 Controla opções para Application Insights, incluindo [Opções de amostragem](./configure-monitoring.md#configure-sampling).
 
-Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arquivo](#sample-hostjson-file).
+Para obter a estrutura JSON completa, consulte o [exemplo anterior host.json arquivo](#sample-hostjson-file).
 
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a amostragem de log, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
@@ -441,7 +441,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 
 ## <a name="version"></a>version
 
-Esse valor indica a versão do esquema do host.jsno. A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há host.jsem alterações de esquema entre V2 e v3.
+Esse valor indica a versão do esquema do host.json. A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que tenha como destino o tempo de execução v2 ou uma versão posterior. Não há alterações em host.json de esquema entre V2 e v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -463,9 +463,9 @@ Uma matriz de um ou mais nomes de arquivos que são monitorados para alteraçõe
 }
 ```
 
-## <a name="override-hostjson-values"></a>Substituir host.jsem valores
+## <a name="override-hostjson-values"></a>Substituir valores em host.json
 
-Pode haver instâncias em que você deseja configurar ou modificar configurações específicas em um host.jsno arquivo para um ambiente específico, sem alterar o host.jsno próprio arquivo.  Você pode substituir host.jsespecíficos em valores para criar um valor equivalente como uma configuração de aplicativo. Quando o tempo de execução encontra uma configuração de aplicativo no formato `AzureFunctionsJobHost__path__to__setting` , ele substitui a host.jsequivalente na configuração localizada em `path.to.setting` no JSON. Quando expressa como uma configuração de aplicativo, o ponto ( `.` ) usado para indicar a hierarquia JSON é substituído por um sublinhado duplo ( `__` ). 
+Pode haver instâncias em que você deseja configurar ou modificar configurações específicas em um host.json arquivo para um ambiente específico, sem alterar o host.json próprio arquivo.  Você pode substituir host.json específicos em valores para criar um valor equivalente como uma configuração de aplicativo. Quando o tempo de execução encontra uma configuração de aplicativo no formato `AzureFunctionsJobHost__path__to__setting` , ele substitui o host.json equivalente na configuração localizada em `path.to.setting` no JSON. Quando expressa como uma configuração de aplicativo, o ponto ( `.` ) usado para indicar a hierarquia JSON é substituído por um sublinhado duplo ( `__` ). 
 
 Por exemplo, digamos que você quisesse desabilitar a amostragem do Application Insight ao executar localmente. Se você alterou o host.jslocal no arquivo para desabilitar a Application Insights, essa alteração poderá ser enviada por push ao seu aplicativo de produção durante a implantação. A maneira mais segura de fazer isso é, em vez disso, criar uma configuração de aplicativo como `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` no `local.settings.json` arquivo. Você pode ver isso no arquivo a seguir `local.settings.json` , que não é publicado:
 
